@@ -128,8 +128,17 @@
   ready = (async function () {
     try {
       var got = await sb.auth.getSession();
-      session = got.data.session || (await loginScreen());
-      await loadMe(session);
+      var isPublicView = /#(presentation|deck|campdeck|view):/i.test(location.hash);
+      if (got.data && got.data.session) {
+        session = got.data.session;
+        await loadMe(session);
+      } else if (isPublicView) {
+        session = null;
+        me = { id: "guest", uuid: null, role: "guest", name: "Guest Viewer", email: null };
+      } else {
+        session = await loginScreen();
+        await loadMe(session);
+      }
       sb.auth.onAuthStateChange(function (ev, s) { if (ev === "SIGNED_OUT") location.reload(); if (s) session = s; });
       return true;
     } catch (err) {

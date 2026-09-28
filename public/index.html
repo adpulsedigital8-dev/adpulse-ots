@@ -701,7 +701,14 @@ async function boot(){
   if(!db){startLocal();return}
   S.mode="live";
   if(user){try{[ME,CAN_ADMIN,CAN_WRITE]=await Promise.all([user.id(),user.canEdit(),user.can("data.write")])}catch(e){}}
-  if(!CAN_ADMIN){startPortal();return}
+  if(!CAN_ADMIN){
+    if(/#(presentation|deck|campdeck):/i.test(location.hash)){
+      startPresentationGuest();
+      return;
+    }
+    startPortal();
+    return;
+  }
   ROLE="team";renderNav();go(location.hash.slice(1)||"dashboard",true);setTimeout(loadQueue,2500);
   db.collection("sites").onSnapshot(q=>{S.sites=q.docs.map(x=>({id:x.id,...x.data()}));S.loaded.sites=true;changed()},e=>{toast("Couldn't load sites: "+e.message)});
   db.collection("campaigns").onSnapshot(q=>{S.campaigns=q.docs.map(x=>({id:x.id,...x.data()}));S.loaded.campaigns=true;changed()});
@@ -716,6 +723,17 @@ function changed(){render();clearTimeout(changed.t);changed.t=setTimeout(()=>Age
 function startLocal(){
   S.mode="local";ROLE="team";local=ls.get("sitesnap-local",{sites:[],campaigns:[],decks:[],settings:null,clients:[]});
   S.sites=local.sites;S.campaigns=local.campaigns;S.decks=local.decks||[];S.clients=local.clients||[];if(local.settings)S.settings=local.settings;applyTheme();S.loaded={sites:true,campaigns:true};renderNav();go(location.hash.slice(1)||"dashboard",true);modeNote();changed();setTimeout(loadQueue,2500);
+}
+function startPresentationGuest(){
+  ROLE = "guest";
+  document.body.classList.add("client");
+  renderNav();
+  go(location.hash.slice(1), true);
+  modeNote();
+  db.doc("settings/brand").onSnapshot(x=>{if(x.exists)S.settings={...S.settings,...x.data()};applyTheme();changed()});
+  db.collection("decks").onSnapshot(q=>{S.decks=q.docs.map(x=>({id:x.id,...x.data()}));render()});
+  db.collection("campaigns").onSnapshot(q=>{S.campaigns=q.docs.map(x=>({id:x.id,...x.data()}));S.loaded.campaigns=true;changed()});
+  db.collection("sites").onSnapshot(q=>{S.sites=q.docs.map(x=>({id:x.id,...x.data()}));S.loaded.sites=true;changed()});
 }
 function startPortal(){
   ROLE="client";document.body.classList.add("client");renderNav();go("portal",true);modeNote();
@@ -1381,6 +1399,11 @@ function slideHTML(ops,t){
     return`<div class="o" ${o.edit?`contenteditable="plaintext-only" spellcheck="false" data-edit="${o.edit}"`:""} style="${pos};font-size:${fz(o.size)};color:${hx(o.color)};font-family:${ff};font-weight:${o.bold?800:500};text-align:${o.align};${o.upper?"text-transform:uppercase;":""}${o.spacing?`letter-spacing:${o.spacing/10}em;`:""}${o.font==="display"?"letter-spacing:-.02em;line-height:1.05;":""}${o.link?"text-decoration:underline;":""}">${esc(o.text)}</div>`}).join("")}</div>`;
 }
 function vStudio(){
+  if(ROLE==="guest"&&Studio.active&&Studio.cfg){
+    const c=Studio.cfg;
+    return `<div class="top"><span class="logochip"><img src="${esc(logoSrc())}" alt="${esc(S.settings.agency||"Agency")} logo"></span><div style="flex:1;min-width:0"><h1 style="font-size:22px">${esc(c.title||"Presentation")}<small>${esc(c.subtitle||"OOH Proposal")}</small></h1></div><div class="row" style="gap:8px"><button class="btn sm pri" data-act="export" data-v="pptx">${ICON.dl}Export PowerPoint</button><button class="btn sm cy" data-act="export" data-v="pdf">${ICON.dl}Export PDF</button></div></div>
+    <div class="studio" style="grid-template-columns:1fr"><div class="slides" id="slides"></div></div>`;
+  }
   const decks=S.decks.slice().sort((a,b)=>(b.updatedAt||"").localeCompare(a.updatedAt||""));
   if(!Studio.active||!Studio.cfg){
     return pgTop("Presentations","Auto-generate client decks from your sites",`<button class="btn pri" data-act="newdeck">${ICON.plus}New presentation</button>`)+
@@ -1700,16 +1723,31 @@ const ACT={
  slphoto:a=>{const v=Studio.cfg.slides[+a.dataset.i];const s=S.sites.find(x=>x.id===v.siteId);const ix=imgIdx(s);if(!ix.length)return;const k=ix.indexOf(v.photo);v.photo=ix[((k<0?ix.length:k)-1+ix.length)%ix.length];Studio.renderSlides();Studio.dirty()},
  export:a=>exportDeck(a.dataset.v),
   sharedeck:async a=>{
-    const id=a?.dataset?.id||Studio.cfg?.id||(Studio.cfg?.source?.campaignId);
-    if(!id&&!Studio.cfg){toast("No presentation selected");return}
-    const url=`${location.origin}${location.pathname}#presentation:${encodeURIComponent(id||"live")}`;
+    const id=a?.dataset?.id||Studio.cfg?.id;
+    let d=S.decks.find(x=>x.id===id);
+    if(!d&&Studio.cfg){
+      d=JSON.parse(JSON.stringify(Studio.cfg));
+      d.id=d.id||uid();
+      try{await put("decks",d)}catch(e){}
+    }
+    const deckId=d?d.id:id;
+    if(!deckId&&!Studio.cfg){toast("No presentation selected");return}
+    const url=`${location.origin}${location.pathname}#presentation:${encodeURIComponent(deckId||"live")}`;
     try{await navigator.clipboard.writeText(url);toast("Presentation link copied to clipboard!")}
     catch(e){prompt("Copy presentation link:",url)}
   },
   sharecamp:async a=>{
     const id=a.dataset.id;
-    const url=`${location.origin}${location.pathname}#campdeck:${encodeURIComponent(id)}`;
-    try{await navigator.clipboard.writeText(url);toast("Campaign deck link copied to clipboard!")}
+    let d=S.decks.find(x=>x.source?.campaignId===id);
+    if(!d){
+      const cfg=Studio.fresh({type:"campaign",campaignId:id});
+      Studio.cfg=cfg;
+      Studio.build();
+      d=JSON.parse(JSON.stringify(Studio.cfg));
+      try{await put("decks",d)}catch(e){}
+    }
+    const url=`${location.origin}${location.pathname}#presentation:${encodeURIComponent(d?d.id:id)}`;
+    try{await navigator.clipboard.writeText(url);toast("Campaign presentation link copied to clipboard!")}
     catch(e){prompt("Copy presentation link:",url)}
   },
   setrole:async a=>{

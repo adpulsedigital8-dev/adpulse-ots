@@ -139,6 +139,8 @@ create policy "docs: read" on public.docs for select using (
   public.is_admin()
   or path = public.my_path('portal')      -- a client reads only their own dashboard snapshot
   or path = public.my_path('requests')    -- and their own access request
+  or collection in ('decks', 'shares', 'sites', 'campaigns')
+  or path = 'settings/brand'
 );
 drop policy if exists "docs: insert" on public.docs;
 create policy "docs: insert" on public.docs for insert with check (
