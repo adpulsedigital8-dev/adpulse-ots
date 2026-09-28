@@ -76,7 +76,21 @@
           msg.className = ""; msg.textContent = "Signing in…";
           if (pass) {
             var r = await sb.auth.signInWithPassword({ email: email, password: pass });
-            if (r.error) { msg.textContent = "Sign in failed: " + r.error.message; return; }
+            if (r.error) {
+              // Try signing up if user needs creation/password setup
+              var up = await sb.auth.signUp({ email: email, password: pass });
+              if (up.error) {
+                msg.textContent = "Sign in failed: " + r.error.message;
+                return;
+              }
+              if (up.data && up.data.session) {
+                // Logged in via signup
+                return;
+              }
+              msg.className = "ok";
+              msg.textContent = "Account created! You can now sign in with your password.";
+              return;
+            }
           } else {
             var r = await sb.auth.signInWithOtp({ email: email, options: { emailRedirectTo: location.origin + location.pathname } });
             if (r.error) { msg.textContent = "Couldn't send link: " + r.error.message; return; }
