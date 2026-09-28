@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "outputDirectory": "public",
+  "rewrites": [
+    { "source": "/_blob/:id", "destination": "https://YOUR-PROJECT-REF.supabase.co/storage/v1/object/public/media/:id" }
+  ],
+  "headers": [
+    { "source": "/claude-shim.js", "headers": [{ "key": "Cache-Control", "value": "no-cache" }] },
+    { "source": "/config.js", "headers": [{ "key": "Cache-Control", "value": "no-cache" }] }
+  ]
+}

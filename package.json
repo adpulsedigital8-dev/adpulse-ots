@@ -1,0 +1,8 @@
+{
+  "name": "adpulse-ots",
+  "private": true,
+  "version": "1.0.0",
+  "description": "AdPulse OOH Tracking System: field capture, site inventory, campaigns, client dashboards and presentations",
+  "engines": { "node": ">=18" },
+  "scripts": { "dev": "vercel dev" }
+}
