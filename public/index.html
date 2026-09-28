@@ -916,11 +916,38 @@ function mountLeafletMap(list){
   }
   const map = L.map(el, { scrollWheelZoom: false, attributionControl: false });
   _leafletMap = map;
-  
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+  const streetLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'
-  }).addTo(map);
+    attribution: '&copy; OpenStreetMap'
+  });
+
+  const satLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 19,
+    attribution: 'Tiles &copy; Esri'
+  });
+
+  const labelLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
+    maxZoom: 19,
+    subdomains: 'abcd'
+  });
+
+  streetLayer.addTo(map);
+
+  const baseMaps = {
+    "🗺️ Street Map": streetLayer,
+    "🛰️ 3D Satellite": satLayer
+  };
+  const overlayMaps = {
+    "🏷️ Road Labels": labelLayer
+  };
+  L.control.layers(baseMaps, overlayMaps, { position: 'topright' }).addTo(map);
+
+  map.on('baselayerchange', function(e) {
+    if(e.name === "🛰️ 3D Satellite") {
+      if(!map.hasLayer(labelLayer)) map.addLayer(labelLayer);
+    }
+  });
 
   const col = { available: "#0E9F76", booked: "#E03656", expiring: "#EE7422", maintenance: "#DB8F06" };
   const valid = (list || []).filter(s => s && s.lat && s.lng && isFinite(+s.lat) && isFinite(+s.lng));
@@ -937,8 +964,9 @@ function mountLeafletMap(list){
       popupAnchor: [0, -24]
     });
     const m = L.marker([+s.lat, +s.lng], { icon });
-    const popHtml = `<div style="min-width:180px;max-width:240px;font-family:var(--body)">
-      <img src="${esc(thumbOf(s))}" alt="" style="width:100%;height:95px;object-fit:cover;border-radius:6px;margin-bottom:6px" onerror="phFix(this)">
+    const navUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(s.lat+','+s.lng)}&travelmode=driving`;
+    const popHtml = `<div style="min-width:190px;max-width:250px;font-family:var(--body)">
+      <img src="${esc(thumbOf(s))}" alt="" style="width:100%;height:100px;object-fit:cover;border-radius:6px;margin-bottom:6px" onerror="phFix(this)">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
         <span class="mono" style="font-size:12px;font-weight:700;color:var(--violet)">${esc(s.code)}</span>
         <span class="pill st-${st}" style="font-size:10px;padding:2px 6px">${STATUS[st]}</span>
@@ -946,7 +974,10 @@ function mountLeafletMap(list){
       <div style="font-weight:700;font-size:13px;color:var(--ink);margin-bottom:2px">${esc(s.area)} · ${sizeOf(s)} ft</div>
       <div style="font-size:11px;color:var(--muted);margin-bottom:6px">${esc(s.from||"—")} → ${esc(s.towards||"—")}</div>
       ${s.traffic||s.vehiclesDay?`<div style="font-size:11px;color:var(--ink2);margin-bottom:6px">~${fmtK(otsOf(s))} OTS/day</div>`:""}
-      <button class="btn sm" data-act="site" data-id="${s.id}" style="width:100%;justify-content:center;padding:5px 0">Open site</button>
+      <div style="display:flex;gap:6px;margin-top:6px">
+        <button class="btn sm pri" data-act="site" data-id="${s.id}" style="flex:1;justify-content:center;padding:5px 0">Open site</button>
+        <a class="btn sm cy" href="${navUrl}" target="_blank" rel="noopener" style="flex:1;justify-content:center;padding:5px 0;text-decoration:none" title="Start Live 3D Navigation">${ICON.pin}Navigate</a>
+      </div>
     </div>`;
     m.bindPopup(popHtml, { maxWidth: 260 });
     m.addTo(map);
@@ -1028,8 +1059,8 @@ function openSite(id,editMode){
   openLayer(`<div class="scrim" data-act="close"></div><aside class="drawer" role="dialog" aria-label="Site">
     <div class="dh"><div><div class="mono" style="color:var(--violet);font-weight:700;font-size:12px">${esc(d.code||"New site")}</div><h2 style="font-size:20px">${isNew?"Add a site":esc(d.area)}</h2></div><span class="sp"></span>${s?pill(s):""}<button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button></div>
     <div class="db">${gal}
-      ${!isNew&&RO()&&d.lat?`<div class="row"><a class="btn sm" href="${mapsUrl(d)}" target="_blank" rel="noopener">${ICON.pin}Open in Google Maps</a></div>`:""}
-      ${!isNew&&!RO()?`<div class="row"><button class="btn sm" data-act="addphoto" data-id="${d.id}">${ICON.cam}Add photo / video</button>${d.lat?`<a class="btn sm" href="${mapsUrl(d)}" target="_blank" rel="noopener">${ICON.pin}Open in Google Maps</a>`:""}<button class="btn sm" data-act="${edit?"siteview":"siteedit"}" data-id="${d.id}">${edit?"Cancel edit":"Edit details"}</button><span class="sp"></span><button class="btn sm danger" data-act="sitedel" data-id="${d.id}">Delete</button></div>`:""}
+      ${!isNew&&RO()&&d.lat?`<div class="row"><a class="btn sm cy" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(d.lat+','+d.lng)}&travelmode=driving" target="_blank" rel="noopener">${ICON.pin}Start 3D Navigation</a><a class="btn sm" href="${mapsUrl(d)}" target="_blank" rel="noopener">Open in Maps</a></div>`:""}
+      ${!isNew&&!RO()?`<div class="row"><button class="btn sm" data-act="addphoto" data-id="${d.id}">${ICON.cam}Add photo / video</button>${d.lat?`<a class="btn sm cy" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(d.lat+','+d.lng)}&travelmode=driving" target="_blank" rel="noopener">${ICON.pin}Start 3D Navigation</a>`:""}<button class="btn sm" data-act="${edit?"siteview":"siteedit"}" data-id="${d.id}">${edit?"Cancel edit":"Edit details"}</button><span class="sp"></span><button class="btn sm danger" data-act="sitedel" data-id="${d.id}">Delete</button></div>`:""}
       ${!isNew&&!edit&&!RO()?`<div><div class="eyebrow" style="margin-bottom:8px">Quick status</div><div class="chips">${["available","booked","maintenance"].map(k=>`<button class="chip st ${k} ${d.status===k?"on":""}" data-act="quickst" data-id="${d.id}" data-v="${k}">${STATUS[k]}</button>`).join("")}</div></div>`:""}
       ${edit?`<form id="siteForm" data-id="${d.id}" data-new="${isNew?1:""}">${form}<div class="row" style="margin-top:16px"><button class="btn pri" type="submit">${isNew?"Create site":"Save changes"}</button></div></form>`:info}
     </div></aside>`);
