@@ -43,6 +43,67 @@ create policy "members: read own or admin" on public.members for select
   using (user_id = auth.uid() or public.is_admin());
 drop policy if exists "members: admin manages" on public.members;
 create policy "members: admin manages" on public.members for update using (public.is_admin()) with check (public.is_admin());
+drop policy if exists "members: admin deletes" on public.members;
+create policy "members: admin deletes" on public.members for delete using (public.is_admin());
+
+-- Role management (admin only, refuses to demote or remove the last admin)
+create or replace function public.set_member_role(target_user_id uuid, target_role text)
+returns jsonb
+language plpgsql security definer set search_path = public as $$
+declare
+  admin_count integer;
+  current_role text;
+begin
+  if not public.is_admin() then
+    raise exception 'Only administrators can change member roles';
+  end if;
+
+  if target_role not in ('admin', 'client') then
+    raise exception 'Invalid role: %', target_role;
+  end if;
+
+  select role into current_role from public.members where user_id = target_user_id;
+  if not found then
+    raise exception 'Member not found';
+  end if;
+
+  if current_role = 'admin' and target_role = 'client' then
+    select count(*) into admin_count from public.members where role = 'admin';
+    if admin_count <= 1 then
+      raise exception 'Cannot demote the last administrator.';
+    end if;
+  end if;
+
+  update public.members set role = target_role where user_id = target_user_id;
+  return jsonb_build_object('success', true, 'user_id', target_user_id, 'role', target_role);
+end $$;
+
+create or replace function public.remove_member(target_user_id uuid)
+returns jsonb
+language plpgsql security definer set search_path = public as $$
+declare
+  admin_count integer;
+  current_role text;
+begin
+  if not public.is_admin() then
+    raise exception 'Only administrators can remove members';
+  end if;
+
+  select role into current_role from public.members where user_id = target_user_id;
+  if not found then
+    raise exception 'Member not found';
+  end if;
+
+  if current_role = 'admin' then
+    select count(*) into admin_count from public.members where role = 'admin';
+    if admin_count <= 1 then
+      raise exception 'Cannot remove the last administrator.';
+    end if;
+  end if;
+
+  delete from public.members where user_id = target_user_id;
+  return jsonb_build_object('success', true, 'user_id', target_user_id);
+end $$;
 
 -- ---------- documents ----------
 create table if not exists public.docs (

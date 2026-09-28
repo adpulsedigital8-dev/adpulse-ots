@@ -291,7 +291,36 @@
       }
       return out;
     },
-    search: async function () { return []; }
+    search: async function () { return []; },
+    members: async function () {
+      await ready;
+      if (me.role !== "admin") return [];
+      var r = await sb.from("members").select("user_id,role,name,email,created_at").order("created_at", { ascending: true });
+      if (r.error) throw mapErr(r.error);
+      return (r.data || []).map(function (m) {
+        return {
+          id: m.user_id,
+          name: m.name || "",
+          email: m.email || "",
+          role: m.role,
+          createdAt: m.created_at
+        };
+      });
+    },
+    setRole: async function (userId, targetRole) {
+      await ready;
+      if (me.role !== "admin") throw err("not_granted", "Only administrators can manage roles.");
+      var r = await sb.rpc("set_member_role", { target_user_id: userId, target_role: targetRole });
+      if (r.error) throw mapErr(r.error);
+      return r.data;
+    },
+    removeMember: async function (userId) {
+      await ready;
+      if (me.role !== "admin") throw err("not_granted", "Only administrators can remove members.");
+      var r = await sb.rpc("remove_member", { target_user_id: userId });
+      if (r.error) throw mapErr(r.error);
+      return r.data;
+    }
   };
 
   /* ---------------- sample (Claude via /api/sample) ---------------- */

@@ -742,7 +742,25 @@ function renderNav(){
   const t=[["dashboard","Home","dash"],["sites","Sites","sites"],["capture","Capture","cam"],["campaigns","Campaigns","camp"],["studio","Decks","deck"]];
   $("#tabNav").innerHTML=t.map(([k,l,i])=>k==="capture"?`<a href="#capture" class="cap" data-r="capture"><span class="ball">${ICON.cam}</span><em>${l}</em></a>`:`<a href="#${k}" data-r="${k}">${ICON[i]}${l}</a>`).join("");
 }
-function go(r,silent){if(ROLE==="pending")return;const ok=ROLE==="client"?["portal"]:[...NAV.map(n=>n[0]),"portal"];route=ok.includes(r)?r:(ROLE==="client"?"portal":"dashboard");$$("[data-r]").forEach(a=>a.classList.toggle("on",a.dataset.r===route));if(!silent)window.scrollTo({top:0});render(true)}
+function go(r,silent){
+  if(ROLE==="pending")return;
+  if(r.startsWith("presentation:")||r.startsWith("deck:")){
+    const id=decodeURIComponent(r.split(":")[1]);
+    const d=S.decks.find(x=>x.id===id);
+    if(d)Studio.load(d);
+    else{const c=S.campaigns.find(x=>x.id===id);if(c)Studio.open({type:"campaign",campaignId:c.id});else Studio.open({type:"filter"});}
+    r="studio";
+  } else if(r.startsWith("campdeck:")){
+    const id=decodeURIComponent(r.split(":")[1]);
+    Studio.open({type:"campaign",campaignId:id});
+    r="studio";
+  }
+  const ok=ROLE==="client"?["portal"]:[...NAV.map(n=>n[0]),"portal"];
+  route=ok.includes(r)?r:(ROLE==="client"?"portal":"dashboard");
+  $$("[data-r]").forEach(a=>a.classList.toggle("on",a.dataset.r===route));
+  if(!silent)window.scrollTo({top:0});
+  render(true);
+}
 window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
 
 function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
@@ -762,6 +780,7 @@ function after(){
   $$(".ring .fg").forEach(c=>requestAnimationFrame(()=>c.style.strokeDashoffset=c.dataset.off));
   if(route==="capture")initCapture();
   if(route==="studio")Studio.mount();
+  if(route==="settings"&&CAN_ADMIN&&user&&user.members)loadTeamList();
   if(route==="clients"&&user){const ids=[...new Set([...S.clients,...S.requests].map(c=>c.id).filter(i=>i&&i.startsWith("u_")))];if(ids.length)user.profiles(ids).then(ps=>$$("[data-uid]").forEach(el=>{const p=ps[el.dataset.uid];el.textContent=p?((p.name||"Signed-in person")+(p.email?" · "+p.email:"")+(p.guest?" · guest":"")):""}))}
 }
 
@@ -1173,7 +1192,7 @@ function campCard(c){
     <div class="stats"><div><b>${sites.length}</b>Sites</div><div><b>${done}/${sites.length}</b>Monitored</div><div><b>${(()=>{const o=sites.reduce((a,x)=>a+otsOf(x),0);return o?"~"+fmtK(o):areas.length})()}</b>${sites.some(x=>otsOf(x))?"Daily OTS":"Areas"}</div><div><b>${left==null?"—":left<0?"Ended":left}</b>${left!=null&&left>=0?"Days left":"Status"}</div></div></div>
    ${timeline(c)}
    <div style="padding:0 18px 12px;font-size:12px;color:var(--muted);font-weight:600">${areas.slice(0,5).map(esc).join(" · ")||"No sites added yet"}</div>
-   <div class="ft"><button class="btn sm" data-act="campsites" data-id="${c.id}">View sites</button><button class="btn sm" data-act="editcamp" data-id="${c.id}">Edit</button><span class="sp"></span><button class="btn sm pri" data-act="campdeck" data-id="${c.id}">${ICON.deck}Generate deck</button></div></article>`;
+   <div class="ft"><button class="btn sm" data-act="campsites" data-id="${c.id}">View sites</button><button class="btn sm" data-act="editcamp" data-id="${c.id}">Edit</button><span class="sp"></span><button class="btn sm" data-act="sharecamp" data-id="${c.id}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;vertical-align:middle;margin-right:4px"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Share link</button><button class="btn sm pri" data-act="campdeck" data-id="${c.id}">${ICON.deck}Generate deck</button></div></article>`;
 }
 function timeline(c,big){if(!c.startDate||!c.endDate)return"";const tot=Math.max(1,daysTo(c.endDate)-daysTo(c.startDate));const el=Math.max(0,Math.min(1,-daysTo(c.startDate)/tot));const d=daysTo(c.endDate);
   const chip=d<0?`<span class="pill st-maintenance">Ended</span>`:daysTo(c.startDate)>0?`<span class="pill" style="background:var(--surface2);color:var(--ink2)">Starts ${dayWord(daysTo(c.startDate))}</span>`:d<=7?`<span class="pill st-expiring">${d===0?"Ends today":d+" day"+(d>1?"s":"")+" left"}</span>`:`<span class="pill st-available">Live</span>`;
@@ -1310,7 +1329,7 @@ function vStudio(){
      ${S.campaigns.map(c=>`<button class="card pad" data-act="campdeck" data-id="${c.id}" style="text-align:left;cursor:pointer;border-top:5px solid ${c.color}"><div class="eyebrow">From campaign</div><h3 style="font-size:18px;margin:4px 0">${esc(c.name)}</h3><span style="color:var(--muted);font-size:13px">${(c.siteIds||[]).length} sites · ${esc(c.client||"")}</span></button>`).join("")}
      <button class="card pad" data-act="availdeck" style="text-align:left;cursor:pointer;border-top:5px solid var(--ok)"><div class="eyebrow">From inventory</div><h3 style="font-size:18px;margin:4px 0">All available sites</h3><span style="color:var(--muted);font-size:13px">${S.sites.filter(s=>effStatus(s)==="available").length} sites, grouped by area</span></button>
     </div>
-    ${decks.length?`<div class="sec-h" style="margin-top:26px"><h2>Saved presentations</h2></div><div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">${decks.map(d=>`<div class="card pad row" style="align-items:flex-start"><div style="flex:1;min-width:0"><h3 style="font-size:16px">${esc(d.title)}</h3><span style="color:var(--muted);font-size:12px">v${d.version} · ${TPL[d.template]?.name} · ${ago(d.updatedAt)}</span></div><button class="btn sm" data-act="opendeck" data-id="${d.id}">Open</button><button class="btn sm ghost danger" data-act="deckdel" data-id="${d.id}" aria-label="Delete ${esc(d.title)}">${ICON.trash}</button></div>`).join("")}</div>`:""}`;
+    ${decks.length?`<div class="sec-h" style="margin-top:26px"><h2>Saved presentations</h2></div><div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">${decks.map(d=>`<div class="card pad row" style="align-items:flex-start"><div style="flex:1;min-width:0"><h3 style="font-size:16px">${esc(d.title)}</h3><span style="color:var(--muted);font-size:12px">v${d.version} · ${TPL[d.template]?.name} · ${ago(d.updatedAt)}</span></div><button class="btn sm" data-act="sharedeck" data-id="${d.id}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;vertical-align:middle;margin-right:2px"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Share</button><button class="btn sm" data-act="opendeck" data-id="${d.id}">Open</button><button class="btn sm ghost danger" data-act="deckdel" data-id="${d.id}" aria-label="Delete ${esc(d.title)}">${ICON.trash}</button></div>`).join("")}</div>`:""}`;
   }
   const c=Studio.cfg;
   const srcSel=c.source.type==="campaign"?`<select class="in" id="stCamp">${opt(S.campaigns.map(x=>[x.id,x.name]),c.source.campaignId)}</select>`:c.source.type==="filter"?`<div class="grid" style="gap:8px"><select class="in" id="stArea"><option value="">All areas</option>${opt(Object.keys(AREAS),c.source.area)}</select><select class="in" id="stSize"><option value="">All sizes</option>${opt([...new Set(S.sites.map(sizeOf))].map(x=>[x,x+" ft"]),c.source.size)}</select><select class="in" id="stStatus"><option value="">Any status</option>${opt([["available","Available"],["booked","Not available"],["maintenance","Maintenance"]],c.source.status)}</select></div>`:`<p style="margin:0;color:var(--muted)">${(c.source.ids||[]).length} hand-picked sites</p>`;
@@ -1328,6 +1347,7 @@ function vStudio(){
     <div class="card pad grid" style="gap:10px">
       <button class="btn pri" data-act="export" data-v="pptx" style="justify-content:center">${ICON.dl}Export PowerPoint</button>
       <button class="btn cy" data-act="export" data-v="pdf" style="justify-content:center">${ICON.dl}Export PDF</button>
+      <button class="btn" data-act="sharedeck" style="justify-content:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Copy share link</button>
       <button class="btn" id="saveDeck" data-act="savedeck" style="justify-content:center">Save version</button>
       ${S.decks.some(x=>x.id===c.id)?`<button class="btn ghost danger" data-act="deckdel" data-id="${c.id}" style="justify-content:center">${ICON.trash}Delete this presentation</button>`:""}
       <p style="margin:0;font-size:12px;color:var(--muted)">Click any title or note on a slide to edit it. Drag slides, or use the arrows, to reorder.</p>
@@ -1507,6 +1527,9 @@ function vSettings(){const s=S.settings;const hasSample=S.sites.some(x=>x.sample
    <div class="logobox"><span class="logochip"><img src="${esc(logoSrc())}" alt="Current logo" style="height:110px"></span><div class="grid" style="gap:8px;flex:1;min-width:200px"><p style="margin:0;color:var(--muted);font-size:13px">Used in the sidebar, on every photo watermark, on presentation covers and in client dashboards.</p><div class="row"><label class="btn" for="fileLogo">${ICON.img}Upload new logo</label>${s.logo?`<button class="btn ghost" data-act="resetlogo">Use AdPulse logo</button>`:""}</div></div></div></div>
   <div class="card pad grid" style="gap:14px"><div class="row"><h2 style="font-size:18px">Color theme</h2><span class="sp"></span><span class="eyebrow">For the whole team and client dashboards</span></div>
    <div class="themes">${Object.entries(THEMES).map(([k,t])=>{const c=(t.light||t.dark||{violet:"#7C3AED",pink:"#E6398C",cyan:"#0A9FBC",bg:"#F5F3FA",ink:"#17122B",sh1:"#1b1238"});return`<button class="th ${(s.theme||"adpulse")===k?"on":""}" data-act="settheme" data-v="${k}"><div class="pv" style="background:${c.bg}"><i style="width:70px;height:70px;left:-10px;top:-20px;background:${c.violet}"></i><i style="width:60px;height:60px;right:-6px;top:6px;background:${c.pink}"></i><i style="width:50px;height:50px;left:50px;bottom:-26px;background:${c.cyan}"></i><u style="background:linear-gradient(90deg,${c.violet},${c.pink})"></u></div><div class="sw">${[c.violet,c.pink,c.cyan,c.sh1||c.ink].map(x=>`<span style="background:${x}"></span>`).join("")}</div><b>${t.name}</b><small>${t.note}</small></button>`}).join("")}</div></div>
+  ${CAN_ADMIN&&user&&user.members?`<div class="card pad grid" style="gap:14px" id="teamCard"><div class="row"><h2 style="font-size:18px">Team &amp; Access Management</h2><span class="sp"></span><span class="eyebrow">Admin only</span></div>
+   <p style="margin:0;color:var(--muted);font-size:13px">Manage member roles in Supabase. Team (Admin) can manage inventory, campaigns and settings. Client accounts only access their assigned portal.</p>
+   <div id="teamList" class="grid" style="gap:10px"><div class="skel" style="min-height:50px"></div></div></div>`:""}
   <form class="card pad grid" id="trafForm" style="gap:14px"><div class="row"><h2 style="font-size:18px">Traffic &amp; OTS assumptions</h2></div>
    <p style="margin:0;color:var(--muted);font-size:13px">Used when a site has a traffic level but no counted vehicles. These are planning estimates. Replace them with your own survey numbers when you have them.</p>
    <div class="fgrid">${Object.entries(TLEV).map(([k,l])=>`<label class="f">${l} (vehicles/day)<input class="in mono" type="number" min="0" step="1000" id="tr-${k}" value="${tcfg()[k]}"></label>`).join("")}
@@ -1518,7 +1541,35 @@ function vSettings(){const s=S.settings;const hasSample=S.sites.some(x=>x.sample
    <div class="fgrid"><label class="f">Agency name<input class="in" id="sAg" value="${esc(s.agency)}"></label><label class="f">Website<input class="in" id="sWeb" value="${esc(s.web)}"></label><label class="f">Phone<input class="in" id="sPh" value="${esc(s.phone)}" placeholder="+92 …"></label><label class="f">Email<input class="in" id="sEm" value="${esc(s.email)}" placeholder="media@…"></label></div>
    <div class="row"><button class="btn pri" type="submit">Save details</button></div></form>
   <div class="card pad grid" style="gap:10px"><h2 style="font-size:18px">Data</h2><p style="margin:0;color:var(--muted)">${S.sites.length} sites · ${S.campaigns.length} campaigns · ${S.decks.length} saved decks · ${S.mode==="live"?"synced for everyone with access to this page":"stored in this browser only"}.</p>
-   <div class="row"><button class="btn" data-act="csv">${ICON.dl}Export sites (CSV)</button>${hasSample?`<button class="btn danger" data-act="clearsample">Remove sample data</button>`:""}</div></div></div>`}
+   <div class="row"><button class="btn" data-act="csv">${ICON.dl}Export sites (CSV)</button>${hasSample?`<button class="btn danger" data-act="clearsample">Remove sample data</button>`:""}</div></div></div>}
+
+async function loadTeamList(){
+  const box=$("#teamList");
+  if(!box||!user||!user.members)return;
+  try{
+    const members=await user.members();
+    if(!members.length){box.innerHTML='<p style="color:var(--muted);font-size:13px">No members found.</p>';return}
+    box.innerHTML=members.map(m=>{
+      const isMe=m.id===ME;
+      return`<div class="card pad row" style="background:var(--surface2);border-radius:var(--rad);align-items:center;gap:12px">
+        <div class="av" style="width:38px;height:38px;font-size:15px">${esc((m.name||m.email||"U")[0].toUpperCase())}</div>
+        <div style="flex:1;min-width:180px">
+          <div style="font-weight:700;font-size:14px">${esc(m.name||"Member")} ${isMe?'<span class="pill" style="font-size:10px;padding:2px 6px">You</span>':""}</div>
+          <small style="color:var(--muted);font-size:12px">${esc(m.email||m.id)} · Joined ${fmtShort(m.createdAt)}</small>
+        </div>
+        <div class="row" style="gap:8px;align-items:center">
+          <select class="in sm" style="min-height:36px;padding:4px 8px;font-size:13px" data-act="setrole" data-uid="${esc(m.id)}">
+            <option value="admin" ${m.role==="admin"?"selected":""}>Team (Admin)</option>
+            <option value="client" ${m.role==="client"?"selected":""}>Client</option>
+          </select>
+          <button class="btn sm ghost danger" data-act="rmmember" data-uid="${esc(m.id)}" data-name="${esc(m.name||m.email||"this member")}" title="Remove member">${ICON.trash}</button>
+        </div>
+      </div>`;
+    }).join("");
+  }catch(e){
+    box.innerHTML=`<p style="color:var(--bad);font-size:13px">Failed to load team: ${esc(e.message||e.code||e)}</p>`;
+  }
+}
 
 /* ============ layer, toast, palette ============ */
 function openLayer(h){$("#layer").innerHTML=h;const f=$("#layer input,#layer select,#layer button:not(.ghost)");document.body.style.overflow="hidden"}
@@ -1589,12 +1640,49 @@ const ACT={
  slshow:a=>{Studio.cfg.slides[+a.dataset.i].hidden=false;Studio.renderSlides();Studio.dirty()},
  slphoto:a=>{const v=Studio.cfg.slides[+a.dataset.i];const s=S.sites.find(x=>x.id===v.siteId);const ix=imgIdx(s);if(!ix.length)return;const k=ix.indexOf(v.photo);v.photo=ix[((k<0?ix.length:k)-1+ix.length)%ix.length];Studio.renderSlides();Studio.dirty()},
  export:a=>exportDeck(a.dataset.v),
+  sharedeck:async a=>{
+    const id=a?.dataset?.id||Studio.cfg?.id||(Studio.cfg?.source?.campaignId);
+    if(!id&&!Studio.cfg){toast("No presentation selected");return}
+    const url=`${location.origin}${location.pathname}#presentation:${encodeURIComponent(id||"live")}`;
+    try{await navigator.clipboard.writeText(url);toast("Presentation link copied to clipboard!")}
+    catch(e){prompt("Copy presentation link:",url)}
+  },
+  sharecamp:async a=>{
+    const id=a.dataset.id;
+    const url=`${location.origin}${location.pathname}#campdeck:${encodeURIComponent(id)}`;
+    try{await navigator.clipboard.writeText(url);toast("Campaign deck link copied to clipboard!")}
+    catch(e){prompt("Copy presentation link:",url)}
+  },
+  setrole:async a=>{
+    const uid=a.dataset.uid;const role=a.value;
+    try{
+      await user.setRole(uid,role);
+      toast(`Member role updated to ${role==="admin"?"Team (Admin)":"Client"}`);
+      loadTeamList();
+    }catch(e){
+      toast("Couldn't update role: "+(e.message||e.code||e));
+      loadTeamList();
+    }
+  },
+  rmmember:a=>{
+    const uid=a.dataset.uid;const name=a.dataset.name;
+    confirmBox(`Remove ${name}? They will lose access to the system.`,async()=>{
+      try{
+        await user.removeMember(uid);
+        toast("Member removed");
+        loadTeamList();
+      }catch(e){
+        toast("Couldn't remove member: "+(e.message||e.code||e));
+      }
+    },"Remove");
+  },
  savedeck:async()=>{const c=Studio.cfg;c.version=(c.version||0)+1;try{await put("decks",c);toast(`Saved ${c.title} v${c.version}`);const b=$("#saveDeck");if(b)b.textContent="Save version"}catch(e){toast("Couldn't save: "+e.message)}},
  csv:async()=>{const h=["Code","Area","From","Towards","Width ft","Height ft","Type","Light","Status","Brand","Booked till","Lat","Lng","Photos","Maps link"];const rows=S.sites.map(s=>[s.code,s.area,s.from,s.towards,s.widthFt,s.heightFt,s.media,s.light,STATUS[effStatus(s)],s.brand,s.bookedTill,s.lat,s.lng,(s.photos||[]).length,mapsUrl(s)]);const csv=[h,...rows].map(r=>r.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\n");if(!downloads){toast("Downloads aren't available in this view");return}try{await downloads.save({filename:"sitesnap-sites.csv",data:csv})}catch(e){if(e.code!=="declined")toast("Couldn't save: "+(e.message||e.code))}},
  clearsample:()=>confirmBox("Remove all sample sites and campaigns?",async()=>{for(const s of S.sites.filter(x=>x.sample))await del("sites",s.id);for(const c of S.campaigns.filter(x=>x.sample))await del("campaigns",c.id);toast("Sample data removed")},"Remove")
 };
 document.addEventListener("click",e=>{const a=e.target.closest("[data-act]");if(!a||a.disabled)return;const fn=ACT[a.dataset.act];if(fn){if(a.tagName==="A"&&a.dataset.act!=="close")return;if(a.closest("#agentPop")&&!/^agent/.test(a.dataset.act))$("#agentPop").innerHTML="";fn(a,e)}});
 document.addEventListener("change",e=>{const t=e.target;
+ if(t.dataset.act==="setrole"){ACT.setrole(t)}
  if(t.dataset.f!==undefined){F[t.dataset.f]=t.value;render(true)}
  if(t.id==="bulkSt"&&t.value){const v=t.value;Promise.all([...sel].map(id=>{const s=S.sites.find(x=>x.id===id);return put("sites",{...s,status:v})})).then(()=>toast(`${sel.size} sites → ${STATUS[v]}`));t.value=""}
  if(t.id==="bulkC"&&t.value){const c=campOf(t.value);put("campaigns",{...c,siteIds:[...new Set([...(c.siteIds||[]),...sel])]}).then(()=>toast(`Added ${sel.size} sites to ${c.name}`));t.value=""}
