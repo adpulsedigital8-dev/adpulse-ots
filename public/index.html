@@ -570,6 +570,7 @@ body.client .tabs{display:none}
     <div class="brand" id="brandBox"></div>
     <nav class="nav" id="sideNav"></nav>
     <div class="foot">
+      <button class="btn" data-act="installapp" style="margin-bottom:6px;width:100%"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:2px"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>Install App<span class="sp"></span><span class="pill st-available" style="font-size:9px;padding:2px 5px">iOS / APK</span></button>
       <button class="btn" data-act="palette"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Search <span class="sp"></span><span class="kbd">Ctrl K</span></button>
       <div id="modeNote" style="font-size:12px;color:var(--muted);padding:4px 6px"></div>
     </div>
@@ -1699,7 +1700,15 @@ document.addEventListener("submit",async e=>{if(e.target.id!=="reqForm")return;e
 /* ============ Settings ============ */
 function vSettings(){const s=S.settings;const hasSample=S.sites.some(x=>x.sample)||S.campaigns.some(x=>x.sample);
   return pgTop("Settings","Branding for watermarks and presentations")+`<div class="grid" style="max-width:720px">
-  <div class="card pad grid" style="gap:14px"><h2 style="font-size:18px">Logo</h2>
+  <div class="card pad grid" style="gap:14px">
+  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App Installation</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">PWA Ready</span></div>
+  <p style="margin:0;color:var(--muted);font-size:13px">Install AdPulse OTS on iPhone, iPad, Android or PC for fast offline access, full-screen view and 1-tap camera upload.</p>
+  <div class="row" style="gap:10px;flex-wrap:wrap">
+    <button class="btn pri" data-act="installios" style="flex:1;min-width:180px;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>Install on iPhone / iPad (iOS)</button>
+    <button class="btn" data-act="installandroid" style="flex:1;min-width:180px;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>Install on Android / PC</button>
+  </div>
+</div>
+<div class="card pad grid" style="gap:14px"><h2 style="font-size:18px">Logo</h2>
    <div class="logobox"><span class="logochip"><img src="${esc(logoSrc())}" alt="Current logo" style="height:110px"></span><div class="grid" style="gap:8px;flex:1;min-width:200px"><p style="margin:0;color:var(--muted);font-size:13px">Used in the sidebar, on every photo watermark, on presentation covers and in client dashboards.</p><div class="row"><label class="btn" for="fileLogo">${ICON.img}Upload new logo</label>${s.logo?`<button class="btn ghost" data-act="resetlogo">Use AdPulse logo</button>`:""}</div></div></div></div>
   <div class="card pad grid" style="gap:14px"><div class="row"><h2 style="font-size:18px">Color theme</h2><span class="sp"></span><span class="eyebrow">For the whole team and client dashboards</span></div>
    <div class="themes">${Object.entries(THEMES).map(([k,t])=>{const c=(t.light||t.dark||{violet:"#7C3AED",pink:"#E6398C",cyan:"#0A9FBC",bg:"#F5F3FA",ink:"#17122B",sh1:"#1b1238"});return`<button class="th ${(s.theme||"adpulse")===k?"on":""}" data-act="settheme" data-v="${k}"><div class="pv" style="background:${c.bg}"><i style="width:70px;height:70px;left:-10px;top:-20px;background:${c.violet}"></i><i style="width:60px;height:60px;right:-6px;top:6px;background:${c.pink}"></i><i style="width:50px;height:50px;left:50px;bottom:-26px;background:${c.cyan}"></i><u style="background:linear-gradient(90deg,${c.violet},${c.pink})"></u></div><div class="sw">${[c.violet,c.pink,c.cyan,c.sh1||c.ink].map(x=>`<span style="background:${x}"></span>`).join("")}</div><b>${t.name}</b><small>${t.note}</small></button>`}).join("")}</div></div>
@@ -1760,7 +1769,102 @@ function palette(){openLayer(`<div class="scrim" data-act="close"></div><div cla
 document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();palette()}if(e.key==="Escape")closeLayer()});
 
 /* ============ actions ============ */
+
+let _deferredInstallPrompt = null;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  _deferredInstallPrompt = e;
+});
+
+function openInstallModal(forceType){
+  const isIOS = forceType === "ios" || (!forceType && (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream));
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+
+  if(isStandalone){
+    toast("AdPulse OTS is already installed and running as an app!");
+    return;
+  }
+
+  if(!isIOS && forceType !== "ios" && _deferredInstallPrompt){
+    _deferredInstallPrompt.prompt();
+    _deferredInstallPrompt.userChoice.then((choiceResult) => {
+      if(choiceResult.outcome === 'accepted'){
+        toast("App installed successfully!");
+      }
+      _deferredInstallPrompt = null;
+    });
+    return;
+  }
+
+  const iosSteps = `<div style="display:flex;flex-direction:column;gap:12px;margin:16px 0">
+    <div style="display:flex;align-items:flex-start;gap:12px;background:var(--bg);padding:12px 14px;border-radius:10px;border:1px solid var(--border)">
+      <div style="width:30px;height:30px;border-radius:50%;background:var(--violet);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">1</div>
+      <div style="flex:1;font-size:13px;line-height:1.4;color:var(--ink)">
+        Safari browser ke bottom toolbar par <b>Share button</b> (<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>) par tap karein.
+      </div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;background:var(--bg);padding:12px 14px;border-radius:10px;border:1px solid var(--border)">
+      <div style="width:30px;height:30px;border-radius:50%;background:var(--violet);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">2</div>
+      <div style="flex:1;font-size:13px;line-height:1.4;color:var(--ink)">
+        Share options mein neeche scroll karein aur <b>"Add to Home Screen"</b> (<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px"><rect x="3" y="3" width="18" height="18" rx="4"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>) select karein.
+      </div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;background:var(--bg);padding:12px 14px;border-radius:10px;border:1px solid var(--border)">
+      <div style="width:30px;height:30px;border-radius:50%;background:var(--violet);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">3</div>
+      <div style="flex:1;font-size:13px;line-height:1.4;color:var(--ink)">
+        Top right corner par <b>"Add"</b> par tap karein.
+      </div>
+    </div>
+    <div style="font-size:12px;color:var(--muted);background:var(--surface2);padding:10px 12px;border-radius:8px;border-left:3px solid var(--violet)">
+      ✨ AdPulse OTS aapke iPhone ki Home Screen par real app ki tarah save ho jayegi aur offline camera &amp; live GPS navigation ke sath chalegi.
+    </div>
+  </div>`;
+
+  const androidSteps = `<div style="display:flex;flex-direction:column;gap:12px;margin:16px 0">
+    <div style="display:flex;align-items:flex-start;gap:12px;background:var(--bg);padding:12px 14px;border-radius:10px;border:1px solid var(--border)">
+      <div style="width:30px;height:30px;border-radius:50%;background:var(--cyan);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">1</div>
+      <div style="flex:1;font-size:13px;line-height:1.4;color:var(--ink)">
+        Chrome ya Edge browser ke top-right <b>3 dots menu (⋮)</b> par tap karein.
+      </div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;background:var(--bg);padding:12px 14px;border-radius:10px;border:1px solid var(--border)">
+      <div style="width:30px;height:30px;border-radius:50%;background:var(--cyan);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">2</div>
+      <div style="flex:1;font-size:13px;line-height:1.4;color:var(--ink)">
+        <b>"Install app"</b> ya <b>"Add to Home screen"</b> select karein aur confirm karein.
+      </div>
+    </div>
+  </div>`;
+
+  openLayer(`<div class="scrim" data-act="close"></div>
+    <div class="modal" style="width:min(440px,calc(100% - 24px));max-height:90vh;overflow-y:auto">
+      <div class="mb">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+          <img src="/icons/icon-192.png" alt="AdPulse OTS" style="width:48px;height:48px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.2)">
+          <div>
+            <h2 style="font-size:18px;margin:0">Install AdPulse OTS</h2>
+            <div style="font-size:12px;color:var(--muted)">Offline app for iPhone &amp; Android</div>
+          </div>
+          <span class="sp"></span>
+          <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
+        </div>
+        <div style="display:flex;gap:6px;margin-bottom:6px">
+          <button class="btn sm ${isIOS ? 'pri' : 'ghost'}" data-act="switchinstall" data-v="ios" style="flex:1;justify-content:center">🍏 iPhone / iPad (iOS)</button>
+          <button class="btn sm ${!isIOS ? 'pri' : 'ghost'}" data-act="switchinstall" data-v="android" style="flex:1;justify-content:center">🤖 Android / PC</button>
+        </div>
+        ${isIOS ? iosSteps : androidSteps}
+        <div class="row" style="margin-top:16px">
+          <span class="sp"></span>
+          <button class="btn pri" data-act="close">Done</button>
+        </div>
+      </div>
+    </div>`);
+}
+
 const ACT={
+  installapp:()=>openInstallModal(),
+  installios:()=>openInstallModal('ios'),
+  installandroid:()=>openInstallModal('android'),
+  switchinstall:a=>openInstallModal(a.dataset.v),
  palette,close:closeLayer,
  ftoggle:()=>{fOpen=!fOpen;$(".fsel")?.classList.toggle("open",fOpen)},
  cfgtoggle:()=>{const c=$(".cfg");c.classList.toggle("open");$(".cfgt b").textContent=c.classList.contains("open")?"Hide deck settings ▴":"Deck settings ▾"},
@@ -1773,7 +1877,7 @@ const ACT={
  gocapture:()=>{location.hash="capture"},goclients:()=>{location.hash="clients"},
  expsites:()=>{Object.keys(F).forEach(k=>F[k]="");F.status="expiring";location.hash="sites";if(route==="sites")render(true)},
  release:async a=>{const c=campOf(a.dataset.id);const held=(c.siteIds||[]).map(id=>S.sites.find(s=>s.id===id)).filter(s=>s&&s.status==="booked"&&s.bookedTill&&s.bookedTill<=c.endDate);for(const s of held)await put("sites",{...s,status:"available",brand:"",bookedFrom:"",bookedTill:""});toast(`Released ${held.length} site${held.length!==1?"s":""} to inventory`)},
- more:()=>openLayer(`<div class="scrim" data-act="close"></div><div class="modal sheet" role="dialog" aria-label="Pages"><div class="mb" style="gap:0">${NAV.map(([k,l,i])=>`<a href="#${k}" data-act="close">${ICON[i]}${l}</a>`).join("")}</div></div>`),
+ more:()=>openLayer(`<div class="scrim" data-act="close"></div><div class="modal sheet" role="dialog" aria-label="Pages"><div class="mb" style="gap:0">${NAV.map(([k,l,i])=>`<a href="#${k}" data-act="close">${ICON[i]}${l}</a>`).join("")}<div style="border-top:1px solid var(--border);padding-top:8px;margin-top:8px"><button class="btn sm pri" data-act="installapp" style="width:100%;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>Install App (iOS / Android)</button></div></div></div>`),
  addclient:()=>openClient(null),editclient:a=>openClient(a.dataset.id),approvereq:a=>openClient(null,a.dataset.id),
  declinereq:a=>confirmBox("Decline this access request?",async()=>{await db.doc("requests/"+a.dataset.id).delete();toast("Request declined")},"Decline"),
  rmclient:a=>{const cl=S.clients.find(x=>x.id===a.dataset.id);confirmBox(`Remove ${cl.label}? They lose access to their dashboard.`,async()=>{await del("clients",cl.id);if(S.mode==="live"&&portals[cl.id])try{await db.doc("portal/"+cl.id).delete()}catch(e){}toast("Client removed")},"Remove")},
