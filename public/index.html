@@ -1541,7 +1541,7 @@ function vSettings(){const s=S.settings;const hasSample=S.sites.some(x=>x.sample
    <div class="fgrid"><label class="f">Agency name<input class="in" id="sAg" value="${esc(s.agency)}"></label><label class="f">Website<input class="in" id="sWeb" value="${esc(s.web)}"></label><label class="f">Phone<input class="in" id="sPh" value="${esc(s.phone)}" placeholder="+92 …"></label><label class="f">Email<input class="in" id="sEm" value="${esc(s.email)}" placeholder="media@…"></label></div>
    <div class="row"><button class="btn pri" type="submit">Save details</button></div></form>
   <div class="card pad grid" style="gap:10px"><h2 style="font-size:18px">Data</h2><p style="margin:0;color:var(--muted)">${S.sites.length} sites · ${S.campaigns.length} campaigns · ${S.decks.length} saved decks · ${S.mode==="live"?"synced for everyone with access to this page":"stored in this browser only"}.</p>
-   <div class="row"><button class="btn" data-act="csv">${ICON.dl}Export sites (CSV)</button>${hasSample?`<button class="btn danger" data-act="clearsample">Remove sample data</button>`:""}</div></div></div>}
+   <div class="row"><button class="btn" data-act="csv">${ICON.dl}Export sites (CSV)</button>${hasSample?`<button class="btn danger" data-act="clearsample">Remove sample data</button>`:""}</div></div></div>`}
 
 async function loadTeamList(){
   const box=$("#teamList");
