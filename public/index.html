@@ -917,9 +917,9 @@ function mountLeafletMap(list){
   const map = L.map(el, { scrollWheelZoom: false, attributionControl: false });
   _leafletMap = map;
   
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd'
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'
   }).addTo(map);
 
   const col = { available: "#0E9F76", booked: "#E03656", expiring: "#EE7422", maintenance: "#DB8F06" };
