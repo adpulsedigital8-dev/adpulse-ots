@@ -39,49 +39,71 @@
   var session = null, me = null, ready;
   function loginScreen() {
     return new Promise(function (resolve) {
-      var box = document.createElement("div");
-      box.id = "otsLogin";
-      box.innerHTML =
-        '<style>#otsLogin{position:fixed;inset:0;z-index:999;display:grid;place-items:center;padding:16px;background:radial-gradient(circle at 20% 10%,#5a1014,transparent 55%),radial-gradient(circle at 90% 90%,#134a48,transparent 50%),#121011;font-family:Manrope,system-ui,sans-serif;color:#f6f1f0}' +
-        '#otsLogin .c{width:min(420px,100%);background:#1c1819;border:1px solid #3a3032;border-radius:22px;padding:26px;display:grid;gap:14px;box-shadow:0 30px 60px -20px #000}' +
-        '#otsLogin img{height:96px;justify-self:center;background:#fff;border-radius:16px;padding:8px 12px}' +
-        '#otsLogin h1{margin:0;font-size:22px;text-align:center}#otsLogin p{margin:0;color:#c9bdbb;font-size:14px;text-align:center}' +
-        '#otsLogin input{width:100%;box-sizing:border-box;min-height:48px;border-radius:12px;border:1px solid #3a3032;background:#262022;color:#fff;padding:0 14px;font-size:16px}' +
-        '#otsLogin button{min-height:50px;border:0;border-radius:12px;font-weight:800;font-size:15px;cursor:pointer;background:linear-gradient(120deg,#D9161D,#F26A21);color:#fff}' +
-        '#otsLogin button.g{background:#fff;color:#1c1a1b}#otsLogin small{color:#968a88;text-align:center}#otsLogin .ok{color:#34D399;font-weight:700;text-align:center}</style>' +
-        '<form class="c" id="otsForm"><img src="/icons/icon-192.png" alt="AdPulse"><h1>AdPulse OOH Tracking System</h1>' +
-        '<p>Sign in with your work email. We send you a one-time sign-in link.</p>' +
-        '<input id="otsEmail" type="email" required placeholder="you@company.com" autocomplete="email">' +
-        '<button type="submit">Email me a sign-in link</button>' +
-        (cfg.googleLogin ? '<button type="button" class="g" id="otsGoogle">Continue with Google</button>' : "") +
-        '<div id="otsMsg" aria-live="polite"></div><small>Clients: use the email your agency invited.</small></form>';
-      document.body.appendChild(box);
-      var msg = box.querySelector("#otsMsg");
-      box.querySelector("#otsForm").onsubmit = async function (e) {
-        e.preventDefault();
-        var email = box.querySelector("#otsEmail").value.trim();
-        msg.className = ""; msg.textContent = "Sending…";
-        var r = await sb.auth.signInWithOtp({ email: email, options: { emailRedirectTo: location.origin + location.pathname } });
-        if (r.error) { msg.textContent = "Couldn't send the link: " + r.error.message; return; }
-        msg.className = "ok"; msg.textContent = "Check your inbox and tap the link to sign in.";
-      };
-      var g = box.querySelector("#otsGoogle");
-      if (g) g.onclick = function () { sb.auth.signInWithOAuth({ provider: "google", options: { redirectTo: location.origin + location.pathname } }); };
-      var sub = sb.auth.onAuthStateChange(function (_ev, s) {
-        if (s) { sub.data.subscription.unsubscribe(); box.remove(); resolve(s); }
-      });
+      function show() {
+        if (!document.body) {
+          if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", show);
+          } else {
+            setTimeout(show, 10);
+          }
+          return;
+        }
+        var box = document.createElement("div");
+        box.id = "otsLogin";
+        box.innerHTML =
+          '<style>#otsLogin{position:fixed;inset:0;z-index:999;display:grid;place-items:center;padding:16px;background:radial-gradient(circle at 20% 10%,#5a1014,transparent 55%),radial-gradient(circle at 90% 90%,#134a48,transparent 50%),#121011;font-family:Manrope,system-ui,sans-serif;color:#f6f1f0}' +
+          '#otsLogin .c{width:min(420px,100%);background:#1c1819;border:1px solid #3a3032;border-radius:22px;padding:26px;display:grid;gap:14px;box-shadow:0 30px 60px -20px #000}' +
+          '#otsLogin img{height:96px;justify-self:center;background:#fff;border-radius:16px;padding:8px 12px}' +
+          '#otsLogin h1{margin:0;font-size:22px;text-align:center}#otsLogin p{margin:0;color:#c9bdbb;font-size:14px;text-align:center}' +
+          '#otsLogin input{width:100%;box-sizing:border-box;min-height:48px;border-radius:12px;border:1px solid #3a3032;background:#262022;color:#fff;padding:0 14px;font-size:16px}' +
+          '#otsLogin button{min-height:50px;border:0;border-radius:12px;font-weight:800;font-size:15px;cursor:pointer;background:linear-gradient(120deg,#D9161D,#F26A21);color:#fff}' +
+          '#otsLogin button.g{background:#fff;color:#1c1a1b}#otsLogin small{color:#968a88;text-align:center}#otsLogin .ok{color:#34D399;font-weight:700;text-align:center}</style>' +
+          '<form class="c" id="otsForm"><img src="/icons/icon-192.png" alt="AdPulse"><h1>AdPulse OOH Tracking System</h1>' +
+          '<p>Sign in with your work email. We send you a one-time sign-in link.</p>' +
+          '<input id="otsEmail" type="email" required placeholder="you@company.com" autocomplete="email">' +
+          '<button type="submit">Email me a sign-in link</button>' +
+          (cfg.googleLogin ? '<button type="button" class="g" id="otsGoogle">Continue with Google</button>' : "") +
+          '<div id="otsMsg" aria-live="polite"></div><small>Clients: use the email your agency invited.</small></form>';
+        document.body.appendChild(box);
+        var msg = box.querySelector("#otsMsg");
+        box.querySelector("#otsForm").onsubmit = async function (e) {
+          e.preventDefault();
+          var email = box.querySelector("#otsEmail").value.trim();
+          msg.className = ""; msg.textContent = "Sending…";
+          var r = await sb.auth.signInWithOtp({ email: email, options: { emailRedirectTo: location.origin + location.pathname } });
+          if (r.error) { msg.textContent = "Couldn't send the link: " + r.error.message; return; }
+          msg.className = "ok"; msg.textContent = "Check your inbox and tap the link to sign in.";
+        };
+        var g = box.querySelector("#otsGoogle");
+        if (g) g.onclick = function () { sb.auth.signInWithOAuth({ provider: "google", options: { redirectTo: location.origin + location.pathname } }); };
+        var sub = sb.auth.onAuthStateChange(function (_ev, s) {
+          if (s) { sub.data.subscription.unsubscribe(); box.remove(); resolve(s); }
+        });
+      }
+      show();
     });
   }
   async function loadMe(s) {
-    var r = await sb.from("members").select("role,name,email").eq("user_id", s.user.id).maybeSingle();
-    me = { id: "u_" + s.user.id, uuid: s.user.id, role: (r.data && r.data.role) || "client", name: (r.data && r.data.name) || "", email: s.user.email };
+    if (!s || !s.user) return;
+    try {
+      var r = await sb.from("members").select("role,name,email").eq("user_id", s.user.id).maybeSingle();
+      me = { id: "u_" + s.user.id, uuid: s.user.id, role: (r.data && r.data.role) || "client", name: (r.data && r.data.name) || "", email: s.user.email };
+    } catch (e) {
+      console.error("[OTS] loadMe error:", e);
+      me = { id: "u_" + s.user.id, uuid: s.user.id, role: "client", name: "", email: s.user.email };
+    }
   }
   ready = (async function () {
-    var got = await sb.auth.getSession();
-    session = got.data.session || (await loginScreen());
-    await loadMe(session);
-    sb.auth.onAuthStateChange(function (ev, s) { if (ev === "SIGNED_OUT") location.reload(); if (s) session = s; });
-    return true;
+    try {
+      var got = await sb.auth.getSession();
+      session = got.data.session || (await loginScreen());
+      await loadMe(session);
+      sb.auth.onAuthStateChange(function (ev, s) { if (ev === "SIGNED_OUT") location.reload(); if (s) session = s; });
+      return true;
+    } catch (err) {
+      console.error("[OTS] ready init error:", err);
+      return true;
+    }
   })();
   window.OTS_signOut = function () { return sb.auth.signOut(); };
 
