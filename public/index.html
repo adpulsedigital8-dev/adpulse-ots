@@ -7,7 +7,26 @@
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="icon" type="image/png" href="/icons/icon-192.png">
 <link rel="apple-touch-icon" href="/icons/icon-192.png">
-<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,-apple-system,sans-serif;background:#F6F4F3}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,-apple-system,sans-serif;background:#F6F4F3}img{max-width:100%}[hidden]{display:none!important}
+/* Secure Guest Presentation Mode: zero dashboard/admin access */
+body.guest-presentation .side,
+body.guest-presentation .tabs,
+body.guest-presentation .search,
+body.guest-presentation .bell,
+body.guest-presentation #modeNote,
+body.guest-presentation .mbrand {
+  display: none !important;
+}
+body.guest-presentation .app {
+  grid-template-columns: 1fr !important;
+}
+body.guest-presentation .main {
+  padding: 24px 20px 60px !important;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+</style>
 <title>AdPulse OOH Tracking System</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -726,14 +745,36 @@ function startLocal(){
 }
 function startPresentationGuest(){
   ROLE = "guest";
-  document.body.classList.add("client");
-  renderNav();
-  go(location.hash.slice(1), true);
-  modeNote();
-  db.doc("settings/brand").onSnapshot(x=>{if(x.exists)S.settings={...S.settings,...x.data()};applyTheme();changed()});
-  db.collection("decks").onSnapshot(q=>{S.decks=q.docs.map(x=>({id:x.id,...x.data()}));render()});
-  db.collection("campaigns").onSnapshot(q=>{S.campaigns=q.docs.map(x=>({id:x.id,...x.data()}));S.loaded.campaigns=true;changed()});
-  db.collection("sites").onSnapshot(q=>{S.sites=q.docs.map(x=>({id:x.id,...x.data()}));S.loaded.sites=true;changed()});
+  document.body.classList.add("guest-presentation");
+  const hash = location.hash.slice(1);
+  const deckId = hash.startsWith("presentation:") || hash.startsWith("deck:") ? decodeURIComponent(hash.split(":")[1]) : null;
+
+  db.doc("settings/brand").onSnapshot(x=>{
+    if(x.exists) S.settings = {...S.settings, ...x.data()};
+    applyTheme();
+    if(Studio.active && Studio.cfg) render(true);
+  });
+
+  if(deckId){
+    db.doc("decks/" + deckId).onSnapshot(x=>{
+      if(x.exists){
+        const deck = {id: x.id, ...x.data()};
+        Studio.load(deck);
+      } else {
+        const v = $("#view");
+        if(v && (!Studio.active || !Studio.cfg)){
+          v.innerHTML = `<div class="card pad" style="text-align:center;padding:48px 24px;max-width:500px;margin:60px auto">
+            <h2 style="font-size:22px">Presentation link</h2>
+            <p style="color:var(--muted);margin:12px 0 0">Opening your presentation slides…</p>
+          </div>`;
+        }
+      }
+    }, err=>{
+      console.warn("Shared deck read:", err);
+    });
+  }
+
+  go("studio", true);
 }
 function startPortal(){
   ROLE="client";document.body.classList.add("client");renderNav();go("portal",true);modeNote();
@@ -769,6 +810,19 @@ function renderNav(){
 }
 function go(r,silent){
   if(ROLE==="pending")return;
+  if(ROLE==="guest"){
+    route = "studio";
+    if(r.startsWith("presentation:")||r.startsWith("deck:")){
+      const id=decodeURIComponent(r.split(":")[1]);
+      db.doc("decks/"+id).get().then(snap=>{
+        if(snap && snap.exists) Studio.load({id: snap.id, ...snap.data()});
+      });
+    }
+    $("[data-r]").forEach(a=>a.classList.toggle("on",a.dataset.r==="studio"));
+    if(!silent)window.scrollTo({top:0});
+    render(true);
+    return;
+  }
   if(r.startsWith("presentation:")||r.startsWith("deck:")){
     const id=decodeURIComponent(r.split(":")[1]);
     const d=S.decks.find(x=>x.id===id);
@@ -1313,21 +1367,22 @@ const Studio={
    else if(s.type==="filter"){list=S.sites.filter(x=>(!s.area||x.area===s.area)&&(!s.size||sizeOf(x)===s.size)&&(!s.status||effStatus(x)===s.status||(s.status==="booked"&&effStatus(x)==="expiring"))&&(!s.media||x.media===s.media))}
    else list=(s.ids||[]).map(id=>S.sites.find(x=>x.id===id)).filter(Boolean);return list},
  build(){const c=this.cfg;const list=this.sitesFor();const key={area:x=>x.area,size:x=>sizeOf(x),status:x=>STATUS[effStatus(x)],none:()=>""}[c.groupBy];
-   list.sort((a,b)=>String(key(a)).localeCompare(String(key(b)))||a.code.localeCompare(b.code));
-   const old=new Map((c.slides||[]).map(s=>[s.siteId,s]));c.slides=list.map(s=>old.get(s.id)||{siteId:s.id,hidden:false,photo:imgIdx(s).slice(-1)[0]??-1,title:"",note:""});
+    list.sort((a,b)=>String(key(a)).localeCompare(String(key(b)))||a.code.localeCompare(b.code));
+    c.sitesData=list.map(s=>({id:s.id,code:s.code,area:s.area,widthFt:s.widthFt,heightFt:s.heightFt,media:s.media,light:s.light,from:s.from||"",towards:s.towards||"",status:s.status,brand:s.brand||"",bookedTill:s.bookedTill||"",bookedFrom:s.bookedFrom||"",lat:s.lat||"",lng:s.lng||"",traffic:s.traffic||"",vehiclesDay:s.vehiclesDay||"",photos:(s.photos||[]).map(p=>({asset:p.asset,kind:p.kind,tag:p.tag,at:p.at}))}));
+    const old=new Map((c.slides||[]).map(s=>[s.siteId,s]));c.slides=list.map(s=>old.get(s.id)||{siteId:s.id,hidden:false,photo:imgIdx(s).slice(-1)[0]??-1,title:"",note:""});
    if(!c.title){const cp=c.source.type==="campaign"?campOf(c.source.campaignId):null;c.title=cp?cp.name:c.source.type==="filter"?`${c.source.area||"Karachi"} ${c.source.status==="available"?"Available ":""}Sites`:"Site Proposal"}
    if(!c.subtitle){const cp=c.source.type==="campaign"?campOf(c.source.campaignId):null;c.subtitle=cp?.client?`Prepared for ${cp.client}`:"OOH site presentation"}},
  mount(){if(!this.cfg)return;this.renderSlides();this.bindDnD()},
- visible(){return this.cfg.slides.filter(s=>!s.hidden&&S.sites.find(x=>x.id===s.siteId))},
- /* build primitive ops for each slide (13.333 x 7.5 in) */
- deckOps(forExport){const c=this.cfg,t=TPL[c.template],vis=this.visible(),sites=vis.map(v=>S.sites.find(x=>x.id===v.siteId));const out=[];
+ siteOf(id){return (this.cfg?.sitesData||[]).find(x=>x.id===id)||S.sites.find(x=>x.id===id)},
+  visible(){return (this.cfg?.slides||[]).filter(s=>!s.hidden&&this.siteOf(s.siteId))},
+  deckOps(forExport){const c=this.cfg,t=TPL[c.template],vis=this.visible(),sites=vis.map(v=>this.siteOf(v.siteId));const out=[];
    out.push({kind:"cover",ops:coverOps(c,t,sites)});
    if(c.summary)out.push({kind:"summary",ops:summaryOps(c,t,sites)});
    if(c.index){const g={};vis.forEach((v,i)=>{const s=sites[i];(g[s.area]=g[s.area]||[]).push(s.code)});out.push({kind:"index",ops:indexOps(c,t,g)})}
    vis.forEach((v,i)=>out.push({kind:"site",idx:c.slides.indexOf(v),ops:siteOps(c,t,sites[i],v,i+1,vis.length)}));
    out.push({kind:"end",ops:endOps(c,t)});return out},
  renderSlides(){const box=$("#slides");if(!box)return;const deck=this.deckOps();
-   box.innerHTML=deck.map((sl,n)=>{const v=sl.kind==="site"?this.cfg.slides[sl.idx]:null;const s=v&&S.sites.find(x=>x.id===v.siteId);
+    box.innerHTML=deck.map((sl,n)=>{const v=sl.kind==="site"?this.cfg.slides[sl.idx]:null;const s=v&&this.siteOf(v.siteId);
      const tools=v?`<div class="sltools"><button class="btn sm" data-act="slphoto" data-i="${sl.idx}" ${imgIdx(s).length>1?"":"disabled"}>${ICON.img}Swap photo${imgIdx(s).length>1?` (${imgIdx(s).length})`:""}</button><button class="btn sm" data-act="slhide" data-i="${sl.idx}">${ICON.eye}Hide</button><button class="btn sm" data-act="site" data-id="${s.id}">Site details</button></div>`:"";
      return`<div class="sl" ${v?`draggable="true" data-i="${sl.idx}"`:""}><div class="num"><b>${String(n+1).padStart(2,"0")}</b>${v?`<button data-act="slmove" data-i="${sl.idx}" data-d="-1" aria-label="Move up">${ICON.up}</button><button data-act="slmove" data-i="${sl.idx}" data-d="1" aria-label="Move down">${ICON.down}</button>`:""}</div><div class="slwrap">${slideHTML(sl.ops,TPL[this.cfg.template])}${tools}</div></div>`}).join("")+
      (this.cfg.slides.some(s=>s.hidden)?`<div class="card pad"><b>Hidden slides</b><div class="chips" style="margin-top:8px">${this.cfg.slides.map((s,i)=>s.hidden?`<button class="chip" data-act="slshow" data-i="${i}">${esc(S.sites.find(x=>x.id===s.siteId)?.code||"?")} · show</button>`:"").join("")}</div></div>`:"");
@@ -1399,9 +1454,13 @@ function slideHTML(ops,t){
     return`<div class="o" ${o.edit?`contenteditable="plaintext-only" spellcheck="false" data-edit="${o.edit}"`:""} style="${pos};font-size:${fz(o.size)};color:${hx(o.color)};font-family:${ff};font-weight:${o.bold?800:500};text-align:${o.align};${o.upper?"text-transform:uppercase;":""}${o.spacing?`letter-spacing:${o.spacing/10}em;`:""}${o.font==="display"?"letter-spacing:-.02em;line-height:1.05;":""}${o.link?"text-decoration:underline;":""}">${esc(o.text)}</div>`}).join("")}</div>`;
 }
 function vStudio(){
-  if(ROLE==="guest"&&Studio.active&&Studio.cfg){
+  if(ROLE==="guest"){
+    if(!Studio.active || !Studio.cfg){
+      return `<div class="top" style="margin-bottom:28px"><span class="logochip"><img src="${esc(logoSrc())}" alt="${esc(S.settings.agency||"Agency")} logo"></span><div style="flex:1;min-width:0"><h1 style="font-size:24px">Loading presentation…</h1></div></div>
+      <div class="cards" style="margin-top:20px">${'<div class="skel" style="min-height:280px"></div>'.repeat(2)}</div>`;
+    }
     const c=Studio.cfg;
-    return `<div class="top"><span class="logochip"><img src="${esc(logoSrc())}" alt="${esc(S.settings.agency||"Agency")} logo"></span><div style="flex:1;min-width:0"><h1 style="font-size:22px">${esc(c.title||"Presentation")}<small>${esc(c.subtitle||"OOH Proposal")}</small></h1></div><div class="row" style="gap:8px"><button class="btn sm pri" data-act="export" data-v="pptx">${ICON.dl}Export PowerPoint</button><button class="btn sm cy" data-act="export" data-v="pdf">${ICON.dl}Export PDF</button></div></div>
+    return `<div class="top" style="margin-bottom:28px"><span class="logochip"><img src="${esc(logoSrc())}" alt="${esc(S.settings.agency||"Agency")} logo"></span><div style="flex:1;min-width:200px"><h1 style="font-size:24px">${esc(c.title||"Presentation")}<small>${esc(c.subtitle||"OOH Site Proposal")} · ${esc(S.settings.agency||"AdPulse IMC")}</small></h1></div><div class="row" style="gap:10px"><button class="btn pri" data-act="export" data-v="pptx">${ICON.dl}Export PowerPoint</button><button class="btn cy" data-act="export" data-v="pdf">${ICON.dl}Export PDF</button></div></div>
     <div class="studio" style="grid-template-columns:1fr"><div class="slides" id="slides"></div></div>`;
   }
   const decks=S.decks.slice().sort((a,b)=>(b.updatedAt||"").localeCompare(a.updatedAt||""));
