@@ -1,15 +1,20 @@
 {
+  "id": "/",
   "name": "AdPulse OOH Tracking System",
   "short_name": "AdPulse OTS",
+  "description": "AdPulse IMC Outdoor Advertising & Billboard Tracking System",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "any",
   "background_color": "#121011",
   "theme_color": "#D9161D",
   "icons": [
     {
       "src": "/icons/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/icons/icon-512.png",

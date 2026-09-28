@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#D9161D">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AdPulse OTS">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="icon" type="image/png" href="/icons/icon-192.png">
 <link rel="apple-touch-icon" href="/icons/icon-192.png">
@@ -1893,6 +1897,15 @@ $("#fileVid").onchange=e=>{addShots([...e.target.files]);e.target.value=""};
 $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(!f)return;const s=JSON.parse(JSON.stringify(S.sites.find(x=>x.id===e.target.dataset.site)));const gps=await exifGPS(f).catch(()=>null);const who=ls.get("sitesnap-name","")||"Office";const vid=f.type.startsWith("video/");if(vid&&f.size>20*1048576){toast("Keep videos under 20 MB (about 30 seconds)");return}toast(vid?"Uploading video…":"Uploading photo…");const ok=await runJob({site:s,campId:"",who,shots:[{id:uid(),file:f,url:URL.createObjectURL(f),kind:vid?"video":"photo",tag:vid?"Video":"Day",gps:vid?null:gps}]});toast(ok?(vid?"Video added":"Photo added"):"Upload failed. Check your connection and try again.");if(ok)openSite(s.id)};
 
 applyTheme();boot();
+if("serviceWorker" in navigator){
+  window.addEventListener("load",()=>{
+    navigator.serviceWorker.register("/sw.js").then(r=>{
+      console.log("AdPulse OTS PWA active:",r.scope);
+    }).catch(err=>{
+      console.warn("PWA ServiceWorker registration failed:",err);
+    });
+  });
+}
 </script>
 
 </body>
