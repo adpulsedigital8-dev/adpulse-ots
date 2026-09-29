@@ -33,18 +33,35 @@ body.guest-presentation .main {
 
 /* ============ Immersive 3D Navigation Styles ============ */
 .mapwrap {
-  perspective: 1200px;
+  perspective: 1400px;
   transition: all 0.5s ease;
 }
 .mapwrap.immersive-active {
-  background: #09090b !important;
+  background: #050508 !important;
 }
 .mapwrap.immersive-active #leafletMap {
-  transform: rotateX(46deg) scale(1.18) translateY(-25px);
-  transform-origin: center 85%;
+  transform: rotateX(54deg) scale(1.28) translateY(-30px);
+  transform-origin: center 80%;
   transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-  box-shadow: 0 45px 90px rgba(0,0,0,0.85);
-  border-radius: 12px;
+  box-shadow: 0 50px 100px rgba(0,0,0,0.9);
+  border-radius: 14px;
+}
+.cam-angle-btn {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.cam-angle-btn.active {
+  background: #D9161D;
+  border-color: #D9161D;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(217, 22, 29, 0.5);
 }
 .immersive-hud {
   position: absolute;
@@ -1279,6 +1296,37 @@ function open3DMapModal(id){
 
 
 /* ============ Immersive 3D Navigation Controller ============ */
+
+function estimateRoadHeading(s){
+  const from = (s.from || "").toLowerCase();
+  const towards = (s.towards || "").toLowerCase();
+  const area = (s.area || "").toLowerCase();
+  
+  if(area.includes("shahrah-e-faisal") || area.includes("sharah-e-faisal")){
+    if(towards.includes("clifton") || towards.includes("metropole") || towards.includes("ftc") || towards.includes("saddar") || from.includes("airport") || from.includes("karsaz")) return 255;
+    return 75;
+  }
+  if(area.includes("clifton") || area.includes("dha") || area.includes("defense")){
+    if(towards.includes("sea view") || towards.includes("do darya") || towards.includes("phase") || towards.includes("south")) return 180;
+    if(towards.includes("boat basin") || towards.includes("subway") || towards.includes("clifton bridge") || towards.includes("north")) return 0;
+    return 140;
+  }
+  if(area.includes("rashid minhas") || area.includes("gulshan") || area.includes("nipa")){
+    if(towards.includes("sohrab goth") || towards.includes("super highway") || towards.includes("aladin")) return 330;
+    return 150;
+  }
+  if(area.includes("university road") || area.includes("gulistan-e-johar")){
+    if(towards.includes("safoora") || towards.includes("malir") || towards.includes("johar")) return 65;
+    return 245;
+  }
+  if(area.includes("karsaz") || area.includes("habib")){
+    if(towards.includes("stadium") || towards.includes("liaquat")) return 350;
+    return 170;
+  }
+  return 45;
+}
+
+
 const Immersive3DNav = {
   active: false,
   tourRunning: false,
@@ -1286,6 +1334,60 @@ const Immersive3DNav = {
   tourTimer: null,
   isPaused: false,
   sitesList: [],
+  currentAngle: 'driver', // 'driver' | 'close' | 'orbit' | 'aerial'
+  orbitStep: 0,
+  orbitTimer: null,
+
+  setCameraAngle(mode) {
+    this.currentAngle = mode;
+    const s = this.sitesList[this.tourIndex] || S.sites[0];
+    const mapEl = document.getElementById("leafletMap");
+    if (!mapEl) return;
+
+    document.querySelectorAll(".cam-angle-btn").forEach(b => {
+      b.classList.toggle("active", b.dataset.mode === mode);
+    });
+
+    const heading = estimateRoadHeading(s);
+
+    if (mode === 'driver') {
+      // Driver POV: Low tilt aligned with road from -> towards
+      mapEl.style.transform = `rotateX(58deg) rotateZ(${-((heading % 360) / 4)}deg) scale(1.35) translateY(-35px)`;
+      if (_leafletMap && s.lat) _leafletMap.flyTo([+s.lat, +s.lng], 18, { duration: 1.5 });
+      toast(`Driver Road POV: Approaching from ${s.from||"Road"} towards ${s.towards||"Destination"}`);
+    } else if (mode === 'close') {
+      // Close-Up Billboard Facing view
+      mapEl.style.transform = `rotateX(42deg) rotateZ(0deg) scale(1.22) translateY(-20px)`;
+      if (_leafletMap && s.lat) _leafletMap.flyTo([+s.lat, +s.lng], 19, { duration: 1.2 });
+      toast(`Close-Up Billboard Face: ${s.code} (${sizeOf(s)} ft)`);
+    } else if (mode === 'orbit') {
+      // 360 Orbit
+      this.startOrbitAnimation(s);
+    } else if (mode === 'aerial') {
+      // High Aerial Flyover
+      mapEl.style.transform = `rotateX(30deg) rotateZ(0deg) scale(1.1) translateY(0px)`;
+      if (_leafletMap && s.lat) _leafletMap.flyTo([+s.lat, +s.lng], 16, { duration: 1.2 });
+      toast("Aerial 3D Flyover View");
+    }
+  },
+
+  startOrbitAnimation(s) {
+    clearInterval(this.orbitTimer);
+    let rot = 0;
+    const mapEl = document.getElementById("leafletMap");
+    if (!mapEl) return;
+    mapEl.style.transform = `rotateX(48deg) rotateZ(0deg) scale(1.25) translateY(-20px)`;
+    if (_leafletMap && s.lat) _leafletMap.flyTo([+s.lat, +s.lng], 18, { duration: 1.0 });
+    
+    this.orbitTimer = setInterval(() => {
+      if (!this.active || this.currentAngle !== 'orbit') {
+        clearInterval(this.orbitTimer);
+        return;
+      }
+      rot = (rot + 1.5) % 360;
+      mapEl.style.transform = `rotateX(48deg) rotateZ(${rot}deg) scale(1.25) translateY(-20px)`;
+    }, 50);
+  },
 
   toggle3DView() {
     const wrap = document.querySelector(".mapwrap");
@@ -1297,10 +1399,17 @@ const Immersive3DNav = {
       btn.innerHTML = this.active ? "🛸 Normal View" : "🛸 3D Tilt View";
       btn.classList.toggle("pri", this.active);
     }
+    if (this.active) {
+      this.setCameraAngle('driver');
+    } else {
+      const mapEl = document.getElementById("leafletMap");
+      if (mapEl) mapEl.style.transform = "none";
+      clearInterval(this.orbitTimer);
+    }
     if (_leafletMap) {
       setTimeout(() => _leafletMap.invalidateSize(), 300);
     }
-    toast(this.active ? "3D Immersive Perspective Mode Enabled" : "Returned to standard 2D view");
+    toast(this.active ? "3D Road View Mode Activated" : "Returned to standard 2D view");
   },
 
   startTour(list) {
@@ -1347,15 +1456,23 @@ const Immersive3DNav = {
     const total = this.sitesList.length;
     const currentNum = this.tourIndex + 1;
     const st = effStatus(s);
+    const heading = estimateRoadHeading(s);
 
-    // Update Turn Card HUD
+    // Update Turn Card HUD with exact From -> Towards road traffic angle
     const turnCard = document.getElementById("hudTurnCard");
     if (turnCard) {
-      turnCard.innerHTML = `<div style="font-size:26px;line-height:1">↰</div>
+      turnCard.innerHTML = `<div style="font-size:26px;line-height:1;display:flex;flex-direction:column;align-items:center">
+          <span>↰</span>
+          <span style="font-size:9px;opacity:0.8">↑ ↑ ↰</span>
+        </div>
         <div>
-          <div style="font-size:11px;opacity:0.85;text-transform:uppercase;font-weight:700">Next Site ${currentNum}/${total}</div>
-          <div style="font-size:15px;font-weight:800;letter-spacing:-0.2px">${esc(s.area)}</div>
-          <div style="font-size:11px;opacity:0.9">${esc(s.code)} · ${sizeOf(s)} ft · ~${fmtK(otsOf(s))} OTS</div>
+          <div style="font-size:10px;opacity:0.85;text-transform:uppercase;font-weight:700">Road Traffic Flow (${currentNum}/${total})</div>
+          <div style="font-size:14px;font-weight:800;letter-spacing:-0.2px;display:flex;align-items:center;gap:4px">
+            <span>${esc(s.from || "Approach")}</span>
+            <span style="color:#FBBF24">→</span>
+            <span>${esc(s.towards || "Destination")}</span>
+          </div>
+          <div style="font-size:11px;opacity:0.9">${esc(s.area)} · <span class="mono">${esc(s.code)}</span> · ${sizeOf(s)} ft · ~${fmtK(otsOf(s))} OTS</div>
         </div>`;
     }
 
@@ -1365,36 +1482,57 @@ const Immersive3DNav = {
       btmInfo.innerHTML = `<div style="display:flex;align-items:center;gap:10px">
         <img src="${esc(thumbOf(s))}" alt="" style="width:50px;height:38px;object-fit:cover;border-radius:6px" onerror="phFix(this)">
         <div>
-          <div style="font-weight:700;font-size:13px"><span class="mono" style="color:var(--violet)">${esc(s.code)}</span> · ${esc(s.from||"—")} → ${esc(s.towards||"—")}</div>
-          <div style="font-size:11px;color:#cbd5e1"><span class="pill st-${st}" style="font-size:9px;padding:1px 5px">${STATUS[st]}</span> · Speed: <b>50 km/h</b> (Simulated 3D Drive)</div>
+          <div style="font-weight:700;font-size:13px"><span class="mono" style="color:var(--violet)">${esc(s.code)}</span> · ${esc(s.media||"Billboard")} (${sizeOf(s)} ft)</div>
+          <div style="font-size:11px;color:#cbd5e1"><span class="pill st-${st}" style="font-size:9px;padding:1px 5px">${STATUS[st]}</span> · Motorist Eye-Level View @ <b>45 km/h</b></div>
         </div>
       </div>`;
     }
 
-    // Smooth Slow Fly-In to Billboard in 3D (Duration 3.2s)
+    const mapEl = document.getElementById("leafletMap");
+
+    // PHASE 1: DRIVER APPROACH VIEW (Along the road trajectory from 'from' towards 'towards')
+    if (mapEl) {
+      mapEl.style.transform = `rotateX(58deg) rotateZ(${-((heading % 360) / 4)}deg) scale(1.35) translateY(-35px)`;
+    }
     _leafletMap.flyTo([+s.lat, +s.lng], 18, {
-      duration: 3.2,
+      duration: 3.0,
       easeLinearity: 0.25
     });
 
-    // Stay and inspect site for 4.5 seconds, then zoom out slightly and move to next
     clearTimeout(this.tourTimer);
     this.tourTimer = setTimeout(() => {
       if (!this.tourRunning || this.isPaused) return;
-      
-      // Zoom out smoothly
-      _leafletMap.flyTo([+s.lat, +s.lng], 15, {
-        duration: 2.0,
+
+      // PHASE 2: CLOSE-UP BILLBOARD FACING VIEW (Inspect facing and structure details)
+      if (mapEl) {
+        mapEl.style.transform = `rotateX(45deg) rotateZ(0deg) scale(1.24) translateY(-20px)`;
+      }
+      _leafletMap.flyTo([+s.lat, +s.lng], 19, {
+        duration: 1.8,
         easeLinearity: 0.3
       });
 
       this.tourTimer = setTimeout(() => {
         if (!this.tourRunning || this.isPaused) return;
-        this.tourIndex++;
-        this.nextSite();
-      }, 2200);
 
-    }, 4500);
+        // PHASE 3: EXIT TOWARDS DESTINATION & SMOOTH ZOOM-OUT
+        if (mapEl) {
+          mapEl.style.transform = `rotateX(50deg) rotateZ(${-((heading % 360) / 5)}deg) scale(1.2) translateY(-15px)`;
+        }
+        _leafletMap.flyTo([+s.lat, +s.lng], 15, {
+          duration: 2.2,
+          easeLinearity: 0.3
+        });
+
+        this.tourTimer = setTimeout(() => {
+          if (!this.tourRunning || this.isPaused) return;
+          this.tourIndex++;
+          this.nextSite();
+        }, 2400);
+
+      }, 3800);
+
+    }, 3200);
   },
 
   pauseResume() {
@@ -1408,6 +1546,7 @@ const Immersive3DNav = {
 
   skipNext() {
     clearTimeout(this.tourTimer);
+    clearInterval(this.orbitTimer);
     this.tourIndex++;
     this.nextSite();
   },
@@ -1415,6 +1554,7 @@ const Immersive3DNav = {
   stopTour() {
     this.tourRunning = false;
     clearTimeout(this.tourTimer);
+    clearInterval(this.orbitTimer);
 
     const hud = document.getElementById("immersiveHud");
     if (hud) hud.style.display = "none";
@@ -1425,11 +1565,13 @@ const Immersive3DNav = {
     const aiBar = document.querySelector(".map-ai-bar");
     if (aiBar) aiBar.style.display = "flex";
 
+    const mapEl = document.getElementById("leafletMap");
+    if (mapEl) mapEl.style.transform = "none";
+
     resetMapZoom();
     toast("3D Auto Navigation Tour Stopped");
   }
 };
-
 function zoomToSite3D(id){
   const s = S.sites.find(x => x.id === id);
   if(!s || !s.lat || !s.lng || !_leafletMap) {
@@ -1580,6 +1722,12 @@ function mapHTML(list){
     <!-- Immersive HUD Overlay (During 3D Drive) -->
     <div id="immersiveHud" class="immersive-hud" style="display:none">
       <div id="hudTurnCard" class="immersive-turn-card"></div>
+      <div style="display:flex;gap:4px;pointer-events:auto;background:rgba(0,0,0,0.75);backdrop-filter:blur(8px);padding:4px 8px;border-radius:10px;border:1px solid rgba(255,255,255,0.2)">
+        <button class="cam-angle-btn active" data-mode="driver" onclick="Immersive3DNav.setCameraAngle('driver')" title="Driver POV along traffic flow">🚗 Driver POV</button>
+        <button class="cam-angle-btn" data-mode="close" onclick="Immersive3DNav.setCameraAngle('close')" title="Close-Up Billboard Face">👁️ Close-Up</button>
+        <button class="cam-angle-btn" data-mode="orbit" onclick="Immersive3DNav.setCameraAngle('orbit')" title="360 Orbit around site">🔄 360° Orbit</button>
+        <button class="cam-angle-btn" data-mode="aerial" onclick="Immersive3DNav.setCameraAngle('aerial')" title="Top 3D Aerial Flyover">🛸 Aerial</button>
+      </div>
       <button class="btn sm" onclick="Immersive3DNav.stopTour()" style="pointer-events:auto;background:rgba(0,0,0,0.7);color:#fff;border:1px solid rgba(255,255,255,0.2);padding:6px 12px;border-radius:8px;font-weight:700">✕ Exit 3D</button>
     </div>
 
