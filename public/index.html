@@ -121,8 +121,9 @@ body.guest-presentation .main {
 .immersive-3d-overlay {
   position: absolute;
   inset: 0;
-  z-index: 1000;
-  background: #090D16;
+  z-index: 500;
+  background: transparent !important;
+  pointer-events: none;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -1407,13 +1408,10 @@ const True3DNavigation = {
   ctx: null,
   animId: null,
   currentIndex: 0,
-  progress: 0, // 0 to 1 along current leg
+  progress: 0, // 0 to 1
   sites: [],
-  speed: 0.0022,
-  carHeading: 0,
-  carPos: { x: 0, y: 0 },
+  speed: 0.0035,
   showingInspectionCard: false,
-  etaSeconds: 180,
 
   start(list) {
     const valid = (list || S.sites || []).filter(s => s && s.lat && s.lng && isFinite(+s.lat) && isFinite(+s.lng));
@@ -1427,12 +1425,17 @@ const True3DNavigation = {
     this.running = true;
     this.showingInspectionCard = false;
 
+    // Enable 3D perspective tilt on real satellite map
+    const wrap = document.querySelector(".mapwrap");
+    if (wrap) wrap.classList.add("immersive-active");
+
     const overlay = document.getElementById("immersive3DOverlay");
     if (overlay) overlay.style.display = "flex";
 
     this.initCanvas();
+    this.flyToCurrentSite();
     this.animate();
-    toast("✨ Immersive 3D Navigation Active: Travelling to " + this.sites[0].area);
+    toast("✨ Real 3D Satellite Drive Active: " + this.sites[0].area);
   },
 
   initCanvas() {
@@ -1453,15 +1456,47 @@ const True3DNavigation = {
   stop() {
     this.running = false;
     cancelAnimationFrame(this.animId);
+    
+    const wrap = document.querySelector(".mapwrap");
+    if (wrap) wrap.classList.remove("immersive-active");
+
+    const mapEl = document.getElementById("leafletMap");
+    if (mapEl) mapEl.style.transform = "none";
+
     const overlay = document.getElementById("immersive3DOverlay");
     if (overlay) overlay.style.display = "none";
+
+    const card = document.getElementById("cockpitSiteCard");
+    if (card) card.remove();
+
+    resetMapZoom();
     toast("Exited 3D Immersive Navigation");
   },
 
   skip() {
+    const card = document.getElementById("cockpitSiteCard");
+    if (card) card.remove();
     this.showingInspectionCard = false;
     this.progress = 0;
     this.currentIndex = (this.currentIndex + 1) % this.sites.length;
+    this.flyToCurrentSite();
+  },
+
+  flyToCurrentSite() {
+    if (!_leafletMap || !this.sites.length) return;
+    const s = this.sites[this.currentIndex];
+    const heading = estimateRoadHeading(s);
+
+    const mapEl = document.getElementById("leafletMap");
+    if (mapEl) {
+      mapEl.style.transform = `rotateX(56deg) rotateZ(${-((heading % 360) / 4)}deg) scale(1.35) translateY(-32px)`;
+    }
+
+    // Fly in ultra close to the real buildings and road
+    _leafletMap.flyTo([+s.lat, +s.lng], 19.5, {
+      duration: 3.5,
+      easeLinearity: 0.25
+    });
   },
 
   animate() {
@@ -1480,267 +1515,139 @@ const True3DNavigation = {
     ctx.clearRect(0, 0, w, h);
 
     const s = this.sites[this.currentIndex];
-    const nextSite = this.sites[(this.currentIndex + 1) % this.sites.length];
 
-    // Update Progress
+    // Progress along current road segment
     if (!this.showingInspectionCard) {
       this.progress += this.speed;
-      if (this.progress >= 0.85 && !this.showingInspectionCard) {
+      if (this.progress >= 0.88 && !this.showingInspectionCard) {
         this.showingInspectionCard = true;
         this.renderSiteCard(s);
         setTimeout(() => {
+          if (!this.running) return;
           this.showingInspectionCard = false;
           const card = document.getElementById("cockpitSiteCard");
           if (card) card.remove();
           this.progress = 0;
           this.currentIndex = (this.currentIndex + 1) % this.sites.length;
+          this.flyToCurrentSite();
         }, 5000);
       }
     }
 
-    // 1. Draw 3D Night Sky & Horizon
-    const gradSky = ctx.createLinearGradient(0, 0, 0, h * 0.45);
-    gradSky.addColorStop(0, "#080c16");
-    gradSky.addColorStop(1, "#121a2d");
-    ctx.fillStyle = gradSky;
-    ctx.fillRect(0, 0, w, h * 0.45);
+    const vx = w * 0.5;
+    const vy = h * 0.42;
 
-    // 2. Draw 3D Ground & Terrain Grid
-    const gradGround = ctx.createLinearGradient(0, h * 0.4, 0, h);
-    gradGround.addColorStop(0, "#0d1322");
-    gradGround.addColorStop(1, "#070a12");
-    ctx.fillStyle = gradGround;
-    ctx.fillRect(0, h * 0.4, w, h * 0.6);
+    // 1. Draw Glowing Cyan GPS Route Line (Following the Real Road)
+    this.drawGlowingRoute(ctx, w, h, vx, vy);
 
-    // Perspective Center
-    const vanishX = w * 0.5 + Math.sin(Date.now() * 0.0006) * 30;
-    const vanishY = h * 0.38;
+    // 2. Draw 3D Destination Target Beacon on Real Billboard Location
+    this.drawTargetBeacon(ctx, w, h, vx, vy, s);
 
-    // 3. Draw 3D Extruded Buildings (Left and Right City Skyline)
-    this.draw3DBuildings(ctx, w, h, vanishX, vanishY);
-
-    // 4. Draw 3D Multi-Lane Highway Road
-    this.draw3DHighway(ctx, w, h, vanishX, vanishY);
-
-    // 5. Draw Glowing Cyan Navigation Route Ribbon
-    this.drawGlowingRouteRibbon(ctx, w, h, vanishX, vanishY);
-
-    // 6. Draw 3D Elevated Overpass Flyover
-    this.draw3DFlyoverBridge(ctx, w, h, vanishX, vanishY);
-
-    // 7. Draw 3D Billboard & Destination Beacon Marker
-    this.draw3DBillboardTarget(ctx, w, h, vanishX, vanishY, s);
-
-    // 8. Draw 3D Animated Vehicle (Driving in Real-Time with Headlights)
+    // 3. Draw 3D Vehicle with Headlights Driving along the Road
     this.draw3DVehicle(ctx, w, h);
 
-    // 9. Update Cockpit HUD Data
+    // 4. Update HUD Text & Indicators
     this.updateHUD(s);
   },
 
-  draw3DBuildings(ctx, w, h, vx, vy) {
-    const time = Date.now() * 0.0008;
-    const leftBuildings = [
-      { x: w * 0.05, w: 90, h: 220, col: "#1e293b", roof: "#334155" },
-      { x: w * 0.18, w: 110, h: 280, col: "#172033", roof: "#26354f" },
-      { x: w * 0.28, w: 80, h: 180, col: "#1a243a", roof: "#2d3e5e" }
-    ];
-    const rightBuildings = [
-      { x: w * 0.68, w: 95, h: 240, col: "#1a243a", roof: "#2d3e5e" },
-      { x: w * 0.78, w: 120, h: 320, col: "#151e30", roof: "#24324d" },
-      { x: w * 0.88, w: 85, h: 190, col: "#1e293b", roof: "#334155" }
-    ];
+  drawGlowingRoute(ctx, w, h, vx, vy) {
+    const curveX = Math.sin(this.progress * Math.PI) * 35;
 
-    [...leftBuildings, ...rightBuildings].forEach((b, idx) => {
-      const baseY = vy + 60 + Math.sin(time + idx) * 10;
-      const topY = baseY - b.h;
-
-      // Front Face
-      ctx.fillStyle = b.col;
-      ctx.beginPath();
-      ctx.rect(b.x, topY, b.w, b.h + (h - baseY));
-      ctx.fill();
-
-      // Top Face (3D Roof)
-      ctx.fillStyle = b.roof;
-      ctx.beginPath();
-      ctx.moveTo(b.x, topY);
-      ctx.lineTo(b.x + b.w * 0.3, topY - 20);
-      ctx.lineTo(b.x + b.w * 1.3, topY - 20);
-      ctx.lineTo(b.x + b.w, topY);
-      ctx.closePath();
-      ctx.fill();
-
-      // Ambient Lit Windows
-      ctx.fillStyle = "rgba(56, 189, 248, 0.25)";
-      for(let r = 0; r < 5; r++) {
-        for(let col = 0; col < 3; col++) {
-          if((idx + r + col) % 3 === 0) {
-            ctx.fillRect(b.x + 15 + col * 25, topY + 30 + r * 35, 12, 16);
-          }
-        }
-      }
-    });
-  },
-
-  draw3DHighway(ctx, w, h, vx, vy) {
-    // Road Surface
-    ctx.fillStyle = "#161c28";
-    ctx.beginPath();
-    ctx.moveTo(vx - 20, vy);
-    ctx.lineTo(vx + 20, vy);
-    ctx.lineTo(w * 0.75, h);
-    ctx.lineTo(w * 0.25, h);
-    ctx.closePath();
-    ctx.fill();
-
-    // Road Shoulder Lines
-    ctx.strokeStyle = "#475569";
-    ctx.lineWidth = 4;
-    ctx.beginPath();
-    ctx.moveTo(vx - 20, vy);
-    ctx.lineTo(w * 0.25, h);
-    ctx.moveTo(vx + 20, vy);
-    ctx.lineTo(w * 0.75, h);
-    ctx.stroke();
-
-    // Dashed Center Lanes (Animated moving towards camera)
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.4)";
-    ctx.lineWidth = 3;
-    ctx.setLineDash([25, 25]);
-    ctx.lineDashOffset = -(Date.now() * 0.08);
-    ctx.beginPath();
-    ctx.moveTo(vx, vy);
-    ctx.lineTo(w * 0.5, h);
-    ctx.stroke();
-    ctx.setLineDash([]);
-  },
-
-  drawGlowingRouteRibbon(ctx, w, h, vx, vy) {
-    // Glowing Cyan Path
-    ctx.strokeStyle = "#06B6D4";
+    // Glowing Outer Cyan Ribbon
+    ctx.strokeStyle = "#00F2FE";
     ctx.lineWidth = 14;
     ctx.shadowColor = "#00F2FE";
-    ctx.shadowBlur = 20;
-
-    const curveX = Math.sin(this.progress * Math.PI) * 40;
-
+    ctx.shadowBlur = 22;
     ctx.beginPath();
-    ctx.moveTo(w * 0.5, h - 30);
-    ctx.quadraticCurveTo(w * 0.5 + curveX, h * 0.65, vx + 10, vy + 40);
+    ctx.moveTo(w * 0.5, h - 35);
+    ctx.quadraticCurveTo(w * 0.5 + curveX, h * 0.68, vx + 15, vy + 45);
     ctx.stroke();
     ctx.shadowBlur = 0;
 
-    // Glowing White Inner Line
+    // Crisp White Core
     ctx.strokeStyle = "#FFFFFF";
     ctx.lineWidth = 4;
     ctx.beginPath();
-    ctx.moveTo(w * 0.5, h - 30);
-    ctx.quadraticCurveTo(w * 0.5 + curveX, h * 0.65, vx + 10, vy + 40);
+    ctx.moveTo(w * 0.5, h - 35);
+    ctx.quadraticCurveTo(w * 0.5 + curveX, h * 0.68, vx + 15, vy + 45);
     ctx.stroke();
   },
 
-  draw3DFlyoverBridge(ctx, w, h, vx, vy) {
-    // 3D Elevated Overpass Deck crossing the highway
-    const bridgeY = vy + 110;
-    
-    // Bridge Shadow
-    ctx.fillStyle = "rgba(0,0,0,0.6)";
-    ctx.fillRect(w * 0.15, bridgeY + 15, w * 0.7, 18);
+  drawTargetBeacon(ctx, w, h, vx, vy, s) {
+    const scale = 0.6 + this.progress * 0.5;
+    const bx = vx + 55 + (1 - this.progress) * 25;
+    const by = vy + 35 + this.progress * 60;
 
-    // Bridge Concrete Deck
-    const bridgeGrad = ctx.createLinearGradient(0, bridgeY, 0, bridgeY + 22);
-    bridgeGrad.addColorStop(0, "#334155");
-    bridgeGrad.addColorStop(1, "#1e293b");
-    ctx.fillStyle = bridgeGrad;
-    ctx.beginPath();
-    ctx.roundRect(w * 0.12, bridgeY, w * 0.76, 20, [4]);
-    ctx.fill();
-
-    // Guardrail
-    ctx.strokeStyle = "#0EA5E9";
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(w * 0.12, bridgeY);
-    ctx.lineTo(w * 0.88, bridgeY);
-    ctx.stroke();
-  },
-
-  draw3DBillboardTarget(ctx, w, h, vx, vy, s) {
-    const scale = 0.5 + this.progress * 0.6;
-    const bx = vx + 80 + (1 - this.progress) * 40;
-    const by = vy + 30 + this.progress * 80;
-
-    // Red 3D Destination Location Pin
-    ctx.fillStyle = "#EF4444";
-    ctx.shadowColor = "#EF4444";
-    ctx.shadowBlur = 15;
-    ctx.beginPath();
-    ctx.arc(bx, by, 12 * scale, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.shadowBlur = 0;
-
-    // Outer Radar Beacon Ring
-    ctx.strokeStyle = "rgba(239, 68, 68, 0.6)";
+    // Pulsing Red Radar Ring on Real Billboard Ground
+    ctx.strokeStyle = "rgba(239, 68, 68, 0.85)";
     ctx.lineWidth = 3;
-    const pulseRadius = (15 + (Date.now() % 1000) * 0.03) * scale;
+    const pulseRadius = (16 + (Date.now() % 1000) * 0.035) * scale;
     ctx.beginPath();
     ctx.arc(bx, by, pulseRadius, 0, Math.PI * 2);
     ctx.stroke();
 
-    // Floating 3D Billboard Structure & Hologram Tag
-    ctx.fillStyle = "rgba(15, 23, 42, 0.95)";
+    // Red Location Dot
+    ctx.fillStyle = "#EF4444";
+    ctx.shadowColor = "#EF4444";
+    ctx.shadowBlur = 16;
+    ctx.beginPath();
+    ctx.arc(bx, by, 10 * scale, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    // Hologram Billboard Code Tag Over Real Building/Median
+    ctx.fillStyle = "rgba(15, 23, 42, 0.92)";
     ctx.strokeStyle = "#38BDF8";
     ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.roundRect(bx - 65 * scale, by - 55 * scale, 130 * scale, 34 * scale, [6]);
+    ctx.roundRect(bx - 60 * scale, by - 52 * scale, 120 * scale, 30 * scale, [6]);
     ctx.fill();
     ctx.stroke();
 
     ctx.fillStyle = "#fff";
     ctx.font = `bold ${Math.round(11 * scale)}px system-ui`;
     ctx.textAlign = "center";
-    ctx.fillText(`${s.code} (${sizeOf(s)} ft)`, bx, by - 36 * scale);
+    ctx.fillText(`${s.code} (${sizeOf(s)} ft)`, bx, by - 33 * scale);
   },
 
   draw3DVehicle(ctx, w, h) {
     const carX = w * 0.5;
     const carY = h - 90;
 
-    // Headlights Beam on road
+    // Headlight Beams illuminating the real satellite road
     const lightGrad = ctx.createRadialGradient(carX, carY, 10, carX, carY - 140, 160);
-    lightGrad.addColorStop(0, "rgba(255, 255, 255, 0.35)");
+    lightGrad.addColorStop(0, "rgba(255, 255, 255, 0.4)");
     lightGrad.addColorStop(1, "rgba(255, 255, 255, 0)");
     ctx.fillStyle = lightGrad;
     ctx.beginPath();
-    ctx.moveTo(carX - 25, carY);
-    ctx.lineTo(carX - 80, carY - 160);
-    ctx.lineTo(carX + 80, carY - 160);
-    ctx.lineTo(carX + 25, carY);
+    ctx.moveTo(carX - 22, carY);
+    ctx.lineTo(carX - 75, carY - 150);
+    ctx.lineTo(carX + 75, carY - 150);
+    ctx.lineTo(carX + 22, carY);
     ctx.closePath();
     ctx.fill();
 
-    // 3D White Car Chassis
-    ctx.fillStyle = "#E2E8F0";
-    ctx.shadowColor = "rgba(0,0,0,0.8)";
+    // 3D White Car Body
+    ctx.fillStyle = "#F8FAFC";
+    ctx.shadowColor = "rgba(0,0,0,0.85)";
     ctx.shadowBlur = 18;
     ctx.beginPath();
-    ctx.roundRect(carX - 24, carY - 35, 48, 65, [10, 10, 6, 6]);
+    ctx.roundRect(carX - 22, carY - 34, 44, 62, [10, 10, 6, 6]);
     ctx.fill();
     ctx.shadowBlur = 0;
 
-    // Roof & Rear Windshield
+    // Windshield & Roof
     ctx.fillStyle = "#1E293B";
     ctx.beginPath();
-    ctx.roundRect(carX - 18, carY - 18, 36, 30, [4]);
+    ctx.roundRect(carX - 16, carY - 18, 32, 28, [4]);
     ctx.fill();
 
     // Red LED Taillights
     ctx.fillStyle = "#EF4444";
     ctx.shadowColor = "#EF4444";
     ctx.shadowBlur = 8;
-    ctx.fillRect(carX - 22, carY + 24, 10, 4);
-    ctx.fillRect(carX + 12, carY + 24, 10, 4);
+    ctx.fillRect(carX - 20, carY + 22, 9, 4);
+    ctx.fillRect(carX + 11, carY + 22, 9, 4);
     ctx.shadowBlur = 0;
   },
 
@@ -1753,7 +1660,7 @@ const True3DNavigation = {
     if (stNameEl) stNameEl.textContent = s.from ? (s.from + " → " + s.towards) : s.area;
 
     const areaTagEl = document.getElementById("hudAreaTag");
-    if (areaTagEl) areaTagEl.textContent = s.area;
+    if (areaTagEl) areaTagEl.textContent = (s.area || "KHI").slice(0, 4).toUpperCase();
   },
 
   renderSiteCard(s) {
@@ -1765,6 +1672,7 @@ const True3DNavigation = {
     const card = document.createElement("div");
     card.id = "cockpitSiteCard";
     card.className = "cockpit-site-card";
+    card.style.pointerEvents = "auto";
     card.innerHTML = `
       <div style="display:flex;align-items:center;justify-content:space-between">
         <span class="mono" style="font-size:13px;font-weight:800;color:#38BDF8">${esc(s.code)}</span>
@@ -1782,7 +1690,6 @@ const True3DNavigation = {
     document.getElementById("immersive3DOverlay").appendChild(card);
   }
 };
-
 /* ============ Map (Leaflet + Google Earth + OpenStreetMap) ============ */
 let _leafletMap = null;
 let _mapMarkerList = [];
