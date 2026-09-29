@@ -910,6 +910,199 @@ function vDash(){
 }
 function emptyState(h,p,cta=""){return`<div class="empty">${ICON.sites}<h3>${h}</h3><p>${p}</p>${cta}</div>`}
 
+
+/* ============ Ask Maps with Gemini AI ============ */
+const AskMapsAI = {
+  chatHistory: [],
+
+  quickPrompts: [
+    "🔥 High-traffic billboards on Shahrah-e-Faisal",
+    "📍 Available SMD & LED screens in Clifton & DHA",
+    "🚗 Plan field inspection route for expiring sites",
+    "💡 Best illuminated sites with >100k OTS/day",
+    "📊 Available inventory near Karachi Airport"
+  ],
+
+  parse(query) {
+    const q = (query || "").trim().toLowerCase();
+    let sites = S.sites.slice();
+    let explanation = "";
+
+    const isUrduOrEng = q.includes("kaunse") || q.includes("batao") || q.includes("dikhao") || q.includes("khali") || q.includes("chahiye");
+
+    // Location matching
+    const areas = ["clifton", "dha", "shahrah-e-faisal", "karsaz", "airport", "gulshan", "rashid minhas", "saddar", "pechs", "nazimabad", "defense", "zamzama", "tipu sultan"];
+    const matchedAreas = areas.filter(a => q.includes(a) || (a === "dha" && q.includes("defense")));
+    
+    if (matchedAreas.length) {
+      sites = sites.filter(s => {
+        const areaStr = (s.area + " " + (s.from||"") + " " + (s.towards||"")).toLowerCase();
+        return matchedAreas.some(a => areaStr.includes(a) || (a === "dha" && (areaStr.includes("dha") || areaStr.includes("phase"))));
+      });
+    }
+
+    // Media type matching
+    if (q.includes("smd") || q.includes("led") || q.includes("digital")) {
+      sites = sites.filter(s => /smd|digital|led/i.test(s.media || ""));
+    } else if (q.includes("bridge")) {
+      sites = sites.filter(s => /bridge/i.test(s.media || ""));
+    } else if (q.includes("pole")) {
+      sites = sites.filter(s => /pole/i.test(s.media || ""));
+    } else if (q.includes("gantry") || q.includes("mega")) {
+      sites = sites.filter(s => /gantry|mega/i.test(s.media || ""));
+    }
+
+    // Status matching
+    if (q.includes("available") || q.includes("free") || q.includes("khali")) {
+      sites = sites.filter(s => effStatus(s) === "available");
+    } else if (q.includes("expir") || q.includes("end") || q.includes("khatam")) {
+      sites = sites.filter(s => effStatus(s) === "expiring" || (s.bookedTill && daysTo(s.bookedTill) <= 14));
+    } else if (q.includes("booked")) {
+      sites = sites.filter(s => effStatus(s) === "booked");
+    }
+
+    // Lighting matching
+    if (q.includes("lit") || q.includes("light") || q.includes("night") || q.includes("roshan")) {
+      sites = sites.filter(s => s.light === "frontlit" || s.light === "backlit" || s.light === "digital");
+    }
+
+    // Sort by OTS / High Traffic
+    if (q.includes("high") || q.includes("traffic") || q.includes("top") || q.includes("best") || q.includes("ots")) {
+      sites.sort((a, b) => otsOf(b) - otsOf(a));
+    }
+
+    const totalOts = sites.reduce((sum, s) => sum + otsOf(s), 0);
+    const validCoords = sites.filter(s => s.lat && s.lng && isFinite(+s.lat) && isFinite(+s.lng));
+
+    return {
+      query,
+      sites,
+      validCoords,
+      totalOts,
+      matchedAreas
+    };
+  },
+
+  buildRouteUrl(sites) {
+    const valid = (sites || []).filter(s => s.lat && s.lng && isFinite(+s.lat) && isFinite(+s.lng));
+    if (!valid.length) return null;
+    if (valid.length === 1) {
+      return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(valid[0].lat + ',' + valid[0].lng)}&travelmode=driving`;
+    }
+    const dest = valid[valid.length - 1];
+    const waypoints = valid.slice(0, -1).map(s => encodeURIComponent(s.lat + ',' + s.lng)).join('|');
+    return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(dest.lat + ',' + dest.lng)}&waypoints=${waypoints}&travelmode=driving`;
+  },
+
+  ask(query) {
+    if (!query || !query.trim()) return;
+    const res = this.parse(query);
+    this.chatHistory.push(res);
+    this.renderModal();
+    
+    // Also highlight on map if visible
+    if (_leafletMap && res.sites.length) {
+      filterMapMarkers(query);
+    }
+  },
+
+  open(initialQuery = "") {
+    if (initialQuery) {
+      this.ask(initialQuery);
+    } else if (!this.chatHistory.length) {
+      // Default sample query
+      this.ask("High-traffic billboards on Shahrah-e-Faisal");
+    } else {
+      this.renderModal();
+    }
+  },
+
+  renderModal() {
+    const latest = this.chatHistory[this.chatHistory.length - 1];
+    const routeUrl = latest ? this.buildRouteUrl(latest.validCoords) : null;
+
+    const cardsHtml = (latest && latest.sites.length) ? latest.sites.slice(0, 6).map(s => {
+      const st = effStatus(s);
+      const navUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(s.lat+','+s.lng)}&travelmode=driving`;
+      const earthUrl = `https://earth.google.com/web/search/@${encodeURIComponent(s.lat+','+s.lng)},150a,35y,0h,60t,0r`;
+      
+      return `<div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px;display:grid;gap:8px;box-shadow:var(--shadow)">
+        <div style="display:flex;gap:10px;align-items:center">
+          <img src="${esc(thumbOf(s))}" alt="" style="width:68px;height:52px;object-fit:cover;border-radius:8px" onerror="phFix(this)">
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <span class="mono" style="font-size:12px;font-weight:700;color:var(--violet)">${esc(s.code)}</span>
+              <span class="pill st-${st}" style="font-size:10px;padding:1px 6px">${STATUS[st]}</span>
+            </div>
+            <div style="font-weight:700;font-size:13px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(s.area)} · ${sizeOf(s)} ft</div>
+            <div style="font-size:11px;color:var(--muted)">~${fmtK(otsOf(s))} OTS/day · ${esc(s.media||"Billboard")}</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <button class="btn sm pri" data-act="site" data-id="${s.id}" style="flex:1;justify-content:center;padding:4px 0">View site</button>
+          ${s.lat ? `<a class="btn sm cy" href="${navUrl}" target="_blank" rel="noopener" style="flex:1;justify-content:center;text-decoration:none;padding:4px 0">${ICON.pin}Navigate</a>
+          <a class="btn sm" href="${earthUrl}" target="_blank" rel="noopener" style="flex:1;justify-content:center;text-decoration:none;padding:4px 0;font-size:11px">🌍 3D Earth</a>` : ""}
+        </div>
+      </div>`;
+    }).join("") : `<div style="padding:20px;text-align:center;color:var(--muted);background:var(--bg);border-radius:12px">No matching billboards found for this query. Try searching another area or media type.</div>`;
+
+    const promptsHtml = this.quickPrompts.map(p => `<button class="chip" data-act="askprompt" data-q="${esc(p)}" style="font-size:11px;background:var(--bg);border:1px solid var(--border);padding:4px 10px;border-radius:20px;cursor:pointer;white-space:nowrap">${esc(p)}</button>`).join("");
+
+    openLayer(`<div class="scrim" data-act="close"></div>
+      <div class="modal" style="width:min(580px,calc(100% - 24px));max-height:90vh;display:flex;flex-direction:column;border-radius:18px;overflow:hidden">
+        <div class="dh" style="background:linear-gradient(135deg,rgba(124,58,237,0.12),rgba(217,22,29,0.12));border-bottom:1px solid var(--border);padding:14px 18px">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#7C3AED,#D9161D);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;box-shadow:0 3px 8px rgba(124,58,237,0.3)">✨</div>
+            <div>
+              <h2 style="font-size:17px;margin:0;display:flex;align-items:center;gap:6px">Ask Maps with Gemini AI <span class="pill st-available" style="font-size:9px;padding:1px 5px">Live AI</span></h2>
+              <div style="font-size:11px;color:var(--muted)">Karachi OOH intelligent route planning &amp; inventory query</div>
+            </div>
+          </div>
+          <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
+        </div>
+
+        <div class="db" style="padding:16px;overflow-y:auto;display:flex;flex-direction:column;gap:14px;max-height:calc(90vh - 130px)">
+          <div style="display:flex;gap:6px;overflow-x:auto;padding-bottom:4px">
+            ${promptsHtml}
+          </div>
+
+          ${latest ? `
+            <div style="background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:12px 14px">
+              <div style="font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:700;margin-bottom:4px">You asked</div>
+              <div style="font-weight:700;font-size:14px;color:var(--ink)">"${esc(latest.query)}"</div>
+            </div>
+
+            <div style="display:flex;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--border);padding:10px 14px;border-radius:10px">
+              <div>
+                <div style="font-weight:700;font-size:14px;color:var(--ink)">${latest.sites.length} Billboard${latest.sites.length!==1?"s":""} matched</div>
+                <div style="font-size:12px;color:var(--muted)">Combined daily reach: <b>~${fmtK(latest.totalOts)} OTS/day</b></div>
+              </div>
+              ${routeUrl && latest.validCoords.length >= 2 ? `
+                <a class="btn sm cy" href="${routeUrl}" target="_blank" rel="noopener" style="text-decoration:none;font-weight:700;padding:6px 12px">
+                  🚗 Launch Inspection Route (${latest.validCoords.length} stops)
+                </a>
+              ` : ""}
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px">
+              ${cardsHtml}
+            </div>
+          ` : ""}
+        </div>
+
+        <div style="padding:12px 16px;background:var(--surface);border-top:1px solid var(--border);display:flex;gap:8px">
+          <input id="askMapsInput" type="text" placeholder="Ask in Urdu or English (e.g. Clifton available SMD sites)…" style="flex:1;min-height:44px;border-radius:10px;border:1px solid var(--border);background:var(--bg);padding:0 12px;font-size:14px;color:var(--ink)" onkeydown="if(event.key==='Enter')AskMapsAI.ask(this.value)">
+          <button class="btn pri" onclick="AskMapsAI.ask(document.getElementById('askMapsInput').value)" style="min-height:44px;padding:0 18px;font-weight:700;background:linear-gradient(135deg,#7C3AED,#D9161D)">Ask AI</button>
+        </div>
+      </div>`);
+    
+    setTimeout(() => {
+      const inp = document.getElementById("askMapsInput");
+      if (inp) inp.focus();
+    }, 100);
+  }
+};
+
 /* ============ Map (Leaflet + Google Earth + OpenStreetMap) ============ */
 let _leafletMap = null;
 let _mapMarkerList = [];
@@ -1067,10 +1260,13 @@ function mountLeafletMap(list){
 function mapHTML(list){
   const hasPins = list && list.some(s => s.lat && s.lng && isFinite(+s.lat) && isFinite(+s.lng));
   return `<div class="mapwrap" style="position:relative;width:100%;height:480px;min-height:360px;border-radius:var(--r2);overflow:hidden;border:1px solid var(--line)">
-    <div class="map-ai-bar" style="position:absolute;top:10px;left:10px;z-index:500;display:flex;align-items:center;gap:6px;background:var(--surface);padding:4px 8px 4px 10px;border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,0.3);border:1px solid var(--border);max-width:calc(100% - 130px)">
-      <span style="font-size:13px">🤖</span>
-      <input id="mapAiSearch" type="text" placeholder="AI Map Search (e.g. Clifton, Airport, SMD, Available)…" style="background:transparent;border:0;outline:0;color:var(--ink);font-size:12px;width:180px;min-width:110px" oninput="filterMapMarkers(this.value)">
-      <span id="mapAiCount" class="pill st-available" style="font-size:10px;padding:2px 6px;display:none">0</span>
+    <div class="map-ai-bar" style="position:absolute;top:10px;left:10px;z-index:500;display:flex;align-items:center;gap:6px;background:var(--surface);padding:4px 8px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.35);border:1px solid var(--border);max-width:calc(100% - 130px);flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:6px;flex:1;min-width:140px">
+        <span style="font-size:14px">🤖</span>
+        <input id="mapAiSearch" type="text" placeholder="Filter map or ask AI…" style="background:transparent;border:0;outline:0;color:var(--ink);font-size:12px;width:140px" oninput="filterMapMarkers(this.value)" onkeydown="if(event.key==='Enter')AskMapsAI.open(this.value)">
+        <span id="mapAiCount" class="pill st-available" style="font-size:10px;padding:2px 6px;display:none">0</span>
+      </div>
+      <button class="btn sm pri" data-act="askmaps" style="padding:4px 10px;font-size:11px;font-weight:700;border-radius:8px;background:linear-gradient(135deg,#7C3AED,#D9161D);border:0;color:#fff;box-shadow:0 2px 6px rgba(124,58,237,0.35)">✨ Ask Maps AI</button>
     </div>
     <div id="leafletMap" style="width:100%;height:100%;min-height:360px"></div>
     ${!hasPins ? `<div style="position:absolute;bottom:12px;left:12px;z-index:400;background:var(--surface);padding:6px 12px;border-radius:6px;font-size:12px;color:var(--muted);box-shadow:var(--shadow)">No GPS coordinates on selected sites</div>` : ""}
@@ -1931,6 +2127,8 @@ function openInstallModal(forceType){
 }
 
 const ACT={
+  askmaps:a=>AskMapsAI.open(a.dataset.q||(document.getElementById('mapAiSearch')?document.getElementById('mapAiSearch').value:"")),
+  askprompt:a=>AskMapsAI.ask(a.dataset.q),
   installapp:()=>openInstallModal(),
   installios:()=>openInstallModal('ios'),
   installandroid:()=>openInstallModal('android'),
