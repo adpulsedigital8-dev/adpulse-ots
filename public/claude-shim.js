@@ -59,19 +59,20 @@
           '#otsLogin button{min-height:50px;border:0;border-radius:12px;font-weight:800;font-size:15px;cursor:pointer;background:linear-gradient(120deg,#D9161D,#F26A21);color:#fff}' +
           '#otsLogin button.g{background:#fff;color:#1c1a1b}#otsLogin small{color:#968a88;text-align:center}#otsLogin .ok{color:#34D399;font-weight:700;text-align:center}</style>' +
           '<form class="c" id="otsForm"><img src="/icons/icon-192.png" alt="AdPulse"><h1>AdPulse OOH Tracking System</h1>' +
-          '<p id="otsDesc">Sign in with your email link or password.</p>' +
-          '<input id="otsEmail" type="email" required placeholder="you@company.com" autocomplete="email">' +
-          '<input id="otsPass" type="password" placeholder="Password (optional for magic link)" autocomplete="current-password">' +
+          '<p id="otsDesc">Sign in with your username / email &amp; password.</p>' +
+          '<input id="otsEmail" type="text" required placeholder="Username or email (e.g. adpulsetrackng)" autocomplete="username email" autocapitalize="none">' +
+          '<input id="otsPass" type="password" placeholder="Password" autocomplete="current-password">' +
           '<button type="submit" id="otsSubmit">Sign In</button>' +
           '<button type="button" class="g" id="otsMagic" style="font-size:13px;min-height:38px">Send Magic Link instead</button>' +
           (cfg.googleLogin ? '<button type="button" class="g" id="otsGoogle">Continue with Google</button>' : "") +
-          '<div id="otsMsg" aria-live="polite"></div><small>Clients: use the email your agency invited.</small></form>';
+          '<div id="otsMsg" aria-live="polite"></div><small>Field Staff &amp; Team: enter your username and password.</small></form>';
         document.body.appendChild(box);
         var msg = box.querySelector("#otsMsg");
         var form = box.querySelector("#otsForm");
         form.onsubmit = async function (e) {
           e.preventDefault();
-          var email = box.querySelector("#otsEmail").value.trim();
+          var rawEmail = box.querySelector("#otsEmail").value.trim().toLowerCase();
+          var email = rawEmail.indexOf("@") === -1 ? rawEmail + "@adpulse.pk" : rawEmail;
           var pass = box.querySelector("#otsPass").value;
           msg.className = ""; msg.textContent = "Signing in…";
           if (pass) {
@@ -99,8 +100,9 @@
         };
         var magicBtn = box.querySelector("#otsMagic");
         if (magicBtn) magicBtn.onclick = async function () {
-          var email = box.querySelector("#otsEmail").value.trim();
-          if (!email) { msg.textContent = "Please enter your email first."; return; }
+          var rawEmail = box.querySelector("#otsEmail").value.trim().toLowerCase();
+          var email = rawEmail.indexOf("@") === -1 ? rawEmail + "@adpulse.pk" : rawEmail;
+          if (!rawEmail) { msg.textContent = "Please enter your username or email first."; return; }
           msg.className = ""; msg.textContent = "Sending magic link…";
           var r = await sb.auth.signInWithOtp({ email: email, options: { emailRedirectTo: location.origin + location.pathname } });
           if (r.error) { msg.textContent = "Couldn't send link: " + r.error.message; return; }
