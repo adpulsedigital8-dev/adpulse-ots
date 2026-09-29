@@ -327,6 +327,86 @@ body.guest-presentation .main {
   100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
 
+
+/* ============ Drone 4K Multi-Angle Camera HUD Styles ============ */
+.drone-hud-top {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 1010;
+  pointer-events: none;
+}
+.drone-telemetry-badge {
+  pointer-events: auto;
+  background: rgba(10, 15, 26, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  border-radius: 12px;
+  padding: 8px 14px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+}
+.drone-rec-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #EF4444;
+  box-shadow: 0 0 10px #EF4444;
+  animation: droneRecBlink 1s infinite alternate;
+}
+@keyframes droneRecBlink {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+.drone-crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  pointer-events: none;
+  z-index: 1005;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.drone-angle-bar {
+  pointer-events: auto;
+  display: flex;
+  gap: 6px;
+  background: rgba(10, 15, 26, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 6px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.drone-btn {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.drone-btn.active {
+  background: linear-gradient(135deg, #0284C7, #0369A1);
+  border-color: #38BDF8;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(56, 189, 248, 0.4);
+}
+
 </style>
 <title>AdPulse OOH Tracking System</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1410,8 +1490,12 @@ const True3DNavigation = {
   currentIndex: 0,
   progress: 0, // 0 to 1
   sites: [],
-  speed: 0.0035,
+  speed: 0.004,
   showingInspectionCard: false,
+  currentAngle: 'drone', // 'drone' | 'driver' | 'orbit' | 'top'
+  orbitAngle: 0,
+  orbitInterval: null,
+  altitude: 120,
 
   start(list) {
     const valid = (list || S.sites || []).filter(s => s && s.lat && s.lng && isFinite(+s.lat) && isFinite(+s.lng));
@@ -1424,6 +1508,7 @@ const True3DNavigation = {
     this.progress = 0;
     this.running = true;
     this.showingInspectionCard = false;
+    this.currentAngle = 'drone';
 
     // Enable 3D perspective tilt on real satellite map
     const wrap = document.querySelector(".mapwrap");
@@ -1433,9 +1518,9 @@ const True3DNavigation = {
     if (overlay) overlay.style.display = "flex";
 
     this.initCanvas();
-    this.flyToCurrentSite();
+    this.flyToSiteCinematic();
     this.animate();
-    toast("✨ Real 3D Satellite Drive Active: " + this.sites[0].area);
+    toast("🛸 4K Drone View Active: Swooping into " + this.sites[0].area);
   },
 
   initCanvas() {
@@ -1453,9 +1538,90 @@ const True3DNavigation = {
     this.canvas.height = rect.height * (window.devicePixelRatio || 1);
   },
 
+  setCameraAngle(mode) {
+    this.currentAngle = mode;
+    document.querySelectorAll(".drone-btn").forEach(b => {
+      b.classList.toggle("active", b.dataset.mode === mode);
+    });
+
+    const s = this.sites[this.currentIndex];
+    const mapEl = document.getElementById("leafletMap");
+    if (!mapEl || !_leafletMap) return;
+
+    clearInterval(this.orbitInterval);
+
+    if (mode === 'drone') {
+      // 3D Drone Aerial Sweep
+      mapEl.style.transform = "rotateX(52deg) rotateZ(0deg) scale(1.3) translateY(-28px)";
+      _leafletMap.flyTo([+s.lat, +s.lng], 19.5, { duration: 1.5 });
+      this.altitude = 25;
+      toast("🛸 3D Drone Aerial Sweep View");
+    } else if (mode === 'driver') {
+      // Motorist Eye-Level Road POV
+      const heading = estimateRoadHeading(s);
+      mapEl.style.transform = `rotateX(62deg) rotateZ(${-((heading % 360) / 4)}deg) scale(1.4) translateY(-38px)`;
+      _leafletMap.flyTo([+s.lat, +s.lng], 20, { duration: 1.5 });
+      this.altitude = 10;
+      toast(`🚗 Driver POV: Coming from ${s.from||"Road"} towards ${s.towards||"Destination"}`);
+    } else if (mode === 'orbit') {
+      // 360 Drone Orbit around site
+      mapEl.style.transform = "rotateX(48deg) rotateZ(0deg) scale(1.3) translateY(-20px)";
+      _leafletMap.flyTo([+s.lat, +s.lng], 19.5, { duration: 1.2 });
+      let rot = 0;
+      this.orbitInterval = setInterval(() => {
+        if (!this.running || this.currentAngle !== 'orbit') {
+          clearInterval(this.orbitInterval);
+          return;
+        }
+        rot = (rot + 1.2) % 360;
+        mapEl.style.transform = `rotateX(48deg) rotateZ(${rot}deg) scale(1.3) translateY(-20px)`;
+      }, 50);
+      toast("🔄 360° Drone Orbit Inspection");
+    } else if (mode === 'top') {
+      // Top-Down Vertical Satellite View
+      mapEl.style.transform = "rotateX(0deg) rotateZ(0deg) scale(1.05) translateY(0px)";
+      _leafletMap.flyTo([+s.lat, +s.lng], 20.5, { duration: 1.2 });
+      this.altitude = 50;
+      toast("📐 Top-Down Vertical Satellite View");
+    }
+  },
+
+  flyToSiteCinematic() {
+    if (!_leafletMap || !this.sites.length) return;
+    const s = this.sites[this.currentIndex];
+    const heading = estimateRoadHeading(s);
+    const mapEl = document.getElementById("leafletMap");
+
+    clearInterval(this.orbitInterval);
+
+    // PHASE 1: Drone Glide Approach at Altitude 120m
+    this.altitude = 120;
+    if (mapEl) {
+      mapEl.style.transform = `rotateX(42deg) rotateZ(${-((heading % 360) / 6)}deg) scale(1.18) translateY(-15px)`;
+    }
+    _leafletMap.flyTo([+s.lat, +s.lng], 16.5, {
+      duration: 2.2,
+      easeLinearity: 0.3
+    });
+
+    // PHASE 2: Drone Swoop & Close-Up Descent directly to Real Building & Road (Alt 18m, Zoom 20.2)
+    setTimeout(() => {
+      if (!this.running) return;
+      this.altitude = 18;
+      if (mapEl) {
+        mapEl.style.transform = `rotateX(56deg) rotateZ(${-((heading % 360) / 4)}deg) scale(1.36) translateY(-32px)`;
+      }
+      _leafletMap.flyTo([+s.lat, +s.lng], 20.2, {
+        duration: 2.8,
+        easeLinearity: 0.22
+      });
+    }, 2200);
+  },
+
   stop() {
     this.running = false;
     cancelAnimationFrame(this.animId);
+    clearInterval(this.orbitInterval);
     
     const wrap = document.querySelector(".mapwrap");
     if (wrap) wrap.classList.remove("immersive-active");
@@ -1470,7 +1636,7 @@ const True3DNavigation = {
     if (card) card.remove();
 
     resetMapZoom();
-    toast("Exited 3D Immersive Navigation");
+    toast("Exited 3D Drone Navigation");
   },
 
   skip() {
@@ -1479,24 +1645,7 @@ const True3DNavigation = {
     this.showingInspectionCard = false;
     this.progress = 0;
     this.currentIndex = (this.currentIndex + 1) % this.sites.length;
-    this.flyToCurrentSite();
-  },
-
-  flyToCurrentSite() {
-    if (!_leafletMap || !this.sites.length) return;
-    const s = this.sites[this.currentIndex];
-    const heading = estimateRoadHeading(s);
-
-    const mapEl = document.getElementById("leafletMap");
-    if (mapEl) {
-      mapEl.style.transform = `rotateX(56deg) rotateZ(${-((heading % 360) / 4)}deg) scale(1.35) translateY(-32px)`;
-    }
-
-    // Fly in ultra close to the real buildings and road
-    _leafletMap.flyTo([+s.lat, +s.lng], 19.5, {
-      duration: 3.5,
-      easeLinearity: 0.25
-    });
+    this.flyToSiteCinematic();
   },
 
   animate() {
@@ -1516,7 +1665,7 @@ const True3DNavigation = {
 
     const s = this.sites[this.currentIndex];
 
-    // Progress along current road segment
+    // Progress along current site inspection
     if (!this.showingInspectionCard) {
       this.progress += this.speed;
       if (this.progress >= 0.88 && !this.showingInspectionCard) {
@@ -1529,31 +1678,30 @@ const True3DNavigation = {
           if (card) card.remove();
           this.progress = 0;
           this.currentIndex = (this.currentIndex + 1) % this.sites.length;
-          this.flyToCurrentSite();
-        }, 5000);
+          this.flyToSiteCinematic();
+        }, 5500);
       }
     }
 
     const vx = w * 0.5;
     const vy = h * 0.42;
 
-    // 1. Draw Glowing Cyan GPS Route Line (Following the Real Road)
+    // 1. Draw Glowing Cyan Route Line (Over Real Road)
     this.drawGlowingRoute(ctx, w, h, vx, vy);
 
-    // 2. Draw 3D Destination Target Beacon on Real Billboard Location
-    this.drawTargetBeacon(ctx, w, h, vx, vy, s);
+    // 2. Draw Drone Target Reticle & Radar Beacon on Real Billboard
+    this.drawDroneTarget(ctx, w, h, vx, vy, s);
 
-    // 3. Draw 3D Vehicle with Headlights Driving along the Road
+    // 3. Draw 3D Vehicle with Headlights
     this.draw3DVehicle(ctx, w, h);
 
-    // 4. Update HUD Text & Indicators
+    // 4. Update Drone Telemetry HUD
     this.updateHUD(s);
   },
 
   drawGlowingRoute(ctx, w, h, vx, vy) {
     const curveX = Math.sin(this.progress * Math.PI) * 35;
 
-    // Glowing Outer Cyan Ribbon
     ctx.strokeStyle = "#00F2FE";
     ctx.lineWidth = 14;
     ctx.shadowColor = "#00F2FE";
@@ -1564,7 +1712,6 @@ const True3DNavigation = {
     ctx.stroke();
     ctx.shadowBlur = 0;
 
-    // Crisp White Core
     ctx.strokeStyle = "#FFFFFF";
     ctx.lineWidth = 4;
     ctx.beginPath();
@@ -1573,48 +1720,53 @@ const True3DNavigation = {
     ctx.stroke();
   },
 
-  drawTargetBeacon(ctx, w, h, vx, vy, s) {
-    const scale = 0.6 + this.progress * 0.5;
-    const bx = vx + 55 + (1 - this.progress) * 25;
+  drawDroneTarget(ctx, w, h, vx, vy, s) {
+    const scale = 0.65 + this.progress * 0.45;
+    const bx = vx + 50 + (1 - this.progress) * 25;
     const by = vy + 35 + this.progress * 60;
 
-    // Pulsing Red Radar Ring on Real Billboard Ground
-    ctx.strokeStyle = "rgba(239, 68, 68, 0.85)";
-    ctx.lineWidth = 3;
+    // Red Pulsing Target Radar
+    ctx.strokeStyle = "rgba(239, 68, 68, 0.9)";
+    ctx.lineWidth = 2.5;
     const pulseRadius = (16 + (Date.now() % 1000) * 0.035) * scale;
     ctx.beginPath();
     ctx.arc(bx, by, pulseRadius, 0, Math.PI * 2);
     ctx.stroke();
 
-    // Red Location Dot
-    ctx.fillStyle = "#EF4444";
-    ctx.shadowColor = "#EF4444";
-    ctx.shadowBlur = 16;
-    ctx.beginPath();
-    ctx.arc(bx, by, 10 * scale, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.shadowBlur = 0;
-
-    // Hologram Billboard Code Tag Over Real Building/Median
-    ctx.fillStyle = "rgba(15, 23, 42, 0.92)";
+    // Crosshair Lines
     ctx.strokeStyle = "#38BDF8";
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 1.5;
     ctx.beginPath();
-    ctx.roundRect(bx - 60 * scale, by - 52 * scale, 120 * scale, 30 * scale, [6]);
+    ctx.moveTo(bx - 20 * scale, by); ctx.lineTo(bx + 20 * scale, by);
+    ctx.moveTo(bx, by - 20 * scale); ctx.lineTo(bx, by + 20 * scale);
+    ctx.stroke();
+
+    // Red Center Dot
+    ctx.fillStyle = "#EF4444";
+    ctx.beginPath();
+    ctx.arc(bx, by, 6 * scale, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Floating Drone Target Hologram Tag
+    ctx.fillStyle = "rgba(10, 15, 26, 0.92)";
+    ctx.strokeStyle = "#38BDF8";
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.roundRect(bx - 65 * scale, by - 52 * scale, 130 * scale, 28 * scale, [6]);
     ctx.fill();
     ctx.stroke();
 
     ctx.fillStyle = "#fff";
     ctx.font = `bold ${Math.round(11 * scale)}px system-ui`;
     ctx.textAlign = "center";
-    ctx.fillText(`${s.code} (${sizeOf(s)} ft)`, bx, by - 33 * scale);
+    ctx.fillText(`${s.code} (${sizeOf(s)} ft)`, bx, by - 34 * scale);
   },
 
   draw3DVehicle(ctx, w, h) {
     const carX = w * 0.5;
-    const carY = h - 90;
+    const carY = h - 85;
 
-    // Headlight Beams illuminating the real satellite road
+    // Headlight Beams
     const lightGrad = ctx.createRadialGradient(carX, carY, 10, carX, carY - 140, 160);
     lightGrad.addColorStop(0, "rgba(255, 255, 255, 0.4)");
     lightGrad.addColorStop(1, "rgba(255, 255, 255, 0)");
@@ -1627,7 +1779,7 @@ const True3DNavigation = {
     ctx.closePath();
     ctx.fill();
 
-    // 3D White Car Body
+    // 3D Car Body
     ctx.fillStyle = "#F8FAFC";
     ctx.shadowColor = "rgba(0,0,0,0.85)";
     ctx.shadowBlur = 18;
@@ -1636,13 +1788,13 @@ const True3DNavigation = {
     ctx.fill();
     ctx.shadowBlur = 0;
 
-    // Windshield & Roof
+    // Windshield
     ctx.fillStyle = "#1E293B";
     ctx.beginPath();
     ctx.roundRect(carX - 16, carY - 18, 32, 28, [4]);
     ctx.fill();
 
-    // Red LED Taillights
+    // Taillights
     ctx.fillStyle = "#EF4444";
     ctx.shadowColor = "#EF4444";
     ctx.shadowBlur = 8;
@@ -1652,7 +1804,7 @@ const True3DNavigation = {
   },
 
   updateHUD(s) {
-    const distRemain = Math.max(50, Math.round((1 - this.progress) * 450));
+    const distRemain = Math.max(40, Math.round((1 - this.progress) * 450));
     const distEl = document.getElementById("hudDistVal");
     if (distEl) distEl.textContent = distRemain + " ft";
 
@@ -1661,6 +1813,9 @@ const True3DNavigation = {
 
     const areaTagEl = document.getElementById("hudAreaTag");
     if (areaTagEl) areaTagEl.textContent = (s.area || "KHI").slice(0, 4).toUpperCase();
+
+    const altEl = document.getElementById("droneAltVal");
+    if (altEl) altEl.textContent = this.altitude + "m";
   },
 
   renderSiteCard(s) {
@@ -2239,13 +2394,24 @@ function mapHTML(list){
           </div>
         </div>
 
+        <!-- 4K Drone Camera Multi-Angle Controls -->
+        <div class="drone-angle-bar">
+          <button class="drone-btn active" data-mode="drone" onclick="True3DNavigation.setCameraAngle('drone')">🛸 Drone View</button>
+          <button class="drone-btn" data-mode="driver" onclick="True3DNavigation.setCameraAngle('driver')">🚗 Driver POV</button>
+          <button class="drone-btn" data-mode="orbit" onclick="True3DNavigation.setCameraAngle('orbit')">🔄 360° Orbit</button>
+          <button class="drone-btn" data-mode="top" onclick="True3DNavigation.setCameraAngle('top')">📐 Top Down</button>
+        </div>
+
         <div class="cockpit-top-actions">
-          <div class="cockpit-icon-btn">🎤</div>
+          <div class="drone-telemetry-badge">
+            <span class="drone-rec-dot"></span>
+            <span style="font-size:11px;font-weight:700">4K HDR</span>
+            <span style="font-size:11px;color:#38BDF8">ALT: <b id="droneAltVal">25m</b></span>
+          </div>
           <div class="cockpit-pill-btn" onclick="True3DNavigation.skip()">+ Next Site</div>
           <div class="cockpit-icon-btn" onclick="True3DNavigation.stop()">✕</div>
         </div>
       </div>
-
       <!-- Speed Limit Badge (Exact Match with Image) -->
       <div class="cockpit-speed-badge">
         <span style="font-size:10px;border-bottom:1px solid #000;width:100%;text-align:center">60</span>
