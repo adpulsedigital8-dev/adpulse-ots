@@ -116,6 +116,216 @@ body.guest-presentation .main {
   animation: radar-pulse 1.8s infinite ease-out;
 }
 
+
+/* ============ True Google Immersive 3D Navigation UI ============ */
+.immersive-3d-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1000;
+  background: #090D16;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #fff;
+  border-radius: inherit;
+}
+.immersive-3d-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.cockpit-top-bar {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 1010;
+  pointer-events: none;
+}
+.cockpit-turn-card {
+  pointer-events: auto;
+  background: #064E3B;
+  background: linear-gradient(145deg, #064E3B 0%, #065F46 100%);
+  border-radius: 18px;
+  padding: 12px 18px;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 220px;
+  max-width: 320px;
+}
+.cockpit-turn-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.cockpit-turn-icon {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+  color: #fff;
+}
+.cockpit-turn-dist {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.cockpit-street-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #D1FAE5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cockpit-road-badge {
+  background: #047857;
+  color: #6EE7B7;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+.cockpit-lanes {
+  display: flex;
+  gap: 10px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+}
+.cockpit-lanes span.active {
+  color: #fff;
+  font-weight: 800;
+  text-shadow: 0 0 8px #34D399;
+}
+.cockpit-top-actions {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cockpit-pill-btn {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  border-radius: 24px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+.cockpit-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+.cockpit-speed-badge {
+  position: absolute;
+  top: 70px;
+  right: 14px;
+  z-index: 1010;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  color: #000;
+  border-radius: 8px;
+  padding: 4px 6px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  border: 2px solid #000;
+  font-weight: 900;
+  line-height: 1;
+}
+.cockpit-bottom-bar {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  z-index: 1010;
+  pointer-events: none;
+}
+.cockpit-eta-pill {
+  pointer-events: auto;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+}
+.cockpit-eta-time {
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+}
+.cockpit-eta-min {
+  font-size: 15px;
+  font-weight: 800;
+  color: #34D399;
+}
+.cockpit-eta-dist {
+  font-size: 14px;
+  color: #94A3B8;
+}
+.cockpit-side-actions {
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cockpit-site-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1020;
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(16px);
+  border: 2px solid #38BDF8;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.85);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 320px;
+  width: 90%;
+  animation: popIn3D 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes popIn3D {
+  0% { transform: translate(-50%, -50%) scale(0.6); opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
 </style>
 <title>AdPulse OOH Tracking System</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1189,6 +1399,390 @@ const AskMapsAI = {
   }
 };
 
+
+/* ============ Google Immersive 3D Vector Engine ============ */
+const True3DNavigation = {
+  running: false,
+  canvas: null,
+  ctx: null,
+  animId: null,
+  currentIndex: 0,
+  progress: 0, // 0 to 1 along current leg
+  sites: [],
+  speed: 0.0022,
+  carHeading: 0,
+  carPos: { x: 0, y: 0 },
+  showingInspectionCard: false,
+  etaSeconds: 180,
+
+  start(list) {
+    const valid = (list || S.sites || []).filter(s => s && s.lat && s.lng && isFinite(+s.lat) && isFinite(+s.lng));
+    if (!valid.length) {
+      toast("No sites with GPS coordinates available.");
+      return;
+    }
+    this.sites = valid;
+    this.currentIndex = 0;
+    this.progress = 0;
+    this.running = true;
+    this.showingInspectionCard = false;
+
+    const overlay = document.getElementById("immersive3DOverlay");
+    if (overlay) overlay.style.display = "flex";
+
+    this.initCanvas();
+    this.animate();
+    toast("✨ Immersive 3D Navigation Active: Travelling to " + this.sites[0].area);
+  },
+
+  initCanvas() {
+    this.canvas = document.getElementById("canvas3DNavigation");
+    if (!this.canvas) return;
+    this.ctx = this.canvas.getContext("2d");
+    this.resizeCanvas();
+    window.addEventListener("resize", () => this.resizeCanvas());
+  },
+
+  resizeCanvas() {
+    if (!this.canvas) return;
+    const rect = this.canvas.parentElement.getBoundingClientRect();
+    this.canvas.width = rect.width * (window.devicePixelRatio || 1);
+    this.canvas.height = rect.height * (window.devicePixelRatio || 1);
+  },
+
+  stop() {
+    this.running = false;
+    cancelAnimationFrame(this.animId);
+    const overlay = document.getElementById("immersive3DOverlay");
+    if (overlay) overlay.style.display = "none";
+    toast("Exited 3D Immersive Navigation");
+  },
+
+  skip() {
+    this.showingInspectionCard = false;
+    this.progress = 0;
+    this.currentIndex = (this.currentIndex + 1) % this.sites.length;
+  },
+
+  animate() {
+    if (!this.running) return;
+    this.renderFrame();
+    this.animId = requestAnimationFrame(() => this.animate());
+  },
+
+  renderFrame() {
+    const c = this.canvas;
+    const ctx = this.ctx;
+    if (!c || !ctx) return;
+
+    const w = c.width;
+    const h = c.height;
+    ctx.clearRect(0, 0, w, h);
+
+    const s = this.sites[this.currentIndex];
+    const nextSite = this.sites[(this.currentIndex + 1) % this.sites.length];
+
+    // Update Progress
+    if (!this.showingInspectionCard) {
+      this.progress += this.speed;
+      if (this.progress >= 0.85 && !this.showingInspectionCard) {
+        this.showingInspectionCard = true;
+        this.renderSiteCard(s);
+        setTimeout(() => {
+          this.showingInspectionCard = false;
+          const card = document.getElementById("cockpitSiteCard");
+          if (card) card.remove();
+          this.progress = 0;
+          this.currentIndex = (this.currentIndex + 1) % this.sites.length;
+        }, 5000);
+      }
+    }
+
+    // 1. Draw 3D Night Sky & Horizon
+    const gradSky = ctx.createLinearGradient(0, 0, 0, h * 0.45);
+    gradSky.addColorStop(0, "#080c16");
+    gradSky.addColorStop(1, "#121a2d");
+    ctx.fillStyle = gradSky;
+    ctx.fillRect(0, 0, w, h * 0.45);
+
+    // 2. Draw 3D Ground & Terrain Grid
+    const gradGround = ctx.createLinearGradient(0, h * 0.4, 0, h);
+    gradGround.addColorStop(0, "#0d1322");
+    gradGround.addColorStop(1, "#070a12");
+    ctx.fillStyle = gradGround;
+    ctx.fillRect(0, h * 0.4, w, h * 0.6);
+
+    // Perspective Center
+    const vanishX = w * 0.5 + Math.sin(Date.now() * 0.0006) * 30;
+    const vanishY = h * 0.38;
+
+    // 3. Draw 3D Extruded Buildings (Left and Right City Skyline)
+    this.draw3DBuildings(ctx, w, h, vanishX, vanishY);
+
+    // 4. Draw 3D Multi-Lane Highway Road
+    this.draw3DHighway(ctx, w, h, vanishX, vanishY);
+
+    // 5. Draw Glowing Cyan Navigation Route Ribbon
+    this.drawGlowingRouteRibbon(ctx, w, h, vanishX, vanishY);
+
+    // 6. Draw 3D Elevated Overpass Flyover
+    this.draw3DFlyoverBridge(ctx, w, h, vanishX, vanishY);
+
+    // 7. Draw 3D Billboard & Destination Beacon Marker
+    this.draw3DBillboardTarget(ctx, w, h, vanishX, vanishY, s);
+
+    // 8. Draw 3D Animated Vehicle (Driving in Real-Time with Headlights)
+    this.draw3DVehicle(ctx, w, h);
+
+    // 9. Update Cockpit HUD Data
+    this.updateHUD(s);
+  },
+
+  draw3DBuildings(ctx, w, h, vx, vy) {
+    const time = Date.now() * 0.0008;
+    const leftBuildings = [
+      { x: w * 0.05, w: 90, h: 220, col: "#1e293b", roof: "#334155" },
+      { x: w * 0.18, w: 110, h: 280, col: "#172033", roof: "#26354f" },
+      { x: w * 0.28, w: 80, h: 180, col: "#1a243a", roof: "#2d3e5e" }
+    ];
+    const rightBuildings = [
+      { x: w * 0.68, w: 95, h: 240, col: "#1a243a", roof: "#2d3e5e" },
+      { x: w * 0.78, w: 120, h: 320, col: "#151e30", roof: "#24324d" },
+      { x: w * 0.88, w: 85, h: 190, col: "#1e293b", roof: "#334155" }
+    ];
+
+    [...leftBuildings, ...rightBuildings].forEach((b, idx) => {
+      const baseY = vy + 60 + Math.sin(time + idx) * 10;
+      const topY = baseY - b.h;
+
+      // Front Face
+      ctx.fillStyle = b.col;
+      ctx.beginPath();
+      ctx.rect(b.x, topY, b.w, b.h + (h - baseY));
+      ctx.fill();
+
+      // Top Face (3D Roof)
+      ctx.fillStyle = b.roof;
+      ctx.beginPath();
+      ctx.moveTo(b.x, topY);
+      ctx.lineTo(b.x + b.w * 0.3, topY - 20);
+      ctx.lineTo(b.x + b.w * 1.3, topY - 20);
+      ctx.lineTo(b.x + b.w, topY);
+      ctx.closePath();
+      ctx.fill();
+
+      // Ambient Lit Windows
+      ctx.fillStyle = "rgba(56, 189, 248, 0.25)";
+      for(let r = 0; r < 5; r++) {
+        for(let col = 0; col < 3; col++) {
+          if((idx + r + col) % 3 === 0) {
+            ctx.fillRect(b.x + 15 + col * 25, topY + 30 + r * 35, 12, 16);
+          }
+        }
+      }
+    });
+  },
+
+  draw3DHighway(ctx, w, h, vx, vy) {
+    // Road Surface
+    ctx.fillStyle = "#161c28";
+    ctx.beginPath();
+    ctx.moveTo(vx - 20, vy);
+    ctx.lineTo(vx + 20, vy);
+    ctx.lineTo(w * 0.75, h);
+    ctx.lineTo(w * 0.25, h);
+    ctx.closePath();
+    ctx.fill();
+
+    // Road Shoulder Lines
+    ctx.strokeStyle = "#475569";
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.moveTo(vx - 20, vy);
+    ctx.lineTo(w * 0.25, h);
+    ctx.moveTo(vx + 20, vy);
+    ctx.lineTo(w * 0.75, h);
+    ctx.stroke();
+
+    // Dashed Center Lanes (Animated moving towards camera)
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.4)";
+    ctx.lineWidth = 3;
+    ctx.setLineDash([25, 25]);
+    ctx.lineDashOffset = -(Date.now() * 0.08);
+    ctx.beginPath();
+    ctx.moveTo(vx, vy);
+    ctx.lineTo(w * 0.5, h);
+    ctx.stroke();
+    ctx.setLineDash([]);
+  },
+
+  drawGlowingRouteRibbon(ctx, w, h, vx, vy) {
+    // Glowing Cyan Path
+    ctx.strokeStyle = "#06B6D4";
+    ctx.lineWidth = 14;
+    ctx.shadowColor = "#00F2FE";
+    ctx.shadowBlur = 20;
+
+    const curveX = Math.sin(this.progress * Math.PI) * 40;
+
+    ctx.beginPath();
+    ctx.moveTo(w * 0.5, h - 30);
+    ctx.quadraticCurveTo(w * 0.5 + curveX, h * 0.65, vx + 10, vy + 40);
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    // Glowing White Inner Line
+    ctx.strokeStyle = "#FFFFFF";
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.moveTo(w * 0.5, h - 30);
+    ctx.quadraticCurveTo(w * 0.5 + curveX, h * 0.65, vx + 10, vy + 40);
+    ctx.stroke();
+  },
+
+  draw3DFlyoverBridge(ctx, w, h, vx, vy) {
+    // 3D Elevated Overpass Deck crossing the highway
+    const bridgeY = vy + 110;
+    
+    // Bridge Shadow
+    ctx.fillStyle = "rgba(0,0,0,0.6)";
+    ctx.fillRect(w * 0.15, bridgeY + 15, w * 0.7, 18);
+
+    // Bridge Concrete Deck
+    const bridgeGrad = ctx.createLinearGradient(0, bridgeY, 0, bridgeY + 22);
+    bridgeGrad.addColorStop(0, "#334155");
+    bridgeGrad.addColorStop(1, "#1e293b");
+    ctx.fillStyle = bridgeGrad;
+    ctx.beginPath();
+    ctx.roundRect(w * 0.12, bridgeY, w * 0.76, 20, [4]);
+    ctx.fill();
+
+    // Guardrail
+    ctx.strokeStyle = "#0EA5E9";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(w * 0.12, bridgeY);
+    ctx.lineTo(w * 0.88, bridgeY);
+    ctx.stroke();
+  },
+
+  draw3DBillboardTarget(ctx, w, h, vx, vy, s) {
+    const scale = 0.5 + this.progress * 0.6;
+    const bx = vx + 80 + (1 - this.progress) * 40;
+    const by = vy + 30 + this.progress * 80;
+
+    // Red 3D Destination Location Pin
+    ctx.fillStyle = "#EF4444";
+    ctx.shadowColor = "#EF4444";
+    ctx.shadowBlur = 15;
+    ctx.beginPath();
+    ctx.arc(bx, by, 12 * scale, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    // Outer Radar Beacon Ring
+    ctx.strokeStyle = "rgba(239, 68, 68, 0.6)";
+    ctx.lineWidth = 3;
+    const pulseRadius = (15 + (Date.now() % 1000) * 0.03) * scale;
+    ctx.beginPath();
+    ctx.arc(bx, by, pulseRadius, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // Floating 3D Billboard Structure & Hologram Tag
+    ctx.fillStyle = "rgba(15, 23, 42, 0.95)";
+    ctx.strokeStyle = "#38BDF8";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.roundRect(bx - 65 * scale, by - 55 * scale, 130 * scale, 34 * scale, [6]);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = "#fff";
+    ctx.font = `bold ${Math.round(11 * scale)}px system-ui`;
+    ctx.textAlign = "center";
+    ctx.fillText(`${s.code} (${sizeOf(s)} ft)`, bx, by - 36 * scale);
+  },
+
+  draw3DVehicle(ctx, w, h) {
+    const carX = w * 0.5;
+    const carY = h - 90;
+
+    // Headlights Beam on road
+    const lightGrad = ctx.createRadialGradient(carX, carY, 10, carX, carY - 140, 160);
+    lightGrad.addColorStop(0, "rgba(255, 255, 255, 0.35)");
+    lightGrad.addColorStop(1, "rgba(255, 255, 255, 0)");
+    ctx.fillStyle = lightGrad;
+    ctx.beginPath();
+    ctx.moveTo(carX - 25, carY);
+    ctx.lineTo(carX - 80, carY - 160);
+    ctx.lineTo(carX + 80, carY - 160);
+    ctx.lineTo(carX + 25, carY);
+    ctx.closePath();
+    ctx.fill();
+
+    // 3D White Car Chassis
+    ctx.fillStyle = "#E2E8F0";
+    ctx.shadowColor = "rgba(0,0,0,0.8)";
+    ctx.shadowBlur = 18;
+    ctx.beginPath();
+    ctx.roundRect(carX - 24, carY - 35, 48, 65, [10, 10, 6, 6]);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    // Roof & Rear Windshield
+    ctx.fillStyle = "#1E293B";
+    ctx.beginPath();
+    ctx.roundRect(carX - 18, carY - 18, 36, 30, [4]);
+    ctx.fill();
+
+    // Red LED Taillights
+    ctx.fillStyle = "#EF4444";
+    ctx.shadowColor = "#EF4444";
+    ctx.shadowBlur = 8;
+    ctx.fillRect(carX - 22, carY + 24, 10, 4);
+    ctx.fillRect(carX + 12, carY + 24, 10, 4);
+    ctx.shadowBlur = 0;
+  },
+
+  updateHUD(s) {
+    const distRemain = Math.max(50, Math.round((1 - this.progress) * 450));
+    const distEl = document.getElementById("hudDistVal");
+    if (distEl) distEl.textContent = distRemain + " ft";
+
+    const stNameEl = document.getElementById("hudStreetVal");
+    if (stNameEl) stNameEl.textContent = s.from ? (s.from + " → " + s.towards) : s.area;
+
+    const areaTagEl = document.getElementById("hudAreaTag");
+    if (areaTagEl) areaTagEl.textContent = s.area;
+  },
+
+  renderSiteCard(s) {
+    const existing = document.getElementById("cockpitSiteCard");
+    if (existing) existing.remove();
+
+    const st = effStatus(s);
+    const navUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(s.lat+','+s.lng)}&travelmode=driving`;
+    const card = document.createElement("div");
+    card.id = "cockpitSiteCard";
+    card.className = "cockpit-site-card";
+    card.innerHTML = `
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <span class="mono" style="font-size:13px;font-weight:800;color:#38BDF8">${esc(s.code)}</span>
+        <span class="pill st-${st}" style="font-size:10px;padding:2px 7px">${STATUS[st]}</span>
+      </div>
+      <img src="${esc(thumbOf(s))}" alt="" style="width:100%;height:115px;object-fit:cover;border-radius:10px" onerror="phFix(this)">
+      <div style="font-size:16px;font-weight:800;color:#fff">${esc(s.area)} · ${sizeOf(s)} ft</div>
+      <div style="font-size:12px;color:#94A3B8">${esc(s.from||"—")} → ${esc(s.towards||"—")}</div>
+      <div style="font-size:13px;font-weight:700;color:#34D399">~${fmtK(otsOf(s))} Daily OTS Impressions</div>
+      <div style="display:flex;gap:6px;margin-top:4px">
+        <button class="btn sm pri" onclick="openSite('${s.id}')" style="flex:1;justify-content:center;padding:6px 0">Open Details</button>
+        <a class="btn sm cy" href="${navUrl}" target="_blank" rel="noopener" style="flex:1;justify-content:center;padding:6px 0;text-decoration:none">${ICON.pin}Driving GPS</a>
+      </div>
+    `;
+    document.getElementById("immersive3DOverlay").appendChild(card);
+  }
+};
+
 /* ============ Map (Leaflet + Google Earth + OpenStreetMap) ============ */
 let _leafletMap = null;
 let _mapMarkerList = [];
@@ -1707,6 +2301,60 @@ function mapHTML(list){
   const hasPins = list && list.some(s => s.lat && s.lng && isFinite(+s.lat) && isFinite(+s.lng));
   return `<div class="mapwrap" style="position:relative;width:100%;height:520px;min-height:380px;border-radius:var(--r2);overflow:hidden;border:1px solid var(--line)">
     
+    <!-- True Google Immersive 3D Vector Cockpit Overlay -->
+    <div id="immersive3DOverlay" class="immersive-3d-overlay" style="display:none">
+      <canvas id="canvas3DNavigation" class="immersive-3d-canvas"></canvas>
+      
+      <!-- Cockpit Top Bar (Exact Match with Image) -->
+      <div class="cockpit-top-bar">
+        <div class="cockpit-turn-card">
+          <div class="cockpit-turn-row">
+            <span class="cockpit-turn-icon">↰</span>
+            <div>
+              <div class="cockpit-turn-dist" id="hudDistVal">450 ft</div>
+              <div class="cockpit-street-name">
+                <span class="cockpit-road-badge" id="hudAreaTag">KHI</span>
+                <span id="hudStreetVal">Shahrah-e-Faisal</span>
+              </div>
+            </div>
+          </div>
+          <div class="cockpit-lanes">
+            <span class="active">↰</span>
+            <span>↑</span>
+            <span>↑</span>
+            <span>↑</span>
+          </div>
+        </div>
+
+        <div class="cockpit-top-actions">
+          <div class="cockpit-icon-btn">🎤</div>
+          <div class="cockpit-pill-btn" onclick="True3DNavigation.skip()">+ Next Site</div>
+          <div class="cockpit-icon-btn" onclick="True3DNavigation.stop()">✕</div>
+        </div>
+      </div>
+
+      <!-- Speed Limit Badge (Exact Match with Image) -->
+      <div class="cockpit-speed-badge">
+        <span style="font-size:10px;border-bottom:1px solid #000;width:100%;text-align:center">60</span>
+        <span style="font-size:14px;padding-top:2px">56 <small style="font-size:9px">km/h</small></span>
+      </div>
+
+      <!-- Cockpit Bottom Bar (Exact Match with Image) -->
+      <div class="cockpit-bottom-bar">
+        <div class="cockpit-eta-pill">
+          <span class="cockpit-eta-time">2:06 <small style="font-size:10px;color:#94A3B8">arrival</small></span>
+          <span class="cockpit-eta-min">3 <small style="font-size:11px">min</small></span>
+          <span class="cockpit-eta-dist">0.8 km</span>
+        </div>
+
+        <div class="cockpit-side-actions">
+          <div class="cockpit-icon-btn" style="background:#F59E0B;color:#000" title="Hazard Alert">⚠️</div>
+          <div class="cockpit-icon-btn" title="Audio Guidance">🔊</div>
+          <div class="cockpit-icon-btn" onclick="True3DNavigation.stop()" title="Exit 3D View">✕</div>
+        </div>
+      </div>
+    </div>
+
     <!-- Top AI & 3D Navigation Controls -->
     <div class="map-ai-bar" style="position:absolute;top:10px;left:10px;z-index:500;display:flex;align-items:center;gap:6px;background:var(--surface);padding:4px 8px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.35);border:1px solid var(--border);max-width:calc(100% - 130px);flex-wrap:wrap">
       <div style="display:flex;align-items:center;gap:6px;flex:1;min-width:130px">
@@ -1715,35 +2363,9 @@ function mapHTML(list){
         <span id="mapAiCount" class="pill st-available" style="font-size:10px;padding:2px 6px;display:none">0</span>
       </div>
       <button class="btn sm pri" data-act="askmaps" style="padding:4px 9px;font-size:11px;font-weight:700;border-radius:8px;background:linear-gradient(135deg,#7C3AED,#D9161D);border:0;color:#fff;box-shadow:0 2px 6px rgba(124,58,237,0.35)">✨ Ask Maps</button>
-      <button class="btn sm" id="btnToggle3D" onclick="Immersive3DNav.toggle3DView()" style="padding:4px 9px;font-size:11px;font-weight:700;border-radius:8px" title="Tilt map into 3D aerial perspective">🛸 3D Tilt View</button>
-      <button class="btn sm cy" onclick="Immersive3DNav.startTour()" style="padding:4px 9px;font-size:11px;font-weight:700;border-radius:8px;background:#064E3B;color:#fff;border:0" title="Start slow 3D automated flyover inspection">▶️ 3D Auto Drive</button>
+      <button class="btn sm cy" onclick="True3DNavigation.start()" style="padding:4px 10px;font-size:11px;font-weight:800;border-radius:8px;background:linear-gradient(135deg,#047857,#065F46);color:#fff;border:0;box-shadow:0 3px 10px rgba(4,120,87,0.4)" title="Start True Google Immersive 3D Driving Navigation">🚗 Launch 3D Immersive Navigation</button>
     </div>
 
-    <!-- Immersive HUD Overlay (During 3D Drive) -->
-    <div id="immersiveHud" class="immersive-hud" style="display:none">
-      <div id="hudTurnCard" class="immersive-turn-card"></div>
-      <div style="display:flex;gap:4px;pointer-events:auto;background:rgba(0,0,0,0.75);backdrop-filter:blur(8px);padding:4px 8px;border-radius:10px;border:1px solid rgba(255,255,255,0.2)">
-        <button class="cam-angle-btn active" data-mode="driver" onclick="Immersive3DNav.setCameraAngle('driver')" title="Driver POV along traffic flow">🚗 Driver POV</button>
-        <button class="cam-angle-btn" data-mode="close" onclick="Immersive3DNav.setCameraAngle('close')" title="Close-Up Billboard Face">👁️ Close-Up</button>
-        <button class="cam-angle-btn" data-mode="orbit" onclick="Immersive3DNav.setCameraAngle('orbit')" title="360 Orbit around site">🔄 360° Orbit</button>
-        <button class="cam-angle-btn" data-mode="aerial" onclick="Immersive3DNav.setCameraAngle('aerial')" title="Top 3D Aerial Flyover">🛸 Aerial</button>
-      </div>
-      <button class="btn sm" onclick="Immersive3DNav.stopTour()" style="pointer-events:auto;background:rgba(0,0,0,0.7);color:#fff;border:1px solid rgba(255,255,255,0.2);padding:6px 12px;border-radius:8px;font-weight:700">✕ Exit 3D</button>
-    </div>
-
-    <!-- Immersive Bottom Bar (During 3D Drive) -->
-    <div id="immersiveBottomBar" class="immersive-bottom-bar" style="display:none">
-      <div id="hudBottomInfo"></div>
-      <div style="display:flex;gap:6px">
-        <button class="btn sm" id="btnTourPause" onclick="Immersive3DNav.pauseResume()" style="background:rgba(255,255,255,0.15);color:#fff;border:0;padding:5px 10px">⏸️ Pause</button>
-        <button class="btn sm" onclick="Immersive3DNav.skipNext()" style="background:rgba(255,255,255,0.15);color:#fff;border:0;padding:5px 10px">⏭️ Next Site</button>
-        <button class="btn sm pri" onclick="Immersive3DNav.stopTour()" style="background:#D9161D;border:0;color:#fff;padding:5px 12px;font-weight:700">Stop</button>
-      </div>
-    </div>
-
-    <!-- In-Map Inspection Bar -->
-    <div id="mapInspectBar" style="display:none;position:absolute;bottom:12px;left:12px;right:12px;z-index:500;background:var(--surface);padding:8px 14px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.4);border:1px solid var(--border);align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px"></div>
-    
     <div id="leafletMap" style="width:100%;height:100%;min-height:380px"></div>
     ${!hasPins ? `<div style="position:absolute;bottom:12px;left:12px;z-index:400;background:var(--surface);padding:6px 12px;border-radius:6px;font-size:12px;color:var(--muted);box-shadow:var(--shadow)">No GPS coordinates on selected sites</div>` : ""}
   </div>`;
