@@ -910,8 +910,65 @@ function vDash(){
 }
 function emptyState(h,p,cta=""){return`<div class="empty">${ICON.sites}<h3>${h}</h3><p>${p}</p>${cta}</div>`}
 
-/* ============ Map (Leaflet + OpenStreetMap) ============ */
+/* ============ Map (Leaflet + Google Earth + OpenStreetMap) ============ */
 let _leafletMap = null;
+let _mapMarkerList = [];
+
+function filterMapMarkers(rawQuery){
+  if(!_leafletMap || !_mapMarkerList.length) return;
+  const q = (rawQuery || "").trim().toLowerCase();
+  const countEl = document.getElementById("mapAiCount");
+  
+  if(!q){
+    _mapMarkerList.forEach(item => {
+      if(!_leafletMap.hasLayer(item.marker)) _leafletMap.addLayer(item.marker);
+    });
+    if(countEl) countEl.style.display = "none";
+    const group = L.featureGroup(_mapMarkerList.map(item => item.marker));
+    if(_mapMarkerList.length) _leafletMap.flyToBounds(group.getBounds().pad(0.15), { duration: 0.75 });
+    return;
+  }
+
+  const terms = q.split(/\s+/);
+  const matched = [];
+
+  _mapMarkerList.forEach(item => {
+    const s = item.site;
+    const st = effStatus(s);
+    const searchString = [
+      s.code,
+      s.area,
+      s.from,
+      s.towards,
+      s.media,
+      s.brand,
+      st,
+      STATUS[st],
+      s.light,
+      sizeOf(s),
+      s.notes
+    ].filter(Boolean).join(" ").toLowerCase();
+
+    const isMatch = terms.every(term => searchString.includes(term));
+    if(isMatch){
+      if(!_leafletMap.hasLayer(item.marker)) _leafletMap.addLayer(item.marker);
+      matched.push(item.marker);
+    } else {
+      if(_leafletMap.hasLayer(item.marker)) _leafletMap.removeLayer(item.marker);
+    }
+  });
+
+  if(countEl){
+    countEl.style.display = "inline-flex";
+    countEl.textContent = `${matched.length} site${matched.length !== 1 ? "s" : ""}`;
+  }
+
+  if(matched.length){
+    const group = L.featureGroup(matched);
+    _leafletMap.flyToBounds(group.getBounds().pad(0.2), { maxZoom: 16, duration: 0.75 });
+  }
+}
+
 function mountLeafletMap(list){
   const el = document.getElementById("leafletMap");
   if(!el || typeof L === "undefined") return;
@@ -919,12 +976,26 @@ function mountLeafletMap(list){
     try{ _leafletMap.remove(); }catch(e){}
     _leafletMap = null;
   }
+  _mapMarkerList = [];
+
   const map = L.map(el, { scrollWheelZoom: false, attributionControl: false });
   _leafletMap = map;
+
+  const googleHybrid = L.tileLayer('https://mt{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+    maxZoom: 20,
+    subdomains: ['0','1','2','3'],
+    attribution: 'Imagery &copy; Google Earth'
+  });
 
   const streetLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; OpenStreetMap'
+  });
+
+  const googleStreet = L.tileLayer('https://mt{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+    maxZoom: 20,
+    subdomains: ['0','1','2','3'],
+    attribution: 'Map &copy; Google'
   });
 
   const satLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
@@ -932,27 +1003,17 @@ function mountLeafletMap(list){
     attribution: 'Tiles &copy; Esri'
   });
 
-  const labelLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
-    maxZoom: 19,
-    subdomains: 'abcd'
-  });
-
-  streetLayer.addTo(map);
+  // Default to Google Earth Hybrid for photorealistic 3D satellite view
+  googleHybrid.addTo(map);
 
   const baseMaps = {
-    "🗺️ Street Map": streetLayer,
-    "🛰️ 3D Satellite": satLayer
+    "🌍 Google Earth Hybrid": googleHybrid,
+    "🗺️ Street Map (OSM)": streetLayer,
+    "📍 Google Streets": googleStreet,
+    "🛰️ Esri Satellite": satLayer
   };
-  const overlayMaps = {
-    "🏷️ Road Labels": labelLayer
-  };
-  L.control.layers(baseMaps, overlayMaps, { position: 'topright' }).addTo(map);
 
-  map.on('baselayerchange', function(e) {
-    if(e.name === "🛰️ 3D Satellite") {
-      if(!map.hasLayer(labelLayer)) map.addLayer(labelLayer);
-    }
-  });
+  L.control.layers(baseMaps, null, { position: 'topright' }).addTo(map);
 
   const col = { available: "#0E9F76", booked: "#E03656", expiring: "#EE7422", maintenance: "#DB8F06" };
   const valid = (list || []).filter(s => s && s.lat && s.lng && isFinite(+s.lat) && isFinite(+s.lng));
@@ -963,14 +1024,16 @@ function mountLeafletMap(list){
     const c = col[st] || "#7C3AED";
     const icon = L.divIcon({
       className: "custom-map-pin",
-      html: `<div style="width:24px;height:24px;background:${c};border:2px solid #fff;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 3px 6px rgba(0,0,0,0.35);display:flex;align-items:center;justify-content:center"><div style="width:7px;height:7px;background:#fff;border-radius:50%"></div></div>`,
+      html: `<div style="width:24px;height:24px;background:${c};border:2px solid #fff;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 3px 6px rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center"><div style="width:7px;height:7px;background:#fff;border-radius:50%"></div></div>`,
       iconSize: [24, 24],
       iconAnchor: [12, 24],
       popupAnchor: [0, -24]
     });
     const m = L.marker([+s.lat, +s.lng], { icon });
     const navUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(s.lat+','+s.lng)}&travelmode=driving`;
-    const popHtml = `<div style="min-width:190px;max-width:250px;font-family:var(--body)">
+    const earthUrl = `https://earth.google.com/web/search/@${encodeURIComponent(s.lat+','+s.lng)},150a,35y,0h,60t,0r`;
+    
+    const popHtml = `<div style="min-width:200px;max-width:260px;font-family:var(--body)">
       <img src="${esc(thumbOf(s))}" alt="" style="width:100%;height:100px;object-fit:cover;border-radius:6px;margin-bottom:6px" onerror="phFix(this)">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
         <span class="mono" style="font-size:12px;font-weight:700;color:var(--violet)">${esc(s.code)}</span>
@@ -979,14 +1042,16 @@ function mountLeafletMap(list){
       <div style="font-weight:700;font-size:13px;color:var(--ink);margin-bottom:2px">${esc(s.area)} · ${sizeOf(s)} ft</div>
       <div style="font-size:11px;color:var(--muted);margin-bottom:6px">${esc(s.from||"—")} → ${esc(s.towards||"—")}</div>
       ${s.traffic||s.vehiclesDay?`<div style="font-size:11px;color:var(--ink2);margin-bottom:6px">~${fmtK(otsOf(s))} OTS/day</div>`:""}
-      <div style="display:flex;gap:6px;margin-top:6px">
-        <button class="btn sm pri" data-act="site" data-id="${s.id}" style="flex:1;justify-content:center;padding:5px 0">Open site</button>
-        <a class="btn sm cy" href="${navUrl}" target="_blank" rel="noopener" style="flex:1;justify-content:center;padding:5px 0;text-decoration:none" title="Start Live 3D Navigation">${ICON.pin}Navigate</a>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:6px">
+        <button class="btn sm pri" data-act="site" data-id="${s.id}" style="justify-content:center;padding:5px 0">Open site</button>
+        <a class="btn sm cy" href="${navUrl}" target="_blank" rel="noopener" style="justify-content:center;padding:5px 0;text-decoration:none" title="Start Live GPS Navigation">${ICON.pin}Navigate</a>
+        <a class="btn sm" href="${earthUrl}" target="_blank" rel="noopener" style="grid-column:1/-1;justify-content:center;padding:5px 0;text-decoration:none;background:var(--bg);font-size:11px" title="View in Google Earth 3D">🌍 Open in Google Earth 3D</a>
       </div>
     </div>`;
-    m.bindPopup(popHtml, { maxWidth: 260 });
+    m.bindPopup(popHtml, { maxWidth: 280 });
     m.addTo(map);
     markers.push(m);
+    _mapMarkerList.push({ marker: m, site: s });
   });
 
   if(markers.length){
@@ -1001,7 +1066,12 @@ function mountLeafletMap(list){
 
 function mapHTML(list){
   const hasPins = list && list.some(s => s.lat && s.lng && isFinite(+s.lat) && isFinite(+s.lng));
-  return `<div class="mapwrap" style="position:relative;width:100%;height:460px;min-height:360px;border-radius:var(--r2);overflow:hidden;border:1px solid var(--line)">
+  return `<div class="mapwrap" style="position:relative;width:100%;height:480px;min-height:360px;border-radius:var(--r2);overflow:hidden;border:1px solid var(--line)">
+    <div class="map-ai-bar" style="position:absolute;top:10px;left:10px;z-index:500;display:flex;align-items:center;gap:6px;background:var(--surface);padding:4px 8px 4px 10px;border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,0.3);border:1px solid var(--border);max-width:calc(100% - 130px)">
+      <span style="font-size:13px">🤖</span>
+      <input id="mapAiSearch" type="text" placeholder="AI Map Search (e.g. Clifton, Airport, SMD, Available)…" style="background:transparent;border:0;outline:0;color:var(--ink);font-size:12px;width:180px;min-width:110px" oninput="filterMapMarkers(this.value)">
+      <span id="mapAiCount" class="pill st-available" style="font-size:10px;padding:2px 6px;display:none">0</span>
+    </div>
     <div id="leafletMap" style="width:100%;height:100%;min-height:360px"></div>
     ${!hasPins ? `<div style="position:absolute;bottom:12px;left:12px;z-index:400;background:var(--surface);padding:6px 12px;border-radius:6px;font-size:12px;color:var(--muted);box-shadow:var(--shadow)">No GPS coordinates on selected sites</div>` : ""}
   </div>`;
@@ -1064,8 +1134,8 @@ function openSite(id,editMode){
   openLayer(`<div class="scrim" data-act="close"></div><aside class="drawer" role="dialog" aria-label="Site">
     <div class="dh"><div><div class="mono" style="color:var(--violet);font-weight:700;font-size:12px">${esc(d.code||"New site")}</div><h2 style="font-size:20px">${isNew?"Add a site":esc(d.area)}</h2></div><span class="sp"></span>${s?pill(s):""}<button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button></div>
     <div class="db">${gal}
-      ${!isNew&&RO()&&d.lat?`<div class="row"><a class="btn sm cy" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(d.lat+','+d.lng)}&travelmode=driving" target="_blank" rel="noopener">${ICON.pin}Start 3D Navigation</a><a class="btn sm" href="${mapsUrl(d)}" target="_blank" rel="noopener">Open in Maps</a></div>`:""}
-      ${!isNew&&!RO()?`<div class="row"><button class="btn sm" data-act="addphoto" data-id="${d.id}">${ICON.cam}Add photo / video</button>${d.lat?`<a class="btn sm cy" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(d.lat+','+d.lng)}&travelmode=driving" target="_blank" rel="noopener">${ICON.pin}Start 3D Navigation</a>`:""}<button class="btn sm" data-act="${edit?"siteview":"siteedit"}" data-id="${d.id}">${edit?"Cancel edit":"Edit details"}</button><span class="sp"></span><button class="btn sm danger" data-act="sitedel" data-id="${d.id}">Delete</button></div>`:""}
+      ${!isNew&&RO()&&d.lat?`<div class="row" style="flex-wrap:wrap"><a class="btn sm cy" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(d.lat+','+d.lng)}&travelmode=driving" target="_blank" rel="noopener">${ICON.pin}Start 3D Navigation</a><a class="btn sm" href="https://earth.google.com/web/search/@${encodeURIComponent(d.lat+','+d.lng)},150a,35y,0h,60t,0r" target="_blank" rel="noopener">🌍 Google Earth 3D</a><a class="btn sm" href="${mapsUrl(d)}" target="_blank" rel="noopener">Open in Maps</a></div>`:""}
+      ${!isNew&&!RO()?`<div class="row" style="flex-wrap:wrap"><button class="btn sm" data-act="addphoto" data-id="${d.id}">${ICON.cam}Add photo / video</button>${d.lat?`<a class="btn sm cy" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(d.lat+','+d.lng)}&travelmode=driving" target="_blank" rel="noopener">${ICON.pin}Start 3D Navigation</a><a class="btn sm" href="https://earth.google.com/web/search/@${encodeURIComponent(d.lat+','+d.lng)},150a,35y,0h,60t,0r" target="_blank" rel="noopener">🌍 Google Earth 3D</a>`:""}<button class="btn sm" data-act="${edit?"siteview":"siteedit"}" data-id="${d.id}">${edit?"Cancel edit":"Edit details"}</button><span class="sp"></span><button class="btn sm danger" data-act="sitedel" data-id="${d.id}">Delete</button></div>`:""}
       ${!isNew&&!edit&&!RO()?`<div><div class="eyebrow" style="margin-bottom:8px">Quick status</div><div class="chips">${["available","booked","maintenance"].map(k=>`<button class="chip st ${k} ${d.status===k?"on":""}" data-act="quickst" data-id="${d.id}" data-v="${k}">${STATUS[k]}</button>`).join("")}</div></div>`:""}
       ${edit?`<form id="siteForm" data-id="${d.id}" data-new="${isNew?1:""}">${form}<div class="row" style="margin-top:16px"><button class="btn pri" type="submit">${isNew?"Create site":"Save changes"}</button></div></form>`:info}
     </div></aside>`);
