@@ -30,6 +30,75 @@ body.guest-presentation .main {
   margin: 0 auto;
 }
 
+
+/* ============ Immersive 3D Navigation Styles ============ */
+.mapwrap {
+  perspective: 1200px;
+  transition: all 0.5s ease;
+}
+.mapwrap.immersive-active {
+  background: #09090b !important;
+}
+.mapwrap.immersive-active #leafletMap {
+  transform: rotateX(46deg) scale(1.18) translateY(-25px);
+  transform-origin: center 85%;
+  transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 45px 90px rgba(0,0,0,0.85);
+  border-radius: 12px;
+}
+.immersive-hud {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  z-index: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  pointer-events: none;
+  font-family: var(--body);
+}
+.immersive-turn-card {
+  pointer-events: auto;
+  background: linear-gradient(135deg, #064E3B, #047857);
+  color: #fff;
+  border-radius: 14px;
+  padding: 10px 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 320px;
+}
+.immersive-bottom-bar {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  z-index: 600;
+  background: rgba(18, 16, 17, 0.92);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  border-radius: 14px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.15);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+@keyframes radar-pulse {
+  0% { transform: scale(0.8) rotate(-45deg); opacity: 1; box-shadow: 0 0 0 0 rgba(217, 22, 29, 0.8); }
+  70% { transform: scale(1.15) rotate(-45deg); opacity: 0.9; box-shadow: 0 0 0 18px rgba(217, 22, 29, 0); }
+  100% { transform: scale(1) rotate(-45deg); opacity: 1; box-shadow: 0 0 0 0 rgba(217, 22, 29, 0); }
+}
+.pin-active-3d {
+  animation: radar-pulse 1.8s infinite ease-out;
+}
+
 </style>
 <title>AdPulse OOH Tracking System</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1208,6 +1277,159 @@ function open3DMapModal(id){
 }
 
 
+
+/* ============ Immersive 3D Navigation Controller ============ */
+const Immersive3DNav = {
+  active: false,
+  tourRunning: false,
+  tourIndex: 0,
+  tourTimer: null,
+  isPaused: false,
+  sitesList: [],
+
+  toggle3DView() {
+    const wrap = document.querySelector(".mapwrap");
+    if (!wrap) return;
+    this.active = !this.active;
+    wrap.classList.toggle("immersive-active", this.active);
+    const btn = document.getElementById("btnToggle3D");
+    if (btn) {
+      btn.innerHTML = this.active ? "🛸 Normal View" : "🛸 3D Tilt View";
+      btn.classList.toggle("pri", this.active);
+    }
+    if (_leafletMap) {
+      setTimeout(() => _leafletMap.invalidateSize(), 300);
+    }
+    toast(this.active ? "3D Immersive Perspective Mode Enabled" : "Returned to standard 2D view");
+  },
+
+  startTour(list) {
+    const valid = (list || S.sites || []).filter(s => s && s.lat && s.lng && isFinite(+s.lat) && isFinite(+s.lng));
+    if (!valid.length) {
+      toast("No sites with GPS coordinates available for 3D navigation.");
+      return;
+    }
+
+    this.sitesList = valid;
+    this.tourIndex = 0;
+    this.tourRunning = true;
+    this.isPaused = false;
+
+    // Enable 3D tilt mode
+    const wrap = document.querySelector(".mapwrap");
+    if (wrap && !this.active) {
+      this.active = true;
+      wrap.classList.add("immersive-active");
+      const btn = document.getElementById("btnToggle3D");
+      if (btn) { btn.innerHTML = "🛸 Normal View"; btn.classList.add("pri"); }
+    }
+
+    // Hide normal AI bar and show HUD
+    const aiBar = document.querySelector(".map-ai-bar");
+    if (aiBar) aiBar.style.display = "none";
+
+    const hud = document.getElementById("immersiveHud");
+    if (hud) hud.style.display = "flex";
+
+    const btm = document.getElementById("immersiveBottomBar");
+    if (btm) btm.style.display = "flex";
+
+    this.nextSite();
+  },
+
+  nextSite() {
+    if (!this.tourRunning || !_leafletMap) return;
+    if (this.tourIndex >= this.sitesList.length) {
+      this.tourIndex = 0; // loop back
+    }
+
+    const s = this.sitesList[this.tourIndex];
+    const total = this.sitesList.length;
+    const currentNum = this.tourIndex + 1;
+    const st = effStatus(s);
+
+    // Update Turn Card HUD
+    const turnCard = document.getElementById("hudTurnCard");
+    if (turnCard) {
+      turnCard.innerHTML = `<div style="font-size:26px;line-height:1">↰</div>
+        <div>
+          <div style="font-size:11px;opacity:0.85;text-transform:uppercase;font-weight:700">Next Site ${currentNum}/${total}</div>
+          <div style="font-size:15px;font-weight:800;letter-spacing:-0.2px">${esc(s.area)}</div>
+          <div style="font-size:11px;opacity:0.9">${esc(s.code)} · ${sizeOf(s)} ft · ~${fmtK(otsOf(s))} OTS</div>
+        </div>`;
+    }
+
+    // Update Bottom HUD
+    const btmInfo = document.getElementById("hudBottomInfo");
+    if (btmInfo) {
+      btmInfo.innerHTML = `<div style="display:flex;align-items:center;gap:10px">
+        <img src="${esc(thumbOf(s))}" alt="" style="width:50px;height:38px;object-fit:cover;border-radius:6px" onerror="phFix(this)">
+        <div>
+          <div style="font-weight:700;font-size:13px"><span class="mono" style="color:var(--violet)">${esc(s.code)}</span> · ${esc(s.from||"—")} → ${esc(s.towards||"—")}</div>
+          <div style="font-size:11px;color:#cbd5e1"><span class="pill st-${st}" style="font-size:9px;padding:1px 5px">${STATUS[st]}</span> · Speed: <b>50 km/h</b> (Simulated 3D Drive)</div>
+        </div>
+      </div>`;
+    }
+
+    // Smooth Slow Fly-In to Billboard in 3D (Duration 3.2s)
+    _leafletMap.flyTo([+s.lat, +s.lng], 18, {
+      duration: 3.2,
+      easeLinearity: 0.25
+    });
+
+    // Stay and inspect site for 4.5 seconds, then zoom out slightly and move to next
+    clearTimeout(this.tourTimer);
+    this.tourTimer = setTimeout(() => {
+      if (!this.tourRunning || this.isPaused) return;
+      
+      // Zoom out smoothly
+      _leafletMap.flyTo([+s.lat, +s.lng], 15, {
+        duration: 2.0,
+        easeLinearity: 0.3
+      });
+
+      this.tourTimer = setTimeout(() => {
+        if (!this.tourRunning || this.isPaused) return;
+        this.tourIndex++;
+        this.nextSite();
+      }, 2200);
+
+    }, 4500);
+  },
+
+  pauseResume() {
+    this.isPaused = !this.isPaused;
+    const btn = document.getElementById("btnTourPause");
+    if (btn) btn.innerHTML = this.isPaused ? "▶️ Resume" : "⏸️ Pause";
+    if (!this.isPaused) {
+      this.nextSite();
+    }
+  },
+
+  skipNext() {
+    clearTimeout(this.tourTimer);
+    this.tourIndex++;
+    this.nextSite();
+  },
+
+  stopTour() {
+    this.tourRunning = false;
+    clearTimeout(this.tourTimer);
+
+    const hud = document.getElementById("immersiveHud");
+    if (hud) hud.style.display = "none";
+
+    const btm = document.getElementById("immersiveBottomBar");
+    if (btm) btm.style.display = "none";
+
+    const aiBar = document.querySelector(".map-ai-bar");
+    if (aiBar) aiBar.style.display = "flex";
+
+    resetMapZoom();
+    toast("3D Auto Navigation Tour Stopped");
+  }
+};
+
 function zoomToSite3D(id){
   const s = S.sites.find(x => x.id === id);
   if(!s || !s.lat || !s.lng || !_leafletMap) {
@@ -1341,17 +1563,40 @@ function mountLeafletMap(list){
 
 function mapHTML(list){
   const hasPins = list && list.some(s => s.lat && s.lng && isFinite(+s.lat) && isFinite(+s.lng));
-  return `<div class="mapwrap" style="position:relative;width:100%;height:480px;min-height:360px;border-radius:var(--r2);overflow:hidden;border:1px solid var(--line)">
+  return `<div class="mapwrap" style="position:relative;width:100%;height:520px;min-height:380px;border-radius:var(--r2);overflow:hidden;border:1px solid var(--line)">
+    
+    <!-- Top AI & 3D Navigation Controls -->
     <div class="map-ai-bar" style="position:absolute;top:10px;left:10px;z-index:500;display:flex;align-items:center;gap:6px;background:var(--surface);padding:4px 8px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.35);border:1px solid var(--border);max-width:calc(100% - 130px);flex-wrap:wrap">
-      <div style="display:flex;align-items:center;gap:6px;flex:1;min-width:140px">
+      <div style="display:flex;align-items:center;gap:6px;flex:1;min-width:130px">
         <span style="font-size:14px">🤖</span>
-        <input id="mapAiSearch" type="text" placeholder="Filter map or ask AI…" style="background:transparent;border:0;outline:0;color:var(--ink);font-size:12px;width:140px" oninput="filterMapMarkers(this.value)" onkeydown="if(event.key==='Enter')AskMapsAI.open(this.value)">
+        <input id="mapAiSearch" type="text" placeholder="Filter or Ask AI…" style="background:transparent;border:0;outline:0;color:var(--ink);font-size:12px;width:130px" oninput="filterMapMarkers(this.value)" onkeydown="if(event.key==='Enter')AskMapsAI.open(this.value)">
         <span id="mapAiCount" class="pill st-available" style="font-size:10px;padding:2px 6px;display:none">0</span>
       </div>
-      <button class="btn sm pri" data-act="askmaps" style="padding:4px 10px;font-size:11px;font-weight:700;border-radius:8px;background:linear-gradient(135deg,#7C3AED,#D9161D);border:0;color:#fff;box-shadow:0 2px 6px rgba(124,58,237,0.35)">✨ Ask Maps AI</button>
+      <button class="btn sm pri" data-act="askmaps" style="padding:4px 9px;font-size:11px;font-weight:700;border-radius:8px;background:linear-gradient(135deg,#7C3AED,#D9161D);border:0;color:#fff;box-shadow:0 2px 6px rgba(124,58,237,0.35)">✨ Ask Maps</button>
+      <button class="btn sm" id="btnToggle3D" onclick="Immersive3DNav.toggle3DView()" style="padding:4px 9px;font-size:11px;font-weight:700;border-radius:8px" title="Tilt map into 3D aerial perspective">🛸 3D Tilt View</button>
+      <button class="btn sm cy" onclick="Immersive3DNav.startTour()" style="padding:4px 9px;font-size:11px;font-weight:700;border-radius:8px;background:#064E3B;color:#fff;border:0" title="Start slow 3D automated flyover inspection">▶️ 3D Auto Drive</button>
     </div>
+
+    <!-- Immersive HUD Overlay (During 3D Drive) -->
+    <div id="immersiveHud" class="immersive-hud" style="display:none">
+      <div id="hudTurnCard" class="immersive-turn-card"></div>
+      <button class="btn sm" onclick="Immersive3DNav.stopTour()" style="pointer-events:auto;background:rgba(0,0,0,0.7);color:#fff;border:1px solid rgba(255,255,255,0.2);padding:6px 12px;border-radius:8px;font-weight:700">✕ Exit 3D</button>
+    </div>
+
+    <!-- Immersive Bottom Bar (During 3D Drive) -->
+    <div id="immersiveBottomBar" class="immersive-bottom-bar" style="display:none">
+      <div id="hudBottomInfo"></div>
+      <div style="display:flex;gap:6px">
+        <button class="btn sm" id="btnTourPause" onclick="Immersive3DNav.pauseResume()" style="background:rgba(255,255,255,0.15);color:#fff;border:0;padding:5px 10px">⏸️ Pause</button>
+        <button class="btn sm" onclick="Immersive3DNav.skipNext()" style="background:rgba(255,255,255,0.15);color:#fff;border:0;padding:5px 10px">⏭️ Next Site</button>
+        <button class="btn sm pri" onclick="Immersive3DNav.stopTour()" style="background:#D9161D;border:0;color:#fff;padding:5px 12px;font-weight:700">Stop</button>
+      </div>
+    </div>
+
+    <!-- In-Map Inspection Bar -->
     <div id="mapInspectBar" style="display:none;position:absolute;bottom:12px;left:12px;right:12px;z-index:500;background:var(--surface);padding:8px 14px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.4);border:1px solid var(--border);align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px"></div>
-    <div id="leafletMap" style="width:100%;height:100%;min-height:360px"></div>
+    
+    <div id="leafletMap" style="width:100%;height:100%;min-height:380px"></div>
     ${!hasPins ? `<div style="position:absolute;bottom:12px;left:12px;z-index:400;background:var(--surface);padding:6px 12px;border-radius:6px;font-size:12px;color:var(--muted);box-shadow:var(--shadow)">No GPS coordinates on selected sites</div>` : ""}
   </div>`;
 }
