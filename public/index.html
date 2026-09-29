@@ -2176,8 +2176,8 @@ function zoomToSite3D(id){
   // Close popup
   _leafletMap.closePopup();
   
-  // Fly directly to billboard with maximum 3D satellite zoom
-  _leafletMap.flyTo([+s.lat, +s.lng], 19, { duration: 1.2 });
+  // Fly directly to billboard with ULTRA MAXIMUM close-up zoom (Level 20.5)
+  _leafletMap.flyTo([+s.lat, +s.lng], 20.5, { duration: 1.4 });
   
   // Show in-map inspection banner
   const banner = document.getElementById("mapInspectBar");
@@ -2185,9 +2185,11 @@ function zoomToSite3D(id){
     banner.style.display = "flex";
     banner.innerHTML = `<div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--ink)">
       <span style="font-size:14px">🎯</span>
-      <span>3D Inspecting: <span class="mono" style="color:var(--violet)">${esc(s.code)}</span> (${esc(s.area)})</span>
+      <span>Ultra 3D Zoom: <span class="mono" style="color:var(--violet)">${esc(s.code)}</span> (${esc(s.area)}) · ${sizeOf(s)} ft</span>
     </div>
-    <div style="display:flex;gap:6px">
+    <div style="display:flex;gap:6px;align-items:center">
+      <button class="btn sm" onclick="_leafletMap.setZoom(Math.min(22, _leafletMap.getZoom()+1))" style="padding:3px 8px;font-size:11px;font-weight:800" title="Zoom in closer">➕ Zoom In</button>
+      <button class="btn sm" onclick="_leafletMap.setZoom(Math.max(12, _leafletMap.getZoom()-1))" style="padding:3px 8px;font-size:11px;font-weight:800" title="Zoom out">➖ Zoom Out</button>
       <button class="btn sm pri" data-act="site" data-id="${s.id}" style="padding:3px 8px;font-size:11px">Open Site</button>
       <button class="btn sm" onclick="resetMapZoom()" style="padding:3px 8px;font-size:11px">🔙 Reset Map</button>
     </div>`;
@@ -2211,28 +2213,32 @@ function mountLeafletMap(list){
   }
   _mapMarkerList = [];
 
-  const map = L.map(el, { scrollWheelZoom: false, attributionControl: false });
+  const map = L.map(el, { maxZoom: 22, scrollWheelZoom: false, attributionControl: false });
   _leafletMap = map;
 
   const googleHybrid = L.tileLayer('https://mt{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
-    maxZoom: 20,
+    maxZoom: 22,
+    maxNativeZoom: 20,
     subdomains: ['0','1','2','3'],
     attribution: 'Imagery &copy; Google Earth'
   });
 
   const streetLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
+    maxZoom: 22,
+    maxNativeZoom: 19,
     attribution: '&copy; OpenStreetMap'
   });
 
   const googleStreet = L.tileLayer('https://mt{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-    maxZoom: 20,
+    maxZoom: 22,
+    maxNativeZoom: 20,
     subdomains: ['0','1','2','3'],
     attribution: 'Map &copy; Google'
   });
 
   const satLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    maxZoom: 19,
+    maxZoom: 22,
+    maxNativeZoom: 19,
     attribution: 'Tiles &copy; Esri'
   });
 
