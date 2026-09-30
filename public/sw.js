@@ -1,4 +1,4 @@
-const CACHE_NAME = 'adpulse-ots-v2';
+const CACHE_NAME = 'adpulse-ots-v3';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -13,18 +13,19 @@ const PRECACHE_ASSETS = [
   'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap'
 ];
 
-// Install event: Pre-cache app shell assets
+// Install event: Pre-cache app shell assets and activate immediately
 self.addEventListener('install', (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(PRECACHE_ASSETS).catch((err) => {
         console.warn('Pre-caching warning:', err);
       });
-    }).then(() => self.skipWaiting())
+    })
   );
 });
 
-// Activate event: Clean up previous caches
+// Activate event: Evict ALL old caches and claim clients immediately
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
@@ -37,7 +38,7 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch event: Network-first for navigation, Cache-first / Stale-While-Revalidate for assets, Network-only for API
+// Fetch event: Network-First for everything, fallback to cache when offline
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   const url = new URL(req.url);
@@ -47,50 +48,35 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Network-only for Supabase auth / database / API calls
+  // Network-only for Supabase auth / database / API calls / external storage
   if (
     url.hostname.includes('supabase.co') ||
     url.pathname.startsWith('/api/') ||
     url.pathname.startsWith('/auth/') ||
-    url.pathname.startsWith('/rest/')
+    url.pathname.startsWith('/rest/') ||
+    url.pathname.startsWith('/storage/') ||
+    url.pathname.startsWith('/_blob/')
   ) {
     return;
   }
 
-  // Navigation requests (HTML pages): Network-First, fallback to cached index.html
-  if (req.mode === 'navigate') {
-    event.respondWith(
-      fetch(req)
-        .then((networkResponse) => {
-          if (networkResponse && networkResponse.status === 200) {
-            const copy = networkResponse.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(req, copy));
-          }
-          return networkResponse;
-        })
-        .catch(async () => {
-          const cached = await caches.match(req);
-          if (cached) return cached;
-          return caches.match('/index.html') || caches.match('/');
-        })
-    );
-    return;
-  }
-
-  // App Shell & Static Assets: Stale-While-Revalidate
+  // Network-First strategy: Always get fresh code from server if online, fallback to cache if offline
   event.respondWith(
-    caches.match(req).then((cachedResponse) => {
-      const fetchPromise = fetch(req)
-        .then((networkResponse) => {
-          if (networkResponse && networkResponse.status === 200) {
-            const copy = networkResponse.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(req, copy));
-          }
-          return networkResponse;
-        })
-        .catch(() => null);
-
-      return cachedResponse || fetchPromise;
-    })
+    fetch(req)
+      .then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
+          const copy = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(req, copy));
+        }
+        return networkResponse;
+      })
+      .catch(async () => {
+        const cached = await caches.match(req);
+        if (cached) return cached;
+        if (req.mode === 'navigate') {
+          return caches.match('/index.html') || caches.match('/');
+        }
+        return new Response('Offline', { status: 503, statusText: 'Offline' });
+      })
   );
 });

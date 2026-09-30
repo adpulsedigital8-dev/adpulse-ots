@@ -935,8 +935,8 @@ body.client .tabs{display:none}
 </style>
 <!-- Backend: Supabase client, your keys, then the adapter that gives the app the same window.claude API it had on claude.ai -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js"></script>
-<script src="/config.js"></script>
-<script src="/claude-shim.js"></script>
+<script src="/config.js?v=3.1"></script>
+<script src="/claude-shim.js?v=3.1"></script>
 </head>
 <body>
 
@@ -3291,7 +3291,15 @@ function vSettings(){const s=S.settings;const hasSample=S.sites.some(x=>x.sample
    <div class="fgrid"><label class="f">Agency name<input class="in" id="sAg" value="${esc(s.agency)}"></label><label class="f">Website<input class="in" id="sWeb" value="${esc(s.web)}"></label><label class="f">Phone<input class="in" id="sPh" value="${esc(s.phone)}" placeholder="+92 …"></label><label class="f">Email<input class="in" id="sEm" value="${esc(s.email)}" placeholder="media@…"></label></div>
    <div class="row"><button class="btn pri" type="submit">Save details</button></div></form>
   <div class="card pad grid" style="gap:10px"><h2 style="font-size:18px">Data</h2><p style="margin:0;color:var(--muted)">${S.sites.length} sites · ${S.campaigns.length} campaigns · ${S.decks.length} saved decks · ${S.mode==="live"?"synced for everyone with access to this page":"stored in this browser only"}.</p>
-   <div class="row"><button class="btn" data-act="csv">${ICON.dl}Export sites (CSV)</button>${hasSample?`<button class="btn danger" data-act="clearsample">Remove sample data</button>`:""}</div></div></div>`}
+   <div class="row"><button class="btn" data-act="csv">${ICON.dl}Export sites (CSV)</button>${hasSample?`<button class="btn danger" data-act="clearsample">Remove sample data</button>`:""}</div></div>
+  <div class="card pad grid" style="gap:14px;border:1px solid var(--border)">
+    <div class="row"><h2 style="font-size:18px">⚙️ Account &amp; App Cache</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v3.1 Cloud Live</span></div>
+    <p style="margin:0;color:var(--muted);font-size:13px">Logged in as: <b>${esc(user&&ME?ME:"Field Staff")}</b>. If you ever experience cached screens or offline sync delays, tap Force Sync below.</p>
+    <div class="row" style="gap:10px;flex-wrap:wrap">
+      <button class="btn sm" data-act="forceupdate" style="flex:1;min-width:180px;justify-content:center">⚡ Force Sync &amp; Evict Cache</button>
+      <button class="btn sm danger" data-act="signout" style="flex:1;min-width:180px;justify-content:center">🚪 Sign Out / Switch Account</button>
+    </div>
+  </div></div>`}
 
 async function loadTeamList(){
   const box=$("#teamList");
@@ -3433,6 +3441,8 @@ const ACT={
   installios:()=>openInstallModal('ios'),
   installandroid:()=>openInstallModal('android'),
   switchinstall:a=>openInstallModal(a.dataset.v),
+  forceupdate:async()=>{toast("Resetting cache…");if("serviceWorker" in navigator){try{const regs=await navigator.serviceWorker.getRegistrations();for(let r of regs)await r.unregister()}catch(e){}}if("caches" in window){try{const keys=await caches.keys();for(let k of keys)await caches.delete(k)}catch(e){}}localStorage.clear();sessionStorage.clear();location.hash="#dashboard";setTimeout(()=>location.reload(true),300)},
+  signout:()=>{if(window.OTS_signOut)window.OTS_signOut();else{localStorage.clear();sessionStorage.clear();location.hash="";location.reload()}},
  palette,close:closeLayer,
  ftoggle:()=>{fOpen=!fOpen;$(".fsel")?.classList.toggle("open",fOpen)},
  cfgtoggle:()=>{const c=$(".cfg");c.classList.toggle("open");$(".cfgt b").textContent=c.classList.contains("open")?"Hide deck settings ▴":"Deck settings ▾"},
@@ -3571,7 +3581,8 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=3.1").then(r=>{
+      r.update();
       console.log("AdPulse OTS PWA active:",r.scope);
     }).catch(err=>{
       console.warn("PWA ServiceWorker registration failed:",err);
