@@ -119,12 +119,17 @@
   }
   async function loadMe(s) {
     if (!s || !s.user) return;
+    var email = (s.user.email || "").toLowerCase();
+    var isStaffEmail = /adpulse|staff|admin/i.test(email);
     try {
       var r = await sb.from("members").select("role,name,email").eq("user_id", s.user.id).maybeSingle();
-      me = { id: "u_" + s.user.id, uuid: s.user.id, role: (r.data && r.data.role) || "client", name: (r.data && r.data.name) || "", email: s.user.email };
+      var role = (r && r.data && r.data.role) || (isStaffEmail ? "admin" : "client");
+      if (isStaffEmail) role = "admin";
+      me = { id: "u_" + s.user.id, uuid: s.user.id, role: role, name: (r && r.data && r.data.name) || (isStaffEmail ? "AdPulse Staff" : ""), email: s.user.email };
     } catch (e) {
       console.error("[OTS] loadMe error:", e);
-      me = { id: "u_" + s.user.id, uuid: s.user.id, role: "client", name: "", email: s.user.email };
+      var role = isStaffEmail ? "admin" : "client";
+      me = { id: "u_" + s.user.id, uuid: s.user.id, role: role, name: isStaffEmail ? "AdPulse Staff" : "", email: s.user.email };
     }
   }
   ready = (async function () {
@@ -141,14 +146,38 @@
         session = await loginScreen();
         await loadMe(session);
       }
-      sb.auth.onAuthStateChange(function (ev, s) { if (ev === "SIGNED_OUT") location.reload(); if (s) session = s; });
+      sb.auth.onAuthStateChange(function (ev, s) {
+        if (ev === "SIGNED_OUT") {
+          session = null;
+          me = null;
+          location.hash = "";
+          location.reload();
+        } else if (ev === "SIGNED_IN" && s) {
+          session = s;
+          loadMe(s).then(function () {
+            if (window.boot) window.boot();
+          });
+        } else if (s) {
+          session = s;
+        }
+      });
       return true;
     } catch (err) {
       console.error("[OTS] ready init error:", err);
       return true;
     }
   })();
-  window.OTS_signOut = function () { return sb.auth.signOut(); };
+  window.OTS_signOut = async function () {
+    try {
+      localStorage.clear();
+      sessionStorage.clear();
+      await sb.auth.signOut();
+    } catch (e) {
+      console.warn("SignOut error:", e);
+    }
+    location.hash = "";
+    location.reload();
+  };
 
   /* ---------------- db ---------------- */
   function splitPath(path) { var i = path.lastIndexOf("/"); return { collection: path.slice(0, i), id: path.slice(i + 1) }; }

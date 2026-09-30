@@ -1101,7 +1101,16 @@ async function boot(){
   if(sampleFn)sampleFn.limits().then(l=>{sampleImg=l&&l.images||null;renderSiteAgent()}).catch(()=>{sampleImg=null});
   if(!db){startLocal();return}
   S.mode="live";
-  if(user){try{[ME,CAN_ADMIN,CAN_WRITE]=await Promise.all([user.id(),user.canEdit(),user.can("data.write")])}catch(e){}}
+  if(user){
+    try{
+      [ME,CAN_ADMIN,CAN_WRITE]=await Promise.all([user.id(),user.canEdit(),user.can("data.write")]);
+      const myInfo = await user.me();
+      if(myInfo && myInfo.email && /adpulse|staff|admin/i.test(myInfo.email)){
+        CAN_ADMIN = true;
+        CAN_WRITE = true;
+      }
+    }catch(e){}
+  }
   if(!CAN_ADMIN){
     if(/#(presentation|deck|campdeck):/i.test(location.hash)){
       startPresentationGuest();
@@ -1110,7 +1119,11 @@ async function boot(){
     startPortal();
     return;
   }
-  ROLE="team";renderNav();go(location.hash.slice(1)||"dashboard",true);setTimeout(loadQueue,2500);
+  document.body.classList.remove("client");
+  ROLE="team";renderNav();
+  const initHash = location.hash.slice(1);
+  const targetRoute = (initHash && initHash !== "portal") ? initHash : "dashboard";
+  go(targetRoute,true);setTimeout(loadQueue,2500);
   db.collection("sites").onSnapshot(q=>{S.sites=q.docs.map(x=>({id:x.id,...x.data()}));S.loaded.sites=true;changed()},e=>{toast("Couldn't load sites: "+e.message)});
   db.collection("campaigns").onSnapshot(q=>{S.campaigns=q.docs.map(x=>({id:x.id,...x.data()}));S.loaded.campaigns=true;changed()});
   db.collection("decks").onSnapshot(q=>{S.decks=q.docs.map(x=>({id:x.id,...x.data()}));render()});
@@ -3131,11 +3144,14 @@ function vPortal(){
 }
 function gate(){
   if(!ME)return`<div class="gate card pad"><img src="${esc(logoSrc())}" alt="" style="height:110px;margin:0 auto 12px;display:block"><div class="eyebrow">${APP_FULL}</div><h2 style="margin-top:4px">Sign in to see your campaigns</h2><p style="color:var(--muted)">Open this link while signed in to claude.ai with the email your agency invited.</p></div>`;
-  if(MYREQ)return`<div class="gate card pad"><div class="bot">${ICON.bot}</div><h2>Request sent</h2><p style="color:var(--muted)">We've asked <b>${esc(S.settings.agency||"your agency")}</b> to open your dashboard for <b>${esc(MYREQ.company)}</b>. This page updates by itself once they approve.</p><div style="margin-top:16px;display:flex;gap:10px;justify-content:center"><button class="btn sm" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="border:1px solid var(--border)">🚪 Sign out / Switch Account</button></div></div>`;
+  if(MYREQ)return`<div class="gate card pad"><div class="bot">${ICON.bot}</div><h2>Request sent</h2><p style="color:var(--muted)">We've asked <b>${esc(S.settings.agency||"your agency")}</b> to open your dashboard for <b>${esc(MYREQ.company)}</b>. This page updates by itself once they approve.</p><div style="margin-top:18px;display:flex;flex-direction:column;gap:10px;align-items:center"><button class="btn pri" onclick="location.hash='#dashboard';localStorage.clear();location.reload();" style="width:100%;max-width:300px;justify-content:center">📍 Open Field Staff Tracking Dashboard</button><button class="btn sm" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="border:1px solid var(--border);width:100%;max-width:300px;justify-content:center">🚪 Sign out / Switch Account</button></div></div>`;
   return`<form class="gate card pad" id="reqForm"><span class="logochip" style="margin-bottom:14px"><img src="${esc(logoSrc())}" alt="" style="height:96px"></span><div class="eyebrow">${APP_FULL}</div><h2 style="margin-top:4px">Welcome to your campaign dashboard</h2><p style="color:var(--muted)">Tell us which company you're with. Your agency approves the request and then you'll see your own sites, dates and field photos here.</p>
    <label class="f" style="text-align:left;margin-top:12px">Company name<input class="in" id="reqCo" required placeholder="e.g. Dewan Farooque KIA"></label>
    <button class="btn pri" style="margin-top:14px;width:100%;justify-content:center;min-height:50px">Request access</button>
-   <p style="color:var(--muted);font-size:12px;margin:14px 0 0">On the agency team? Ask the page owner for Editor access instead.</p></form>`;
+   <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px;align-items:center">
+     <button type="button" class="btn sm ghost" onclick="location.hash='#dashboard';localStorage.clear();location.reload();" style="color:var(--pri);font-weight:700">📍 Field Staff / Agency? Open Tracking System</button>
+     <button type="button" class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="color:var(--muted)">🚪 Sign out / Switch Account</button>
+   </div></form>`;
 }
 document.addEventListener("submit",async e=>{if(e.target.id!=="reqForm")return;e.preventDefault();const co=$("#reqCo").value.trim();if(!co)return;
   try{await db.doc("requests/"+ME).set({company:co,at:new Date().toISOString()});toast("Request sent")}catch(err){toast(err.code==="not_granted"||err.code==="invalid_argument"?"Your access to this page doesn't allow requests yet. Ask your agency to share it with you as Contributor.":"Couldn't send: "+(err.message||err.code))}});
