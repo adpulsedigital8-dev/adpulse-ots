@@ -2770,9 +2770,26 @@ const QDB={db:null,
  del(id){return this.tx("readwrite",st=>st.delete(id))},
  async all(){const r=await this.tx("readonly",st=>st.getAll());return(r||[]).map(j=>({...j,shots:j.shots.map(x=>({...x,url:URL.createObjectURL(x.file)}))}))}};
 async function loadQueue(){const q=await QDB.all();if(!q.length)return;const have=new Set(queue.map(j=>j.id));q.forEach(j=>{if(!have.has(j.id))queue.push(j)});render();toast(`${queue.length} capture${queue.length>1?"s":""} from before are waiting to upload`);if(navigator.onLine)setTimeout(retryQueue,1500)}
-async function retryQueue(){if(retryQueue.busy)return;retryQueue.busy=true;const q=queue.slice();queue=[];for(const j of q){if(await runJob(j))await QDB.del(j.id);else{queue.push(j);await QDB.save(j)}}retryQueue.busy=false;render(true);toast(queue.length?`${queue.length} still waiting`:"Upload queue cleared")}
+async function retryQueue(){
+  if(retryQueue.busy)return;
+  retryQueue.busy=true;
+  toast("Uploading saved captures to cloud…");
+  const q=queue.slice();
+  queue=[];
+  for(const j of q){
+    if(await runJob(j)) await QDB.del(j.id);
+    else{
+      queue.push(j);
+      await QDB.save(j);
+    }
+  }
+  retryQueue.busy=false;
+  render(true);
+  toast(queue.length?`${queue.length} still waiting`:"✅ Capture uploaded to database successfully!");
+}
 async function watermark(sh,site,camp,who){
-  const img=await new Promise((r,j)=>{const i=new Image();i.onload=()=>r(i);i.onerror=j;i.src=sh.url});
+  const src = sh.url || (sh.file ? URL.createObjectURL(sh.file) : null);
+  const img=await new Promise((r,j)=>{const i=new Image();i.onload=()=>r(i);i.onerror=()=>j(new Error("Couldn't load photo for watermarking"));i.src=src});
   const max=1920,sc=Math.min(1,max/Math.max(img.naturalWidth,img.naturalHeight));const w=Math.round(img.naturalWidth*sc),h=Math.round(img.naturalHeight*sc);
   const c=document.createElement("canvas");c.width=w;c.height=h;const x=c.getContext("2d");x.drawImage(img,0,0,w,h);
   const bh=Math.round(h*.11),fs=Math.max(12,Math.round(bh*.26));const g=x.createLinearGradient(0,h-bh,0,h);g.addColorStop(0,"rgba(12,9,23,0)");g.addColorStop(.35,"rgba(12,9,23,.72)");g.addColorStop(1,"rgba(12,9,23,.88)");x.fillStyle=g;x.fillRect(0,h-bh*1.4,w,bh*1.4);
