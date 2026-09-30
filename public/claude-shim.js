@@ -291,7 +291,8 @@
     upload: async function (blob, opts) {
       await ready;
       var type = (opts && opts.type) || blob.type || "application/octet-stream";
-      var id = crypto.randomUUID().replace(/-/g, "") + (EXT[type] ? "." + EXT[type] : "");
+      var randStr = (typeof crypto !== "undefined" && crypto.randomUUID) ? crypto.randomUUID().replace(/-/g, "") : (Date.now().toString(36) + Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2));
+      var id = randStr + (EXT[type] ? "." + EXT[type] : "");
       var r = await sb.storage.from("media").upload(id, blob, { contentType: type, upsert: false, cacheControl: "31536000" });
       if (r.error) throw Object.assign(mapErr(r.error), { code: /size|large/i.test(r.error.message) ? "too_large" : "store_unavailable" });
       return { id: id, url: "/_blob/" + id, sizeBytes: blob.size, contentType: type };
@@ -410,7 +411,6 @@
     use: async function (name) {
       if (!caps[name]) return null;
       await ready;
-      if ((name === "assets" || name === "sample") && me.role !== "admin") return null; // team-only features
       return caps[name];
     }
   };

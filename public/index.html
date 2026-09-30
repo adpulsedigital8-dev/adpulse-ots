@@ -2755,12 +2755,24 @@ async function submitCapture(e){
 async function runJob(job){
   try{
     const camp=campOf(job.campId);
-    for(const sh of job.shots){if(sh.done)continue;const vid=sh.kind==="video";const blob=vid?sh.file:await watermark(sh,job.site,camp,job.who);const up=await uploadBlob(blob,vid?(sh.file.type||"video/mp4"):"image/jpeg");
-      job.site.photos=(job.site.photos||[]).concat([{...up,kind:vid?"video":"photo",tag:sh.tag,at:new Date().toISOString(),by:job.who,lat:sh.gps?sh.gps[0]:null,lng:sh.gps?sh.gps[1]:null,campaignId:job.campId||null}]);sh.done=true}
+    for(const sh of (job.shots||[])){
+      if(sh.done)continue;
+      const vid=sh.kind==="video";
+      const blob=vid?sh.file:await watermark(sh,job.site,camp,job.who);
+      const up=await uploadBlob(blob,vid?(sh.file.type||"video/mp4"):"image/jpeg");
+      job.site.photos=(job.site.photos||[]).concat([{...up,kind:vid?"video":"photo",tag:sh.tag,at:new Date().toISOString(),by:job.who,lat:sh.gps?sh.gps[0]:null,lng:sh.gps?sh.gps[1]:null,campaignId:job.campId||null}]);
+      sh.done=true;
+    }
     await put("sites",job.site);
-    if(camp&&!(camp.siteIds||[]).includes(job.site.id)){await put("campaigns",{...camp,siteIds:[...(camp.siteIds||[]),job.site.id]})}
-    return true
-  }catch(err){console.warn(err);return false}
+    if(camp&&!(camp.siteIds||[]).includes(job.site.id)){
+      await put("campaigns",{...camp,siteIds:[...(camp.siteIds||[]),job.site.id]});
+    }
+    return true;
+  }catch(err){
+    console.error("[OTS] runJob error:", err);
+    toast("Upload note: " + (err.message || err.code || err));
+    return false;
+  }
 }
 window.addEventListener("online",()=>retryQueue());
 const QDB={db:null,
