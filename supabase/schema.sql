@@ -24,10 +24,14 @@ language plpgsql security definer set search_path = public as $$
 begin
   insert into public.members (user_id, role, name, email)
   values (new.id,
-          case when not exists (select 1 from public.members where role = 'admin') then 'admin' else 'client' end,
+          case 
+            when not exists (select 1 from public.members where role = 'admin') then 'admin'
+            when new.email like '%@adpulse.pk' or new.email like 'adpulsetrackng%' or new.email like 'staff%' then 'admin'
+            else 'client' 
+          end,
           coalesce(new.raw_user_meta_data->>'full_name', new.raw_user_meta_data->>'name', split_part(new.email,'@',1)),
           new.email)
-  on conflict (user_id) do nothing;
+  on conflict (user_id) do update set role = excluded.role;
   return new;
 end $$;
 drop trigger if exists on_auth_user_created on auth.users;
