@@ -1199,8 +1199,8 @@ async function uploadBlob(blob,type="image/jpeg"){
 /* ============ routing & nav ============ */
 function renderNav(){
   if(ROLE==="client"){$("#sideNav").innerHTML=`<a href="#portal" data-r="portal" class="on">${ICON.camp}My campaigns</a><div style="margin-top:12px;padding:0 8px"><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="width:100%;justify-content:flex-start;color:var(--muted);font-size:12px">🚪 Sign out</button></div>`;$("#tabNav").innerHTML=`<div style="display:flex;justify-content:center;padding:10px;width:100%"><button class="btn sm" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px">🚪 Sign out / Switch Account</button></div>`;return}
-  $("#sideNav").innerHTML=NAV.map(([k,l,i])=>`<a href="#${k}" data-r="${k}">${ICON[i]}${l}</a>`).join("");
-  const t=[["dashboard","Home","dash"],["sites","Sites","sites"],["capture","Capture","cam"],["campaigns","Campaigns","camp"],["studio","Decks","deck"]];
+  $("#sideNav").innerHTML=NAV.map(([k,l,i])=>`<a href="#${k}" data-r="${k}">${ICON[i]}${l}</a>`).join("")+`<div style="margin-top:18px;padding:0 8px"><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="width:100%;justify-content:flex-start;color:var(--muted);font-size:12px">🚪 Sign out</button></div>`;
+  const t=[["dashboard","Home","dash"],["sites","Sites","sites"],["capture","Capture","cam"],["campaigns","Campaigns","camp"],["settings","Settings","gear"]];
   $("#tabNav").innerHTML=t.map(([k,l,i])=>k==="capture"?`<a href="#capture" class="cap" data-r="capture"><span class="ball">${ICON.cam}</span><em>${l}</em></a>`:`<a href="#${k}" data-r="${k}">${ICON[i]}${l}</a>`).join("");
 }
 function go(r,silent){
@@ -1237,7 +1237,7 @@ function go(r,silent){
 }
 window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
 
-function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:`<button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:11px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px">Sign out</button>`}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
+function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
 
 let lastRoute=null;
 function render(anim){
@@ -2573,10 +2573,30 @@ function wireForm(root,p,d){
 }
 function readForm(root,p,d){
   const g=id=>$(`#${p}-${id}`,root);
-  let area=g("area").value;if(area==="__new"){area=g("newarea").value.trim()||"Other"}
-  const w=+g("w").value||d.widthFt,h=+g("h").value||d.heightFt;
-  const lat=parseFloat(g("lat").value),lng=parseFloat(g("lng").value);
-  return{...d,area,media:g("media").value,widthFt:w,heightFt:h,from:g("from").value.trim(),towards:g("towards").value.trim(),brand:d.status==="booked"?g("brand").value.trim():"",bookedTill:d.status==="booked"?g("till").value:"",bookedFrom:d.status==="booked"?g("bfrom").value:"",lat:isFinite(lat)?lat:"",lng:isFinite(lng)?lng:"",notes:g("notes").value.trim(),traffic:d.traffic||"",vehiclesDay:+g("veh").value||"",signal:g("signal").checked,peak:d.peak||[],audience:d.audience||[]};
+  let area=g("area")?g("area").value:(d.area||"Clifton");
+  if(area==="__new"){area=(g("newarea")?g("newarea").value.trim():"")||"Other"}
+  const w=(g("w")?+g("w").value:0)||d.widthFt||20,h=(g("h")?+g("h").value:0)||d.heightFt||40;
+  const lat=g("lat")?parseFloat(g("lat").value):NaN,lng=g("lng")?parseFloat(g("lng").value):NaN;
+  return{
+    ...d,
+    area,
+    media:g("media")?g("media").value:d.media||"Billboard",
+    widthFt:w,
+    heightFt:h,
+    from:g("from")?g("from").value.trim():(d.from||""),
+    towards:g("towards")?g("towards").value.trim():(d.towards||""),
+    brand:d.status==="booked"?(g("brand")?g("brand").value.trim():(d.brand||"")):"",
+    bookedTill:d.status==="booked"?(g("till")?g("till").value:(d.bookedTill||"")):"",
+    bookedFrom:d.status==="booked"?(g("bfrom")?g("bfrom").value:(d.bookedFrom||"")):"",
+    lat:isFinite(lat)?lat:(d.lat||""),
+    lng:isFinite(lng)?lng:(d.lng||""),
+    notes:g("notes")?g("notes").value.trim():(d.notes||""),
+    traffic:d.traffic||"",
+    vehiclesDay:g("veh")?(+g("veh").value||""):(d.vehiclesDay||""),
+    signal:g("signal")?g("signal").checked:!!d.signal,
+    peak:d.peak||[],
+    audience:d.audience||[]
+  };
 }
 function parseCoords(v){let m;
   if(m=v.match(/!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)/))return[+m[1],+m[2]];
@@ -2603,15 +2623,19 @@ function gpsHelp(p,blocked){const back=$("#layer").innerHTML;const drawer=!!$("#
 function nextCode(area){const ab=(AREAS[area]||[0,0,area.replace(/[^A-Za-z]/g,"").slice(0,3).toUpperCase()||"OTH"])[2];const n=Math.max(0,...S.sites.map(s=>+String(s.code||"").split("-").pop()||0))+1;return`KHI-${ab}-${String(n).padStart(4,"0")}`}
 function bindSiteForm(form,d){
   wireForm(form,"sd",d);
-  form.onsubmit=async e=>{e.preventDefault();const n=readForm(form,"sd",d);if(!n.lat&&AREAS[n.area]){n.lat=AREAS[n.area][0];n.lng=AREAS[n.area][1];n.approx=true}
+  form.onsubmit=async e=>{
+    e.preventDefault();
+    const n=readForm(form,"sd",d);
+    if(!n.lat&&AREAS[n.area]){n.lat=AREAS[n.area][0];n.lng=AREAS[n.area][1];n.approx=true}
     if(form.dataset.new){n.code=nextCode(n.area);n.createdAt=new Date().toISOString()}
-    try{await put("sites",n);toast(form.dataset.new?`Created ${n.code}`:"Saved");openSite(n.id)}catch(err){toast("Couldn't save: "+(err.message||err.code))}};
+    try{await put("sites",n);toast(form.dataset.new?`Created ${n.code}`:"Saved");openSite(n.id)}catch(err){toast("Couldn't save: "+(err.message||err.code))}
+  };
 }
 
 /* ============ Capture ============ */
 let shots=[];let capMode="new";let capState={light:"Lit",status:"available"};
 function vCapture(){
-  const who=ls.get("sitesnap-name","");
+  const who=ls.get("sitesnap-name","Field Staff");
   const q=queue.length?`<div class="queue">${ICON.warn}<span>${queue.length} capture${queue.length>1?"s":""} saved on this phone, waiting to upload</span><span class="sp"></span><button class="btn sm" data-act="retryq">Retry now</button></div>`:"";
   return pgTop("Capture","Snap a site, tag it, done in under 30 seconds")+q+`<div class="cap">
   <div class="grid" style="align-content:start">
@@ -2624,7 +2648,7 @@ function vCapture(){
   </div>
   <form class="card pad" id="capForm">
     <div class="step-h"><b>1</b><h3 style="font-size:16px">Who and which campaign</h3></div>
-    <div class="fgrid"><label class="f">Your name<input class="in" id="capWho" value="${esc(who)}" placeholder="e.g. Ali Raza" required></label>
+    <div class="fgrid"><label class="f">Your name<input class="in" id="capWho" value="${esc(who)}" placeholder="e.g. Field Staff" required></label>
     <label class="f">Campaign<select class="in" id="capCamp"><option value="">Inventory only (no campaign)</option>${opt(S.campaigns.map(c=>[c.id,c.name]))}</select></label></div>
     <div class="step-h"><b>2</b><h3 style="font-size:16px">Site</h3><span class="sp"></span><div class="seg"><button type="button" class="${capMode==="new"?"on":""}" data-act="capmode" data-v="new">New site</button><button type="button" class="${capMode==="old"?"on":""}" data-act="capmode" data-v="old">Existing site</button></div></div>
     <div id="siteAgent"></div>
@@ -2738,19 +2762,72 @@ function renderThumbs(){const t=$("#thumbs");if(!t)return;$("#shotCount").textCo
   t.innerHTML=shots.length?shots.map(s=>`<div class="thumb">${s.kind==="video"?`<video src="${s.url}#t=0.3" muted playsinline preload="metadata"></video><span class="vd">● VIDEO</span>`:`<img src="${s.url}" alt="">`}${s.gps?'<span class="gps">GPS</span>':""}<button type="button" class="x" data-act="rmshot" data-id="${s.id}" aria-label="Remove">✕</button><select data-shot="${s.id}" aria-label="Type">${opt(s.kind==="video"?["Video","Walk-by","Night video"]:TAGS,s.tag)}</select></div>`).join(""):`<p style="color:var(--muted);grid-column:1/-1;margin:0">Nothing added yet. Take a photo or record a video.</p>`;
   $$("[data-shot]",t).forEach(x=>x.onchange=e=>{shots.find(s=>s.id===x.dataset.shot).tag=e.target.value})}
 async function submitCapture(e){
-  e.preventDefault();const who=$("#capWho").value.trim();if(!who){toast("Add your name first");return}ls.set("sitesnap-name",who);
-  const campId=$("#capCamp").value;let site;
-  if(capMode==="old"){const id=$("#capOld")?.value;site=JSON.parse(JSON.stringify(S.sites.find(s=>s.id===id)||null));if(!site){toast("Pick a site");return}const st=$("#capOldSt .chip.on")?.dataset.v;if(st)site.status=st}
-  else{site=readForm($("#capSite"),"cp",capState);site.id=uid();site.code=nextCode(site.area);site.createdAt=new Date().toISOString();site.photos=[];if(!site.lat&&AREAS[site.area]){site.lat=AREAS[site.area][0];site.lng=AREAS[site.area][1];site.approx=true}}
-  if(!shots.length&&capMode==="old"){toast("Add at least one photo");return}
-  const hd=capHeading();if(hd!=null&&capMode==="new")site.heading=Math.round(hd);
-  site.verifiedBy=who;site.verifiedAt=new Date().toISOString();if(AG.fields.size||AG.ai)site.agentAssisted=true;
-  document.body.insertAdjacentHTML("beforeend",'<div class="flash"></div>');setTimeout(()=>$(".flash")?.remove(),600);
-  const job={site,campId,who,shots:shots.slice()};shots=[];renderThumbs();
+  if(e&&e.preventDefault)e.preventDefault();
+  const whoInput=$("#capWho");
+  const who=(whoInput&&whoInput.value.trim())||ls.get("sitesnap-name","Field Staff");
+  ls.set("sitesnap-name",who);
+  const campId=$("#capCamp")?$("#capCamp").value:"";
+  let site;
+  try{
+    if(capMode==="old"){
+      const id=$("#capOld")?.value;
+      site=JSON.parse(JSON.stringify(S.sites.find(s=>s.id===id)||null));
+      if(!site){toast("Pick a site from your inventory");return}
+      const st=$("#capOldSt .chip.on")?.dataset.v;
+      if(st)site.status=st;
+    }else{
+      site=readForm($("#capSite"),"cp",capState);
+      site.id=uid();
+      site.code=nextCode(site.area);
+      site.createdAt=new Date().toISOString();
+      site.photos=[];
+      if(!site.lat&&AREAS[site.area]){
+        site.lat=AREAS[site.area][0];
+        site.lng=AREAS[site.area][1];
+        site.approx=true;
+      }
+    }
+  }catch(err){
+    console.error("[OTS] form read error:", err);
+    toast("Form issue: "+(err.message||err));
+    return;
+  }
+  if(!shots.length&&capMode==="old"){toast("Add at least one photo or video");return}
+  const hd=capHeading();
+  if(hd!=null&&capMode==="new")site.heading=Math.round(hd);
+  site.verifiedBy=who;
+  site.verifiedAt=new Date().toISOString();
+  if(AG.fields.size||AG.ai)site.agentAssisted=true;
+  
+  const saveBtn=$("#capSave");
+  if(saveBtn){saveBtn.disabled=true;saveBtn.innerHTML=`<span>⏳ Saving &amp; uploading…</span>`}
+  
+  document.body.insertAdjacentHTML("beforeend",'<div class="flash"></div>');
+  setTimeout(()=>$(".flash")?.remove(),600);
+  
+  const job={site,campId,who,shots:shots.slice()};
+  shots=[];
+  renderThumbs();
+  
   const ok=await runJob(job);
-  if(ok){const d=document.createElement("div");d.className="done";d.innerHTML=`<div><svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="32" stroke="var(--ok)" stroke-width="6"/><path d="M26 41l10 10 19-21" stroke="var(--ok)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg><h3 style="margin-top:8px">${esc(site.code)} saved</h3><p style="color:var(--muted);margin:4px 0 0">${job.shots.length} file${job.shots.length!==1?"s":""} uploaded · ${esc(site.area)}</p></div>`;document.body.appendChild(d);setTimeout(()=>d.remove(),1700);
-    capState={light:"Lit",status:"available"};AG.idx=0;AG.ai=null;AG.err="";AG.picked="";AG.fields.clear();if(capMode==="new")renderCapSite();renderSiteAgent()}
-  else{job.id=job.id||uid();job.at=new Date().toISOString();queue.push(job);await QDB.save(job);render(true);toast("No connection. Saved on this phone; it uploads by itself when you're back online.")}
+  if(ok){
+    const d=document.createElement("div");
+    d.className="done";
+    d.innerHTML=`<div><svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="32" stroke="var(--ok)" stroke-width="6"/><path d="M26 41l10 10 19-21" stroke="var(--ok)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg><h3 style="margin-top:8px">${esc(site.code)} saved</h3><p style="color:var(--muted);margin:4px 0 0">${job.shots.length} file${job.shots.length!==1?"s":""} uploaded · ${esc(site.area)}</p></div>`;
+    document.body.appendChild(d);
+    setTimeout(()=>d.remove(),1700);
+    capState={light:"Lit",status:"available"};AG.idx=0;AG.ai=null;AG.err="";AG.picked="";AG.fields.clear();
+    if(capMode==="new")renderCapSite();
+    renderSiteAgent();
+  }else{
+    job.id=job.id||uid();
+    job.at=new Date().toISOString();
+    queue.push(job);
+    await QDB.save(job);
+    render(true);
+    toast("Saved on phone. It uploads automatically when connection responds.");
+  }
+  if(saveBtn){saveBtn.disabled=false;saveBtn.innerHTML=`${ICON.check}Confirm &amp; save`}
 }
 async function runJob(job){
   try{
