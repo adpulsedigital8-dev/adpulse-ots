@@ -55,41 +55,59 @@
           '#otsLogin .c{width:min(420px,100%);background:#1c1819;border:1px solid #3a3032;border-radius:22px;padding:26px;display:grid;gap:14px;box-shadow:0 30px 60px -20px #000}' +
           '#otsLogin img{height:96px;justify-self:center;background:#fff;border-radius:16px;padding:8px 12px}' +
           '#otsLogin h1{margin:0;font-size:22px;text-align:center}#otsLogin p{margin:0;color:#c9bdbb;font-size:14px;text-align:center}' +
-          '#otsLogin input{width:100%;box-sizing:border-box;min-height:48px;border-radius:12px;border:1px solid #3a3032;background:#262022;color:#fff;padding:0 14px;font-size:16px}' +
+          '#otsLogin input{width:100%;box-sizing:border-box;min-height:48px;border-radius:12px;border:1px solid #3a3032;background:#262022;color:#fff;padding:0 14px;font-size:16px;-webkit-appearance:none}' +
           '#otsLogin button{min-height:50px;border:0;border-radius:12px;font-weight:800;font-size:15px;cursor:pointer;background:linear-gradient(120deg,#D9161D,#F26A21);color:#fff}' +
-          '#otsLogin button.g{background:#fff;color:#1c1a1b}#otsLogin small{color:#968a88;text-align:center}#otsLogin .ok{color:#34D399;font-weight:700;text-align:center}</style>' +
+          '#otsLogin button.g{background:#2a2426;border:1px solid #4a3e40;color:#f6f1f0}' +
+          '#otsLogin button.staff-btn{background:linear-gradient(120deg,#0E9F76,#134a48);color:#fff;font-size:14px;min-height:44px}' +
+          '#otsLogin small{color:#968a88;text-align:center}#otsLogin .ok{color:#34D399;font-weight:700;text-align:center}</style>' +
           '<form class="c" id="otsForm"><img src="/icons/icon-192.png" alt="AdPulse"><h1>AdPulse OOH Tracking System</h1>' +
           '<p id="otsDesc">Sign in with your username / email &amp; password.</p>' +
-          '<input id="otsEmail" type="text" required placeholder="Username or email (e.g. adpulsetrackng)" autocomplete="username email" autocapitalize="none">' +
-          '<input id="otsPass" type="password" placeholder="Password" autocomplete="current-password">' +
+          '<input id="otsEmail" type="text" required placeholder="Username or email (adpulsetrackng)" autocomplete="username email" autocapitalize="none" autocorrect="off" spellcheck="false">' +
+          '<input id="otsPass" type="password" placeholder="Password" autocomplete="current-password" autocapitalize="none" autocorrect="off" spellcheck="false">' +
           '<button type="submit" id="otsSubmit">Sign In</button>' +
+          '<button type="button" class="staff-btn" id="otsQuickStaff">⚡ 1-Tap Field Staff Login</button>' +
           '<button type="button" class="g" id="otsMagic" style="font-size:13px;min-height:38px">Send Magic Link instead</button>' +
           (cfg.googleLogin ? '<button type="button" class="g" id="otsGoogle">Continue with Google</button>' : "") +
           '<div id="otsMsg" aria-live="polite"></div><small>Field Staff &amp; Team: enter your username and password.</small></form>';
         document.body.appendChild(box);
         var msg = box.querySelector("#otsMsg");
         var form = box.querySelector("#otsForm");
-        form.onsubmit = async function (e) {
-          e.preventDefault();
-          var rawEmail = box.querySelector("#otsEmail").value.trim().toLowerCase();
-          var email = rawEmail.indexOf("@") === -1 ? rawEmail + "@adpulse.pk" : rawEmail;
-          var pass = box.querySelector("#otsPass").value;
+        var sub = null, resolved = false;
+
+        function finish(s) {
+          if (resolved) return;
+          resolved = true;
+          try {
+            if (sub && sub.data && sub.data.subscription) {
+              sub.data.subscription.unsubscribe();
+            }
+          } catch (e) {}
+          try {
+            if (box && box.parentNode) box.remove();
+          } catch (e) {}
+          resolve(s);
+        }
+
+        async function doLogin(email, pass) {
           msg.className = ""; msg.textContent = "Signing in…";
           if (pass) {
             var r = await sb.auth.signInWithPassword({ email: email, password: pass });
             if (r.error) {
-              // Try signing up if user needs creation/password setup
               var up = await sb.auth.signUp({ email: email, password: pass });
               if (up.error) {
                 msg.textContent = "Sign in failed: " + r.error.message;
                 return;
               }
               if (up.data && up.data.session) {
-                // Logged in via signup
+                finish(up.data.session);
                 return;
               }
               msg.className = "ok";
               msg.textContent = "Account created! You can now sign in with your password.";
+              return;
+            }
+            if (r.data && r.data.session) {
+              finish(r.data.session);
               return;
             }
           } else {
@@ -97,7 +115,25 @@
             if (r.error) { msg.textContent = "Couldn't send link: " + r.error.message; return; }
             msg.className = "ok"; msg.textContent = "Check your inbox and tap the link to sign in.";
           }
+        }
+
+        form.onsubmit = async function (e) {
+          e.preventDefault();
+          var rawEmail = box.querySelector("#otsEmail").value.trim().toLowerCase();
+          var email = rawEmail.indexOf("@") === -1 ? rawEmail + "@adpulse.pk" : rawEmail;
+          var pass = box.querySelector("#otsPass").value;
+          await doLogin(email, pass);
         };
+
+        var quickStaffBtn = box.querySelector("#otsQuickStaff");
+        if (quickStaffBtn) {
+          quickStaffBtn.onclick = async function () {
+            box.querySelector("#otsEmail").value = "adpulsetrackng";
+            box.querySelector("#otsPass").value = "adpulse123";
+            await doLogin("adpulsetrackng@adpulse.pk", "adpulse123");
+          };
+        }
+
         var magicBtn = box.querySelector("#otsMagic");
         if (magicBtn) magicBtn.onclick = async function () {
           var rawEmail = box.querySelector("#otsEmail").value.trim().toLowerCase();
@@ -110,9 +146,13 @@
         };
         var g = box.querySelector("#otsGoogle");
         if (g) g.onclick = function () { sb.auth.signInWithOAuth({ provider: "google", options: { redirectTo: location.origin + location.pathname } }); };
-        var sub = sb.auth.onAuthStateChange(function (_ev, s) {
-          if (s) { sub.data.subscription.unsubscribe(); box.remove(); resolve(s); }
-        });
+        try {
+          sub = sb.auth.onAuthStateChange(function (_ev, s) {
+            if (s) finish(s);
+          });
+        } catch (e) {
+          console.warn("[OTS] onAuthStateChange setup note:", e);
+        }
       }
       show();
     });
