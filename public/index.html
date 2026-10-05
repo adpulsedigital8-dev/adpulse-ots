@@ -1005,8 +1005,7 @@ const THEMES={
 function applyTheme(){const k=THEMES[S.settings.theme]?S.settings.theme:"adpulse";document.documentElement.setAttribute("data-brand",k);const b=$("#brandBox");if(b)b.innerHTML=`<img class="logo" src="${esc(markSrc())}" alt=""><div><b>${APP_SHORT}</b><small>OOH Tracking System</small></div>`}
 const logoSrc=()=>S.settings.logo?.data||(S.settings.logo?.asset?"/_blob/"+S.settings.logo.asset:LOGO);
 const markSrc=()=>S.settings.logo?logoSrc():MARK;
-const cssVar=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-const imgCache={};function loadImg(src){return imgCache[src]||(imgCache[src]=new Promise((r,j)=>{const i=new Image();i.onload=()=>r(i);i.onerror=j;i.src=src}))}
+const imgCache={};function loadImg(src){return imgCache[src]||(imgCache[src]=new Promise((r,j)=>{const i=new Image();i.crossOrigin="anonymous";i.onload=()=>r(i);i.onerror=j;i.src=src}))}
 async function pngData(src){if(src.startsWith("data:image/png"))return src;const i=await loadImg(src);const c=document.createElement("canvas");c.width=i.naturalWidth;c.height=i.naturalHeight;c.getContext("2d").drawImage(i,0,0);return c.toDataURL("image/png")}
 async function arOf(src){try{const i=await loadImg(src);return i.naturalWidth/i.naturalHeight}catch(e){return LOGO_AR}}
 function fitBox(o,ar){let w=o.w,h=o.w/ar;if(h>o.h){h=o.h;w=h*ar}return{x:o.x+(o.w-w)/2,y:o.y+(o.h-h)/2,w,h}}
@@ -2636,7 +2635,7 @@ function bindSiteForm(form,d){
 let shots=[];let capMode="new";let capState={light:"Lit",status:"available"};
 function vCapture(){
   const who=ls.get("sitesnap-name","Field Staff");
-  const q=queue.length?`<div class="queue">${ICON.warn}<span>${queue.length} capture${queue.length>1?"s":""} saved on this phone, waiting to upload</span><span class="sp"></span><button class="btn sm" data-act="retryq">Retry now</button></div>`:"";
+  const q=queue.length?`<div class="queue">${ICON.warn}<span style="flex:1">${queue.length} capture${queue.length>1?"s":""} saved on this phone, waiting to upload</span><button class="btn sm" data-act="retryq">Retry upload</button><button class="btn sm ghost" data-act="clearq" style="font-size:12px;opacity:0.9">Dismiss</button></div>`:"";
   return pgTop("Capture","Snap a site, tag it, done in under 30 seconds")+q+`<div class="cap">
   <div class="grid" style="align-content:start">
     <div class="shutter"><div><h2>Point at the billboard</h2><p>Tap the shutter for a photo or record a short video walk-by. Photos get a watermark with the site code, time and GPS; videos are saved as recorded (keep them under 20 MB, about 30 seconds).</p></div>
@@ -2805,7 +2804,7 @@ async function submitCapture(e){
   document.body.insertAdjacentHTML("beforeend",'<div class="flash"></div>');
   setTimeout(()=>$(".flash")?.remove(),600);
   
-  const job={site,campId,who,shots:shots.slice()};
+  const job={id:uid(),site,campId,who,shots:shots.slice(),at:new Date().toISOString()};
   shots=[];
   renderThumbs();
   
@@ -2835,8 +2834,19 @@ async function runJob(job){
     for(const sh of (job.shots||[])){
       if(sh.done)continue;
       const vid=sh.kind==="video";
-      const blob=vid?sh.file:await watermark(sh,job.site,camp,job.who);
-      const up=await uploadBlob(blob,vid?(sh.file.type||"video/mp4"):"image/jpeg");
+      let blob;
+      if(vid){
+        blob=sh.file;
+      }else{
+        blob=await watermark(sh,job.site,camp,job.who).catch(e=>{
+          console.warn("[OTS] Watermarking fallback to original:",e);
+          return sh.file;
+        });
+      }
+      if(!blob&&sh.file)blob=sh.file;
+      if(!blob)throw new Error("No photo data found to upload");
+      
+      const up=await uploadBlob(blob,vid?(sh.file?.type||"video/mp4"):(blob?.type||"image/jpeg"));
       job.site.photos=(job.site.photos||[]).concat([{...up,kind:vid?"video":"photo",tag:sh.tag,at:new Date().toISOString(),by:job.who,lat:sh.gps?sh.gps[0]:null,lng:sh.gps?sh.gps[1]:null,campaignId:job.campId||null}]);
       sh.done=true;
     }
@@ -2855,9 +2865,10 @@ window.addEventListener("online",()=>retryQueue());
 const QDB={db:null,
  open(){if(this.db)return this.db;this.db=new Promise((res,rej)=>{try{const r=indexedDB.open("adpulse-ots",1);r.onupgradeneeded=()=>r.result.createObjectStore("queue",{keyPath:"id"});r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)}catch(e){rej(e)}});return this.db},
  async tx(mode,fn){try{const d=await this.open();return await new Promise((res,rej)=>{const t=d.transaction("queue",mode);const st=t.objectStore("queue");const out=fn(st);t.oncomplete=()=>res(out&&out.result);t.onerror=()=>rej(t.error)})}catch(e){return null}},
- save(job){return this.tx("readwrite",st=>st.put({id:job.id,site:job.site,campId:job.campId,who:job.who,at:job.at,shots:job.shots.map(x=>({id:x.id,kind:x.kind,tag:x.tag,gps:x.gps,done:!!x.done,file:x.file}))}))},
+ save(job){return this.tx("readwrite",st=>st.put({id:job.id,site:job.site,campId:job.campId,who:job.who,at:job.at,shots:(job.shots||[]).map(x=>({id:x.id,kind:x.kind,tag:x.tag,gps:x.gps,done:!!x.done,file:x.file}))}))},
  del(id){return this.tx("readwrite",st=>st.delete(id))},
- async all(){const r=await this.tx("readonly",st=>st.getAll());return(r||[]).map(j=>({...j,shots:j.shots.map(x=>({...x,url:URL.createObjectURL(x.file)}))}))}};
+ clear(){return this.tx("readwrite",st=>st.clear())},
+ async all(){const r=await this.tx("readonly",st=>st.getAll());return(r||[]).map(j=>({...j,shots:(j.shots||[]).map(x=>({...x,url:(x.file instanceof Blob||x.file instanceof File)?URL.createObjectURL(x.file):(x.url||"")}))}))}};
 async function loadQueue(){const q=await QDB.all();if(!q.length)return;const have=new Set(queue.map(j=>j.id));q.forEach(j=>{if(!have.has(j.id))queue.push(j)});render();toast(`${queue.length} capture${queue.length>1?"s":""} from before are waiting to upload`);if(navigator.onLine)setTimeout(retryQueue,1500)}
 async function retryQueue(){
   if(retryQueue.busy)return;
@@ -2877,20 +2888,35 @@ async function retryQueue(){
   toast(queue.length?`${queue.length} still waiting`:"✅ Capture uploaded to database successfully!");
 }
 async function watermark(sh,site,camp,who){
-  const src = sh.url || (sh.file ? URL.createObjectURL(sh.file) : null);
-  const img=await new Promise((r,j)=>{const i=new Image();i.onload=()=>r(i);i.onerror=()=>j(new Error("Couldn't load photo for watermarking"));i.src=src});
-  const max=1920,sc=Math.min(1,max/Math.max(img.naturalWidth,img.naturalHeight));const w=Math.round(img.naturalWidth*sc),h=Math.round(img.naturalHeight*sc);
-  const c=document.createElement("canvas");c.width=w;c.height=h;const x=c.getContext("2d");x.drawImage(img,0,0,w,h);
-  const bh=Math.round(h*.11),fs=Math.max(12,Math.round(bh*.26));const g=x.createLinearGradient(0,h-bh,0,h);g.addColorStop(0,"rgba(12,9,23,0)");g.addColorStop(.35,"rgba(12,9,23,.72)");g.addColorStop(1,"rgba(12,9,23,.88)");x.fillStyle=g;x.fillRect(0,h-bh*1.4,w,bh*1.4);
-  const gg=x.createLinearGradient(0,0,w,0);gg.addColorStop(0,cssVar("--violet")||"#D9161D");gg.addColorStop(1,cssVar("--pink")||"#F26A21");x.fillStyle=gg;x.fillRect(0,h-Math.max(4,bh*.06),w,Math.max(4,bh*.06));
-  x.fillStyle="#fff";x.textBaseline="alphabetic";const pad=Math.round(fs*.9);
-  x.font=`800 ${Math.round(fs*1.15)}px "JetBrains Mono",monospace`;x.fillText(site.code,pad,h-bh*.55);
-  x.font=`600 ${fs}px Manrope,sans-serif`;const ll=site.lat?`${(+site.lat).toFixed(5)}, ${(+site.lng).toFixed(5)}`:"GPS n/a";
-  x.fillText(`${site.area} · ${site.widthFt}x${site.heightFt} ft · ${new Date().toLocaleString("en-GB")} · ${ll}`,pad,h-bh*.18);
-  let rx=w-pad;try{const lg=await loadImg(markSrc());const lh=bh*1.05,lw=lh*lg.naturalWidth/lg.naturalHeight;x.drawImage(lg,w-pad-lw,h-bh*1.12,lw,lh);rx=w-pad-lw-pad*.6}catch(e){}
-  x.textAlign="right";x.font=`800 ${Math.round(fs*1.05)}px "Bricolage Grotesque",sans-serif`;x.fillText(APP_SHORT,rx,h-bh*.55);
-  x.font=`600 ${fs}px Manrope,sans-serif`;x.fillText((camp?camp.name+" · ":"")+(who||""),rx,h-bh*.18);
-  return await new Promise(r=>c.toBlob(r,"image/jpeg",.85));
+  try{
+    let src = sh.url;
+    let cleanupUrl = false;
+    if(!src && sh.file){
+      src = URL.createObjectURL(sh.file);
+      cleanupUrl = true;
+    }
+    if(!src) return sh.file;
+    const img=await new Promise((r,j)=>{const i=new Image();i.crossOrigin="anonymous";i.onload=()=>r(i);i.onerror=()=>j(new Error("Couldn't load photo for watermarking"));i.src=src});
+    if(cleanupUrl) URL.revokeObjectURL(src);
+    const max=1600;const nw=img.naturalWidth||img.width||1200,nh=img.naturalHeight||img.height||900;
+    const sc=Math.min(1,max/Math.max(nw,nh));const w=Math.round(nw*sc),h=Math.round(nh*sc);
+    const c=document.createElement("canvas");c.width=w;c.height=h;const x=c.getContext("2d");x.drawImage(img,0,0,w,h);
+    const bh=Math.round(h*.11),fs=Math.max(12,Math.round(bh*.26));const g=x.createLinearGradient(0,h-bh,0,h);g.addColorStop(0,"rgba(12,9,23,0)");g.addColorStop(.35,"rgba(12,9,23,.72)");g.addColorStop(1,"rgba(12,9,23,.88)");x.fillStyle=g;x.fillRect(0,h-bh*1.4,w,bh*1.4);
+    const gg=x.createLinearGradient(0,0,w,0);gg.addColorStop(0,cssVar("--violet")||"#D9161D");gg.addColorStop(1,cssVar("--pink")||"#F26A21");x.fillStyle=gg;x.fillRect(0,h-Math.max(4,bh*.06),w,Math.max(4,bh*.06));
+    x.fillStyle="#fff";x.textBaseline="alphabetic";const pad=Math.round(fs*.9);
+    x.font=`800 ${Math.round(fs*1.15)}px "JetBrains Mono",monospace`;x.fillText(site.code||"SITE",pad,h-bh*.55);
+    x.font=`600 ${fs}px Manrope,sans-serif`;const ll=site.lat?`${(+site.lat).toFixed(5)}, ${(+site.lng).toFixed(5)}`:"GPS n/a";
+    const dims=(site.widthFt&&site.heightFt)?`${site.widthFt}x${site.heightFt} ft · `:"";
+    x.fillText(`${site.area||"Area"} · ${dims}${new Date().toLocaleString("en-GB")} · ${ll}`,pad,h-bh*.18);
+    let rx=w-pad;try{const markUrl=markSrc();if(markUrl){const lg=await loadImg(markUrl);const lh=bh*1.05,lw=lh*(lg.naturalWidth||100)/(lg.naturalHeight||100);x.drawImage(lg,w-pad-lw,h-bh*1.12,lw,lh);rx=w-pad-lw-pad*.6}}catch(e){}
+    x.textAlign="right";x.font=`800 ${Math.round(fs*1.05)}px "Bricolage Grotesque",sans-serif`;x.fillText(APP_SHORT,rx,h-bh*.55);
+    x.font=`600 ${fs}px Manrope,sans-serif`;x.fillText((camp?camp.name+" · ":"")+(who||""),rx,h-bh*.18);
+    const blob=await new Promise(r=>c.toBlob(r,"image/jpeg",.85));
+    return blob || sh.file;
+  }catch(err){
+    console.warn("[OTS] Watermarking fallback:", err);
+    return sh.file;
+  }
 }
 /* minimal EXIF GPS reader */
 async function exifGPS(file){
@@ -3482,7 +3508,7 @@ const ACT={
  capmode:a=>{syncCapState();capMode=a.dataset.v;$$("[data-act=capmode]").forEach(b=>b.classList.toggle("on",b===a));renderCapSite();renderSiteAgent()},
  aguse:a=>agUse(a.dataset.id),agnext:()=>{AG.idx++;renderSiteAgent()},agnew:()=>agNew(),agscan:()=>agScan(),agstop:()=>AG.ctl?.abort(),agapply:()=>agApply(),
  agreset:()=>{AG.picked="";AG.idx++;capMode="new";$$("[data-act=capmode]").forEach(b=>b.classList.toggle("on",b.dataset.v==="new"));renderCapSite();renderSiteAgent()},
- rmshot:a=>{shots=shots.filter(s=>s.id!==a.dataset.id);renderThumbs();renderSiteAgent()},retryq:retryQueue,
+ rmshot:a=>{shots=shots.filter(s=>s.id!==a.dataset.id);renderThumbs();renderSiteAgent()},retryq:retryQueue,clearq:async()=>{queue=[];await QDB.clear();render(true);toast("Queue cleared")},
  newcamp:()=>openCamp(null),editcamp:a=>openCamp(a.dataset.id),
  campdel:a=>{const c=campOf(a.dataset.id);confirmBox(`Delete campaign "${c.name}"? Sites stay in inventory.`,async()=>{const copy=JSON.parse(JSON.stringify(c));await del("campaigns",c.id);toast("Campaign deleted",()=>put("campaigns",copy))})},
  campsites:a=>{Object.keys(F).forEach(k=>F[k]="");F.campaign=a.dataset.id;location.hash="sites"},
@@ -3581,7 +3607,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=3.1").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=4.0").then(r=>{
       r.update();
       console.log("AdPulse OTS PWA active:",r.scope);
     }).catch(err=>{

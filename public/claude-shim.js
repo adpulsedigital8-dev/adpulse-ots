@@ -290,11 +290,26 @@
   var assets = {
     upload: async function (blob, opts) {
       await ready;
-      var type = (opts && opts.type) || blob.type || "application/octet-stream";
+      var type = (opts && opts.type) || blob.type || "image/jpeg";
       var randStr = (typeof crypto !== "undefined" && crypto.randomUUID) ? crypto.randomUUID().replace(/-/g, "") : (Date.now().toString(36) + Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2));
-      var id = randStr + (EXT[type] ? "." + EXT[type] : "");
-      var r = await sb.storage.from("media").upload(id, blob, { contentType: type, upsert: false, cacheControl: "31536000" });
-      if (r.error) throw Object.assign(mapErr(r.error), { code: /size|large/i.test(r.error.message) ? "too_large" : "store_unavailable" });
+      var ext = EXT[type] || "jpg";
+      var id = randStr + "." + ext;
+      
+      // Ensure session is fresh before upload
+      try {
+        var sess = await sb.auth.getSession();
+        if (!sess.data || !sess.data.session) {
+          await sb.auth.refreshSession();
+        }
+      } catch (e) {
+        console.warn("[OTS] session check note:", e);
+      }
+      
+      var r = await sb.storage.from("media").upload(id, blob, { contentType: type, upsert: true, cacheControl: "31536000" });
+      if (r.error) {
+        console.error("[OTS] Storage upload error:", r.error);
+        throw Object.assign(mapErr(r.error), { code: /size|large/i.test(r.error.message) ? "too_large" : "store_unavailable" });
+      }
       return { id: id, url: "/_blob/" + id, sizeBytes: blob.size, contentType: type };
     },
     delete: async function (id) {
