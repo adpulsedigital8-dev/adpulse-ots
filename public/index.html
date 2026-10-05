@@ -2831,24 +2831,31 @@ async function submitCapture(e){
 async function runJob(job){
   try{
     const camp=campOf(job.campId);
+    let uploadedCount=0;
     for(const sh of (job.shots||[])){
       if(sh.done)continue;
       const vid=sh.kind==="video";
-      let blob;
+      let blob=null;
       if(vid){
         blob=sh.file;
       }else{
         blob=await watermark(sh,job.site,camp,job.who).catch(e=>{
-          console.warn("[OTS] Watermarking fallback to original:",e);
+          console.warn("[OTS] Watermarking fallback:",e);
           return sh.file;
         });
       }
       if(!blob&&sh.file)blob=sh.file;
-      if(!blob)throw new Error("No photo data found to upload");
+      
+      if(!blob){
+        console.warn("[OTS] Shot has no file data, skipping broken shot:", sh);
+        sh.done=true;
+        continue;
+      }
       
       const up=await uploadBlob(blob,vid?(sh.file?.type||"video/mp4"):(blob?.type||"image/jpeg"));
       job.site.photos=(job.site.photos||[]).concat([{...up,kind:vid?"video":"photo",tag:sh.tag,at:new Date().toISOString(),by:job.who,lat:sh.gps?sh.gps[0]:null,lng:sh.gps?sh.gps[1]:null,campaignId:job.campId||null}]);
       sh.done=true;
+      uploadedCount++;
     }
     await put("sites",job.site);
     if(camp&&!(camp.siteIds||[]).includes(job.site.id)){
