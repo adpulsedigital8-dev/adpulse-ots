@@ -746,6 +746,7 @@ table.t img{width:56px;height:38px;object-fit:cover;border-radius:7px;display:bl
 .sl.dragging{opacity:.5}
 .sl.over .slide{outline:3px dashed var(--violet);outline-offset:3px}
 .slwrap{display:flex;flex-direction:column;gap:8px;min-width:0}
+@media (max-width:640px){.sl{grid-template-columns:1fr;gap:6px}.sl .num{flex-direction:row;justify-content:space-between;align-items:center;padding:2px 4px}.sltools{gap:4px}.sltools .btn{font-size:11px;padding:4px 8px}}
 .slide{position:relative;aspect-ratio:16/9;width:100%;container-type:inline-size;border-radius:10px;overflow:hidden;box-shadow:0 14px 30px -16px rgba(0,0,0,.45);background:#fff}
 .slide .o{position:absolute;overflow:hidden;white-space:pre-wrap;line-height:1.18}
 .slide .o img{width:100%;height:100%;object-fit:cover;display:block}
@@ -3707,7 +3708,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=5.0").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=7.0").then(r=>{
       r.update();
       console.log("AdPulse OTS PWA active:",r.scope);
     }).catch(err=>{
