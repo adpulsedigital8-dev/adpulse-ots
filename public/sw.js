@@ -1,4 +1,4 @@
-const CACHE_NAME = 'adpulse-ots-v4';
+const CACHE_NAME = 'adpulse-ots-v5';
 
 const PRECACHE_ASSETS = [
   '/',

@@ -1061,14 +1061,14 @@ function phFix(img){const s=S.sites.find(x=>x.id===img.dataset.sid);if(s&&!img.d
 
 /* derived */
 function effStatus(s){if(s.status==="booked"&&s.bookedTill){const d=(new Date(s.bookedTill)-Date.now())/864e5;if(d>=0&&d<=14)return"expiring";if(d<0)return"available"}return s.status||"available"}
-const sizeOf=s=>`${s.widthFt}x${s.heightFt}`;
+const sizeOf=s=>s?`${s.widthFt||0}x${s.heightFt||0}`:"";
 const photoSrc=p=>p?(p.src||memBlobs[p.asset]||(p.asset?"/_blob/"+p.asset:null)):null;
-const lastPhoto=s=>(s.photos&&s.photos.length)?s.photos[s.photos.length-1]:null;
+const lastPhoto=s=>(s?.photos&&s.photos.length)?s.photos[s.photos.length-1]:null;
 const isVid=p=>p&&p.kind==="video";
-const imgIdx=s=>(s.photos||[]).map((p,i)=>isVid(p)?-1:i).filter(i=>i>=0);
-const lastImg=s=>{const ix=imgIdx(s);return ix.length?s.photos[ix[ix.length-1]]:null};
-const vidCount=s=>(s.photos||[]).filter(isVid).length;
-function thumbOf(s){const p=lastImg(s);return photoSrc(p)||placeholder(s)}
+const imgIdx=s=>(s?.photos||[]).map((p,i)=>isVid(p)?-1:i).filter(i=>i>=0);
+const lastImg=s=>{if(!s)return null;const ix=imgIdx(s);return ix.length?s.photos[ix[ix.length-1]]:null};
+const vidCount=s=>(s?.photos||[]).filter(isVid).length;
+function thumbOf(s){if(!s)return"";const p=lastImg(s);return photoSrc(p)||placeholder(s)}
 function mediaTag(p,s,extra=""){const src=esc(photoSrc(p));return isVid(p)?`<video src="${src}#t=0.5" muted playsinline preload="metadata" ${extra}></video>`:`<img src="${src}" alt="" data-sid="${s?s.id:""}" onerror="phFix(this)" ${extra}>`}
 const mediaCount=s=>{const n=(s.photos||[]).length,v=vidCount(s);return n?`${n-v?`${n-v} photo${n-v>1?"s":""}`:""}${n-v&&v?" · ":""}${v?`${v} video${v>1?"s":""}`:""}`:""};
 const campOf=id=>S.campaigns.find(c=>c.id===id);
@@ -1125,8 +1125,19 @@ async function boot(){
   go(targetRoute,true);setTimeout(loadQueue,2500);
   db.collection("sites").onSnapshot(q=>{S.sites=q.docs.map(x=>({id:x.id,...x.data()}));S.loaded.sites=true;changed()},e=>{toast("Couldn't load sites: "+e.message)});
   db.collection("campaigns").onSnapshot(q=>{S.campaigns=q.docs.map(x=>({id:x.id,...x.data()}));S.loaded.campaigns=true;changed()});
-  db.collection("decks").onSnapshot(q=>{S.decks=q.docs.map(x=>({id:x.id,...x.data()}));render()});
   db.doc("settings/brand").onSnapshot(x=>{if(x.exists)S.settings={...S.settings,...x.data()};applyTheme();changed()});
+  db.collection("decks").onSnapshot(q=>{
+    S.decks=q.docs.map(x=>({id:x.id,...x.data()}));
+    const curHash = location.hash.slice(1);
+    if(curHash.startsWith("presentation:")||curHash.startsWith("deck:")){
+      const did = decodeURIComponent(curHash.split(":")[1]);
+      const matched = S.decks.find(x=>x.id===did);
+      if(matched && (!Studio.active || Studio.cfg?.id !== matched.id)){
+        Studio.load(matched);
+      }
+    }
+    render();
+  });
   db.collection("clients").onSnapshot(q=>{S.clients=q.docs.map(x=>({id:x.id,...x.data()}));S.loaded.clients=true;changed()},()=>{});
   db.collection("requests").onSnapshot(q=>{S.requests=q.docs.map(x=>({id:x.id,...x.data()}));changed()},()=>{});
   db.collection("portal").onSnapshot(q=>{portals=Object.fromEntries(q.docs.map(x=>[x.id,x.data()]));S.loaded.portals=true;if(route==="clients")render();schedSync()},()=>{});
@@ -1208,11 +1219,13 @@ function go(r,silent){
     route = "studio";
     if(r.startsWith("presentation:")||r.startsWith("deck:")){
       const id=decodeURIComponent(r.split(":")[1]);
-      db.doc("decks/"+id).get().then(snap=>{
-        if(snap && snap.exists) Studio.load({id: snap.id, ...snap.data()});
-      });
+      if(db){
+        db.doc("decks/"+id).get().then(snap=>{
+          if(snap && snap.exists) Studio.load({id: snap.id, ...snap.data()});
+        });
+      }
     }
-    $("[data-r]").forEach(a=>a.classList.toggle("on",a.dataset.r==="studio"));
+    $$("[data-r]").forEach(a=>a.classList.toggle("on",a.dataset.r==="studio"));
     if(!silent)window.scrollTo({top:0});
     render(true);
     return;
@@ -1220,8 +1233,25 @@ function go(r,silent){
   if(r.startsWith("presentation:")||r.startsWith("deck:")){
     const id=decodeURIComponent(r.split(":")[1]);
     const d=S.decks.find(x=>x.id===id);
-    if(d)Studio.load(d);
-    else{const c=S.campaigns.find(x=>x.id===id);if(c)Studio.open({type:"campaign",campaignId:c.id});else Studio.open({type:"filter"});}
+    if(d) Studio.load(d);
+    else if(db) {
+      db.doc("decks/"+id).get().then(snap=>{
+        if(snap && snap.exists) Studio.load({id: snap.id, ...snap.data()});
+        else {
+          const c=S.campaigns.find(x=>x.id===id);
+          if(c) Studio.open({type:"campaign",campaignId:c.id});
+          else Studio.open({type:"filter"});
+        }
+      }).catch(()=>{
+        const c=S.campaigns.find(x=>x.id===id);
+        if(c) Studio.open({type:"campaign",campaignId:c.id});
+        else Studio.open({type:"filter"});
+      });
+    } else {
+      const c=S.campaigns.find(x=>x.id===id);
+      if(c) Studio.open({type:"campaign",campaignId:c.id});
+      else Studio.open({type:"filter"});
+    }
     r="studio";
   } else if(r.startsWith("campdeck:")){
     const id=decodeURIComponent(r.split(":")[1]);
@@ -3004,7 +3034,7 @@ const Studio={
    if(!c.title){const cp=c.source.type==="campaign"?campOf(c.source.campaignId):null;c.title=cp?cp.name:c.source.type==="filter"?`${c.source.area||"Karachi"} ${c.source.status==="available"?"Available ":""}Sites`:"Site Proposal"}
    if(!c.subtitle){const cp=c.source.type==="campaign"?campOf(c.source.campaignId):null;c.subtitle=cp?.client?`Prepared for ${cp.client}`:"OOH site presentation"}},
  mount(){if(!this.cfg)return;this.renderSlides();this.bindDnD()},
- siteOf(id){return (this.cfg?.sitesData||[]).find(x=>x.id===id)||S.sites.find(x=>x.id===id)},
+ siteOf(id){if(!id)return null;return (this.cfg?.sitesData||[]).find(x=>x&&(x.id===id||x.code===id))||S.sites.find(x=>x&&(x.id===id||x.code===id))||null},
   visible(){return (this.cfg?.slides||[]).filter(s=>!s.hidden&&this.siteOf(s.siteId))},
   deckOps(forExport){const c=this.cfg,t=TPL[c.template],vis=this.visible(),sites=vis.map(v=>this.siteOf(v.siteId));const out=[];
    out.push({kind:"cover",ops:coverOps(c,t,sites)});
@@ -3014,7 +3044,7 @@ const Studio={
    out.push({kind:"end",ops:endOps(c,t)});return out},
  renderSlides(){const box=$("#slides");if(!box)return;const deck=this.deckOps();
     box.innerHTML=deck.map((sl,n)=>{const v=sl.kind==="site"?this.cfg.slides[sl.idx]:null;const s=v&&this.siteOf(v.siteId);
-     const tools=v?`<div class="sltools"><button class="btn sm" data-act="slphoto" data-i="${sl.idx}" ${imgIdx(s).length>1?"":"disabled"}>${ICON.img}Swap photo${imgIdx(s).length>1?` (${imgIdx(s).length})`:""}</button><button class="btn sm" data-act="slhide" data-i="${sl.idx}">${ICON.eye}Hide</button><button class="btn sm" data-act="site" data-id="${s.id}">Site details</button></div>`:"";
+     const tools=(v&&s)?`<div class="sltools"><button class="btn sm" data-act="slphoto" data-i="${sl.idx}" ${imgIdx(s).length>1?"":"disabled"}>${ICON.img}Swap photo${imgIdx(s).length>1?` (${imgIdx(s).length})`:""}</button><button class="btn sm" data-act="slhide" data-i="${sl.idx}">${ICON.eye}Hide</button><button class="btn sm" data-act="site" data-id="${s.id}">Site details</button></div>`:"";
      return`<div class="sl" ${v?`draggable="true" data-i="${sl.idx}"`:""}><div class="num"><b>${String(n+1).padStart(2,"0")}</b>${v?`<button data-act="slmove" data-i="${sl.idx}" data-d="-1" aria-label="Move up">${ICON.up}</button><button data-act="slmove" data-i="${sl.idx}" data-d="1" aria-label="Move down">${ICON.down}</button>`:""}</div><div class="slwrap">${slideHTML(sl.ops,TPL[this.cfg.template])}${tools}</div></div>`}).join("")+
      (this.cfg.slides.some(s=>s.hidden)?`<div class="card pad"><b>Hidden slides</b><div class="chips" style="margin-top:8px">${this.cfg.slides.map((s,i)=>s.hidden?`<button class="chip" data-act="slshow" data-i="${i}">${esc(S.sites.find(x=>x.id===s.siteId)?.code||"?")} · show</button>`:"").join("")}</div></div>`:"");
    $$("[data-edit]",box).forEach(el=>el.addEventListener("blur",()=>{const[k,i]=el.dataset.edit.split(":");const txt=el.innerText.trim();if(k==="title")this.cfg.title=txt;else if(k==="subtitle")this.cfg.subtitle=txt;else if(k==="stitle")this.cfg.slides[+i].title=txt;else if(k==="snote")this.cfg.slides[+i].note=txt;this.dirty()}));
@@ -3614,7 +3644,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=4.0").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=5.0").then(r=>{
       r.update();
       console.log("AdPulse OTS PWA active:",r.scope);
     }).catch(err=>{
