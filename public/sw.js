@@ -1,4 +1,4 @@
-const CACHE_NAME = 'adpulse-ots-v9.5';
+const CACHE_NAME = 'adpulse-ots-v9.6';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -54,9 +54,12 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Network-only for Supabase auth / database / API calls / external storage
+  // Network-only for Supabase auth / database / API calls / external storage / Google 3D maps
   if (
     url.hostname.includes('supabase.co') ||
+    url.hostname.includes('googleapis.com') ||
+    url.hostname.includes('gstatic.com') ||
+    url.hostname.includes('google.com') ||
     url.pathname.startsWith('/api/') ||
     url.pathname.startsWith('/auth/') ||
     url.pathname.startsWith('/rest/') ||
