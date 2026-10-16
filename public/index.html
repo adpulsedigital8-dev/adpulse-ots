@@ -1982,30 +1982,52 @@ function open3DMapModal(id){
   const st = effStatus(s);
   const lat = encodeURIComponent(s.lat);
   const lng = encodeURIComponent(s.lng);
-  const embedUrl = `https://maps.google.com/maps?q=${lat},${lng}&t=k&z=19&ie=UTF8&iwloc=&output=embed`;
+  const rawCoords = `${s.lat}, ${s.lng}`;
+  const google3DUrl = `https://storage.googleapis.com/gmp-maps-demos/p3d-map/index.html?embed=true#intro`;
   const streetViewUrl = `https://maps.google.com/maps?q=&layer=c&cbll=${lat},${lng}&cbp=11,0,0,0,0&output=embed`;
+  const satEmbedUrl = `https://maps.google.com/maps?q=${lat},${lng}&t=k&z=19&ie=UTF8&iwloc=&output=embed`;
+  const earthUrl = `https://earth.google.com/web/search/@${lat},${lng},150a,35y,45h,60t,0r`;
+  const navUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}&travelmode=driving`;
 
   openLayer(`<div class="scrim" data-act="close"></div>
-    <div class="modal" style="width:min(960px,calc(100% - 20px));height:min(720px,90vh);display:flex;flex-direction:column;border-radius:18px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,0.6)">
+    <div class="modal" style="width:min(1180px,calc(100% - 24px));height:min(820px,92vh);display:flex;flex-direction:column;border-radius:18px;overflow:hidden;box-shadow:0 35px 80px rgba(0,0,0,0.8);border:1px solid rgba(255,255,255,0.12)">
       <div class="dh" style="padding:12px 18px;background:var(--surface);border-bottom:1px solid var(--border)">
         <div style="display:flex;align-items:center;gap:10px">
-          <div style="width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,#7C3AED,#D9161D);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px">🌍</div>
+          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#06B6D4,#3B82F6);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px">🌍</div>
           <div>
             <div style="display:flex;align-items:center;gap:6px">
               <span class="mono" style="font-weight:700;color:var(--violet);font-size:13px">${esc(s.code)}</span>
               <span class="pill st-${st}" style="font-size:10px;padding:1px 6px">${STATUS[st]}</span>
             </div>
-            <h2 style="font-size:17px;margin:0">${esc(s.area)} · 3D Earth Inspection</h2>
+            <h2 style="font-size:16px;margin:0">${esc(s.area)} · Google 3D Inspection Center</h2>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:8px">
-          <button class="btn sm pri" id="btnSatView" onclick="document.getElementById('map3dFrame').src='${embedUrl}';this.classList.add('pri');document.getElementById('btnStreetView').classList.remove('pri');">🛰️ 3D Satellite</button>
-          <button class="btn sm" id="btnStreetView" onclick="document.getElementById('map3dFrame').src='${streetViewUrl}';this.classList.add('pri');document.getElementById('btnSatView').classList.remove('pri');">🛣️ Street View</button>
+        <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+          <div class="seg" id="map3dModeSeg" style="margin:0">
+            <button class="on" id="btnMode3D" onclick="switch3DModalMode('3d', '${google3DUrl}')">🌍 Google 3D</button>
+            <button id="btnModeStreet" onclick="switch3DModalMode('street', '${streetViewUrl}')">🚗 Street View</button>
+            <button id="btnModeSat" onclick="switch3DModalMode('sat', '${satEmbedUrl}')">🛰️ 4K Satellite</button>
+          </div>
+          <a class="btn sm cy" href="${earthUrl}" target="_blank" rel="noopener" style="text-decoration:none;font-weight:700" title="Open 3D Mesh in Google Earth Web">🧭 Earth 3D ↗</a>
           <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
         </div>
       </div>
+
+      <!-- Quick Action Floating Bar -->
+      <div style="background:#0a0814;padding:8px 16px;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;color:rgba(255,255,255,0.85);flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="color:#38BDF8;font-weight:700">📍 Site GPS:</span>
+          <span class="mono" style="color:#fff;font-weight:600">${rawCoords}</span>
+          <button class="btn sm" onclick="navigator.clipboard.writeText('${rawCoords}');toast('GPS Coordinates copied to clipboard!')" style="padding:2px 7px;font-size:11px;background:rgba(255,255,255,0.12);color:#fff;border:0" title="Copy coordinates">📋 Copy GPS</button>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px">
+          <a class="btn sm" href="${navUrl}" target="_blank" rel="noopener" style="padding:3px 9px;font-size:11px;background:rgba(14,159,118,0.25);border:1px solid #0E9F76;color:#34D399;text-decoration:none;font-weight:700">🚗 Start Driving Navigation ↗</a>
+          <button class="btn sm" onclick="const f=document.getElementById('map3dFrame');if(f.requestFullscreen){f.requestFullscreen();}else toast('Fullscreen active');" style="padding:3px 9px;font-size:11px;background:rgba(255,255,255,0.12);color:#fff;border:0">⛶ Fullscreen 3D</button>
+        </div>
+      </div>
+
       <div style="flex:1;position:relative;background:#000">
-        <iframe id="map3dFrame" src="${embedUrl}" style="width:100%;height:100%;border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe id="map3dFrame" src="${google3DUrl}" style="width:100%;height:100%;border:0" allow="geolocation; accelerometer; gyroscope; fullscreen; autoplay" allowfullscreen="" loading="lazy"></iframe>
       </div>
       <div class="dh" style="padding:10px 18px;background:var(--surface);border-top:1px solid var(--border);font-size:12px">
         <div style="color:var(--muted)">${esc(s.from||"—")} → ${esc(s.towards||"—")} · ${sizeOf(s)} ft · ~${fmtK(otsOf(s))} OTS/day</div>
@@ -2015,6 +2037,82 @@ function open3DMapModal(id){
         </div>
       </div>
     </div>`);
+}
+
+function switch3DModalMode(mode, url){
+  const f = document.getElementById('map3dFrame');
+  if(!f) return;
+  f.src = url;
+  const seg = document.getElementById('map3dModeSeg');
+  if(seg){
+    seg.querySelectorAll('button').forEach(b => b.classList.remove('on'));
+    if(mode === '3d') document.getElementById('btnMode3D')?.classList.add('on');
+    else if(mode === 'street') document.getElementById('btnModeStreet')?.classList.add('on');
+    else if(mode === 'sat') document.getElementById('btnModeSat')?.classList.add('on');
+  }
+}
+
+function openGoogle3DFullscreen(){
+  const google3DUrl = `https://storage.googleapis.com/gmp-maps-demos/p3d-map/index.html?embed=true#intro`;
+  openLayer(`<div class="scrim" data-act="close"></div>
+    <div class="modal" style="width:min(1380px,calc(100% - 16px));height:min(900px,94vh);display:flex;flex-direction:column;border-radius:18px;overflow:hidden;box-shadow:0 35px 80px rgba(0,0,0,0.85);border:1px solid rgba(255,255,255,0.15)">
+      <div class="dh" style="padding:10px 18px;background:var(--surface);border-bottom:1px solid var(--border)">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,#06B6D4,#3B82F6);color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px">🌍</div>
+          <div>
+            <h2 style="font-size:16px;margin:0">Google Maps Platform · Photorealistic 3D Studio</h2>
+            <div style="font-size:11px;color:var(--muted)">Full interactive 3D globe with photorealistic mesh, terrain, and city corridors</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <select class="in" style="height:32px;padding:2px 8px;font-size:12px;background:var(--bg);max-width:220px" onchange="if(this.value){open3DMapModal(this.value);}">
+            <option value="">Inspect Site in 3D…</option>
+            ${opt(S.sites.filter(x=>x.lat).map(x=>[x.id,`${x.code} - ${x.area}`]))}
+          </select>
+          <button class="btn sm" onclick="const f=document.getElementById('fs3dFrame');if(f.requestFullscreen)f.requestFullscreen();else toast('Fullscreen active');">⛶ Fullscreen</button>
+          <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
+        </div>
+      </div>
+      <div style="flex:1;position:relative;background:#000">
+        <iframe id="fs3dFrame" src="${google3DUrl}" style="width:100%;height:100%;border:0" allow="geolocation; accelerometer; gyroscope; fullscreen; autoplay" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>`);
+}
+
+function setGlobalMapView(mode){
+  const leafletEl = document.getElementById("leafletMap");
+  const g3dEl = document.getElementById("google3DMapWrapper");
+  const btn2D = document.getElementById("btnMap2D");
+  const btn3D = document.getElementById("btnMap3D");
+  const iframe = document.getElementById("google3DMapIframe");
+  if(!leafletEl || !g3dEl) return;
+  
+  if(mode === '3d'){
+    leafletEl.style.display = "none";
+    g3dEl.style.display = "block";
+    if(btn2D) btn2D.classList.remove("on");
+    if(btn3D) btn3D.classList.add("on");
+    if(iframe && (!iframe.src || iframe.src === "" || iframe.src.includes("about:blank"))){
+      iframe.src = "https://storage.googleapis.com/gmp-maps-demos/p3d-map/index.html?embed=true#intro";
+    }
+    toast("🌍 Google Photorealistic 3D Maps activated");
+  } else {
+    g3dEl.style.display = "none";
+    leafletEl.style.display = "block";
+    if(btn3D) btn3D.classList.remove("on");
+    if(btn2D) btn2D.classList.add("on");
+    if(typeof _leafletMap !== "undefined" && _leafletMap) {
+      setTimeout(() => _leafletMap.invalidateSize(), 150);
+    }
+    toast("🗺️ Switched to 2D fleet map");
+  }
+}
+
+function copyCorridorGPS(coords, name){
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(coords);
+  }
+  toast(`📍 ${name} GPS copied (${coords})!`);
 }
 
 
@@ -2509,8 +2607,34 @@ function mapHTML(list){
         <input id="mapAiSearch" type="text" placeholder="Filter or Ask AI…" style="background:transparent;border:0;outline:0;color:var(--ink);font-size:12px;width:130px" oninput="filterMapMarkers(this.value)" onkeydown="if(event.key==='Enter')AskMapsAI.open(this.value)">
         <span id="mapAiCount" class="pill st-available" style="font-size:10px;padding:2px 6px;display:none">0</span>
       </div>
+      <div class="seg" style="margin:0 2px">
+        <button id="btnMap2D" class="on" onclick="setGlobalMapView('2d')" style="padding:4px 8px;font-size:11px">🗺️ 2D Pins</button>
+        <button id="btnMap3D" onclick="setGlobalMapView('3d')" style="padding:4px 9px;font-size:11px;font-weight:700;color:var(--cyan)">🌍 Google 3D</button>
+      </div>
       <button class="btn sm pri" data-act="askmaps" style="padding:4px 9px;font-size:11px;font-weight:700;border-radius:8px;background:linear-gradient(135deg,#7C3AED,#D9161D);border:0;color:#fff;box-shadow:0 2px 6px rgba(124,58,237,0.35)">✨ Ask Maps</button>
-      <button class="btn sm cy" onclick="True3DNavigation.start()" style="padding:4px 10px;font-size:11px;font-weight:800;border-radius:8px;background:linear-gradient(135deg,#047857,#065F46);color:#fff;border:0;box-shadow:0 3px 10px rgba(4,120,87,0.4)" title="Start True Google Immersive 3D Driving Navigation">🚗 Launch 3D Immersive Navigation</button>
+      <button class="btn sm cy" onclick="openGoogle3DFullscreen()" style="padding:4px 10px;font-size:11px;font-weight:800;border-radius:8px;background:linear-gradient(135deg,#0284C7,#0369A1);color:#fff;border:0;box-shadow:0 3px 10px rgba(2,132,199,0.4)" title="Open Google Photorealistic 3D Maps in Fullscreen">🌍 3D Studio</button>
+    </div>
+
+    <!-- Google Photorealistic 3D Maps Embed Container -->
+    <div id="google3DMapWrapper" style="display:none;position:absolute;inset:0;width:100%;height:100%;z-index:450;background:#000">
+      <iframe id="google3DMapIframe" src="" style="width:100%;height:100%;border:0" allow="geolocation; accelerometer; gyroscope; fullscreen" allowfullscreen loading="lazy"></iframe>
+      
+      <!-- 3D Flight Controls HUD -->
+      <div class="g3d-hud" style="position:absolute;bottom:12px;left:12px;right:12px;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:8px;background:rgba(10,8,20,0.88);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.15);padding:8px 12px;border-radius:12px;color:#fff;font-size:12px;box-shadow:0 8px 32px rgba(0,0,0,0.6);flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-weight:800;color:var(--cyan);display:flex;align-items:center;gap:4px">🌍 Google 3D Platform</span>
+          <span style="color:rgba(255,255,255,0.4)">·</span>
+          <span style="font-size:11px;color:rgba(255,255,255,0.8)">Karachi Corridors:</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;overflow-x:auto;max-width:100%;padding:2px 0">
+          <button class="btn sm" onclick="copyCorridorGPS('24.8700, 67.1000','Shahrah-e-Faisal')" style="background:rgba(255,255,255,0.12);color:#fff;border:0;padding:3px 8px;font-size:11px">🏢 Sh-e-Faisal</button>
+          <button class="btn sm" onclick="copyCorridorGPS('24.8138, 67.0300','Clifton')" style="background:rgba(255,255,255,0.12);color:#fff;border:0;padding:3px 8px;font-size:11px">🌊 Clifton</button>
+          <button class="btn sm" onclick="copyCorridorGPS('24.7985, 67.0640','DHA')" style="background:rgba(255,255,255,0.12);color:#fff;border:0;padding:3px 8px;font-size:11px">🌆 DHA</button>
+          <button class="btn sm" onclick="copyCorridorGPS('24.8990, 67.1700','Airport')" style="background:rgba(255,255,255,0.12);color:#fff;border:0;padding:3px 8px;font-size:11px">✈️ Airport</button>
+          <button class="btn sm" onclick="copyCorridorGPS('24.9200, 67.0950','Gulshan')" style="background:rgba(255,255,255,0.12);color:#fff;border:0;padding:3px 8px;font-size:11px">🛣️ Gulshan</button>
+          <button class="btn sm pri" onclick="openGoogle3DFullscreen()" style="padding:3px 10px;font-size:11px;font-weight:700">⛶ Fullscreen 3D</button>
+        </div>
+      </div>
     </div>
 
     <div id="leafletMap" style="width:100%;height:100%;min-height:380px"></div>
@@ -3684,6 +3808,7 @@ function openInstallModal(forceType){
 
 const ACT={
   view3d:a=>open3DMapModal(a.dataset.id),
+  google3d:()=>openGoogle3DFullscreen(),
   askmaps:a=>AskMapsAI.open(a.dataset.q||(document.getElementById('mapAiSearch')?document.getElementById('mapAiSearch').value:"")),
   askprompt:a=>AskMapsAI.ask(a.dataset.q),
   installapp:()=>openInstallModal(),
@@ -3831,7 +3956,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=9.2").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=9.3").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
