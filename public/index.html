@@ -966,7 +966,7 @@ body.client .tabs{display:none}
 
 <script>
 /* ============ constants ============ */
-const AREAS={"Clifton":[24.8138,67.0300,"CLF"],"DHA":[24.7985,67.0640,"DHA"],"Shahrah-e-Faisal":[24.8700,67.1000,"SEF"],"Karsaz":[24.8785,67.0880,"KRZ"],"Tariq Road":[24.8720,67.0600,"TRQ"],"PECHS / Nursery":[24.8640,67.0700,"PEC"],"Saddar":[24.8580,67.0220,"SDR"],"I.I. Chundrigar":[24.8490,67.0070,"IIC"],"Gulshan-e-Iqbal":[24.9200,67.0950,"GSI"],"Gulistan-e-Jauhar":[24.9140,67.1300,"GLJ"],"North Nazimabad":[24.9420,67.0420,"NNZ"],"FB Area":[24.9300,67.0720,"FBA"],"Korangi":[24.8330,67.1300,"KOR"],"Airport / Malir":[24.8990,67.1700,"AIR"]};
+const AREAS={"Clifton":[24.8138,67.0300,"CLF"],"DHA":[24.7985,67.0640,"DHA"],"Shahrah-e-Faisal":[24.8700,67.1000,"SEF"],"Karsaz":[24.8785,67.0880,"KRZ"],"Tariq Road":[24.8720,67.0600,"TRQ"],"PECHS / Nursery":[24.8640,67.0700,"PEC"],"Shaheed-e-Millat / PECHS":[24.8710,67.0680,"SEM"],"Saddar":[24.8580,67.0220,"SDR"],"Saddar / Cantt":[24.8540,67.0320,"SDR"],"I.I. Chundrigar":[24.8490,67.0070,"IIC"],"Gulshan-e-Iqbal":[24.9200,67.0950,"GSI"],"Gulistan-e-Jauhar":[24.9140,67.1300,"GLJ"],"North Nazimabad":[24.9420,67.0420,"NNZ"],"North Karachi":[24.9920,67.0640,"NKH"],"FB Area":[24.9300,67.0720,"FBA"],"Korangi":[24.8330,67.1300,"KOR"],"Airport / Malir":[24.8990,67.1700,"AIR"],"Super Highway / M-9":[24.9850,67.1400,"M09"],"S.I.T.E. / Orangi":[24.9120,67.0050,"SIT"]};
 const SIZES=["20x40","20x60","30x60","30x90","10x30","40x120","15x45"];
 const MEDIA=["Billboard","Hoarding","Pole Sign / Streamer","SMD / Digital Screen","Bridge Panel","Rooftop","Wall Wrap","Bus Shelter"];
 const LIGHT=["Lit","Non-lit","Backlit","Digital"];
@@ -1058,12 +1058,23 @@ const dayWord=d=>d===0?"today":d===1?"tomorrow":`in ${d} days`;
 const fmtShort=d=>d?new Date(d+"T00:00:00").toLocaleDateString("en-GB",{day:"numeric",month:"short"}):"";
 const bookingTxt=s=>s.status==="booked"&&s.bookedTill?`${s.bookedFrom?fmtShort(s.bookedFrom)+" → ":"till "}${fmtShort(s.bookedTill)}`:"";
 const RO=()=>ROLE==="client"||route==="portal";
-function phFix(img){const s=S.sites.find(x=>x.id===img.dataset.sid);if(s&&!img.dataset.fx){img.dataset.fx=1;img.src=placeholder(s)}}
+function phFix(img){
+  const s=S.sites.find(x=>x.id===img.dataset.sid);
+  if(!img.dataset.f2 && s && s.photos && s.photos.length){
+    img.dataset.f2="1";
+    const p=lastImg(s);
+    if(p && p.asset && !p.asset.startsWith("http")){
+      img.src="https://vqttmptwixcevmgzeeon.supabase.co/storage/v1/object/public/media/" + p.asset;
+      return;
+    }
+  }
+  if(s&&!img.dataset.fx){img.dataset.fx=1;img.src=placeholder(s)}
+}
 
 /* derived */
 function effStatus(s){if(s.status==="booked"&&s.bookedTill){const d=(new Date(s.bookedTill)-Date.now())/864e5;if(d>=0&&d<=14)return"expiring";if(d<0)return"available"}return s.status||"available"}
 const sizeOf=s=>s?`${s.widthFt||0}x${s.heightFt||0}`:"";
-const photoSrc=p=>p?(p.src||memBlobs[p.asset]||(p.asset?"/_blob/"+p.asset:null)):null;
+const photoSrc=p=>p?(p.src||memBlobs[p.asset]||(p.asset?(p.asset.startsWith("http")?p.asset:"/_blob/"+p.asset):null)):null;
 const lastPhoto=s=>(s?.photos&&s.photos.length)?s.photos[s.photos.length-1]:null;
 const isVid=p=>p&&p.kind==="video";
 const imgIdx=s=>(s?.photos||[]).map((p,i)=>isVid(p)?-1:i).filter(i=>i>=0);
