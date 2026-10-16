@@ -63,6 +63,14 @@ body.guest-presentation .main {
   font-weight: 700;
   box-shadow: 0 2px 8px rgba(217, 22, 29, 0.5);
 }
+@keyframes orbitGlow {
+  0% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.5); }
+  50% { box-shadow: 0 0 16px rgba(239, 68, 68, 0.95); }
+  100% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.5); }
+}
+.orbit-active {
+  animation: orbitGlow 1.4s infinite ease-in-out !important;
+}
 .immersive-hud {
   position: absolute;
   top: 12px;
@@ -1973,12 +1981,24 @@ function filterMapMarkers(rawQuery){
 }
 
 
+let modalHeading = 0;
+let modalOrbitTimer = null;
+let modalCurrentMode = '3d';
+let modalLat = '';
+let modalLng = '';
+
 function open3DMapModal(id){
   const s = S.sites.find(x => x.id === id);
   if(!s || !s.lat || !s.lng) {
     toast("No GPS coordinates available for this site.");
     return;
   }
+  stopModal360Orbit();
+  modalHeading = 0;
+  modalCurrentMode = '3d';
+  modalLat = s.lat;
+  modalLng = s.lng;
+
   const st = effStatus(s);
   const lat = encodeURIComponent(s.lat);
   const lng = encodeURIComponent(s.lng);
@@ -2013,12 +2033,20 @@ function open3DMapModal(id){
         </div>
       </div>
 
-      <!-- Quick Action Floating Bar -->
+      <!-- Quick Action Floating Bar with 360 Degree Rotation -->
       <div style="background:#0a0814;padding:8px 16px;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;color:rgba(255,255,255,0.85);flex-wrap:wrap">
-        <div style="display:flex;align-items:center;gap:8px">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
           <span style="color:#38BDF8;font-weight:700">📍 Site GPS:</span>
           <span class="mono" style="color:#fff;font-weight:600">${rawCoords}</span>
           <button class="btn sm" onclick="navigator.clipboard.writeText('${rawCoords}');toast('GPS Coordinates copied to clipboard!')" style="padding:2px 7px;font-size:11px;background:rgba(255,255,255,0.12);color:#fff;border:0" title="Copy coordinates">📋 Copy GPS</button>
+          
+          <div style="display:flex;align-items:center;gap:3px;background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);margin-left:4px">
+            <span style="font-size:11px;font-weight:700;color:var(--cyan)">🔄 360° Rotate:</span>
+            <button class="btn sm" onclick="rotateModalIframe(-45)" style="padding:2px 7px;font-size:11px;background:rgba(255,255,255,0.12);color:#fff;border:0" title="Turn Left 45°">↺ -45°</button>
+            <button class="btn sm" id="btnModalOrbit" onclick="toggleModal360Orbit()" style="padding:2px 9px;font-size:11px;font-weight:700;background:linear-gradient(135deg,#7C3AED,#3B82F6);color:#fff;border:0" title="Continuous 360° Auto Orbit">🔄 360° Orbit</button>
+            <button class="btn sm" onclick="rotateModalIframe(45)" style="padding:2px 7px;font-size:11px;background:rgba(255,255,255,0.12);color:#fff;border:0" title="Turn Right 45°">↻ +45°</button>
+            <button class="btn sm" onclick="resetModalHeading()" style="padding:2px 7px;font-size:11px;background:rgba(255,255,255,0.12);color:#fff;border:0" title="Reset North">🧭 North</button>
+          </div>
         </div>
         <div style="display:flex;align-items:center;gap:6px">
           <a class="btn sm" href="${navUrl}" target="_blank" rel="noopener" style="padding:3px 9px;font-size:11px;background:rgba(14,159,118,0.25);border:1px solid #0E9F76;color:#34D399;text-decoration:none;font-weight:700">🚗 Start Driving Navigation ↗</a>
@@ -2026,7 +2054,7 @@ function open3DMapModal(id){
         </div>
       </div>
 
-      <div style="flex:1;position:relative;background:#000">
+      <div style="flex:1;position:relative;background:#000;overflow:hidden">
         <iframe id="map3dFrame" src="${google3DUrl}" style="width:100%;height:100%;border:0" allow="geolocation; accelerometer; gyroscope; fullscreen; autoplay" allowfullscreen="" loading="lazy"></iframe>
       </div>
       <div class="dh" style="padding:10px 18px;background:var(--surface);border-top:1px solid var(--border);font-size:12px">
@@ -2040,9 +2068,17 @@ function open3DMapModal(id){
 }
 
 function switch3DModalMode(mode, url){
+  stopModal360Orbit();
+  modalCurrentMode = mode;
   const f = document.getElementById('map3dFrame');
   if(!f) return;
-  f.src = url;
+  if(mode === 'street'){
+    f.src = `https://maps.google.com/maps?q=&layer=c&cbll=${encodeURIComponent(modalLat)},${encodeURIComponent(modalLng)}&cbp=11,${modalHeading},0,0,0&output=embed`;
+    f.style.transform = "none";
+  } else {
+    f.src = url;
+    applyModalRotation(true);
+  }
   const seg = document.getElementById('map3dModeSeg');
   if(seg){
     seg.querySelectorAll('button').forEach(b => b.classList.remove('on'));
@@ -2052,7 +2088,156 @@ function switch3DModalMode(mode, url){
   }
 }
 
+function rotateModalIframe(deg){
+  stopModal360Orbit();
+  modalHeading = (modalHeading + deg + 360) % 360;
+  if(modalCurrentMode === 'street'){
+    const f = document.getElementById('map3dFrame');
+    if(f){
+      f.src = `https://maps.google.com/maps?q=&layer=c&cbll=${encodeURIComponent(modalLat)},${encodeURIComponent(modalLng)}&cbp=11,${modalHeading},0,0,0&output=embed`;
+    }
+  } else {
+    applyModalRotation(true);
+  }
+  toast(`🧭 Heading rotated to ${Math.round(modalHeading)}°`);
+}
+
+function resetModalHeading(){
+  stopModal360Orbit();
+  modalHeading = 0;
+  if(modalCurrentMode === 'street'){
+    const f = document.getElementById('map3dFrame');
+    if(f){
+      f.src = `https://maps.google.com/maps?q=&layer=c&cbll=${encodeURIComponent(modalLat)},${encodeURIComponent(modalLng)}&cbp=11,0,0,0,0&output=embed`;
+    }
+  } else {
+    applyModalRotation(true);
+  }
+  toast("🧭 Reset to North (0°)");
+}
+
+function toggleModal360Orbit(){
+  if(modalOrbitTimer){
+    stopModal360Orbit();
+    toast("⏹ 360° Orbit stopped");
+    return;
+  }
+  const btn = document.getElementById('btnModalOrbit');
+  if(btn){
+    btn.innerHTML = "⏹ Stop 360°";
+    btn.style.background = "linear-gradient(135deg,#EF4444,#DC2626)";
+    btn.classList.add("orbit-active");
+  }
+  toast("🔄 Continuous 360° Orbit active");
+
+  if(modalCurrentMode === 'street'){
+    modalOrbitTimer = setInterval(() => {
+      modalHeading = (modalHeading + 45) % 360;
+      const f = document.getElementById('map3dFrame');
+      if(f){
+        f.src = `https://maps.google.com/maps?q=&layer=c&cbll=${encodeURIComponent(modalLat)},${encodeURIComponent(modalLng)}&cbp=11,${modalHeading},0,0,0&output=embed`;
+      }
+    }, 2800);
+  } else {
+    const f = document.getElementById('map3dFrame');
+    if(!f) return;
+    f.style.transformOrigin = "center center";
+    modalOrbitTimer = setInterval(() => {
+      modalHeading = (modalHeading + 1.2) % 360;
+      applyModalRotation(false);
+    }, 40);
+  }
+}
+
+function stopModal360Orbit(){
+  if(modalOrbitTimer){
+    clearInterval(modalOrbitTimer);
+    modalOrbitTimer = null;
+  }
+  const btn = document.getElementById('btnModalOrbit');
+  if(btn){
+    btn.innerHTML = "🔄 360° Orbit";
+    btn.style.background = "linear-gradient(135deg,#7C3AED,#3B82F6)";
+    btn.classList.remove("orbit-active");
+  }
+}
+
+function applyModalRotation(smooth){
+  const f = document.getElementById('map3dFrame');
+  if(!f) return;
+  f.style.transformOrigin = "center center";
+  f.style.transition = smooth ? "transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)" : "none";
+  if(modalHeading === 0){
+    f.style.transform = "none";
+  } else {
+    f.style.transform = `perspective(1200px) rotateZ(${modalHeading}deg) scale(1.15)`;
+  }
+}
+
+let fsHeading = 0;
+let fsOrbitTimer = null;
+
+function rotateFsFrame(deg){
+  stopFsOrbit();
+  fsHeading = (fsHeading + deg + 360) % 360;
+  applyFsRotation(true);
+  toast(`🧭 3D Heading: ${Math.round(fsHeading)}°`);
+}
+
+function resetFsHeading(){
+  stopFsOrbit();
+  fsHeading = 0;
+  applyFsRotation(true);
+  toast("🧭 Reset to North (0°)");
+}
+
+function toggleFsOrbit(){
+  if(fsOrbitTimer){
+    stopFsOrbit();
+    toast("⏹ 360° Orbit stopped");
+    return;
+  }
+  const btn = document.getElementById('btnFsOrbit');
+  if(btn){
+    btn.innerHTML = "⏹ Stop 360°";
+    btn.style.background = "linear-gradient(135deg,#EF4444,#DC2626)";
+    btn.classList.add("orbit-active");
+  }
+  toast("🔄 360° Continuous Orbit active");
+  fsOrbitTimer = setInterval(() => {
+    fsHeading = (fsHeading + 1.2) % 360;
+    applyFsRotation(false);
+  }, 40);
+}
+
+function stopFsOrbit(){
+  if(fsOrbitTimer){
+    clearInterval(fsOrbitTimer);
+    fsOrbitTimer = null;
+  }
+  const btn = document.getElementById('btnFsOrbit');
+  if(btn){
+    btn.innerHTML = "🔄 360° Orbit";
+    btn.style.background = "linear-gradient(135deg,#7C3AED,#3B82F6)";
+    btn.classList.remove("orbit-active");
+  }
+}
+
+function applyFsRotation(smooth){
+  const f = document.getElementById('fs3dFrame');
+  if(!f) return;
+  f.style.transformOrigin = "center center";
+  f.style.transition = smooth ? "transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)" : "none";
+  if(fsHeading === 0){
+    f.style.transform = "none";
+  } else {
+    f.style.transform = `perspective(1200px) rotateZ(${fsHeading}deg) scale(1.15)`;
+  }
+}
+
 function openGoogle3DFullscreen(){
+  stopFsOrbit();
+  fsHeading = 0;
   const google3DUrl = `https://storage.googleapis.com/gmp-maps-demos/p3d-map/index.html?embed=true#intro`;
   openLayer(`<div class="scrim" data-act="close"></div>
     <div class="modal" style="width:min(1380px,calc(100% - 16px));height:min(900px,94vh);display:flex;flex-direction:column;border-radius:18px;overflow:hidden;box-shadow:0 35px 80px rgba(0,0,0,0.85);border:1px solid rgba(255,255,255,0.15)">
@@ -2064,8 +2249,15 @@ function openGoogle3DFullscreen(){
             <div style="font-size:11px;color:var(--muted)">Full interactive 3D globe with photorealistic mesh, terrain, and city corridors</div>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:8px">
-          <select class="in" style="height:32px;padding:2px 8px;font-size:12px;background:var(--bg);max-width:220px" onchange="if(this.value){open3DMapModal(this.value);}">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <div style="display:flex;align-items:center;gap:3px;background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:8px">
+            <span style="font-size:11px;font-weight:700;color:var(--cyan)">360°:</span>
+            <button class="btn sm" onclick="rotateFsFrame(-45)" style="padding:2px 6px;font-size:11px;background:rgba(255,255,255,0.12);color:#fff;border:0" title="Turn Left 45°">↺ -45°</button>
+            <button class="btn sm" id="btnFsOrbit" onclick="toggleFsOrbit()" style="padding:2px 8px;font-size:11px;font-weight:700;background:linear-gradient(135deg,#7C3AED,#3B82F6);color:#fff;border:0" title="Continuous 360° Auto Orbit">🔄 360° Orbit</button>
+            <button class="btn sm" onclick="rotateFsFrame(45)" style="padding:2px 6px;font-size:11px;background:rgba(255,255,255,0.12);color:#fff;border:0" title="Turn Right 45°">↻ +45°</button>
+            <button class="btn sm" onclick="resetFsHeading()" style="padding:2px 6px;font-size:11px;background:rgba(255,255,255,0.12);color:#fff;border:0" title="Reset North">🧭 North</button>
+          </div>
+          <select class="in" style="height:32px;padding:2px 8px;font-size:12px;background:var(--bg);max-width:200px" onchange="if(this.value){open3DMapModal(this.value);}">
             <option value="">Inspect Site in 3D…</option>
             ${opt(S.sites.filter(x=>x.lat).map(x=>[x.id,`${x.code} - ${x.area}`]))}
           </select>
@@ -2073,7 +2265,7 @@ function openGoogle3DFullscreen(){
           <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
         </div>
       </div>
-      <div style="flex:1;position:relative;background:#000">
+      <div style="flex:1;position:relative;background:#000;overflow:hidden">
         <iframe id="fs3dFrame" src="${google3DUrl}" style="width:100%;height:100%;border:0" allow="geolocation; accelerometer; gyroscope; fullscreen; autoplay" allowfullscreen="" loading="lazy"></iframe>
       </div>
     </div>`);
@@ -2087,6 +2279,8 @@ function setGlobalMapView(mode){
   const iframe = document.getElementById("google3DMapIframe");
   if(!leafletEl || !g3dEl) return;
   
+  Map360.stopOrbit();
+
   if(mode === '3d'){
     leafletEl.style.display = "none";
     g3dEl.style.display = "block";
@@ -2114,6 +2308,108 @@ function copyCorridorGPS(coords, name){
   }
   toast(`📍 ${name} GPS copied (${coords})!`);
 }
+
+/* ============ Map 360 Degree Rotation Engine ============ */
+const Map360 = {
+  heading: 0,
+  tilt: 48,
+  orbitTimer: null,
+  isOrbiting: false,
+
+  rotateBy(deg) {
+    this.stopOrbit();
+    this.heading = (this.heading + deg + 360) % 360;
+    this.apply(true);
+    toast(`🧭 Map Heading: ${Math.round(this.heading)}°`);
+  },
+
+  resetNorth() {
+    this.stopOrbit();
+    this.heading = 0;
+    this.tilt = 0;
+    this.apply(true);
+    toast("🧭 Map reset to North (0°)");
+  },
+
+  toggleOrbit() {
+    if (this.isOrbiting) {
+      this.stopOrbit();
+      toast("⏹ 360° Orbit stopped");
+    } else {
+      this.startOrbit();
+      toast("🔄 360° Continuous Orbit active");
+    }
+  },
+
+  startOrbit() {
+    this.isOrbiting = true;
+    if (this.tilt === 0) this.tilt = 48;
+    
+    const setBtnActive = (id) => {
+      const b = document.getElementById(id);
+      if (b) {
+        b.classList.add("orbit-active");
+        b.innerHTML = "⏹ Stop 360°";
+        b.style.background = "linear-gradient(135deg, #EF4444, #DC2626)";
+      }
+    };
+    setBtnActive("btnMap360Orbit");
+    setBtnActive("btnG3DOrbit");
+
+    const wrap = document.querySelector(".mapwrap");
+    if (wrap) wrap.classList.add("immersive-active");
+
+    clearInterval(this.orbitTimer);
+    this.orbitTimer = setInterval(() => {
+      this.heading = (this.heading + 1.2) % 360;
+      this.apply(false);
+    }, 40);
+  },
+
+  stopOrbit() {
+    this.isOrbiting = false;
+    clearInterval(this.orbitTimer);
+    this.orbitTimer = null;
+
+    const setBtnIdle = (id) => {
+      const b = document.getElementById(id);
+      if (b) {
+        b.classList.remove("orbit-active");
+        b.innerHTML = "🔄 360° Orbit";
+        b.style.background = "linear-gradient(135deg, #7C3AED, #3B82F6)";
+      }
+    };
+    setBtnIdle("btnMap360Orbit");
+    setBtnIdle("btnG3DOrbit");
+  },
+
+  apply(smooth = true) {
+    const leafletEl = document.getElementById("leafletMap");
+    const g3dIframe = document.getElementById("google3DMapIframe");
+    const g3dWrapper = document.getElementById("google3DMapWrapper");
+    const isG3D = g3dWrapper && g3dWrapper.style.display !== "none";
+
+    const targetEl = isG3D ? g3dIframe : leafletEl;
+    if (!targetEl) return;
+
+    if (smooth) {
+      targetEl.style.transition = "transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)";
+    } else {
+      targetEl.style.transition = "none";
+    }
+
+    if (this.heading === 0 && this.tilt === 0) {
+      targetEl.style.transform = "none";
+      const wrap = document.querySelector(".mapwrap");
+      if (wrap) wrap.classList.remove("immersive-active");
+    } else {
+      const wrap = document.querySelector(".mapwrap");
+      if (wrap) wrap.classList.add("immersive-active");
+      targetEl.style.transformOrigin = "center center";
+      targetEl.style.transform = `perspective(1200px) rotateX(${this.tilt}deg) rotateZ(${this.heading}deg) scale(1.22)`;
+    }
+  }
+};
 
 
 
@@ -2611,6 +2907,16 @@ function mapHTML(list){
         <button id="btnMap2D" class="on" onclick="setGlobalMapView('2d')" style="padding:4px 8px;font-size:11px">🗺️ 2D Pins</button>
         <button id="btnMap3D" onclick="setGlobalMapView('3d')" style="padding:4px 9px;font-size:11px;font-weight:700;color:var(--cyan)">🌍 Google 3D</button>
       </div>
+
+      <!-- 360 Degree Map Rotation & Orbit Controls -->
+      <div class="map-360-ctrl" style="display:flex;align-items:center;gap:3px;background:rgba(124,58,237,0.12);padding:2px 6px;border-radius:8px;border:1px solid rgba(124,58,237,0.25)">
+        <span style="font-size:11px;font-weight:700;color:var(--violet)">360°:</span>
+        <button class="btn sm" onclick="Map360.rotateBy(-45)" style="padding:2px 6px;font-size:11px;min-width:24px;border:0" title="Rotate map left 45°">↺ -45°</button>
+        <button class="btn sm" id="btnMap360Orbit" onclick="Map360.toggleOrbit()" style="padding:2px 8px;font-size:11px;font-weight:700;background:linear-gradient(135deg,#7C3AED,#3B82F6);color:#fff;border:0" title="Continuous 360° Auto-Orbit">🔄 360° Orbit</button>
+        <button class="btn sm" onclick="Map360.rotateBy(45)" style="padding:2px 6px;font-size:11px;min-width:24px;border:0" title="Rotate map right 45°">↻ +45°</button>
+        <button class="btn sm" onclick="Map360.resetNorth()" style="padding:2px 6px;font-size:11px;min-width:24px;border:0" title="Reset North">🧭 North</button>
+      </div>
+
       <button class="btn sm pri" data-act="askmaps" style="padding:4px 9px;font-size:11px;font-weight:700;border-radius:8px;background:linear-gradient(135deg,#7C3AED,#D9161D);border:0;color:#fff;box-shadow:0 2px 6px rgba(124,58,237,0.35)">✨ Ask Maps</button>
       <button class="btn sm cy" onclick="openGoogle3DFullscreen()" style="padding:4px 10px;font-size:11px;font-weight:800;border-radius:8px;background:linear-gradient(135deg,#0284C7,#0369A1);color:#fff;border:0;box-shadow:0 3px 10px rgba(2,132,199,0.4)" title="Open Google Photorealistic 3D Maps in Fullscreen">🌍 3D Studio</button>
     </div>
@@ -2619,14 +2925,21 @@ function mapHTML(list){
     <div id="google3DMapWrapper" style="display:none;position:absolute;inset:0;width:100%;height:100%;z-index:450;background:#000">
       <iframe id="google3DMapIframe" src="" style="width:100%;height:100%;border:0" allow="geolocation; accelerometer; gyroscope; fullscreen" allowfullscreen loading="lazy"></iframe>
       
-      <!-- 3D Flight Controls HUD -->
+      <!-- 3D Flight Controls HUD with 360 Degree Rotation -->
       <div class="g3d-hud" style="position:absolute;bottom:12px;left:12px;right:12px;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:8px;background:rgba(10,8,20,0.88);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.15);padding:8px 12px;border-radius:12px;color:#fff;font-size:12px;box-shadow:0 8px 32px rgba(0,0,0,0.6);flex-wrap:wrap">
         <div style="display:flex;align-items:center;gap:8px">
           <span style="font-weight:800;color:var(--cyan);display:flex;align-items:center;gap:4px">🌍 Google 3D Platform</span>
           <span style="color:rgba(255,255,255,0.4)">·</span>
-          <span style="font-size:11px;color:rgba(255,255,255,0.8)">Karachi Corridors:</span>
+          <div style="display:flex;align-items:center;gap:3px;background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:8px">
+            <span style="font-size:11px;font-weight:700;color:var(--cyan)">360°:</span>
+            <button class="btn sm" onclick="Map360.rotateBy(-45)" style="padding:2px 6px;font-size:11px;background:rgba(255,255,255,0.12);color:#fff;border:0" title="Rotate Left 45°">↺ -45°</button>
+            <button class="btn sm" id="btnG3DOrbit" onclick="Map360.toggleOrbit()" style="padding:2px 9px;font-size:11px;font-weight:700;background:linear-gradient(135deg,#7C3AED,#3B82F6);color:#fff;border:0" title="Continuous 360° Orbit">🔄 360° Orbit</button>
+            <button class="btn sm" onclick="Map360.rotateBy(45)" style="padding:2px 6px;font-size:11px;background:rgba(255,255,255,0.12);color:#fff;border:0" title="Rotate Right 45°">↻ +45°</button>
+            <button class="btn sm" onclick="Map360.resetNorth()" style="padding:2px 6px;font-size:11px;background:rgba(255,255,255,0.12);color:#fff;border:0" title="Reset North">🧭 North</button>
+          </div>
         </div>
         <div style="display:flex;align-items:center;gap:6px;overflow-x:auto;max-width:100%;padding:2px 0">
+          <span style="font-size:11px;color:rgba(255,255,255,0.8)">Karachi Corridors:</span>
           <button class="btn sm" onclick="copyCorridorGPS('24.8700, 67.1000','Shahrah-e-Faisal')" style="background:rgba(255,255,255,0.12);color:#fff;border:0;padding:3px 8px;font-size:11px">🏢 Sh-e-Faisal</button>
           <button class="btn sm" onclick="copyCorridorGPS('24.8138, 67.0300','Clifton')" style="background:rgba(255,255,255,0.12);color:#fff;border:0;padding:3px 8px;font-size:11px">🌊 Clifton</button>
           <button class="btn sm" onclick="copyCorridorGPS('24.7985, 67.0640','DHA')" style="background:rgba(255,255,255,0.12);color:#fff;border:0;padding:3px 8px;font-size:11px">🌆 DHA</button>
@@ -3704,7 +4017,12 @@ async function loadTeamList(){
 
 /* ============ layer, toast, palette ============ */
 function openLayer(h){$("#layer").innerHTML=h;const f=$("#layer input,#layer select,#layer button:not(.ghost)");document.body.style.overflow="hidden"}
-function closeLayer(){$("#layer").innerHTML="";document.body.style.overflow=""}
+function closeLayer(){
+  if(typeof stopModal360Orbit === "function") stopModal360Orbit();
+  if(typeof stopFsOrbit === "function") stopFsOrbit();
+  $("#layer").innerHTML="";
+  document.body.style.overflow=""
+}
 let toastT;function toast(msg,undo){$(".toast")?.remove();clearTimeout(toastT);const d=document.createElement("div");d.className="toast";d.setAttribute("role","status");d.innerHTML=`<span>${esc(msg)}</span>${undo?"<button>Undo</button>":""}`;if(undo)d.querySelector("button").onclick=()=>{undo();d.remove()};document.body.appendChild(d);toastT=setTimeout(()=>d.remove(),undo?5500:3200)}
 function confirmBox(msg,yes,label="Delete"){openLayer(`<div class="scrim" data-act="close"></div><div class="modal" style="width:min(420px,calc(100% - 24px))"><div class="mb"><h2 style="font-size:20px">${esc(msg)}</h2><div class="row"><span class="sp"></span><button class="btn" data-act="close">Cancel</button><button class="btn pri" id="cfYes">${label}</button></div></div></div>`);$("#cfYes").onclick=()=>{closeLayer();yes()}}
 function palette(){openLayer(`<div class="scrim" data-act="close"></div><div class="pal" role="dialog" aria-label="Search"><input id="palIn" placeholder="Search site code, area, road, campaign…" autocomplete="off"><div class="res" id="palRes"></div></div>`);const inp=$("#palIn");inp.focus();let idx=0,items=[];
@@ -3956,7 +4274,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=9.3").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=9.4").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
