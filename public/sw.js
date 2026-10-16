@@ -1,4 +1,4 @@
-const CACHE_NAME = 'adpulse-ots-v7';
+const CACHE_NAME = 'adpulse-ots-v8';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -12,6 +12,12 @@ const PRECACHE_ASSETS = [
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
   'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap'
 ];
+
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
 
 // Install event: Pre-cache app shell assets and activate immediately
 self.addEventListener('install', (event) => {
