@@ -749,7 +749,7 @@ table.t img{width:56px;height:38px;object-fit:cover;border-radius:7px;display:bl
 @media (max-width:640px){.sl{grid-template-columns:1fr;gap:6px}.sl .num{flex-direction:row;justify-content:space-between;align-items:center;padding:2px 4px}.sltools{gap:4px}.sltools .btn{font-size:11px;padding:4px 8px}}
 .slide{position:relative;aspect-ratio:16/9;width:100%;container-type:inline-size;border-radius:10px;overflow:hidden;box-shadow:0 14px 30px -16px rgba(0,0,0,.45);background:#fff}
 .slide .o{position:absolute;overflow:hidden;white-space:pre-wrap;line-height:1.18}
-.slide .o img{width:100%;height:100%;object-fit:cover;display:block}
+.slide .o img{width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;display:block;margin:auto}
 .slide [contenteditable]{outline:none;border-radius:3px}
 .slide [contenteditable]:hover{box-shadow:0 0 0 1.5px rgba(124,58,237,.6)}
 .slide [contenteditable]:focus{box-shadow:0 0 0 2px #7C3AED;background:rgba(124,58,237,.06)}
@@ -1049,8 +1049,8 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const uid=()=>Math.random().toString(36).slice(2,10)+Date.now().toString(36).slice(-4);
 const ls={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
-const fmtDate=d=>d?new Date(d).toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"}):"—";
-const fmtDT=d=>new Date(d).toLocaleString("en-GB",{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"});
+const fmtDate=d=>{if(!d)return"—";const dt=new Date(d);return isNaN(dt.getTime())?"—":dt.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"})};
+const fmtDT=d=>{if(!d)return"Verified";const dt=new Date(d);return isNaN(dt.getTime())?"Verified":(dt.getHours()||dt.getMinutes()?dt.toLocaleString("en-GB",{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"}):dt.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"}))};
 const ago=d=>{const m=Math.round((Date.now()-new Date(d))/6e4);if(m<1)return"just now";if(m<60)return m+" min ago";const h=Math.round(m/60);if(h<24)return h+" h ago";const dd=Math.round(h/24);return dd+" day"+(dd>1?"s":"")+" ago"};
 const today=()=>new Date().toLocaleDateString("en-CA");
 const daysTo=d=>Math.round((new Date(d+"T00:00:00")-new Date(today()+"T00:00:00"))/864e5);
@@ -3071,7 +3071,7 @@ const Studio={
    else list=(s.ids||[]).map(id=>S.sites.find(x=>x&&(x.id===id||x.code===id))).filter(Boolean);return list},
  build(){const c=this.cfg;const list=this.sitesFor();const key={area:x=>x.area,size:x=>sizeOf(x),status:x=>STATUS[effStatus(x)],none:()=>""}[c.groupBy];
     list.sort((a,b)=>String(key(a)).localeCompare(String(key(b)))||a.code.localeCompare(b.code));
-    c.sitesData=list.map(s=>({id:s.id,code:s.code,area:s.area,widthFt:s.widthFt,heightFt:s.heightFt,media:s.media,light:s.light,from:s.from||"",towards:s.towards||"",status:s.status,brand:s.brand||"",bookedTill:s.bookedTill||"",bookedFrom:s.bookedFrom||"",lat:s.lat||"",lng:s.lng||"",traffic:s.traffic||"",vehiclesDay:s.vehiclesDay||"",photos:(s.photos||[]).map(p=>({asset:p.asset,kind:p.kind,tag:p.tag,at:p.at}))}));
+    c.sitesData=list.map(s=>({id:s.id,code:s.code,name:s.name||"",area:s.area,widthFt:s.widthFt,heightFt:s.heightFt,media:s.media,light:s.light,from:s.from||"",towards:s.towards||"",status:s.status,brand:s.brand||"",bookedTill:s.bookedTill||"",bookedFrom:s.bookedFrom||"",lat:s.lat||"",lng:s.lng||"",traffic:s.traffic||"",vehiclesDay:s.vehiclesDay||"",photos:(s.photos||[]).map(p=>({asset:p.asset,kind:p.kind,tag:p.tag,at:p.at||p.date||"2026-10-16"}))}));
     const old=new Map((c.slides||[]).map(s=>[s.siteId,s]));c.slides=list.map(s=>old.get(s.id)||{siteId:s.id,hidden:false,photo:imgIdx(s).slice(-1)[0]??-1,title:"",note:""});
    if(!c.title){const cp=c.source.type==="campaign"?campOf(c.source.campaignId):null;c.title=cp?cp.name:c.source.type==="filter"?`${c.source.area||"Karachi"} ${c.source.status==="available"?"Available ":""}Sites`:"Site Proposal"}
    if(!c.subtitle){const cp=c.source.type==="campaign"?campOf(c.source.campaignId):null;c.subtitle=cp?.client?`Prepared for ${cp.client}`:"OOH site presentation"}},
@@ -3143,7 +3143,7 @@ function siteOps(c,t,s,v,page,total){
     ...frame(t),
     // 1. Top Header Area (Fixed)
     T(0.60,0.36,4.0,0.24,s.code,{size:12,bold:true,color:t.accent,font:"mono"}),
-    T(0.60,0.60,6.2,0.44,v.title||s.area,{size:20,bold:true,color:t.ink,font:"display",edit:"stitle:"+c.slides.indexOf(v)}),
+    T(0.60,0.60,6.2,0.44,v.title||s.name||s.area,{size:20,bold:true,color:t.ink,font:"display",edit:"stitle:"+c.slides.indexOf(v)}),
     ...(f.status?[
       R(10.85,0.38,1.88,0.32,stc,{r:.16}),
       T(10.85,0.42,1.88,0.24,STATUS[k].toUpperCase(),{size:9.5,bold:true,color:"FFFFFF",align:"center"})
@@ -3155,13 +3155,13 @@ function siteOps(c,t,s,v,page,total){
       T(6.8,0.68,5.93,0.24,dirText,{size:9.5,color:t.muted,align:"right"})
     ]:[]),
 
-    // 2. Wide Horizontal Billboard Image (Fixed 12.133 x 4.05)
-    {t:"img",x:0.60,y:1.15,w:12.133,h:4.05,site:s.id,photo:v.photo,src:p?photoSrc(p):placeholder(s)},
+    // 2. Wide Horizontal Billboard Image (Full fit contain 12.133 x 4.12)
+    {t:"img",x:0.60,y:1.10,w:12.133,h:4.12,site:s.id,photo:v.photo,src:p?photoSrc(p):placeholder(s)},
 
     // Watermark / Field Photo tag overlay
     ...(p?[
-      R(0.80,4.70,3.6,0.34,"000000",{r:.08,alpha:.70}),
-      T(0.92,4.77,3.4,0.20,`${p.tag||"Field Photo"} · ${fmtDT(p.at)}`,{size:8.5,color:"FFFFFF",bold:true})
+      R(0.80,4.74,3.6,0.32,"000000",{r:.08,alpha:.70}),
+      T(0.92,4.80,3.4,0.20,`${p.tag||"Field Photo"} · ${p.at?fmtDate(p.at):(p.date?fmtDate(p.date):"Verified")}`,{size:8.5,color:"FFFFFF",bold:true})
     ]:[]),
 
     // 3. Fixed 4-Card Details Dashboard (Bottom Grid)
@@ -3210,7 +3210,7 @@ function slideHTML(ops,t){
   const pc=(v,tot)=>v/tot*100+"%";const fz=pt=>(pt/72/13.333*100).toFixed(3)+"cqw";
   return`<div class="slide" style="background:${hx(t.bg)}">${ops.map(o=>{const pos=`left:${pc(o.x,13.333)};top:${pc(o.y,7.5)};width:${pc(o.w,13.333)};height:${pc(o.h,7.5)}`;
     if(o.t==="rect")return`<div class="o" style="${pos};background:${hx(o.fill)};border-radius:${o.r?fz(o.r*72):0};${o.alpha?`opacity:${o.alpha}`:""}"></div>`;
-    if(o.t==="img")return`<div class="o" style="${pos};border-radius:${fz(8)};overflow:hidden;background:#0F0C1C"><img src="${esc(o.src)}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>`;
+    if(o.t==="img")return`<div class="o" style="${pos};border-radius:${fz(8)};overflow:hidden;background:#0a0814;display:flex;align-items:center;justify-content:center"><img src="${esc(o.src)}" alt="" style="width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;display:block;margin:auto" onerror="phFix(this)"></div>`;
     if(o.t==="logo")return`<div class="o" style="${pos}"><img src="${esc(o.which==="mark"?markSrc():logoSrc())}" alt="" style="object-fit:contain"></div>`;
     const ff=o.font==="mono"?"var(--mono)":o.font==="display"?"var(--display)":"var(--body)";
     return`<div class="o" ${o.edit?`contenteditable="plaintext-only" spellcheck="false" data-edit="${o.edit}"`:""} style="${pos};font-size:${fz(o.size)};color:${hx(o.color)};font-family:${ff};font-weight:${o.bold?800:500};text-align:${o.align};${o.upper?"text-transform:uppercase;":""}${o.spacing?`letter-spacing:${o.spacing/10}em;`:""}${o.font==="display"?"letter-spacing:-.02em;line-height:1.05;":""}${o.link?"text-decoration:underline;":""}">${esc(o.text)}</div>`}).join("")}</div>`;
@@ -3260,7 +3260,7 @@ function vStudio(){
 }
 function rebuildStudio(){Studio.build();render(true)}
 async function loadScript(src){if(document.querySelector(`script[src="${src}"]`))return;await new Promise((r,j)=>{const s=document.createElement("script");s.src=src;s.onload=r;s.onerror=()=>j(new Error("Couldn't load exporter"));document.head.appendChild(s)})}
-async function imgData(src,w,h){const img=await new Promise((r,j)=>{const i=new Image();i.onload=()=>r(i);i.onerror=j;i.src=src});const c=document.createElement("canvas");const W=Math.round(w*150),H=Math.round(h*150);c.width=W;c.height=H;const x=c.getContext("2d");const s=Math.max(W/img.naturalWidth,H/img.naturalHeight);const dw=img.naturalWidth*s,dh=img.naturalHeight*s;x.drawImage(img,(W-dw)/2,(H-dh)/2,dw,dh);return c.toDataURL("image/jpeg",.86)}
+async function imgData(src,w,h){const img=await new Promise((r,j)=>{const i=new Image();i.crossOrigin="anonymous";i.onload=()=>r(i);i.onerror=j;i.src=src});const c=document.createElement("canvas");const W=Math.round(w*150),H=Math.round(h*150);c.width=W;c.height=H;const x=c.getContext("2d");x.fillStyle="#0a0814";x.fillRect(0,0,W,H);const s=Math.min(W/img.naturalWidth,H/img.naturalHeight);const dw=Math.round(img.naturalWidth*s),dh=Math.round(img.naturalHeight*s);x.drawImage(img,Math.round((W-dw)/2),Math.round((H-dh)/2),dw,dh);return c.toDataURL("image/jpeg",.90)}
 async function exportDeck(kind){
   const c=Studio.cfg;const steps=["Collecting sites","Placing photos","Building slides","Packaging file"];
   openLayer(`<div class="scrim"></div><div class="modal"><div class="gen"><div class="fly"><i></i><i></i><i></i></div><h2 style="font-size:20px;text-align:center">Building your ${kind==="pptx"?"PowerPoint":"PDF"}</h2>${steps.map((s,i)=>`<div class="stp" id="gs${i}"><i></i>${s}</div>`).join("")}</div></div>`);
@@ -3746,7 +3746,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=9.0").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=9.1").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
@@ -3761,7 +3761,7 @@ if("serviceWorker" in navigator){
           });
         }
       });
-      console.log("AdPulse OTS PWA active (v9.0):",r.scope);
+      console.log("AdPulse OTS PWA active (v9.1):",r.scope);
     }).catch(err=>{
       console.warn("PWA ServiceWorker registration failed:",err);
     });
