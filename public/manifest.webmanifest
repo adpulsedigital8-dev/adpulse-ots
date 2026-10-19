@@ -1,14 +1,79 @@
 {
-  "id": "/",
+  "id": "/?pwa=9.7",
   "name": "AdPulse OOH Tracking System",
   "short_name": "AdPulse OTS",
-  "description": "AdPulse IMC Outdoor Advertising & Billboard Tracking System",
-  "start_url": "/",
+  "description": "AdPulse IMC Outdoor Advertising & Billboard Tracking System with Google 3D Maps",
+  "start_url": "/#dashboard",
   "scope": "/",
   "display": "standalone",
+  "display_override": [
+    "standalone",
+    "window-controls-overlay",
+    "minimal-ui"
+  ],
   "orientation": "any",
-  "background_color": "#121011",
+  "background_color": "#0C0917",
   "theme_color": "#D9161D",
+  "categories": [
+    "business",
+    "productivity",
+    "utilities"
+  ],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Google 3D Maps",
+      "short_name": "3D Maps",
+      "description": "Photorealistic 3D Maps & Karachi Corridors",
+      "url": "/#dashboard",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "All Billboard Sites",
+      "short_name": "Sites",
+      "description": "Browse all 97 Karachi billboards",
+      "url": "/#sites",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Capture Billboard",
+      "short_name": "Capture",
+      "description": "Take live photo and auto-record GPS location",
+      "url": "/#capture",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Campaigns & Decks",
+      "short_name": "Campaigns",
+      "description": "Client campaigns and live decks",
+      "url": "/#campaigns",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
   "icons": [
     {
       "src": "/icons/icon-192.png",

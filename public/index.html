@@ -8,9 +8,14 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="AdPulse OTS">
+<meta name="application-name" content="AdPulse OTS">
+<meta name="msapplication-TileColor" content="#D9161D">
 <link rel="manifest" href="/manifest.webmanifest">
-<link rel="icon" type="image/png" href="/icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512.png">
 <link rel="apple-touch-icon" href="/icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512.png">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,-apple-system,sans-serif;background:#F6F4F3}img{max-width:100%}[hidden]{display:none!important}
 /* Secure Guest Presentation Mode: zero dashboard/admin access */
 body.guest-presentation .side,
@@ -609,6 +614,45 @@ body.guest-presentation .main {
 }
 @keyframes gmpSpin {
   to { transform: rotate(360deg); }
+}
+@media (max-width: 640px) {
+  .gmp-top-toggle-wrap {
+    top: 54px;
+    right: 8px;
+    padding: 4px 10px 4px 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  }
+  .gmp-toggle-label {
+    font-size: 10px;
+  }
+  .gmp-floating-controls {
+    bottom: 54px;
+    right: 6px;
+    padding: 3px 6px;
+    gap: 1px;
+    transform: scale(0.92);
+    transform-origin: bottom right;
+  }
+  .gmp-ctrl-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+  }
+  .gmp-corridors-bar {
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    max-width: calc(100% - 16px);
+    padding: 4px 8px;
+    gap: 4px;
+  }
+  .gmp-corridor-title {
+    font-size: 10px;
+  }
+  .gmp-corridor-chip {
+    padding: 2px 8px;
+    font-size: 10px;
+  }
 }
 
 </style>
@@ -1497,7 +1541,7 @@ function go(r,silent){
 }
 window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
 
-function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
+function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v9.7</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
 
 let lastRoute=null;
 function render(anim){
@@ -4449,11 +4493,12 @@ document.addEventListener("submit",async e=>{if(e.target.id!=="reqForm")return;e
 function vSettings(){const s=S.settings;const hasSample=S.sites.some(x=>x.sample)||S.campaigns.some(x=>x.sample);
   return pgTop("Settings","Branding for watermarks and presentations")+`<div class="grid" style="max-width:720px">
   <div class="card pad grid" style="gap:14px">
-  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App Installation</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">PWA Ready</span></div>
-  <p style="margin:0;color:var(--muted);font-size:13px">Install AdPulse OTS on iPhone, iPad, Android or PC for fast offline access, full-screen view and 1-tap camera upload.</p>
+  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v9.7 PWA Ready</span></div>
+  <p style="margin:0;color:var(--muted);font-size:13px">Install AdPulse OTS on iPhone, iPad, Android or PC for fast offline access, full-screen Google 3D maps, and 1-tap camera upload with GPS.</p>
   <div class="row" style="gap:10px;flex-wrap:wrap">
     <button class="btn pri" data-act="installios" style="flex:1;min-width:180px;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>Install on iPhone / iPad (iOS)</button>
     <button class="btn" data-act="installandroid" style="flex:1;min-width:180px;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>Install on Android / PC</button>
+    <button class="btn sm ghost" data-act="forceupdate" style="width:100%;justify-content:center;border:1px dashed var(--border);color:var(--pri);font-weight:700">⚡ Check for App Updates / Refresh Mobile Cache</button>
   </div>
 </div>
 <div class="card pad grid" style="gap:14px"><h2 style="font-size:18px">Logo</h2>
@@ -4544,25 +4589,77 @@ let _deferredInstallPrompt = null;
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   _deferredInstallPrompt = e;
+  console.log("[PWA] beforeinstallprompt captured for Android / Desktop");
 });
+
+window.triggerAndroidInstall = function() {
+  if(_deferredInstallPrompt) {
+    _deferredInstallPrompt.prompt();
+    _deferredInstallPrompt.userChoice.then((choiceResult) => {
+      if(choiceResult.outcome === 'accepted'){
+        toast("App installed successfully! Check your home screen.");
+        closeLayer();
+      }
+      _deferredInstallPrompt = null;
+    });
+  } else {
+    toast("Browser install prompt not triggered yet. Tap top-right 3 dots (⋮) and select 'Install app'.");
+  }
+};
+
+function showMobileUpdateBanner(){
+  if(document.getElementById('mobileUpdateBanner')) return;
+  const b = document.createElement('div');
+  b.id = 'mobileUpdateBanner';
+  b.style.cssText = 'position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:9999;background:linear-gradient(135deg,#0c0917,#1b1238);color:#fff;padding:8px 16px;border-radius:9999px;box-shadow:0 8px 24px rgba(0,0,0,0.5);border:1px solid #38bdf8;display:flex;align-items:center;gap:10px;font-size:12.5px;max-width:calc(100% - 24px);';
+  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v9.7)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
+  document.body.appendChild(b);
+}
 
 function openInstallModal(forceType){
   const isIOS = forceType === "ios" || (!forceType && (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream));
   const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
 
   if(isStandalone){
-    toast("AdPulse OTS is already installed and running as an app!");
-    return;
-  }
+    openLayer(`<div class="scrim" data-act="close"></div>
+      <div class="modal" style="width:min(440px,calc(100% - 24px));max-height:90vh;overflow-y:auto">
+        <div class="mb">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+            <img src="/icons/icon-192.png" alt="AdPulse OTS" style="width:52px;height:52px;border-radius:14px;box-shadow:0 6px 14px rgba(0,0,0,0.25)">
+            <div>
+              <div style="display:flex;align-items:center;gap:6px">
+                <h2 style="font-size:18px;margin:0">AdPulse OTS App</h2>
+                <span class="pill st-available" style="font-size:10px;padding:2px 8px">🟢 Running as App</span>
+              </div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px">v9.7 (Android &amp; iOS Standalone)</div>
+            </div>
+            <span class="sp"></span>
+            <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
+          </div>
 
-  if(!isIOS && forceType !== "ios" && _deferredInstallPrompt){
-    _deferredInstallPrompt.prompt();
-    _deferredInstallPrompt.userChoice.then((choiceResult) => {
-      if(choiceResult.outcome === 'accepted'){
-        toast("App installed successfully!");
-      }
-      _deferredInstallPrompt = null;
-    });
+          <div style="background:var(--surface2);border-radius:12px;padding:12px 14px;border:1px solid var(--border);margin-bottom:14px;display:flex;flex-direction:column;gap:8px">
+            <div style="font-weight:700;font-size:13px;color:var(--ink)">🚀 Mobile Version 9.7 Features:</div>
+            <div style="font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px">✅ <b>Google 3D Maps:</b> Photorealistic 3D Karachi &amp; 360° Orbit</div>
+            <div style="font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px">✅ <b>97 Billboards:</b> Latest media inventory with full specs</div>
+            <div style="font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px">✅ <b>Field Camera:</b> 1-Tap photo/video upload with auto GPS</div>
+            <div style="font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px">✅ <b>Offline Mode:</b> Fast local cache for field tracking</div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <button class="btn pri" data-act="forceupdate" style="width:100%;justify-content:center;font-weight:700;padding:12px">
+              ⚡ Refresh &amp; Update App (Clear Cache)
+            </button>
+            <p style="font-size:11.5px;color:var(--muted);text-align:center;margin:0">
+              Agar aapke paas purana data ya cached map show ho raha hai to upar button daba kar 1-second mein software update karein.
+            </p>
+          </div>
+
+          <div class="row" style="margin-top:16px">
+            <span class="sp"></span>
+            <button class="btn ghost" data-act="close">Close</button>
+          </div>
+        </div>
+      </div>`);
     return;
   }
 
@@ -4591,6 +4688,12 @@ function openInstallModal(forceType){
   </div>`;
 
   const androidSteps = `<div style="display:flex;flex-direction:column;gap:12px;margin:16px 0">
+    ${_deferredInstallPrompt ? `
+    <button class="btn pri" onclick="window.triggerAndroidInstall()" style="width:100%;justify-content:center;padding:12px;font-size:14px;font-weight:700;background:linear-gradient(135deg,#0ea5e9,#2563eb);border:none;box-shadow:0 4px 14px rgba(37,99,235,0.3)">
+      ⚡ 1-Tap Install App on Android
+    </button>
+    <div style="text-align:center;font-size:12px;color:var(--muted);margin-top:-4px">Ya neeche diye gaye tareeqay se install karein:</div>
+    ` : ''}
     <div style="display:flex;align-items:flex-start;gap:12px;background:var(--bg);padding:12px 14px;border-radius:10px;border:1px solid var(--border)">
       <div style="width:30px;height:30px;border-radius:50%;background:var(--cyan);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">1</div>
       <div style="flex:1;font-size:13px;line-height:1.4;color:var(--ink)">
@@ -4603,6 +4706,9 @@ function openInstallModal(forceType){
         <b>"Install app"</b> ya <b>"Add to Home screen"</b> select karein aur confirm karein.
       </div>
     </div>
+    <div style="font-size:12px;color:var(--muted);background:var(--surface2);padding:10px 12px;border-radius:8px;border-left:3px solid var(--cyan)">
+      🤖 Android phone par AdPulse OTS full-screen WebAPK install ho jati hai aur Google 3D maps &amp; offline field tracking support karti hai.
+    </div>
   </div>`;
 
   openLayer(`<div class="scrim" data-act="close"></div>
@@ -4611,8 +4717,8 @@ function openInstallModal(forceType){
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
           <img src="/icons/icon-192.png" alt="AdPulse OTS" style="width:48px;height:48px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.2)">
           <div>
-            <h2 style="font-size:18px;margin:0">Install AdPulse OTS</h2>
-            <div style="font-size:12px;color:var(--muted)">Offline app for iPhone &amp; Android</div>
+            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v9.7)</h2>
+            <div style="font-size:12px;color:var(--muted)">Google 3D Maps &amp; 97 Verified Media Sites</div>
           </div>
           <span class="sp"></span>
           <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
@@ -4623,6 +4729,7 @@ function openInstallModal(forceType){
         </div>
         ${isIOS ? iosSteps : androidSteps}
         <div class="row" style="margin-top:16px">
+          <button class="btn sm ghost" data-act="forceupdate" title="Clear cache if already running">🔄 Reset Cache</button>
           <span class="sp"></span>
           <button class="btn pri" data-act="close">Done</button>
         </div>
@@ -4780,10 +4887,11 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=9.6").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=9.7").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
+        showMobileUpdateBanner();
       }
       r.addEventListener('updatefound',()=>{
         const newWorker=r.installing;
@@ -4791,15 +4899,28 @@ if("serviceWorker" in navigator){
           newWorker.addEventListener('statechange',()=>{
             if(newWorker.state==='installed'&&navigator.serviceWorker.controller){
               newWorker.postMessage({type:'SKIP_WAITING'});
+              showMobileUpdateBanner();
             }
           });
         }
       });
-      console.log("AdPulse OTS PWA active (v9.6):",r.scope);
+      console.log("AdPulse OTS PWA active (v9.7):",r.scope);
     }).catch(err=>{
       console.warn("PWA ServiceWorker registration failed:",err);
     });
   });
+
+  document.addEventListener("visibilitychange", ()=>{
+    if(document.visibilityState === "visible"){
+      navigator.serviceWorker.getRegistration().then(reg => {
+        if(reg){
+          reg.update();
+          if(reg.waiting) showMobileUpdateBanner();
+        }
+      });
+    }
+  });
+
   let swRefreshing=false;
   navigator.serviceWorker.addEventListener("controllerchange",()=>{
     if(!swRefreshing){
