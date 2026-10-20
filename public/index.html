@@ -972,6 +972,41 @@ table.t img{width:56px;height:38px;object-fit:cover;border-radius:7px;display:bl
 .toast button{background:transparent;border:1px solid color-mix(in srgb,var(--bg) 35%,transparent);color:var(--bg);border-radius:9px;padding:6px 12px;font-weight:700;cursor:pointer}
 @media (max-width:860px){.toast{bottom:96px}}
 
+/* Campaign Creation Modal — Expanded & Mobile Responsive */
+.camp-modal{width:min(840px,calc(100% - 24px))!important;max-height:min(92vh,900px)!important}
+.camp-picklist{max-height:min(48vh,450px)!important;overflow-y:auto!important;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.camp-site-item{display:flex!important;align-items:center!important;gap:12px!important;padding:10px 14px!important;border-bottom:1px solid var(--line);cursor:pointer;transition:background .15s ease,border-color .15s ease;user-select:none}
+.camp-site-item:hover{background:color-mix(in srgb,var(--violet) 4%,transparent)}
+.camp-site-item.selected{background:color-mix(in srgb,var(--violet) 8%,transparent)}
+.camp-site-item:last-child{border-bottom:none}
+.camp-site-item input[type="checkbox"]{width:20px;height:20px;accent-color:var(--violet);flex-shrink:0;cursor:pointer}
+.camp-site-thumb{width:72px;height:52px;flex-shrink:0;border-radius:8px;overflow:hidden;background:#1a1528;border:1px solid rgba(0,0,0,0.08);box-shadow:0 2px 6px rgba(0,0,0,0.1);display:flex;align-items:center;justify-content:center}
+.camp-site-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .2s ease}
+.camp-site-item:hover .camp-site-thumb img{transform:scale(1.05)}
+.camp-site-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.camp-site-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.camp-site-code{font-family:var(--mono);font-weight:800;font-size:13.5px;color:var(--violet);letter-spacing:0.3px}
+.camp-site-size{font-size:11.5px;font-weight:700;color:var(--ink);background:var(--surface2);padding:1px 7px;border-radius:6px;border:1px solid var(--line)}
+.camp-site-media{font-size:11.5px;color:var(--muted);font-weight:600}
+.camp-site-loc{font-size:12.5px;color:var(--ink2);line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.camp-site-loc b{color:var(--ink);font-weight:700}
+.camp-site-pill{flex-shrink:0;margin-left:auto}
+
+@media (max-width:680px){
+  .camp-modal{width:calc(100% - 14px)!important;max-height:94vh!important;border-radius:18px!important}
+  .camp-modal .mh{padding:14px 14px 0!important}
+  .camp-modal .mb{padding:12px 14px 16px!important;gap:11px!important}
+  .camp-picklist{max-height:330px!important}
+  .camp-site-item{gap:10px!important;padding:8px 10px!important;align-items:flex-start!important}
+  .camp-site-thumb{width:56px;height:42px;border-radius:6px}
+  .camp-site-code{font-size:12px}
+  .camp-site-size{font-size:11px;padding:0 5px}
+  .camp-site-loc{font-size:11.5px;white-space:normal;line-height:1.3}
+  .camp-filter-row{flex-direction:column!important;align-items:stretch!important;gap:8px!important}
+  .camp-filter-row .sp{display:none}
+  .camp-filter-row select,.camp-filter-row input{max-width:100%!important;width:100%!important}
+}
+
 /* studio */
 .studio{display:grid;grid-template-columns:320px 1fr;gap:18px;align-items:start}
 @media (max-width:1100px){.studio{grid-template-columns:1fr}}
@@ -3996,18 +4031,88 @@ function timeline(c,big){if(!c.startDate||!c.endDate)return"";const tot=Math.max
 function openCamp(id){
   const c=id?JSON.parse(JSON.stringify(campOf(id))):{id:uid(),name:"",client:"",startDate:today(),endDate:"",color:CCOLORS[S.campaigns.length%CCOLORS.length],siteIds:[]};
   const ids=new Set(c.siteIds||[]);
-  const list=()=>S.sites.slice().sort((a,b)=>a.area.localeCompare(b.area)).map(s=>`<label><input type="checkbox" value="${s.id}" ${ids.has(s.id)?"checked":""}><span class="mono" style="color:var(--violet);font-weight:700">${esc(s.code)}</span><span>${esc(s.area)} · ${sizeOf(s)} · ${esc(s.from||"")}→${esc(s.towards||"")}</span><span class="sp"></span>${pill(s)}</label>`).join("");
-  openLayer(`<div class="scrim" data-act="close"></div><div class="modal" role="dialog" aria-label="Campaign"><form id="campForm"><div class="mh"><h2 style="font-size:22px">${id?"Edit campaign":"New campaign"}</h2><span class="sp"></span><button type="button" class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button></div>
+  const list=()=>S.sites.slice().sort((a,b)=>a.area.localeCompare(b.area)).map(s=>{
+    const checked=ids.has(s.id);
+    const thumb=thumbOf(s);
+    return `<label class="camp-site-item ${checked?'selected':''}" data-sid="${esc(s.id)}" data-area="${esc(s.area)}">
+      <input type="checkbox" value="${esc(s.id)}" ${checked?"checked":""}>
+      <div class="camp-site-thumb">
+        <img src="${esc(thumb)}" alt="${esc(s.code)}" loading="lazy" data-sid="${esc(s.id)}" onerror="phFix(this)">
+      </div>
+      <div class="camp-site-body">
+        <div class="camp-site-top">
+          <span class="camp-site-code">${esc(s.code)}</span>
+          <span class="camp-site-size">${sizeOf(s)} ft</span>
+          <span class="camp-site-media">${esc(s.media||"Billboard")}</span>
+        </div>
+        <div class="camp-site-loc">
+          <b>${esc(s.area)}</b> · ${esc(s.from||"")} → ${esc(s.towards||"")}
+        </div>
+      </div>
+      <div class="camp-site-pill">
+        ${pill(s)}
+      </div>
+    </label>`;
+  }).join("");
+  openLayer(`<div class="scrim" data-act="close"></div><div class="modal camp-modal" role="dialog" aria-label="Campaign"><form id="campForm"><div class="mh"><h2 style="font-size:22px">${id?"Edit campaign":"New campaign"}</h2><span class="sp"></span><button type="button" class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button></div>
    <div class="mb"><div class="fgrid"><label class="f full">Campaign name<input class="in" id="cName" required value="${esc(c.name)}" placeholder="e.g. Shehzore Smart Launch"></label><label class="f">Client / brand<input class="in" id="cClient" value="${esc(c.client)}" placeholder="e.g. Dewan Farooque KIA"></label>
    <div class="f"><span style="font-size:12px;font-weight:700;color:var(--ink2)">Color</span><div class="chips" id="cColor">${CCOLORS.map(x=>`<button type="button" class="chip" data-v="${x}" aria-label="${x}" style="width:38px;padding:0;background:${x};border:3px solid ${x===c.color?"var(--ink)":"transparent"}"></button>`).join("")}</div></div>
    <label class="f">Start<input class="in" type="date" id="cStart" value="${esc(c.startDate)}"></label><label class="f">End<input class="in" type="date" id="cEnd" value="${esc(c.endDate)}"></label></div>
-   <div class="row"><b>Sites</b><span class="eyebrow" id="cCnt">${ids.size} selected</span><span class="sp"></span><select class="in" id="cArea" style="max-width:190px;min-height:38px;padding:6px 10px;font-size:13px"><option value="">Filter by area</option>${opt(Object.keys(AREAS))}</select></div>
-   <label class="row" style="font-weight:600;font-size:13px;flex-wrap:nowrap;align-items:flex-start"><input type="checkbox" id="cBook" checked style="width:18px;height:18px;accent-color:var(--violet);flex:none;margin-top:2px"><span>Book the selected sites for the campaign dates. Sites booked by another brand in these dates are skipped.</span></label>
-   <div class="picklist" id="cPick">${list()||'<p style="padding:12px;color:var(--muted)">No sites yet.</p>'}</div>
-   <div class="row">${id?`<button type="button" class="btn danger" data-act="campdel" data-id="${c.id}">Delete</button>`:""}<span class="sp"></span><button type="button" class="btn" data-act="close">Cancel</button><button class="btn pri" type="submit">${id?"Save":"Create campaign"}</button></div></div></form></div>`);
+   <div class="row camp-filter-row" style="gap:8px;align-items:center;flex-wrap:wrap">
+     <div style="display:flex;align-items:center;gap:8px">
+       <b style="font-size:15px">Sites Inventory</b>
+       <span class="pill" id="cCnt" style="font-weight:700;font-size:11px;background:color-mix(in srgb,var(--violet) 15%,transparent);color:var(--violet)">${ids.size} selected</span>
+     </div>
+     <span class="sp"></span>
+     <input class="in sm" id="cSearch" placeholder="🔍 Search code, road, area…" style="max-width:210px;min-height:36px;padding:4px 10px;font-size:12.5px" autocomplete="off">
+     <select class="in sm" id="cArea" style="max-width:170px;min-height:36px;padding:4px 8px;font-size:12.5px"><option value="">All Areas (${S.sites.length})</option>${opt(Object.keys(AREAS))}</select>
+     <div class="row" style="gap:4px">
+       <button type="button" class="btn sm ghost" id="cSelAll" style="font-size:11px;padding:4px 8px">Select all</button>
+       <button type="button" class="btn sm ghost" id="cClrAll" style="font-size:11px;padding:4px 8px">Clear</button>
+     </div>
+   </div>
+   <label class="row" style="font-weight:600;font-size:12.5px;flex-wrap:nowrap;align-items:flex-start;background:var(--surface2);padding:9px 12px;border-radius:10px;border:1px solid var(--border)"><input type="checkbox" id="cBook" checked style="width:18px;height:18px;accent-color:var(--violet);flex:none;margin-top:2px"><span>Book the selected sites for the campaign dates. Sites booked by another brand in these dates are skipped.</span></label>
+   <div class="picklist camp-picklist" id="cPick">${list()||'<p style="padding:14px;color:var(--muted);text-align:center">No sites found.</p>'}</div>
+   <div class="row" style="gap:10px;flex-wrap:wrap">${id?`<button type="button" class="btn danger" data-act="campdel" data-id="${c.id}">Delete</button>`:""}<span class="sp"></span><button type="button" class="btn" data-act="close">Cancel</button><button class="btn pri" type="submit" style="min-width:140px;justify-content:center">${id?"Save Campaign":"Create campaign"}</button></div></div></form></div>`);
   $("#cColor").onclick=e=>{const b=e.target.closest("[data-v]");if(!b)return;c.color=b.dataset.v;$$("#cColor .chip").forEach(x=>x.style.borderColor=x===b?"var(--ink)":"transparent")};
-  $("#cPick").onchange=e=>{if(e.target.checked)ids.add(e.target.value);else ids.delete(e.target.value);$("#cCnt").textContent=ids.size+" selected"};
-  $("#cArea").onchange=e=>{$$("#cPick label").forEach(l=>{l.hidden=e.target.value&&!l.textContent.includes(e.target.value)})};
+  function updateCampCount(){const el=$("#cCnt");if(el)el.textContent=ids.size+" selected"}
+  $("#cPick").onchange=e=>{
+    const ck=e.target;
+    if(ck&&ck.type==="checkbox"){
+      if(ck.checked)ids.add(ck.value);
+      else ids.delete(ck.value);
+      ck.closest("label")?.classList.toggle("selected",ck.checked);
+      updateCampCount();
+    }
+  };
+  function applyCampFilter(){
+    const a=($("#cArea")?.value||"").toLowerCase();
+    const q=($("#cSearch")?.value||"").trim().toLowerCase();
+    $$("#cPick label").forEach(l=>{
+      const txt=l.textContent.toLowerCase();
+      const areaMatch=!a||(l.dataset.area||"").toLowerCase().includes(a)||txt.includes(a);
+      const qMatch=!q||txt.includes(q);
+      l.hidden=!(areaMatch&&qMatch);
+    });
+  }
+  if($("#cArea"))$("#cArea").onchange=applyCampFilter;
+  if($("#cSearch"))$("#cSearch").oninput=applyCampFilter;
+  if($("#cSelAll"))$("#cSelAll").onclick=()=>{
+    $$("#cPick label:not([hidden]) input[type=checkbox]").forEach(ck=>{
+      ck.checked=true;
+      ids.add(ck.value);
+      ck.closest("label")?.classList.add("selected");
+    });
+    updateCampCount();
+  };
+  if($("#cClrAll"))$("#cClrAll").onclick=()=>{
+    $$("#cPick label input[type=checkbox]").forEach(ck=>{
+      ck.checked=false;
+      ids.delete(ck.value);
+      ck.closest("label")?.classList.remove("selected");
+    });
+    updateCampCount();
+  };
   $("#campForm").onsubmit=async e=>{e.preventDefault();const bookIt=$("#cBook").checked;const n={...c,name:$("#cName").value.trim(),client:$("#cClient").value.trim(),startDate:$("#cStart").value,endDate:$("#cEnd").value,siteIds:[...ids]};try{await put("campaigns",n);closeLayer();let msg=id?"Campaign saved":"Campaign created";
     if(bookIt&&n.startDate&&n.endDate){const brand=n.client||n.name;let b=0,k=0;for(const sid of n.siteIds){const s=S.sites.find(x=>x.id===sid);if(!s)continue;const clash=s.status==="booked"&&s.brand&&s.brand!==brand&&s.bookedTill&&s.bookedTill>=n.startDate&&(!s.bookedFrom||s.bookedFrom<=n.endDate);if(clash){k++;continue}if(s.status==="booked"&&s.brand===brand&&s.bookedFrom===n.startDate&&s.bookedTill===n.endDate)continue;await put("sites",{...s,status:"booked",brand,bookedFrom:n.startDate,bookedTill:n.endDate});b++}
       if(b)msg+=` · ${b} site${b>1?"s":""} booked ${fmtShort(n.startDate)} → ${fmtShort(n.endDate)}`;if(k)msg+=` · ${k} skipped (booked by another brand)`}
@@ -4887,7 +4992,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=9.7").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=9.8").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
