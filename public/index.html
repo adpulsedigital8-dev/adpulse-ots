@@ -420,13 +420,14 @@ body.guest-presentation .main {
   box-shadow: 0 2px 8px rgba(56, 189, 248, 0.4);
 }
 
-/* ============ Google Photorealistic 3D Maps (<gmp-map-3d>) Styles ============ */
+/* ============ Google Photorealistic 3D Maps Styles ============ */
 .true-gmp-3d-wrapper {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  background: #050508;
+  background: transparent;
+  pointer-events: none;
   overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
@@ -446,6 +447,7 @@ body.guest-presentation .main {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   user-select: none;
   border: 1px solid rgba(0,0,0,0.06);
+  pointer-events: auto;
 }
 .gmp-switch {
   position: relative;
@@ -508,6 +510,7 @@ body.guest-presentation .main {
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.32);
   border: 1px solid rgba(0,0,0,0.06);
   user-select: none;
+  pointer-events: auto;
 }
 .gmp-ctrl-btn {
   width: 32px;
@@ -566,6 +569,8 @@ body.guest-presentation .main {
   border-radius: 9999px;
   box-shadow: 0 6px 22px rgba(0,0,0,0.5);
   border: 1px solid rgba(255,255,255,0.15);
+  pointer-events: auto;
+}
   max-width: calc(100% - 380px);
   overflow-x: auto;
 }
@@ -2383,265 +2388,234 @@ function filterMapMarkers(rawQuery){
 
 let _globalMapViewMode = '2d';
 let _modalLeafletMap = null;
+let _fsLeafletMap = null;
+let _googleSatLayer = null;
 
-/* ============ Google Photorealistic 3D Maps Engine ============ */
+let _modalTilt = 52;
+let _modalHeading = 0;
+let _modalOrbitTimer = null;
+
+let _fsTilt = 52;
+let _fsHeading = 0;
+let _fsOrbitTimer = null;
+
+/* ============ Google Earth 3D Engine & Camera Controller ============ */
 const TrueGoogle3D = {
-  activeMap: null,
   activeMapId: 'mainGmp3D',
-  isOrbiting: false,
-  orbitInterval: null,
   isLocked: false,
   showLabels: true,
   currentSiteIndex: 0,
 
-  async whenReady() {
-    if (window.customElements && customElements.get('gmp-map-3d')) return true;
-    try {
-      if (window.customElements) {
-        await Promise.race([
-          customElements.whenDefined('gmp-map-3d'),
-          new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 8000))
-        ]);
-        return true;
-      }
-    } catch(e) {
-      console.warn("gmp-map-3d waiting:", e);
-    }
-    return false;
-  },
-
   async mount(mapId = 'mainGmp3D', initialCenter = null) {
     this.activeMapId = mapId;
-    const mapEl = document.getElementById(mapId);
-    if (!mapEl) return;
-    this.activeMap = mapEl;
-
-    const loader = document.getElementById(mapId === 'mainGmp3D' ? 'mainGmpLoader' : (mapId === 'fsGmp3D' ? 'fsGmpLoader' : 'modalGmpLoader'));
-
-    await this.whenReady();
-
-    try {
-      const center = initialCenter || { lat: 24.8607, lng: 67.0011, altitude: 120 };
-      mapEl.center = center;
-      mapEl.range = initialCenter ? 260 : 1400;
-      mapEl.tilt = 62;
-      mapEl.heading = 0;
-      mapEl.mode = this.showLabels ? "HYBRID" : "SATELLITE";
-      mapEl.defaultLabelsDisabled = !this.showLabels;
-      mapEl.gestureHandling = "GREEDY";
-    } catch(err) {
-      console.warn("3D properties setup warning:", err);
-    }
-
-    this.populateMarkers(mapEl);
-
-    try {
-      mapEl.addEventListener('gmp-steadychange', () => {
-        if (loader) {
-          loader.style.opacity = '0';
-          setTimeout(() => { if (loader) loader.style.display = 'none'; }, 350);
-        }
-        this.updateCompass();
-      });
-    } catch(e){}
-
-    setTimeout(() => {
-      if (loader) {
-        loader.style.opacity = '0';
-        setTimeout(() => { if (loader) loader.style.display = 'none'; }, 350);
-      }
-      this.updateCompass();
-    }, 1200);
-  },
-
-  populateMarkers(mapEl) {
-    if (!mapEl) return;
-    try {
-      const prev = mapEl.querySelectorAll('gmp-marker-3d, gmp-marker-3d-interactive');
-      prev.forEach(p => p.remove());
-
-      const valid = S.sites.filter(s => s && s.lat && s.lng && isFinite(+s.lat) && isFinite(+s.lng));
-      valid.forEach(s => {
-        const marker = document.createElement('gmp-marker-3d-interactive');
-        marker.position = { lat: +s.lat, lng: +s.lng, altitude: 18 };
-        marker.altitudeMode = 'RELATIVE_TO_GROUND';
-        marker.title = `${s.code} · ${s.area} (${sizeOf(s)} ft)`;
-        marker.addEventListener('gmp-click', () => {
-          open3DMapModal(s.id);
-        });
-        mapEl.appendChild(marker);
-      });
-    } catch(e) {
-      console.warn("Populating 3D markers warning:", e);
+    if (mapId === 'mainGmp3D' && typeof _leafletMap !== "undefined" && _leafletMap) {
+      _leafletMap.invalidateSize();
     }
   },
 
   toggleLabels(show) {
     this.showLabels = show;
-    const mapEl = this.activeMap || document.getElementById(this.activeMapId);
-    if (!mapEl) return;
-    try {
-      mapEl.defaultLabelsDisabled = !show;
-      mapEl.mode = show ? "HYBRID" : "SATELLITE";
-      const toggles = document.querySelectorAll('#gmpLabelsToggle, #mainGmpLabelsToggle, #fsGmpLabelsToggle, #modalGmpLabelsToggle');
-      toggles.forEach(t => t.checked = show);
-      toast(show ? "🏷️ 3D Places & Street Labels visible" : "🛰️ Pure 3D Imagery (Labels off)");
-    } catch(e){
-      console.warn(e);
-    }
+    const toggles = document.querySelectorAll('#gmpLabelsToggle, #mainGmpLabelsToggle, #fsGmpLabelsToggle, #modalGmpLabelsToggle');
+    toggles.forEach(t => t.checked = show);
+
+    const applyLayerToMap = (m) => {
+      if (!m) return;
+      if (show) {
+        if (_googleSatLayer && m.hasLayer(_googleSatLayer)) m.removeLayer(_googleSatLayer);
+        if (_googleHybridLayer && !m.hasLayer(_googleHybridLayer)) _googleHybridLayer.addTo(m);
+      } else {
+        if (_googleHybridLayer && m.hasLayer(_googleHybridLayer)) m.removeLayer(_googleHybridLayer);
+        if (!_googleSatLayer) {
+          _googleSatLayer = L.tileLayer('https://mt{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 22,
+            maxNativeZoom: 20,
+            subdomains: ['0','1','2','3'],
+            attribution: 'Imagery &copy; Google Satellite'
+          });
+        }
+        if (!m.hasLayer(_googleSatLayer)) _googleSatLayer.addTo(m);
+      }
+    };
+
+    applyLayerToMap(_leafletMap);
+    applyLayerToMap(_modalLeafletMap);
+    applyLayerToMap(_fsLeafletMap);
+
+    toast(show ? "🏷️ 3D Places & Street Labels visible" : "🛰️ Pure 3D Satellite (Labels off)");
   },
 
   zoomBy(factor) {
     this.stopOrbit();
-    const mapEl = this.activeMap || document.getElementById(this.activeMapId);
-    if (!mapEl) return;
-    try {
-      const cur = mapEl.range || 1400;
-      mapEl.range = Math.max(100, Math.min(80000, cur * factor));
-    } catch(e) {
-      console.warn(e);
+    if (this.activeMapId === 'modalGmp3D' && _modalLeafletMap) {
+      if (factor < 1) _modalLeafletMap.zoomIn(1); else _modalLeafletMap.zoomOut(1);
+    } else if (this.activeMapId === 'fsGmp3D' && _fsLeafletMap) {
+      if (factor < 1) _fsLeafletMap.zoomIn(1); else _fsLeafletMap.zoomOut(1);
+    } else if (typeof _leafletMap !== "undefined" && _leafletMap) {
+      if (factor < 1) _leafletMap.zoomIn(1); else _leafletMap.zoomOut(1);
     }
   },
 
   rotateHeading(deg) {
     this.stopOrbit();
-    const mapEl = this.activeMap || document.getElementById(this.activeMapId);
-    if (!mapEl) return;
-    try {
-      const cur = mapEl.heading || 0;
-      const next = (cur + deg + 360) % 360;
-      mapEl.heading = next;
-      this.updateCompass(next);
-      toast(`🧭 3D Camera Heading: ${Math.round(next)}°`);
-    } catch(e) {
-      console.warn(e);
+    if (this.activeMapId === 'modalGmp3D') {
+      _modalHeading = (_modalHeading + deg + 360) % 360;
+      this.applyModalTransform(true);
+      this.updateCompass(_modalHeading);
+      toast(`🧭 Site 3D Heading: ${Math.round(_modalHeading)}°`);
+    } else if (this.activeMapId === 'fsGmp3D') {
+      _fsHeading = (_fsHeading + deg + 360) % 360;
+      this.applyFsTransform(true);
+      this.updateCompass(_fsHeading);
+      toast(`🧭 3D Studio Heading: ${Math.round(_fsHeading)}°`);
+    } else {
+      Map360.rotateBy(deg);
+      this.updateCompass(Map360.heading);
     }
   },
 
   tiltBy(delta) {
-    const mapEl = this.activeMap || document.getElementById(this.activeMapId);
-    if (!mapEl) return;
-    try {
-      const cur = mapEl.tilt !== undefined ? mapEl.tilt : 60;
-      const next = Math.max(0, Math.min(67.5, cur + delta));
-      mapEl.tilt = next;
-      toast(`📐 3D Tilt: ${Math.round(next)}°`);
-    } catch(e) {
-      console.warn(e);
+    if (this.activeMapId === 'modalGmp3D') {
+      _modalTilt = Math.max(0, Math.min(75, _modalTilt + delta));
+      this.applyModalTransform(true);
+      toast(`📐 3D Tilt: ${Math.round(_modalTilt)}°`);
+    } else if (this.activeMapId === 'fsGmp3D') {
+      _fsTilt = Math.max(0, Math.min(75, _fsTilt + delta));
+      this.applyFsTransform(true);
+      toast(`📐 3D Tilt: ${Math.round(_fsTilt)}°`);
+    } else {
+      Map360.tilt = Math.max(0, Math.min(75, Map360.tilt + delta));
+      Map360.apply(true);
+      toast(`📐 3D Tilt: ${Math.round(Map360.tilt)}°`);
     }
   },
 
   resetNorth() {
     this.stopOrbit();
-    const mapEl = this.activeMap || document.getElementById(this.activeMapId);
-    if (!mapEl) return;
-    try {
-      mapEl.heading = 0;
+    if (this.activeMapId === 'modalGmp3D') {
+      _modalHeading = 0;
+      this.applyModalTransform(true);
       this.updateCompass(0);
       toast("🧭 Reset to North (0°)");
-    } catch(e) {
-      console.warn(e);
+    } else if (this.activeMapId === 'fsGmp3D') {
+      _fsHeading = 0;
+      this.applyFsTransform(true);
+      this.updateCompass(0);
+      toast("🧭 Reset to North (0°)");
+    } else {
+      Map360.resetNorth();
+      this.updateCompass(0);
     }
   },
 
   toggleOrbit() {
-    if (this.isOrbiting) {
-      this.stopOrbit();
-      toast("⏹ 360° Orbit stopped");
+    if (this.activeMapId === 'modalGmp3D') {
+      if (_modalOrbitTimer) {
+        this.stopModalOrbit();
+        toast("⏹ 360° Orbit stopped");
+      } else {
+        this.startModalOrbit();
+        toast("🔄 360° Continuous Orbit active");
+      }
+    } else if (this.activeMapId === 'fsGmp3D') {
+      if (_fsOrbitTimer) {
+        this.stopFsOrbit();
+        toast("⏹ 360° Orbit stopped");
+      } else {
+        this.startFsOrbit();
+        toast("🔄 360° Continuous Orbit active");
+      }
     } else {
-      this.startOrbit();
-      toast("🔄 360° Continuous Orbit active");
+      Map360.toggleOrbit();
     }
   },
 
-  startOrbit() {
-    const mapEl = this.activeMap || document.getElementById(this.activeMapId);
-    if (!mapEl) return;
-    this.isOrbiting = true;
-    const btns = document.querySelectorAll('.gmp-orbit-btn, #btnGmpOrbit, #btnFsGmpOrbit, #btnModalOrbit');
+  startModalOrbit() {
+    this.stopModalOrbit();
+    const btns = document.querySelectorAll('.gmp-orbit-btn, #btnModalOrbit');
     btns.forEach(b => b.classList.add('orbiting'));
-
-    if (typeof mapEl.flyCameraAround === 'function') {
-      try {
-        mapEl.flyCameraAround({
-          camera: {
-            center: mapEl.center,
-            tilt: mapEl.tilt || 60,
-            heading: mapEl.heading || 0,
-            range: mapEl.range || 1200,
-            roll: 0
-          },
-          durationMillis: 24000,
-          repeatCount: Infinity
-        });
-        return;
-      } catch(e) {
-        console.warn("flyCameraAround fallback to interval", e);
-      }
-    }
-
-    clearInterval(this.orbitInterval);
-    this.orbitInterval = setInterval(() => {
-      try {
-        mapEl.heading = ((mapEl.heading || 0) + 0.8) % 360;
-        this.updateCompass(mapEl.heading);
-      } catch(e) {}
+    _modalOrbitTimer = setInterval(() => {
+      _modalHeading = (_modalHeading + 1.2) % 360;
+      this.applyModalTransform(false);
+      this.updateCompass(_modalHeading);
     }, 40);
   },
 
-  stopOrbit() {
-    this.isOrbiting = false;
-    const mapEl = this.activeMap || document.getElementById(this.activeMapId);
-    if (mapEl && typeof mapEl.stopCameraAnimation === 'function') {
-      try { mapEl.stopCameraAnimation(); } catch(e){}
+  stopModalOrbit() {
+    if (_modalOrbitTimer) {
+      clearInterval(_modalOrbitTimer);
+      _modalOrbitTimer = null;
     }
-    if (this.orbitInterval) {
-      clearInterval(this.orbitInterval);
-      this.orbitInterval = null;
-    }
-    const btns = document.querySelectorAll('.gmp-orbit-btn, #btnGmpOrbit, #btnFsGmpOrbit, #btnModalOrbit');
+    const btns = document.querySelectorAll('.gmp-orbit-btn, #btnModalOrbit');
     btns.forEach(b => b.classList.remove('orbiting'));
   },
 
+  applyModalTransform(smooth) {
+    const el = document.getElementById("modalSiteMap");
+    if (!el) return;
+    el.style.transition = smooth ? "transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)" : "none";
+    el.style.transformOrigin = "center 70%";
+    el.style.transform = `rotateX(${_modalTilt}deg) rotateZ(${_modalHeading}deg) scale(1.22) translateY(-20px)`;
+  },
+
+  startFsOrbit() {
+    this.stopFsOrbit();
+    const btns = document.querySelectorAll('.gmp-orbit-btn, #btnFsGmpOrbit');
+    btns.forEach(b => b.classList.add('orbiting'));
+    _fsOrbitTimer = setInterval(() => {
+      _fsHeading = (_fsHeading + 1.2) % 360;
+      this.applyFsTransform(false);
+      this.updateCompass(_fsHeading);
+    }, 40);
+  },
+
+  stopFsOrbit() {
+    if (_fsOrbitTimer) {
+      clearInterval(_fsOrbitTimer);
+      _fsOrbitTimer = null;
+    }
+    const btns = document.querySelectorAll('.gmp-orbit-btn, #btnFsGmpOrbit');
+    btns.forEach(b => b.classList.remove('orbiting'));
+  },
+
+  applyFsTransform(smooth) {
+    const el = document.getElementById("fsLeafletMap");
+    if (!el) return;
+    el.style.transition = smooth ? "transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)" : "none";
+    el.style.transformOrigin = "center 70%";
+    el.style.transform = `rotateX(${_fsTilt}deg) rotateZ(${_fsHeading}deg) scale(1.24) translateY(-25px)`;
+  },
+
+  stopOrbit() {
+    Map360.stopOrbit();
+    this.stopModalOrbit();
+    this.stopFsOrbit();
+  },
+
   updateCompass(h) {
-    const mapEl = this.activeMap || document.getElementById(this.activeMapId);
-    const heading = h !== undefined ? h : (mapEl?.heading || 0);
     const needles = document.querySelectorAll('.gmp-compass-needle');
     needles.forEach(n => {
-      n.style.transform = `rotate(${-heading}deg)`;
+      n.style.transform = `rotate(${-h}deg)`;
     });
   },
 
   flyToCorridor(lat, lng, heading, tilt, range, name) {
     this.stopOrbit();
-    const mapEl = this.activeMap || document.getElementById(this.activeMapId);
-    if (!mapEl) return;
-    try {
-      if (typeof mapEl.flyCameraTo === 'function') {
-        mapEl.flyCameraTo({
-          endCamera: {
-            center: { lat, lng, altitude: 80 },
-            tilt: tilt || 62,
-            heading: heading || 0,
-            range: range || 1200
-          },
-          durationMillis: 2400
-        });
-      } else {
-        mapEl.center = { lat, lng, altitude: 80 };
-        mapEl.range = range || 1200;
-        mapEl.tilt = tilt || 62;
-        mapEl.heading = heading || 0;
-      }
-      this.updateCompass(heading);
-      toast(`🛸 Swooping 3D camera into ${name}`);
-    } catch(e) {
-      console.warn(e);
+    if (this.activeMapId === 'fsGmp3D' && _fsLeafletMap) {
+      _fsLeafletMap.flyTo([lat, lng], 17, { duration: 1.5 });
+      toast(`🛸 Flying 3D camera to ${name}`);
+    } else {
+      flyToCorridor3D(lat, lng, name);
     }
   },
 
   flyHome() {
-    this.flyToCorridor(24.8607, 67.0011, 0, 62, 1600, 'Karachi Skyline');
+    if (this.activeMapId === 'fsGmp3D' && _fsLeafletMap) {
+      _fsLeafletMap.flyTo([24.8607, 67.0011], 13.5, { duration: 1.5 });
+      toast("🏠 Flying home to Karachi Center");
+    } else if (typeof _leafletMap !== "undefined" && _leafletMap) {
+      _leafletMap.flyTo([24.8607, 67.0011], 13.5, { duration: 1.5 });
+      toast("🏠 Flying home to Karachi Center");
+    }
   },
 
   nextSite() {
@@ -2662,26 +2636,11 @@ const TrueGoogle3D = {
     const s = valid[idx];
     if (!s) return;
     this.stopOrbit();
-    const mapEl = this.activeMap || document.getElementById(this.activeMapId);
-    if (!mapEl) return;
-    try {
-      if (typeof mapEl.flyCameraTo === 'function') {
-        mapEl.flyCameraTo({
-          endCamera: {
-            center: { lat: +s.lat, lng: +s.lng, altitude: 25 },
-            tilt: 64,
-            heading: 25,
-            range: 280
-          },
-          durationMillis: 2200
-        });
-      } else {
-        mapEl.center = { lat: +s.lat, lng: +s.lng, altitude: 25 };
-        mapEl.range = 280;
-        mapEl.tilt = 64;
-      }
-    } catch(e){}
-
+    if (this.activeMapId === 'fsGmp3D' && _fsLeafletMap) {
+      _fsLeafletMap.flyTo([+s.lat, +s.lng], 18.5, { duration: 1.5 });
+    } else if (typeof _leafletMap !== "undefined" && _leafletMap) {
+      _leafletMap.flyTo([+s.lat, +s.lng], 18.5, { duration: 1.5 });
+    }
     const iLab = document.getElementById('fsGmpSiteIndexLab');
     const iFoot = document.getElementById('fsGmpSiteIndexFoot');
     const cLab = document.getElementById('fsGmpSiteCodeLab');
@@ -2700,10 +2659,17 @@ const TrueGoogle3D = {
   },
 
   toggleLock() {
-    const mapEl = this.activeMap || document.getElementById(this.activeMapId);
-    if (!mapEl) return;
     this.isLocked = !this.isLocked;
-    mapEl.gestureHandling = this.isLocked ? "NONE" : "GREEDY";
+    const targetMap = (this.activeMapId === 'fsGmp3D') ? _fsLeafletMap : (this.activeMapId === 'modalGmp3D' ? _modalLeafletMap : _leafletMap);
+    if (targetMap && targetMap.scrollWheelZoom) {
+      if (this.isLocked) {
+        targetMap.scrollWheelZoom.disable();
+        targetMap.dragging.disable();
+      } else {
+        targetMap.scrollWheelZoom.enable();
+        targetMap.dragging.enable();
+      }
+    }
     toast(this.isLocked ? "🔒 3D Map Camera Locked" : "🔓 3D Map Camera Interactive");
   }
 };
@@ -2714,6 +2680,11 @@ function open3DMapModal(id){
     toast("No GPS coordinates available for this site.");
     return;
   }
+  TrueGoogle3D.activeMapId = 'modalGmp3D';
+  _modalHeading = 0;
+  _modalTilt = 52;
+  TrueGoogle3D.stopOrbit();
+
   const st = effStatus(s);
   const lat = +s.lat;
   const lng = +s.lng;
@@ -2722,7 +2693,7 @@ function open3DMapModal(id){
   const streetViewUrl = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${lat},${lng}`;
   const navUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}&travelmode=driving`;
 
-  openLayer(`<div class="scrim" data-act="close"></div>
+  openLayer(`<div class="scrim" data-act="close" onclick="TrueGoogle3D.activeMapId='mainGmp3D'"></div>
     <div class="modal" style="width:min(1180px,calc(100% - 24px));height:min(820px,92vh);display:flex;flex-direction:column;border-radius:18px;overflow:hidden;box-shadow:0 35px 80px rgba(0,0,0,0.8);border:1px solid rgba(255,255,255,0.12);position:relative">
       <div class="dh" style="padding:12px 18px;background:var(--surface);border-bottom:1px solid var(--border)">
         <div style="display:flex;align-items:center;gap:10px">
@@ -2732,13 +2703,13 @@ function open3DMapModal(id){
               <span class="mono" style="font-weight:700;color:var(--violet);font-size:13px">${esc(s.code)}</span>
               <span class="pill st-${st}" style="font-size:10px;padding:1px 6px">${STATUS[st]}</span>
             </div>
-            <h2 style="font-size:16px;margin:0">${esc(s.area)} · Google Photorealistic 3D Center</h2>
+            <h2 style="font-size:16px;margin:0">${esc(s.area)} · Google Earth 3D Center</h2>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
           <a class="btn sm cy" href="${earthUrl}" target="_blank" rel="noopener" style="text-decoration:none;font-weight:700" title="Open 3D Mesh in Google Earth Web">🧭 Google Earth 3D ↗</a>
           <a class="btn sm" href="${streetViewUrl}" target="_blank" rel="noopener" style="text-decoration:none;font-weight:700;background:rgba(255,255,255,0.1);color:#fff;border:0" title="Open Live 360 Street View">🚗 Street View 360 ↗</a>
-          <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
+          <button class="btn sm ghost" data-act="close" aria-label="Close" onclick="TrueGoogle3D.activeMapId='mainGmp3D'">${ICON.x}</button>
         </div>
       </div>
 
@@ -2762,18 +2733,10 @@ function open3DMapModal(id){
         </div>
       </div>
 
-      <div id="modalSiteMapWrap" style="flex:1;position:relative;background:#050508;overflow:hidden">
-        <gmp-map-3d id="modalGmp3D" center="${lat},${lng},25" tilt="64" heading="0" range="280" mode="hybrid" default-labels-disabled="false" style="width:100%;height:100%;display:block">
-        </gmp-map-3d>
+      <div id="modalSiteMapWrap" style="flex:1;position:relative;background:#050508;overflow:hidden;perspective:1400px">
+        <div id="modalSiteMap" style="width:100%;height:100%;transform:rotateX(52deg) scale(1.22) translateY(-20px);transform-origin:center 70%;transition:transform 0.4s ease"></div>
 
-        <!-- Spinner while loading -->
-        <div id="modalGmpLoader" class="gmp-loader-overlay">
-          <div class="gmp-spinner"></div>
-          <div style="font-weight:700;font-size:13px">Loading 3D Mesh for ${esc(s.code)}...</div>
-          <div style="font-size:11px;color:#94A3B8;margin-top:4px">Streaming 3D building & terrain geometry</div>
-        </div>
-
-        <!-- Top Center Show Labels Switch (Matching Screenshot) -->
+        <!-- Top Center Show Labels Switch -->
         <div class="gmp-top-toggle-wrap">
           <label class="gmp-switch">
             <input type="checkbox" id="modalGmpLabelsToggle" checked onchange="TrueGoogle3D.toggleLabels(this.checked)">
@@ -2782,7 +2745,7 @@ function open3DMapModal(id){
           <span class="gmp-toggle-label">SHOW LABELS</span>
         </div>
 
-        <!-- Bottom Right Floating Controls (Matching Screenshot) -->
+        <!-- Bottom Right Floating Controls -->
         <div class="gmp-floating-controls">
           <button class="gmp-ctrl-btn" onclick="TrueGoogle3D.zoomBy(0.75)" title="Zoom In (+)">+</button>
           <button class="gmp-ctrl-btn" onclick="TrueGoogle3D.zoomBy(1.3)" title="Zoom Out (−)">−</button>
@@ -2807,14 +2770,55 @@ function open3DMapModal(id){
         <div style="color:var(--muted)">${esc(s.from||"—")} → ${esc(s.towards||"—")} · ${sizeOf(s)} ft · ~${fmtK(otsOf(s))} OTS/day</div>
         <div style="display:flex;gap:6px">
           <button class="btn sm pri" data-act="site" data-id="${s.id}">Site Details</button>
-          <button class="btn sm" data-act="close">Close</button>
+          <button class="btn sm" data-act="close" onclick="TrueGoogle3D.activeMapId='mainGmp3D'">Close</button>
         </div>
       </div>
     </div>`);
 
   setTimeout(() => {
-    TrueGoogle3D.mount('modalGmp3D', { lat, lng, altitude: 25 });
+    mountModalSiteMap(s);
   }, 60);
+}
+
+function mountModalSiteMap(s){
+  const el = document.getElementById("modalSiteMap");
+  if(!el || typeof L === "undefined") return;
+  if(_modalLeafletMap){
+    try{ _modalLeafletMap.remove(); }catch(e){}
+    _modalLeafletMap = null;
+  }
+  const map = L.map(el, { maxZoom: 22, scrollWheelZoom: true, attributionControl: false });
+  _modalLeafletMap = map;
+
+  const googleHybrid = L.tileLayer('https://mt{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+    maxZoom: 22,
+    maxNativeZoom: 20,
+    subdomains: ['0','1','2','3'],
+    attribution: 'Imagery &copy; Google Earth'
+  });
+  googleHybrid.addTo(map);
+
+  map.setView([+s.lat, +s.lng], 19.5);
+
+  const col = { available: "#0E9F76", booked: "#E03656", expiring: "#EE7422", maintenance: "#DB8F06" };
+  const st = effStatus(s);
+  const c = col[st] || "#7C3AED";
+  const icon = L.divIcon({
+    className: "custom-map-pin-modal",
+    html: `<div style="display:flex;flex-direction:column;align-items:center;transform:translateY(-15px)">
+      <div style="background:rgba(10,8,20,0.92);color:#fff;font-size:11px;font-weight:800;padding:3px 8px;border-radius:6px;border:1px solid ${c};white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,0.6);margin-bottom:4px">
+        📍 ${esc(s.code)} · ${sizeOf(s)} ft
+      </div>
+      <div style="width:28px;height:28px;background:${c};border:3px solid #fff;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 4px 10px rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center">
+        <div style="width:9px;height:9px;background:#fff;border-radius:50%"></div>
+      </div>
+    </div>`,
+    iconSize: [32, 54],
+    iconAnchor: [16, 54]
+  });
+
+  L.marker([+s.lat, +s.lng], { icon }).addTo(map);
+  setTimeout(() => map.invalidateSize(), 200);
 }
 
 function openGoogle3DFullscreen(){
@@ -2822,7 +2826,12 @@ function openGoogle3DFullscreen(){
   const validSites = S.sites.filter(x => x.lat && x.lng && isFinite(+x.lat) && isFinite(+x.lng));
   const totalCount = validSites.length;
 
-  openLayer(`<div class="scrim" data-act="close"></div>
+  TrueGoogle3D.activeMapId = 'fsGmp3D';
+  _fsHeading = 0;
+  _fsTilt = 52;
+  TrueGoogle3D.stopOrbit();
+
+  openLayer(`<div class="scrim" data-act="close" onclick="TrueGoogle3D.activeMapId='mainGmp3D'"></div>
     <div class="modal" style="width:min(1420px,calc(100% - 16px));height:min(920px,95vh);display:flex;flex-direction:column;border-radius:18px;overflow:hidden;box-shadow:0 35px 80px rgba(0,0,0,0.85);border:1px solid rgba(255,255,255,0.15);position:relative">
       
       <!-- Top Title & Navigation Bar -->
@@ -2830,8 +2839,8 @@ function openGoogle3DFullscreen(){
         <div style="display:flex;align-items:center;gap:10px">
           <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#06B6D4,#3B82F6);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px">🌍</div>
           <div>
-            <h2 style="font-size:16px;margin:0">Google Maps Platform · Photorealistic 3D Maps</h2>
-            <div style="font-size:11px;color:var(--muted)">Karachi OOH Billboard Network · 3D Mesh Buildings, Terrain & Interactive Corridors</div>
+            <h2 style="font-size:16px;margin:0">Google Earth 3D Studio · Karachi Corridors</h2>
+            <div style="font-size:11px;color:var(--muted)">Karachi OOH Billboard Network · 3D Terrain, Road Labels & Interactive Corridors</div>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
@@ -2840,23 +2849,15 @@ function openGoogle3DFullscreen(){
             <option value="">Inspect Site in 3D…</option>
             ${opt(validSites.map(x=>[x.id,`${x.code} - ${x.area}`]))}
           </select>
-          <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
+          <button class="btn sm ghost" data-act="close" aria-label="Close" onclick="TrueGoogle3D.activeMapId='mainGmp3D'">${ICON.x}</button>
         </div>
       </div>
 
       <!-- 3D Viewport Area -->
-      <div id="fsGmpWrap" style="flex:1;position:relative;background:#050508;overflow:hidden">
-        <gmp-map-3d id="fsGmp3D" center="24.8607,67.0011,180" tilt="62" heading="0" range="1600" mode="hybrid" default-labels-disabled="false" style="width:100%;height:100%;display:block">
-        </gmp-map-3d>
+      <div id="fsGmpWrap" style="flex:1;position:relative;background:#050508;overflow:hidden;perspective:1400px">
+        <div id="fsLeafletMap" style="width:100%;height:100%;transform:rotateX(52deg) scale(1.24) translateY(-25px);transform-origin:center 70%;transition:transform 0.4s ease"></div>
 
-        <!-- Spinner while loading -->
-        <div id="fsGmpLoader" class="gmp-loader-overlay">
-          <div class="gmp-spinner"></div>
-          <div style="font-weight:700;font-size:13px">Loading Google Photorealistic 3D Studio...</div>
-          <div style="font-size:11px;color:#94A3B8;margin-top:4px">Streaming 3D buildings, textures and Karachi billboard pins</div>
-        </div>
-
-        <!-- Top Center Show Labels Switch (Matching Screenshot) -->
+        <!-- Top Center Show Labels Switch -->
         <div class="gmp-top-toggle-wrap">
           <label class="gmp-switch">
             <input type="checkbox" id="fsGmpLabelsToggle" checked onchange="TrueGoogle3D.toggleLabels(this.checked)">
@@ -2865,12 +2866,12 @@ function openGoogle3DFullscreen(){
           <span class="gmp-toggle-label">SHOW LABELS</span>
         </div>
 
-        <!-- Left Side Floating Experience Card (Matching Screenshot) -->
+        <!-- Left Side Floating Experience Card -->
         <div class="gmp-side-drawer" id="fsGmpDrawer" style="position:absolute;top:18px;left:18px;z-index:520;width:320px;max-width:calc(100% - 36px);background:#ffffff;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,0.35);padding:18px 20px;display:flex;flex-direction:column;gap:12px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#202124">
           <div style="display:flex;align-items:flex-start;justify-content:space-between">
             <div>
               <h3 style="margin:0;font-size:16px;font-weight:700;color:#1A73E8;letter-spacing:-0.2px">Karachi 3D OOH Intelligence</h3>
-              <p style="margin:4px 0 0;font-size:11px;color:#5F6368;line-height:1.4">Photorealistic 3D mesh view of all billboard locations with building geometry, sightlines and traffic flow.</p>
+              <p style="margin:4px 0 0;font-size:11px;color:#5F6368;line-height:1.4">High-resolution 3D satellite view of all billboard locations with sightlines and traffic flow.</p>
             </div>
             <button class="btn sm ghost" onclick="document.getElementById('fsGmpDrawer').style.display='none'" style="padding:2px 6px;font-size:12px;color:#5F6368" title="Minimize panel">✕</button>
           </div>
@@ -2897,7 +2898,7 @@ function openGoogle3DFullscreen(){
             </div>
           </div>
 
-          <!-- Bottom Card Pagination (Matching Screenshot) -->
+          <!-- Bottom Card Pagination -->
           <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #E2E8F0;padding-top:12px;margin-top:4px">
             <button class="btn sm" onclick="TrueGoogle3D.flyHome()" style="border:0;background:#F1F5F9;color:#1E293B;font-weight:700;display:flex;align-items:center;gap:4px;border-radius:8px">
               <span>🏠</span> HOME
@@ -2911,7 +2912,7 @@ function openGoogle3DFullscreen(){
           </div>
         </div>
 
-        <!-- Bottom Right Floating Controls (Matching Screenshot) -->
+        <!-- Bottom Right Floating Controls -->
         <div class="gmp-floating-controls">
           <button class="gmp-ctrl-btn" onclick="TrueGoogle3D.zoomBy(0.75)" title="Zoom In (+)">+</button>
           <button class="gmp-ctrl-btn" onclick="TrueGoogle3D.zoomBy(1.3)" title="Zoom Out (−)">−</button>
@@ -2930,14 +2931,60 @@ function openGoogle3DFullscreen(){
             <span class="gmp-compass-needle">🧭</span>
           </button>
           <button class="gmp-ctrl-btn" onclick="TrueGoogle3D.toggleLock()" title="Lock / Unlock Controls">🔒</button>
-          <button class="gmp-ctrl-btn" onclick="closeLayer()" title="Close 3D Studio">✕</button>
+          <button class="gmp-ctrl-btn" onclick="closeLayer();TrueGoogle3D.activeMapId='mainGmp3D'" title="Close 3D Studio">✕</button>
         </div>
       </div>
     </div>`);
 
   setTimeout(() => {
-    TrueGoogle3D.mount('fsGmp3D');
+    mountFsLeafletMap(validSites);
   }, 60);
+}
+
+function mountFsLeafletMap(validSites){
+  const el = document.getElementById("fsLeafletMap");
+  if(!el || typeof L === "undefined") return;
+  if(_fsLeafletMap){
+    try{ _fsLeafletMap.remove(); }catch(e){}
+    _fsLeafletMap = null;
+  }
+  const map = L.map(el, { maxZoom: 22, scrollWheelZoom: true, attributionControl: false });
+  _fsLeafletMap = map;
+
+  const googleHybrid = L.tileLayer('https://mt{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+    maxZoom: 22,
+    maxNativeZoom: 20,
+    subdomains: ['0','1','2','3'],
+    attribution: 'Imagery &copy; Google Earth'
+  });
+  googleHybrid.addTo(map);
+
+  const col = { available: "#0E9F76", booked: "#E03656", expiring: "#EE7422", maintenance: "#DB8F06" };
+  const markers = [];
+
+  validSites.forEach(s => {
+    const st = effStatus(s);
+    const c = col[st] || "#7C3AED";
+    const icon = L.divIcon({
+      className: "custom-map-pin-fs",
+      html: `<div style="width:24px;height:24px;background:${c};border:2px solid #fff;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 3px 8px rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center"><div style="width:7px;height:7px;background:#fff;border-radius:50%"></div></div>`,
+      iconSize: [24, 24],
+      iconAnchor: [12, 24]
+    });
+    const m = L.marker([+s.lat, +s.lng], { icon });
+    m.bindPopup(`<b>${esc(s.code)}</b><br>${esc(s.area)} · ${sizeOf(s)} ft<br><button class="btn sm pri" onclick="open3DMapModal('${s.id}')" style="margin-top:6px;width:100%">3D Inspect Site</button>`, { maxWidth: 220 });
+    m.addTo(map);
+    markers.push(m);
+  });
+
+  if(markers.length){
+    const group = L.featureGroup(markers);
+    map.fitBounds(group.getBounds().pad(0.18), { maxZoom: 15 });
+  } else {
+    map.setView([24.8607, 67.0011], 13);
+  }
+
+  setTimeout(() => map.invalidateSize(), 200);
 }
 
 function setGlobalMapView(mode){
@@ -2946,36 +2993,62 @@ function setGlobalMapView(mode){
   const btn3D = document.getElementById("btnMap3D");
   const trueGmpWrap = document.getElementById("trueGmp3DWrapper");
   const leafletEl = document.getElementById("leafletMap");
+  const wrap = document.querySelector(".mapwrap");
+  if(!leafletEl) return;
   
+  TrueGoogle3D.stopOrbit();
+  TrueGoogle3D.activeMapId = 'mainGmp3D';
+
   if(mode === '3d'){
     if(btn2D) btn2D.classList.remove("on");
     if(btn3D) btn3D.classList.add("on");
-    if(leafletEl) leafletEl.style.display = "none";
-    if(trueGmpWrap) {
-      trueGmpWrap.style.display = "block";
-      TrueGoogle3D.mount('mainGmp3D');
+    leafletEl.style.display = "block";
+    if(trueGmpWrap) trueGmpWrap.style.display = "block";
+    if(wrap) wrap.classList.add("immersive-active");
+
+    // Apply 3D perspective tilt
+    Map360.tilt = 54;
+    Map360.apply(true);
+
+    // Switch Leaflet to Google Earth Hybrid Satellite
+    if(typeof _leafletMap !== "undefined" && _leafletMap){
+      if(typeof _googleHybridLayer !== "undefined" && _googleHybridLayer){
+        if(!_leafletMap.hasLayer(_googleHybridLayer)){
+          _googleHybridLayer.addTo(_leafletMap);
+        }
+      }
+      _leafletMap.invalidateSize();
+      const valid = S.sites.filter(s => s && s.lat && s.lng);
+      if(valid.length){
+        const s = valid[0];
+        _leafletMap.flyTo([+s.lat, +s.lng], Math.max(16.5, _leafletMap.getZoom()), { duration: 1.2 });
+      }
     }
-    toast("🌍 Google Photorealistic 3D Maps activated");
+    toast("🌍 Google 3D Satellite Map activated");
   } else {
     if(btn3D) btn3D.classList.remove("on");
     if(btn2D) btn2D.classList.add("on");
-    if(TrueGoogle3D.stopOrbit) TrueGoogle3D.stopOrbit();
     if(trueGmpWrap) trueGmpWrap.style.display = "none";
-    if(leafletEl) {
-      leafletEl.style.display = "block";
-      if(typeof _leafletMap !== "undefined" && _leafletMap) {
-        setTimeout(() => _leafletMap.invalidateSize(), 100);
-      }
+    if(wrap) wrap.classList.remove("immersive-active");
+    leafletEl.style.display = "block";
+
+    // Reset 3D tilt back to flat 2D
+    Map360.resetNorth();
+
+    if(typeof _leafletMap !== "undefined" && _leafletMap) {
+      setTimeout(() => _leafletMap.invalidateSize(), 150);
     }
     toast("🗺️ Switched to 2D fleet map");
   }
 }
 
 function flyToCorridor3D(lat, lng, name){
+  if(!_leafletMap) return;
   if(_globalMapViewMode !== '3d'){
     setGlobalMapView('3d');
   }
-  TrueGoogle3D.flyToCorridor(lat, lng, 45, 62, 1200, name);
+  _leafletMap.flyTo([lat, lng], 17.2, { duration: 1.5 });
+  toast(`🛸 Flying 3D camera to ${name}`);
 }
 
 function copyCorridorGPS(coords, name){
@@ -3031,6 +3104,9 @@ const Map360 = {
     };
     setBtnActive("btnMap360Orbit");
     setBtnActive("btnG3DOrbit");
+    setBtnActive("btnGmpOrbit");
+    const orbitBtns = document.querySelectorAll('.gmp-orbit-btn, #btnGmpOrbit, #btnMap360Orbit');
+    orbitBtns.forEach(b => b.classList.add('orbiting'));
 
     const wrap = document.querySelector(".mapwrap");
     if (wrap) wrap.classList.add("immersive-active");
@@ -3057,6 +3133,9 @@ const Map360 = {
     };
     setBtnIdle("btnMap360Orbit");
     setBtnIdle("btnG3DOrbit");
+    setBtnIdle("btnGmpOrbit");
+    const orbitBtns = document.querySelectorAll('.gmp-orbit-btn, #btnGmpOrbit, #btnMap360Orbit');
+    orbitBtns.forEach(b => b.classList.remove('orbiting'));
   },
 
   apply(smooth = true) {
@@ -3068,6 +3147,8 @@ const Map360 = {
     } else {
       leafletEl.style.transition = "none";
     }
+
+    TrueGoogle3D.updateCompass(this.heading);
 
     if (this.heading === 0 && this.tilt === 0) {
       leafletEl.style.transform = "none";
@@ -3419,6 +3500,14 @@ function mountLeafletMap(list){
   });
   _googleHybridLayer = googleHybrid;
 
+  const googleSat = L.tileLayer('https://mt{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+    maxZoom: 22,
+    maxNativeZoom: 20,
+    subdomains: ['0','1','2','3'],
+    attribution: 'Imagery &copy; Google Satellite'
+  });
+  _googleSatLayer = googleSat;
+
   const streetLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 22,
     maxNativeZoom: 19,
@@ -3596,20 +3685,9 @@ function mapHTML(list){
       <button class="btn sm cy" onclick="openGoogle3DFullscreen()" style="padding:4px 10px;font-size:11px;font-weight:800;border-radius:8px;background:linear-gradient(135deg,#0284C7,#0369A1);color:#fff;border:0;box-shadow:0 3px 10px rgba(2,132,199,0.4)" title="Open Google Photorealistic 3D Maps in Fullscreen">🌍 3D Studio</button>
     </div>
 
-    <!-- Genuine Google Maps Photorealistic 3D Container -->
-    <div id="trueGmp3DWrapper" class="true-gmp-3d-wrapper" style="display:none;position:absolute;inset:0;width:100%;height:100%;z-index:420;background:#050508;overflow:hidden">
-      <!-- Genuine Web Component Google 3D Map -->
-      <gmp-map-3d id="mainGmp3D" center="24.8607,67.0011,180" tilt="62" heading="0" range="1400" mode="hybrid" default-labels-disabled="false" style="width:100%;height:100%;display:block">
-      </gmp-map-3d>
-      
-      <!-- Spinner / Loader while WebGL loads -->
-      <div id="mainGmpLoader" class="gmp-loader-overlay">
-        <div class="gmp-spinner"></div>
-        <div style="font-weight:700;font-size:13px;letter-spacing:0.5px">Initializing Google Photorealistic 3D Maps...</div>
-        <div style="font-size:11px;color:#94A3B8;margin-top:4px">Streaming 3D building meshes, terrain & Karachi sites</div>
-      </div>
-
-      <!-- Top Center Show Labels Pill (User's Exact Screenshot) -->
+    <!-- Google 3D HUD & Floating Controls Overlay -->
+    <div id="trueGmp3DWrapper" class="true-gmp-3d-wrapper" style="display:none;position:absolute;inset:0;width:100%;height:100%;z-index:420;background:transparent;pointer-events:none;overflow:hidden">
+      <!-- Top Center Show Labels Pill -->
       <div class="gmp-top-toggle-wrap">
         <label class="gmp-switch">
           <input type="checkbox" id="mainGmpLabelsToggle" checked onchange="TrueGoogle3D.toggleLabels(this.checked)">
@@ -3618,7 +3696,7 @@ function mapHTML(list){
         <span class="gmp-toggle-label">SHOW LABELS</span>
       </div>
 
-      <!-- Bottom Right Floating Controls (User's Exact Screenshot) -->
+      <!-- Bottom Right Floating Controls -->
       <div class="gmp-floating-controls">
         <button class="gmp-ctrl-btn" onclick="TrueGoogle3D.zoomBy(0.75)" title="Zoom In (+)">+</button>
         <button class="gmp-ctrl-btn" onclick="TrueGoogle3D.zoomBy(1.3)" title="Zoom Out (−)">−</button>
@@ -5557,7 +5635,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=9.9").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=10.0").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
