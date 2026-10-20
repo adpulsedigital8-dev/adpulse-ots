@@ -1007,6 +1007,110 @@ table.t img{width:56px;height:38px;object-fit:cover;border-radius:7px;display:bl
   .camp-filter-row select,.camp-filter-row input{max-width:100%!important;width:100%!important}
 }
 
+/* Live Rider / Field Staff Tracking Styles */
+.rider-map-marker { position: relative; display: flex; align-items: center; justify-content: center; }
+.rider-pulse-ring {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.35);
+  border: 1.5px solid #10B981;
+  animation: riderPulse 1.8s infinite ease-out;
+  pointer-events: none;
+}
+@keyframes riderPulse {
+  0% { transform: scale(0.6); opacity: 1; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+.rider-badge-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10B981, #059669);
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  z-index: 2;
+  position: relative;
+  font-size: 15px;
+}
+.rider-heading-pointer {
+  position: absolute;
+  inset: -6px;
+  pointer-events: none;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+.rider-heading-arrow {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 9px solid #F59E0B;
+  margin: 0 auto;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.5));
+}
+.rider-name-tag {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(12, 9, 23, 0.92);
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+  border: 1px solid rgba(16, 185, 129, 0.6);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+  letter-spacing: 0.2px;
+  pointer-events: none;
+  z-index: 3;
+}
+.rider-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  display: inline-block;
+  box-shadow: 0 0 8px #10B981;
+  animation: riderDotBlink 1.2s infinite ease-in-out;
+}
+@keyframes riderDotBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.8); }
+}
+.rider-hud-banner {
+  position: fixed;
+  bottom: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  background: linear-gradient(135deg, #064E3B, #022C22);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  border: 1.5px solid #10B981;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  max-width: calc(100% - 24px);
+  animation: slideUpHud 0.3s ease;
+}
+@keyframes slideUpHud {
+  from { transform: translate(-50%, 40px); opacity: 0; }
+  to { transform: translate(-50%, 0); opacity: 1; }
+}
+
 /* studio */
 .studio{display:grid;grid-template-columns:320px 1fr;gap:18px;align-items:start}
 @media (max-width:1100px){.studio{grid-template-columns:1fr}}
@@ -1322,7 +1426,7 @@ const ICON={
 const NAV=[["dashboard","Dashboard","dash"],["capture","Capture","cam"],["sites","Sites","sites"],["campaigns","Campaigns","camp"],["studio","Presentations","deck"],["clients","Clients","users"],["settings","Settings","gear"]];
 
 /* ============ state ============ */
-const S={sites:[],campaigns:[],decks:[],settings:{agency:"AdPulse IMC",phone:"",email:"",web:"adpulse.pk",logo:null},loaded:{sites:false,campaigns:false},mode:"loading"};
+const S={sites:[],campaigns:[],decks:[],riders:[],settings:{agency:"AdPulse IMC",phone:"",email:"",web:"adpulse.pk",logo:null},loaded:{sites:false,campaigns:false},mode:"loading"};
 const F={q:"",area:"",size:"",media:"",status:"",lit:"",campaign:"",traffic:""};
 let fOpen=false,siteView="grid",sel=new Set(),route="dashboard",queue=[],local=null;
 let db=null,assets=null,downloads=null,user=null,sampleFn=null,sampleImg=null;
@@ -1451,6 +1555,26 @@ async function boot(){
   db.collection("clients").onSnapshot(q=>{S.clients=q.docs.map(x=>({id:x.id,...x.data()}));S.loaded.clients=true;changed()},()=>{});
   db.collection("requests").onSnapshot(q=>{S.requests=q.docs.map(x=>({id:x.id,...x.data()}));changed()},()=>{});
   db.collection("portal").onSnapshot(q=>{portals=Object.fromEntries(q.docs.map(x=>[x.id,x.data()]));S.loaded.portals=true;if(route==="clients")render();schedSync()},()=>{});
+  db.collection("riders").onSnapshot(q=>{
+    S.riders = q.docs.map(x=>({id:x.id,...x.data()}));
+    renderRidersOnMap();
+    updateRiderUiBadges();
+  },()=>{});
+  if(window.OTS_SB){
+    try {
+      const rChannel = window.OTS_SB.channel('rider-live-tracking');
+      rChannel.on('broadcast', { event: 'loc' }, msg => {
+        const payload = msg.payload;
+        if(payload && payload.id){
+          const idx = (S.riders||[]).findIndex(r => r.id === payload.id);
+          if(idx >= 0) S.riders[idx] = { ...S.riders[idx], ...payload };
+          else (S.riders = S.riders || []).push(payload);
+          renderRidersOnMap();
+          updateRiderUiBadges();
+        }
+      }).subscribe();
+    } catch(e){}
+  }
   modeNote();setInterval(()=>Agent.run(),300000);
 }
 function changed(){if(route==="studio"&&Studio.active){render(true)}else{render()}clearTimeout(changed.t);changed.t=setTimeout(()=>Agent.run(),900);schedSync()}
@@ -1576,7 +1700,7 @@ function go(r,silent){
 }
 window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
 
-function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v9.7</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
+function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v9.8</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
 
 let lastRoute=null;
 function render(anim){
@@ -3374,6 +3498,7 @@ function mountLeafletMap(list){
   }
 
   setTimeout(() => { if(_leafletMap === map) map.invalidateSize(); }, 250);
+  renderRidersOnMap();
 }
 
 function mapHTML(list){
@@ -3467,6 +3592,7 @@ function mapHTML(list){
       </div>
 
       <button class="btn sm pri" data-act="askmaps" style="padding:4px 9px;font-size:11px;font-weight:700;border-radius:8px;background:linear-gradient(135deg,#7C3AED,#D9161D);border:0;color:#fff;box-shadow:0 2px 6px rgba(124,58,237,0.35)">✨ Ask Maps</button>
+      <button class="btn sm" onclick="openRiderTrackingModal()" style="padding:4px 9px;font-size:11px;font-weight:700;border-radius:8px;background:linear-gradient(135deg,#10B981,#047857);border:0;color:#fff;box-shadow:0 2px 6px rgba(16,185,129,0.35);display:inline-flex;align-items:center;gap:4px" title="Live Field Staff &amp; Riders Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="mapRiderCount">1</span>)</button>
       <button class="btn sm cy" onclick="openGoogle3DFullscreen()" style="padding:4px 10px;font-size:11px;font-weight:800;border-radius:8px;background:linear-gradient(135deg,#0284C7,#0369A1);color:#fff;border:0;box-shadow:0 3px 10px rgba(2,132,199,0.4)" title="Open Google Photorealistic 3D Maps in Fullscreen">🌍 3D Studio</button>
     </div>
 
@@ -4842,7 +4968,446 @@ function openInstallModal(forceType){
     </div>`);
 }
 
+/* ============ Live Rider & Field Staff Tracking System ============ */
+
+const SAMPLE_KARACHI_RIDER = {
+  id: "rider_demo_01",
+  name: "Tariq Mahmood (Patrol Rider 01)",
+  phone: "0300-9283741",
+  vehicle: "bike",
+  lat: 24.8215,
+  lng: 67.0340,
+  heading: 135,
+  speed: 36,
+  accuracy: 4,
+  status: "moving",
+  destination: "Clifton ➔ Karsaz Survey",
+  updatedAt: new Date().toISOString(),
+  isLive: true,
+  isDemo: true,
+  trail: [
+    [24.8140, 67.0270],
+    [24.8162, 67.0288],
+    [24.8185, 67.0312],
+    [24.8215, 67.0340]
+  ]
+};
+
+let _riderLayerGroup = null;
+let _followedRiderId = null;
+
+function calcBearing(lat1, lon1, lat2, lon2) {
+  const y = Math.sin((lon2 - lon1) * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180);
+  const x = Math.cos(lat1 * Math.PI / 180) * Math.sin(lat2 * Math.PI / 180) -
+            Math.sin(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.cos((lon2 - lon1) * Math.PI / 180);
+  const b = Math.atan2(y, x) * 180 / Math.PI;
+  return (b + 360) % 360;
+}
+
+function calcDistMeters(lat1, lon1, lat2, lon2) {
+  const R = 6371e3;
+  const p1 = lat1 * Math.PI / 180, p2 = lat2 * Math.PI / 180;
+  const dp = (lat2 - lat1) * Math.PI / 180, dl = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dp/2) * Math.sin(dp/2) + Math.cos(p1) * Math.cos(p2) * Math.sin(dl/2) * Math.sin(dl/2);
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+}
+
+function headingToDirection(h) {
+  if (h == null || isNaN(h)) return "Stationary";
+  const dirs = ["North ↑", "North-East ↗", "East →", "South-East ↘", "South ↓", "South-West ↙", "West ←", "North-West ↖"];
+  return dirs[Math.round(((h % 360) / 45)) % 8];
+}
+
+function findNearestSite(lat, lng) {
+  if (!S.sites || !S.sites.length) return null;
+  let best = null, minDist = Infinity;
+  for (const s of S.sites) {
+    if (!s.lat || !s.lng) continue;
+    const d = calcDistMeters(lat, lng, +s.lat, +s.lng);
+    if (d < minDist) {
+      minDist = d;
+      best = { site: s, distMeters: Math.round(d) };
+    }
+  }
+  return best;
+}
+
+function updateRiderUiBadges() {
+  const count = (S.riders || []).filter(r => r.isLive !== false).length || (SAMPLE_KARACHI_RIDER ? 1 : 0);
+  const el1 = document.getElementById("topRiderCnt");
+  if(el1) el1.textContent = count;
+  const el2 = document.getElementById("mapRiderCount");
+  if(el2) el2.textContent = count;
+}
+
+function renderRidersOnMap() {
+  if (!_leafletMap || typeof L === "undefined") return;
+  if (!_riderLayerGroup) {
+    _riderLayerGroup = L.layerGroup().addTo(_leafletMap);
+  } else {
+    _riderLayerGroup.clearLayers();
+  }
+
+  let riders = (S.riders || []).filter(r => r && r.lat && r.lng);
+  if (!riders.length && SAMPLE_KARACHI_RIDER) {
+    riders = [SAMPLE_KARACHI_RIDER];
+  }
+
+  riders.forEach(r => {
+    const lat = +r.lat, lng = +r.lng;
+    const heading = Math.round(r.heading || 0);
+    const speed = Math.round(r.speed || 0);
+    const vIcon = r.vehicle === "car" ? "🚗" : r.vehicle === "foot" ? "🚶" : "🛵";
+    const dirTxt = headingToDirection(heading);
+    const nearest = findNearestSite(lat, lng);
+
+    const icon = L.divIcon({
+      className: "custom-rider-pin",
+      html: `<div class="rider-map-marker">
+        <div class="rider-pulse-ring"></div>
+        <div class="rider-name-tag">${vIcon} ${esc(r.name.split(' ')[0])} · ${speed} km/h</div>
+        <div class="rider-heading-pointer" style="transform:rotate(${heading}deg)">
+          <div class="rider-heading-arrow"></div>
+        </div>
+        <div class="rider-badge-icon">${vIcon}</div>
+      </div>`,
+      iconSize: [44, 44],
+      iconAnchor: [22, 22],
+      popupAnchor: [0, -22]
+    });
+
+    const marker = L.marker([lat, lng], { icon, zIndexOffset: 2000 });
+
+    if (r.trail && r.trail.length > 1) {
+      const trailLine = L.polyline(r.trail, {
+        color: "#10B981",
+        weight: 3.5,
+        opacity: 0.75,
+        dashArray: "4, 6"
+      });
+      trailLine.addTo(_riderLayerGroup);
+    }
+
+    const popHtml = `<div style="min-width:220px;max-width:280px;font-family:var(--body);padding:2px">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#10B981,#047857);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 3px 8px rgba(16,185,129,0.4)">
+          ${vIcon}
+        </div>
+        <div>
+          <div style="font-weight:800;font-size:13.5px;color:var(--ink)">${esc(r.name)}</div>
+          <div style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px">
+            <span class="rider-live-dot"></span> <b>LIVE</b> · ${r.status === 'stopped' ? '🛑 Stopped' : '🟢 In Transit'}
+          </div>
+        </div>
+      </div>
+
+      <div style="background:var(--surface2);border-radius:10px;padding:8px 10px;font-size:12px;display:flex;flex-direction:column;gap:5px;border:1px solid var(--border);margin-bottom:8px">
+        <div style="display:flex;justify-content:space-between">
+          <span style="color:var(--muted)">Speed:</span>
+          <b>${speed} km/h</b>
+        </div>
+        <div style="display:flex;justify-content:space-between">
+          <span style="color:var(--muted)">Heading:</span>
+          <b style="color:var(--violet)">${dirTxt} (${heading}°)</b>
+        </div>
+        ${nearest ? `
+        <div style="border-top:1px dashed var(--line);padding-top:4px;display:flex;justify-content:space-between;gap:6px">
+          <span style="color:var(--muted);white-space:nowrap">Near Site:</span>
+          <span style="font-weight:700;color:var(--pri);text-align:right">${esc(nearest.site.code)} (${nearest.distMeters}m)</span>
+        </div>` : ''}
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+        <button class="btn sm pri" onclick="focusRiderOnMap('${esc(r.id)}')" style="justify-content:center;padding:5px 0;font-size:11px">📍 Follow</button>
+        <a class="btn sm" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(lat+','+lng)}" target="_blank" rel="noopener" style="justify-content:center;padding:5px 0;font-size:11px;text-decoration:none">🛣️ Route</a>
+        ${r.phone ? `<a class="btn sm cy" href="tel:${esc(r.phone)}" style="grid-column:1/-1;justify-content:center;padding:4px 0;font-size:11px;text-decoration:none">📞 Call Staff (${esc(r.phone)})</a>` : ''}
+      </div>
+    </div>`;
+
+    marker.bindPopup(popHtml);
+    marker.addTo(_riderLayerGroup);
+
+    if (_followedRiderId === r.id) {
+      _leafletMap.panTo([lat, lng]);
+    }
+  });
+
+  updateRiderUiBadges();
+}
+
+function focusRiderOnMap(riderId) {
+  let r = (S.riders || []).find(x => x.id === riderId);
+  if (!r && SAMPLE_KARACHI_RIDER && SAMPLE_KARACHI_RIDER.id === riderId) r = SAMPLE_KARACHI_RIDER;
+  if (!r || !_leafletMap) return;
+
+  _followedRiderId = r.id;
+  _leafletMap.setView([+r.lat, +r.lng], 17, { animate: true });
+  closeLayer();
+  toast(`Following ${r.name} live on map`);
+}
+
+const RiderTracker = {
+  isBroadcasting: false,
+  watchId: null,
+  wakeLock: null,
+  lastCoord: null,
+  trail: [],
+  riderId: localStorage.getItem("adpulse_rider_id") || ("r_" + Math.random().toString(36).slice(2, 9)),
+  riderName: localStorage.getItem("adpulse_rider_name") || "Field Staff (Rider)",
+  vehicle: localStorage.getItem("adpulse_rider_vehicle") || "bike",
+
+  async startBroadcast(customName, customVehicle) {
+    if (customName) {
+      this.riderName = customName;
+      localStorage.setItem("adpulse_rider_name", customName);
+    }
+    if (customVehicle) {
+      this.vehicle = customVehicle;
+      localStorage.setItem("adpulse_rider_vehicle", customVehicle);
+    }
+    localStorage.setItem("adpulse_rider_id", this.riderId);
+
+    if (!navigator.geolocation) {
+      toast("GPS Geolocation is not supported by your browser");
+      return;
+    }
+
+    try {
+      if ('wakeLock' in navigator) {
+        this.wakeLock = await navigator.wakeLock.request('screen');
+      }
+    } catch(e){}
+
+    this.isBroadcasting = true;
+    toast("🟢 Starting Live GPS Broadcast…");
+    this.showHudBanner();
+
+    this.watchId = navigator.geolocation.watchPosition(
+      pos => this.onPositionUpdate(pos),
+      err => {
+        console.warn("GPS watchPosition error:", err);
+        toast("GPS Signal Weak: " + err.message);
+      },
+      { enableHighAccuracy: true, maximumAge: 2000, timeout: 12000 }
+    );
+
+    closeLayer();
+  },
+
+  async onPositionUpdate(pos) {
+    if (!this.isBroadcasting) return;
+    const lat = pos.coords.latitude;
+    const lng = pos.coords.longitude;
+    const accuracy = Math.round(pos.coords.accuracy || 5);
+    let speed = pos.coords.speed != null ? Math.round(pos.coords.speed * 3.6) : 0;
+    let heading = pos.coords.heading;
+
+    if (this.lastCoord) {
+      if (heading == null || isNaN(heading)) {
+        heading = Math.round(calcBearing(this.lastCoord.lat, this.lastCoord.lng, lat, lng));
+      }
+      if (!speed) {
+        const dist = calcDistMeters(this.lastCoord.lat, this.lastCoord.lng, lat, lng);
+        const dt = (Date.now() - this.lastCoord.time) / 1000;
+        if (dt > 1 && dist > 1) {
+          speed = Math.round((dist / dt) * 3.6);
+        }
+      }
+    }
+
+    this.lastCoord = { lat, lng, time: Date.now() };
+
+    this.trail.push([lat, lng]);
+    if (this.trail.length > 25) this.trail.shift();
+
+    const payload = {
+      id: this.riderId,
+      name: this.riderName,
+      vehicle: this.vehicle,
+      lat,
+      lng,
+      heading: heading || 0,
+      speed,
+      accuracy,
+      status: speed > 3 ? "moving" : "stopped",
+      updatedAt: new Date().toISOString(),
+      isLive: true,
+      trail: this.trail
+    };
+
+    const idx = (S.riders || []).findIndex(r => r.id === this.riderId);
+    if (idx >= 0) S.riders[idx] = payload;
+    else (S.riders = S.riders || []).push(payload);
+
+    renderRidersOnMap();
+    this.updateHud(speed, heading);
+
+    if (typeof put === "function") {
+      try {
+        await put("riders", payload);
+      } catch(e) {
+        try { if(db) await db.doc("riders/" + this.riderId).set(payload); } catch(err){}
+      }
+    }
+
+    if (window.OTS_SB) {
+      try {
+        const ch = window.OTS_SB.channel('rider-live-tracking');
+        ch.send({ type: 'broadcast', event: 'loc', payload });
+      } catch(e){}
+    }
+  },
+
+  stopBroadcast() {
+    this.isBroadcasting = false;
+    if (this.watchId != null) {
+      navigator.geolocation.clearWatch(this.watchId);
+      this.watchId = null;
+    }
+    if (this.wakeLock) {
+      try { this.wakeLock.release(); } catch(e){}
+      this.wakeLock = null;
+    }
+    this.hideHudBanner();
+
+    if (typeof put === "function") {
+      put("riders", { id: this.riderId, name: this.riderName, isLive: false, status: "offline", updatedAt: new Date().toISOString() });
+    }
+
+    toast("🔴 Live GPS Broadcast Stopped");
+    closeLayer();
+  },
+
+  showHudBanner() {
+    let b = document.getElementById("riderHudBanner");
+    if (!b) {
+      b = document.createElement("div");
+      b.id = "riderHudBanner";
+      b.className = "rider-hud-banner";
+      b.onclick = () => openRiderTrackingModal();
+      document.body.appendChild(b);
+    }
+    b.innerHTML = `<span class="rider-live-dot"></span><span>🛵 Live Tracking Active: <b id="hudSpeedVal">0 km/h</b> (<b id="hudDirVal">North</b>)</span><span style="font-size:11px;background:rgba(255,255,255,0.2);padding:2px 6px;border-radius:6px">Manage ⚙️</span>`;
+  },
+
+  updateHud(speed, heading) {
+    const sEl = document.getElementById("hudSpeedVal");
+    if (sEl) sEl.textContent = speed + " km/h";
+    const dEl = document.getElementById("hudDirVal");
+    if (dEl) dEl.textContent = headingToDirection(heading);
+  },
+
+  hideHudBanner() {
+    const b = document.getElementById("riderHudBanner");
+    if (b) b.remove();
+  }
+};
+
+function openRiderTrackingModal() {
+  const isBroadcasting = RiderTracker.isBroadcasting;
+  const currentRiders = (S.riders || []).filter(r => r && r.lat && r.lng);
+  if (!currentRiders.length && SAMPLE_KARACHI_RIDER) currentRiders.push(SAMPLE_KARACHI_RIDER);
+
+  const rosterHtml = currentRiders.map(r => {
+    const vIcon = r.vehicle === "car" ? "🚗" : r.vehicle === "foot" ? "🚶" : "🛵";
+    const speed = Math.round(r.speed || 0);
+    const heading = Math.round(r.heading || 0);
+    const nearest = findNearestSite(+r.lat, +r.lng);
+    return `<div style="display:flex;align-items:center;gap:12px;background:var(--surface);padding:10px 12px;border-radius:12px;border:1px solid var(--border)">
+      <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#10B981,#047857);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">
+        ${vIcon}
+      </div>
+      <div style="flex:1;min-width:0">
+        <div style="display:flex;align-items:center;gap:6px">
+          <b style="font-size:13.5px;color:var(--ink)">${esc(r.name)}</b>
+          ${r.isDemo ? '<span class="pill" style="font-size:9.5px;padding:1px 5px;background:var(--surface2)">Demo Rider</span>' : '<span class="pill st-available" style="font-size:9.5px;padding:1px 5px">🟢 Live</span>'}
+        </div>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px">
+          Speed: <b>${speed} km/h</b> · Dir: <b>${headingToDirection(heading)}</b>
+        </div>
+        ${nearest ? `<div style="font-size:11px;color:var(--pri);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">📍 Near: ${esc(nearest.site.code)} (${nearest.distMeters}m away)</div>` : ''}
+      </div>
+      <button class="btn sm pri" onclick="focusRiderOnMap('${esc(r.id)}')" style="flex-shrink:0;padding:6px 10px;font-size:11px;font-weight:700">
+        📍 Zoom
+      </button>
+    </div>`;
+  }).join("");
+
+  openLayer(`<div class="scrim" data-act="close"></div>
+  <div class="modal" style="width:min(580px,calc(100% - 20px));max-height:92vh;overflow-y:auto">
+    <div class="mb" style="gap:14px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#10B981,#059669);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 4px 12px rgba(16,185,129,0.35)">
+          🛵
+        </div>
+        <div>
+          <h2 style="font-size:19px;margin:0">Live Rider &amp; Staff GPS Tracking</h2>
+          <div style="font-size:12px;color:var(--muted)">Real-time field staff location, direction &amp; speed</div>
+        </div>
+        <span class="sp"></span>
+        <button class="btn sm ghost" data-act="close">${ICON.x}</button>
+      </div>
+
+      <!-- Mobile Broadcaster Box -->
+      <div style="background:var(--surface2);border-radius:14px;padding:14px;border:1px solid var(--border)">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+          <b style="font-size:13.5px;color:var(--ink)">📱 Broadcast Your Live Location (Field Staff / Rider)</b>
+          <span class="pill ${isBroadcasting ? 'st-available' : ''}" style="font-size:11px">
+            ${isBroadcasting ? '🟢 Broadcasting Active' : '⚪ Standby (Offline)'}
+          </span>
+        </div>
+
+        <div class="fgrid" style="grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+          <label class="f" style="margin:0">Your Name / ID
+            <input class="in sm" id="trackRiderName" value="${esc(RiderTracker.riderName)}" placeholder="e.g. Tariq (Rider 1)">
+          </label>
+          <label class="f" style="margin:0">Vehicle
+            <select class="in sm" id="trackRiderVehicle">
+              <option value="bike" ${RiderTracker.vehicle==='bike'?'selected':''}>🛵 Motorcycle (Default)</option>
+              <option value="car" ${RiderTracker.vehicle==='car'?'selected':''}>🚗 Car / Inspection Van</option>
+              <option value="foot" ${RiderTracker.vehicle==='foot'?'selected':''}>🚶 Foot Surveyor</option>
+            </select>
+          </label>
+        </div>
+
+        <div style="display:flex;gap:8px">
+          ${isBroadcasting ? `
+            <button class="btn danger" onclick="RiderTracker.stopBroadcast()" style="flex:1;justify-content:center;font-weight:700;padding:10px">
+              🔴 Stop Live Broadcast
+            </button>
+          ` : `
+            <button class="btn pri" onclick="RiderTracker.startBroadcast($('#trackRiderName').value.trim(), $('#trackRiderVehicle').value)" style="flex:1;justify-content:center;font-weight:700;padding:10px;background:linear-gradient(135deg,#10B981,#047857);border:0;box-shadow:0 4px 12px rgba(16,185,129,0.35)">
+              🟢 Start Live GPS Broadcast
+            </button>
+          `}
+        </div>
+        <p style="margin:8px 0 0;font-size:11.5px;color:var(--muted);line-height:1.4">
+          💡 Staff bike ke mobile holder par phone laga kar yeh button on karein. App screen ko active rakhegi aur aapki live movement, speed aur heading map par show hoti rahegi.
+        </p>
+      </div>
+
+      <!-- Live Roster of Field Staff -->
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+          <b style="font-size:14px;color:var(--ink)">Active Field Staff &amp; Riders (${currentRiders.length})</b>
+          <span style="font-size:11.5px;color:var(--muted)">Auto-refreshed via Supabase Realtime</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          ${rosterHtml}
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:6px">
+        <span class="sp"></span>
+        <button class="btn" data-act="close">Close</button>
+      </div>
+    </div>
+  </div>`);
+}
+
 const ACT={
+  ridertracking:()=>openRiderTrackingModal(),
+  focusrider:a=>focusRiderOnMap(a.dataset.id),
   view3d:a=>open3DMapModal(a.dataset.id),
   google3d:()=>openGoogle3DFullscreen(),
   askmaps:a=>AskMapsAI.open(a.dataset.q||(document.getElementById('mapAiSearch')?document.getElementById('mapAiSearch').value:"")),
@@ -4992,7 +5557,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=9.8").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=9.9").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
