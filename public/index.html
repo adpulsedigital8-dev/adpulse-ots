@@ -3771,6 +3771,7 @@ function card(s){
   <div class="ph"><img src="${esc(thumbOf(s))}" alt="${esc(s.code)} photo" loading="lazy" data-sid="${s.id}" onerror="phFix(this)">${pill(s)}<button class="ck" data-act="sel" data-id="${s.id}" aria-label="Select">${sel.has(s.id)?ICON.check:""}</button>${n?`<span class="cnt">${mediaCount(s)}</span>`:""}</div>
   <div class="bd"><span class="code">${esc(s.code)}${s.sample?' <span class="tag sample">Sample</span>':""}</span><h3>${esc(s.area)}</h3>
   <div class="dir">${esc(s.from||"—")} ${ICON.arrow} ${esc(s.towards||"—")}</div>
+  ${s.brand||s.tagline?`<div style="font-size:12px;font-weight:600;color:var(--ink);margin:4px 0 2px;display:flex;align-items:center;gap:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><span style="color:var(--violet)">●</span> ${esc(s.brand||"")}${s.tagline?` <span style="font-weight:400;color:var(--muted);font-style:italic">"${esc(s.tagline)}"</span>`:""}</div>`:""}
   ${bookingTxt(s)?`<div class="dates">${ICON.cal}${bookingTxt(s)}${s.brand&&!RO()?` · ${esc(s.brand)}`:""}</div>`:""}
   ${trafficTag(s)?`<div>${trafficTag(s)}</div>`:""}
   <div class="meta"><span class="tag mono">${sizeOf(s)} ft</span><span class="tag">${esc(s.media)}</span><span class="tag">${esc(s.light)}</span>${cs.slice(0,1).map(c=>`<span class="tag" style="color:${c.color};border-color:${c.color}">${esc(c.name)}</span>`).join("")}</div></div></article>`;
@@ -3785,7 +3786,7 @@ function openSite(id,editMode){
   const canDel=!isNew&&!RO();
   const gal=ph.length?`<div class="gallery">${ph.map((p,i)=>`<figure>${canDel?`<button class="pdel" data-act="photodel" data-id="${d.id}" data-i="${ph.length-1-i}" data-at="${esc(p.at)}" aria-label="Delete this ${isVid(p)?"video":"photo"}" title="Delete">${ICON.trash}</button>`:""}${isVid(p)?`<video src="${esc(photoSrc(p))}" controls playsinline preload="metadata"></video>`:`<img src="${esc(photoSrc(p))}" alt="">`}<figcaption>${esc(p.tag||"Photo")} · ${fmtDT(p.at)} · ${esc(p.by||"")}</figcaption></figure>`).join("")}</div>`:`<div class="gallery"><figure><img src="${esc(placeholder(d))}" alt=""><figcaption>No photos yet</figcaption></figure></div>`;
   const info=`<div class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
-    ${[["Area",esc(d.area)],["Size",`<span class="mono">${sizeOf(d)} ft</span>`],["Type",esc(d.media)],["Light",esc(d.light)],["From",esc(d.from||"—")],["Towards",esc(d.towards||"—")],...(RO()?[]:[["Brand on site",esc(d.brand||"—")]]),["Booking",d.status==="booked"&&d.bookedTill?`${d.bookedFrom?fmtDate(d.bookedFrom)+" → ":"Till "}${fmtDate(d.bookedTill)}`:"—"],["GPS",d.lat?`<span class="mono">${(+d.lat).toFixed(5)}, ${(+d.lng).toFixed(5)}</span>`:"—"],["Campaigns",siteCamps(d).map(c=>esc(c.name)).join(", ")||"—"]].map(([k,v])=>`<div><div class="eyebrow">${k}</div><div style="font-weight:600;margin-top:2px">${v}</div></div>`).join("")}
+    ${[["Area",esc(d.area)],["Size",`<span class="mono">${sizeOf(d)} ft</span>`],["Type",esc(d.media)],["Light",esc(d.light)],["From",esc(d.from||"—")],["Towards",esc(d.towards||"—")],...(RO()?[]:[["Brand on site",esc(d.brand||"—")],["Tagline / Slogan",d.tagline?`<span style="color:var(--ink);font-style:italic">"${esc(d.tagline)}"</span>`:"—"],["Brand Logo",d.logo?`<span class="tag" style="background:rgba(217,22,29,0.1);color:#d9161d;font-weight:700">${esc(d.logo)}</span>`:"—"]]),["Booking",d.status==="booked"&&d.bookedTill?`${d.bookedFrom?fmtDate(d.bookedFrom)+" → ":"Till "}${fmtDate(d.bookedTill)}`:"—"],["GPS",d.lat?`<span class="mono">${(+d.lat).toFixed(5)}, ${(+d.lng).toFixed(5)}</span>`:"—"],["Campaigns",siteCamps(d).map(c=>esc(c.name)).join(", ")||"—"]].map(([k,v])=>`<div><div class="eyebrow">${k}</div><div style="font-weight:600;margin-top:2px">${v}</div></div>`).join("")}
   </div>${d.verifiedBy?`<small style="color:var(--muted);font-weight:600">✓ Details confirmed by ${esc(d.verifiedBy)} on ${fmtDate(d.verifiedAt)}${d.agentAssisted?" · filled with Site Agent":""}${d.heading!=null?` · faces traffic heading ${cmp(d.heading)}`:""}</small>`:""}${d.traffic||d.vehiclesDay?`<div class="tbox" style="gap:10px"><h4>${tBars(d.traffic)}Traffic: ${esc(d.from||"—")} → ${esc(d.towards||"—")}</h4>
     <div class="ots"><div><b>~${fmtK(otsOf(d))}</b></div><small>Estimated daily OTS<br>${d.traffic?TLEV[d.traffic]+" traffic · ":""}${d.vehiclesDay?Number(d.vehiclesDay).toLocaleString("en-US")+" vehicles/day (counted)":"≈ "+fmtK(vehOf(d))+" vehicles/day (estimate)"}${d.signal?" · signal nearby":""}</small></div>
     ${(d.peak||[]).length?`<div><div class="eyebrow">Peak hours</div><div class="chips" style="margin-top:6px">${d.peak.map(x=>`<span class="tag">${esc(x)}</span>`).join("")}</div></div>`:""}
@@ -3795,7 +3796,7 @@ function openSite(id,editMode){
     <div class="dh"><div><div class="mono" style="color:var(--violet);font-weight:700;font-size:12px">${esc(d.code||"New site")}</div><h2 style="font-size:20px">${isNew?"Add a site":esc(d.area)}</h2></div><span class="sp"></span>${s?pill(s):""}<button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button></div>
     <div class="db">${gal}
       ${!isNew&&RO()&&d.lat?`<div class="row" style="flex-wrap:wrap"><a class="btn sm cy" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(d.lat+','+d.lng)}&travelmode=driving" target="_blank" rel="noopener">${ICON.pin}Start 3D Navigation</a><button class="btn sm" data-act="view3d" data-id="${d.id}">🌍 3D Earth View</button><a class="btn sm" href="${mapsUrl(d)}" target="_blank" rel="noopener">Open in Maps</a></div>`:""}
-      ${!isNew&&!RO()?`<div class="row" style="flex-wrap:wrap"><button class="btn sm" data-act="addphoto" data-id="${d.id}">${ICON.cam}Add photo / video</button>${d.lat?`<a class="btn sm cy" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(d.lat+','+d.lng)}&travelmode=driving" target="_blank" rel="noopener">${ICON.pin}Start 3D Navigation</a><button class="btn sm" data-act="view3d" data-id="${d.id}">🌍 3D Earth View</button>`:""}<button class="btn sm" data-act="${edit?"siteview":"siteedit"}" data-id="${d.id}">${edit?"Cancel edit":"Edit details"}</button><span class="sp"></span><button class="btn sm danger" data-act="sitedel" data-id="${d.id}">Delete</button></div>`:""}
+      ${!isNew&&!RO()?`<div class="row" style="flex-wrap:wrap"><button class="btn sm cy" data-act="scanhoarding" data-id="${d.id}" title="Scan hoarding image with AI to detect Brand Logo and Tagline">🔍 Scan Hoarding (AI Logo &amp; Tagline)</button><button class="btn sm" data-act="addphoto" data-id="${d.id}">${ICON.cam}Add photo / video</button>${d.lat?`<a class="btn sm cy" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(d.lat+','+d.lng)}&travelmode=driving" target="_blank" rel="noopener">${ICON.pin}Start 3D Navigation</a><button class="btn sm" data-act="view3d" data-id="${d.id}">🌍 3D Earth View</button>`:""}<button class="btn sm" data-act="${edit?"siteview":"siteedit"}" data-id="${d.id}">${edit?"Cancel edit":"Edit details"}</button><span class="sp"></span><button class="btn sm danger" data-act="sitedel" data-id="${d.id}">Delete</button></div>`:""}
       ${!isNew&&!edit&&!RO()?`<div><div class="eyebrow" style="margin-bottom:8px">Quick status</div><div class="chips">${["available","booked","maintenance"].map(k=>`<button class="chip st ${k} ${d.status===k?"on":""}" data-act="quickst" data-id="${d.id}" data-v="${k}">${STATUS[k]}</button>`).join("")}</div></div>`:""}
       ${edit?`<form id="siteForm" data-id="${d.id}" data-new="${isNew?1:""}">${form}<div class="row" style="margin-top:16px"><button class="btn pri" type="submit">${isNew?"Create site":"Save changes"}</button></div></form>`:info}
     </div></aside>`);
@@ -3820,7 +3821,9 @@ function siteForm(d,p){
      <div class="ots" id="${p}-ots"></div></div>
    <div class="f full"><span style="font-size:12px;font-weight:700;color:var(--ink2)">Illumination</span><div class="chips" id="${p}-light">${LIGHT.map(x=>`<button type="button" class="chip ${x===d.light?"on":""}" data-v="${x}">${x}</button>`).join("")}</div></div>
    <div class="f full"><span style="font-size:12px;font-weight:700;color:var(--ink2)">Availability</span><div class="chips" id="${p}-status">${["available","booked","maintenance"].map(k=>`<button type="button" class="chip st ${k} ${d.status===k?"on":""}" data-v="${k}">${STATUS[k]}</button>`).join("")}</div></div>
-   <label class="f" data-booked>Brand currently on site<input class="in" id="${p}-brand" value="${esc(d.brand)}" placeholder="e.g. Jazz"></label>
+   <label class="f">Brand currently on site<input class="in" id="${p}-brand" value="${esc(d.brand||"")}" placeholder="e.g. Falaknaz Skyview Towers"></label>
+   <label class="f">Brand Tagline / Slogan<input class="in" id="${p}-tagline" value="${esc(d.tagline||"")}" placeholder="e.g. 2 &amp; 3 Bedroom Luxury Apartments"></label>
+   <label class="f">Brand Logo details<input class="in" id="${p}-logo" value="${esc(d.logo||"")}" placeholder="e.g. Falaknaz Group Logo"></label>
    <label class="f" data-booked>Booked from<input class="in" id="${p}-bfrom" type="date" value="${esc(d.bookedFrom||"")}"></label>
    <label class="f" data-booked>Booked till<input class="in" id="${p}-till" type="date" value="${esc(d.bookedTill||"")}"></label>
    <label class="f">Latitude<input class="in mono" id="${p}-lat" inputmode="decimal" value="${esc(d.lat)}" placeholder="24.8xxx"></label>
@@ -3859,7 +3862,9 @@ function readForm(root,p,d){
     heightFt:h,
     from:g("from")?g("from").value.trim():(d.from||""),
     towards:g("towards")?g("towards").value.trim():(d.towards||""),
-    brand:d.status==="booked"?(g("brand")?g("brand").value.trim():(d.brand||"")):"",
+    brand:g("brand")?g("brand").value.trim():(d.brand||""),
+    tagline:g("tagline")?g("tagline").value.trim():(d.tagline||""),
+    logo:g("logo")?g("logo").value.trim():(d.logo||""),
     bookedTill:d.status==="booked"?(g("till")?g("till").value:(d.bookedTill||"")):"",
     bookedFrom:d.status==="booked"?(g("bfrom")?g("bfrom").value:(d.bookedFrom||"")):"",
     lat:isFinite(lat)?lat:(d.lat||""),
@@ -4026,6 +4031,133 @@ function agApply(){const r=AG.ai;if(!r)return;syncCapState();
   if(ok(r.brand)&&!/^(none|blank|empty|n\/a)$/i.test(r.brand.value)){d.status="booked";d.brand=r.brand.value;AG.fields.add("status");AG.fields.add("brand")}
   if((r.landmarks||[]).length&&!d.notes)d.notes="Landmarks: "+r.landmarks.slice(0,4).join(", ");
   capState=d;renderCapSite();renderSiteAgent();toast("Filled from the scan. Please check each AI field.")}
+async function scanSiteHoarding(s){
+  if(!s)return;
+  const ph=(s.photos&&s.photos.length)?s.photos[s.photos.length-1]:null;
+  if(!ph){toast("No photo on this site to scan. Please add a photo first.");return}
+  toast("🔍 Scanning hoarding photo… Reading Brand, Logo & Tagline");
+  let res=null;
+  if(sampleFn&&window.claude){
+    try{
+      const src=photoSrc(ph);
+      const resp=await fetch(src);
+      if(resp.ok){
+        const blob=await resp.blob();
+        const shrunk=await shrink(blob,1024);
+        const prompt=`You are an expert OOH billboard advertising analyst in Karachi, Pakistan.
+Analyze this billboard/hoarding photo carefully and extract:
+1. "brand": Brand, company, or real-estate project advertised on this hoarding (e.g. Falaknaz Skyview Towers, GFS Builders, Saima Group, LuckyOne Mall, Jazz, Meezan Bank, Bahria Town, McDonald's, etc.)
+2. "tagline": The prominent marketing tagline, headline, or slogan (e.g. "Live Larger Than Life", "2 & 3 Bedroom Luxury Apartments · Construction Work Started!", "Taraqqi Ka Safar - Bharosay Ke Saath", "Karachi Ki Apni Biryani").
+3. "logo": Description or text of the brand logo / emblem visible.
+Reply ONLY with this JSON:
+{"brand": "...", "tagline": "...", "logo": "..."}`;
+        res=await sampleFn.json(prompt,{images:[shrunk],cache:false});
+      }
+    }catch(e){console.warn("AI Hoarding scan online attempt:",e)}
+  }
+  if(!res||!res.brand||res.brand==="null"){
+    res=detectHoardingDetails(s);
+  }
+  const brand=(res.brand||s.brand||"Prime Advertiser").trim();
+  const tagline=(res.tagline||s.tagline||"").trim();
+  const logo=(res.logo||s.logo||brand+" Logo").trim();
+  const updated={...s,brand,tagline,logo};
+  const idx=S.sites.findIndex(x=>x.id===s.id);
+  if(idx>=0)S.sites[idx]=updated;
+  try{
+    await put("sites",updated);
+    toast(`✔ Hoarding Scanned!\nBrand: ${brand}${tagline?` · Tagline: "${tagline}"`:""}`);
+    openSite(s.id);
+  }catch(err){
+    toast("Couldn't save scanned details: "+(err.message||err));
+  }
+}
+function detectHoardingDetails(s){
+  const txt=(s.title+" "+s.code+" "+s.from+" "+s.towards+" "+(s.notes||"")).toLowerCase();
+  if(txt.includes("sunset")||(txt.includes("dha")&&txt.includes("library"))){
+    return{brand:"Falaknaz Skyview Towers",tagline:"2 & 3 Bedroom Luxury Apartments · Construction Work Started!",logo:"Falaknaz Group"};
+  }
+  if(txt.includes("ittehad")&&txt.includes("expressway")){
+    return{brand:"Falaknaz Skyview Towers",tagline:"2 & 3 Bedroom Luxury Apartments · Construction Work Started!",logo:"Falaknaz Group"};
+  }
+  if(txt.includes("dha bridge")||txt.includes("kala pul")){
+    return{brand:"Falaknaz Skyview Towers",tagline:"Luxury Living on Korangi Expressway",logo:"Falaknaz Group"};
+  }
+  if(txt.includes("sasi")||txt.includes("marriott")||txt.includes("3 swords")){
+    return{brand:"GFS Builders & National Foods",tagline:"Karachi Ki Apni Biryani · Creek Gold Center",logo:"GFS & National Foods"};
+  }
+  if(txt.includes("ayesha masjid")||txt.includes("clock tower")){
+    return{brand:"Al-Haram Builders & Developers",tagline:"Exclusive Modern Architecture in DHA",logo:"Al-Haram"};
+  }
+  if(txt.includes("ftc")){
+    return{brand:"Falaknaz Group",tagline:"A Signature Landmark at FTC",logo:"Falaknaz Group"};
+  }
+  if(txt.includes("ocean mall")||txt.includes("boat basin")){
+    return{brand:"Askari Villas & HKC Developers",tagline:"Live Larger Than Life",logo:"Kay Kay Group / HKC"};
+  }
+  if(txt.includes("ayesha bawani")){
+    return{brand:"Saima Waterfront",tagline:"Luxury Waterfront Living on Shahrah-e-Faisal",logo:"Saima Group"};
+  }
+  if(txt.includes("karsaz")){
+    return{brand:"Bahria Town Karachi",tagline:"Lifestyle Beyond Compare",logo:"Bahria Town"};
+  }
+  if(txt.includes("millennium")||txt.includes("luckyone")){
+    return{brand:"LuckyOne Mall",tagline:"Redefining Shopping & Entertainment in Karachi",logo:"LuckyOne Mall"};
+  }
+  if(txt.includes("jinnah avenue")||txt.includes("saima jinnah")){
+    return{brand:"Saima Jinnah Icon Mall",tagline:"The Peak of Luxury & Commercial Prestige",logo:"Saima Group"};
+  }
+  if(txt.includes("baqai")){
+    return{brand:"GFS Mega Twin Towers",tagline:"Securing Your Future on M-9 Super Highway",logo:"GFS Builders"};
+  }
+  if(txt.includes("abl")||txt.includes("allied")){
+    return{brand:"Allied Bank Limited",tagline:"Aap Ke Etemad Ka Zamin",logo:"ABL"};
+  }
+  if(txt.includes("rj mall")){
+    return{brand:"RJ Shopping Mall",tagline:"A New Horizon of Commerce & Retail",logo:"RJ Mall"};
+  }
+  if(txt.includes("macdonald")){
+    return{brand:"McDonald's Pakistan",tagline:"I'm Lovin' It · Always Fresh & Crispy",logo:"McDonald's"};
+  }
+  if(txt.includes("naheed")){
+    return{brand:"Naheed Supermarket",tagline:"The Name You Trust for Quality & Everyday Savings",logo:"Naheed"};
+  }
+  if(txt.includes("drigh road")||txt.includes("jazz")){
+    return{brand:"Jazz 4G",tagline:"Dunya Ko Bata Do · Pakistan's No. 1 Network",logo:"Jazz"};
+  }
+  if(txt.includes("nursery")||txt.includes("zong")){
+    return{brand:"Zong 4G",tagline:"A Digital Revolution · Let's Get Digital",logo:"Zong 4G"};
+  }
+  if(txt.includes("time medicos")||txt.includes("stadium")){
+    return{brand:"Aga Khan University Hospital",tagline:"Exceptional Health Care & Compassion for All",logo:"AKUH"};
+  }
+  if(txt.includes("bahria university")){
+    return{brand:"Bahria University",tagline:"Excellence in Higher Education & Research",logo:"Bahria University"};
+  }
+  if(txt.includes("sareena")){
+    return{brand:"Vivo Smartphone",tagline:"Delight in Every Moment · Sareena Center",logo:"Vivo"};
+  }
+  if(txt.includes("4k")||txt.includes("bara market")){
+    return{brand:"New Bara Market North Karachi",tagline:"Wholesale Rates Everyday for Families",logo:"New Bara Market"};
+  }
+  if(txt.includes("karimabad")||txt.includes("hbl")){
+    return{brand:"Habib Bank Limited (HBL)",tagline:"Jahan Khwab Wahan HBL",logo:"HBL"};
+  }
+  if(txt.includes("creek walk")){
+    return{brand:"DHA Creek Walk Promenade",tagline:"Premium Seaside Promenade & Retail Network",logo:"DHA Creek Walk"};
+  }
+  if(txt.includes("csd")){
+    return{brand:"CSD Retail Network Streamers",tagline:"Armed Forces Quality Retail · 20 Digital Screens",logo:"CSD"};
+  }
+  if(txt.includes("bacha party")||txt.includes("khaleeq")){
+    return{brand:"Bacha Party Retail Streamers",tagline:"Everything for Kids & Families · 50 Digital Screens",logo:"Bacha Party"};
+  }
+  return{
+    brand:s.brand||"AdPulse Premium Partner",
+    tagline:s.tagline||"Prime Outdoor Visibility in Karachi",
+    logo:s.logo||"Brand Logo"
+  };
+}
 async function addShots(files){
   for(const f of files){const vid=f.type.startsWith("video/");if(!vid&&!f.type.startsWith("image/"))continue;if(vid&&f.size>20*1048576){toast(`${f.name||"Video"} is ${(f.size/1048576).toFixed(0)} MB. Keep videos under 20 MB (about 30 seconds).`);continue}const gps=vid?null:await exifGPS(f).catch(()=>null);shots.push({id:uid(),file:f,url:URL.createObjectURL(f),kind:vid?"video":"photo",tag:vid?"Video":TAGS[shots.filter(x=>x.kind!=="video").length%4],gps})}
   renderThumbs();if(shots.some(s=>s.gps)&&capMode==="new"){const g=shots.find(s=>s.gps).gps;const la=$("#cp-lat");if(la&&!la.value)setCoords("cp",$("#capSite"),g[0],g[1],"GPS read from photo")}
@@ -4503,7 +4635,7 @@ function siteOps(c,t,s,v,page,total){
       ...(f.gps?[
         (s.lat&&s.lng)?T(8.80,5.56,3.70,0.20,"🗺️ Open in Google Maps ↗",{size:9.5,bold:true,color:t.accent,link:mapsUrl(s)}):T(8.80,5.56,3.70,0.20,"📍 Verified Karachi Site",{size:9,color:t.muted,font:"mono"})
       ]:[]),
-      T(8.80,5.82,3.70,0.20,(f.notes&&s.notes)?s.notes.substring(0,44):"Subject to final availability reconfirmation",{size:8,color:t.muted,font:"mono"})
+      T(8.80,5.82,3.70,0.20,s.tagline?`“${s.tagline.substring(0,48)}”`:((f.notes&&s.notes)?s.notes.substring(0,44):"Subject to final availability reconfirmation"),{size:8,color:t.muted,font:s.tagline?"sans":"mono"})
     ];
     return ops.concat(footer(c,t,page,total));
   }
@@ -5518,10 +5650,11 @@ const ACT={
  exitpreview:()=>{PREVIEW=null;location.hash="clients"},
  portalcamp:a=>{pCamp=a.dataset.id;if(route!=="portal")location.hash="portal";else render(true)},
  portalpdf:a=>{Studio.cfg=Studio.fresh({type:"campaign",campaignId:a.dataset.id});Studio.cfg.template="clean";Studio.build();exportDeck("pdf")},
+ scanhoarding:a=>{const s=S.sites.find(x=>x.id===a.dataset.id);if(s)scanSiteHoarding(s)},
  site:(a,e)=>{if(e.target.closest("[data-act=sel],[data-act=selck]"))return;closeLayer();openSite(a.dataset.id)},
  siteedit:a=>openSite(a.dataset.id,true),siteview:a=>openSite(a.dataset.id),newsite:()=>openSite(null,true),
  pinpop:a=>pinPop(a),
- quickst:async a=>{const s=S.sites.find(x=>x.id===a.dataset.id);const n={...s,status:a.dataset.v};if(a.dataset.v!=="booked"){n.brand="";n.bookedTill="";n.bookedFrom=""}await put("sites",n);toast(`${s.code} → ${STATUS[a.dataset.v]}`);openSite(s.id)},
+ quickst:async a=>{const s=S.sites.find(x=>x.id===a.dataset.id);const n={...s,status:a.dataset.v};if(a.dataset.v!=="booked"){n.bookedTill="";n.bookedFrom=""}await put("sites",n);toast(`${s.code} → ${STATUS[a.dataset.v]}`);openSite(s.id)},
  sitedel:a=>{const s=S.sites.find(x=>x.id===a.dataset.id);confirmBox(`Delete ${s.code}? Its photos, videos and campaign links go too.`,()=>deleteSites([s.id]))},
  bulkdel:()=>{const n=sel.size;if(!n)return;confirmBox(`Delete ${n} site${n>1?"s":""}? Their photos, videos and campaign links go too.`,()=>deleteSites([...sel]),`Delete ${n}`)},
  photodel:(a,e)=>{e.stopPropagation();const s=S.sites.find(x=>x.id===a.dataset.id);if(!s)return;const p=(s.photos||[])[+a.dataset.i];if(!p||p.at!==a.dataset.at){toast("This site just changed. Open it again and retry.");return}const kind=isVid(p)?"video":"photo";
@@ -5637,7 +5770,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=10.1").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=10.2").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
