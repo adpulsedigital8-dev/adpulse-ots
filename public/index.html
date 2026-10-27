@@ -3766,7 +3766,7 @@ function vSites(){
   let body;
   if(!list.length)body=`<div class="card">${emptyState(S.sites.length?"No sites match these filters":"No sites yet",S.sites.length?"Try removing a filter.":"Add your first site or capture one from the field.")}</div>`;
   else if(siteView==="grid")body=`<div class="cards enter">${list.map(card).join("")}</div>`;
-  else if(siteView==="table")body=`<div class="tblwrap card"><table class="t"><thead><tr><th></th><th>Code</th><th>Area</th><th>Direction</th><th>Size</th><th>Type</th><th>Light</th><th>Traffic</th><th>Status</th><th>Booking</th><th>Last photo</th></tr></thead><tbody>${list.map(s=>`<tr data-act="site" data-id="${s.id}"><td><input type="checkbox" data-act="selck" data-id="${s.id}" ${sel.has(s.id)?"checked":""} aria-label="Select ${esc(s.code)}" style="width:18px;height:18px;accent-color:var(--violet)"></td><td class="mono" style="color:var(--violet);font-weight:700">${esc(s.code)}</td><td><div class="row" style="flex-wrap:nowrap"><img src="${esc(thumbOf(s))}" alt="">${esc(s.area)}</div></td><td>${esc(s.from||"—")} → ${esc(s.towards||"—")}</td><td class="mono">${sizeOf(s)}</td><td>${esc(s.media)}</td><td>${esc(s.light)}</td><td>${s.traffic||s.vehiclesDay?`${s.traffic?TLEV[s.traffic]:"Counted"}<br><small style="color:var(--muted)">~${fmtK(otsOf(s))} OTS/day</small>`:"—"}</td><td>${pill(s)}</td><td>${esc(bookingTxt(s))||"—"}${s.brand?`<br><small style="color:var(--muted)">${esc(s.brand)}</small>`:""}</td><td>${lastPhoto(s)?ago(lastPhoto(s).at):"—"}</td></tr>`).join("")}</tbody></table></div>`;
+  else if(siteView==="table")body=`<div class="tblwrap card"><table class="t"><thead><tr><th><input type="checkbox" data-act="selalltoggle" ${list.length>0&&list.every(s=>sel.has(s.id))?"checked":""} title="Select/Deselect all visible" aria-label="Select all" style="width:18px;height:18px;accent-color:var(--violet);cursor:pointer"></th><th>Code</th><th>Area</th><th>Direction</th><th>Size</th><th>Type</th><th>Light</th><th>Traffic</th><th>Status</th><th>Booking</th><th>Last photo</th></tr></thead><tbody>${list.map(s=>`<tr data-act="site" data-id="${s.id}"><td><input type="checkbox" data-act="selck" data-id="${s.id}" ${sel.has(s.id)?"checked":""} aria-label="Select ${esc(s.code)}" style="width:18px;height:18px;accent-color:var(--violet)"></td><td class="mono" style="color:var(--violet);font-weight:700">${esc(s.code)}</td><td><div class="row" style="flex-wrap:nowrap"><img src="${esc(thumbOf(s))}" alt="">${esc(s.area)}</div></td><td>${esc(s.from||"—")} → ${esc(s.towards||"—")}</td><td class="mono">${sizeOf(s)}</td><td>${esc(s.media)}</td><td>${esc(s.light)}</td><td>${s.traffic||s.vehiclesDay?`${s.traffic?TLEV[s.traffic]:"Counted"}<br><small style="color:var(--muted)">~${fmtK(otsOf(s))} OTS/day</small>`:"—"}</td><td>${pill(s)}</td><td>${esc(bookingTxt(s))||"—"}${s.brand?`<br><small style="color:var(--muted)">${esc(s.brand)}</small>`:""}</td><td>${lastPhoto(s)?ago(lastPhoto(s).at):"—"}</td></tr>`).join("")}</tbody></table></div>`;
   else body=`<div class="card pad">${mapHTML(list)}<p style="color:var(--muted);font-size:12px;margin:10px 0 0">Interactive map. Tap a pin for the site card; "Open in Google Maps" is inside each site.</p></div>`;
   const bulk=sel.size?`<div class="bulk"><b>${sel.size} selected</b><span class="sp"></span><select id="bulkSt" aria-label="Set status"><option value="">Set status…</option><option value="available">Available</option><option value="booked">Not available</option><option value="maintenance">Maintenance</option></select><select id="bulkC" aria-label="Add to campaign"><option value="">Add to campaign…</option>${opt(S.campaigns.map(c=>[c.id,c.name]))}</select><button class="btn sm" data-act="bulkdeck">${ICON.deck}Make deck</button><button class="btn sm" data-act="bulkdel" style="color:#ff8fa3;border-color:rgba(255,143,163,.45)">${ICON.trash}Delete</button><button class="btn sm" data-act="selnone">Clear</button></div>`:"";
   return pgTop("Sites",`${list.length} of ${S.sites.length} sites`,`<button class="btn hm" data-act="selall">Select all</button><button class="btn pri" data-act="newsite">${ICON.plus}Add site</button>`)+filt+body+bulk;
@@ -4271,6 +4271,9 @@ async function runJob(job){
       uploadedCount++;
     }
     await put("sites",job.site);
+    const sIdx=S.sites.findIndex(x=>x.id===job.site.id);
+    if(sIdx>=0)S.sites[sIdx]=JSON.parse(JSON.stringify(job.site));
+    else S.sites.unshift(JSON.parse(JSON.stringify(job.site)));
     if(camp&&!(camp.siteIds||[]).includes(job.site.id)){
       await put("campaigns",{...camp,siteIds:[...(camp.siteIds||[]),job.site.id]});
     }
@@ -4458,7 +4461,7 @@ function openCamp(id){
     updateCampCount();
   };
   $("#campForm").onsubmit=async e=>{e.preventDefault();const bookIt=$("#cBook").checked;const n={...c,name:$("#cName").value.trim(),client:$("#cClient").value.trim(),startDate:$("#cStart").value,endDate:$("#cEnd").value,siteIds:[...ids]};try{await put("campaigns",n);closeLayer();let msg=id?"Campaign saved":"Campaign created";
-    if(bookIt&&n.startDate&&n.endDate){const brand=n.client||n.name;let b=0,k=0;for(const sid of n.siteIds){const s=S.sites.find(x=>x.id===sid);if(!s)continue;const clash=s.status==="booked"&&s.brand&&s.brand!==brand&&s.bookedTill&&s.bookedTill>=n.startDate&&(!s.bookedFrom||s.bookedFrom<=n.endDate);if(clash){k++;continue}if(s.status==="booked"&&s.brand===brand&&s.bookedFrom===n.startDate&&s.bookedTill===n.endDate)continue;await put("sites",{...s,status:"booked",brand,bookedFrom:n.startDate,bookedTill:n.endDate});b++}
+    if(bookIt&&n.startDate&&n.endDate){const brand=n.client||n.name;let b=0,k=0;for(const sid of n.siteIds){const s=S.sites.find(x=>x.id===sid);if(!s)continue;const clash=s.status==="booked"&&s.brand&&s.brand!==brand&&s.bookedTill&&s.bookedTill>=n.startDate&&(!s.bookedFrom||s.bookedFrom<=n.endDate);if(clash){k++;continue}if(s.status==="booked"&&s.brand===brand&&s.bookedFrom===n.startDate&&s.bookedTill===n.endDate)continue;const updatedSite={...s,status:"booked",brand,bookedFrom:n.startDate,bookedTill:n.endDate};const sIdx=S.sites.findIndex(x=>x.id===s.id);if(sIdx>=0)S.sites[sIdx]=updatedSite;await put("sites",updatedSite);b++}
       if(b)msg+=` · ${b} site${b>1?"s":""} booked ${fmtShort(n.startDate)} → ${fmtShort(n.endDate)}`;if(k)msg+=` · ${k} skipped (booked by another brand)`}
     toast(msg)}catch(err){toast("Couldn't save: "+err.message)}};
 }
@@ -4810,9 +4813,10 @@ async function deleteSites(ids){
   const sites=ids.map(id=>S.sites.find(x=>x.id===id)).filter(Boolean).map(x=>JSON.parse(JSON.stringify(x)));
   const camps=S.campaigns.filter(c=>(c.siteIds||[]).some(i=>ids.includes(i))).map(c=>JSON.parse(JSON.stringify(c)));
   for(const c of camps)await put("campaigns",{...c,siteIds:c.siteIds.filter(i=>!ids.includes(i))});
+  S.sites=S.sites.filter(x=>!ids.includes(x.id));
   for(const x of sites)await del("sites",x.id);
   ids.forEach(i=>sel.delete(i));const key="sites:"+uid();dropAssetsLater(sites.flatMap(x=>(x.photos||[]).map(p=>p.asset)),key);render();
-  toast(sites.length===1?`Deleted ${sites[0].code}`:`Deleted ${sites.length} sites`,async()=>{keepAssets(key);for(const x of sites)await put("sites",x);for(const c of camps)await put("campaigns",c);toast("Restored")});
+  toast(sites.length===1?`Deleted ${sites[0].code}`:`Deleted ${sites.length} sites`,async()=>{keepAssets(key);for(const x of sites){if(!S.sites.some(s=>s.id===x.id))S.sites.push(x);await put("sites",x);}for(const c of camps)await put("campaigns",c);render();toast("Restored")});
 }
 /* ============ Campaign Agent ============ */
 const Agent={alerts:[],checked:null,shownKey:"",
@@ -5719,19 +5723,20 @@ const ACT={
  portalcamp:a=>{pCamp=a.dataset.id;if(route!=="portal")location.hash="portal";else render(true)},
  portalpdf:a=>{Studio.cfg=Studio.fresh({type:"campaign",campaignId:a.dataset.id});Studio.cfg.template="clean";Studio.build();exportDeck("pdf")},
  scanhoarding:a=>{const s=S.sites.find(x=>x.id===a.dataset.id);if(s)scanSiteHoarding(s)},
- site:(a,e)=>{if(e.target.closest("[data-act=sel],[data-act=selck]"))return;closeLayer();openSite(a.dataset.id)},
+ site:(a,e)=>{if(e.target.closest("[data-act=sel],[data-act=selck],[data-act=selalltoggle]"))return;closeLayer();openSite(a.dataset.id)},
  siteedit:a=>openSite(a.dataset.id,true),siteview:a=>openSite(a.dataset.id),newsite:()=>openSite(null,true),
  pinpop:a=>pinPop(a),
  quickst:async a=>{const s=S.sites.find(x=>x.id===a.dataset.id);const n={...s,status:a.dataset.v};if(a.dataset.v!=="booked"){n.bookedTill="";n.bookedFrom=""}await put("sites",n);toast(`${s.code} → ${STATUS[a.dataset.v]}`);openSite(s.id)},
  sitedel:a=>{const s=S.sites.find(x=>x.id===a.dataset.id);confirmBox(`Delete ${s.code}? Its photos, videos and campaign links go too.`,()=>deleteSites([s.id]))},
  bulkdel:()=>{const n=sel.size;if(!n)return;confirmBox(`Delete ${n} site${n>1?"s":""}? Their photos, videos and campaign links go too.`,()=>deleteSites([...sel]),`Delete ${n}`)},
  photodel:(a,e)=>{e.stopPropagation();const s=S.sites.find(x=>x.id===a.dataset.id);if(!s)return;const p=(s.photos||[])[+a.dataset.i];if(!p||p.at!==a.dataset.at){toast("This site just changed. Open it again and retry.");return}const kind=isVid(p)?"video":"photo";
-   confirmBox(`Delete this ${kind}?`,async()=>{const before=JSON.parse(JSON.stringify(s));await put("sites",{...s,photos:s.photos.filter(x=>x!==p)});const key="ph:"+uid();dropAssetsLater([p.asset],key);openSite(s.id);
-     toast(`${kind[0].toUpperCase()+kind.slice(1)} deleted`,async()=>{keepAssets(key);await put("sites",before);openSite(before.id);toast("Restored")})})},
+   confirmBox(`Delete this ${kind}?`,async()=>{const before=JSON.parse(JSON.stringify(s));const updated={...s,photos:s.photos.filter(x=>x!==p)};const sIdx=S.sites.findIndex(x=>x.id===s.id);if(sIdx>=0)S.sites[sIdx]=updated;await put("sites",updated);const key="ph:"+uid();dropAssetsLater([p.asset],key);openSite(s.id);
+     toast(`${kind[0].toUpperCase()+kind.slice(1)} deleted`,async()=>{keepAssets(key);if(sIdx>=0)S.sites[sIdx]=before;await put("sites",before);openSite(before.id);toast("Restored")})})},
  deckdel:a=>{const d=S.decks.find(x=>x.id===a.dataset.id);if(!d)return;confirmBox(`Delete "${d.title}" (v${d.version})?`,async()=>{const copy=JSON.parse(JSON.stringify(d));await del("decks",d.id);if(Studio.cfg?.id===d.id){Studio.active=false}render(true);toast("Presentation deleted",async()=>{await put("decks",copy);toast("Restored")})})},
  addphoto:a=>{const inp=$("#fileAdd");inp.dataset.site=a.dataset.id;inp.click()},
  sel:(a,e)=>{e.stopPropagation();const id=a.dataset.id;sel.has(id)?sel.delete(id):sel.add(id);render()},
  selck:(a,e)=>{e.stopPropagation();const id=a.dataset.id;a.checked?sel.add(id):sel.delete(id);render()},
+ selalltoggle:(a,e)=>{e.stopPropagation();const list=filtered();const allSel=list.length>0&&list.every(s=>sel.has(s.id));if(allSel){list.forEach(s=>sel.delete(s.id));}else{list.forEach(s=>sel.add(s.id));}render();},
  selall:()=>{filtered().forEach(s=>sel.add(s.id));render()},selnone:()=>{sel.clear();render()},
  sview:a=>{siteView=a.dataset.v;render(true)},clearf:()=>{Object.keys(F).forEach(k=>F[k]="");render(true)},
  bulkdeck:()=>{Studio.open({type:"selection",ids:[...sel]},"Site Proposal")},
@@ -5814,7 +5819,7 @@ document.addEventListener("click",e=>{const a=e.target.closest("[data-act]");if(
 document.addEventListener("change",e=>{const t=e.target;
  if(t.dataset.act==="setrole"){ACT.setrole(t)}
  if(t.dataset.f!==undefined){F[t.dataset.f]=t.value;render(true)}
- if(t.id==="bulkSt"&&t.value){const v=t.value;Promise.all([...sel].map(id=>{const s=S.sites.find(x=>x.id===id);return put("sites",{...s,status:v})})).then(()=>toast(`${sel.size} sites → ${STATUS[v]}`));t.value=""}
+ if(t.id==="bulkSt"&&t.value){const v=t.value;const count=sel.size;[...sel].forEach(id=>{const s=S.sites.find(x=>x.id===id);if(s){s.status=v;if(v!=="booked"){s.bookedTill="";s.bookedFrom=""}}});render();Promise.all([...sel].map(id=>{const s=S.sites.find(x=>x.id===id);return s?put("sites",{...s,status:v}):Promise.resolve()})).then(()=>toast(`${count} sites → ${STATUS[v]}`));t.value=""}
  if(t.id==="bulkC"&&t.value){const c=campOf(t.value);put("campaigns",{...c,siteIds:[...new Set([...(c.siteIds||[]),...sel])]}).then(()=>toast(`Added ${sel.size} sites to ${c.name}`));t.value=""}
  if(t.id==="stCamp"){Studio.cfg.source.campaignId=t.value;Studio.cfg.title="";Studio.cfg.subtitle="";Studio.cfg.slides=[];rebuildStudio()}
  if(["stArea","stSize","stStatus"].includes(t.id)){const k={stArea:"area",stSize:"size",stStatus:"status"}[t.id];Studio.cfg.source[k]=t.value;Studio.cfg.title="";Studio.cfg.slides=[];rebuildStudio()}
@@ -5833,12 +5838,12 @@ $("#fileLogo").onchange=async e=>{const f=e.target.files[0];e.target.value="";if
    if(S.mode==="live"&&assets){const blob=await new Promise(r=>c.toBlob(r,"image/png"));const up=await assets.upload(blob,{type:"image/png"});S.settings.logo={asset:up.id}}else S.settings.logo={data:c.toDataURL("image/png")};
    applyTheme();await saveSettings();render(true);toast("Logo updated")}catch(err){toast("Couldn't use that image: "+(err.message||err.code||err))}};
 $("#fileVid").onchange=e=>{addShots([...e.target.files]);e.target.value=""};
-$("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(!f)return;const s=JSON.parse(JSON.stringify(S.sites.find(x=>x.id===e.target.dataset.site)));const gps=await exifGPS(f).catch(()=>null);const who=ls.get("sitesnap-name","")||"Office";const vid=f.type.startsWith("video/");if(vid&&f.size>20*1048576){toast("Keep videos under 20 MB (about 30 seconds)");return}toast(vid?"Uploading video…":"Uploading photo…");const ok=await runJob({site:s,campId:"",who,shots:[{id:uid(),file:f,url:URL.createObjectURL(f),kind:vid?"video":"photo",tag:vid?"Video":"Day",gps:vid?null:gps}]});toast(ok?(vid?"Video added":"Photo added"):"Upload failed. Check your connection and try again.");if(ok)openSite(s.id)};
+$("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(!f)return;const rawSite=S.sites.find(x=>x.id===e.target.dataset.site);if(!rawSite){toast("Site not found");return}const s=JSON.parse(JSON.stringify(rawSite));const gps=await exifGPS(f).catch(()=>null);const who=ls.get("sitesnap-name","")||"Office";const vid=f.type.startsWith("video/");if(vid&&f.size>20*1048576){toast("Keep videos under 20 MB (about 30 seconds)");return}toast(vid?"Uploading video…":"Uploading photo…");const ok=await runJob({site:s,campId:"",who,shots:[{id:uid(),file:f,url:URL.createObjectURL(f),kind:vid?"video":"photo",tag:vid?"Video":"Day",gps:vid?null:gps}]});toast(ok?(vid?"Video added":"Photo added"):"Upload failed. Check your connection and try again.");if(ok)openSite(s.id)};
 
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=10.3").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=10.4").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
