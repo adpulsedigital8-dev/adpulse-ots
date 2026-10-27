@@ -1167,12 +1167,18 @@ table.t img{width:56px;height:38px;object-fit:cover;border-radius:7px;display:bl
 .empty h3{color:var(--ink);font-size:18px;margin:10px 0 6px}
 .skel{border-radius:var(--r);background:linear-gradient(90deg,var(--surface2),color-mix(in srgb,var(--violet) 10%,var(--surface2)),var(--surface2));background-size:200% 100%;animation:shim 1.3s linear infinite;min-height:220px}
 @keyframes shim{to{background-position:-200% 0}}
-.pal{position:fixed;left:50%;top:12vh;transform:translateX(-50%);width:min(560px,calc(100% - 24px));z-index:70;background:var(--surface);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;animation:pop .25s ease both}
-.pal input{width:100%;border:0;border-bottom:1px solid var(--line);padding:16px 18px;font-size:16px;background:transparent}
-.pal input:focus{outline:none}
-.pal .res{max-height:50vh;overflow:auto}
-.pal .res button{display:flex;width:100%;text-align:left;gap:10px;align-items:center;border:0;background:transparent;padding:11px 18px;cursor:pointer}
+@keyframes palDrop{from{transform:translate(-50%,-16px) scale(.98);opacity:0}to{transform:translate(-50%,0) scale(1);opacity:1}}
+.pal{position:fixed;left:50%;top:70px;transform:translate(-50%,0);width:min(620px,calc(100% - 24px));max-height:calc(100vh - 100px);z-index:70;background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:0 24px 60px rgba(0,0,0,.4),0 0 0 1px rgba(255,255,255,.06);overflow:hidden;display:flex;flex-direction:column;animation:palDrop .22s cubic-bezier(.16,1,.3,1) both}
+.pal-head{display:flex;align-items:center;gap:12px;padding:0 18px;border-bottom:1px solid var(--line);background:var(--surface);flex:none;min-height:60px}
+.pal-head svg{flex:none;color:var(--violet)}
+.pal-head input{flex:1;border:0;padding:16px 0;font-size:16px;font-family:inherit;color:var(--ink);background:transparent;outline:none;min-width:0}
+.pal-head input::placeholder{color:var(--muted);opacity:.85}
+.pal-close{flex:none;width:30px;height:30px;border-radius:50%;border:0;background:var(--surface2);color:var(--muted);display:grid;place-items:center;cursor:pointer;font-size:13px;transition:all .15s ease}
+.pal-close:hover{background:var(--line);color:var(--ink)}
+.pal .res{flex:1;overflow-y:auto;max-height:calc(100vh - 180px);padding:6px 0}
+.pal .res button{display:flex;width:100%;text-align:left;gap:12px;align-items:center;border:0;background:transparent;padding:12px 18px;cursor:pointer;transition:background .1s ease}
 .pal .res button:hover,.pal .res button.on{background:var(--surface2)}
+@media(max-width:640px){.pal{top:20px;max-height:calc(100vh - 40px);border-radius:16px}}
 /* traffic */
 .tb{display:inline-flex;align-items:flex-end;gap:2px;margin-right:6px;vertical-align:-1px}
 .tb i{width:3px;border-radius:2px;background:currentColor;opacity:.25}
@@ -5019,11 +5025,73 @@ function closeLayer(){
 }
 let toastT;function toast(msg,undo){$(".toast")?.remove();clearTimeout(toastT);const d=document.createElement("div");d.className="toast";d.setAttribute("role","status");d.innerHTML=`<span>${esc(msg)}</span>${undo?"<button>Undo</button>":""}`;if(undo)d.querySelector("button").onclick=()=>{undo();d.remove()};document.body.appendChild(d);toastT=setTimeout(()=>d.remove(),undo?5500:3200)}
 function confirmBox(msg,yes,label="Delete"){openLayer(`<div class="scrim" data-act="close"></div><div class="modal" style="width:min(420px,calc(100% - 24px))"><div class="mb"><h2 style="font-size:20px">${esc(msg)}</h2><div class="row"><span class="sp"></span><button class="btn" data-act="close">Cancel</button><button class="btn pri" id="cfYes">${label}</button></div></div></div>`);$("#cfYes").onclick=()=>{closeLayer();yes()}}
-function palette(){openLayer(`<div class="scrim" data-act="close"></div><div class="pal" role="dialog" aria-label="Search"><input id="palIn" placeholder="Search site code, area, road, campaign…" autocomplete="off"><div class="res" id="palRes"></div></div>`);const inp=$("#palIn");inp.focus();let idx=0,items=[];
-  const run=()=>{const q=inp.value.toLowerCase();items=[...S.sites.filter(s=>[s.code,s.area,s.from,s.towards,s.brand].join(" ").toLowerCase().includes(q)).slice(0,8).map(s=>({h:`<span class="mono" style="color:var(--violet);font-weight:700">${esc(s.code)}</span><span>${esc(s.area)} · ${sizeOf(s)}</span><span class="sp"></span>${pill(s)}`,go:()=>{closeLayer();openSite(s.id)}})),...S.campaigns.filter(c=>c.name.toLowerCase().includes(q)).slice(0,4).map(c=>({h:`${ICON.camp.replace("<svg",'<svg width="16" height="16"')}<b>${esc(c.name)}</b><span style="color:var(--muted)">campaign</span>`,go:()=>{closeLayer();F.campaign=c.id;location.hash="sites";go("sites")}})),...NAV.filter(n=>n[1].toLowerCase().includes(q)).map(n=>({h:`Go to <b>${n[1]}</b>`,go:()=>{closeLayer();location.hash=n[0]}}))];idx=0;draw()};
-  const draw=()=>{$("#palRes").innerHTML=items.map((it,i)=>`<button class="${i===idx?"on":""}" data-i="${i}">${it.h}</button>`).join("")||'<p style="padding:14px 18px;color:var(--muted);margin:0">Nothing found</p>'};
-  inp.oninput=run;inp.onkeydown=e=>{if(e.key==="ArrowDown"){idx=Math.min(idx+1,items.length-1);draw();e.preventDefault()}if(e.key==="ArrowUp"){idx=Math.max(idx-1,0);draw();e.preventDefault()}if(e.key==="Enter"&&items[idx])items[idx].go()};
-  $("#palRes").onclick=e=>{const b=e.target.closest("[data-i]");if(b)items[+b.dataset.i].go()};run()}
+function palette(){
+  openLayer(`<div class="scrim" data-act="close"></div>
+<div class="pal" role="dialog" aria-label="Search">
+  <div class="pal-head">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input id="palIn" placeholder="Search site code, area, road, brand, campaign…" autocomplete="off" spellcheck="false" autofocus>
+    <button type="button" class="pal-close" data-act="close" title="Close search (Esc)">✕</button>
+  </div>
+  <div class="res" id="palRes"></div>
+</div>`);
+  const inp=$("#palIn");
+  if(inp){
+    inp.focus();
+    setTimeout(()=>inp.focus(),50);
+  }
+  let idx=0,items=[];
+  const run=()=>{
+    const q=(inp?inp.value:"").toLowerCase().trim();
+    items=[
+      ...S.sites.filter(s=>[s.code,s.area,s.from,s.towards,s.brand,s.tagline,s.media].join(" ").toLowerCase().includes(q)).slice(0,12).map(s=>({
+        h:`<div style="display:flex;flex-direction:column;gap:3px;min-width:0;flex:1">
+             <div style="display:flex;align-items:center;gap:8px">
+               <span class="mono" style="color:var(--violet);font-weight:700">${esc(s.code)}</span>
+               <span style="font-weight:600;font-size:13.5px">${esc(s.area)} · ${sizeOf(s)} ft</span>
+               <span class="sp"></span>
+               ${pill(s)}
+             </div>
+             <small style="color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11.5px">
+               ${esc(s.from||"—")} → ${esc(s.towards||"—")}${s.brand?` · <b style="color:var(--ink)">${esc(s.brand)}</b>`:""}${s.tagline?` <span style="font-style:italic">"${esc(s.tagline)}"</span>`:""}
+             </small>
+           </div>`,
+        go:()=>{closeLayer();openSite(s.id)}
+      })),
+      ...S.campaigns.filter(c=>c.name.toLowerCase().includes(q)).slice(0,4).map(c=>({
+        h:`${ICON.camp.replace("<svg",'<svg width="18" height="18" style="flex:none"')}<b>${esc(c.name)}</b><span style="color:var(--muted)">campaign</span>`,
+        go:()=>{closeLayer();F.campaign=c.id;location.hash="sites";go("sites")}
+      })),
+      ...NAV.filter(n=>n[1].toLowerCase().includes(q)).map(n=>({
+        h:`Go to <b>${n[1]}</b>`,
+        go:()=>{closeLayer();location.hash=n[0]}
+      }))
+    ];
+    idx=0;
+    draw();
+  };
+  const draw=()=>{
+    const res=$("#palRes");
+    if(!res)return;
+    res.innerHTML=items.map((it,i)=>`<button type="button" class="${i===idx?"on":""}" data-i="${i}">${it.h}</button>`).join("")||'<p style="padding:24px;text-align:center;color:var(--muted);margin:0">Nothing found for your search.</p>';
+  };
+  if(inp){
+    inp.oninput=run;
+    inp.onkeydown=e=>{
+      if(e.key==="ArrowDown"){idx=Math.min(idx+1,items.length-1);draw();e.preventDefault()}
+      if(e.key==="ArrowUp"){idx=Math.max(idx-1,0);draw();e.preventDefault()}
+      if(e.key==="Enter"&&items[idx]){e.preventDefault();items[idx].go()}
+    };
+  }
+  const pres=$("#palRes");
+  if(pres){
+    pres.onclick=e=>{
+      const b=e.target.closest("[data-i]");
+      if(b&&items[+b.dataset.i])items[+b.dataset.i].go();
+    };
+  }
+  run();
+}
 document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();palette()}if(e.key==="Escape")closeLayer()});
 
 /* ============ actions ============ */
@@ -5770,7 +5838,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=10.2").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=10.3").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
