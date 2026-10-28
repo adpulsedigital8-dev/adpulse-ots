@@ -3572,9 +3572,10 @@ function mountLeafletMap(list){
       <img src="${esc(thumbOf(s))}" alt="" style="width:100%;height:100px;object-fit:cover;border-radius:6px;margin-bottom:6px" onerror="phFix(this)">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
         <span class="mono" style="font-size:12px;font-weight:700;color:var(--violet)">${esc(s.code)}</span>
-        <span class="pill st-${st}" style="font-size:10px;padding:2px 6px">${STATUS[st]}</span>
+        ${pill(s)}
       </div>
-      <div style="font-weight:700;font-size:13px;color:var(--ink);margin-bottom:2px">${esc(s.area)} · ${sizeOf(s)} ft</div>
+      <div style="font-weight:700;font-size:13.5px;color:var(--ink);margin-bottom:2px">${esc(s.name || s.title || s.area)}</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:4px"><b>${esc(s.area)}</b> · ${sizeOf(s)} ft</div>
       <div style="font-size:11px;color:var(--muted);margin-bottom:6px">${esc(s.from||"—")} → ${esc(s.towards||"—")}</div>
       ${s.traffic||s.vehiclesDay?`<div style="font-size:11px;color:var(--ink2);margin-bottom:6px">~${fmtK(otsOf(s))} OTS/day</div>`:""}
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:6px">
@@ -3744,23 +3745,30 @@ function mapHTML(list){
     ${!hasPins ? `<div style="position:absolute;bottom:12px;left:12px;z-index:400;background:var(--surface);padding:6px 12px;border-radius:6px;font-size:12px;color:var(--muted);box-shadow:var(--shadow)">No GPS coordinates on selected sites</div>` : ""}
   </div>`;
 }
-const pill=s=>{const k=effStatus(s);return`<span class="pill st-${k}">${STATUS[k]}</span>`};
+const pill=s=>{
+  if(s&&s.availability){
+    const isAvail=/subject to avail|available/i.test(s.availability);
+    return`<span class="pill ${isAvail?'st-available':'st-booked'}" title="${esc(s.availability)}" style="font-weight:700">${isAvail?'':'📅 '}${esc(s.availability)}</span>`;
+  }
+  const k=effStatus(s);
+  return`<span class="pill st-${k}">${STATUS[k]}</span>`;
+};
 
 /* ============ Sites ============ */
 function filtered(){
-  const q=F.q.toLowerCase();
-  return S.sites.filter(s=>(!F.area||s.area===F.area)&&(!F.size||sizeOf(s)===F.size)&&(!F.media||s.media===F.media)&&(!F.status||effStatus(s)===F.status||(F.status==="booked"&&effStatus(s)==="expiring"))&&(!F.lit||s.light===F.lit)&&(!F.traffic||s.traffic===F.traffic)&&(!F.campaign||(campOf(F.campaign)?.siteIds||[]).includes(s.id))&&(!q||[s.code,s.area,s.from,s.towards,s.media,s.brand,s.notes].join(" ").toLowerCase().includes(q))).sort((a,b)=>(a.area||"").localeCompare(b.area||"")||(a.code||"").localeCompare(b.code||""));
+  const q=F.q.toLowerCase().trim();
+  return S.sites.filter(s=>(!F.area||s.area===F.area)&&(!F.size||sizeOf(s)===F.size)&&(!F.media||s.media===F.media)&&(!F.status||effStatus(s)===F.status||(F.status==="booked"&&effStatus(s)==="expiring"))&&(!F.lit||s.light===F.lit)&&(!F.traffic||s.traffic===F.traffic)&&(!F.campaign||(campOf(F.campaign)?.siteIds||[]).includes(s.id))&&(!q||[s.code,s.name,s.title,s.area,s.from,s.towards,s.media,s.brand,s.availability,s.rates,s.notes].join(" ").toLowerCase().includes(q))).sort((a,b)=>(a.area||"").localeCompare(b.area||"")||(a.code||"").localeCompare(b.code||""));
 }
 function opt(list,v,lab){return list.map(o=>{const[val,l]=Array.isArray(o)?o:[o,o];return`<option value="${esc(val)}" ${val===v?"selected":""}>${esc(l)}</option>`}).join("")}
 function vSites(){
   if(!S.loaded.sites)return pgTop("Sites","Loading…")+`<div class="cards">${'<div class="skel"></div>'.repeat(6)}</div>`;
-  const list=filtered();const sizes=[...new Set([...SIZES,...S.sites.map(sizeOf)])];
+  const list=filtered();const sizes=[...new Set([...SIZES,...S.sites.map(sizeOf)])];const allAreas=[...new Set([...Object.keys(AREAS),...S.sites.map(s=>s.area).filter(Boolean)])].sort();
   const nf=Object.entries(F).filter(([k,v])=>k!=="q"&&v).length;
   const f=(k,lab,opts)=>`<select data-f="${k}" class="${F[k]?"set":""}" aria-label="${lab}"><option value="">${lab}: all</option>${opt(opts,F[k])}</select>`;
   const filt=`<div class="filters">
     <input class="in" style="max-width:220px;min-height:44px;padding:8px 12px;font-size:14px" placeholder="Search code, road, brand" value="${esc(F.q)}" id="fq">
     <button class="btn fbtn ${nf?"pri":""}" data-act="ftoggle">Filters${nf?` (${nf})`:""}</button>
-    <div class="fsel ${fOpen?"open":""}">${f("area","Area",Object.keys(AREAS))}${f("size","Size",sizes.map(x=>[x,x+" ft"]))}${f("media","Type",MEDIA)}${f("status","Status",[["available","Available"],["booked","Not available"],["expiring","Expiring soon"],["maintenance","Maintenance"]])}${f("lit","Light",LIGHT)}${f("traffic","Traffic",Object.entries(TLEV))}${f("campaign","Campaign",S.campaigns.map(c=>[c.id,c.name]))}
+    <div class="fsel ${fOpen?"open":""}">${f("area","Area",allAreas)}${f("size","Size",sizes.map(x=>[x,x+" ft"]))}${f("media","Type",MEDIA)}${f("status","Status",[["available","Available"],["booked","Not available"],["expiring","Expiring soon"],["maintenance","Maintenance"]])}${f("lit","Light",LIGHT)}${f("traffic","Traffic",Object.entries(TLEV))}${f("campaign","Campaign",S.campaigns.map(c=>[c.id,c.name]))}
     ${Object.values(F).some(Boolean)?`<button class="btn sm ghost" data-act="clearf">Clear</button>`:""}</div>
     <span class="sp"></span>
     <div class="seg" role="tablist">${[["grid","Cards"],["table","Table"],["map","Map"]].map(([k,l])=>`<button class="${siteView===k?"on":""}" data-act="sview" data-v="${k}">${l}</button>`).join("")}</div>
@@ -3768,7 +3776,7 @@ function vSites(){
   let body;
   if(!list.length)body=`<div class="card">${emptyState(S.sites.length?"No sites match these filters":"No sites yet",S.sites.length?"Try removing a filter.":"Add your first site or capture one from the field.")}</div>`;
   else if(siteView==="grid")body=`<div class="cards enter">${list.map(card).join("")}</div>`;
-  else if(siteView==="table")body=`<div class="tblwrap card"><table class="t"><thead><tr><th><input type="checkbox" data-act="selalltoggle" ${list.length>0&&list.every(s=>sel.has(s.id))?"checked":""} title="Select/Deselect all visible" aria-label="Select all" style="width:18px;height:18px;accent-color:var(--violet);cursor:pointer"></th><th>Code</th><th>Area</th><th>Direction</th><th>Size</th><th>Type</th><th>Light</th><th>Traffic</th><th>Status</th><th>Booking</th><th>Last photo</th></tr></thead><tbody>${list.map(s=>`<tr data-act="site" data-id="${s.id}"><td><input type="checkbox" data-act="selck" data-id="${s.id}" ${sel.has(s.id)?"checked":""} aria-label="Select ${esc(s.code)}" style="width:18px;height:18px;accent-color:var(--violet)"></td><td class="mono" style="color:var(--violet);font-weight:700">${esc(s.code)}</td><td><div class="row" style="flex-wrap:nowrap"><img src="${esc(thumbOf(s))}" alt="">${esc(s.area)}</div></td><td>${esc(s.from||"—")} → ${esc(s.towards||"—")}</td><td class="mono">${sizeOf(s)}</td><td>${esc(s.media)}</td><td>${esc(s.light)}</td><td>${s.traffic||s.vehiclesDay?`${s.traffic?TLEV[s.traffic]:"Counted"}<br><small style="color:var(--muted)">~${fmtK(otsOf(s))} OTS/day</small>`:"—"}</td><td>${pill(s)}</td><td>${esc(bookingTxt(s))||"—"}${s.brand?`<br><small style="color:var(--muted)">${esc(s.brand)}</small>`:""}</td><td>${lastPhoto(s)?ago(lastPhoto(s).at):"—"}</td></tr>`).join("")}</tbody></table></div>`;
+  else if(siteView==="table")body=`<div class="tblwrap card"><table class="t"><thead><tr><th><input type="checkbox" data-act="selalltoggle" ${list.length>0&&list.every(s=>sel.has(s.id))?"checked":""} title="Select/Deselect all visible" aria-label="Select all" style="width:18px;height:18px;accent-color:var(--violet);cursor:pointer"></th><th>Code</th><th>Site Name</th><th>Area</th><th>Direction</th><th>Size</th><th>Type</th><th>Light</th><th>Traffic</th><th>Status / Availability</th><th>Booking</th><th>Last photo</th></tr></thead><tbody>${list.map(s=>`<tr data-act="site" data-id="${s.id}"><td><input type="checkbox" data-act="selck" data-id="${s.id}" ${sel.has(s.id)?"checked":""} aria-label="Select ${esc(s.code)}" style="width:18px;height:18px;accent-color:var(--violet)"></td><td class="mono" style="color:var(--violet);font-weight:700">${esc(s.code)}</td><td style="font-weight:700;max-width:220px;line-height:1.3"><div class="row" style="flex-wrap:nowrap"><img src="${esc(thumbOf(s))}" alt="" style="width:28px;height:28px;border-radius:4px;object-fit:cover;margin-right:6px"><span>${esc(s.name||s.title||s.area)}</span></div></td><td>${esc(s.area)}</td><td>${esc(s.from||"—")} → ${esc(s.towards||"—")}</td><td class="mono">${sizeOf(s)}</td><td>${esc(s.media)}</td><td>${esc(s.light)}</td><td>${s.traffic||s.vehiclesDay?`${s.traffic?TLEV[s.traffic]:"Counted"}<br><small style="color:var(--muted)">~${fmtK(otsOf(s))} OTS/day</small>`:"—"}</td><td>${pill(s)}</td><td>${esc(bookingTxt(s))||"—"}${s.brand?`<br><small style="color:var(--muted)">${esc(s.brand)}</small>`:""}</td><td>${lastPhoto(s)?ago(lastPhoto(s).at):"—"}</td></tr>`).join("")}</tbody></table></div>`;
   else body=`<div class="card pad">${mapHTML(list)}<p style="color:var(--muted);font-size:12px;margin:10px 0 0">Interactive map. Tap a pin for the site card; "Open in Google Maps" is inside each site.</p></div>`;
   const bulk=sel.size?`<div class="bulk"><b>${sel.size} selected</b><span class="sp"></span><select id="bulkSt" aria-label="Set status"><option value="">Set status…</option><option value="available">Available</option><option value="booked">Not available</option><option value="maintenance">Maintenance</option></select><select id="bulkC" aria-label="Add to campaign"><option value="">Add to campaign…</option>${opt(S.campaigns.map(c=>[c.id,c.name]))}</select><button class="btn sm" data-act="bulkdeck">${ICON.deck}Make deck</button><button class="btn sm" data-act="bulkdel" style="color:#ff8fa3;border-color:rgba(255,143,163,.45)">${ICON.trash}Delete</button><button class="btn sm" data-act="selnone">Clear</button></div>`:"";
   const siteTopBtns = `<div class="row" style="gap:6px;flex-wrap:wrap">
@@ -3781,14 +3789,20 @@ function vSites(){
 }
 function card(s){
   const n=(s.photos||[]).length;const cs=siteCamps(s);
+  const siteTitle=s.name||s.title||s.area;
   return`<article class="card scard ${sel.has(s.id)?"sel":""}" data-act="site" data-id="${s.id}">
   <div class="ph"><img src="${esc(thumbOf(s))}" alt="${esc(s.code)} photo" loading="lazy" data-sid="${s.id}" onerror="phFix(this)">${pill(s)}<button class="ck" data-act="sel" data-id="${s.id}" aria-label="Select">${sel.has(s.id)?ICON.check:""}</button>${n?`<span class="cnt">${mediaCount(s)}</span>`:""}</div>
-  <div class="bd"><span class="code">${esc(s.code)}${s.sample?' <span class="tag sample">Sample</span>':""}</span><h3>${esc(s.area)}</h3>
-  <div class="dir">${esc(s.from||"—")} ${ICON.arrow} ${esc(s.towards||"—")}</div>
-  ${s.brand||s.tagline?`<div style="font-size:12px;font-weight:600;color:var(--ink);margin:4px 0 2px;display:flex;align-items:center;gap:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><span style="color:var(--violet)">●</span> ${esc(s.brand||"")}${s.tagline?` <span style="font-weight:400;color:var(--muted);font-style:italic">"${esc(s.tagline)}"</span>`:""}</div>`:""}
-  ${bookingTxt(s)?`<div class="dates">${ICON.cal}${bookingTxt(s)}${s.brand&&!RO()?` · ${esc(s.brand)}`:""}</div>`:""}
-  ${trafficTag(s)?`<div>${trafficTag(s)}</div>`:""}
-  <div class="meta"><span class="tag mono">${sizeOf(s)} ft</span><span class="tag">${esc(s.media)}</span><span class="tag">${esc(s.light)}</span>${cs.slice(0,1).map(c=>`<span class="tag" style="color:${c.color};border-color:${c.color}">${esc(c.name)}</span>`).join("")}</div></div></article>`;
+  <div class="bd">
+    <div class="row" style="gap:6px;align-items:center;margin-bottom:2px">
+      <span class="code">${esc(s.code)}${s.sample?' <span class="tag sample">Sample</span>':""}</span>
+      <span class="tag" style="background:var(--surface2);font-weight:700;color:var(--violet)">${esc(s.area)}</span>
+    </div>
+    <h3 title="${esc(siteTitle)}" style="margin:2px 0 4px;font-size:16px;line-height:1.3">${esc(siteTitle)}</h3>
+    <div class="dir">${esc(s.from||"—")} ${ICON.arrow} ${esc(s.towards||"—")}</div>
+    ${s.brand||s.tagline?`<div style="font-size:12px;font-weight:600;color:var(--ink);margin:4px 0 2px;display:flex;align-items:center;gap:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><span style="color:var(--violet)">●</span> ${esc(s.brand||"")}${s.tagline?` <span style="font-weight:400;color:var(--muted);font-style:italic">"${esc(s.tagline)}"</span>`:""}</div>`:""}
+    ${s.availability?`<div style="font-size:12px;font-weight:600;color:var(--muted);margin:3px 0;display:flex;align-items:center;gap:6px"><span>Availability:</span> <b style="color:var(--ink)">${esc(s.availability)}</b></div>`:bookingTxt(s)?`<div class="dates">${ICON.cal}${bookingTxt(s)}${s.brand&&!RO()?` · ${esc(s.brand)}`:""}</div>`:""}
+    ${trafficTag(s)?`<div>${trafficTag(s)}</div>`:""}
+    <div class="meta"><span class="tag mono">${sizeOf(s)} ft</span><span class="tag">${esc(s.media)}</span><span class="tag">${esc(s.light)}</span>${cs.slice(0,1).map(c=>`<span class="tag" style="color:${c.color};border-color:${c.color}">${esc(c.name)}</span>`).join("")}</div></div></article>`;
 }
 
 /* site drawer */
@@ -3800,14 +3814,28 @@ function openSite(id,editMode){
   const canDel=!isNew&&!RO();
   const gal=ph.length?`<div class="gallery">${ph.map((p,i)=>`<figure>${canDel?`<button class="pdel" data-act="photodel" data-id="${d.id}" data-i="${ph.length-1-i}" data-at="${esc(p.at)}" aria-label="Delete this ${isVid(p)?"video":"photo"}" title="Delete">${ICON.trash}</button>`:""}${isVid(p)?`<video src="${esc(photoSrc(p))}" controls playsinline preload="metadata"></video>`:`<img src="${esc(photoSrc(p))}" alt="">`}<figcaption>${esc(p.tag||"Photo")} · ${fmtDT(p.at)} · ${esc(p.by||"")}</figcaption></figure>`).join("")}</div>`:`<div class="gallery"><figure><img src="${esc(placeholder(d))}" alt=""><figcaption>No photos yet</figcaption></figure></div>`;
   const info=`<div class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
-    ${[["Area",esc(d.area)],["Size",`<span class="mono">${sizeOf(d)} ft</span>`],["Type",esc(d.media)],["Light",esc(d.light)],["From",esc(d.from||"—")],["Towards",esc(d.towards||"—")],...(RO()?[]:[["Brand on site",esc(d.brand||"—")],["Tagline / Slogan",d.tagline?`<span style="color:var(--ink);font-style:italic">"${esc(d.tagline)}"</span>`:"—"],["Brand Logo",d.logo?`<span class="tag" style="background:rgba(217,22,29,0.1);color:#d9161d;font-weight:700">${esc(d.logo)}</span>`:"—"]]),["Booking",d.status==="booked"&&d.bookedTill?`${d.bookedFrom?fmtDate(d.bookedFrom)+" → ":"Till "}${fmtDate(d.bookedTill)}`:"—"],["GPS",d.lat?`<span class="mono">${(+d.lat).toFixed(5)}, ${(+d.lng).toFixed(5)}</span>`:"—"],["Campaigns",siteCamps(d).map(c=>esc(c.name)).join(", ")||"—"]].map(([k,v])=>`<div><div class="eyebrow">${k}</div><div style="font-weight:600;margin-top:2px">${v}</div></div>`).join("")}
+    ${[
+      ...(d.name||d.title?[["Site Name",`<span style="font-size:14.5px;color:var(--ink);font-weight:700">${esc(d.name||d.title)}</span>`]]:[]),
+      ["Area",esc(d.area)],
+      ...(d.availability?[["Availability",`<span class="pill ${/subject to avail|available/i.test(d.availability)?'st-available':'st-booked'}" style="font-size:11.5px;font-weight:700">${esc(d.availability)}</span>`]]:[]),
+      ["Size",`<span class="mono">${sizeOf(d)} ft</span>`],
+      ["Type",esc(d.media)],
+      ["Light",esc(d.light)],
+      ["From",esc(d.from||"—")],
+      ["Towards",esc(d.towards||"—")],
+      ...(d.rates?[["Rates / Currency",esc(d.rates)]]:[]),
+      ...(RO()?[]:[["Brand on site",esc(d.brand||"—")],["Tagline / Slogan",d.tagline?`<span style="color:var(--ink);font-style:italic">"${esc(d.tagline)}"</span>`:"—"],["Brand Logo",d.logo?`<span class="tag" style="background:rgba(217,22,29,0.1);color:#d9161d;font-weight:700">${esc(d.logo)}</span>`:"—"]]),
+      ["Booking",d.status==="booked"&&d.bookedTill?`${d.bookedFrom?fmtDate(d.bookedFrom)+" → ":"Till "}${fmtDate(d.bookedTill)}`:"—"],
+      ["GPS",d.lat?`<span class="mono">${(+d.lat).toFixed(5)}, ${(+d.lng).toFixed(5)}</span>`:"—"],
+      ["Campaigns",siteCamps(d).map(c=>esc(c.name)).join(", ")||"—"]
+    ].map(([k,v])=>`<div><div class="eyebrow">${k}</div><div style="font-weight:600;margin-top:2px">${v}</div></div>`).join("")}
   </div>${d.verifiedBy?`<small style="color:var(--muted);font-weight:600">✓ Details confirmed by ${esc(d.verifiedBy)} on ${fmtDate(d.verifiedAt)}${d.agentAssisted?" · filled with Site Agent":""}${d.heading!=null?` · faces traffic heading ${cmp(d.heading)}`:""}</small>`:""}${d.traffic||d.vehiclesDay?`<div class="tbox" style="gap:10px"><h4>${tBars(d.traffic)}Traffic: ${esc(d.from||"—")} → ${esc(d.towards||"—")}</h4>
     <div class="ots"><div><b>~${fmtK(otsOf(d))}</b></div><small>Estimated daily OTS<br>${d.traffic?TLEV[d.traffic]+" traffic · ":""}${d.vehiclesDay?Number(d.vehiclesDay).toLocaleString("en-US")+" vehicles/day (counted)":"≈ "+fmtK(vehOf(d))+" vehicles/day (estimate)"}${d.signal?" · signal nearby":""}</small></div>
     ${(d.peak||[]).length?`<div><div class="eyebrow">Peak hours</div><div class="chips" style="margin-top:6px">${d.peak.map(x=>`<span class="tag">${esc(x)}</span>`).join("")}</div></div>`:""}
     ${(d.audience||[]).length?`<div><div class="eyebrow">Audience</div><div class="chips" style="margin-top:6px">${d.audience.map(x=>`<span class="tag">${esc(x)}</span>`).join("")}</div></div>`:""}</div>`:""}${d.notes?`<div><div class="eyebrow">Notes</div><p style="margin:4px 0 0">${esc(d.notes)}</p></div>`:""}`;
   const form=siteForm(d,"sd");
   openLayer(`<div class="scrim" data-act="close"></div><aside class="drawer" role="dialog" aria-label="Site">
-    <div class="dh"><div><div class="mono" style="color:var(--violet);font-weight:700;font-size:12px">${esc(d.code||"New site")}</div><h2 style="font-size:20px">${isNew?"Add a site":esc(d.area)}</h2></div><span class="sp"></span>${s?pill(s):""}<button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button></div>
+    <div class="dh"><div><div class="mono" style="color:var(--violet);font-weight:700;font-size:12px">${esc(d.code||"New site")}</div><h2 style="font-size:20px">${isNew?"Add a site":esc(d.name||d.title||d.area)}</h2></div><span class="sp"></span>${s?pill(s):""}<button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button></div>
     <div class="db">${gal}
       ${!isNew&&RO()&&d.lat?`<div class="row" style="flex-wrap:wrap"><a class="btn sm cy" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(d.lat+','+d.lng)}&travelmode=driving" target="_blank" rel="noopener">${ICON.pin}Start 3D Navigation</a><button class="btn sm" data-act="view3d" data-id="${d.id}">🌍 3D Earth View</button><a class="btn sm" href="${mapsUrl(d)}" target="_blank" rel="noopener">Open in Maps</a></div>`:""}
       ${!isNew&&!RO()?`<div class="row" style="flex-wrap:wrap"><button class="btn sm cy" data-act="scanhoarding" data-id="${d.id}" title="Scan hoarding image with AI to detect Brand Logo and Tagline">🔍 Scan Hoarding (AI Logo &amp; Tagline)</button><button class="btn sm" data-act="addphoto" data-id="${d.id}">${ICON.cam}Add photo / video</button>${d.lat?`<a class="btn sm cy" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(d.lat+','+d.lng)}&travelmode=driving" target="_blank" rel="noopener">${ICON.pin}Start 3D Navigation</a><button class="btn sm" data-act="view3d" data-id="${d.id}">🌍 3D Earth View</button>`:""}<button class="btn sm" data-act="${edit?"siteview":"siteedit"}" data-id="${d.id}">${edit?"Cancel edit":"Edit details"}</button><span class="sp"></span><button class="btn sm danger" data-act="sitedel" data-id="${d.id}">Delete</button></div>`:""}
@@ -3818,8 +3846,10 @@ function openSite(id,editMode){
 }
 function siteForm(d,p){
   const sz=sizeOf(d);const pre=SIZES.includes(sz);
+  const formAreas=[...new Set([...Object.keys(AREAS),...S.sites.map(s=>s.area).filter(Boolean)])].sort();
   return`<div class="fgrid">
-   <label class="f">Area<select class="in" id="${p}-area">${opt(Object.keys(AREAS),d.area)}<option value="__new">+ New area…</option></select></label>
+   <label class="f full">Site Name / Location<input class="in" id="${p}-name" value="${esc(d.name||d.title||"")}" placeholder="e.g. DHA SUNSET BOULEVARD"></label>
+   <label class="f">Area<select class="in" id="${p}-area">${opt(formAreas,d.area)}<option value="__new">+ New area…</option></select></label>
    <label class="f" id="${p}-newareaL" hidden>New area name<input class="in" id="${p}-newarea" placeholder="e.g. Bahadurabad"></label>
    <label class="f">Media type<select class="in" id="${p}-media">${opt(MEDIA,d.media)}</select></label>
    <div class="f full"><span style="font-size:12px;font-weight:700;color:var(--ink2)">Size (ft)</span><div class="chips" id="${p}-sizes">${SIZES.map(x=>`<button type="button" class="chip mono ${x===sz?"on":""}" data-size="${x}">${x}</button>`).join("")}<button type="button" class="chip ${pre?"":"on"}" data-size="custom">Custom</button></div>
@@ -3879,6 +3909,9 @@ function readForm(root,p,d){
     brand:g("brand")?g("brand").value.trim():(d.brand||""),
     tagline:g("tagline")?g("tagline").value.trim():(d.tagline||""),
     logo:g("logo")?g("logo").value.trim():(d.logo||""),
+    name:g("name")?g("name").value.trim():(d.name||d.title||""),
+    title:g("name")?g("name").value.trim():(d.name||d.title||""),
+    availability:g("availability")?g("availability").value.trim():(d.availability||""),
     bookedTill:d.status==="booked"?(g("till")?g("till").value:(d.bookedTill||"")):"",
     bookedFrom:d.status==="booked"?(g("bfrom")?g("bfrom").value:(d.bookedFrom||"")):"",
     lat:isFinite(lat)?lat:(d.lat||""),
@@ -4405,8 +4438,9 @@ function openCamp(id){
           <span class="camp-site-size">${sizeOf(s)} ft</span>
           <span class="camp-site-media">${esc(s.media||"Billboard")}</span>
         </div>
+        <div style="font-weight:700;font-size:13.5px;color:var(--ink);margin:2px 0 1px">${esc(s.name||s.title||s.area)}</div>
         <div class="camp-site-loc">
-          <b>${esc(s.area)}</b> · ${esc(s.from||"")} → ${esc(s.towards||"")}
+          <b>${esc(s.area)}</b> ${(s.from||s.towards)?`· ${esc(s.from||"—")} → ${esc(s.towards||"—")}`:""}
         </div>
       </div>
       <div class="camp-site-pill">
@@ -4425,7 +4459,7 @@ function openCamp(id){
      </div>
      <span class="sp"></span>
      <input class="in sm" id="cSearch" placeholder="🔍 Search code, road, area…" style="max-width:210px;min-height:36px;padding:4px 10px;font-size:12.5px" autocomplete="off">
-     <select class="in sm" id="cArea" style="max-width:170px;min-height:36px;padding:4px 8px;font-size:12.5px"><option value="">All Areas (${S.sites.length})</option>${opt(Object.keys(AREAS))}</select>
+     ${(()=>{const cAreas=[...new Set([...Object.keys(AREAS),...S.sites.map(s=>s.area).filter(Boolean)])].sort();return`<select class="in sm" id="cArea" style="max-width:170px;min-height:36px;padding:4px 8px;font-size:12.5px"><option value="">All Areas (${S.sites.length})</option>${opt(cAreas)}</select>`})()}
      <div class="row" style="gap:4px">
        <button type="button" class="btn sm ghost" id="cSelAll" style="font-size:11px;padding:4px 8px">Select all</button>
        <button type="button" class="btn sm ghost" id="cClrAll" style="font-size:11px;padding:4px 8px">Clear</button>
@@ -4553,17 +4587,51 @@ const DECK_MONTHS = {
 function parseDeckSiteText(fullText, texts, index) {
   if (!texts || !texts.length) return null;
   const rawJoined = texts.join(" ");
-  if (/OOH UPDATED|www\.adpulse\.pk/i.test(rawJoined) && texts.length < 4) {
+  if (/OOH UPDATED|www\.adpulse\.pk/i.test(rawJoined) && texts.length < 5 && !/SIZE|DIRECTION/i.test(rawJoined)) {
+    return null;
+  }
+  if (/^(NOTE\s*:|THANK\s*YOU|www\.adpulse\.pk)/i.test(rawJoined) && !/SIZE|DIRECTION/i.test(rawJoined)) {
     return null;
   }
 
-  // 1. Title / Location
-  let title = texts[0] || ("Site " + index);
-  if (/^(SIZE|DIRECTION|AVAILAB|TCF|TGT|RATE)/i.test(title)) {
+  // 1. Title / Location: collect text runs before bottom-strip sections
+  let firstSecIdx = texts.findIndex(t => /^(SIZE|DIRECTION|AVAILAB|RATES|MEDIUM)\b/i.test(t));
+  let titleParts = [];
+  if (firstSecIdx > 0) {
+    titleParts = texts.slice(0, firstSecIdx);
+  }
+  let title = titleParts.join(" ").trim();
+
+  // If title is empty or just keywords (like Slide 19, 20, 32, 36)
+  if (!title || /^(SIZE|DIRECTION|AVAILAB|RATES|MEDIUM)$/i.test(title)) {
+    const medIdx = texts.findIndex(t => /^(MEDIUM|FLEX|VINYL|BACKLIT)$/i.test(t));
+    if (medIdx !== -1) {
+      const candidates = [];
+      for (let i = medIdx + 1; i < texts.length; i++) {
+        const t = texts[i];
+        if (!/^(FLEX|VINYL|BACKLIT|NON[\-_ ]?LIT|PKR|RATES)$/i.test(t) && !/\d{1,2}[\s\-_]+(?:JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)|(?:20\d{2})/i.test(t)) {
+          candidates.push(t);
+        }
+      }
+      if (candidates.length) {
+        title = candidates.join(" ").trim();
+      }
+    }
+  }
+
+  // Fallback to first non-keyword text run if still empty
+  if (!title && texts.length) {
     const candidate = texts.find(t => !/^(SIZE|DIRECTION|AVAILAB|TCF|TGT|RATE|PKR|MEDIUM|FLEX|VINYL|BACKLIT)/i.test(t) && !/^\d+/.test(t) && t.length > 3);
     if (candidate) title = candidate;
   }
-  title = title.replace(/\s*\|\s*(SIZE|DIRECTION|AVAILABILITY|PKR|RATES)[\s\S]*/i, "").trim();
+
+  title = title.replace(/&amp;/g, "&")
+               .replace(/\s*\|\s*/g, " ")
+               .replace(/\s+/g, " ")
+               .replace(/^(SIZE|DIRECTION|AVAILAB|RATES|MEDIUM)[\s\S]*/i, "")
+               .trim();
+
+  if (!title) title = "Site " + index;
 
   // 2. Size (Width x Height ft)
   let widthFt = 20, heightFt = 40;
@@ -4598,9 +4666,19 @@ function parseDeckSiteText(fullText, texts, index) {
   from = from.replace(/^(TCF|FTCF)\s+/i, "").replace(/TGT[\s\S]*/i, "").trim();
   towards = towards.replace(/^(TGT)\s+/i, "").replace(/\s+(AVAILAB|RATES|MEDIUM|PKR)[\s\S]*/i, "").trim();
 
-  // 4. Availability Date
+  // 4. Exact Availability Text & Normalized Date
+  let availRaw = "";
+  if (/SUBJECT\s+TO\s+AVAILAB[A-Z]*/i.test(fullText)) {
+    availRaw = "Subject to Availability";
+  } else {
+    const m = fullText.match(/(\d{1,2}(?:\s*(?:st|nd|rd|th))?[\s\-_,]*(?:JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)[A-Z]*[\s\-_,]*(?:20\d{2}|\d{2})(?:\s*\+\s*EXT)?)/i);
+    if (m) {
+      availRaw = m[1].replace(/\s+/g, " ").trim();
+    }
+  }
+
   let dateStr = "";
-  const dtMatch = fullText.match(/(\d{1,2})\s*(?:st|nd|rd|th)?\s*[\s\-_,]*\s*(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)[A-Z]*\s*[\s\-_,]*\s*(20\d{2}|\d{2})/i);
+  const dtMatch = (availRaw || fullText).match(/(\d{1,2})\s*(?:st|nd|rd|th)?[\s\-_,]*([A-Z]{3})[A-Z]*[\s\-_,]*(\d{2,4})/i);
   if (dtMatch) {
     const day = dtMatch[1].padStart(2, "0");
     const month = DECK_MONTHS[dtMatch[2].toUpperCase()] || "10";
@@ -4613,6 +4691,12 @@ function parseDeckSiteText(fullText, texts, index) {
       dateStr = `${isoMatch[1]}-${isoMatch[2].padStart(2, "0")}-${isoMatch[3].padStart(2, "0")}`;
     }
   }
+
+  // Rates
+  let rates = "PKR";
+  if (/USD|\$/i.test(fullText)) rates = "USD";
+  else if (/EUR|€/i.test(fullText)) rates = "EUR";
+  else if (/PKR|Rs/i.test(fullText)) rates = "PKR";
 
   // 5. Media & Light
   let media = "Billboard";
@@ -4665,12 +4749,15 @@ function parseDeckSiteText(fullText, texts, index) {
   return {
     slideIndex: index,
     title,
+    name: title,
     area,
     widthFt,
     heightFt,
     from,
     towards,
     date: dateStr,
+    availability: availRaw || (dateStr ? dateStr : "Available"),
+    rates,
     media,
     light
   };
@@ -4953,14 +5040,14 @@ function openDeckUploader() {
             ${s.previewUrl ? `<img src="${s.previewUrl}" style="width:100%;height:100%;object-fit:cover" alt="">` : `<span style="font-size:20px">📍</span>`}
           </div>
           <div style="flex:1;min-width:180px">
-            <div style="font-weight:700;font-size:13.5px">${esc(s.title)}</div>
+            <div style="font-weight:700;font-size:14px;color:var(--ink)">${esc(s.name || s.title)}</div>
             <div style="font-size:12px;color:var(--muted)">
-              <b style="color:var(--ink)">${esc(s.area)}</b> · ${s.widthFt}×${s.heightFt} ft · ${esc(s.media)}
+              <b style="color:var(--violet)">${esc(s.area)}</b> · ${s.widthFt}×${s.heightFt} ft · ${esc(s.media)}
               ${(s.from || s.towards) ? ` · ${esc(s.from || "—")} → ${esc(s.towards || "—")}` : ""}
             </div>
           </div>
           <div style="flex:none;text-align:right">
-            ${s.date ? `<span class="pill st-booked" style="font-size:11px">📅 ${s.date}</span>` : `<span class="pill st-available" style="font-size:11px">Available</span>`}
+            ${s.availability ? `<span class="pill ${/subject to avail|available/i.test(s.availability) ? 'st-available' : 'st-booked'}" style="font-size:11px;font-weight:700">${/subject to avail|available/i.test(s.availability) ? '' : '📅 '}${esc(s.availability)}</span>` : `<span class="pill st-available" style="font-size:11px">Available</span>`}
           </div>
         </div>
       `).join("");
@@ -5022,12 +5109,16 @@ function openDeckUploader() {
           }
         }
 
-        const isBooked = bookSites && (!!p.date || !!campEnd);
+        const isBooked = bookSites && (!!p.date || !/subject to avail|available/i.test(p.availability));
         const siteId = uid();
         const siteObj = {
           id: siteId,
           code: code,
+          name: p.title || p.name || code,
+          title: p.title || p.name || code,
           area: p.area,
+          availability: p.availability || (isBooked ? (p.date || "Not available") : "Available"),
+          rates: p.rates || "PKR",
           media: p.media || "Billboard",
           light: p.light || "Lit",
           widthFt: p.widthFt || 20,
@@ -5041,7 +5132,7 @@ function openDeckUploader() {
           lat: lat,
           lng: lng,
           approx: true,
-          notes: `Imported from ${fileInput.files[0]?.name || "presentation deck"}: ${p.title}`,
+          notes: `Imported from ${fileInput.files[0]?.name || "presentation deck"}: ${p.title} (${p.availability || ""})`,
           photos: photoObj ? [photoObj] : [],
           traffic: "high",
           vehiclesDay: "",
@@ -5069,9 +5160,19 @@ function openDeckUploader() {
       };
       await put("campaigns", newCamp);
 
+      // Reset and set filter automatically to newly created campaign
+      F.campaign = campId;
+      F.area = "";
+      F.q = "";
+      F.status = "";
+      F.size = "";
+      F.media = "";
+      F.lit = "";
+      F.traffic = "";
+
       closeLayer();
-      toast(`🎉 Campaign "${campName}" created with ${createdSiteIds.length} sites!`);
-      location.hash = "campaigns";
+      toast(`🎉 Campaign "${campName}" created with ${createdSiteIds.length} sites! Filter auto-set to this campaign.`);
+      location.hash = "sites";
       render(true);
     } catch(err) {
       console.error("Submit campaign error:", err);
