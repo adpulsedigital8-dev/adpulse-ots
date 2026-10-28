@@ -1,4 +1,4 @@
-const CACHE_NAME = 'adpulse-ots-v10.4';
+const CACHE_NAME = 'adpulse-ots-v11.0';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -10,6 +10,8 @@ const PRECACHE_ASSETS = [
   '/icons/icon-512.png',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
+  'https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js',
+  'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js',
   'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap'
 ];
 

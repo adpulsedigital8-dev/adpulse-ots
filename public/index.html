@@ -1339,6 +1339,8 @@ body.client .tabs{display:none}
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js"></script>
 <script src="/config.js?v=3.1"></script>
 <script src="/claude-shim.js?v=3.1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 </head>
 <body>
 
@@ -3769,7 +3771,13 @@ function vSites(){
   else if(siteView==="table")body=`<div class="tblwrap card"><table class="t"><thead><tr><th><input type="checkbox" data-act="selalltoggle" ${list.length>0&&list.every(s=>sel.has(s.id))?"checked":""} title="Select/Deselect all visible" aria-label="Select all" style="width:18px;height:18px;accent-color:var(--violet);cursor:pointer"></th><th>Code</th><th>Area</th><th>Direction</th><th>Size</th><th>Type</th><th>Light</th><th>Traffic</th><th>Status</th><th>Booking</th><th>Last photo</th></tr></thead><tbody>${list.map(s=>`<tr data-act="site" data-id="${s.id}"><td><input type="checkbox" data-act="selck" data-id="${s.id}" ${sel.has(s.id)?"checked":""} aria-label="Select ${esc(s.code)}" style="width:18px;height:18px;accent-color:var(--violet)"></td><td class="mono" style="color:var(--violet);font-weight:700">${esc(s.code)}</td><td><div class="row" style="flex-wrap:nowrap"><img src="${esc(thumbOf(s))}" alt="">${esc(s.area)}</div></td><td>${esc(s.from||"—")} → ${esc(s.towards||"—")}</td><td class="mono">${sizeOf(s)}</td><td>${esc(s.media)}</td><td>${esc(s.light)}</td><td>${s.traffic||s.vehiclesDay?`${s.traffic?TLEV[s.traffic]:"Counted"}<br><small style="color:var(--muted)">~${fmtK(otsOf(s))} OTS/day</small>`:"—"}</td><td>${pill(s)}</td><td>${esc(bookingTxt(s))||"—"}${s.brand?`<br><small style="color:var(--muted)">${esc(s.brand)}</small>`:""}</td><td>${lastPhoto(s)?ago(lastPhoto(s).at):"—"}</td></tr>`).join("")}</tbody></table></div>`;
   else body=`<div class="card pad">${mapHTML(list)}<p style="color:var(--muted);font-size:12px;margin:10px 0 0">Interactive map. Tap a pin for the site card; "Open in Google Maps" is inside each site.</p></div>`;
   const bulk=sel.size?`<div class="bulk"><b>${sel.size} selected</b><span class="sp"></span><select id="bulkSt" aria-label="Set status"><option value="">Set status…</option><option value="available">Available</option><option value="booked">Not available</option><option value="maintenance">Maintenance</option></select><select id="bulkC" aria-label="Add to campaign"><option value="">Add to campaign…</option>${opt(S.campaigns.map(c=>[c.id,c.name]))}</select><button class="btn sm" data-act="bulkdeck">${ICON.deck}Make deck</button><button class="btn sm" data-act="bulkdel" style="color:#ff8fa3;border-color:rgba(255,143,163,.45)">${ICON.trash}Delete</button><button class="btn sm" data-act="selnone">Clear</button></div>`:"";
-  return pgTop("Sites",`${list.length} of ${S.sites.length} sites`,`<button class="btn hm" data-act="selall">Select all</button><button class="btn pri" data-act="newsite">${ICON.plus}Add site</button>`)+filt+body+bulk;
+  const siteTopBtns = `<div class="row" style="gap:6px;flex-wrap:wrap">
+    <button class="btn pri" data-act="uploaddeck" style="background:linear-gradient(135deg,#D9161D,#F26A21);font-weight:700">📁 Import PPT / PDF</button>
+    <button class="btn hm" data-act="selall">Select all</button>
+    <button class="btn pri" data-act="newsite">${ICON.plus}Add site</button>
+    ${S.sites.length?`<button class="btn danger ghost" data-act="clearalldata" title="Delete all previous data">🗑️ Clear All</button>`:""}
+  </div>`;
+  return pgTop("Sites",`${list.length} of ${S.sites.length} sites`,siteTopBtns)+filt+body+bulk;
 }
 function card(s){
   const n=(s.photos||[]).length;const cs=siteCamps(s);
@@ -4355,8 +4363,13 @@ async function exifGPS(file){
 function vCampaigns(){
   if(!S.loaded.campaigns)return pgTop("Campaigns","Loading…")+`<div class="camps">${'<div class="skel"></div>'.repeat(3)}</div>`;
   const list=S.campaigns.slice().sort((a,b)=>(b.startDate||"").localeCompare(a.startDate||""));
-  const body=list.length?`<div class="camps enter">${list.map(campCard).join("")}</div>`:`<div class="card">${emptyState("No campaigns yet","Create a campaign, add sites to it, and track proof-of-display photos.",`<button class="btn pri" data-act="newcamp">${ICON.plus}New campaign</button>`)}</div>`;
-  return pgTop("Campaigns",`${list.length} campaign${list.length!==1?"s":""}`,`<button class="btn pri" data-act="newcamp">${ICON.plus}New campaign</button>`)+body;
+  const topBtns = `<div class="row" style="gap:8px;flex-wrap:wrap">
+    <button class="btn pri" data-act="uploaddeck" style="background:linear-gradient(135deg,#D9161D,#F26A21);box-shadow:0 4px 14px rgba(217,22,29,0.35);font-weight:700">📁 Upload PPT / PDF (Auto Campaign)</button>
+    <button class="btn" data-act="newcamp">${ICON.plus}New campaign</button>
+    ${(S.sites.length||S.campaigns.length)?`<button class="btn danger ghost" data-act="clearalldata" title="Delete all previous data">🗑️ Clear All Data</button>`:""}
+  </div>`;
+  const body=list.length?`<div class="camps enter">${list.map(campCard).join("")}</div>`:`<div class="card">${emptyState("No campaigns yet","Upload a PPTX or PDF presentation deck to automatically extract all sites, locations, and availability dates, or create a campaign manually.",`<div class="row" style="gap:10px;justify-content:center"><button class="btn pri" data-act="uploaddeck" style="background:linear-gradient(135deg,#D9161D,#F26A21)">📁 Upload PPT / PDF (Auto Campaign)</button><button class="btn" data-act="newcamp">${ICON.plus}New campaign</button></div>`)}</div>`;
+  return pgTop("Campaigns",`${list.length} campaign${list.length!==1?"s":""}`,topBtns)+body;
 }
 function campCard(c){
   const sites=(c.siteIds||[]).map(id=>S.sites.find(s=>s.id===id)).filter(Boolean);
@@ -4464,6 +4477,609 @@ function openCamp(id){
     if(bookIt&&n.startDate&&n.endDate){const brand=n.client||n.name;let b=0,k=0;for(const sid of n.siteIds){const s=S.sites.find(x=>x.id===sid);if(!s)continue;const clash=s.status==="booked"&&s.brand&&s.brand!==brand&&s.bookedTill&&s.bookedTill>=n.startDate&&(!s.bookedFrom||s.bookedFrom<=n.endDate);if(clash){k++;continue}if(s.status==="booked"&&s.brand===brand&&s.bookedFrom===n.startDate&&s.bookedTill===n.endDate)continue;const updatedSite={...s,status:"booked",brand,bookedFrom:n.startDate,bookedTill:n.endDate};const sIdx=S.sites.findIndex(x=>x.id===s.id);if(sIdx>=0)S.sites[sIdx]=updatedSite;await put("sites",updatedSite);b++}
       if(b)msg+=` · ${b} site${b>1?"s":""} booked ${fmtShort(n.startDate)} → ${fmtShort(n.endDate)}`;if(k)msg+=` · ${k} skipped (booked by another brand)`}
     toast(msg)}catch(err){toast("Couldn't save: "+err.message)}};
+}
+
+/* ============ Clear All Previous Data & PPT/PDF Deck Importer ============ */
+async function clearAllData(skipConfirm) {
+  const doWipe = async () => {
+    toast("🗑️ Removing all previous data…");
+    try {
+      const sites = [...S.sites];
+      for (const s of sites) {
+        try { await del("sites", s.id); } catch(e) { console.warn(e); }
+      }
+      const camps = [...S.campaigns];
+      for (const c of camps) {
+        try { await del("campaigns", c.id); } catch(e) { console.warn(e); }
+      }
+      const decks = [...(S.decks || [])];
+      for (const d of decks) {
+        try { await del("decks", d.id); } catch(e) { console.warn(e); }
+      }
+      S.sites = [];
+      S.campaigns = [];
+      S.decks = [];
+      try { localStorage.removeItem("sitesnap-local"); } catch(e) {}
+      toast("✅ Sub previous data successfully removed!");
+      render(true);
+    } catch(err) {
+      toast("Couldn't remove all data: " + (err.message || err));
+    }
+  };
+
+  if (skipConfirm) {
+    await doWipe();
+  } else {
+    confirmBox("⚠️ Are you sure you want to permanently remove ALL previous sites, campaigns, and decks? This cannot be undone.", doWipe, "Delete Everything");
+  }
+}
+
+async function ensureDeckLibraries() {
+  const tasks = [];
+  if (!window.JSZip) {
+    tasks.push(new Promise((res, rej) => {
+      const s = document.createElement("script");
+      s.src = "https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js";
+      s.onload = res;
+      s.onerror = () => rej(new Error("Couldn't load JSZip"));
+      document.head.appendChild(s);
+    }));
+  }
+  if (!window.pdfjsLib) {
+    tasks.push(new Promise((res, rej) => {
+      const s = document.createElement("script");
+      s.src = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
+      s.onload = () => {
+        if (window.pdfjsLib) window.pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+        res();
+      };
+      s.onerror = () => rej(new Error("Couldn't load PDF.js"));
+      document.head.appendChild(s);
+    }));
+  }
+  if (tasks.length) await Promise.all(tasks);
+  if (window.pdfjsLib && !window.pdfjsLib.GlobalWorkerOptions?.workerSrc) {
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+  }
+}
+
+const DECK_MONTHS = {
+  JAN: "01", FEB: "02", MAR: "03", APR: "04", MAY: "05", JUN: "06",
+  JUL: "07", AUG: "08", SEP: "09", OCT: "10", NOV: "11", DEC: "12",
+  JANUARY: "01", FEBRUARY: "02", MARCH: "03", APRIL: "04", MAY: "05", JUNE: "06",
+  JULY: "07", AUGUST: "08", SEPTEMBER: "09", OCTOBER: "10", NOVEMBER: "11", DECEMBER: "12"
+};
+
+function parseDeckSiteText(fullText, texts, index) {
+  if (!texts || !texts.length) return null;
+  const rawJoined = texts.join(" ");
+  if (/OOH UPDATED|www\.adpulse\.pk/i.test(rawJoined) && texts.length < 4) {
+    return null;
+  }
+
+  // 1. Title / Location
+  let title = texts[0] || ("Site " + index);
+  if (/^(SIZE|DIRECTION|AVAILAB|TCF|TGT|RATE)/i.test(title)) {
+    const candidate = texts.find(t => !/^(SIZE|DIRECTION|AVAILAB|TCF|TGT|RATE|PKR|MEDIUM|FLEX|VINYL|BACKLIT)/i.test(t) && !/^\d+/.test(t) && t.length > 3);
+    if (candidate) title = candidate;
+  }
+  title = title.replace(/\s*\|\s*(SIZE|DIRECTION|AVAILABILITY|PKR|RATES)[\s\S]*/i, "").trim();
+
+  // 2. Size (Width x Height ft)
+  let widthFt = 20, heightFt = 40;
+  const szMatch = fullText.match(/(?:SIZE\s*\|?\s*)?(\d{2,3})\s*(?:ft|')?\s*(?:\|)?\s*[xX×*]\s*(\d{1,3})\s*(?:ft|')?/i);
+  if (szMatch) {
+    widthFt = parseInt(szMatch[1], 10);
+    heightFt = parseInt(szMatch[2], 10);
+  }
+
+  // 3. Direction (From -> Towards)
+  let from = "", towards = "";
+  const tcfMatch = fullText.match(/TCF\s+([^|]+?)\s+TGT\s+([^|]+?)(?:\s+(?:AVAILAB|RATES|MEDIUM|PKR)|$)/i);
+  if (tcfMatch) {
+    from = tcfMatch[1].trim();
+    towards = tcfMatch[2].trim();
+  } else {
+    const dirMatch = fullText.match(/DIRECTION\s*\|\s*([^|]+)/i);
+    if (dirMatch) {
+      const dir = dirMatch[1].trim();
+      const facingMatch = dir.match(/facing\s+([^|]+?)\s+to(?:wards)?\s+([^|]+)/i);
+      const towardsMatch = dir.match(/towards\s+([^|]+)/i);
+      if (facingMatch) {
+        from = facingMatch[1].trim();
+        towards = facingMatch[2].trim();
+      } else if (towardsMatch) {
+        towards = towardsMatch[1].trim();
+      } else {
+        from = dir;
+      }
+    }
+  }
+  from = from.replace(/^(TCF|FTCF)\s+/i, "").replace(/TGT[\s\S]*/i, "").trim();
+  towards = towards.replace(/^(TGT)\s+/i, "").replace(/\s+(AVAILAB|RATES|MEDIUM|PKR)[\s\S]*/i, "").trim();
+
+  // 4. Availability Date
+  let dateStr = "";
+  const dtMatch = fullText.match(/(\d{1,2})\s*(?:st|nd|rd|th)?\s*[\s\-_,]*\s*(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)[A-Z]*\s*[\s\-_,]*\s*(20\d{2}|\d{2})/i);
+  if (dtMatch) {
+    const day = dtMatch[1].padStart(2, "0");
+    const month = DECK_MONTHS[dtMatch[2].toUpperCase()] || "10";
+    let year = dtMatch[3];
+    if (year.length === 2) year = "20" + year;
+    dateStr = `${year}-${month}-${day}`;
+  } else {
+    const isoMatch = fullText.match(/(20\d{2})[-/](\d{1,2})[-/](\d{1,2})/);
+    if (isoMatch) {
+      dateStr = `${isoMatch[1]}-${isoMatch[2].padStart(2, "0")}-${isoMatch[3].padStart(2, "0")}`;
+    }
+  }
+
+  // 5. Media & Light
+  let media = "Billboard";
+  let light = "Lit";
+  if (/SMD|Digital/i.test(fullText)) {
+    media = "SMD / Digital Screen";
+    light = "Digital";
+  } else if (/BRIDGE/i.test(title) || /BRIDGE/i.test(fullText)) {
+    media = "Bridge Panel";
+  } else if (/ROOFTOP/i.test(title) || /ROOFTOP/i.test(fullText)) {
+    media = "Rooftop";
+  } else if (/WALL\s*WRAP/i.test(fullText)) {
+    media = "Wall Wrap";
+  } else if (/HOARDING/i.test(fullText)) {
+    media = "Hoarding";
+  } else if (/POLE\s*SIGN|STREAMER/i.test(fullText)) {
+    media = "Pole Sign / Streamer";
+  } else if (/BUS\s*SHELTER/i.test(fullText)) {
+    media = "Bus Shelter";
+  }
+
+  if (/BACKLIT/i.test(fullText)) {
+    light = "Backlit";
+  } else if (/NON[\s\-_]?LIT/i.test(fullText)) {
+    light = "Non-lit";
+  }
+
+  // 6. Area Detection (Karachi)
+  const combined = `${title} ${from} ${towards} ${fullText}`;
+  let area = "Clifton";
+  if (/\b(DHA|Phase\s*[1-8]|Ittehad|Sunset|Gizri|Bukhari|Khayaban|Do Darya|Sea View)\b/i.test(combined)) area = "DHA";
+  else if (/\b(Clifton|Boat Basin|Teen Talwar|Do Talwar|3 Sword|2 Sword|Ocean Mall|Sasi Town|Schon Circle)\b/i.test(combined)) area = "Clifton";
+  else if (/\b(Shahrah[\-_ ]e[\-_ ]Faisal|Shahr[\-_ ]e[\-_ ]Faisal|SEF|Nursery|Ayesha Bawani|FTC|Metropole|Baloch|Kala Pul|FTCF)\b/i.test(combined)) area = "Shahrah-e-Faisal";
+  else if (/\b(Karsaz|Stadium|National Stadium|Habib Ibrahim)\b/i.test(combined)) area = "Karsaz";
+  else if (/\b(Tariq Road|Dolmen|Liberty)\b/i.test(combined)) area = "Tariq Road";
+  else if (/\b(Shaheed[\-_ ]e[\-_ ]Millat|ABL Roundabout|Hill Park)\b/i.test(combined)) area = "Shaheed-e-Millat / PECHS";
+  else if (/\b(PECHS|Nursery Signal|Tariq Rd Junction)\b/i.test(combined)) area = "PECHS / Nursery";
+  else if (/\b(Saddar|Regal|Empress|Cantt|Atrium)\b/i.test(combined)) area = "Saddar";
+  else if (/\b(Chundrigar|I\.I\.|Tower|Merewether)\b/i.test(combined)) area = "I.I. Chundrigar";
+  else if (/\b(Gulshan|NIPA|Maskan|Hassan Square|Disco Bakery|University Rd)\b/i.test(combined)) area = "Gulshan-e-Iqbal";
+  else if (/\b(Jauhar|Johar|Millennium|Kamran Chowrangi|Continental)\b/i.test(combined)) area = "Gulistan-e-Jauhar";
+  else if (/\b(Nazimabad|Hyderi|Five Star|KDA Chowrangi)\b/i.test(combined)) area = "North Nazimabad";
+  else if (/\b(North Karachi|Nagan|UP More|4K)\b/i.test(combined)) area = "North Karachi";
+  else if (/\b(FB Area|Water Pump|Ayesha Manzil|Karimabad|Sohrab Goth)\b/i.test(combined)) area = "FB Area";
+  else if (/\b(Korangi|Expressway|Shan Chowrangi|Crossing|Creek)\b/i.test(combined)) area = "Korangi";
+  else if (/\b(Airport|Malir|Jinnah Avenue|Star Gate|Jinnah Terminal)\b/i.test(combined)) area = "Airport / Malir";
+  else if (/\b(Super Highway|M\-9|Highway|Baqai|Toll Plaza)\b/i.test(combined)) area = "Super Highway / M-9";
+  else if (/\b(SITE|S\.I\.T\.E|Orangi|Habib Bank Chowrangi)\b/i.test(combined)) area = "S.I.T.E. / Orangi";
+
+  return {
+    slideIndex: index,
+    title,
+    area,
+    widthFt,
+    heightFt,
+    from,
+    towards,
+    date: dateStr,
+    media,
+    light
+  };
+}
+
+async function parsePptxDeck(file, onProgress) {
+  if (!window.JSZip) await ensureDeckLibraries();
+  const zip = await window.JSZip.loadAsync(file);
+  const slideKeys = Object.keys(zip.files).filter(k => /^ppt\/slides\/slide\d+\.xml$/i.test(k));
+  slideKeys.sort((a, b) => {
+    const na = parseInt(a.match(/\d+/)[0], 10);
+    const nb = parseInt(b.match(/\d+/)[0], 10);
+    return na - nb;
+  });
+
+  const total = slideKeys.length;
+  const sites = [];
+
+  for (let i = 0; i < total; i++) {
+    const slidePath = slideKeys[i];
+    const slideNum = parseInt(slidePath.match(/\d+/)[0], 10);
+    if (onProgress) onProgress(i + 1, total, `Reading slide ${i + 1} of ${total}…`);
+
+    const xml = await zip.files[slidePath].async("text");
+    const tMatches = xml.match(/<a:t(?:\s+[^>]*)?>([\s\S]*?)<\/a:t>/g) || [];
+    const texts = tMatches.map(m => m.replace(/<[^>]+>/g, "").trim()).filter(Boolean);
+    const fullText = texts.join(" ");
+
+    if (i === 0 && (/OOH UPDATED|www\.adpulse\.pk/i.test(fullText) && texts.length < 5)) {
+      continue;
+    }
+
+    const parsed = parseDeckSiteText(fullText, texts, slideNum);
+    if (!parsed) continue;
+
+    try {
+      const relsPath = slidePath.replace("ppt/slides/slide", "ppt/slides/_rels/slide") + ".rels";
+      if (zip.files[relsPath]) {
+        const relsXml = await zip.files[relsPath].async("text");
+        const picMatches = [...xml.matchAll(/<p:pic[\s\S]*?<\/p:pic>/g)];
+        let targetRelId = null;
+        for (const pic of picMatches) {
+          const blipM = pic[0].match(/<a:blip[^>]*r:embed="([^"]+)"/);
+          if (blipM) { targetRelId = blipM[1]; break; }
+        }
+        let targetFile = null;
+        if (targetRelId) {
+          const relM = relsXml.match(new RegExp(`<Relationship[^>]+Id="${targetRelId}"[^>]+Target="([^"]+)"`, "i"));
+          if (relM) targetFile = relM[1].replace(/^\.\.\//, "ppt/");
+        }
+        if (!targetFile || !zip.files[targetFile]) {
+          const allMedia = [...relsXml.matchAll(/Target="([^"]*media\/[^"]+)"/g)].map(m => m[1].replace(/^\.\.\//, "ppt/"));
+          let maxLen = 0;
+          for (const mFile of allMedia) {
+            if (zip.files[mFile] && zip.files[mFile]._data && zip.files[mFile]._data.uncompressedSize > maxLen) {
+              if (!/\.(emf|wmf)$/i.test(mFile)) {
+                maxLen = zip.files[mFile]._data.uncompressedSize;
+                targetFile = mFile;
+              }
+            }
+          }
+        }
+        if (targetFile && zip.files[targetFile]) {
+          const imgBlob = await zip.files[targetFile].async("blob");
+          parsed.photoBlob = imgBlob;
+          parsed.previewUrl = URL.createObjectURL(imgBlob);
+        }
+      }
+    } catch(err) {
+      console.warn("Could not extract image for slide " + slideNum, err);
+    }
+
+    sites.push(parsed);
+  }
+  return sites;
+}
+
+async function parsePdfDeck(file, onProgress) {
+  if (!window.pdfjsLib) await ensureDeckLibraries();
+  const arrayBuffer = await file.arrayBuffer();
+  const pdf = await window.pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+  const numPages = pdf.numPages;
+  const sites = [];
+
+  for (let i = 1; i <= numPages; i++) {
+    if (onProgress) onProgress(i, numPages, `Rendering & reading page ${i} of ${numPages}…`);
+    const page = await pdf.getPage(i);
+    const textContent = await page.getTextContent();
+    const texts = textContent.items.map(item => item.str).filter(Boolean);
+    const fullText = texts.join(" ");
+
+    if (i === 1 && /OOH UPDATED|AdPulse|OVERVIEW|PORTFOLIO/i.test(fullText) && !/SIZE|DIRECTION|AVAILAB/i.test(fullText)) {
+      continue;
+    }
+
+    const parsed = parseDeckSiteText(fullText, texts, i);
+    if (!parsed) continue;
+
+    try {
+      const viewport = page.getViewport({ scale: 1.2 });
+      const canvas = document.createElement("canvas");
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      const ctx = canvas.getContext("2d");
+      await page.render({ canvasContext: ctx, viewport }).promise;
+      const blob = await new Promise(res => canvas.toBlob(res, "image/jpeg", 0.85));
+      parsed.photoBlob = blob;
+      parsed.previewUrl = URL.createObjectURL(blob);
+    } catch(e) {
+      console.warn("Could not render PDF page to canvas:", e);
+    }
+
+    sites.push(parsed);
+  }
+  return sites;
+}
+
+function openDeckUploader() {
+  let parsedSites = [];
+  openLayer(`
+    <div class="scrim" data-act="close"></div>
+    <div class="modal camp-modal" role="dialog" aria-label="Upload Presentation" style="max-width:850px;width:95vw;max-height:92vh;display:flex;flex-direction:column">
+      <div class="mh" style="flex:none">
+        <div>
+          <h2 style="font-size:20px;display:flex;align-items:center;gap:8px">
+            📁 Upload Presentation (Auto Campaign)
+          </h2>
+          <small style="color:var(--muted)">Upload PPTX or PDF. Automatically extracts sites, dimensions, directions, and availability dates into a campaign.</small>
+        </div>
+        <span class="sp"></span>
+        <button type="button" class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
+      </div>
+
+      <div class="mb" style="flex:1;overflow-y:auto;display:grid;gap:14px;padding:16px 20px">
+        <div id="deckDropzone" style="border:2px dashed var(--violet);border-radius:14px;padding:26px 16px;text-align:center;cursor:pointer;background:color-mix(in srgb,var(--violet) 6%,transparent);transition:all 0.2s">
+          <input type="file" id="deckFileInput" accept=".pptx,.ppt,.pdf" style="display:none">
+          <div style="font-size:36px;margin-bottom:8px">📊</div>
+          <b style="font-size:16px;display:block;margin-bottom:4px">Tap here or drag &amp; drop your PPTX or PDF file</b>
+          <span style="font-size:13px;color:var(--muted)">Supports PowerPoint (.pptx) and PDF (.pdf) OOH decks</span>
+          <div id="deckSelectedFileName" style="margin-top:10px;font-weight:700;color:var(--violet)"></div>
+        </div>
+
+        <div id="deckProgressBox" style="display:none;background:var(--surface2);padding:12px 14px;border-radius:10px;border:1px solid var(--border)">
+          <div class="row" style="margin-bottom:6px">
+            <span id="deckProgressText" style="font-size:13px;font-weight:700">Extracting sites…</span>
+            <span class="sp"></span>
+            <span id="deckProgressPct" style="font-size:12px;font-weight:700;color:var(--violet)">0%</span>
+          </div>
+          <div style="height:8px;background:rgba(255,255,255,0.1);border-radius:6px;overflow:hidden">
+            <div id="deckProgressBar" style="width:0%;height:100%;background:linear-gradient(90deg,var(--violet),var(--pink));transition:width 0.2s"></div>
+          </div>
+        </div>
+
+        <div class="fgrid" style="gap:12px">
+          <label class="f full">Campaign Name
+            <input class="in" id="deckCampName" placeholder="e.g. OOH Karachi Media Campaign" value="OOH Karachi Sites Campaign">
+          </label>
+          <label class="f">Client / Brand Name
+            <input class="in" id="deckClientName" placeholder="e.g. AdPulse IMC" value="AdPulse IMC">
+          </label>
+          <label class="f">Campaign Start Date
+            <input class="in" type="date" id="deckStartDate" value="${today()}">
+          </label>
+          <label class="f">Campaign End Date
+            <input class="in" type="date" id="deckEndDate">
+          </label>
+        </div>
+
+        <div class="grid" style="gap:8px;background:var(--surface2);padding:12px 14px;border-radius:10px;border:1px solid var(--border)">
+          <label class="row" style="font-size:13px;font-weight:600;cursor:pointer">
+            <input type="checkbox" id="deckClearPrev" checked style="width:18px;height:18px;accent-color:var(--bad)">
+            <span style="color:var(--bad);font-weight:700">🗑️ Sub previous data remove kerden before creating this campaign (Recommended)</span>
+          </label>
+          <label class="row" style="font-size:13px;font-weight:600;cursor:pointer">
+            <input type="checkbox" id="deckBookSites" checked style="width:18px;height:18px;accent-color:var(--violet)">
+            <span>Book each site according to its extracted availability date</span>
+          </label>
+        </div>
+
+        <div id="deckSitesPreviewContainer" style="display:none">
+          <div class="row" style="margin-bottom:8px">
+            <b id="deckPreviewCount" style="font-size:15px">0 Sites Extracted</b>
+            <span class="sp"></span>
+            <small style="color:var(--muted)">Review extracted sites below</small>
+          </div>
+          <div id="deckSitesPreviewList" style="display:grid;gap:8px;max-height:280px;overflow-y:auto;padding-right:4px">
+          </div>
+        </div>
+      </div>
+
+      <div class="mh" style="flex:none;border-top:1px solid var(--border);padding:12px 20px;gap:10px">
+        <button type="button" class="btn" data-act="close">Cancel</button>
+        <span class="sp"></span>
+        <button type="button" class="btn pri" id="deckSubmitBtn" disabled style="min-width:180px;justify-content:center;font-weight:800;background:linear-gradient(135deg,#D9161D,#F26A21)">
+          🚀 Create Campaign &amp; Sites
+        </button>
+      </div>
+    </div>
+  `);
+
+  const dropzone = $("#deckDropzone");
+  const fileInput = $("#deckFileInput");
+  const pBox = $("#deckProgressBox");
+  const pText = $("#deckProgressText");
+  const pPct = $("#deckProgressPct");
+  const pBar = $("#deckProgressBar");
+  const prevContainer = $("#deckSitesPreviewContainer");
+  const prevCount = $("#deckPreviewCount");
+  const prevList = $("#deckSitesPreviewList");
+  const submitBtn = $("#deckSubmitBtn");
+  const campNameInput = $("#deckCampName");
+  const sDateInput = $("#deckStartDate");
+  const eDateInput = $("#deckEndDate");
+
+  dropzone.onclick = () => fileInput.click();
+  dropzone.ondragover = e => { e.preventDefault(); dropzone.style.borderColor = "var(--pink)"; };
+  dropzone.ondragleave = () => { dropzone.style.borderColor = "var(--violet)"; };
+  dropzone.ondrop = e => {
+    e.preventDefault();
+    dropzone.style.borderColor = "var(--violet)";
+    if (e.dataTransfer.files && e.dataTransfer.files.length) {
+      handleFile(e.dataTransfer.files[0]);
+    }
+  };
+
+  fileInput.onchange = e => {
+    if (e.target.files && e.target.files.length) {
+      handleFile(e.target.files[0]);
+    }
+  };
+
+  async function handleFile(file) {
+    $("#deckSelectedFileName").textContent = `Selected: ${file.name} (${Math.round(file.size / 1024)} KB)`;
+    const cleanName = file.name.replace(/\.[^.]+$/, "").replace(/[_\-]+/g, " ");
+    campNameInput.value = cleanName.charAt(0).toUpperCase() + cleanName.slice(1);
+    pBox.style.display = "block";
+    submitBtn.disabled = true;
+    prevContainer.style.display = "none";
+
+    const updateProgress = (cur, tot, msg) => {
+      const pct = Math.round((cur / tot) * 100);
+      pBar.style.width = pct + "%";
+      pPct.textContent = pct + "%";
+      pText.textContent = msg || `Processing ${cur} of ${tot}…`;
+    };
+
+    try {
+      if (/\.pdf$/i.test(file.name)) {
+        parsedSites = await parsePdfDeck(file, updateProgress);
+      } else {
+        parsedSites = await parsePptxDeck(file, updateProgress);
+      }
+
+      if (!parsedSites.length) {
+        pText.textContent = "⚠️ No site locations found in file. Please ensure slides have site details.";
+        toast("No sites found in file");
+        return;
+      }
+
+      pText.textContent = `✅ Extracted ${parsedSites.length} sites successfully!`;
+      pBar.style.width = "100%";
+      pPct.textContent = "100%";
+
+      // Calculate dates
+      const dates = parsedSites.map(s => s.date).filter(Boolean).sort();
+      if (dates.length) {
+        if (!sDateInput.value) sDateInput.value = dates[0];
+        eDateInput.value = dates[dates.length - 1];
+      } else {
+        const nextMo = new Date();
+        nextMo.setMonth(nextMo.getMonth() + 1);
+        eDateInput.value = nextMo.toISOString().slice(0, 10);
+      }
+
+      // Populate preview
+      prevCount.textContent = `${parsedSites.length} Sites Ready to Import`;
+      prevList.innerHTML = parsedSites.map((s, idx) => `
+        <div class="row" style="background:var(--surface);padding:8px 12px;border-radius:8px;border:1px solid var(--border);gap:10px;align-items:center">
+          <div style="width:48px;height:48px;border-radius:6px;overflow:hidden;background:var(--surface2);flex:none;display:grid;place-items:center">
+            ${s.previewUrl ? `<img src="${s.previewUrl}" style="width:100%;height:100%;object-fit:cover" alt="">` : `<span style="font-size:20px">📍</span>`}
+          </div>
+          <div style="flex:1;min-width:180px">
+            <div style="font-weight:700;font-size:13.5px">${esc(s.title)}</div>
+            <div style="font-size:12px;color:var(--muted)">
+              <b style="color:var(--ink)">${esc(s.area)}</b> · ${s.widthFt}×${s.heightFt} ft · ${esc(s.media)}
+              ${(s.from || s.towards) ? ` · ${esc(s.from || "—")} → ${esc(s.towards || "—")}` : ""}
+            </div>
+          </div>
+          <div style="flex:none;text-align:right">
+            ${s.date ? `<span class="pill st-booked" style="font-size:11px">📅 ${s.date}</span>` : `<span class="pill st-available" style="font-size:11px">Available</span>`}
+          </div>
+        </div>
+      `).join("");
+
+      prevContainer.style.display = "block";
+      submitBtn.disabled = false;
+      submitBtn.textContent = `🚀 Create Campaign (${parsedSites.length} Sites)`;
+    } catch(err) {
+      console.error("Deck parse error:", err);
+      pText.textContent = `❌ Error: ${err.message || err}`;
+      toast("Error parsing file: " + (err.message || err));
+    }
+  }
+
+  submitBtn.onclick = async () => {
+    if (!parsedSites.length) return;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "⏳ Creating Campaign & Sites…";
+
+    try {
+      // 1. Wipe previous data if checked
+      if ($("#deckClearPrev").checked) {
+        await clearAllData(true);
+      }
+
+      const campName = campNameInput.value.trim() || "OOH Media Campaign";
+      const clientName = $("#deckClientName").value.trim() || "AdPulse IMC";
+      const campStart = sDateInput.value || today();
+      const campEnd = eDateInput.value || "";
+      const bookSites = $("#deckBookSites").checked;
+
+      const createdSiteIds = [];
+      const areaSeq = {};
+
+      for (let i = 0; i < parsedSites.length; i++) {
+        const p = parsedSites[i];
+        areaSeq[p.area] = (areaSeq[p.area] || 0) + 1;
+        const ab = (AREAS[p.area] || [0, 0, p.area.replace(/[^A-Za-z]/g, "").slice(0, 3).toUpperCase() || "OTH"])[2];
+        const siteNum = String(areaSeq[p.area]).padStart(4, "0");
+        const code = `KHI-${ab}-${siteNum}`;
+
+        const coords = AREAS[p.area] || [24.8138, 67.0300];
+        const lat = +(coords[0] + (Math.random() - 0.5) * 0.005).toFixed(6);
+        const lng = +(coords[1] + (Math.random() - 0.5) * 0.005).toFixed(6);
+
+        let photoObj = null;
+        if (p.photoBlob) {
+          try {
+            const upl = await uploadBlob(p.photoBlob, "image/jpeg");
+            photoObj = {
+              asset: upl.asset,
+              src: upl.local ? memBlobs[upl.asset] : undefined,
+              tag: "Day",
+              at: new Date().toISOString(),
+              by: "Deck Import"
+            };
+          } catch(e) {
+            console.warn("Upload site photo note:", e);
+          }
+        }
+
+        const isBooked = bookSites && (!!p.date || !!campEnd);
+        const siteId = uid();
+        const siteObj = {
+          id: siteId,
+          code: code,
+          area: p.area,
+          media: p.media || "Billboard",
+          light: p.light || "Lit",
+          widthFt: p.widthFt || 20,
+          heightFt: p.heightFt || 40,
+          from: p.from || "",
+          towards: p.towards || "",
+          status: isBooked ? "booked" : "available",
+          brand: isBooked ? clientName : "",
+          bookedFrom: isBooked ? campStart : "",
+          bookedTill: isBooked ? (p.date || campEnd) : "",
+          lat: lat,
+          lng: lng,
+          approx: true,
+          notes: `Imported from ${fileInput.files[0]?.name || "presentation deck"}: ${p.title}`,
+          photos: photoObj ? [photoObj] : [],
+          traffic: "high",
+          vehiclesDay: "",
+          signal: false,
+          peak: ["Morning 8–11", "Evening 5–9"],
+          audience: ["Office commuters", "Families & shoppers"],
+          createdAt: new Date().toISOString()
+        };
+
+        await put("sites", siteObj);
+        createdSiteIds.push(siteId);
+      }
+
+      // 2. Create the Campaign
+      const campId = uid();
+      const newCamp = {
+        id: campId,
+        name: campName,
+        client: clientName,
+        startDate: campStart,
+        endDate: campEnd,
+        color: CCOLORS[S.campaigns.length % CCOLORS.length],
+        siteIds: createdSiteIds,
+        createdAt: new Date().toISOString()
+      };
+      await put("campaigns", newCamp);
+
+      closeLayer();
+      toast(`🎉 Campaign "${campName}" created with ${createdSiteIds.length} sites!`);
+      location.hash = "campaigns";
+      render(true);
+    } catch(err) {
+      console.error("Submit campaign error:", err);
+      submitBtn.disabled = false;
+      submitBtn.textContent = "🚀 Create Campaign & Sites";
+      toast("Error creating campaign: " + (err.message || err));
+    }
+  };
 }
 
 /* ============ Presentation Studio ============ */
@@ -4971,8 +5587,13 @@ function vSettings(){const s=S.settings;const hasSample=S.sites.some(x=>x.sample
   <form class="card pad grid" id="setForm" style="gap:14px"><h2 style="font-size:18px">Agency details</h2>
    <div class="fgrid"><label class="f">Agency name<input class="in" id="sAg" value="${esc(s.agency)}"></label><label class="f">Website<input class="in" id="sWeb" value="${esc(s.web)}"></label><label class="f">Phone<input class="in" id="sPh" value="${esc(s.phone)}" placeholder="+92 …"></label><label class="f">Email<input class="in" id="sEm" value="${esc(s.email)}" placeholder="media@…"></label></div>
    <div class="row"><button class="btn pri" type="submit">Save details</button></div></form>
-  <div class="card pad grid" style="gap:10px"><h2 style="font-size:18px">Data</h2><p style="margin:0;color:var(--muted)">${S.sites.length} sites · ${S.campaigns.length} campaigns · ${S.decks.length} saved decks · ${S.mode==="live"?"synced for everyone with access to this page":"stored in this browser only"}.</p>
-   <div class="row"><button class="btn" data-act="csv">${ICON.dl}Export sites (CSV)</button>${hasSample?`<button class="btn danger" data-act="clearsample">Remove sample data</button>`:""}</div></div>
+  <div class="card pad grid" style="gap:10px"><h2 style="font-size:18px">Data &amp; Import</h2><p style="margin:0;color:var(--muted)">${S.sites.length} sites · ${S.campaigns.length} campaigns · ${S.decks.length} saved decks · ${S.mode==="live"?"synced for everyone with access to this page":"stored in this browser only"}.</p>
+   <div class="row" style="gap:10px;flex-wrap:wrap">
+     <button class="btn pri" data-act="uploaddeck" style="background:linear-gradient(135deg,#D9161D,#F26A21)">📁 Upload PPT / PDF (Auto Campaign)</button>
+     <button class="btn" data-act="csv">${ICON.dl}Export sites (CSV)</button>
+     <button class="btn danger" data-act="clearalldata">🗑️ Remove All Previous Data</button>
+     ${hasSample?`<button class="btn danger ghost" data-act="clearsample">Remove sample data only</button>`:""}
+   </div></div>
   <div class="card pad grid" style="gap:14px;border:1px solid var(--border)">
     <div class="row"><h2 style="font-size:18px">⚙️ Account &amp; App Cache</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v3.1 Cloud Live</span></div>
     <p style="margin:0;color:var(--muted);font-size:13px">Logged in as: <b>${esc(user&&ME?ME:"Field Staff")}</b>. If you ever experience cached screens or offline sync delays, tap Force Sync below.</p>
@@ -5813,6 +6434,8 @@ const ACT={
   },
  savedeck:async()=>{const c=Studio.cfg;c.version=(c.version||0)+1;try{await put("decks",c);toast(`Saved ${c.title} v${c.version}`);const b=$("#saveDeck");if(b)b.textContent="Save version"}catch(e){toast("Couldn't save: "+e.message)}},
  csv:async()=>{const h=["Code","Area","From","Towards","Width ft","Height ft","Type","Light","Status","Brand","Booked till","Lat","Lng","Photos","Maps link"];const rows=S.sites.map(s=>[s.code,s.area,s.from,s.towards,s.widthFt,s.heightFt,s.media,s.light,STATUS[effStatus(s)],s.brand,s.bookedTill,s.lat,s.lng,(s.photos||[]).length,mapsUrl(s)]);const csv=[h,...rows].map(r=>r.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\n");if(!downloads){toast("Downloads aren't available in this view");return}try{await downloads.save({filename:"sitesnap-sites.csv",data:csv})}catch(e){if(e.code!=="declined")toast("Couldn't save: "+(e.message||e.code))}},
+ uploaddeck:()=>openDeckUploader(),
+ clearalldata:()=>clearAllData(false),
  clearsample:()=>confirmBox("Remove all sample sites and campaigns?",async()=>{for(const s of S.sites.filter(x=>x.sample))await del("sites",s.id);for(const c of S.campaigns.filter(x=>x.sample))await del("campaigns",c.id);toast("Sample data removed")},"Remove")
 };
 document.addEventListener("click",e=>{const a=e.target.closest("[data-act]");if(!a||a.disabled)return;const fn=ACT[a.dataset.act];if(fn){if(a.tagName==="A"&&a.dataset.act!=="close")return;if(a.closest("#agentPop")&&!/^agent/.test(a.dataset.act))$("#agentPop").innerHTML="";fn(a,e)}});
