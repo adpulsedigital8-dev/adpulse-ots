@@ -5186,6 +5186,8 @@ function openDeckUploader() {
 /* ============ Presentation Studio ============ */
 const TPL={
  adpulse:{name:"AdPulse Brand",bg:"FFFFFF",ink:"1C1A1B",muted:"6E6668",accent:"D9161D",accent2:"1B7F7A",panel:"F5F1F0",band:"1E2A2C",bandInk:"FFFFFF",grad:true},
+ adpulse_dark:{name:"AdPulse Dark Luxe",bg:"0C1214",ink:"F3F7F7",muted:"8B9E9E",accent:"E51A24",accent2:"14B8A6",panel:"162023",band:"0A1012",bandInk:"FFFFFF",grad:true},
+ adpulse_teal:{name:"AdPulse Teal Executive",bg:"FFFFFF",ink:"0B2523",muted:"547370",accent:"1B7F7A",accent2:"D9161D",panel:"EFF7F6",band:"0E3B38",bandInk:"FFFFFF",grad:true},
  clean:{name:"Corporate Clean",bg:"FFFFFF",ink:"17122B",muted:"6B6585",accent:"7C3AED",accent2:"E6398C",panel:"F4F1FB",band:"17122B",bandInk:"FFFFFF"},
  bold:{name:"Bold Colorful",bg:"FFF7FB",ink:"1D1235",muted:"6D5C86",accent:"E6398C",accent2:"F59E0B",panel:"FFFFFF",band:"7C3AED",bandInk:"FFFFFF",grad:true},
  dark:{name:"Dark Premium",bg:"0F0C1C",ink:"F3F0FC",muted:"9C95BA",accent:"27D3EE",accent2:"A07BFF",panel:"1B1633",band:"1B1633",bandInk:"F3F0FC"}
@@ -5225,7 +5227,7 @@ const Studio={
  mount(){if(!this.cfg)return;if((!this.cfg.slides||!this.cfg.slides.length)&&(S.sites.length||(this.cfg.sitesData&&this.cfg.sitesData.length))){this.build()}this.renderSlides();this.bindDnD()},
  siteOf(id){if(!id)return null;return (this.cfg?.sitesData||[]).find(x=>x&&(x.id===id||x.code===id))||S.sites.find(x=>x&&(x.id===id||x.code===id))||null},
   visible(){return (this.cfg?.slides||[]).filter(s=>!s.hidden&&this.siteOf(s.siteId))},
-  deckOps(forExport){const c=this.cfg,t=TPL[c.template],vis=this.visible(),sites=vis.map(v=>this.siteOf(v.siteId));const out=[];
+  deckOps(forExport){const c=this.cfg,t=TPL[c.template]||TPL.adpulse,vis=this.visible(),sites=vis.map(v=>this.siteOf(v.siteId));const out=[];
    out.push({kind:"cover",ops:coverOps(c,t,sites)});
    if(c.summary)out.push({kind:"summary",ops:summaryOps(c,t,sites)});
    if(c.index){const g={};vis.forEach((v,i)=>{const s=sites[i];(g[s.area]=g[s.area]||[]).push(s.code)});out.push({kind:"index",ops:indexOps(c,t,g)})}
@@ -5236,7 +5238,7 @@ const Studio={
       const deck=this.deckOps();
       box.innerHTML=deck.map((sl,n)=>{const v=sl.kind==="site"?this.cfg.slides[sl.idx]:null;const s=v&&this.siteOf(v.siteId);
        const tools=(v&&s)?`<div class="sltools"><button class="btn sm" data-act="slphoto" data-i="${sl.idx}" ${imgIdx(s).length>1?"":"disabled"}>${ICON.img}Swap photo${imgIdx(s).length>1?` (${imgIdx(s).length})`:""}</button><button class="btn sm" data-act="slhide" data-i="${sl.idx}">${ICON.eye}Hide</button><button class="btn sm" data-act="site" data-id="${s.id}">Site details</button></div>`:"";
-       return`<div class="sl" ${v?`draggable="true" data-i="${sl.idx}"`:""}><div class="num"><b>${String(n+1).padStart(2,"0")}</b>${v?`<button data-act="slmove" data-i="${sl.idx}" data-d="-1" aria-label="Move up">${ICON.up}</button><button data-act="slmove" data-i="${sl.idx}" data-d="1" aria-label="Move down">${ICON.down}</button>`:""}</div><div class="slwrap">${slideHTML(sl.ops,TPL[this.cfg.template])}${tools}</div></div>`}).join("")+
+       return`<div class="sl" ${v?`draggable="true" data-i="${sl.idx}"`:""}><div class="num"><b>${String(n+1).padStart(2,"0")}</b>${v?`<button data-act="slmove" data-i="${sl.idx}" data-d="-1" aria-label="Move up">${ICON.up}</button><button data-act="slmove" data-i="${sl.idx}" data-d="1" aria-label="Move down">${ICON.down}</button>`:""}</div><div class="slwrap">${slideHTML(sl.ops,TPL[this.cfg.template]||TPL.adpulse)}${tools}</div></div>`}).join("")+
        (this.cfg.slides.some(s=>s.hidden)?`<div class="card pad"><b>Hidden slides</b><div class="chips" style="margin-top:8px">${this.cfg.slides.map((s,i)=>s.hidden?`<button class="chip" data-act="slshow" data-i="${i}">${esc(S.sites.find(x=>x.id===s.siteId)?.code||"?")} · show</button>`:"").join("")}</div></div>`:"");
       $$("[data-edit]",box).forEach(el=>el.addEventListener("blur",()=>{const[k,i]=el.dataset.edit.split(":");const txt=el.innerText.trim();if(k==="title")this.cfg.title=txt;else if(k==="subtitle")this.cfg.subtitle=txt;else if(k==="stitle")this.cfg.slides[+i].title=txt;else if(k==="snote")this.cfg.slides[+i].note=txt;this.dirty()}));
       const cnt=$("#slCount");if(cnt)cnt.textContent=`${deck.length} slides · ${this.visible().length} sites`;
@@ -5468,7 +5470,7 @@ function vStudio(){
   const srcSel=c.source.type==="campaign"?`<select class="in" id="stCamp">${opt(S.campaigns.map(x=>[x.id,x.name]),c.source.campaignId)}</select>`:c.source.type==="filter"?`<div class="grid" style="gap:8px"><select class="in" id="stArea"><option value="">All areas</option>${opt(Object.keys(AREAS),c.source.area)}</select><select class="in" id="stSize"><option value="">All sizes</option>${opt([...new Set(S.sites.map(sizeOf))].map(x=>[x,x+" ft"]),c.source.size)}</select><select class="in" id="stStatus"><option value="">Any status</option>${opt([["available","Available"],["booked","Not available"],["maintenance","Maintenance"]],c.source.status)}</select></div>`:`<p style="margin:0;color:var(--muted)">${(c.source.ids||[]).length} hand-picked sites</p>`;
   return pgTop(esc(c.title||"Presentation"),`<span id="slCount"></span>${c.version?` · v${c.version}`:""}`,`<button class="btn" data-act="closedeck">All decks</button>`)+
   `<div class="studio"><div class="cfg">
-    <button class="btn cfgt" data-act="cfgtoggle"><b>Deck settings ▾</b><span style="color:var(--muted);font-weight:600">${TPL[c.template].name}</span></button>
+    <button class="btn cfgt" data-act="cfgtoggle"><b>Deck settings ▾</b><span style="color:var(--muted);font-weight:600">${(TPL[c.template]||TPL.adpulse).name}</span></button>
     <div class="card pad grid setc" style="gap:14px"><div class="eyebrow">Source</div>
      <div class="seg">${[["campaign","Campaign"],["filter","Filters"],["selection","Selection"]].map(([k,l])=>`<button class="${c.source.type===k?"on":""}" data-act="stsrc" data-v="${k}" ${k==="selection"&&!(c.source.ids||[]).length?"disabled":""}>${l}</button>`).join("")}</div>${srcSel}
      <div class="eyebrow">Slide Layout</div>
