@@ -1123,7 +1123,8 @@ table.t img{width:56px;height:38px;object-fit:cover;border-radius:7px;display:bl
 @media (max-width:1100px){.studio{grid-template-columns:1fr}}
 .cfg{display:flex;flex-direction:column;gap:16px;position:sticky;top:12px}
 @media (max-width:1100px){.cfg{position:static}}
-.tpls{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.tpls{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tpl span{display:block;font-size:10.5px;font-weight:700;padding:5px 4px;text-align:center;line-height:1.25}
 .tpl{border:2px solid var(--line);border-radius:12px;padding:0;overflow:hidden;cursor:pointer;background:var(--surface);text-align:left}
 .tpl.on{border-color:var(--violet);box-shadow:0 0 0 4px color-mix(in srgb,var(--violet) 18%,transparent)}
 .tpl i{display:block;aspect-ratio:16/9}
@@ -5187,10 +5188,7 @@ function openDeckUploader() {
 const TPL={
  adpulse:{name:"AdPulse Brand",bg:"FFFFFF",ink:"1C1A1B",muted:"6E6668",accent:"D9161D",accent2:"1B7F7A",panel:"F5F1F0",band:"1E2A2C",bandInk:"FFFFFF",grad:true},
  adpulse_dark:{name:"AdPulse Dark Luxe",bg:"0C1214",ink:"F3F7F7",muted:"8B9E9E",accent:"E51A24",accent2:"14B8A6",panel:"162023",band:"0A1012",bandInk:"FFFFFF",grad:true},
- adpulse_teal:{name:"AdPulse Teal Executive",bg:"FFFFFF",ink:"0B2523",muted:"547370",accent:"1B7F7A",accent2:"D9161D",panel:"EFF7F6",band:"0E3B38",bandInk:"FFFFFF",grad:true},
- clean:{name:"Corporate Clean",bg:"FFFFFF",ink:"17122B",muted:"6B6585",accent:"7C3AED",accent2:"E6398C",panel:"F4F1FB",band:"17122B",bandInk:"FFFFFF"},
- bold:{name:"Bold Colorful",bg:"FFF7FB",ink:"1D1235",muted:"6D5C86",accent:"E6398C",accent2:"F59E0B",panel:"FFFFFF",band:"7C3AED",bandInk:"FFFFFF",grad:true},
- dark:{name:"Dark Premium",bg:"0F0C1C",ink:"F3F0FC",muted:"9C95BA",accent:"27D3EE",accent2:"A07BFF",panel:"1B1633",band:"1B1633",bandInk:"F3F0FC"}
+ adpulse_teal:{name:"AdPulse Teal Executive",bg:"FFFFFF",ink:"0B2523",muted:"547370",accent:"1B7F7A",accent2:"D9161D",panel:"EFF7F6",band:"0E3B38",bandInk:"FFFFFF",grad:true}
 };
 const FIELDS=[["status","Availability"],["dir","From → Towards"],["size","Size"],["media","Media type"],["light","Illumination"],["dates","Booking dates"],["traffic","Traffic & OTS"],["gps","GPS & map link"],["brand","Brand on site"],["notes","Notes"]];
 function normFields(f){
@@ -6445,7 +6443,7 @@ const ACT={
  previewclient:a=>{const cl=S.clients.find(x=>x.id===a.dataset.id);PREVIEW=buildPortal(cl);pCamp=null;location.hash="portal"},
  exitpreview:()=>{PREVIEW=null;location.hash="clients"},
  portalcamp:a=>{pCamp=a.dataset.id;if(route!=="portal")location.hash="portal";else render(true)},
- portalpdf:a=>{Studio.cfg=Studio.fresh({type:"campaign",campaignId:a.dataset.id});Studio.cfg.template="clean";Studio.build();exportDeck("pdf")},
+ portalpdf:a=>{Studio.cfg=Studio.fresh({type:"campaign",campaignId:a.dataset.id});Studio.cfg.template="adpulse";Studio.build();exportDeck("pdf")},
  scanhoarding:a=>{const s=S.sites.find(x=>x.id===a.dataset.id);if(s)scanSiteHoarding(s)},
  site:(a,e)=>{if(e.target.closest("[data-act=sel],[data-act=selck],[data-act=selalltoggle]"))return;closeLayer();openSite(a.dataset.id)},
  siteedit:a=>openSite(a.dataset.id,true),siteview:a=>openSite(a.dataset.id),newsite:()=>openSite(null,true),
