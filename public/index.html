@@ -5296,80 +5296,89 @@ function siteOps(c,t,s,v,page,total){
   const rawPrice = v.price || s.price || (s.rates && !/^(PKR|USD|EUR)$/i.test(s.rates) ? s.rates : "");
   const priceTxt = rawPrice ? (rawPrice.toUpperCase().includes("PKR") || rawPrice.toUpperCase().includes("RS") ? rawPrice : "PKR " + rawPrice) : "PKR Rate on Request";
 
+  // Booking Duration calculation (From Date to Date)
+  const bDuration = s.status==="booked"
+    ? (s.bookedFrom && s.bookedTill
+        ? `${fmtDate(s.bookedFrom)} to ${fmtDate(s.bookedTill)}`
+        : (s.bookedTill ? `Till ${fmtDate(s.bookedTill)}` : "Currently Booked"))
+    : "Available for Booking";
+  const bDurationFull = s.status==="booked"
+    ? `${s.brand ? s.brand + " · " : ""}${bDuration}`
+    : "Ready for Immediate Booking";
+
   if(layout==="split"){
     const ops=[
       ...frame(t),
       // Header Bar
-      R(0.60,0.34,2.30,0.30,t.accent,{r:.15}),
-      T(0.60,0.39,2.30,0.20,s.code||"OOH SITE",{size:10,bold:true,color:"FFFFFF",font:"mono",align:"center"}),
-      T(3.05,0.40,4.20,0.20,`${(s.area||"KARACHI").toUpperCase()} · ARTERIAL NETWORK`,{size:9.5,bold:true,color:t.muted,spacing:1.5}),
-      T(0.60,0.68,7.60,0.42,siteTitle,{size:20,bold:true,color:t.ink,font:"display",edit:"stitle:"+c.slides.indexOf(v)}),
+      R(0.60,0.28,2.30,0.28,t.accent,{r:.14}),
+      T(0.60,0.32,2.30,0.20,s.code||"OOH SITE",{size:10,bold:true,color:"FFFFFF",font:"mono",align:"center"}),
+      T(3.05,0.32,4.20,0.20,`${(s.area||"KARACHI").toUpperCase()} · ARTERIAL NETWORK`,{size:9.5,bold:true,color:t.muted,spacing:1.5}),
+      T(0.60,0.60,7.60,0.38,siteTitle,{size:20,bold:true,color:t.ink,font:"display",edit:"stitle:"+c.slides.indexOf(v)}),
 
       ...(f.status?[
-        R(10.85,0.34,1.88,0.34,stc,{r:.17}),
-        T(10.85,0.41,1.88,0.20,STATUS[k].toUpperCase(),{size:9.5,bold:true,color:"FFFFFF",align:"center"})
+        R(10.85,0.28,1.88,0.28,stc,{r:.14}),
+        T(10.85,0.33,1.88,0.18,STATUS[k].toUpperCase(),{size:9.5,bold:true,color:"FFFFFF",align:"center"})
       ]:[]),
       ...(f.traffic&&o?[
-        R(8.70,0.34,2.00,0.34,t.panel,{r:.17}),
-        T(8.70,0.41,2.00,0.20,`~${fmtK(o)} OTS`,{size:10.5,bold:true,color:t.accent,font:"mono",align:"center"})
+        R(8.70,0.28,2.00,0.28,t.panel,{r:.14}),
+        T(8.70,0.33,2.00,0.18,`~${fmtK(o)} OTS`,{size:10,bold:true,color:t.accent,font:"mono",align:"center"})
       ]:[]),
       ...(f.dir?[
-        T(6.80,0.74,5.93,0.22,dirText,{size:9.5,color:t.muted,align:"right"})
+        T(6.80,0.64,5.93,0.22,dirText,{size:9.5,color:t.muted,align:"right"})
       ]:[]),
 
-      // Left Column: Expansive Billboard Photo (7.70 x 5.60 in, natural 1.37 ratio)
-      {t:"img",x:0.60,y:1.18,w:7.70,h:5.60,site:s.id,photo:v.photo,src:p?photoSrc(p):placeholder(s)},
+      // Left Column: ENLARGED Billboard Photo (8.15 x 5.80 in, massive presence)
+      {t:"img",x:0.60,y:1.05,w:8.15,h:5.80,site:s.id,photo:v.photo,src:p?photoSrc(p):placeholder(s)},
 
       // Watermark Tag
       ...(p?[
-        R(0.80,6.32,4.30,0.32,"000000",{r:.08,alpha:.75}),
-        T(0.92,6.38,4.10,0.20,`📷 ${p.tag||"Live Photo"} · ${pDateStr}`,{size:8.5,color:"FFFFFF",bold:true})
+        R(0.80,6.42,4.30,0.32,"000000",{r:.08,alpha:.75}),
+        T(0.92,6.48,4.10,0.20,`📷 ${p.tag||"Live Photo"} · ${pDateStr}`,{size:8.5,color:"FFFFFF",bold:true})
       ]:[]),
 
-      // Right Column: Executive Media Dossier Card
-      R(8.50,1.18,4.23,5.60,t.panel,{r:.16}),
-      R(8.50,1.18,0.08,5.60,t.accent,{r:.04}),
+      // Right Column: Executive Media Dossier Card (3.80 in width, 5.80 in height)
+      R(8.93,1.05,3.80,5.80,t.panel,{r:.16}),
+      R(8.93,1.05,0.08,5.80,t.accent,{r:.04}),
 
-      // Dossier Header
-      T(8.80,1.38,3.70,0.18,"EXECUTIVE MEDIA PROFILE",{size:8,bold:true,color:t.muted,upper:true,spacing:1.5}),
-      T(8.80,1.62,3.70,0.38,(f.traffic&&o)?`~${fmtK(o)} DAILY OTS`:(f.size?`${s.widthFt} × ${s.heightFt} FT`:"PRIME DISPLAY"),{size:19,bold:true,color:t.ink,font:"display"}),
-      T(8.80,2.04,3.70,0.20,`${vCount} · ${trafficZone}`,{size:9.5,color:t.muted}),
+      // Dossier Header (Removed screenshot text 'High volume · High traffic corridor')
+      T(9.20,1.25,3.35,0.18,"EXECUTIVE MEDIA PROFILE",{size:8,bold:true,color:t.muted,upper:true,spacing:1.5}),
+      T(9.20,1.48,3.35,0.38,(f.traffic&&o)?`~${fmtK(o)} DAILY OTS`:(f.size?`${s.widthFt} × ${s.heightFt} FT`:"PRIME DISPLAY"),{size:19,bold:true,color:t.ink,font:"display"}),
 
       // Divider 1
-      R(8.80,2.34,3.65,0.015,t.muted,{alpha:.22}),
+      R(9.20,1.98,3.30,0.015,t.muted,{alpha:.22}),
 
       // Section 1: Dimensions
-      T(8.80,2.48,3.70,0.16,"DISPLAY DIMENSIONS",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
-      T(8.80,2.68,3.70,0.32,f.size?`${s.widthFt} × ${s.heightFt} FT`:(s.media||"Billboard"),{size:18,bold:true,color:t.accent,font:"mono"}),
-      T(8.80,3.02,3.70,0.20,(f.size&&sqft)?`${sqft.toLocaleString()} sq. ft total display area`:"Standard Arterial Display",{size:10,bold:true,color:t.ink}),
+      T(9.20,2.14,3.30,0.16,"DISPLAY DIMENSIONS",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
+      T(9.20,2.34,3.30,0.32,f.size?`${s.widthFt} × ${s.heightFt} FT`:(s.media||"Billboard"),{size:18,bold:true,color:t.accent,font:"mono"}),
+      T(9.20,2.70,3.30,0.20,(f.size&&sqft)?`${sqft.toLocaleString()} sq. ft total display area`:"Standard Arterial Display",{size:10,bold:true,color:t.ink}),
 
       // Divider 2
-      R(8.80,3.28,3.65,0.015,t.muted,{alpha:.22}),
+      R(9.20,3.04,3.30,0.015,t.muted,{alpha:.22}),
 
       // Section 2: Facing & Flow
-      T(8.80,3.42,3.70,0.16,"ORIENTATION & TRAFFIC FLOW",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
-      T(8.80,3.62,3.70,0.22,f.dir?("From: "+(s.from||"Main Arterial")):(s.area||"Karachi"),{size:10.5,bold:true,color:t.ink}),
-      T(8.80,3.86,3.70,0.24,f.dir?("Towards: "+(s.towards||"Commercial Hub")):(s.facing||"Prime Route"),{size:10.5,bold:true,color:t.ink}),
+      T(9.20,3.20,3.30,0.16,"ORIENTATION & TRAFFIC FLOW",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
+      T(9.20,3.40,3.30,0.22,f.dir?("From: "+(s.from||"Main Arterial")):(s.area||"Karachi"),{size:10.5,bold:true,color:t.ink}),
+      T(9.20,3.64,3.30,0.24,f.dir?("Towards: "+(s.towards||"Commercial Hub")):(s.facing||"Prime Route"),{size:10.5,bold:true,color:t.ink}),
 
       // Divider 3
-      R(8.80,4.14,3.65,0.015,t.muted,{alpha:.22}),
+      R(9.20,4.02,3.30,0.015,t.muted,{alpha:.22}),
 
-      // Section 3: Format & Illumination
-      T(8.80,4.28,3.70,0.16,"FORMAT & ILLUMINATION",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
-      T(8.80,4.48,3.70,0.22,`${(s.media||"Billboard").toUpperCase()} · ${(s.light||"Lit").toUpperCase()}`,{size:11.5,bold:true,color:isLit?"0E9F76":t.ink}),
-      T(8.80,4.72,3.70,0.18,s.signal?"Traffic signal nearby (stop & view)":"Clear uninterrupted corridor",{size:9,color:t.muted}),
+      // Section 3: Format & Illumination (Removed screenshot text 'Clear uninterrupted corridor')
+      T(9.20,4.18,3.30,0.16,"FORMAT & ILLUMINATION",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
+      T(9.20,4.38,3.30,0.24,`${(s.media||"Billboard").toUpperCase()} · ${(s.light||"Lit").toUpperCase()}`,{size:11.5,bold:true,color:isLit?"0E9F76":t.ink}),
 
       // Divider 4
-      R(8.80,4.98,3.65,0.015,t.muted,{alpha:.22}),
+      R(9.20,4.76,3.30,0.015,t.muted,{alpha:.22}),
 
-      // Section 4: Price / Rate (PKR) & Commercial Status
-      T(8.80,5.10,3.70,0.16,"PRICE / RATE (PKR)",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
-      T(8.80,5.28,3.70,0.28,priceTxt,{size:15,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)}),
-      T(8.80,5.58,3.70,0.20,(f.status||f.dates)?bTxt:"Ready for Immediate Booking",{size:10,bold:true,color:s.status==="booked"?"E03656":"0E9F76"}),
-      ...(f.gps?[
-        (s.lat&&s.lng)?T(8.80,5.82,3.70,0.20,"🗺️ Open in Google Maps ↗",{size:9.5,bold:true,color:t.accent,link:mapsUrl(s)}):T(8.80,5.82,3.70,0.20,"📍 Verified Karachi Site",{size:9,color:t.muted,font:"mono"})
+      // Section 4: Price / Rate (PKR) & Booking Duration (From Date to Date)
+      T(9.20,4.92,3.30,0.16,"PRICE & BOOKING DURATION",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
+      T(9.20,5.12,3.30,0.28,priceTxt,{size:15,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)}),
+      T(9.20,5.44,3.30,0.16,"BOOKING DURATION:",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1}),
+      T(9.20,5.64,3.30,0.26,bDurationFull,{size:10.5,bold:true,color:s.status==="booked"?"E03656":"0E9F76"}),
+      ...(f.gps&&s.lat&&s.lng?[
+        T(9.20,6.02,3.30,0.20,"🗺️ Open in Google Maps ↗",{size:9.5,bold:true,color:t.accent,link:mapsUrl(s)})
       ]:[
-        T(8.80,5.82,3.70,0.20,s.tagline?`“${s.tagline.substring(0,48)}”`:"Direct Owner Commercial Rate",{size:8.5,color:t.muted,font:"mono"})
+        T(9.20,6.02,3.30,0.20,"📍 Verified Karachi Site",{size:9,color:t.muted,font:"mono"})
       ])
     ];
     return ops.concat(footer(c,t,page,total));
