@@ -3833,7 +3833,7 @@ function openSite(id,editMode){
   </div>${d.verifiedBy?`<small style="color:var(--muted);font-weight:600">✓ Details confirmed by ${esc(d.verifiedBy)} on ${fmtDate(d.verifiedAt)}${d.agentAssisted?" · filled with Site Agent":""}${d.heading!=null?` · faces traffic heading ${cmp(d.heading)}`:""}</small>`:""}${d.traffic||d.vehiclesDay?`<div class="tbox" style="gap:10px"><h4>${tBars(d.traffic)}Traffic: ${esc(d.from||"—")} → ${esc(d.towards||"—")}</h4>
     <div class="ots"><div><b>~${fmtK(otsOf(d))}</b></div><small>Estimated daily OTS<br>${d.traffic?TLEV[d.traffic]+" traffic · ":""}${d.vehiclesDay?Number(d.vehiclesDay).toLocaleString("en-US")+" vehicles/day (counted)":"≈ "+fmtK(vehOf(d))+" vehicles/day (estimate)"}${d.signal?" · signal nearby":""}</small></div>
     ${(d.peak||[]).length?`<div><div class="eyebrow">Peak hours</div><div class="chips" style="margin-top:6px">${d.peak.map(x=>`<span class="tag">${esc(x)}</span>`).join("")}</div></div>`:""}
-    ${(d.audience||[]).length?`<div><div class="eyebrow">Audience</div><div class="chips" style="margin-top:6px">${d.audience.map(x=>`<span class="tag">${esc(x)}</span>`).join("")}</div></div>`:""}</div>`:""}${d.notes?`<div><div class="eyebrow">Notes</div><p style="margin:4px 0 0">${esc(d.notes)}</p></div>`:""}`;
+</div>`:""}${d.notes?`<div><div class="eyebrow">Notes</div><p style="margin:4px 0 0">${esc(d.notes)}</p></div>`:""}`;
   const form=siteForm(d,"sd");
   openLayer(`<div class="scrim" data-act="close"></div><aside class="drawer" role="dialog" aria-label="Site">
     <div class="dh"><div><div class="mono" style="color:var(--violet);font-weight:700;font-size:12px">${esc(d.code||"New site")}</div><h2 style="font-size:20px">${isNew?"Add a site":esc(d.name||d.title||d.area)}</h2></div><span class="sp"></span>${s?pill(s):""}<button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button></div>
@@ -3862,8 +3862,7 @@ function siteForm(d,p){
      <div class="fgrid"><label class="f">Vehicles per day<input class="in mono" id="${p}-veh" type="number" min="0" step="1000" inputmode="numeric" value="${esc(d.vehiclesDay||"")}" placeholder="${d.traffic?"≈ "+tcfg()[d.traffic].toLocaleString("en-US")+" (estimate)":"Traffic count, if surveyed"}"></label>
      <label class="f" style="justify-content:flex-end"><span class="row" style="flex-wrap:nowrap;font-size:13px;font-weight:600;color:var(--ink);min-height:46px"><input type="checkbox" id="${p}-signal" ${d.signal?"checked":""} style="width:20px;height:20px;accent-color:var(--violet);flex:none">Signal or U-turn nearby (vehicles stop and look)</span></label></div>
      <div class="f"><span style="font-size:12px;font-weight:700;color:var(--ink2)">Peak hours</span><div class="chips" id="${p}-peak">${PEAKS.map(x=>`<button type="button" class="chip ${(d.peak||[]).includes(x)?"on":""}" data-v="${x}">${x}</button>`).join("")}</div></div>
-     <div class="f"><span style="font-size:12px;font-weight:700;color:var(--ink2)">Audience passing by</span><div class="chips" id="${p}-aud">${AUD.map(x=>`<button type="button" class="chip ${(d.audience||[]).includes(x)?"on":""}" data-v="${x}">${x}</button>`).join("")}</div></div>
-     <div class="ots" id="${p}-ots"></div></div>
+       <div class="ots" id="${p}-ots"></div></div>
    <div class="f full"><span style="font-size:12px;font-weight:700;color:var(--ink2)">Illumination</span><div class="chips" id="${p}-light">${LIGHT.map(x=>`<button type="button" class="chip ${x===d.light?"on":""}" data-v="${x}">${x}</button>`).join("")}</div></div>
    <div class="f full"><span style="font-size:12px;font-weight:700;color:var(--ink2)">Availability</span><div class="chips" id="${p}-status">${["available","booked","maintenance"].map(k=>`<button type="button" class="chip st ${k} ${d.status===k?"on":""}" data-v="${k}">${STATUS[k]}</button>`).join("")}</div></div>
    <label class="f">Brand currently on site<input class="in" id="${p}-brand" value="${esc(d.brand||"")}" placeholder="e.g. Falaknaz Skyview Towers"></label>
@@ -3889,7 +3888,7 @@ function wireForm(root,p,d){
   g("gm").oninput=e=>{const v=e.target.value.trim();if(!v)return;const c=parseCoords(v);if(c){setCoords(p,root,c[0],c[1],"Location read");e.target.value=""}else if(/goo\.gl|maps\.app/i.test(v))toast("Short share links can't be opened here. In Google Maps, tap the blue dot and copy the numbers instead.")};
   g("lat").oninput=g("lng").oninput=()=>gpsLine(p,root);gpsLine(p,root);
   const lv=g("tlev");lv.onclick=e=>{const b=e.target.closest("[data-v]");if(!b)return;const on=d.traffic===b.dataset.v;d.traffic=on?"":b.dataset.v;$$("button",lv).forEach(x=>x.classList.toggle("on",!on&&x===b));g("veh").placeholder=d.traffic?"≈ "+tcfg()[d.traffic].toLocaleString("en-US")+" (estimate)":"Traffic count, if surveyed";otsLive()};
-  const multi=(id,key)=>{const el=g(id);el.onclick=e=>{const b=e.target.closest("[data-v]");if(!b)return;b.classList.toggle("on");d[key]=$$(".chip.on",el).map(x=>x.dataset.v)}};multi("peak","peak");multi("aud","audience");
+  const multi=(id,key)=>{const el=g(id);if(!el)return;el.onclick=e=>{const b=e.target.closest("[data-v]");if(!b)return;b.classList.toggle("on");d[key]=$(".chip.on",el).map(x=>x.dataset.v)}};multi("peak","peak");
   const otsLive=()=>{const tmp={traffic:d.traffic,vehiclesDay:+g("veh").value||0,signal:g("signal").checked,light:d.light};const o=otsOf(tmp);const box=g("ots");box.innerHTML=o?`<div><b>~${fmtK(o)}</b></div><small>Estimated daily OTS (opportunities to see)<br>${fmtK(vehOf(tmp))} vehicles × ${tcfg().occ} people${/non/i.test(d.light||"")?` × ${tcfg().unlit}% (non-lit)`:""}${tmp.signal?` + ${tcfg().signal}% signal`:""}</small>`:`<small>Pick a traffic level or enter a vehicle count to see estimated daily OTS.</small>`};
   g("veh").oninput=otsLive;g("signal").onchange=otsLive;const lo=g("light").onclick;g("light").onclick=e=>{lo(e);otsLive()};otsLive();
 }
@@ -5209,9 +5208,9 @@ function normFields(f){
 }
 const Studio={
  active:false,cfg:null,
- fresh(src){return{id:uid(),title:"",subtitle:"",source:src||{type:"campaign",campaignId:S.campaigns[0]?.id||""},template:"adpulse",layout:"split",groupBy:"area",fields:{status:true,dir:true,size:true,media:true,light:true,dates:true,traffic:true,gps:true,brand:false,notes:false},summary:true,index:true,slides:[],version:0}},
+ fresh(src){return{id:uid(),title:"",subtitle:"",source:src||{type:"campaign",campaignId:S.campaigns[0]?.id||""},template:"adpulse",layout:"wide",groupBy:"area",fields:{status:true,dir:true,size:true,media:true,light:true,dates:true,traffic:true,gps:true,brand:false,notes:false},summary:true,index:true,slides:[],version:0}},
  open(src,title){this.cfg=this.fresh(src);if(title)this.cfg.title=title;this.build();this.active=true;location.hash="studio";if(route==="studio")render(true)},
- load(deck){this.cfg=JSON.parse(JSON.stringify(deck));if(!this.cfg.layout)this.cfg.layout="split";this.cfg.fields=normFields(this.cfg.fields);this.cfg.summary=this.cfg.summary!==false;this.cfg.index=this.cfg.index!==false;this.active=true;render(true)},
+ load(deck){this.cfg=JSON.parse(JSON.stringify(deck));if(!this.cfg.layout)this.cfg.layout="wide";this.cfg.fields=normFields(this.cfg.fields);this.cfg.summary=this.cfg.summary!==false;this.cfg.index=this.cfg.index!==false;this.active=true;render(true)},
  sitesFor(){const s=this.cfg.source;let list=[];
    if(s.type==="campaign"){const c=campOf(s.campaignId);list=(c?.siteIds||[]).map(id=>S.sites.find(x=>x&&(x.id===id||x.code===id))).filter(Boolean)}
    else if(s.type==="filter"){list=S.sites.filter(x=>(!s.area||x.area===s.area)&&(!s.size||sizeOf(x)===s.size)&&(!s.status||effStatus(x)===s.status||(s.status==="booked"&&effStatus(x)==="expiring"))&&(!s.media||x.media===s.media))}
@@ -5276,7 +5275,7 @@ function indexOps(c,t,g){const ops=[...frame(t),T(0.6,0.5,10,0.7,"Site index by 
  return ops.concat(footer(c,t))}
 function siteOps(c,t,s,v,page,total){
   const f=normFields(c.fields);
-  const layout=c.layout||"split";
+  const layout=c.layout||"wide";
   let p=(s.photos||[])[v.photo];if(isVid(p))p=lastImg(s);
   const k=effStatus(s),stc={available:"0E9F76",booked:"E03656",expiring:"EE7422",maintenance:"DB8F06"}[k];
   const o=otsOf(s);
@@ -5284,7 +5283,7 @@ function siteOps(c,t,s,v,page,total){
   const sqft=(+s.widthFt||0)*(+s.heightFt||0);
   const isLit=/lit/i.test(s.light||"");
   const bTxt=s.status==="booked"?(s.bookedTill?(s.brand?`${s.brand} (Till ${fmtShort(s.bookedTill)})`:`Booked till ${fmtShort(s.bookedTill)}`):"Currently Booked"):"Ready for Immediate Booking";
-  const aud=(s.audience||[]).slice(0,2).join(", ")||(s.traffic?`${TLEV[s.traffic]} traffic zone`:"Heavy arterial traffic");
+  const trafficZone=s.traffic?`${TLEV[s.traffic]} traffic corridor`:"Prime arterial corridor";
   const vCount=s.vehiclesDay?`${fmtK(s.vehiclesDay)} vehicles/day`:(s.traffic?`${TLEV[s.traffic]} volume`:"Counted traffic");
   const siteTitle=v.title||s.name||s.area||"Karachi OOH Billboard";
   const pDateStr=p&&(p.at||p.date)?fmtDate(p.at||p.date):"Verified Site";
@@ -5326,7 +5325,7 @@ function siteOps(c,t,s,v,page,total){
       // Dossier Header
       T(8.80,1.38,3.70,0.18,"EXECUTIVE MEDIA PROFILE",{size:8,bold:true,color:t.muted,upper:true,spacing:1.5}),
       T(8.80,1.62,3.70,0.38,(f.traffic&&o)?`~${fmtK(o)} DAILY OTS`:(f.size?`${s.widthFt} × ${s.heightFt} FT`:"PRIME DISPLAY"),{size:19,bold:true,color:t.ink,font:"display"}),
-      T(8.80,2.04,3.70,0.20,`${vCount} · ${aud}`,{size:9,color:t.muted}),
+      T(8.80,2.04,3.70,0.20,`${vCount} · ${trafficZone}`,{size:9,color:t.muted}),
 
       // Divider 1
       R(8.80,2.34,3.65,0.015,t.muted,{alpha:.22}),
@@ -5427,7 +5426,7 @@ function siteOps(c,t,s,v,page,total){
     ...(f.gps?[
       (s.lat&&s.lng)?T(9.94,6.22,2.65,0.18,"🗺️ Open in Google Maps ↗",{size:9,bold:true,color:t.accent,link:mapsUrl(s)}):T(9.94,6.22,2.65,0.18,"GPS Verified Location",{size:8.5,color:t.muted,font:"mono"})
     ]:[
-      T(9.94,6.22,2.65,0.18,aud,{size:8.5,color:t.muted})
+      T(9.94,6.22,2.65,0.18,trafficZone,{size:8.5,color:t.muted})
     ])
   ];
 
@@ -5472,7 +5471,7 @@ function vStudio(){
     <div class="card pad grid setc" style="gap:14px"><div class="eyebrow">Source</div>
      <div class="seg">${[["campaign","Campaign"],["filter","Filters"],["selection","Selection"]].map(([k,l])=>`<button class="${c.source.type===k?"on":""}" data-act="stsrc" data-v="${k}" ${k==="selection"&&!(c.source.ids||[]).length?"disabled":""}>${l}</button>`).join("")}</div>${srcSel}
      <div class="eyebrow">Slide Layout</div>
-     <div class="seg" style="margin-bottom:2px">${[["split","✨ Executive Pitch (2-Col)"],["wide","🖼️ Widescreen Hero"]].map(([k,l])=>`<button class="${(c.layout||"split")===k?"on":""}" data-act="stlayout" data-v="${k}">${l}</button>`).join("")}</div>
+     <div class="seg" style="margin-bottom:2px">${[["wide","🖼️ Centered Large Image (Bottom Details)"],["split","📑 2-Column Split"]].map(([k,l])=>`<button class="${(c.layout||"split")===k?"on":""}" data-act="stlayout" data-v="${k}">${l}</button>`).join("")}</div>
      <div class="eyebrow">Template</div>
      <div class="tpls">${Object.entries(TPL).map(([k,t])=>`<button class="tpl ${c.template===k?"on":""}" data-act="sttpl" data-v="${k}"><i style="background:linear-gradient(135deg,#${t.band} 55%,#${t.accent} 55% 80%,#${t.accent2} 80%)"></i><span>${t.name}</span></button>`).join("")}</div>
      <label class="f">Group slides by<select class="in" id="stGroup">${opt([["area","Area"],["size","Size"],["status","Status"],["none","No grouping"]],c.groupBy)}</select></label>
