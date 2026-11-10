@@ -5294,15 +5294,21 @@ function siteOps(c,t,s,v,page,total){
   const rawPrice = v.price || s.price || (s.rates && !/^(PKR|USD|EUR)$/i.test(s.rates) ? s.rates : "");
   const priceTxt = rawPrice ? (rawPrice.toUpperCase().includes("PKR") || rawPrice.toUpperCase().includes("RS") ? rawPrice : "PKR " + rawPrice) : "PKR Rate on Request";
 
-  // Booking Duration calculation (From Date to Date)
+  // Field-aware Booking Duration calculation
   const bDuration = s.status==="booked"
-    ? (s.bookedFrom && s.bookedTill
+    ? (f.dates && s.bookedFrom && s.bookedTill
         ? `${fmtDate(s.bookedFrom)} to ${fmtDate(s.bookedTill)}`
-        : (s.bookedTill ? `Till ${fmtDate(s.bookedTill)}` : "Currently Booked"))
+        : (f.dates && s.bookedTill ? `Till ${fmtDate(s.bookedTill)}` : "Currently Booked"))
     : "Available for Booking";
+  const bClient = (f.brand && s.brand) ? `${s.brand} · ` : "";
   const bDurationFull = s.status==="booked"
-    ? `${s.brand ? s.brand + " · " : ""}${bDuration}`
+    ? `${bClient}${bDuration}`
     : "Ready for Immediate Booking";
+  const mediaStr = f.media ? (s.media || "Billboard").toUpperCase() : "";
+  const lightStr = f.light ? (s.light || "Lit").toUpperCase() : "";
+  const formatStr = (mediaStr && lightStr)
+    ? `${mediaStr} · ${lightStr}`
+    : (mediaStr || (lightStr ? `${lightStr} DISPLAY` : "OOH DISPLAY"));
 
   if(layout==="split"){
     const ops=[
@@ -5363,21 +5369,26 @@ function siteOps(c,t,s,v,page,total){
 
       // Section 3: Format & Illumination
       T(9.20,4.36,3.30,0.16,"FORMAT & ILLUMINATION",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
-      T(9.20,4.56,3.30,0.24,`${(s.media||"Billboard").toUpperCase()} · ${(s.light||"Lit").toUpperCase()}`,{size:11.5,bold:true,color:isLit?"0E9F76":t.ink}),
+      T(9.20,4.56,3.30,0.24,formatStr,{size:11.5,bold:true,color:isLit?"0E9F76":t.ink}),
 
       // Divider 4
       R(9.20,4.92,3.30,0.015,t.muted,{alpha:.22}),
 
-      // Section 4: Price / Rate (PKR) & Booking Duration (From Date to Date)
-      T(9.20,5.08,3.30,0.16,"PRICE & BOOKING DURATION",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
-      T(9.20,5.28,3.30,0.28,priceTxt,{size:15,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)}),
-      T(9.20,5.60,3.30,0.16,"BOOKING DURATION:",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1}),
-      T(9.20,5.78,3.30,0.36,bDurationFull,{size:10.5,bold:true,color:s.status==="booked"?"E03656":"0E9F76"}),
+      // Section 4: Price / Rate (PKR) & Booking Duration
+      T(9.20,5.08,3.30,0.16,f.price?"PRICE & BOOKING DURATION":"COMMERCIAL STATUS",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
+      ...(f.price ? [
+        T(9.20,5.28,3.30,0.28,priceTxt,{size:15,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)})
+      ] : []),
+      T(9.20,f.price?5.60:5.32,3.30,0.16,f.dates?"BOOKING DURATION:":"STATUS:",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1}),
+      T(9.20,f.price?5.78:5.52,3.30,0.36,bDurationFull,{size:10.5,bold:true,color:s.status==="booked"?"E03656":"0E9F76"}),
       ...(f.gps&&s.lat&&s.lng?[
         T(9.20,6.22,3.30,0.20,"🗺️ Open in Google Maps ↗",{size:9.5,bold:true,color:t.accent,link:mapsUrl(s)})
       ]:[
         T(9.20,6.22,3.30,0.20,"📍 Verified Karachi Site",{size:9,color:t.muted,font:"mono"})
-      ])
+      ]),
+      ...(f.notes&&s.notes?[
+        T(9.20,6.48,3.30,0.22,`Note: ${s.notes.substring(0,42)}`,{size:8.5,color:t.muted})
+      ]:[])
     ];
     return ops.concat(footer(c,t,page,total));
   }
@@ -5439,15 +5450,15 @@ function siteOps(c,t,s,v,page,total){
 
     // Col 3: Format & Illumination
     T(6.91,5.64,2.65,0.18,"FORMAT & ILLUMINATION",{size:8.5,bold:true,color:t.muted,upper:true,spacing:1.2}),
-    T(6.91,5.88,2.65,0.32,`${(s.media||"Billboard").toUpperCase()} · ${(s.light||"Lit").toUpperCase()}`,{size:11.5,bold:true,color:isLit?"0E9F76":t.ink}),
-    T(6.91,6.26,2.65,0.26,(f.status||f.dates)?bTxt:"Open for Booking",{size:11,bold:true,color:s.status==="booked"?"E03656":"0E9F76"}),
-    T(6.91,6.56,2.65,0.22,s.signal?"Traffic signal nearby (stop & view)":"Clear uninterrupted corridor",{size:9.5,color:t.muted}),
+    T(6.91,5.88,2.65,0.32,formatStr,{size:11.5,bold:true,color:isLit?"0E9F76":t.ink}),
+    T(6.91,6.26,2.65,0.26,bDurationFull,{size:10.5,bold:true,color:s.status==="booked"?"E03656":"0E9F76"}),
+    T(6.91,6.56,2.65,0.22,s.signal?"Traffic signal nearby (stop & view)":"Prime Arterial Location",{size:9.5,color:t.muted}),
 
     // Col 4: Price / Rate (PKR)
-    T(9.94,5.64,2.65,0.18,"PRICE / RATE (PKR)",{size:8.5,bold:true,color:t.muted,upper:true,spacing:1.2}),
-    T(9.94,5.86,2.65,0.36,priceTxt,{size:15,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)}),
-    T(9.94,6.26,2.65,0.26,"Monthly Commercial Rental",{size:11,bold:true,color:t.ink}),
-    T(9.94,6.56,2.65,0.22,"Direct Owner Rate · Click to edit",{size:9.5,color:t.muted,font:"mono"})
+    T(9.94,5.64,2.65,0.18,f.price?"PRICE / RATE (PKR)":"COMMERCIAL STATUS",{size:8.5,bold:true,color:t.muted,upper:true,spacing:1.2}),
+    T(9.94,5.86,2.65,0.36,f.price?priceTxt:(s.status==="booked"?"Reserved Site":"Ready for Booking"),{size:15,bold:true,color:t.accent,font:"display",edit:f.price?"sprice:"+c.slides.indexOf(v):undefined}),
+    T(9.94,6.26,2.65,0.26,f.price?"Monthly Commercial Rental":"Commercial Media Profile",{size:11,bold:true,color:t.ink}),
+    T(9.94,6.56,2.65,0.22,f.notes&&s.notes?`Note: ${s.notes.substring(0,28)}`:(f.price?"Direct Owner Rate · Click to edit":"Subject to Availability"),{size:9.5,color:t.muted,font:"mono"})
   ];
 
   return ops.concat(footer(c,t,page,total));
