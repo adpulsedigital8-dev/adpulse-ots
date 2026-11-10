@@ -5401,45 +5401,44 @@ function siteOps(c,t,s,v,page,total){
       T(7.50,0.76,5.23,0.18,`📍 ${s.area||"Karachi"} Verified Corridor`,{size:8.5,color:t.muted,align:"right",font:"mono"})
     ]),
 
-    // Hero Large Center Photo (Expanded height 4.65)
-    {t:"img",x:0.60,y:0.98,w:12.133,h:4.64,site:s.id,photo:v.photo,src:p?photoSrc(p):placeholder(s)},
+    // Hero Large Center Photo (Expanded height 4.44)
+    {t:"img",x:0.60,y:0.94,w:12.133,h:4.44,site:s.id,photo:v.photo,src:p?photoSrc(p):placeholder(s)},
 
     ...(p?[
-      R(0.80,5.20,3.80,0.30,"000000",{r:.08,alpha:.75}),
-      T(0.92,5.26,3.60,0.18,`📷 ${p.tag||"Live Photo"} · ${pDateStr}`,{size:8.5,color:"FFFFFF",bold:true})
+      R(0.80,4.96,3.80,0.32,"000000",{r:.08,alpha:.75}),
+      T(0.92,5.02,3.60,0.20,`📷 ${p.tag||"Live Photo"} · ${pDateStr}`,{size:9,color:"FFFFFF",bold:true})
     ]:[]),
 
-    // Unified Luxury Ribbon at Bottom
-    R(0.60,5.72,12.133,1.22,t.panel,{r:.14}),
-    R(0.60,5.72,12.133,0.035,t.accent),
+    // Unified Spacious Luxury Ribbon at Bottom (Expanded height 1.46 for large readable non-clipping text)
+    R(0.60,5.50,12.133,1.46,t.panel,{r:.14}),
+    R(0.60,5.50,12.133,0.04,t.accent),
 
-    R(3.63,5.82,0.015,1.02,t.muted,{alpha:.22}),
-    R(6.66,5.82,0.015,1.02,t.muted,{alpha:.22}),
-    R(9.69,5.82,0.015,1.02,t.muted,{alpha:.22}),
+    R(3.63,5.62,0.015,1.22,t.muted,{alpha:.22}),
+    R(6.66,5.62,0.015,1.22,t.muted,{alpha:.22}),
+    R(9.69,5.62,0.015,1.22,t.muted,{alpha:.22}),
 
-    // Col 1: Facing & Orientation
-    T(0.85,5.82,2.65,0.16,"FACING & ORIENTATION",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1}),
-    T(0.85,6.02,2.65,0.20,f.dir?("From: "+(s.from||"Main Arterial")):(s.area||"Karachi"),{size:9.5,bold:true,color:t.ink}),
-    T(0.85,6.24,2.65,0.20,f.dir?("Towards: "+(s.towards||"Commercial Hub")):(s.facing||"Arterial Corridor"),{size:9.5,bold:true,color:t.ink}),
-    T(0.85,6.46,2.65,0.16,(s.area||"Karachi")+" Arterial Network",{size:8,color:t.muted}),
+    // Col 1: Facing & Orientation (Enlarged readable fonts, no overlapping lines)
+    T(0.85,5.64,2.65,0.18,"FACING & ORIENTATION",{size:8.5,bold:true,color:t.muted,upper:true,spacing:1.2}),
+    T(0.85,5.88,2.65,0.38,f.dir?("From: "+(s.from||"Main Arterial")):(s.area||"Karachi"),{size:11,bold:true,color:t.ink}),
+    T(0.85,6.30,2.65,0.55,f.dir?("Towards: "+(s.towards||"Commercial Hub")):(s.facing||"Arterial Corridor"),{size:11,bold:true,color:t.ink}),
 
     // Col 2: Display Dimensions
-    T(3.88,5.82,2.65,0.16,"DISPLAY DIMENSIONS",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1}),
-    T(3.88,6.00,2.65,0.26,f.size?`${s.widthFt} × ${s.heightFt} ft`:(s.media||"Billboard"),{size:15,bold:true,color:t.accent,font:"mono"}),
-    T(3.88,6.26,2.65,0.18,(f.size&&sqft)?`${sqft.toLocaleString()} sq. ft total impact`:(s.media||"Billboard"),{size:9,color:t.ink}),
-    T(3.88,6.46,2.65,0.16,(s.media||"Billboard")+" Format",{size:8,color:t.muted}),
+    T(3.88,5.64,2.65,0.18,"DISPLAY DIMENSIONS",{size:8.5,bold:true,color:t.muted,upper:true,spacing:1.2}),
+    T(3.88,5.86,2.65,0.36,f.size?`${s.widthFt} × ${s.heightFt} FT`:(s.media||"Billboard"),{size:17,bold:true,color:t.accent,font:"mono"}),
+    T(3.88,6.26,2.65,0.26,(f.size&&sqft)?`${sqft.toLocaleString()} sq. ft total impact`:(s.media||"Billboard"),{size:11,bold:true,color:t.ink}),
+    T(3.88,6.56,2.65,0.22,(s.media||"Billboard")+" Format",{size:9.5,color:t.muted}),
 
     // Col 3: Format & Illumination
-    T(6.91,5.82,2.65,0.16,"MEDIUM & ILLUMINATION",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1}),
-    T(6.91,6.02,2.65,0.20,`${(s.media||"Billboard").toUpperCase()} · ${(s.light||"Lit").toUpperCase()}`,{size:10,bold:true,color:isLit?"0E9F76":t.ink}),
-    T(6.91,6.24,2.65,0.20,(f.status||f.dates)?bTxt:"Open for Booking",{size:9,bold:true,color:s.status==="booked"?"E03656":"0E9F76"}),
-    T(6.91,6.46,2.65,0.16,s.signal?"Traffic signal nearby (stop & view)":"Clear uninterrupted corridor",{size:8,color:t.muted}),
+    T(6.91,5.64,2.65,0.18,"FORMAT & ILLUMINATION",{size:8.5,bold:true,color:t.muted,upper:true,spacing:1.2}),
+    T(6.91,5.88,2.65,0.32,`${(s.media||"Billboard").toUpperCase()} · ${(s.light||"Lit").toUpperCase()}`,{size:11.5,bold:true,color:isLit?"0E9F76":t.ink}),
+    T(6.91,6.26,2.65,0.26,(f.status||f.dates)?bTxt:"Open for Booking",{size:11,bold:true,color:s.status==="booked"?"E03656":"0E9F76"}),
+    T(6.91,6.56,2.65,0.22,s.signal?"Traffic signal nearby (stop & view)":"Clear uninterrupted corridor",{size:9.5,color:t.muted}),
 
     // Col 4: Price / Rate (PKR)
-    T(9.94,5.82,2.65,0.16,"PRICE / RATE (PKR)",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1}),
-    T(9.94,6.00,2.65,0.26,priceTxt,{size:13.5,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)}),
-    T(9.94,6.26,2.65,0.18,"Monthly Commercial Rental",{size:9,color:t.ink}),
-    T(9.94,6.46,2.65,0.16,"Direct Owner Rate · Click to edit",{size:8,color:t.muted,font:"mono"})
+    T(9.94,5.64,2.65,0.18,"PRICE / RATE (PKR)",{size:8.5,bold:true,color:t.muted,upper:true,spacing:1.2}),
+    T(9.94,5.86,2.65,0.36,priceTxt,{size:15,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)}),
+    T(9.94,6.26,2.65,0.26,"Monthly Commercial Rental",{size:11,bold:true,color:t.ink}),
+    T(9.94,6.56,2.65,0.22,"Direct Owner Rate · Click to edit",{size:9.5,color:t.muted,font:"mono"})
   ];
 
   return ops.concat(footer(c,t,page,total));
