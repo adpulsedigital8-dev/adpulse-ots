@@ -833,7 +833,7 @@ textarea.in{min-height:80px;resize:vertical}
 .kpi small{color:var(--muted);font-weight:600;font-size:12px}
 .kpi::after{content:"";position:absolute;right:-30px;bottom:-30px;width:90px;height:90px;border-radius:50%;background:var(--c);opacity:.12}
 
-.dash{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-top:16px}
+.dash{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
 @media (max-width:1000px){.dash{grid-template-columns:1fr}}
 .sec-h{display:flex;align-items:center;gap:10px;margin-bottom:14px}
 .sec-h h2{font-size:18px;font-weight:700}
@@ -1768,13 +1768,11 @@ function vDash(){
   const alerts=[exp.length?`<div class="alert">${ICON.warn}<span><b>${exp.length}</b> booking${exp.length>1?"s":""} expire within 14 days: ${exp.slice(0,3).map(s=>`<span class="mono">${esc(s.code)}</span>`).join(", ")}${exp.length>3?"…":""}</span></div>`:"",stale.length?`<div class="alert b">${ICON.warn}<span><b>${stale.length}</b> site${stale.length>1?"s have":" has"} no photo in the last 30 days</span></div>`:""].join("");
   return pgTop("Dashboard",new Date().toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"})+" · Karachi",`<a class="btn pri" href="#capture">${ICON.cam}Capture</a>`)+kp+
   `<div class="dash enter">
-    <div class="card pad"><div class="sec-h"><h2>Site map</h2><span class="sp"></span><div class="legend"><span style="--c:var(--ok)">Available</span><span style="--c:var(--bad)">Booked</span><span style="--c:var(--orange)">Expiring</span><span style="--c:var(--warn)">Maint.</span></div></div>${mapHTML(S.sites)}</div>
-    <div class="grid" style="align-content:start">
-      ${alerts?`<div class="grid" style="gap:10px">${alerts}</div>`:""}
-      <div class="card pad"><div class="sec-h"><h2>Availability by area</h2></div><div class="bars">${bars}</div></div>
-    </div>
-    <div class="card pad"><div class="sec-h"><h2>Latest from the field</h2></div><div class="feed">${feedH}</div></div>
+    <div class="card pad" style="grid-column:1/-1"><div class="sec-h"><h2>Site map</h2><span class="sp"></span><div class="legend"><span style="--c:var(--ok)">Available</span><span style="--c:var(--bad)">Booked</span><span style="--c:var(--orange)">Expiring</span><span style="--c:var(--warn)">Maint.</span></div></div>${mapHTML(S.sites)}</div>
+    ${alerts?`<div style="grid-column:1/-1;display:grid;gap:10px">${alerts}</div>`:""}
+    <div class="card pad"><div class="sec-h"><h2>Availability by area</h2></div><div class="bars">${bars}</div></div>
     <div class="card pad"><div class="sec-h"><h2>Sizes in inventory</h2></div>${donut}</div>
+    <div class="card pad" style="grid-column:1/-1"><div class="sec-h"><h2>Latest from the field</h2></div><div class="feed">${feedH}</div></div>
   </div>`;
 }
 function emptyState(h,p,cta=""){return`<div class="empty">${ICON.sites}<h3>${h}</h3><p>${p}</p>${cta}</div>`}
