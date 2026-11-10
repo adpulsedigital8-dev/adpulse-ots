@@ -3824,7 +3824,7 @@ function openSite(id,editMode){
       ["Light",esc(d.light)],
       ["From",esc(d.from||"—")],
       ["Towards",esc(d.towards||"—")],
-      ...(d.rates?[["Rates / Currency",esc(d.rates)]]:[]),
+      ...(d.rates||d.price?[["Rate / Price (PKR)",`<span class="mono" style="color:var(--ok);font-weight:700">${esc(d.rates||d.price)}</span>`]]:[]),
       ...(RO()?[]:[["Brand on site",esc(d.brand||"—")],["Tagline / Slogan",d.tagline?`<span style="color:var(--ink);font-style:italic">"${esc(d.tagline)}"</span>`:"—"],["Brand Logo",d.logo?`<span class="tag" style="background:rgba(217,22,29,0.1);color:#d9161d;font-weight:700">${esc(d.logo)}</span>`:"—"]]),
       ["Booking",d.status==="booked"&&d.bookedTill?`${d.bookedFrom?fmtDate(d.bookedFrom)+" → ":"Till "}${fmtDate(d.bookedTill)}`:"—"],
       ["GPS",d.lat?`<span class="mono">${(+d.lat).toFixed(5)}, ${(+d.lng).toFixed(5)}</span>`:"—"],
@@ -3865,6 +3865,7 @@ function siteForm(d,p){
        <div class="ots" id="${p}-ots"></div></div>
    <div class="f full"><span style="font-size:12px;font-weight:700;color:var(--ink2)">Illumination</span><div class="chips" id="${p}-light">${LIGHT.map(x=>`<button type="button" class="chip ${x===d.light?"on":""}" data-v="${x}">${x}</button>`).join("")}</div></div>
    <div class="f full"><span style="font-size:12px;font-weight:700;color:var(--ink2)">Availability</span><div class="chips" id="${p}-status">${["available","booked","maintenance"].map(k=>`<button type="button" class="chip st ${k} ${d.status===k?"on":""}" data-v="${k}">${STATUS[k]}</button>`).join("")}</div></div>
+   <label class="f">Rate / Price (PKR / Month)<input class="in" id="${p}-rates" value="${esc(d.rates||d.price||"")}" placeholder="e.g. PKR 450,000 / Month"></label>
    <label class="f">Brand currently on site<input class="in" id="${p}-brand" value="${esc(d.brand||"")}" placeholder="e.g. Falaknaz Skyview Towers"></label>
    <label class="f">Brand Tagline / Slogan<input class="in" id="${p}-tagline" value="${esc(d.tagline||"")}" placeholder="e.g. 2 &amp; 3 Bedroom Luxury Apartments"></label>
    <label class="f">Brand Logo details<input class="in" id="${p}-logo" value="${esc(d.logo||"")}" placeholder="e.g. Falaknaz Group Logo"></label>
@@ -3910,6 +3911,8 @@ function readForm(root,p,d){
     tagline:g("tagline")?g("tagline").value.trim():(d.tagline||""),
     logo:g("logo")?g("logo").value.trim():(d.logo||""),
     name:g("name")?g("name").value.trim():(d.name||d.title||""),
+    rates:g("rates")?g("rates").value.trim():(d.rates||d.price||""),
+    price:g("rates")?g("rates").value.trim():(d.price||d.rates||""),
     title:g("name")?g("name").value.trim():(d.name||d.title||""),
     availability:g("availability")?g("availability").value.trim():(d.availability||""),
     bookedTill:d.status==="booked"?(g("till")?g("till").value:(d.bookedTill||"")):"",
@@ -5189,7 +5192,7 @@ const TPL={
  adpulse_dark:{name:"AdPulse Dark Luxe",bg:"0C1214",ink:"F3F7F7",muted:"8B9E9E",accent:"E51A24",accent2:"14B8A6",panel:"162023",band:"0A1012",bandInk:"FFFFFF",grad:true},
  adpulse_teal:{name:"AdPulse Teal Executive",bg:"FFFFFF",ink:"0B2523",muted:"547370",accent:"1B7F7A",accent2:"D9161D",panel:"EFF7F6",band:"0E3B38",bandInk:"FFFFFF",grad:true}
 };
-const FIELDS=[["status","Availability"],["dir","From → Towards"],["size","Size"],["media","Media type"],["light","Illumination"],["dates","Booking dates"],["traffic","Traffic & OTS"],["gps","GPS & map link"],["brand","Brand on site"],["notes","Notes"]];
+const FIELDS=[["status","Availability"],["dir","From → Towards"],["size","Size"],["media","Media type"],["light","Illumination"],["dates","Booking dates"],["traffic","Traffic & OTS"],["gps","GPS & map link"],["price","Price / Rate (PKR)"],["brand","Brand on site"],["notes","Notes"]];
 function normFields(f){
   const def={status:true,dir:true,size:true,media:true,light:true,dates:true,traffic:true,gps:true,brand:false,notes:false};
   if(!f||typeof f!=="object")return def;
@@ -5202,13 +5205,14 @@ function normFields(f){
     dates:f.dates!==undefined?!!f.dates:true,
     traffic:f.traffic!==undefined?!!f.traffic:(f.metrics!==undefined?!!f.metrics:true),
     gps:f.gps!==undefined?!!f.gps:true,
+    price:f.price!==undefined?!!f.price:true,
     brand:f.brand!==undefined?!!f.brand:false,
     notes:f.notes!==undefined?!!f.notes:false
   };
 }
 const Studio={
  active:false,cfg:null,
- fresh(src){return{id:uid(),title:"",subtitle:"",source:src||{type:"campaign",campaignId:S.campaigns[0]?.id||""},template:"adpulse",layout:"wide",groupBy:"area",fields:{status:true,dir:true,size:true,media:true,light:true,dates:true,traffic:true,gps:true,brand:false,notes:false},summary:true,index:true,slides:[],version:0}},
+ fresh(src){return{id:uid(),title:"",subtitle:"",source:src||{type:"campaign",campaignId:S.campaigns[0]?.id||""},template:"adpulse",layout:"wide",groupBy:"area",fields:{status:true,dir:true,size:true,media:true,light:true,dates:true,traffic:true,gps:true,price:true,brand:false,notes:false},summary:true,index:true,slides:[],version:0}},
  open(src,title){this.cfg=this.fresh(src);if(title)this.cfg.title=title;this.build();this.active=true;location.hash="studio";if(route==="studio")render(true)},
  load(deck){this.cfg=JSON.parse(JSON.stringify(deck));if(!this.cfg.layout)this.cfg.layout="wide";this.cfg.fields=normFields(this.cfg.fields);this.cfg.summary=this.cfg.summary!==false;this.cfg.index=this.cfg.index!==false;this.active=true;render(true)},
  sitesFor(){const s=this.cfg.source;let list=[];
@@ -5217,8 +5221,8 @@ const Studio={
    else list=(s.ids||[]).map(id=>S.sites.find(x=>x&&(x.id===id||x.code===id))).filter(Boolean);return list},
  build(){const c=this.cfg;const list=this.sitesFor();const key={area:x=>x.area,size:x=>sizeOf(x),status:x=>STATUS[effStatus(x)],none:()=>""}[c.groupBy];
     list.sort((a,b)=>String(key(a)).localeCompare(String(key(b)))||a.code.localeCompare(b.code));
-    c.sitesData=list.map(s=>({id:s.id,code:s.code,name:s.name||"",area:s.area,widthFt:s.widthFt,heightFt:s.heightFt,media:s.media,light:s.light,from:s.from||"",towards:s.towards||"",status:s.status,brand:s.brand||"",bookedTill:s.bookedTill||"",bookedFrom:s.bookedFrom||"",lat:s.lat||"",lng:s.lng||"",traffic:s.traffic||"",vehiclesDay:s.vehiclesDay||"",photos:(s.photos||[]).map(p=>({asset:p.asset,kind:p.kind,tag:p.tag,at:p.at||p.date||"2026-10-16"}))}));
-    const old=new Map((c.slides||[]).map(s=>[s.siteId,s]));c.slides=list.map(s=>old.get(s.id)||{siteId:s.id,hidden:false,photo:imgIdx(s).slice(-1)[0]??-1,title:"",note:""});
+    c.sitesData=list.map(s=>({id:s.id,code:s.code,name:s.name||"",area:s.area,widthFt:s.widthFt,heightFt:s.heightFt,media:s.media,light:s.light,from:s.from||"",towards:s.towards||"",status:s.status,brand:s.brand||"",bookedTill:s.bookedTill||"",bookedFrom:s.bookedFrom||"",lat:s.lat||"",lng:s.lng||"",traffic:s.traffic||"",vehiclesDay:s.vehiclesDay||"",rates:s.rates||s.price||"",price:s.price||s.rates||"",photos:(s.photos||[]).map(p=>({asset:p.asset,kind:p.kind,tag:p.tag,at:p.at||p.date||"2026-10-16"}))}));
+    const old=new Map((c.slides||[]).map(s=>[s.siteId,s]));c.slides=list.map(s=>old.get(s.id)||{siteId:s.id,hidden:false,photo:imgIdx(s).slice(-1)[0]??-1,title:"",note:"",price:s.price||(s.rates&&!/^(PKR|USD|EUR)$/i.test(s.rates)?s.rates:"")||""});
    if(!c.title){const cp=c.source.type==="campaign"?campOf(c.source.campaignId):null;c.title=cp?cp.name:c.source.type==="filter"?`${c.source.area||"Karachi"} ${c.source.status==="available"?"Available ":""}Sites`:"Site Proposal"}
    if(!c.subtitle){const cp=c.source.type==="campaign"?campOf(c.source.campaignId):null;c.subtitle=cp?.client?`Prepared for ${cp.client}`:"OOH site presentation"}},
  mount(){if(!this.cfg)return;if((!this.cfg.slides||!this.cfg.slides.length)&&(S.sites.length||(this.cfg.sitesData&&this.cfg.sitesData.length))){this.build()}this.renderSlides();this.bindDnD()},
@@ -5237,7 +5241,7 @@ const Studio={
        const tools=(v&&s)?`<div class="sltools"><button class="btn sm" data-act="slphoto" data-i="${sl.idx}" ${imgIdx(s).length>1?"":"disabled"}>${ICON.img}Swap photo${imgIdx(s).length>1?` (${imgIdx(s).length})`:""}</button><button class="btn sm" data-act="slhide" data-i="${sl.idx}">${ICON.eye}Hide</button><button class="btn sm" data-act="site" data-id="${s.id}">Site details</button></div>`:"";
        return`<div class="sl" ${v?`draggable="true" data-i="${sl.idx}"`:""}><div class="num"><b>${String(n+1).padStart(2,"0")}</b>${v?`<button data-act="slmove" data-i="${sl.idx}" data-d="-1" aria-label="Move up">${ICON.up}</button><button data-act="slmove" data-i="${sl.idx}" data-d="1" aria-label="Move down">${ICON.down}</button>`:""}</div><div class="slwrap">${slideHTML(sl.ops,TPL[this.cfg.template]||TPL.adpulse)}${tools}</div></div>`}).join("")+
        (this.cfg.slides.some(s=>s.hidden)?`<div class="card pad"><b>Hidden slides</b><div class="chips" style="margin-top:8px">${this.cfg.slides.map((s,i)=>s.hidden?`<button class="chip" data-act="slshow" data-i="${i}">${esc(S.sites.find(x=>x.id===s.siteId)?.code||"?")} · show</button>`:"").join("")}</div></div>`:"");
-      $$("[data-edit]",box).forEach(el=>el.addEventListener("blur",()=>{const[k,i]=el.dataset.edit.split(":");const txt=el.innerText.trim();if(k==="title")this.cfg.title=txt;else if(k==="subtitle")this.cfg.subtitle=txt;else if(k==="stitle")this.cfg.slides[+i].title=txt;else if(k==="snote")this.cfg.slides[+i].note=txt;this.dirty()}));
+      $$("[data-edit]",box).forEach(el=>el.addEventListener("blur",()=>{const[k,i]=el.dataset.edit.split(":");const txt=el.innerText.trim();if(k==="title")this.cfg.title=txt;else if(k==="subtitle")this.cfg.subtitle=txt;else if(k==="stitle")this.cfg.slides[+i].title=txt;else if(k==="snote")this.cfg.slides[+i].note=txt;else if(k==="sprice")this.cfg.slides[+i].price=txt;this.dirty()}));
       const cnt=$("#slCount");if(cnt)cnt.textContent=`${deck.length} slides · ${this.visible().length} sites`;
     }catch(err){
       console.error("[Studio.renderSlides]",err);
@@ -5365,69 +5369,77 @@ function siteOps(c,t,s,v,page,total){
     return ops.concat(footer(c,t,page,total));
   }
 
-  // Widescreen Unified Ribbon Layout
+  // Price extraction for Column 4
+  const rawPrice = v.price || s.price || (s.rates && !/^(PKR|USD|EUR)$/i.test(s.rates) ? s.rates : "");
+  const priceTxt = rawPrice ? (rawPrice.toUpperCase().includes("PKR") || rawPrice.toUpperCase().includes("RS") ? rawPrice : "PKR " + rawPrice) : "PKR Rate on Request";
+
+  // Widescreen Unified Ribbon Layout with Upper OTS/Location & Bottom PKR
   const ops=[
     ...frame(t),
-    R(0.60,0.34,2.30,0.30,t.accent,{r:.15}),
-    T(0.60,0.39,2.30,0.20,s.code||"OOH SITE",{size:10,bold:true,color:"FFFFFF",font:"mono",align:"center"}),
-    T(3.05,0.40,4.20,0.20,`${(s.area||"KARACHI").toUpperCase()} · ARTERIAL NETWORK`,{size:9.5,bold:true,color:t.muted,spacing:1.5}),
-    T(0.60,0.68,6.50,0.42,siteTitle,{size:20,bold:true,color:t.ink,font:"display",edit:"stitle:"+c.slides.indexOf(v)}),
+    // Upper Bar - Line 1: Code, Area & Top Badges (Status + OTS)
+    R(0.60,0.26,2.20,0.28,t.accent,{r:.14}),
+    T(0.60,0.30,2.20,0.20,s.code||"OOH SITE",{size:10,bold:true,color:"FFFFFF",font:"mono",align:"center"}),
+    T(2.95,0.32,4.80,0.20,`${(s.area||"KARACHI").toUpperCase()} · ARTERIAL NETWORK`,{size:9,bold:true,color:t.muted,spacing:1.2}),
 
     ...(f.status?[
-      R(10.85,0.34,1.88,0.34,stc,{r:.17}),
-      T(10.85,0.41,1.88,0.20,STATUS[k].toUpperCase(),{size:9.5,bold:true,color:"FFFFFF",align:"center"})
+      R(10.85,0.26,1.88,0.28,stc,{r:.14}),
+      T(10.85,0.31,1.88,0.18,STATUS[k].toUpperCase(),{size:9,bold:true,color:"FFFFFF",align:"center"})
     ]:[]),
     ...(f.traffic&&o?[
-      R(8.70,0.34,2.00,0.34,t.panel,{r:.17}),
-      T(8.70,0.41,2.00,0.20,`~${fmtK(o)} OTS`,{size:10.5,bold:true,color:t.accent,font:"mono",align:"center"})
-    ]:[]),
-    ...(f.dir?[
-      T(6.80,0.74,5.93,0.22,dirText,{size:9.5,color:t.muted,align:"right"})
+      R(8.35,0.26,2.35,0.28,t.panel,{r:.14}),
+      T(8.35,0.31,2.35,0.18,`~${fmtK(o)} OTS · ${vCount}`,{size:8.5,bold:true,color:t.accent,font:"mono",align:"center"})
     ]:[]),
 
-    // Hero Widescreen Photo
-    {t:"img",x:0.60,y:1.15,w:12.133,h:4.10,site:s.id,photo:v.photo,src:p?photoSrc(p):placeholder(s)},
+    // Upper Bar - Line 2: Site Title & Upper Location / Maps Link
+    T(0.60,0.58,6.80,0.34,siteTitle,{size:19,bold:true,color:t.ink,font:"display",edit:"stitle:"+c.slides.indexOf(v)}),
+    ...(f.dir?[
+      T(7.50,0.58,5.23,0.17,dirText,{size:9,color:t.muted,align:"right"})
+    ]:[]),
+    ...(f.gps&&s.lat&&s.lng?[
+      T(7.50,0.76,5.23,0.18,"🗺️ Open in Google Maps ↗",{size:9,bold:true,color:t.accent,align:"right",link:mapsUrl(s)})
+    ]:[
+      T(7.50,0.76,5.23,0.18,`📍 ${s.area||"Karachi"} Verified Corridor`,{size:8.5,color:t.muted,align:"right",font:"mono"})
+    ]),
+
+    // Hero Large Center Photo (Expanded height 4.65)
+    {t:"img",x:0.60,y:0.98,w:12.133,h:4.64,site:s.id,photo:v.photo,src:p?photoSrc(p):placeholder(s)},
 
     ...(p?[
-      R(0.80,4.80,3.80,0.32,"000000",{r:.08,alpha:.72}),
-      T(0.92,4.86,3.60,0.20,`📷 ${p.tag||"Live Photo"} · ${pDateStr}`,{size:8.5,color:"FFFFFF",bold:true})
+      R(0.80,5.20,3.80,0.30,"000000",{r:.08,alpha:.75}),
+      T(0.92,5.26,3.60,0.18,`📷 ${p.tag||"Live Photo"} · ${pDateStr}`,{size:8.5,color:"FFFFFF",bold:true})
     ]:[]),
 
-    // Unified Luxury Ribbon
-    R(0.60,5.38,12.133,1.50,t.panel,{r:.14}),
-    R(0.60,5.38,12.133,0.04,t.accent),
+    // Unified Luxury Ribbon at Bottom
+    R(0.60,5.72,12.133,1.22,t.panel,{r:.14}),
+    R(0.60,5.72,12.133,0.035,t.accent),
 
-    R(3.63,5.50,0.015,1.25,t.muted,{alpha:.25}),
-    R(6.66,5.50,0.015,1.25,t.muted,{alpha:.25}),
-    R(9.69,5.50,0.015,1.25,t.muted,{alpha:.25}),
+    R(3.63,5.82,0.015,1.02,t.muted,{alpha:.22}),
+    R(6.66,5.82,0.015,1.02,t.muted,{alpha:.22}),
+    R(9.69,5.82,0.015,1.02,t.muted,{alpha:.22}),
 
-    // Col 1
-    T(0.85,5.52,2.65,0.16,"FACING & ORIENTATION",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1}),
-    T(0.85,5.74,2.65,0.22,f.dir?("From: "+(s.from||"Main Arterial")):(s.area||"Karachi"),{size:10,bold:true,color:t.ink}),
-    T(0.85,5.98,2.65,0.22,f.dir?("Towards: "+(s.towards||"Commercial Hub")):(s.facing||"Arterial Corridor"),{size:10,bold:true,color:t.ink}),
-    T(0.85,6.22,2.65,0.18,(s.area||"Karachi")+" High Visibility Zone",{size:8.5,color:t.muted}),
+    // Col 1: Facing & Orientation
+    T(0.85,5.82,2.65,0.16,"FACING & ORIENTATION",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1}),
+    T(0.85,6.02,2.65,0.20,f.dir?("From: "+(s.from||"Main Arterial")):(s.area||"Karachi"),{size:9.5,bold:true,color:t.ink}),
+    T(0.85,6.24,2.65,0.20,f.dir?("Towards: "+(s.towards||"Commercial Hub")):(s.facing||"Arterial Corridor"),{size:9.5,bold:true,color:t.ink}),
+    T(0.85,6.46,2.65,0.16,(s.area||"Karachi")+" Arterial Network",{size:8,color:t.muted}),
 
-    // Col 2
-    T(3.88,5.52,2.65,0.16,"SIZE & SPECIFICATIONS",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1}),
-    T(3.88,5.72,2.65,0.28,f.size?`${s.widthFt} × ${s.heightFt} ft`:(s.media||"Billboard"),{size:16,bold:true,color:t.accent,font:"mono"}),
-    T(3.88,6.02,2.65,0.20,(f.size&&sqft)?`${sqft.toLocaleString()} sq. ft total impact`:(s.media||"Billboard"),{size:9.5,color:t.ink}),
-    T(3.88,6.22,2.65,0.18,(s.media||"Billboard")+" Format",{size:8.5,color:t.muted}),
+    // Col 2: Display Dimensions
+    T(3.88,5.82,2.65,0.16,"DISPLAY DIMENSIONS",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1}),
+    T(3.88,6.00,2.65,0.26,f.size?`${s.widthFt} × ${s.heightFt} ft`:(s.media||"Billboard"),{size:15,bold:true,color:t.accent,font:"mono"}),
+    T(3.88,6.26,2.65,0.18,(f.size&&sqft)?`${sqft.toLocaleString()} sq. ft total impact`:(s.media||"Billboard"),{size:9,color:t.ink}),
+    T(3.88,6.46,2.65,0.16,(s.media||"Billboard")+" Format",{size:8,color:t.muted}),
 
-    // Col 3
-    T(6.91,5.52,2.65,0.16,"MEDIUM & ILLUMINATION",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1}),
-    T(6.91,5.74,2.65,0.22,`${(s.media||"Billboard").toUpperCase()} · ${(s.light||"Lit").toUpperCase()}`,{size:11,bold:true,color:isLit?"0E9F76":t.ink}),
-    T(6.91,5.98,2.65,0.22,(f.status||f.dates)?bTxt:"Open for Booking",{size:9.5,bold:true,color:s.status==="booked"?"E03656":"0E9F76"}),
-    T(6.91,6.22,2.65,0.18,s.signal?"Traffic signal nearby":"Continuous exposure",{size:8.5,color:t.muted}),
+    // Col 3: Format & Illumination
+    T(6.91,5.82,2.65,0.16,"MEDIUM & ILLUMINATION",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1}),
+    T(6.91,6.02,2.65,0.20,`${(s.media||"Billboard").toUpperCase()} · ${(s.light||"Lit").toUpperCase()}`,{size:10,bold:true,color:isLit?"0E9F76":t.ink}),
+    T(6.91,6.24,2.65,0.20,(f.status||f.dates)?bTxt:"Open for Booking",{size:9,bold:true,color:s.status==="booked"?"E03656":"0E9F76"}),
+    T(6.91,6.46,2.65,0.16,s.signal?"Traffic signal nearby (stop & view)":"Clear uninterrupted corridor",{size:8,color:t.muted}),
 
-    // Col 4
-    T(9.94,5.52,2.65,0.16,"DAILY OTS & LOCATION",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1}),
-    T(9.94,5.72,2.65,0.28,(f.traffic&&o)?`~${fmtK(o)} OTS`:vCount,{size:15,bold:true,color:t.ink,font:"display"}),
-    T(9.94,6.02,2.65,0.20,vCount,{size:9.5,color:t.muted}),
-    ...(f.gps?[
-      (s.lat&&s.lng)?T(9.94,6.22,2.65,0.18,"🗺️ Open in Google Maps ↗",{size:9,bold:true,color:t.accent,link:mapsUrl(s)}):T(9.94,6.22,2.65,0.18,"GPS Verified Location",{size:8.5,color:t.muted,font:"mono"})
-    ]:[
-      T(9.94,6.22,2.65,0.18,trafficZone,{size:8.5,color:t.muted})
-    ])
+    // Col 4: Price / Rate (PKR)
+    T(9.94,5.82,2.65,0.16,"PRICE / RATE (PKR)",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1}),
+    T(9.94,6.00,2.65,0.26,priceTxt,{size:13.5,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)}),
+    T(9.94,6.26,2.65,0.18,"Monthly Commercial Rental",{size:9,color:t.ink}),
+    T(9.94,6.46,2.65,0.16,"Direct Owner Rate · Click to edit",{size:8,color:t.muted,font:"mono"})
   ];
 
   return ops.concat(footer(c,t,page,total));
@@ -5438,7 +5450,7 @@ function slideHTML(ops,t){
   const pc=(v,tot)=>v/tot*100+"%";const fz=pt=>(pt/72/13.333*100).toFixed(3)+"cqw";
   return`<div class="slide" style="background:${hx(t.bg)}">${ops.map(o=>{const pos=`left:${pc(o.x,13.333)};top:${pc(o.y,7.5)};width:${pc(o.w,13.333)};height:${pc(o.h,7.5)}`;
     if(o.t==="rect")return`<div class="o" style="${pos};background:${hx(o.fill)};border-radius:${o.r?fz(o.r*72):0};${o.alpha?`opacity:${o.alpha}`:""}"></div>`;
-    if(o.t==="img")return`<div class="o" style="${pos};border-radius:${fz(8)};overflow:hidden;background:#0a0814;display:flex;align-items:center;justify-content:center"><img src="${esc(o.src)}" alt="" style="width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;display:block;margin:auto" onerror="phFix(this)"></div>`;
+    if(o.t==="img")return`<div class="o" style="${pos};border-radius:${fz(10)};overflow:hidden;background:#0d0b14;display:flex;align-items:center;justify-content:center;position:relative"><img src="${esc(o.src)}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(22px) brightness(0.40);transform:scale(1.15);opacity:0.85;pointer-events:none"><img src="${esc(o.src)}" alt="" style="position:relative;z-index:1;max-width:100%;max-height:100%;object-fit:contain;border-radius:${fz(6)};box-shadow:0 8px 32px rgba(0,0,0,0.6)" onerror="phFix(this)"></div>`;
     if(o.t==="logo")return`<div class="o" style="${pos}"><img src="${esc(o.which==="mark"?markSrc():logoSrc())}" alt="" style="object-fit:contain"></div>`;
     const ff=o.font==="mono"?"var(--mono)":o.font==="display"?"var(--display)":"var(--body)";
     return`<div class="o" ${o.edit?`contenteditable="plaintext-only" spellcheck="false" data-edit="${o.edit}"`:""} style="${pos};font-size:${fz(o.size)};color:${hx(o.color)};font-family:${ff};font-weight:${o.bold?800:500};text-align:${o.align};${o.upper?"text-transform:uppercase;":""}${o.spacing?`letter-spacing:${o.spacing/10}em;`:""}${o.font==="display"?"letter-spacing:-.02em;line-height:1.05;":""}${o.link?"text-decoration:underline;":""}">${esc(o.text)}</div>`}).join("")}</div>`;
