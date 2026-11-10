@@ -4448,7 +4448,7 @@ async function watermark(sh,site,camp,who){
       cleanupUrl = true;
     }
     if(!src) return sh.file;
-    const img=await new Promise((r,j)=>{const i=new Image();i.crossOrigin="anonymous";i.onload=()=>r(i);i.onerror=()=>j(new Error("Couldn't load photo for watermarking"));i.src=src});
+    const img=await new Promise((r,j)=>{const i=new Image();i.crossOrigin="anonymous";i.onload=()=>r(i);i.onerror=()=>j(new Error("Couldn't load photo"));i.src=src});
     if(cleanupUrl) URL.revokeObjectURL(src);
 
     const nw = img.naturalWidth || img.width || 1200;
@@ -4475,20 +4475,11 @@ async function watermark(sh,site,camp,who){
       enhanceCanvasSharpness(x, w, h, sc > 1.3 ? 0.28 : 0.20);
     }
 
-    const bh=Math.round(h*.11),fs=Math.max(12,Math.round(bh*.26));const g=x.createLinearGradient(0,h-bh,0,h);g.addColorStop(0,"rgba(12,9,23,0)");g.addColorStop(.35,"rgba(12,9,23,.72)");g.addColorStop(1,"rgba(12,9,23,.88)");x.fillStyle=g;x.fillRect(0,h-bh*1.4,w,bh*1.4);
-    const gg=x.createLinearGradient(0,0,w,0);gg.addColorStop(0,cssVar("--violet")||"#D9161D");gg.addColorStop(1,cssVar("--pink")||"#F26A21");x.fillStyle=gg;x.fillRect(0,h-Math.max(4,bh*.06),w,Math.max(4,bh*.06));
-    x.fillStyle="#fff";x.textBaseline="alphabetic";const pad=Math.round(fs*.9);
-    x.font=`800 ${Math.round(fs*1.15)}px "JetBrains Mono",monospace`;x.fillText(site.code||"SITE",pad,h-bh*.55);
-    x.font=`600 ${fs}px Manrope,sans-serif`;const ll=site.lat?`${(+site.lat).toFixed(5)}, ${(+site.lng).toFixed(5)}`:"GPS n/a";
-    const dims=(site.widthFt&&site.heightFt)?`${site.widthFt}x${site.heightFt} ft · `:"";
-    x.fillText(`${site.area||"Area"} · ${dims}${new Date().toLocaleString("en-GB")} · ${ll}`,pad,h-bh*.18);
-    let rx=w-pad;try{const markUrl=markSrc();if(markUrl){const lg=await loadImg(markUrl);const lh=bh*1.05,lw=lh*(lg.naturalWidth||100)/(lg.naturalHeight||100);x.drawImage(lg,w-pad-lw,h-bh*1.12,lw,lh);rx=w-pad-lw-pad*.6}}catch(e){}
-    x.textAlign="right";x.font=`800 ${Math.round(fs*1.05)}px "Bricolage Grotesque",sans-serif`;x.fillText(APP_SHORT,rx,h-bh*.55);
-    x.font=`600 ${fs}px Manrope,sans-serif`;x.fillText((camp?camp.name+" · ":"")+(who||""),rx,h-bh*.18);
+    // Clean photo without any numbers or words stamped on it
     const blob=await new Promise(r=>c.toBlob(r,"image/jpeg",.92));
     return blob || sh.file;
   }catch(err){
-    console.warn("[OTS] Watermarking fallback:", err);
+    console.warn("[OTS] Photo processing fallback:", err);
     return sh.file;
   }
 }
@@ -5423,32 +5414,13 @@ function siteOps(c,t,s,v,page,total){
   if(layout==="split"){
     const ops=[
       ...frame(t),
-      // Header Bar
+      // Header Bar (Clean Minimalist: Code Badge + Full-Width Title)
       R(0.60,0.28,2.30,0.28,t.accent,{r:.14}),
       T(0.60,0.32,2.30,0.20,s.code||"OOH SITE",{size:10,bold:true,color:"FFFFFF",font:"mono",align:"center"}),
-      T(3.05,0.32,4.20,0.20,`${(s.area||"KARACHI").toUpperCase()} · ARTERIAL NETWORK`,{size:9.5,bold:true,color:t.muted,spacing:1.5}),
-      T(0.60,0.60,7.60,0.38,siteTitle,{size:20,bold:true,color:t.ink,font:"display",edit:"stitle:"+c.slides.indexOf(v)}),
+      T(0.60,0.60,12.133,0.38,siteTitle,{size:20,bold:true,color:t.ink,font:"display",edit:"stitle:"+c.slides.indexOf(v)}),
 
-      ...(f.status?[
-        R(10.85,0.28,1.88,0.28,stc,{r:.14}),
-        T(10.85,0.33,1.88,0.18,STATUS[k].toUpperCase(),{size:9.5,bold:true,color:"FFFFFF",align:"center"})
-      ]:[]),
-      ...(f.traffic&&o?[
-        R(8.70,0.28,2.00,0.28,t.panel,{r:.14}),
-        T(8.70,0.33,2.00,0.18,`~${fmtK(o)} OTS`,{size:10,bold:true,color:t.accent,font:"mono",align:"center"})
-      ]:[]),
-      ...(f.dir?[
-        T(6.80,0.64,5.93,0.22,dirText,{size:9.5,color:t.muted,align:"right"})
-      ]:[]),
-
-      // Left Column: ENLARGED Billboard Photo (8.15 x 5.80 in, massive presence)
+      // Left Column: ENLARGED Clean Billboard Photo (8.15 x 5.80 in, clean without watermark tags)
       {t:"img",x:0.60,y:1.05,w:8.15,h:5.80,site:s.id,photo:v.photo,src:p?photoSrc(p):placeholder(s)},
-
-      // Watermark Tag
-      ...(p?[
-        R(0.80,6.42,4.30,0.32,"000000",{r:.08,alpha:.75}),
-        T(0.92,6.48,4.10,0.20,`📷 ${p.tag||"Live Photo"} · ${pDateStr}`,{size:8.5,color:"FFFFFF",bold:true})
-      ]:[]),
 
       // Right Column: Executive Media Dossier Card (3.80 in width, 5.80 in height)
       R(8.93,1.05,3.80,5.80,t.panel,{r:.16}),
@@ -5506,38 +5478,13 @@ function siteOps(c,t,s,v,page,total){
   // Widescreen Unified Ribbon Layout with Upper OTS/Location & Bottom PKR
   const ops=[
     ...frame(t),
-    // Upper Bar - Line 1: Code, Area & Top Badges (Status + OTS)
+    // Upper Bar: Code Badge + Full-Width Site Title
     R(0.60,0.26,2.20,0.28,t.accent,{r:.14}),
     T(0.60,0.30,2.20,0.20,s.code||"OOH SITE",{size:10,bold:true,color:"FFFFFF",font:"mono",align:"center"}),
-    T(2.95,0.32,4.80,0.20,`${(s.area||"KARACHI").toUpperCase()} · ARTERIAL NETWORK`,{size:9,bold:true,color:t.muted,spacing:1.2}),
+    T(0.60,0.58,12.133,0.34,siteTitle,{size:19,bold:true,color:t.ink,font:"display",edit:"stitle:"+c.slides.indexOf(v)}),
 
-    ...(f.status?[
-      R(10.85,0.26,1.88,0.28,stc,{r:.14}),
-      T(10.85,0.31,1.88,0.18,STATUS[k].toUpperCase(),{size:9,bold:true,color:"FFFFFF",align:"center"})
-    ]:[]),
-    ...(f.traffic&&o?[
-      R(8.35,0.26,2.35,0.28,t.panel,{r:.14}),
-      T(8.35,0.31,2.35,0.18,`~${fmtK(o)} OTS · ${vCount}`,{size:8.5,bold:true,color:t.accent,font:"mono",align:"center"})
-    ]:[]),
-
-    // Upper Bar - Line 2: Site Title & Upper Location / Maps Link
-    T(0.60,0.58,6.80,0.34,siteTitle,{size:19,bold:true,color:t.ink,font:"display",edit:"stitle:"+c.slides.indexOf(v)}),
-    ...(f.dir?[
-      T(7.50,0.58,5.23,0.17,dirText,{size:9,color:t.muted,align:"right"})
-    ]:[]),
-    ...(f.gps&&s.lat&&s.lng?[
-      T(7.50,0.76,5.23,0.18,"🗺️ Open in Google Maps ↗",{size:9,bold:true,color:t.accent,align:"right",link:mapsUrl(s)})
-    ]:[
-      T(7.50,0.76,5.23,0.18,`📍 ${s.area||"Karachi"} Verified Corridor`,{size:8.5,color:t.muted,align:"right",font:"mono"})
-    ]),
-
-    // Hero Large Center Photo (Expanded height 4.44)
+    // Hero Large Center Photo (Expanded height 4.44, clean without watermark tags)
     {t:"img",x:0.60,y:0.94,w:12.133,h:4.44,site:s.id,photo:v.photo,src:p?photoSrc(p):placeholder(s)},
-
-    ...(p?[
-      R(0.80,4.96,3.80,0.32,"000000",{r:.08,alpha:.75}),
-      T(0.92,5.02,3.60,0.20,`📷 ${p.tag||"Live Photo"} · ${pDateStr}`,{size:9,color:"FFFFFF",bold:true})
-    ]:[]),
 
     // Unified Spacious Luxury Ribbon at Bottom (Expanded height 1.46 for large readable non-clipping text)
     R(0.60,5.50,12.133,1.46,t.panel,{r:.14}),
@@ -5631,7 +5578,48 @@ function vStudio(){
 }
 function rebuildStudio(){Studio.build();render(true)}
 async function loadScript(src){if(document.querySelector(`script[src="${src}"]`))return;await new Promise((r,j)=>{const s=document.createElement("script");s.src=src;s.onload=r;s.onerror=()=>j(new Error("Couldn't load exporter"));document.head.appendChild(s)})}
-async function imgData(src,w,h){const img=await new Promise((r,j)=>{const i=new Image();i.crossOrigin="anonymous";i.onload=()=>r(i);i.onerror=j;i.src=src});const c=document.createElement("canvas");const dpi=240;const W=Math.round(w*dpi),H=Math.round(h*dpi);c.width=W;c.height=H;const x=c.getContext("2d");x.imageSmoothingEnabled=true;x.imageSmoothingQuality="high";x.fillStyle="#0a0814";x.fillRect(0,0,W,H);const s=Math.min(W/img.naturalWidth,H/img.naturalHeight);const dw=Math.round(img.naturalWidth*s),dh=Math.round(img.naturalHeight*s);x.drawImage(img,Math.round((W-dw)/2),Math.round((H-dh)/2),dw,dh);return c.toDataURL("image/jpeg",.92)}
+async function imgData(src,w,h){
+  const img=await new Promise((r,j)=>{const i=new Image();i.crossOrigin="anonymous";i.onload=()=>r(i);i.onerror=j;i.src=src});
+  const c=document.createElement("canvas");
+  const dpi=240;
+  const W=Math.round(w*dpi),H=Math.round(h*dpi);
+  c.width=W;c.height=H;
+  const x=c.getContext("2d");
+  x.imageSmoothingEnabled=true;
+  x.imageSmoothingQuality="high";
+  x.fillStyle="#0a0814";
+  x.fillRect(0,0,W,H);
+
+  let srcW = img.naturalWidth || img.width || 1200;
+  let srcH = img.naturalHeight || img.height || 900;
+
+  // Auto-crop old bottom watermark bar if present on older uploaded images
+  if (srcH > 300 && srcW > 300) {
+    try {
+      const tc = document.createElement("canvas");
+      tc.width = 40; tc.height = 40;
+      const tctx = tc.getContext("2d");
+      const checkH = Math.round(srcH * 0.12);
+      tctx.drawImage(img, 0, srcH - checkH, srcW, checkH, 0, 0, 40, 40);
+      const pix = tctx.getImageData(0, 0, 40, 40).data;
+      let lum = 0;
+      for (let i = 0; i < pix.length; i += 4) lum += (pix[i] + pix[i+1] + pix[i+2]) / 3;
+      lum /= (40 * 40);
+      let hasRedStripe = false;
+      for (let i = 36 * 40 * 4; i < 40 * 40 * 4; i += 4) {
+        if (pix[i] > 170 && pix[i+1] < 130 && pix[i+2] < 130) { hasRedStripe = true; break; }
+      }
+      if (lum < 55 && hasRedStripe) {
+        srcH = Math.round(srcH * 0.86);
+      }
+    } catch(e) {}
+  }
+
+  const s=Math.min(W/srcW,H/srcH);
+  const dw=Math.round(srcW*s),dh=Math.round(srcH*s);
+  x.drawImage(img,0,0,srcW,srcH,Math.round((W-dw)/2),Math.round((H-dh)/2),dw,dh);
+  return c.toDataURL("image/jpeg",.92);
+}
 async function exportDeck(kind){
   const c=Studio.cfg;const steps=["Collecting sites","Placing photos","Building slides","Packaging file"];
   openLayer(`<div class="scrim"></div><div class="modal"><div class="gen"><div class="fly"><i></i><i></i><i></i></div><h2 style="font-size:20px;text-align:center">Building your ${kind==="pptx"?"PowerPoint":"PDF"}</h2>${steps.map((s,i)=>`<div class="stp" id="gs${i}"><i></i>${s}</div>`).join("")}</div></div>`);
@@ -6707,7 +6695,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=10.5").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=10.6").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
