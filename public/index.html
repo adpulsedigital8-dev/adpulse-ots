@@ -5399,7 +5399,7 @@ function normFields(f){
 }
 const Studio={
  active:false,cfg:null,
- fresh(src){return{id:uid(),title:"",subtitle:"",source:src||{type:"campaign",campaignId:S.campaigns[0]?.id||""},template:"adpulse",layout:"split",groupBy:"area",fields:{status:true,dir:true,size:true,media:true,light:true,dates:true,traffic:true,gps:true,price:true,brand:false,notes:false},summary:true,index:true,slides:[],version:0}},
+ fresh(src){return{id:uid(),title:"",subtitle:"",source:src||{type:"campaign",campaignId:S.campaigns[0]?.id||""},template:"adpulse",layout:"split",groupBy:"area",fields:{status:true,dir:true,size:true,media:true,light:true,dates:true,traffic:true,gps:true,price:true,vendor:true,brand:false,notes:false},summary:true,index:true,slides:[],version:0}},
  open(src,title){this.cfg=this.fresh(src);if(title)this.cfg.title=title;this.build();this.active=true;location.hash="studio";if(route==="studio")render(true)},
  load(deck){this.cfg=JSON.parse(JSON.stringify(deck));if(!this.cfg.layout)this.cfg.layout="split";this.cfg.fields=normFields(this.cfg.fields);this.cfg.summary=this.cfg.summary!==false;this.cfg.index=this.cfg.index!==false;this.active=true;render(true)},
  sitesFor(){const s=this.cfg.source;let list=[];
@@ -5407,7 +5407,7 @@ const Studio={
    else if(s.type==="campaign"){const c=campOf(s.campaignId);list=(c?.siteIds||[]).map(id=>S.sites.find(x=>x&&(x.id===id||x.code===id))).filter(Boolean)}
    else if(s.type==="filter"){list=S.sites.filter(x=>(!s.area||x.area===s.area)&&(!s.size||sizeOf(x)===s.size)&&(!s.status||effStatus(x)===s.status||(s.status==="booked"&&effStatus(x)==="expiring"))&&(!s.media||x.media===s.media)&&(!s.vendor||x.vendor===s.vendor))}
    else list=(s.ids||[]).map(id=>S.sites.find(x=>x&&(x.id===id||x.code===id))).filter(Boolean);return list},
- build(){const c=this.cfg;const list=this.sitesFor();const key={area:x=>x.area,size:x=>sizeOf(x),status:x=>STATUS[effStatus(x)],none:()=>""}[c.groupBy];
+ build(){const c=this.cfg;const list=this.sitesFor();const key=({area:x=>x.area,vendor:x=>x.vendor||"AdPulse IMC",size:x=>sizeOf(x),status:x=>STATUS[effStatus(x)],none:()=>""}[c.groupBy])||(()=>"");
     list.sort((a,b)=>String(key(a)).localeCompare(String(key(b)))||a.code.localeCompare(b.code));
     c.sitesData=list.map(s=>({id:s.id,code:s.code,name:s.name||"",area:s.area,widthFt:s.widthFt,heightFt:s.heightFt,media:s.media,light:s.light,from:s.from||"",towards:s.towards||"",status:s.status,brand:s.brand||"",vendor:s.vendor||"",bookedTill:s.bookedTill||"",bookedFrom:s.bookedFrom||"",lat:s.lat||"",lng:s.lng||"",traffic:s.traffic||"",vehiclesDay:s.vehiclesDay||"",rates:s.rates||s.price||"",price:s.price||s.rates||"",photos:(s.photos||[]).map(p=>({asset:p.asset,kind:p.kind,tag:p.tag,at:p.at||p.date||"2026-10-16"}))}));
     const old=new Map((c.slides||[]).map(s=>[s.siteId,s]));c.slides=list.map(s=>old.get(s.id)||{siteId:s.id,hidden:false,photo:imgIdx(s).slice(-1)[0]??-1,title:"",note:"",price:s.price||(s.rates&&!/^(PKR|USD|EUR)$/i.test(s.rates)?s.rates:"")||""});
@@ -5697,29 +5697,45 @@ function siteOps(c,t,s,v,page,total){
 
       // Section 3: Format & Illumination
       T(9.20,4.36,3.30,0.16,"FORMAT & ILLUMINATION",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
-      T(9.20,4.56,3.30,0.24,formatStr,{size:11.5,bold:true,color:isLit?"0E9F76":t.ink}),
+      T(9.20,4.56,3.30,0.22,formatStr,{size:11,bold:true,color:isLit?"0E9F76":t.ink}),
+
+      // Media Vendor (Controlled dynamically by f.vendor checkbox)
       ...(f.vendor && s.vendor ? [
-        T(9.20,4.78,3.30,0.18,`Media Vendor: ${s.vendor}`,{size:9,bold:true,color:t.accent,font:"mono"})
-      ] : []),
-
-      // Divider 4
-      R(9.20,5.00,3.30,0.015,t.muted,{alpha:.22}),
-
-      // Section 4: Price / Rate (PKR) & Booking Duration
-      T(9.20,5.08,3.30,0.16,f.price?"PRICE & BOOKING DURATION":"COMMERCIAL STATUS",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
-      ...(f.price ? [
-        T(9.20,5.28,3.30,0.28,priceTxt,{size:15,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)})
-      ] : []),
-      T(9.20,f.price?5.60:5.32,3.30,0.16,f.dates?"BOOKING DURATION:":"STATUS:",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1}),
-      T(9.20,f.price?5.78:5.52,3.30,0.36,bDurationFull,{size:10.5,bold:true,color:s.status==="booked"?"E03656":"0E9F76"}),
-      ...(f.gps&&s.lat&&s.lng?[
-        T(9.20,6.22,3.30,0.20,"🗺️ Open in Google Maps ↗",{size:9.5,bold:true,color:t.accent,link:mapsUrl(s)})
-      ]:[
-        T(9.20,6.22,3.30,0.20,"📍 Verified Karachi Site",{size:9,color:t.muted,font:"mono"})
-      ]),
-      ...(f.notes&&s.notes?[
-        T(9.20,6.48,3.30,0.22,`Note: ${s.notes.substring(0,42)}`,{size:8.5,color:t.muted})
-      ]:[])
+        R(9.20,4.82,3.30,0.015,t.muted,{alpha:.18}),
+        T(9.20,4.90,3.30,0.15,"MEDIA VENDOR / INVENTORY OWNER",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1.2}),
+        T(9.20,5.08,3.30,0.22,s.vendor,{size:11,bold:true,color:t.accent||"D9161D",font:"mono"}),
+        R(9.20,5.32,3.30,0.015,t.muted,{alpha:.22}),
+        T(9.20,5.42,3.30,0.15,f.price?"PRICE & BOOKING DURATION":"COMMERCIAL STATUS",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
+        ...(f.price ? [
+          T(9.20,5.60,3.30,0.24,priceTxt,{size:14,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)})
+        ] : []),
+        T(9.20,f.price?5.86:5.62,3.30,0.15,f.dates?"BOOKING DURATION:":"STATUS:",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1}),
+        T(9.20,f.price?6.02:5.80,3.30,0.32,bDurationFull,{size:10,bold:true,color:s.status==="booked"?"E03656":"0E9F76"}),
+        ...(f.gps&&s.lat&&s.lng?[
+          T(9.20,6.38,3.30,0.20,"🗺️ Open in Google Maps ↗",{size:9,bold:true,color:t.accent,link:mapsUrl(s)})
+        ]:[
+          T(9.20,6.38,3.30,0.20,"📍 Verified Karachi Site",{size:9,color:t.muted,font:"mono"})
+        ]),
+        ...(f.notes&&s.notes?[
+          T(9.20,6.58,3.30,0.20,`Note: ${s.notes.substring(0,40)}`,{size:8,color:t.muted})
+        ]:[])
+      ] : [
+        R(9.20,4.88,3.30,0.015,t.muted,{alpha:.22}),
+        T(9.20,4.98,3.30,0.16,f.price?"PRICE & BOOKING DURATION":"COMMERCIAL STATUS",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
+        ...(f.price ? [
+          T(9.20,5.18,3.30,0.28,priceTxt,{size:15,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)})
+        ] : []),
+        T(9.20,f.price?5.50:5.22,3.30,0.16,f.dates?"BOOKING DURATION:":"STATUS:",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1}),
+        T(9.20,f.price?5.68:5.42,3.30,0.36,bDurationFull,{size:10.5,bold:true,color:s.status==="booked"?"E03656":"0E9F76"}),
+        ...(f.gps&&s.lat&&s.lng?[
+          T(9.20,6.22,3.30,0.20,"🗺️ Open in Google Maps ↗",{size:9.5,bold:true,color:t.accent,link:mapsUrl(s)})
+        ]:[
+          T(9.20,6.22,3.30,0.20,"📍 Verified Karachi Site",{size:9,color:t.muted,font:"mono"})
+        ]),
+        ...(f.notes&&s.notes?[
+          T(9.20,6.48,3.30,0.22,`Note: ${s.notes.substring(0,42)}`,{size:8.5,color:t.muted})
+        ]:[])
+      ])
     ];
     return ops.concat(footer(c,t,page,total));
   }
@@ -5756,9 +5772,14 @@ function siteOps(c,t,s,v,page,total){
 
     // Col 3: Format & Illumination
     T(6.91,5.64,2.65,0.18,"FORMAT & ILLUMINATION",{size:8.5,bold:true,color:t.muted,upper:true,spacing:1.2}),
-    T(6.91,5.88,2.65,0.32,formatStr,{size:11.5,bold:true,color:isLit?"0E9F76":t.ink}),
-    T(6.91,6.26,2.65,0.26,bDurationFull,{size:10.5,bold:true,color:s.status==="booked"?"E03656":"0E9F76"}),
-    T(6.91,6.56,2.65,0.22,s.signal?"Traffic signal nearby (stop & view)":"Prime Arterial Location",{size:9.5,color:t.muted}),
+    T(6.91,5.88,2.65,0.28,formatStr,{size:11,bold:true,color:isLit?"0E9F76":t.ink}),
+    ...(f.vendor && s.vendor ? [
+      T(6.91,6.20,2.65,0.22,`Vendor: ${s.vendor}`,{size:10,bold:true,color:t.accent||"D9161D",font:"mono"}),
+      T(6.91,6.46,2.65,0.24,bDurationFull,{size:9.5,bold:true,color:s.status==="booked"?"E03656":"0E9F76"})
+    ] : [
+      T(6.91,6.26,2.65,0.26,bDurationFull,{size:10.5,bold:true,color:s.status==="booked"?"E03656":"0E9F76"}),
+      T(6.91,6.56,2.65,0.22,s.signal?"Traffic signal nearby (stop & view)":"Prime Arterial Location",{size:9.5,color:t.muted})
+    ]),
 
     // Col 4: Price / Rate (PKR)
     T(9.94,5.64,2.65,0.18,f.price?"PRICE / RATE (PKR)":"COMMERCIAL STATUS",{size:8.5,bold:true,color:t.muted,upper:true,spacing:1.2}),
@@ -5801,7 +5822,17 @@ function vStudio(){
   }
   const c=Studio.cfg;
   c.fields=normFields(c.fields);
-  const srcSel=c.source.type==="campaign"?`<select class="in" id="stCamp">${opt(S.campaigns.map(x=>[x.id,x.name]),c.source.campaignId)}</select>`:c.source.type==="filter"?`<div class="grid" style="gap:8px"><select class="in" id="stArea"><option value="">All areas</option>${opt(Object.keys(AREAS),c.source.area)}</select><select class="in" id="stSize"><option value="">All sizes</option>${opt([...new Set(S.sites.map(sizeOf))].map(x=>[x,x+" ft"]),c.source.size)}</select><select class="in" id="stStatus"><option value="">Any status</option>${opt([["available","Available"],["booked","Not available"],["maintenance","Maintenance"]],c.source.status)}</select></div>`:`<p style="margin:0;color:var(--muted)">${(c.source.ids||[]).length} hand-picked sites</p>`;
+  const allVendors = [...new Set(S.sites.map(s => s.vendor).filter(Boolean))].sort();
+  const srcSel = c.source.type === "campaign"
+    ? `<select class="in" id="stCamp">${opt(S.campaigns.map(x=>[x.id,x.name]),c.source.campaignId)}</select>`
+    : c.source.type === "filter"
+    ? `<div class="grid" style="gap:8px">
+         <select class="in" id="stVendor" style="font-weight:700;border-color:var(--accent)"><option value="">All Vendors (${allVendors.length})</option>${opt(allVendors.map(v=>[v,v]),c.source.vendor)}</select>
+         <select class="in" id="stArea"><option value="">All areas</option>${opt(Object.keys(AREAS),c.source.area)}</select>
+         <select class="in" id="stSize"><option value="">All sizes</option>${opt([...new Set(S.sites.map(sizeOf))].map(x=>[x,x+" ft"]),c.source.size)}</select>
+         <select class="in" id="stStatus"><option value="">Any status</option>${opt([["available","Available"],["booked","Not available"],["maintenance","Maintenance"]],c.source.status)}</select>
+       </div>`
+    : `<p style="margin:0;color:var(--muted)">${(c.source.ids||[]).length} hand-picked sites</p>`;
   return pgTop(esc(c.title||"Presentation"),`<span id="slCount"></span>${c.version?` · v${c.version}`:""}`,`<button class="btn" data-act="closedeck">All decks</button>`)+
   `<div class="studio"><div class="cfg">
     <button class="btn cfgt" data-act="cfgtoggle"><b>Deck settings ▾</b><span style="color:var(--muted);font-weight:600">${(TPL[c.template]||TPL.adpulse).name}</span></button>
@@ -5811,7 +5842,7 @@ function vStudio(){
      <div class="seg" style="margin-bottom:2px">${[["split","📑 Executive Pitch (2-Col)"],["wide","🖼️ Widescreen Hero"]].map(([k,l])=>`<button class="${(c.layout||"split")===k?"on":""}" data-act="stlayout" data-v="${k}">${l}</button>`).join("")}</div>
      <div class="eyebrow">Template</div>
      <div class="tpls">${Object.entries(TPL).map(([k,t])=>`<button class="tpl ${c.template===k?"on":""}" data-act="sttpl" data-v="${k}"><i style="background:linear-gradient(135deg,#${t.band} 55%,#${t.accent} 55% 80%,#${t.accent2} 80%)"></i><span>${t.name}</span></button>`).join("")}</div>
-     <label class="f">Group slides by<select class="in" id="stGroup">${opt([["area","Area"],["size","Size"],["status","Status"],["none","No grouping"]],c.groupBy)}</select></label>
+     <label class="f">Group slides by<select class="in" id="stGroup">${opt([["area","Area"],["vendor","Media Vendor"],["size","Size"],["status","Status"],["none","No grouping"]],c.groupBy)}</select></label>
      <div class="eyebrow">Show on site slides</div>
      <div class="toggles">${FIELDS.map(([k,l])=>`<label><input type="checkbox" data-fld="${k}" ${c.fields[k]?"checked":""}>${l}</label>`).join("")}<label><input type="checkbox" id="stSum" ${c.summary?"checked":""}>Summary slide</label><label><input type="checkbox" id="stIdx" ${c.index?"checked":""}>Area index</label></div>
     </div>
@@ -6944,7 +6975,7 @@ document.addEventListener("change",e=>{const t=e.target;
  if(t.id==="bulkSt"&&t.value){const v=t.value;const count=sel.size;[...sel].forEach(id=>{const s=S.sites.find(x=>x.id===id);if(s){s.status=v;if(v!=="booked"){s.bookedTill="";s.bookedFrom=""}}});render();Promise.all([...sel].map(id=>{const s=S.sites.find(x=>x.id===id);return s?put("sites",{...s,status:v}):Promise.resolve()})).then(()=>toast(`${count} sites → ${STATUS[v]}`));t.value=""}
  if(t.id==="bulkC"&&t.value){const c=campOf(t.value);put("campaigns",{...c,siteIds:[...new Set([...(c.siteIds||[]),...sel])]}).then(()=>toast(`Added ${sel.size} sites to ${c.name}`));t.value=""}
  if(t.id==="stCamp"){Studio.cfg.source.campaignId=t.value;Studio.cfg.title="";Studio.cfg.subtitle="";Studio.cfg.slides=[];rebuildStudio()}
- if(["stArea","stSize","stStatus"].includes(t.id)){const k={stArea:"area",stSize:"size",stStatus:"status"}[t.id];Studio.cfg.source[k]=t.value;Studio.cfg.title="";Studio.cfg.slides=[];rebuildStudio()}
+ if(["stArea","stSize","stStatus","stVendor"].includes(t.id)){const k={stArea:"area",stSize:"size",stStatus:"status",stVendor:"vendor"}[t.id];Studio.cfg.source[k]=t.value;Studio.cfg.title="";Studio.cfg.slides=[];rebuildStudio()}
  if(t.id==="stGroup"){Studio.cfg.groupBy=t.value;Studio.cfg.slides=[];rebuildStudio()}
  if(t.dataset.fld){Studio.cfg.fields[t.dataset.fld]=t.checked;Studio.renderSlides();Studio.dirty()}
  if(t.id==="stSum"){Studio.cfg.summary=t.checked;Studio.renderSlides()}
