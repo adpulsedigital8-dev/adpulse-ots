@@ -1440,7 +1440,7 @@ const ICON={
  more:'<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>',
  img:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg>'
 };
-const NAV=[["dashboard","Dashboard","dash"],["capture","Capture","cam"],["sites","Sites","sites"],["campaigns","Campaigns","camp"],["studio","Presentations","deck"],["clients","Clients","users"],["settings","Settings","gear"]];
+const NAV=[["dashboard","Dashboard","dash"],["capture","Capture","cam"],["sites","Sites","sites"],["campaigns","Campaigns","camp"],["vendors","Vendors","users"],["studio","Presentations","deck"],["clients","Clients","users"],["settings","Settings","gear"]];
 
 /* ============ state ============ */
 const S={sites:[],campaigns:[],decks:[],riders:[],settings:{agency:"AdPulse IMC",phone:"",email:"",web:"adpulse.pk",logo:null},loaded:{sites:false,campaigns:false},mode:"loading"};
@@ -1546,7 +1546,19 @@ async function boot(){
   go(targetRoute,true);setTimeout(loadQueue,2500);
   db.collection("sites").onSnapshot(q=>{
     const docs = q.docs.map(x=>({id:x.id,...x.data()}));
-    S.sites = (docs && docs.length >= 80) ? docs : (window.MASTER_SITES_2026 || docs);
+    const masterSites = docs.filter(x => x.id && x.id.startsWith("site-2026-"));
+    const obsoleteSites = docs.filter(x => x.id && !x.id.startsWith("site-2026-"));
+
+    // Auto-clean obsolete 65 legacy sample sites from live DB so count is strictly 84 Master Sites
+    if (obsoleteSites.length > 0 && (masterSites.length >= 80 || (window.MASTER_SITES_2026 && window.MASTER_SITES_2026.length >= 80))) {
+      setTimeout(() => {
+        obsoleteSites.forEach(s => {
+          del("sites", s.id).catch(() => {});
+        });
+      }, 1000);
+    }
+
+    S.sites = (masterSites.length >= 80) ? masterSites : (window.MASTER_SITES_2026 || docs);
     S.loaded.sites = true;
     if(Studio.active&&Studio.cfg&&(!Studio.cfg.slides||Studio.cfg.slides.length===0)){Studio.build()}
     changed();
@@ -1558,7 +1570,19 @@ async function boot(){
   });
   db.collection("campaigns").onSnapshot(q=>{
     const docs = q.docs.map(x=>({id:x.id,...x.data()}));
-    S.campaigns = (docs && docs.length >= 10) ? docs : (window.MASTER_CAMPAIGNS_2026 || docs);
+    const masterCamps = docs.filter(x => x.id && x.id.startsWith("camp-2026-"));
+    const obsoleteCamps = docs.filter(x => x.id && !x.id.startsWith("camp-2026-"));
+
+    // Auto-clean obsolete 3 sample campaigns from live DB so count is strictly 12 Client Campaigns
+    if (obsoleteCamps.length > 0 && (masterCamps.length >= 10 || (window.MASTER_CAMPAIGNS_2026 && window.MASTER_CAMPAIGNS_2026.length >= 10))) {
+      setTimeout(() => {
+        obsoleteCamps.forEach(c => {
+          del("campaigns", c.id).catch(() => {});
+        });
+      }, 1200);
+    }
+
+    S.campaigns = (masterCamps.length >= 10) ? masterCamps : (window.MASTER_CAMPAIGNS_2026 || docs);
     S.loaded.campaigns = true;
     if(Studio.active&&Studio.cfg&&(!Studio.cfg.slides||Studio.cfg.slides.length===0)){Studio.build()}
     changed();
@@ -1742,7 +1766,7 @@ function render(anim){
   if(route==="capture"&&lastRoute==="capture"&&!anim){refreshCaptureLists();return}
   if(route==="studio"&&lastRoute==="studio"&&!anim&&Studio.active){return}
   if(ROLE==="pending"){v.innerHTML=`<div class="gate"><div class="bot">${ICON.bot}</div><h2>Opening ${APP_SHORT}…</h2><p style="color:var(--muted)">Checking your access</p></div>`;return}
-  const html=({portal:vPortal,clients:vClients,dashboard:vDash,capture:vCapture,sites:vSites,campaigns:vCampaigns,studio:vStudio,settings:vSettings}[route])();
+  const html=({portal:vPortal,clients:vClients,dashboard:vDash,capture:vCapture,sites:vSites,campaigns:vCampaigns,vendors:vVendors,studio:vStudio,settings:vSettings}[route])();
   v.innerHTML=`<div class="${anim||lastRoute!==route?"view":""}">${html}</div>`;lastRoute=route;
   after();
 }
@@ -1766,11 +1790,13 @@ function vDash(){
   const st=S.sites.map(effStatus),cnt=k=>st.filter(x=>x===k).length;
   const activeC=S.campaigns.filter(c=>!c.endDate||new Date(c.endDate)>=new Date(today())).length;
   const photosToday=S.sites.flatMap(s=>s.photos||[]).filter(p=>(p.at||"").slice(0,10)===today()).length;
+  const allVendors = [...new Set(S.sites.map(s => s.vendor).filter(Boolean))];
   const k=[
     ["Master file for All sites",S.sites.length,"var(--violet)","sites",false,"kpimaster"],
     ["Available",cnt("available"),"var(--ok)","check",false,"kpiavail"],
     ["Booked",cnt("booked")+cnt("expiring"),"var(--bad)","camp",false,"kpibooked"],
     ["Active campaigns",activeC,"var(--pink)","deck",false,"kpicamps"],
+    ["Vendor-wise data",allVendors.length||8,"#0E9F76","users",false,"kpivendors"],
     ["Photos today",photosToday,"var(--cyan)","cam",false,""]
   ];
   const bookedOts=S.sites.filter(x=>x.status==="booked").reduce((a,x)=>a+otsOf(x),0);
@@ -5006,6 +5032,166 @@ async function parsePdfDeck(file, onProgress) {
 
 
 /* ============ Master 2026 Deck & Data Functions ============ */
+function openVendorDeck(vendorName) {
+  const vendorSites = S.sites.filter(s => s.vendor === vendorName);
+  const vTitle = `${vendorName} - Karachi OOH Portfolio (2026)`;
+  const vSubtitle = `Media Partner Inventory · ${vendorSites.length} Billboards & Arterial Displays`;
+  const src = { type: "filter", vendor: vendorName, area: "", size: "", status: "" };
+
+  Studio.cfg = Studio.fresh(src);
+  Studio.cfg.title = vTitle;
+  Studio.cfg.subtitle = vSubtitle;
+  Studio.cfg.summary = true;
+  Studio.cfg.fields.vendor = true;
+  Studio.build();
+  Studio.active = true;
+  location.hash = "studio";
+  go("studio", true);
+  toast(`Opening presentation for ${vendorName} (${vendorSites.length} sites)…`);
+}
+
+function openMasterVendorDeck() {
+  const src = { type: "all" };
+  Studio.cfg = Studio.fresh(src);
+  Studio.cfg.title = "Karachi OOH Master Portfolio - By Media Vendor (2026)";
+  Studio.cfg.subtitle = "Complete 84-Site Arterial Inventory Categorized by Media Partner & Inventory Owner";
+  Studio.cfg.groupBy = "vendor";
+  Studio.cfg.summary = true;
+  Studio.cfg.fields.vendor = true;
+  Studio.build();
+  Studio.active = true;
+  location.hash = "studio";
+  go("studio", true);
+  toast("Opening Master Deck grouped by Media Vendor…");
+}
+
+function vVendors() {
+  if (!S.loaded.sites) return pgTop("Media Vendors", "Loading vendor portfolio…") + `<div class="cards">${'<div class="skel"></div>'.repeat(6)}</div>`;
+
+  const vendorsMap = {};
+  S.sites.forEach(s => {
+    const v = s.vendor || "AdPulse IMC";
+    if (!vendorsMap[v]) {
+      vendorsMap[v] = {
+        name: v,
+        total: 0,
+        available: 0,
+        booked: 0,
+        expiring: 0,
+        dailyOts: 0,
+        areas: new Set(),
+        sizes: new Set(),
+        sites: []
+      };
+    }
+    const item = vendorsMap[v];
+    item.total++;
+    const st = effStatus(s);
+    if (st === "available") item.available++;
+    else if (st === "booked") item.booked++;
+    else if (st === "expiring") item.expiring++;
+    item.dailyOts += otsOf(s);
+    if (s.area) item.areas.add(s.area);
+    if (s.widthFt && s.heightFt) item.sizes.add(`${s.widthFt}x${s.heightFt}`);
+    item.sites.push(s);
+  });
+
+  const vendorList = Object.values(vendorsMap).sort((a, b) => b.total - a.total || a.name.localeCompare(b.name));
+  const totalSites = S.sites.length;
+  const totalAvail = S.sites.filter(s => effStatus(s) === "available").length;
+  const totalBooked = S.sites.filter(s => ["booked", "expiring"].includes(effStatus(s))).length;
+
+  return pgTop("Media Vendors", "OOH Inventory Partners & Media Network", `<button class="btn pri" data-act="mastervendordeck">${ICON.deck} Master Deck (All Vendors)</button>`) +
+  `
+  <div class="kpis enter" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-bottom:20px">
+    <div class="card kpi" style="--c:var(--teal)">
+      <div class="ic" style="background:var(--teal)">${ICON.users}</div>
+      <div class="n" data-count="${vendorList.length}">${vendorList.length}</div>
+      <small style="font-weight:700">Media Partners</small>
+    </div>
+    <div class="card kpi clickable" data-act="kpimaster" style="--c:var(--violet);cursor:pointer">
+      <div class="ic" style="background:var(--violet)">${ICON.sites}</div>
+      <div class="n" data-count="${totalSites}">${totalSites}</div>
+      <small style="font-weight:700">Total Billboards ↗</small>
+    </div>
+    <div class="card kpi clickable" data-act="kpiavail" style="--c:var(--ok);cursor:pointer">
+      <div class="ic" style="background:var(--ok)">${ICON.check}</div>
+      <div class="n" data-count="${totalAvail}">${totalAvail}</div>
+      <small style="font-weight:700">Available Sites ↗</small>
+    </div>
+    <div class="card kpi clickable" data-act="kpibooked" style="--c:var(--bad);cursor:pointer">
+      <div class="ic" style="background:var(--bad)">${ICON.camp}</div>
+      <div class="n" data-count="${totalBooked}">${totalBooked}</div>
+      <small style="font-weight:700">Currently Booked ↗</small>
+    </div>
+  </div>
+
+  <div class="card pad" style="margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;border:1px solid var(--border)">
+    <div class="row" style="gap:10px;align-items:center">
+      <div class="ic" style="background:var(--accent);color:#fff;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center">${ICON.sites}</div>
+      <div>
+        <h3 style="margin:0;font-size:16px;font-weight:800">Karachi OOH Vendor Portfolio</h3>
+        <p style="margin:0;font-size:12px;color:var(--muted)">Manage third-party media partners, track site availability, and export vendor-specific presentations</p>
+      </div>
+    </div>
+    <div class="row" style="gap:8px">
+      <button class="btn pri sm" data-act="mastervendordeck">${ICON.dl} Export Grouped Deck</button>
+    </div>
+  </div>
+
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px">
+    ${vendorList.map(v => {
+      const areasArr = [...v.areas].slice(0, 5);
+      const moreAreas = v.areas.size > 5 ? ` +${v.areas.size - 5} more` : '';
+      return `
+      <div class="card pad" style="display:flex;flex-direction:column;justify-content:space-between;gap:14px;border:1px solid var(--border);border-radius:16px;transition:transform 0.15s,box-shadow 0.15s" onmouseover="this.style.boxShadow='0 10px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
+        <div>
+          <div class="row" style="justify-content:space-between;align-items:flex-start;margin-bottom:10px">
+            <div>
+              <div style="display:flex;align-items:center;gap:8px">
+                <span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:${v.available > 0 ? 'var(--ok)' : 'var(--bad)'}"></span>
+                <h3 style="margin:0;font-size:17px;font-weight:800;color:var(--ink)">${esc(v.name)}</h3>
+              </div>
+              <span style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px">${v.name === 'AdPulse IMC' ? 'In-House Inventory' : 'Media Partner / OOH Vendor'}</span>
+            </div>
+            <span class="pill" style="font-size:12px;font-weight:800;background:var(--accentbg);color:var(--accent);padding:4px 10px;border-radius:20px">${v.total} SITES</span>
+          </div>
+
+          <div style="display:flex;gap:8px;margin-bottom:12px">
+            <span class="pill st-available" style="font-size:11px;font-weight:700;padding:4px 8px">${v.available} Available</span>
+            <span class="pill st-booked" style="font-size:11px;font-weight:700;padding:4px 8px">${v.booked} Booked</span>
+            ${v.expiring > 0 ? `<span class="pill st-expiring" style="font-size:11px;font-weight:700;padding:4px 8px">${v.expiring} Expiring</span>` : ''}
+            <span class="sp"></span>
+            <span style="font-size:11px;color:var(--muted);align-self:center;font-weight:600">~${fmtK(v.dailyOts)} OTS/day</span>
+          </div>
+
+          <div style="margin-bottom:12px">
+            <small style="font-size:10.5px;color:var(--muted);font-weight:700;text-transform:uppercase;display:block;margin-bottom:5px">Prime Arterial Corridors:</small>
+            <div style="display:flex;flex-wrap:wrap;gap:4px">
+              ${areasArr.map(a => `<span class="tag" style="font-size:11px;padding:3px 7px;background:var(--cardbg);border:1px solid var(--border);border-radius:6px">${esc(a)}</span>`).join('')}
+              ${moreAreas ? `<span class="tag" style="font-size:10.5px;padding:3px 6px;color:var(--muted)">${moreAreas}</span>` : ''}
+            </div>
+          </div>
+
+          <div>
+            <small style="font-size:10.5px;color:var(--muted);font-weight:700;text-transform:uppercase;display:block;margin-bottom:5px">Billboards & Sites in Portfolio (${v.sites.length}):</small>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;max-height:68px;overflow-y:auto">
+              ${v.sites.map(s => `<span class="tag ${s.status === 'available' ? 'st-available' : 'st-booked'}" style="font-size:10.5px;font-weight:700;font-family:var(--mono);padding:2px 6px;cursor:pointer" data-act="site" data-id="${s.id}" title="${esc(s.name)} · ${esc(s.area)}">${s.code}</span>`).join('')}
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="gap:8px;padding-top:12px;border-top:1px solid var(--border);margin-top:4px">
+          <button class="btn sm pri" data-act="vendorpresentation" data-vendor="${esc(v.name)}" style="flex:1;justify-content:center;font-weight:700">${ICON.deck} Presentation ↗</button>
+          <button class="btn sm" data-act="vendorinventory" data-vendor="${esc(v.name)}" style="flex:1;justify-content:center;font-weight:700">🔍 View Sites</button>
+        </div>
+      </div>
+      `;
+    }).join('')}
+  </div>
+  `;
+}
+
 function openMasterDeck(filterType = "all") {
   let title = "Master File - All 84 Karachi Sites (2026)";
   let subtitle = "Master Presentation · Complete portfolio overview & booking schedule";
@@ -5409,7 +5595,40 @@ const Studio={
    else list=(s.ids||[]).map(id=>S.sites.find(x=>x&&(x.id===id||x.code===id))).filter(Boolean);return list},
  build(){const c=this.cfg;const list=this.sitesFor();const key=({area:x=>x.area,vendor:x=>x.vendor||"AdPulse IMC",size:x=>sizeOf(x),status:x=>STATUS[effStatus(x)],none:()=>""}[c.groupBy])||(()=>"");
     list.sort((a,b)=>String(key(a)).localeCompare(String(key(b)))||a.code.localeCompare(b.code));
-    c.sitesData=list.map(s=>({id:s.id,code:s.code,name:s.name||"",area:s.area,widthFt:s.widthFt,heightFt:s.heightFt,media:s.media,light:s.light,from:s.from||"",towards:s.towards||"",status:s.status,brand:s.brand||"",vendor:s.vendor||"",bookedTill:s.bookedTill||"",bookedFrom:s.bookedFrom||"",lat:s.lat||"",lng:s.lng||"",traffic:s.traffic||"",vehiclesDay:s.vehiclesDay||"",rates:s.rates||s.price||"",price:s.price||s.rates||"",photos:(s.photos||[]).map(p=>({asset:p.asset,kind:p.kind,tag:p.tag,at:p.at||p.date||"2026-10-16"}))}));
+    c.sitesData=list.map(s=>({
+      ...s,
+      id:s.id,
+      code:s.code,
+      name:s.name||"",
+      area:s.area,
+      widthFt:s.widthFt||s.width,
+      heightFt:s.heightFt||s.height,
+      media:s.media,
+      light:s.light,
+      from:s.from||"",
+      towards:s.towards||"",
+      status:s.status,
+      brand:s.brand||"",
+      vendor:s.vendor||"",
+      bookedTill:s.bookedTill||"",
+      bookedFrom:s.bookedFrom||"",
+      lat:s.lat||"",
+      lng:s.lng||"",
+      traffic:s.traffic||"",
+      vehiclesDay:s.vehiclesDay||"",
+      rates:s.rates||s.price||"",
+      price:s.price||s.rates||"",
+      photos:(s.photos||[]).map(p=>({
+        id:p.id,
+        src:p.src||p.url,
+        url:p.url||p.src,
+        asset:p.asset,
+        kind:p.kind,
+        tag:p.tag,
+        at:p.at||p.date||"2026-11-17",
+        caption:p.caption||""
+      }))
+    }));
     const old=new Map((c.slides||[]).map(s=>[s.siteId,s]));c.slides=list.map(s=>old.get(s.id)||{siteId:s.id,hidden:false,photo:imgIdx(s).slice(-1)[0]??-1,title:"",note:"",price:s.price||(s.rates&&!/^(PKR|USD|EUR)$/i.test(s.rates)?s.rates:"")||""});
    if(!c.title){const cp=c.source.type==="campaign"?campOf(c.source.campaignId):null;c.title=cp?cp.name:c.source.type==="filter"?`${c.source.area||"Karachi"} ${c.source.status==="available"?"Available ":""}Sites`:"Site Proposal"}
    if(!c.subtitle){const cp=c.source.type==="campaign"?campOf(c.source.campaignId):null;c.subtitle=cp?.client?`Prepared for ${cp.client}`:"OOH site presentation"}},
@@ -5796,7 +6015,7 @@ function slideHTML(ops,t){
   const pc=(v,tot)=>v/tot*100+"%";const fz=pt=>(pt/72/13.333*100).toFixed(3)+"cqw";
   return`<div class="slide" style="background:${hx(t.bg)}">${ops.map(o=>{const pos=`left:${pc(o.x,13.333)};top:${pc(o.y,7.5)};width:${pc(o.w,13.333)};height:${pc(o.h,7.5)}`;
     if(o.t==="rect")return`<div class="o" style="${pos};background:${hx(o.fill)};border-radius:${o.r?fz(o.r*72):0};${o.alpha?`opacity:${o.alpha}`:""}"></div>`;
-    if(o.t==="img")return`<div class="o" style="${pos};border-radius:${fz(10)};overflow:hidden;background:#0d0b14;display:flex;align-items:center;justify-content:center;position:relative"><img src="${esc(o.src)}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(22px) brightness(0.40);transform:scale(1.15);opacity:0.85;pointer-events:none"><img src="${esc(o.src)}" alt="" style="position:relative;z-index:1;max-width:100%;max-height:100%;object-fit:contain;border-radius:${fz(6)};box-shadow:0 8px 32px rgba(0,0,0,0.6)" onerror="phFix(this)"></div>`;
+    if(o.t==="img")return`<div class="o" style="${pos};border-radius:${fz(10)};overflow:hidden;background:#0d0b14;display:flex;align-items:center;justify-content:center;position:relative"><img src="${esc(o.src)}" alt="" data-sid="${esc(o.site||"")}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(22px) brightness(0.40);transform:scale(1.15);opacity:0.85;pointer-events:none"><img src="${esc(o.src)}" alt="" data-sid="${esc(o.site||"")}" style="position:relative;z-index:1;max-width:100%;max-height:100%;object-fit:contain;border-radius:${fz(6)};box-shadow:0 8px 32px rgba(0,0,0,0.6)" onerror="phFix(this)"></div>`;
     if(o.t==="logo")return`<div class="o" style="${pos}"><img src="${esc(o.which==="mark"?markSrc():logoSrc())}" alt="" style="object-fit:contain"></div>`;
     const ff=o.font==="mono"?"var(--mono)":o.font==="display"?"var(--display)":"var(--body)";
     return`<div class="o" ${o.edit?`contenteditable="plaintext-only" spellcheck="false" data-edit="${o.edit}"`:""} style="${pos};font-size:${fz(o.size)};color:${hx(o.color)};font-family:${ff};font-weight:${o.bold?800:500};text-align:${o.align};${o.upper?"text-transform:uppercase;":""}${o.spacing?`letter-spacing:${o.spacing/10}em;`:""}${o.font==="display"?"letter-spacing:-.02em;line-height:1.05;":""}${o.link?"text-decoration:underline;":""}">${esc(o.text)}</div>`}).join("")}</div>`;
@@ -6949,6 +7168,10 @@ const ACT={
  kpibooked:()=>openMasterDeck("booked"),
  kpicamps:()=>{location.hash="campaigns";go("campaigns")},
  sync2026:()=>sync2026MasterData(true),
+ kpivendors:()=>{location.hash="vendors";go("vendors")},
+ vendorpresentation:(a)=>{const v=a.dataset.vendor;if(v)openVendorDeck(v)},
+ vendorinventory:(a)=>{const v=a.dataset.vendor;if(!v)return;F.vendor=v;location.hash="sites";go("sites");toast(`Showing sites for vendor: ${v}`)},
+ mastervendordeck:()=>openMasterVendorDeck(),
  camppresentation:(a)=>{
    const id = a.dataset.id;
    const camp = campOf(id);
