@@ -1,4 +1,4 @@
-const CACHE_NAME = 'adpulse-ots-v24.0';
+const CACHE_NAME = 'adpulse-ots-v25.0';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -6,6 +6,8 @@ const PRECACHE_ASSETS = [
   '/claude-shim.js',
   '/config.js',
   '/manifest.webmanifest',
+  '/master_sites_2026.js',
+  '/master_sites_2026.json',
   '/icons/icon-192.png',
   '/icons/icon-512.png',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',

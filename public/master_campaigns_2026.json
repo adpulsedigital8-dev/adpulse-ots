@@ -1,0 +1,329 @@
+[
+  {
+    "id": "camp_2026_1",
+    "name": "ASKARI VILLA - KK PROPERTIES - 2026 Campaign",
+    "client": "ASKARI VILLA - KK PROPERTIES",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#7C3AED",
+    "siteIds": [
+      "site_2026_001",
+      "site_2026_002",
+      "site_2026_003",
+      "site_2026_004",
+      "site_2026_005",
+      "site_2026_006",
+      "site_2026_007",
+      "site_2026_010",
+      "site_2026_001"
+    ],
+    "createdAt": "2026-11-17T10:27:24.468Z"
+  },
+  {
+    "id": "camp_2026_2",
+    "name": "ASKARI VILLA - KK PROPERTIES - 2026 Campaign",
+    "client": "ASKARI VILLA - KK PROPERTIES / KIFAYAH",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#D9161D",
+    "siteIds": [
+      "site_2026_008",
+      "site_2026_009"
+    ],
+    "createdAt": "2026-11-17T10:27:24.470Z"
+  },
+  {
+    "id": "camp_2026_3",
+    "name": "FALAKNAZ SKYVIEW - 2026 Campaign",
+    "client": "FALAKNAZ SKYVIEW",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#2563EB",
+    "siteIds": [
+      "site_2026_011",
+      "site_2026_012",
+      "site_2026_002"
+    ],
+    "createdAt": "2026-11-17T10:27:24.470Z"
+  },
+  {
+    "id": "camp_2026_4",
+    "name": "GFS BUILDERS AND DEVELOPERS - 2026 Campaign",
+    "client": "GFS BUILDERS AND DEVELOPERS / CALL GROUP / DALDA",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#059669",
+    "siteIds": [
+      "site_2026_013"
+    ],
+    "createdAt": "2026-11-17T10:27:24.470Z"
+  },
+  {
+    "id": "camp_2026_5",
+    "name": "GFS BUILDERS AND DEVELOPERS - 2026 Campaign",
+    "client": "GFS BUILDERS AND DEVELOPERS / CALL GROUP / INDUS VALLEY",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#D97706",
+    "siteIds": [
+      "site_2026_014"
+    ],
+    "createdAt": "2026-11-17T10:27:24.470Z"
+  },
+  {
+    "id": "camp_2026_6",
+    "name": "CHASE VALUE - 2026 Campaign",
+    "client": "CHASE VALUE  / EMINENT",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#DB2777",
+    "siteIds": [
+      "site_2026_015",
+      "site_2026_016",
+      "site_2026_019"
+    ],
+    "createdAt": "2026-11-17T10:27:24.470Z"
+  },
+  {
+    "id": "camp_2026_7",
+    "name": "GFS BUILDERS AND DEVELOPERS - 2026 Campaign",
+    "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#4F46E5",
+    "siteIds": [
+      "site_2026_017",
+      "site_2026_018"
+    ],
+    "createdAt": "2026-11-17T10:27:24.470Z"
+  },
+  {
+    "id": "camp_2026_8",
+    "name": "Mr. USMAN GRAPHIC EDGE - 2026 Campaign",
+    "client": "Mr. USMAN GRAPHIC EDGE",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#0D9488",
+    "siteIds": [
+      "site_2026_020",
+      "site_2026_005"
+    ],
+    "createdAt": "2026-11-17T10:27:24.470Z"
+  },
+  {
+    "id": "camp_2026_9",
+    "name": "GFS BUILDERS AND DEVELOPERS - 2026 Campaign",
+    "client": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#EA580C",
+    "siteIds": [
+      "site_2026_021",
+      "site_2026_022",
+      "site_2026_023",
+      "site_2026_024",
+      "site_2026_025",
+      "site_2026_026",
+      "site_2026_006"
+    ],
+    "createdAt": "2026-11-17T10:27:24.470Z"
+  },
+  {
+    "id": "camp_2026_10",
+    "name": "GFS BUILDERS AND DEVELOPERS - 2026 Campaign",
+    "client": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#7C3AED",
+    "siteIds": [
+      "site_2026_027",
+      "site_2026_028",
+      "site_2026_029",
+      "site_2026_030",
+      "site_2026_031",
+      "site_2026_032",
+      "site_2026_007"
+    ],
+    "createdAt": "2026-11-17T10:27:24.470Z"
+  },
+  {
+    "id": "camp_2026_11",
+    "name": "GFS BUILDERS AND DEVELOPERS - 2026 Campaign",
+    "client": "GFS BUILDERS AND DEVELOPERS",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#D9161D",
+    "siteIds": [
+      "site_2026_033",
+      "site_2026_041",
+      "site_2026_042",
+      "site_2026_043",
+      "site_2026_044",
+      "site_2026_045",
+      "site_2026_008"
+    ],
+    "createdAt": "2026-11-17T10:27:24.470Z"
+  },
+  {
+    "id": "camp_2026_12",
+    "name": "GFS BUILDERS AND DEVELOPERS - 2026 Campaign",
+    "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / PREMIUM BLOCK",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#2563EB",
+    "siteIds": [
+      "site_2026_034"
+    ],
+    "createdAt": "2026-11-17T10:27:24.470Z"
+  },
+  {
+    "id": "camp_2026_13",
+    "name": "GFS BUILDERS AND DEVELOPERS - 2026 Campaign",
+    "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#059669",
+    "siteIds": [
+      "site_2026_035",
+      "site_2026_036",
+      "site_2026_037",
+      "site_2026_038",
+      "site_2026_039",
+      "site_2026_040"
+    ],
+    "createdAt": "2026-11-17T10:27:24.470Z"
+  },
+  {
+    "id": "camp_2026_14",
+    "name": "AA BUILDERS - 2026 Campaign",
+    "client": "AA BUILDERS",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#D97706",
+    "siteIds": [
+      "site_2026_046",
+      "site_2026_047",
+      "site_2026_048",
+      "site_2026_049",
+      "site_2026_050",
+      "site_2026_051",
+      "site_2026_052",
+      "site_2026_053",
+      "site_2026_054",
+      "site_2026_055",
+      "site_2026_056",
+      "site_2026_057",
+      "site_2026_058",
+      "site_2026_059",
+      "site_2026_060",
+      "site_2026_061",
+      "site_2026_062",
+      "site_2026_063",
+      "site_2026_009"
+    ],
+    "createdAt": "2026-11-17T10:27:24.470Z"
+  },
+  {
+    "id": "camp_2026_15",
+    "name": "KIFAYAH STORE - 2026 Campaign",
+    "client": "KIFAYAH STORE",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#DB2777",
+    "siteIds": [
+      "site_2026_064",
+      "site_2026_065",
+      "site_2026_066",
+      "site_2026_067",
+      "site_2026_068",
+      "site_2026_069",
+      "site_2026_070",
+      "site_2026_071",
+      "site_2026_072",
+      "site_2026_073",
+      "site_2026_074",
+      "site_2026_075",
+      "site_2026_076",
+      "site_2026_077",
+      "site_2026_010"
+    ],
+    "createdAt": "2026-11-17T10:27:24.470Z"
+  },
+  {
+    "id": "camp_2026_16",
+    "name": "NEXT? - 2026 Campaign",
+    "client": "NEXT?",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#4F46E5",
+    "siteIds": [
+      "site_2026_078"
+    ],
+    "createdAt": "2026-11-17T10:27:24.470Z"
+  },
+  {
+    "id": "camp_2026_17",
+    "name": "GFS BUILDERS AND DEVELOPERS - 2026 Campaign",
+    "client": "GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#0D9488",
+    "siteIds": [
+      "site_2026_079",
+      "site_2026_080",
+      "site_2026_081",
+      "site_2026_082",
+      "site_2026_083",
+      "site_2026_084"
+    ],
+    "createdAt": "2026-11-17T10:27:24.470Z"
+  },
+  {
+    "id": "camp_2026_18",
+    "name": "CALL GROUP FOR 15 DAYS - 2026 Campaign",
+    "client": "CALL GROUP FOR 15 DAYS",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#EA580C",
+    "siteIds": [
+      "site_2026_003"
+    ],
+    "createdAt": "2026-11-17T10:27:24.470Z"
+  },
+  {
+    "id": "camp_2026_19",
+    "name": "CHASE VALUE - 2026 Campaign",
+    "client": "CHASE VALUE / EMINENT",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#7C3AED",
+    "siteIds": [
+      "site_2026_004"
+    ],
+    "createdAt": "2026-11-17T10:27:24.470Z"
+  },
+  {
+    "id": "camp_2026_20",
+    "name": "NEW SITES - 2026 Campaign",
+    "client": "NEW SITES",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#D9161D",
+    "siteIds": [
+      "site_2026_011"
+    ],
+    "createdAt": "2026-11-17T10:27:24.470Z"
+  },
+  {
+    "id": "camp_2026_21",
+    "name": "DIGITAL MEDIA (MULTIPLE CLIENTS) - 2026 Campaign",
+    "client": "DIGITAL MEDIA (MULTIPLE CLIENTS)",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-31",
+    "color": "#2563EB",
+    "siteIds": [
+      "site_2026_012"
+    ],
+    "createdAt": "2026-11-17T10:27:24.470Z"
+  }
+]

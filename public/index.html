@@ -1342,6 +1342,7 @@ body.client .tabs{display:none}
 <script src="/claude-shim.js?v=3.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="/master_sites_2026.js"></script>
 </head>
 <body>
 
@@ -1443,7 +1444,7 @@ const NAV=[["dashboard","Dashboard","dash"],["capture","Capture","cam"],["sites"
 
 /* ============ state ============ */
 const S={sites:[],campaigns:[],decks:[],riders:[],settings:{agency:"AdPulse IMC",phone:"",email:"",web:"adpulse.pk",logo:null},loaded:{sites:false,campaigns:false},mode:"loading"};
-const F={q:"",area:"",size:"",media:"",status:"",lit:"",campaign:"",traffic:""};
+const F={q:"",area:"",size:"",media:"",status:"",lit:"",campaign:"",traffic:"",vendor:""};
 let fOpen=false,siteView="grid",sel=new Set(),route="dashboard",queue=[],local=null;
 let db=null,assets=null,downloads=null,user=null,sampleFn=null,sampleImg=null;
 let ROLE="pending",ME=null,CAN_ADMIN=true,CAN_WRITE=null,PORTAL=null,PORTAL_READY=false,MYREQ=null,PREVIEW=null,pCamp=null,portals={};
@@ -1596,7 +1597,8 @@ async function boot(){
 function changed(){if(route==="studio"&&Studio.active){render(true)}else{render()}clearTimeout(changed.t);changed.t=setTimeout(()=>Agent.run(),900);schedSync()}
 function startLocal(){
   S.mode="local";ROLE="team";local=ls.get("sitesnap-local",{sites:[],campaigns:[],decks:[],settings:null,clients:[]});
-  S.sites=local.sites;S.campaigns=local.campaigns;S.decks=local.decks||[];S.clients=local.clients||[];if(local.settings)S.settings=local.settings;applyTheme();S.loaded={sites:true,campaigns:true};renderNav();go(location.hash.slice(1)||"dashboard",true);modeNote();changed();setTimeout(loadQueue,2500);
+  S.sites=local.sites;S.campaigns=local.campaigns;
+  if((!S.sites||S.sites.length<50)&&window.MASTER_SITES_2026){S.sites=window.MASTER_SITES_2026;S.campaigns=window.MASTER_CAMPAIGNS_2026||[];persistLocal();}S.decks=local.decks||[];S.clients=local.clients||[];if(local.settings)S.settings=local.settings;applyTheme();S.loaded={sites:true,campaigns:true};renderNav();go(location.hash.slice(1)||"dashboard",true);modeNote();changed();setTimeout(loadQueue,2500);
 }
 function startPresentationGuest(){
   ROLE = "guest";
@@ -1748,8 +1750,16 @@ function vDash(){
   const st=S.sites.map(effStatus),cnt=k=>st.filter(x=>x===k).length;
   const activeC=S.campaigns.filter(c=>!c.endDate||new Date(c.endDate)>=new Date(today())).length;
   const photosToday=S.sites.flatMap(s=>s.photos||[]).filter(p=>(p.at||"").slice(0,10)===today()).length;
-  const k=[["Total sites",S.sites.length,"var(--violet)","sites"],["Available",cnt("available"),"var(--ok)","check"],["Booked",cnt("booked")+cnt("expiring"),"var(--bad)","camp"],["Active campaigns",activeC,"var(--pink)","deck"],["Photos today",photosToday,"var(--cyan)","cam"]];const bookedOts=S.sites.filter(x=>x.status==="booked").reduce((a,x)=>a+otsOf(x),0);if(bookedOts)k.push(["Daily OTS on booked sites","~"+fmtK(bookedOts),"var(--blue)","eye",true]);
-  const kp=`<div class="kpis enter" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">${k.map(([l,n,c,i,raw])=>`<div class="card kpi" style="--c:${c}"><div class="ic" style="background:${c}">${ICON[i]}</div><div class="n" ${raw?"":`data-count="${n}"`}>${raw?n:0}</div><small>${l}</small></div>`).join("")}</div>`;
+  const k=[
+    ["Master file for All sites",S.sites.length,"var(--violet)","sites",false,"kpimaster"],
+    ["Available",cnt("available"),"var(--ok)","check",false,"kpiavail"],
+    ["Booked",cnt("booked")+cnt("expiring"),"var(--bad)","camp",false,"kpibooked"],
+    ["Active campaigns",activeC,"var(--pink)","deck",false,"kpicamps"],
+    ["Photos today",photosToday,"var(--cyan)","cam",false,""]
+  ];
+  const bookedOts=S.sites.filter(x=>x.status==="booked").reduce((a,x)=>a+otsOf(x),0);
+  if(bookedOts)k.push(["Daily OTS on booked sites","~"+fmtK(bookedOts),"var(--blue)","eye",true,""]);
+  const kp=`<div class="kpis enter" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">${k.map(([l,n,c,i,raw,act])=>`<div class="card kpi ${act?'clickable':''}" ${act?`data-act="${act}" title="Open presentation for ${esc(l)}"`:''} style="--c:${c};${act?'cursor:pointer;':''}"><div class="ic" style="background:${c}">${ICON[i]}</div><div class="n" ${raw?"":`data-count="${n}"`}>${raw?n:0}</div><small style="${act?'font-weight:700;color:var(--ink);':''}">${l}${act?' ↗':''}</small></div>`).join("")}</div>`;
   if(!S.sites.length)return pgTop("Dashboard","Your OOH inventory at a glance")+kp+`<div class="card" style="margin-top:16px">${emptyState("No sites yet","Capture your first billboard from the field, or add one from the Sites page.",`<a class="btn pri" href="#capture">${ICON.cam}Capture a site</a>`)}</div>`;
   // area bars
   const areas={};S.sites.forEach(s=>{const a=areas[s.area]||(areas[s.area]={available:0,booked:0,maintenance:0,expiring:0});a[effStatus(s)]++});
@@ -3756,7 +3766,7 @@ const pill=s=>{
 /* ============ Sites ============ */
 function filtered(){
   const q=F.q.toLowerCase().trim();
-  return S.sites.filter(s=>(!F.area||s.area===F.area)&&(!F.size||sizeOf(s)===F.size)&&(!F.media||s.media===F.media)&&(!F.status||effStatus(s)===F.status||(F.status==="booked"&&effStatus(s)==="expiring"))&&(!F.lit||s.light===F.lit)&&(!F.traffic||s.traffic===F.traffic)&&(!F.campaign||(campOf(F.campaign)?.siteIds||[]).includes(s.id))&&(!q||[s.code,s.name,s.title,s.area,s.from,s.towards,s.media,s.brand,s.availability,s.rates,s.notes].join(" ").toLowerCase().includes(q))).sort((a,b)=>(a.area||"").localeCompare(b.area||"")||(a.code||"").localeCompare(b.code||""));
+  return S.sites.filter(s=>(!F.area||s.area===F.area)&&(!F.size||sizeOf(s)===F.size)&&(!F.media||s.media===F.media)&&(!F.status||effStatus(s)===F.status||(F.status==="booked"&&effStatus(s)==="expiring"))&&(!F.lit||s.light===F.lit)&&(!F.traffic||s.traffic===F.traffic)&&(!F.vendor||s.vendor===F.vendor)&&(!F.campaign||(campOf(F.campaign)?.siteIds||[]).includes(s.id))&&(!q||[s.code,s.name,s.title,s.area,s.from,s.towards,s.media,s.brand,s.vendor,s.availability,s.rates,s.notes].join(" ").toLowerCase().includes(q))).sort((a,b)=>(a.area||"").localeCompare(b.area||"")||(a.code||"").localeCompare(b.code||""));
 }
 function opt(list,v,lab){return list.map(o=>{const[val,l]=Array.isArray(o)?o:[o,o];return`<option value="${esc(val)}" ${val===v?"selected":""}>${esc(l)}</option>`}).join("")}
 function vSites(){
@@ -3767,7 +3777,7 @@ function vSites(){
   const filt=`<div class="filters">
     <input class="in" style="max-width:220px;min-height:44px;padding:8px 12px;font-size:14px" placeholder="Search code, road, brand" value="${esc(F.q)}" id="fq">
     <button class="btn fbtn ${nf?"pri":""}" data-act="ftoggle">Filters${nf?` (${nf})`:""}</button>
-    <div class="fsel ${fOpen?"open":""}">${f("area","Area",allAreas)}${f("size","Size",sizes.map(x=>[x,x+" ft"]))}${f("media","Type",MEDIA)}${f("status","Status",[["available","Available"],["booked","Not available"],["expiring","Expiring soon"],["maintenance","Maintenance"]])}${f("lit","Light",LIGHT)}${f("traffic","Traffic",Object.entries(TLEV))}${f("campaign","Campaign",S.campaigns.map(c=>[c.id,c.name]))}
+    <div class="fsel ${fOpen?"open":""}">${f("area","Area",allAreas)}${f("size","Size",sizes.map(x=>[x,x+" ft"]))}${f("media","Type",MEDIA)}${f("status","Status",[["available","Available"],["booked","Not available"],["expiring","Expiring soon"],["maintenance","Maintenance"]])}${f("vendor","Vendor",[...new Set(S.sites.map(s=>s.vendor).filter(Boolean))].sort())}${f("lit","Light",LIGHT)}${f("traffic","Traffic",Object.entries(TLEV))}${f("campaign","Campaign",S.campaigns.map(c=>[c.id,c.name]))}
     ${Object.values(F).some(Boolean)?`<button class="btn sm ghost" data-act="clearf">Clear</button>`:""}</div>
     <span class="sp"></span>
     <div class="seg" role="tablist">${[["grid","Cards"],["table","Table"],["map","Map"]].map(([k,l])=>`<button class="${siteView===k?"on":""}" data-act="sview" data-v="${k}">${l}</button>`).join("")}</div>
@@ -3780,6 +3790,7 @@ function vSites(){
   const bulk=sel.size?`<div class="bulk"><b>${sel.size} selected</b><span class="sp"></span><select id="bulkSt" aria-label="Set status"><option value="">Set status…</option><option value="available">Available</option><option value="booked">Not available</option><option value="maintenance">Maintenance</option></select><select id="bulkC" aria-label="Add to campaign"><option value="">Add to campaign…</option>${opt(S.campaigns.map(c=>[c.id,c.name]))}</select><button class="btn sm" data-act="bulkdeck">${ICON.deck}Make deck</button><button class="btn sm" data-act="bulkdel" style="color:#ff8fa3;border-color:rgba(255,143,163,.45)">${ICON.trash}Delete</button><button class="btn sm" data-act="selnone">Clear</button></div>`:"";
   const siteTopBtns = `<div class="row" style="gap:6px;flex-wrap:wrap">
     <button class="btn pri" data-act="uploaddeck" style="background:linear-gradient(135deg,#D9161D,#F26A21);font-weight:700">📁 Import PPT / PDF</button>
+    <button class="btn cy" data-act="sync2026" title="Load 2026 updated master sites & photos">🔄 Update to 2026 Master Data</button>
     <button class="btn hm" data-act="selall">Select all</button>
     <button class="btn pri" data-act="newsite">${ICON.plus}Add site</button>
     ${S.sites.length?`<button class="btn danger ghost" data-act="clearalldata" title="Delete all previous data">🗑️ Clear All</button>`:""}
@@ -4976,6 +4987,65 @@ async function parsePdfDeck(file, onProgress) {
   return sites;
 }
 
+
+/* ============ Master 2026 Deck & Data Functions ============ */
+function openMasterDeck(filterType = "all") {
+  let title = "Master File - All Karachi Sites (2026)";
+  let subtitle = "Master Presentation · Complete portfolio overview & booking schedule";
+  let src = { type: "all" };
+
+  if (filterType === "available") {
+    title = "Available & Upcoming Sites - Karachi";
+    subtitle = "Sites ready for immediate booking or upcoming free schedule";
+    src = { type: "filter", status: "available", area: "", size: "", vendor: "" };
+  } else if (filterType === "booked") {
+    title = "Currently Booked Sites Portfolio";
+    subtitle = "Active billboard deployments & campaign bookings with duration";
+    src = { type: "filter", status: "booked", area: "", size: "", vendor: "" };
+  }
+
+  Studio.cfg = Studio.fresh(src);
+  Studio.cfg.title = title;
+  Studio.cfg.subtitle = subtitle;
+  Studio.cfg.summary = true;
+  Studio.cfg.fields.vendor = true;
+  Studio.build();
+  Studio.active = true;
+  location.hash = "studio";
+  go("studio", true);
+  toast(`Opening ${title}…`);
+}
+
+async function sync2026MasterData(notify = true) {
+  try {
+    if (notify) toast("Updating to 2026 Master Data (96 Sites & Campaigns)…");
+    let sites = window.MASTER_SITES_2026;
+    let campaigns = window.MASTER_CAMPAIGNS_2026;
+    if (!sites || !sites.length) {
+      const res = await fetch("/master_sites_2026.json");
+      sites = await res.json();
+    }
+    if (!campaigns || !campaigns.length) {
+      const res2 = await fetch("/master_campaigns_2026.json");
+      campaigns = await res2.json();
+    }
+    if (!sites || !sites.length) throw new Error("Could not load 2026 dataset");
+
+    S.sites = sites;
+    S.campaigns = campaigns || [];
+    persistLocal();
+    if (S.mode === "live" && db) {
+      for (const s of sites) await put("sites", s);
+      for (const c of (campaigns || [])) await put("campaigns", c);
+    }
+    render(true);
+    if (notify) toast(`✅ Successfully loaded ${sites.length} Master Sites & ${campaigns.length} Campaigns (2026)!`);
+  } catch(e) {
+    console.error("2026 master data sync error:", e);
+    if (notify) toast("Note on master data sync: " + (e.message || e));
+  }
+}
+
 function openDeckUploader() {
   let parsedSites = [];
   openLayer(`
@@ -5291,9 +5361,9 @@ const TPL={
  adpulse_dark:{name:"AdPulse Dark Luxe",bg:"0C1214",ink:"F3F7F7",muted:"8B9E9E",accent:"E51A24",accent2:"14B8A6",panel:"162023",band:"0A1012",bandInk:"FFFFFF",grad:true},
  adpulse_teal:{name:"AdPulse Teal Executive",bg:"FFFFFF",ink:"0B2523",muted:"547370",accent:"1B7F7A",accent2:"D9161D",panel:"EFF7F6",band:"0E3B38",bandInk:"FFFFFF",grad:true}
 };
-const FIELDS=[["status","Availability"],["dir","From → Towards"],["size","Size"],["media","Media type"],["light","Illumination"],["dates","Booking dates"],["traffic","Traffic & OTS"],["gps","GPS & map link"],["price","Price / Rate (PKR)"],["brand","Brand on site"],["notes","Notes"]];
+const FIELDS=[["status","Availability"],["dir","From → Towards"],["size","Size"],["media","Media type"],["light","Illumination"],["dates","Booking dates"],["traffic","Traffic & OTS"],["gps","GPS & map link"],["price","Price / Rate (PKR)"],["vendor","Media Vendor"],["brand","Brand on site"],["notes","Notes"]];
 function normFields(f){
-  const def={status:true,dir:true,size:true,media:true,light:true,dates:true,traffic:true,gps:true,brand:false,notes:false};
+  const def={status:true,dir:true,size:true,media:true,light:true,dates:true,traffic:true,gps:true,price:true,vendor:true,brand:false,notes:false};
   if(!f||typeof f!=="object")return def;
   return{
     status:f.status!==undefined?!!f.status:true,
@@ -5305,6 +5375,7 @@ function normFields(f){
     traffic:f.traffic!==undefined?!!f.traffic:(f.metrics!==undefined?!!f.metrics:true),
     gps:f.gps!==undefined?!!f.gps:true,
     price:f.price!==undefined?!!f.price:true,
+    vendor:f.vendor!==undefined?!!f.vendor:true,
     brand:f.brand!==undefined?!!f.brand:false,
     notes:f.notes!==undefined?!!f.notes:false
   };
@@ -5315,24 +5386,35 @@ const Studio={
  open(src,title){this.cfg=this.fresh(src);if(title)this.cfg.title=title;this.build();this.active=true;location.hash="studio";if(route==="studio")render(true)},
  load(deck){this.cfg=JSON.parse(JSON.stringify(deck));if(!this.cfg.layout)this.cfg.layout="split";this.cfg.fields=normFields(this.cfg.fields);this.cfg.summary=this.cfg.summary!==false;this.cfg.index=this.cfg.index!==false;this.active=true;render(true)},
  sitesFor(){const s=this.cfg.source;let list=[];
-   if(s.type==="campaign"){const c=campOf(s.campaignId);list=(c?.siteIds||[]).map(id=>S.sites.find(x=>x&&(x.id===id||x.code===id))).filter(Boolean)}
-   else if(s.type==="filter"){list=S.sites.filter(x=>(!s.area||x.area===s.area)&&(!s.size||sizeOf(x)===s.size)&&(!s.status||effStatus(x)===s.status||(s.status==="booked"&&effStatus(x)==="expiring"))&&(!s.media||x.media===s.media))}
+   if(s.type==="all"){list=S.sites.slice()}
+   else if(s.type==="campaign"){const c=campOf(s.campaignId);list=(c?.siteIds||[]).map(id=>S.sites.find(x=>x&&(x.id===id||x.code===id))).filter(Boolean)}
+   else if(s.type==="filter"){list=S.sites.filter(x=>(!s.area||x.area===s.area)&&(!s.size||sizeOf(x)===s.size)&&(!s.status||effStatus(x)===s.status||(s.status==="booked"&&effStatus(x)==="expiring"))&&(!s.media||x.media===s.media)&&(!s.vendor||x.vendor===s.vendor))}
    else list=(s.ids||[]).map(id=>S.sites.find(x=>x&&(x.id===id||x.code===id))).filter(Boolean);return list},
  build(){const c=this.cfg;const list=this.sitesFor();const key={area:x=>x.area,size:x=>sizeOf(x),status:x=>STATUS[effStatus(x)],none:()=>""}[c.groupBy];
     list.sort((a,b)=>String(key(a)).localeCompare(String(key(b)))||a.code.localeCompare(b.code));
-    c.sitesData=list.map(s=>({id:s.id,code:s.code,name:s.name||"",area:s.area,widthFt:s.widthFt,heightFt:s.heightFt,media:s.media,light:s.light,from:s.from||"",towards:s.towards||"",status:s.status,brand:s.brand||"",bookedTill:s.bookedTill||"",bookedFrom:s.bookedFrom||"",lat:s.lat||"",lng:s.lng||"",traffic:s.traffic||"",vehiclesDay:s.vehiclesDay||"",rates:s.rates||s.price||"",price:s.price||s.rates||"",photos:(s.photos||[]).map(p=>({asset:p.asset,kind:p.kind,tag:p.tag,at:p.at||p.date||"2026-10-16"}))}));
+    c.sitesData=list.map(s=>({id:s.id,code:s.code,name:s.name||"",area:s.area,widthFt:s.widthFt,heightFt:s.heightFt,media:s.media,light:s.light,from:s.from||"",towards:s.towards||"",status:s.status,brand:s.brand||"",vendor:s.vendor||"",bookedTill:s.bookedTill||"",bookedFrom:s.bookedFrom||"",lat:s.lat||"",lng:s.lng||"",traffic:s.traffic||"",vehiclesDay:s.vehiclesDay||"",rates:s.rates||s.price||"",price:s.price||s.rates||"",photos:(s.photos||[]).map(p=>({asset:p.asset,kind:p.kind,tag:p.tag,at:p.at||p.date||"2026-10-16"}))}));
     const old=new Map((c.slides||[]).map(s=>[s.siteId,s]));c.slides=list.map(s=>old.get(s.id)||{siteId:s.id,hidden:false,photo:imgIdx(s).slice(-1)[0]??-1,title:"",note:"",price:s.price||(s.rates&&!/^(PKR|USD|EUR)$/i.test(s.rates)?s.rates:"")||""});
    if(!c.title){const cp=c.source.type==="campaign"?campOf(c.source.campaignId):null;c.title=cp?cp.name:c.source.type==="filter"?`${c.source.area||"Karachi"} ${c.source.status==="available"?"Available ":""}Sites`:"Site Proposal"}
    if(!c.subtitle){const cp=c.source.type==="campaign"?campOf(c.source.campaignId):null;c.subtitle=cp?.client?`Prepared for ${cp.client}`:"OOH site presentation"}},
  mount(){if(!this.cfg)return;if((!this.cfg.slides||!this.cfg.slides.length)&&(S.sites.length||(this.cfg.sitesData&&this.cfg.sitesData.length))){this.build()}this.renderSlides();this.bindDnD()},
  siteOf(id){if(!id)return null;return (this.cfg?.sitesData||[]).find(x=>x&&(x.id===id||x.code===id))||S.sites.find(x=>x&&(x.id===id||x.code===id))||null},
   visible(){return (this.cfg?.slides||[]).filter(s=>!s.hidden&&this.siteOf(s.siteId))},
-  deckOps(forExport){const c=this.cfg,t=TPL[c.template]||TPL.adpulse,vis=this.visible(),sites=vis.map(v=>this.siteOf(v.siteId));const out=[];
-   out.push({kind:"cover",ops:coverOps(c,t,sites)});
-   if(c.summary)out.push({kind:"summary",ops:summaryOps(c,t,sites)});
-   if(c.index){const g={};vis.forEach((v,i)=>{const s=sites[i];(g[s.area]=g[s.area]||[]).push(s.code)});out.push({kind:"index",ops:indexOps(c,t,g)})}
-   vis.forEach((v,i)=>out.push({kind:"site",idx:c.slides.indexOf(v),ops:siteOps(c,t,sites[i],v,i+1,vis.length)}));
-   out.push({kind:"end",ops:endOps(c,t)});return out},
+
+
+  deckOps(forExport){
+    const c=this.cfg,t=TPL[c.template]||TPL.adpulse,vis=this.visible(),sites=vis.map(v=>this.siteOf(v.siteId));
+    const out=[];
+    out.push({kind:"cover",ops:coverOps(c,t,sites)});
+    // Page 2: Summary Table with full details, duration start & end dates
+    if(c.summary !== false && sites.length){
+      const tableSlides = summaryTableOps(c, t, sites);
+      tableSlides.forEach((ops, idx) => out.push({kind:"summary-table", ops}));
+    }
+    if(c.index){const g={};vis.forEach((v,i)=>{const s=sites[i];(g[s.area]=g[s.area]||[]).push(s.code)});out.push({kind:"index",ops:indexOps(c,t,g)})}
+    vis.forEach((v,i)=>out.push({kind:"site",idx:c.slides.indexOf(v),ops:siteOps(c,t,sites[i],v,i+1,vis.length)}));
+    out.push({kind:"end",ops:endOps(c,t)});
+    return out;
+  },
  renderSlides(){const box=$("#slides");if(!box)return;
     try{
       const deck=this.deckOps();
@@ -5359,6 +5441,153 @@ function T(x,y,w,h,text,o={}){return{t:"text",x,y,w,h,text:String(text??""),size
 function R(x,y,w,h,fill,o={}){return{t:"rect",x,y,w,h,fill,r:o.r||0,alpha:o.alpha}}
 function frame(t){return[R(0,0,13.333,7.5,t.bg)]}
 function footer(c,t,page,total){return[R(0.5,7.02,12.33,0.01,t.muted),{t:"logo",which:"mark",x:0.5,y:7.07,w:0.34,h:0.34},T(0.92,7.1,6,0.3,S.settings.agency||"",{size:9,color:t.muted,bold:true}),T(6.83,7.1,6,0.3,page?`${page} / ${total}`:"",{size:9,color:t.muted,align:"right",font:"mono"})]}
+/* ============ Executive Summary Table on Page 2 ============ */
+function summaryTableOps(c, t, sites) {
+  const f = normFields(c.fields);
+  const perPage = 10;
+  const totalPages = Math.ceil(sites.length / perPage) || 1;
+  const slides = [];
+
+  for (let pageIdx = 0; pageIdx < totalPages; pageIdx++) {
+    const pageSites = sites.slice(pageIdx * perPage, (pageIdx + 1) * perPage);
+    const ops = [
+      // Frame background
+      { t: "rect", x: 0, y: 0, w: 13.333, h: 7.5, fill: t.bg || "FFFFFF" },
+      
+      // Header
+      { t: "text", x: 0.60, y: 0.38, w: 9.50, h: 0.38, text: "INVENTORY SUMMARY & BOOKING SCHEDULE" + (totalPages > 1 ? ` (${pageIdx + 1}/${totalPages})` : ""), size: 19, bold: true, color: t.ink || "1C1A1B", font: "display" },
+      { t: "text", x: 0.60, y: 0.78, w: 9.50, h: 0.22, text: `${c.title || "Master Portfolio"} · Tabular inventory specifications, availability & booking duration`, size: 9.5, bold: true, color: t.muted || "6E6668" },
+      
+      // Top right badge
+      { t: "rect", x: 10.40, y: 0.40, w: 2.33, h: 0.34, fill: t.accent || "D9161D", r: .14 },
+      { t: "text", x: 10.40, y: 0.46, w: 2.33, h: 0.20, text: `${sites.length} TOTAL SITES`, size: 9.5, bold: true, color: "FFFFFF", align: "center", font: "mono" }
+    ];
+
+    const hasVendor = !!f.vendor;
+    const yTop = 1.22;
+    const hHead = 0.38;
+    const hRow = 0.48;
+
+    // Header bar background
+    ops.push({ t: "rect", x: 0.60, y: yTop, w: 12.133, h: hHead, fill: t.band || "1E2A2C", r: .06 });
+
+    // Columns config
+    let cols = [];
+    if (hasVendor) {
+      cols = [
+        { label: "#", x: 0.60, w: 0.45, align: "center" },
+        { label: "SITE & LOCATION", x: 1.05, w: 2.45, align: "left" },
+        { label: "SIZE & TYPE", x: 3.50, w: 1.55, align: "left" },
+        { label: "TRAFFIC ORIENTATION", x: 5.05, w: 1.90, align: "left" },
+        { label: "STATUS", x: 6.95, w: 1.30, align: "center" },
+        { label: "BOOKING DURATION", x: 8.25, w: 1.85, align: "left" },
+        { label: "VENDOR / OWNER", x: 10.10, w: 1.40, align: "left" },
+        { label: "RATE (PKR)", x: 11.50, w: 1.23, align: "right" }
+      ];
+    } else {
+      cols = [
+        { label: "#", x: 0.60, w: 0.45, align: "center" },
+        { label: "SITE & LOCATION", x: 1.05, w: 2.85, align: "left" },
+        { label: "SIZE & TYPE", x: 3.90, w: 1.65, align: "left" },
+        { label: "TRAFFIC ORIENTATION", x: 5.55, w: 2.10, align: "left" },
+        { label: "STATUS", x: 7.65, w: 1.40, align: "center" },
+        { label: "BOOKING DURATION", x: 9.05, w: 2.05, align: "left" },
+        { label: "RATE (PKR)", x: 11.10, w: 1.63, align: "right" }
+      ];
+    }
+
+    // Render header column texts
+    cols.forEach(col => {
+      ops.push({
+        t: "text",
+        x: col.x + (col.align === "right" ? -0.1 : (col.align === "center" ? 0 : 0.08)),
+        y: yTop + 0.10,
+        w: col.w,
+        h: 0.20,
+        text: col.label,
+        size: 8,
+        bold: true,
+        color: "FFFFFF",
+        align: col.align,
+        spacing: 1.1
+      });
+    });
+
+    // Render rows
+    pageSites.forEach((s, rowIdx) => {
+      const yR = yTop + hHead + (rowIdx * hRow);
+      const rowBg = rowIdx % 2 === 0 ? (t.bg || "FFFFFF") : (t.panel || "F5F1F0");
+      
+      ops.push({ t: "rect", x: 0.60, y: yR, w: 12.133, h: hRow, fill: rowBg });
+      ops.push({ t: "rect", x: 0.60, y: yR + hRow - 0.01, w: 12.133, h: 0.01, fill: t.muted || "6E6668", alpha: .18 });
+
+      const num = pageIdx * perPage + rowIdx + 1;
+      const k = effStatus(s);
+      const stColor = { available: "0E9F76", booked: "E03656", expiring: "EE7422", maintenance: "DB8F06" }[k] || "0E9F76";
+      const stLabel = (STATUS[k] || "AVAILABLE").toUpperCase();
+
+      let durationTxt = "Available for booking";
+      if (s.status === "booked") {
+        if (s.bookedFrom && s.bookedTill) {
+          durationTxt = `${fmtDate(s.bookedFrom)} to ${fmtDate(s.bookedTill)}`;
+        } else if (s.bookedTill) {
+          durationTxt = `Till ${fmtDate(s.bookedTill)}`;
+        } else {
+          durationTxt = s.availability || "Currently Booked";
+        }
+      }
+
+      const sizeStr = `${s.widthFt||0}×${s.heightFt||0} ft`;
+      const formatStr = s.media || "Billboard";
+      const dirStr = (s.from && s.towards) ? `${s.from} → ${s.towards}` : (s.from || s.area || "Karachi");
+
+      if (hasVendor) {
+        // #
+        ops.push({ t: "text", x: 0.60, y: yR + 0.14, w: 0.45, h: 0.22, text: String(num), size: 10, bold: true, color: t.muted || "6E6668", align: "center", font: "mono" });
+        // Code & Location
+        ops.push({ t: "text", x: 1.12, y: yR + 0.07, w: 2.38, h: 0.18, text: s.code || "SITE", size: 9.5, bold: true, color: t.accent || "D9161D", font: "mono" });
+        ops.push({ t: "text", x: 1.12, y: yR + 0.25, w: 2.38, h: 0.18, text: (s.name || s.title || s.area).substring(0, 32), size: 8.5, color: t.ink || "1C1A1B", bold: true });
+        // Size & Type
+        ops.push({ t: "text", x: 3.55, y: yR + 0.07, w: 1.50, h: 0.18, text: sizeStr, size: 9.5, bold: true, color: t.ink || "1C1A1B", font: "mono" });
+        ops.push({ t: "text", x: 3.55, y: yR + 0.25, w: 1.50, h: 0.18, text: formatStr, size: 8, color: t.muted || "6E6668" });
+        // Traffic Direction
+        ops.push({ t: "text", x: 5.12, y: yR + 0.14, w: 1.80, h: 0.26, text: dirStr.substring(0, 38), size: 8.5, color: t.ink || "1C1A1B" });
+        // Status Pill
+        ops.push({ t: "rect", x: 7.02, y: yR + 0.12, w: 1.16, h: 0.24, fill: stColor, r: .12 });
+        ops.push({ t: "text", x: 7.02, y: yR + 0.16, w: 1.16, h: 0.18, text: stLabel, size: 7.5, bold: true, color: "FFFFFF", align: "center" });
+        // Duration
+        ops.push({ t: "text", x: 8.32, y: yR + 0.14, w: 1.75, h: 0.24, text: durationTxt, size: 8.5, bold: true, color: k === "available" ? "0E9F76" : (t.ink || "1C1A1B") });
+        // Vendor
+        ops.push({ t: "text", x: 10.15, y: yR + 0.14, w: 1.35, h: 0.24, text: (s.vendor || "AdPulse IMC").substring(0, 22), size: 8.5, bold: true, color: t.ink || "1C1A1B" });
+        // Rate
+        ops.push({ t: "text", x: 11.50, y: yR + 0.14, w: 1.15, h: 0.24, text: s.price || s.rates || "PKR", size: 8.5, bold: true, color: "0E9F76", align: "right", font: "mono" });
+      } else {
+        // Without vendor
+        ops.push({ t: "text", x: 0.60, y: yR + 0.14, w: 0.45, h: 0.22, text: String(num), size: 10, bold: true, color: t.muted || "6E6668", align: "center", font: "mono" });
+        ops.push({ t: "text", x: 1.12, y: yR + 0.07, w: 2.78, h: 0.18, text: s.code || "SITE", size: 9.5, bold: true, color: t.accent || "D9161D", font: "mono" });
+        ops.push({ t: "text", x: 1.12, y: yR + 0.25, w: 2.78, h: 0.18, text: (s.name || s.title || s.area).substring(0, 36), size: 8.5, color: t.ink || "1C1A1B", bold: true });
+        ops.push({ t: "text", x: 3.95, y: yR + 0.07, w: 1.60, h: 0.18, text: sizeStr, size: 9.5, bold: true, color: t.ink || "1C1A1B", font: "mono" });
+        ops.push({ t: "text", x: 3.95, y: yR + 0.25, w: 1.60, h: 0.18, text: formatStr, size: 8, color: t.muted || "6E6668" });
+        ops.push({ t: "text", x: 5.62, y: yR + 0.14, w: 2.00, h: 0.26, text: dirStr.substring(0, 42), size: 8.5, color: t.ink || "1C1A1B" });
+        ops.push({ t: "rect", x: 7.72, y: yR + 0.12, w: 1.26, h: 0.24, fill: stColor, r: .12 });
+        ops.push({ t: "text", x: 7.72, y: yR + 0.16, w: 1.26, h: 0.18, text: stLabel, size: 8, bold: true, color: "FFFFFF", align: "center" });
+        ops.push({ t: "text", x: 9.12, y: yR + 0.14, w: 1.95, h: 0.24, text: durationTxt, size: 8.5, bold: true, color: k === "available" ? "0E9F76" : (t.ink || "1C1A1B") });
+        ops.push({ t: "text", x: 11.10, y: yR + 0.14, w: 1.55, h: 0.24, text: s.price || s.rates || "PKR Rate", size: 8.5, bold: true, color: "0E9F76", align: "right", font: "mono" });
+      }
+    });
+
+    // Footer
+    ops.push({ t: "rect", x: 0.5, y: 7.02, w: 12.33, h: 0.01, fill: t.muted || "6E6668" });
+    ops.push({ t: "logo", which: "mark", x: 0.5, y: 7.07, w: 0.34, h: 0.34 });
+    ops.push({ t: "text", x: 0.92, y: 7.10, w: 6.0, h: 0.30, text: S.settings.agency || "AdPulse IMC", size: 9, color: t.muted || "6E6668", bold: true });
+    ops.push({ t: "text", x: 6.83, y: 7.10, w: 6.0, h: 0.30, text: `Page ${pageIdx + 2} / Summary`, size: 9, color: t.muted || "6E6668", align: "right", font: "mono" });
+
+    slides.push(ops);
+  }
+
+  return slides;
+}
+
 function coverOps(c,t,sites){const areas=new Set(sites.map(s=>s.area));
  return[...frame(t),R(0,0,13.333,7.5,t.band),...(t.grad?[R(7.6,0,5.733,7.5,t.accent),R(10.2,0,3.133,7.5,t.accent2,{alpha:.85})]:[R(9.2,0,4.133,7.5,t.accent)]),
   T(0.8,0.8,8,0.4,APP_FULL.toUpperCase(),{size:12,color:t.bandInk,bold:true,spacing:3}),
@@ -5452,9 +5681,12 @@ function siteOps(c,t,s,v,page,total){
       // Section 3: Format & Illumination
       T(9.20,4.36,3.30,0.16,"FORMAT & ILLUMINATION",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
       T(9.20,4.56,3.30,0.24,formatStr,{size:11.5,bold:true,color:isLit?"0E9F76":t.ink}),
+      ...(f.vendor && s.vendor ? [
+        T(9.20,4.78,3.30,0.18,`Media Vendor: ${s.vendor}`,{size:9,bold:true,color:t.accent,font:"mono"})
+      ] : []),
 
       // Divider 4
-      R(9.20,4.92,3.30,0.015,t.muted,{alpha:.22}),
+      R(9.20,5.00,3.30,0.015,t.muted,{alpha:.22}),
 
       // Section 4: Price / Rate (PKR) & Booking Duration
       T(9.20,5.08,3.30,0.16,f.price?"PRICE & BOOKING DURATION":"COMMERCIAL STATUS",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
@@ -6664,6 +6896,11 @@ const ACT={
  savedeck:async()=>{const c=Studio.cfg;c.version=(c.version||0)+1;try{await put("decks",c);toast(`Saved ${c.title} v${c.version}`);const b=$("#saveDeck");if(b)b.textContent="Save version"}catch(e){toast("Couldn't save: "+e.message)}},
  csv:async()=>{const h=["Code","Area","From","Towards","Width ft","Height ft","Type","Light","Status","Brand","Booked till","Lat","Lng","Photos","Maps link"];const rows=S.sites.map(s=>[s.code,s.area,s.from,s.towards,s.widthFt,s.heightFt,s.media,s.light,STATUS[effStatus(s)],s.brand,s.bookedTill,s.lat,s.lng,(s.photos||[]).length,mapsUrl(s)]);const csv=[h,...rows].map(r=>r.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\n");if(!downloads){toast("Downloads aren't available in this view");return}try{await downloads.save({filename:"sitesnap-sites.csv",data:csv})}catch(e){if(e.code!=="declined")toast("Couldn't save: "+(e.message||e.code))}},
  uploaddeck:()=>openDeckUploader(),
+ kpimaster:()=>openMasterDeck("all"),
+ kpiavail:()=>openMasterDeck("available"),
+ kpibooked:()=>openMasterDeck("booked"),
+ kpicamps:()=>{location.hash="campaigns";go("campaigns")},
+ sync2026:()=>sync2026MasterData(true),
  clearalldata:()=>clearAllData(false),
  clearsample:()=>confirmBox("Remove all sample sites and campaigns?",async()=>{for(const s of S.sites.filter(x=>x.sample))await del("sites",s.id);for(const c of S.campaigns.filter(x=>x.sample))await del("campaigns",c.id);toast("Sample data removed")},"Remove")
 };
@@ -6695,7 +6932,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=10.6").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=10.7").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
