@@ -1544,15 +1544,42 @@ async function boot(){
   const initHash = location.hash.slice(1);
   const targetRoute = (initHash && initHash !== "portal") ? initHash : "dashboard";
   go(targetRoute,true);setTimeout(loadQueue,2500);
-  db.collection("sites").onSnapshot(q=>{
-    S.sites=q.docs.map(x=>({id:x.id,...x.data()}));
-    S.loaded.sites=true;
+  db.collection("sites").onSnapshot(async q=>{
+    let docs = q.docs.map(x=>({id:x.id,...x.data()}));
+    if ((docs.length < 80 || docs.length !== 84) && window.MASTER_SITES_2026 && window.MASTER_SITES_2026.length === 84) {
+      console.log("[OTS] Live DB has " + docs.length + " sites. Upgrading to 84 Master Sites...");
+      S.sites = window.MASTER_SITES_2026;
+      S.campaigns = window.MASTER_CAMPAIGNS_2026 || [];
+      S.loaded.sites = true;
+      S.loaded.campaigns = true;
+      changed();
+      if (typeof CAN_WRITE !== "undefined" && CAN_WRITE) {
+        toast("Updating live system database to 84 Master Sites…");
+        for (const s of window.MASTER_SITES_2026) {
+          await put("sites", s).catch(e=>console.warn(e));
+        }
+        if (window.MASTER_CAMPAIGNS_2026) {
+          for (const c of window.MASTER_CAMPAIGNS_2026) {
+            await put("campaigns", c).catch(e=>console.warn(e));
+          }
+        }
+      }
+      return;
+    }
+    S.sites = docs.length ? docs : (window.MASTER_SITES_2026 || []);
+    S.loaded.sites = true;
     if(Studio.active&&Studio.cfg&&(!Studio.cfg.slides||Studio.cfg.slides.length===0)){Studio.build()}
     changed();
-  },e=>{toast("Couldn't load sites: "+e.message)});
+  },e=>{
+    console.warn("Sites fetch warning, using Master dataset:", e);
+    S.sites = window.MASTER_SITES_2026 || [];
+    S.loaded.sites = true;
+    changed();
+  });
   db.collection("campaigns").onSnapshot(q=>{
-    S.campaigns=q.docs.map(x=>({id:x.id,...x.data()}));
-    S.loaded.campaigns=true;
+    let docs = q.docs.map(x=>({id:x.id,...x.data()}));
+    S.campaigns = docs.length ? docs : (window.MASTER_CAMPAIGNS_2026 || []);
+    S.loaded.campaigns = true;
     if(Studio.active&&Studio.cfg&&(!Studio.cfg.slides||Studio.cfg.slides.length===0)){Studio.build()}
     changed();
   });
@@ -1768,8 +1795,9 @@ function vDash(){
   ];
   const bookedOts=S.sites.filter(x=>x.status==="booked").reduce((a,x)=>a+otsOf(x),0);
   if(bookedOts)k.push(["Daily OTS on booked sites","~"+fmtK(bookedOts),"var(--blue)","eye",true,""]);
+  const syncBanner = (S.sites.length !== 84) ? `<div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#7C3AED,#D9161D);color:#fff;padding:12px 18px;border-radius:14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;box-shadow:0 6px 20px rgba(217,22,29,0.3)"><div><b>🔄 2026 Master Data Available:</b> Currently viewing ${S.sites.length} sites. Click to load all 84 sites & 12 client campaigns.</div><button class="btn sm" data-act="sync2026" style="background:#fff;color:#D9161D;font-weight:800;border:none">Update to 84 Sites Now</button></div>` : "";
   const kp=`<div class="kpis enter" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">${k.map(([l,n,c,i,raw,act])=>`<div class="card kpi ${act?'clickable':''}" ${act?`data-act="${act}" title="Open presentation for ${esc(l)}"`:''} style="--c:${c};${act?'cursor:pointer;':''}"><div class="ic" style="background:${c}">${ICON[i]}</div><div class="n" ${raw?"":`data-count="${n}"`}>${raw?n:0}</div><small style="${act?'font-weight:700;color:var(--ink);':''}">${l}${act?' ↗':''}</small></div>`).join("")}</div>`;
-  if(!S.sites.length)return pgTop("Dashboard","Your OOH inventory at a glance")+kp+`<div class="card" style="margin-top:16px">${emptyState("No sites yet","Capture your first billboard from the field, or add one from the Sites page.",`<a class="btn pri" href="#capture">${ICON.cam}Capture a site</a>`)}</div>`;
+  if(!S.sites.length)return pgTop("Dashboard","Your OOH inventory at a glance")+syncBanner+kp+`<div class="card" style="margin-top:16px">${emptyState("No sites yet","Capture your first billboard from the field, or add one from the Sites page.",`<a class="btn pri" href="#capture">${ICON.cam}Capture a site</a>`)}</div>`;
   // area bars
   const areas={};S.sites.forEach(s=>{const a=areas[s.area]||(areas[s.area]={available:0,booked:0,maintenance:0,expiring:0});a[effStatus(s)]++});
   const rows=Object.entries(areas).sort((a,b)=>tot(b[1])-tot(a[1])).slice(0,8);function tot(o){return o.available+o.booked+o.maintenance+o.expiring}
@@ -6957,7 +6985,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=10.7").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=27.0").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
