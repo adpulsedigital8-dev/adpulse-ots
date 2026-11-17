@@ -5792,11 +5792,11 @@ function summaryTableOps(c, t, sites) {
         ops.push({ t: "rect", x: 7.02, y: yR + 0.12, w: 1.16, h: 0.24, fill: stColor, r: .12 });
         ops.push({ t: "text", x: 7.02, y: yR + 0.16, w: 1.16, h: 0.18, text: stLabel, size: 7.5, bold: true, color: "FFFFFF", align: "center" });
         // Duration
-        ops.push({ t: "text", x: 8.32, y: yR + 0.14, w: 1.75, h: 0.24, text: durationTxt, size: 8.5, bold: true, color: k === "available" ? "0E9F76" : (t.ink || "1C1A1B") });
+        ops.push({ t: "text", x: 8.32, y: yR + 0.14, w: 1.75, h: 0.24, text: durationTxt, size: 8.5, bold: true, color: t.ink || "1C1A1B" });
         // Vendor
         ops.push({ t: "text", x: 10.15, y: yR + 0.14, w: 1.35, h: 0.24, text: (s.vendor || "AdPulse IMC").substring(0, 22), size: 8.5, bold: true, color: t.ink || "1C1A1B" });
         // Rate
-        ops.push({ t: "text", x: 11.50, y: yR + 0.14, w: 1.15, h: 0.24, text: s.price || s.rates || "PKR", size: 8.5, bold: true, color: "0E9F76", align: "right", font: "mono" });
+        ops.push({ t: "text", x: 11.50, y: yR + 0.14, w: 1.15, h: 0.24, text: s.price || s.rates || "PKR", size: 8.5, bold: true, color: t.accent || "D9161D", align: "right", font: "mono" });
       } else {
         // Without vendor
         ops.push({ t: "text", x: 0.60, y: yR + 0.14, w: 0.45, h: 0.22, text: String(num), size: 10, bold: true, color: t.muted || "6E6668", align: "center", font: "mono" });
@@ -5807,8 +5807,8 @@ function summaryTableOps(c, t, sites) {
         ops.push({ t: "text", x: 5.62, y: yR + 0.14, w: 2.00, h: 0.26, text: dirStr.substring(0, 42), size: 8.5, color: t.ink || "1C1A1B" });
         ops.push({ t: "rect", x: 7.72, y: yR + 0.12, w: 1.26, h: 0.24, fill: stColor, r: .12 });
         ops.push({ t: "text", x: 7.72, y: yR + 0.16, w: 1.26, h: 0.18, text: stLabel, size: 8, bold: true, color: "FFFFFF", align: "center" });
-        ops.push({ t: "text", x: 9.12, y: yR + 0.14, w: 1.95, h: 0.24, text: durationTxt, size: 8.5, bold: true, color: k === "available" ? "0E9F76" : (t.ink || "1C1A1B") });
-        ops.push({ t: "text", x: 11.10, y: yR + 0.14, w: 1.55, h: 0.24, text: s.price || s.rates || "PKR Rate", size: 8.5, bold: true, color: "0E9F76", align: "right", font: "mono" });
+        ops.push({ t: "text", x: 9.12, y: yR + 0.14, w: 1.95, h: 0.24, text: durationTxt, size: 8.5, bold: true, color: t.ink || "1C1A1B" });
+        ops.push({ t: "text", x: 11.10, y: yR + 0.14, w: 1.55, h: 0.24, text: s.price || s.rates || "PKR Rate", size: 8.5, bold: true, color: t.accent || "D9161D", align: "right", font: "mono" });
       }
     });
 
@@ -5891,68 +5891,68 @@ function siteOps(c,t,s,v,page,total){
       R(8.93,1.05,3.80,5.80,t.panel,{r:.16}),
       R(8.93,1.05,0.08,5.80,t.accent,{r:.04}),
 
-      // Dossier Header (Removed screenshot text 'High volume · High traffic corridor')
-      T(9.20,1.25,3.35,0.18,"EXECUTIVE MEDIA PROFILE",{size:8,bold:true,color:t.muted,upper:true,spacing:1.5}),
-      T(9.20,1.48,3.35,0.38,(f.traffic&&o)?`~${fmtK(o)} DAILY OTS`:(f.size?`${s.widthFt} × ${s.heightFt} FT`:"PRIME DISPLAY"),{size:19,bold:true,color:t.ink,font:"display"}),
+      // Dossier Header: EXECUTIVE MEDIA PROFILE (Red uppercase header, balanced size, Black primary OTS value)
+      T(9.20,1.22,3.35,0.18,"EXECUTIVE MEDIA PROFILE",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
+      T(9.20,1.44,3.35,0.36,(f.traffic&&o)?`~${fmtK(o)} DAILY OTS`:(f.size?`${s.widthFt} × ${s.heightFt} FT`:"PRIME DISPLAY"),{size:17,bold:true,color:t.ink,font:"display"}),
 
       // Divider 1
-      R(9.20,1.98,3.30,0.015,t.muted,{alpha:.22}),
+      R(9.20,1.86,3.30,0.015,t.muted,{alpha:.20}),
 
-      // Section 1: Dimensions
-      T(9.20,2.14,3.30,0.16,"DISPLAY DIMENSIONS",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
-      T(9.20,2.34,3.30,0.32,f.size?`${s.widthFt} × ${s.heightFt} FT`:(s.media||"Billboard"),{size:18,bold:true,color:t.accent,font:"mono"}),
-      T(9.20,2.70,3.30,0.20,(f.size&&sqft)?`${sqft.toLocaleString()} sq. ft total display area`:"Standard Arterial Display",{size:10,bold:true,color:t.ink}),
+      // Section 1: Dimensions (Red uppercase header, Red dimensions, Gray sqft subtitle)
+      T(9.20,1.96,3.30,0.18,"DISPLAY DIMENSIONS",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
+      T(9.20,2.16,3.30,0.28,f.size?`${s.widthFt} × ${s.heightFt} FT`:(s.media||"Billboard"),{size:17,bold:true,color:t.accent,font:"mono"}),
+      T(9.20,2.46,3.30,0.18,(f.size&&sqft)?`${sqft.toLocaleString()} sq. ft total display area`:"Standard Arterial Display",{size:10,color:t.muted}),
 
       // Divider 2
-      R(9.20,3.04,3.30,0.015,t.muted,{alpha:.22}),
+      R(9.20,2.72,3.30,0.015,t.muted,{alpha:.20}),
 
-      // Section 2: Facing & Flow (Expanded height 0.52 for multi-line Towards route without cutting or colliding)
-      T(9.20,3.16,3.30,0.16,"ORIENTATION & TRAFFIC FLOW",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
-      T(9.20,3.36,3.30,0.22,f.dir?("From: "+(s.from||"Main Arterial")):(s.area||"Karachi"),{size:10.5,bold:true,color:t.ink}),
-      T(9.20,3.60,3.30,0.52,f.dir?("Towards: "+(s.towards||"Commercial Hub")):(s.facing||"Prime Route"),{size:10.5,bold:true,color:t.ink}),
+      // Section 2: Facing & Flow (Red uppercase header, Black clean route text)
+      T(9.20,2.82,3.30,0.18,"ORIENTATION & TRAFFIC FLOW",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
+      T(9.20,3.02,3.30,0.20,f.dir?("From: "+(s.from||"Main Arterial")):(s.area||"Karachi"),{size:10.5,bold:true,color:t.ink}),
+      T(9.20,3.24,3.30,0.48,f.dir?("Towards: "+(s.towards||"Commercial Hub")):(s.facing||"Prime Route"),{size:10.5,bold:true,color:t.ink}),
 
-      // Divider 3 (Shifted down to 4.22 so Towards never overlaps with the divider)
-      R(9.20,4.22,3.30,0.015,t.muted,{alpha:.22}),
+      // Divider 3
+      R(9.20,3.76,3.30,0.015,t.muted,{alpha:.20}),
 
-      // Section 3: Format & Illumination
-      T(9.20,4.36,3.30,0.16,"FORMAT & ILLUMINATION",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
-      T(9.20,4.56,3.30,0.22,formatStr,{size:11,bold:true,color:isLit?"0E9F76":t.ink}),
+      // Section 3: Format & Illumination (Red uppercase header, Black bold value - no green)
+      T(9.20,3.86,3.30,0.18,"FORMAT & ILLUMINATION",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
+      T(9.20,4.06,3.30,0.22,formatStr,{size:11.5,bold:true,color:t.ink}),
 
       // Media Vendor (Controlled dynamically by f.vendor checkbox)
       ...(f.vendor && s.vendor ? [
-        R(9.20,4.82,3.30,0.015,t.muted,{alpha:.18}),
-        T(9.20,4.90,3.30,0.15,"MEDIA VENDOR / INVENTORY OWNER",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1.2}),
-        T(9.20,5.08,3.30,0.22,s.vendor,{size:11,bold:true,color:t.accent||"D9161D",font:"mono"}),
-        R(9.20,5.32,3.30,0.015,t.muted,{alpha:.22}),
-        T(9.20,5.42,3.30,0.15,f.price?"PRICE & BOOKING DURATION":"COMMERCIAL STATUS",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
+        R(9.20,4.34,3.30,0.015,t.muted,{alpha:.20}),
+        T(9.20,4.44,3.30,0.18,"MEDIA VENDOR / INVENTORY OWNER",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
+        T(9.20,4.64,3.30,0.22,s.vendor,{size:12,bold:true,color:t.ink,font:"display"}),
+        R(9.20,4.92,3.30,0.015,t.muted,{alpha:.20}),
+        T(9.20,5.02,3.30,0.18,f.price?"PRICE & BOOKING DURATION":"COMMERCIAL STATUS",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
         ...(f.price ? [
-          T(9.20,5.60,3.30,0.24,priceTxt,{size:14,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)})
+          T(9.20,5.22,3.30,0.24,priceTxt,{size:15,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)})
         ] : []),
-        T(9.20,f.price?5.86:5.62,3.30,0.15,f.dates?"BOOKING DURATION:":"STATUS:",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1}),
-        T(9.20,f.price?6.02:5.80,3.30,0.32,bDurationFull,{size:10,bold:true,color:s.status==="booked"?"E03656":"0E9F76"}),
+        T(9.20,f.price?5.48:5.24,3.30,0.16,f.dates?"BOOKING STATUS / DURATION:":"STATUS:",{size:8.5,bold:true,color:t.accent,upper:true,spacing:1}),
+        T(9.20,f.price?5.66:5.42,3.30,0.30,bDurationFull,{size:10.5,bold:true,color:s.status==="booked"?"D9161D":t.ink}),
         ...(f.gps&&s.lat&&s.lng?[
-          T(9.20,6.38,3.30,0.20,"🗺️ Open in Google Maps ↗",{size:9,bold:true,color:t.accent,link:mapsUrl(s)})
+          T(9.20,6.04,3.30,0.20,"🗺️ Open in Google Maps ↗",{size:9.5,bold:true,color:t.accent,link:mapsUrl(s)})
         ]:[
-          T(9.20,6.38,3.30,0.20,"📍 Verified Karachi Site",{size:9,color:t.muted,font:"mono"})
+          T(9.20,6.04,3.30,0.20,"📍 Verified Karachi Site",{size:9,color:t.muted,font:"mono"})
         ]),
         ...(f.notes&&s.notes?[
-          T(9.20,6.58,3.30,0.20,`Note: ${s.notes.substring(0,40)}`,{size:8,color:t.muted})
+          T(9.20,6.28,3.30,0.20,`Note: ${s.notes.substring(0,40)}`,{size:8.5,color:t.muted})
         ]:[])
       ] : [
-        R(9.20,4.88,3.30,0.015,t.muted,{alpha:.22}),
-        T(9.20,4.98,3.30,0.16,f.price?"PRICE & BOOKING DURATION":"COMMERCIAL STATUS",{size:8,bold:true,color:t.muted,upper:true,spacing:1.2}),
+        R(9.20,4.38,3.30,0.015,t.muted,{alpha:.20}),
+        T(9.20,4.48,3.30,0.18,f.price?"PRICE & BOOKING DURATION":"COMMERCIAL STATUS",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
         ...(f.price ? [
-          T(9.20,5.18,3.30,0.28,priceTxt,{size:15,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)})
+          T(9.20,4.70,3.30,0.28,priceTxt,{size:15,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)})
         ] : []),
-        T(9.20,f.price?5.50:5.22,3.30,0.16,f.dates?"BOOKING DURATION:":"STATUS:",{size:7.5,bold:true,color:t.muted,upper:true,spacing:1}),
-        T(9.20,f.price?5.68:5.42,3.30,0.36,bDurationFull,{size:10.5,bold:true,color:s.status==="booked"?"E03656":"0E9F76"}),
+        T(9.20,f.price?5.02:4.74,3.30,0.16,f.dates?"BOOKING STATUS / DURATION:":"STATUS:",{size:8.5,bold:true,color:t.accent,upper:true,spacing:1}),
+        T(9.20,f.price?5.22:4.94,3.30,0.32,bDurationFull,{size:10.5,bold:true,color:s.status==="booked"?"D9161D":t.ink}),
         ...(f.gps&&s.lat&&s.lng?[
-          T(9.20,6.22,3.30,0.20,"🗺️ Open in Google Maps ↗",{size:9.5,bold:true,color:t.accent,link:mapsUrl(s)})
+          T(9.20,5.68,3.30,0.20,"🗺️ Open in Google Maps ↗",{size:9.5,bold:true,color:t.accent,link:mapsUrl(s)})
         ]:[
-          T(9.20,6.22,3.30,0.20,"📍 Verified Karachi Site",{size:9,color:t.muted,font:"mono"})
+          T(9.20,5.68,3.30,0.20,"📍 Verified Karachi Site",{size:9,color:t.muted,font:"mono"})
         ]),
         ...(f.notes&&s.notes?[
-          T(9.20,6.48,3.30,0.22,`Note: ${s.notes.substring(0,42)}`,{size:8.5,color:t.muted})
+          T(9.20,5.94,3.30,0.22,`Note: ${s.notes.substring(0,42)}`,{size:8.5,color:t.muted})
         ]:[])
       ])
     ];
@@ -5978,35 +5978,40 @@ function siteOps(c,t,s,v,page,total){
     R(6.66,5.62,0.015,1.22,t.muted,{alpha:.22}),
     R(9.69,5.62,0.015,1.22,t.muted,{alpha:.22}),
 
-    // Col 1: Facing & Orientation (Enlarged readable fonts, no overlapping lines)
-    T(0.85,5.64,2.65,0.18,"FACING & ORIENTATION",{size:8.5,bold:true,color:t.muted,upper:true,spacing:1.2}),
-    T(0.85,5.88,2.65,0.38,f.dir?("From: "+(s.from||"Main Arterial")):(s.area||"Karachi"),{size:11,bold:true,color:t.ink}),
-    T(0.85,6.30,2.65,0.55,f.dir?("Towards: "+(s.towards||"Commercial Hub")):(s.facing||"Arterial Corridor"),{size:11,bold:true,color:t.ink}),
+    // Col 1: Facing & Orientation (Red uppercase header, Black route values)
+    T(0.85,5.62,2.65,0.18,"FACING & ORIENTATION",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
+    T(0.85,5.86,2.65,0.36,f.dir?("From: "+(s.from||"Main Arterial")):(s.area||"Karachi"),{size:11,bold:true,color:t.ink}),
+    T(0.85,6.26,2.65,0.52,f.dir?("Towards: "+(s.towards||"Commercial Hub")):(s.facing||"Arterial Corridor"),{size:11,bold:true,color:t.ink}),
 
-    // Col 2: Display Dimensions
-    T(3.88,5.64,2.65,0.18,"DISPLAY DIMENSIONS",{size:8.5,bold:true,color:t.muted,upper:true,spacing:1.2}),
-    T(3.88,5.86,2.65,0.36,f.size?`${s.widthFt} × ${s.heightFt} FT`:(s.media||"Billboard"),{size:17,bold:true,color:t.accent,font:"mono"}),
-    T(3.88,6.26,2.65,0.26,(f.size&&sqft)?`${sqft.toLocaleString()} sq. ft total impact`:(s.media||"Billboard"),{size:11,bold:true,color:t.ink}),
-    T(3.88,6.56,2.65,0.22,(s.media||"Billboard")+" Format",{size:9.5,color:t.muted}),
+    // Col 2: Display Dimensions (Red uppercase header, Red dimensions, Gray subtitle)
+    T(3.88,5.62,2.65,0.18,"DISPLAY DIMENSIONS",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
+    T(3.88,5.84,2.65,0.34,f.size?`${s.widthFt} × ${s.heightFt} FT`:(s.media||"Billboard"),{size:16,bold:true,color:t.accent,font:"mono"}),
+    T(3.88,6.22,2.65,0.24,(f.size&&sqft)?`${sqft.toLocaleString()} sq. ft total impact`:(s.media||"Billboard"),{size:10.5,color:t.muted}),
+    T(3.88,6.50,2.65,0.20,(s.media||"Billboard")+" Format",{size:9.5,color:t.muted}),
 
-    // Col 3: Format & Illumination
-    T(6.91,5.64,2.65,0.18,"FORMAT & ILLUMINATION",{size:8.5,bold:true,color:t.muted,upper:true,spacing:1.2}),
-    T(6.91,5.88,2.65,0.28,formatStr,{size:11,bold:true,color:isLit?"0E9F76":t.ink}),
+    // Col 3: Format & Illumination (Red uppercase header, Black values - no green)
+    T(6.91,5.62,2.65,0.18,"FORMAT & ILLUMINATION",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
+    T(6.91,5.84,2.65,0.28,formatStr,{size:11.5,bold:true,color:t.ink}),
     ...(f.vendor && s.vendor ? [
-      T(6.91,6.20,2.65,0.22,`Vendor: ${s.vendor}`,{size:10,bold:true,color:t.accent||"D9161D",font:"mono"}),
-      T(6.91,6.46,2.65,0.24,bDurationFull,{size:9.5,bold:true,color:s.status==="booked"?"E03656":"0E9F76"})
+      T(6.91,6.16,2.65,0.22,`Vendor: ${s.vendor}`,{size:10.5,bold:true,color:t.ink,font:"display"}),
+      T(6.91,6.42,2.65,0.24,bDurationFull,{size:10,bold:true,color:s.status==="booked"?"D9161D":t.ink})
     ] : [
-      T(6.91,6.26,2.65,0.26,bDurationFull,{size:10.5,bold:true,color:s.status==="booked"?"E03656":"0E9F76"}),
-      T(6.91,6.56,2.65,0.22,s.signal?"Traffic signal nearby (stop & view)":"Prime Arterial Location",{size:9.5,color:t.muted})
+      T(6.91,6.20,2.65,0.26,bDurationFull,{size:10.5,bold:true,color:s.status==="booked"?"D9161D":t.ink}),
+      T(6.91,6.50,2.65,0.20,s.signal?"Traffic signal nearby (stop & view)":"Prime Arterial Location",{size:9.5,color:t.muted})
     ]),
 
-    // Col 4: Price / Rate (PKR)
-    T(9.94,5.64,2.65,0.18,f.price?"PRICE / RATE (PKR)":"COMMERCIAL STATUS",{size:8.5,bold:true,color:t.muted,upper:true,spacing:1.2}),
-    T(9.94,5.86,2.65,0.36,f.price?priceTxt:(s.status==="booked"?"Reserved Site":"Ready for Booking"),{size:15,bold:true,color:t.accent,font:"display",edit:f.price?"sprice:"+c.slides.indexOf(v):undefined}),
-    T(9.94,6.26,2.65,0.26,f.price?"Monthly Commercial Rental":"Commercial Media Profile",{size:11,bold:true,color:t.ink}),
-    T(9.94,6.56,2.65,0.22,f.notes&&s.notes?`Note: ${s.notes.substring(0,28)}`:(f.price?"Direct Owner Rate · Click to edit":"Subject to Availability"),{size:9.5,color:t.muted,font:"mono"})
+    // Col 4: Price / Rate (PKR) (Red uppercase header, Red price, Red link)
+    T(9.94,5.62,2.65,0.18,f.price?"PRICE / RATE (PKR)":"COMMERCIAL STATUS",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
+    T(9.94,5.84,2.65,0.34,f.price?priceTxt:(s.status==="booked"?"Reserved Site":"Ready for Booking"),{size:15,bold:true,color:t.accent,font:"display",edit:f.price?"sprice:"+c.slides.indexOf(v):undefined}),
+    ...(f.gps&&s.lat&&s.lng?[
+      T(9.94,6.24,2.65,0.20,"🗺️ Open in Google Maps ↗",{size:9.5,bold:true,color:t.accent,link:mapsUrl(s)})
+    ]:[
+      T(9.94,6.24,2.65,0.20,"📍 Verified Karachi Site",{size:9.5,color:t.muted,font:"mono"})
+    ]),
+    ...(f.notes&&s.notes?[
+      T(9.94,6.48,2.65,0.20,`Note: ${s.notes.substring(0,34)}`,{size:9,color:t.muted})
+    ]:[])
   ];
-
   return ops.concat(footer(c,t,page,total));
 }
 function endOps(c,t){const st=S.settings;return[...frame(t),R(0,0,13.333,7.5,t.band),R(0,6.9,13.333,0.6,t.accent),R(9.6,1.6,3.0,3.5,"FFFFFF",{r:.18}),{t:"logo",which:"full",x:9.82,y:1.8,w:2.56,h:3.1},T(0.8,2.4,11,1.2,"Thank you",{size:54,bold:true,color:t.bandInk,font:"display"}),T(0.8,3.7,11,0.5,st.agency||"",{size:18,bold:true,color:t.bandInk}),T(0.8,4.3,11,1,[st.phone,st.email,st.web].filter(Boolean).join("   ·   "),{size:14,color:t.bandInk,font:"mono"}),T(0.8,5.7,8,0.4,"Tracked live on "+APP_FULL,{size:11,color:t.bandInk,bold:true,spacing:1})]}
