@@ -40,12 +40,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-1",
+        "src": "/deck-media/image6.png",
         "url": "/deck-media/image6.png",
         "at": "2026-11-17",
         "caption": "OCEAN MALL - S#1"
       }
     ],
-    "notes": "Excel S# 1 · Client: ASKARI VILLA - KK PROPERTIES · Status: EXTENDABLE · Duration: 31 Jan 2027"
+    "notes": "Excel S# 1 · Client: ASKARI VILLA - KK PROPERTIES · Status: EXTENDABLE · Duration: 31 Jan 2027",
+    "widthFt": 80,
+    "heightFt": 15,
+    "from": "2 sword",
+    "towards": "Boat Basin/ 3 sword"
   },
   {
     "id": "site-2026-002",
@@ -87,12 +92,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-2",
+        "src": "/deck-media/image9.png",
         "url": "/deck-media/image9.png",
         "at": "2026-11-17",
         "caption": "SHAHR-E-FAISAL AYESHA BAWANI 01 - S#2"
       }
     ],
-    "notes": "Excel S# 2 · Client: ASKARI VILLA - KK PROPERTIES · Status: EXTENDABLE · Duration: 16 Jan 2027"
+    "notes": "Excel S# 2 · Client: ASKARI VILLA - KK PROPERTIES · Status: EXTENDABLE · Duration: 16 Jan 2027",
+    "widthFt": 97,
+    "heightFt": 12,
+    "from": "TCF METROPOLE",
+    "towards": "AIRPORT"
   },
   {
     "id": "site-2026-003",
@@ -134,12 +144,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-3",
+        "src": "/deck-media/image16.png",
         "url": "/deck-media/image16.png",
         "at": "2026-11-17",
         "caption": "SHAHRAH-E-FAISAL AYESHA BAWANI 02 - S#3"
       }
     ],
-    "notes": "Excel S# 3 · Client: ASKARI VILLA - KK PROPERTIES · Status: EXTENDABLE · Duration: 16 Jan 2027"
+    "notes": "Excel S# 3 · Client: ASKARI VILLA - KK PROPERTIES · Status: EXTENDABLE · Duration: 16 Jan 2027",
+    "widthFt": 97,
+    "heightFt": 12,
+    "from": "TCF AIRPORT",
+    "towards": "METROPOLE"
   },
   {
     "id": "site-2026-004",
@@ -181,12 +196,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-4",
+        "src": "/deck-media/image7.png",
         "url": "/deck-media/image7.png",
         "at": "2026-11-17",
         "caption": "KARSAZ ROAD BRIDGE 01 - S#4"
       }
     ],
-    "notes": "Excel S# 4 · Client: ASKARI VILLA - KK PROPERTIES · Status: EXTENDABLE · Duration: 16 Jan 2027"
+    "notes": "Excel S# 4 · Client: ASKARI VILLA - KK PROPERTIES · Status: EXTENDABLE · Duration: 16 Jan 2027",
+    "widthFt": 90,
+    "heightFt": 12,
+    "from": "TCF STADIUM",
+    "towards": "SHAHRAH E FAISAL"
   },
   {
     "id": "site-2026-005",
@@ -228,12 +248,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-5",
+        "src": "/deck-media/image13.png",
         "url": "/deck-media/image13.png",
         "at": "2026-11-17",
         "caption": "KARSAZ ROAD BRIDGE 02 - S#5"
       }
     ],
-    "notes": "Excel S# 5 · Client: ASKARI VILLA - KK PROPERTIES · Status: EXTENDABLE · Duration: 16 Jan 2027"
+    "notes": "Excel S# 5 · Client: ASKARI VILLA - KK PROPERTIES · Status: EXTENDABLE · Duration: 16 Jan 2027",
+    "widthFt": 90,
+    "heightFt": 12,
+    "from": "SHAHRAH E FAISAL",
+    "towards": "NATIONAL STADIUM"
   },
   {
     "id": "site-2026-006",
@@ -275,12 +300,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-6",
+        "src": "/deck-media/image11.jpg",
         "url": "/deck-media/image11.jpg",
         "at": "2026-11-17",
         "caption": "MILLENNIUM MALL BRIDGE - S#6"
       }
     ],
-    "notes": "Excel S# 6 · Client: ASKARI VILLA - KK PROPERTIES · Status: DEPT ISSUE · Duration: 30-11-2026 + EXT"
+    "notes": "Excel S# 6 · Client: ASKARI VILLA - KK PROPERTIES · Status: DEPT ISSUE · Duration: 30-11-2026 + EXT",
+    "widthFt": 80,
+    "heightFt": 12,
+    "from": "TCF STADIUM",
+    "towards": "RASHID MINHAS/ SHAHRAH E FAISAL / JOHAR"
   },
   {
     "id": "site-2026-007",
@@ -322,12 +352,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-7",
+        "src": "/deck-media/image10.png",
         "url": "/deck-media/image10.png",
         "at": "2026-11-17",
         "caption": "JINNAH AVENUE MALIR CANTT - S#7"
       }
     ],
-    "notes": "Excel S# 7 · Client: ASKARI VILLA - KK PROPERTIES · Status: EXTENDABLE · Duration: 30-11-2026 + EXT"
+    "notes": "Excel S# 7 · Client: ASKARI VILLA - KK PROPERTIES · Status: EXTENDABLE · Duration: 30-11-2026 + EXT",
+    "widthFt": 60,
+    "heightFt": 20,
+    "from": "ADJACENT SAIMA JINNAH ICON MAL",
+    "towards": "ADJACENT SAIMA JINNAH ICON MALL JINNAH AVENUE"
   },
   {
     "id": "site-2026-008",
@@ -369,12 +404,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-8",
+        "src": "/deck-media/image27.png",
         "url": "/deck-media/image27.png",
         "at": "2026-11-17",
         "caption": "JINNAH AVENUE 01 - S#8"
       }
     ],
-    "notes": "Excel S# 8 · Client: ASKARI VILLA - KK PROPERTIES / KIFAYAH · Status: EXTENDABLE · Duration: 31 Jan 2027"
+    "notes": "Excel S# 8 · Client: ASKARI VILLA - KK PROPERTIES / KIFAYAH · Status: EXTENDABLE · Duration: 31 Jan 2027",
+    "widthFt": 60,
+    "heightFt": 30,
+    "from": "Jinnah Avenue facing airport",
+    "towards": "Malir Cantt"
   },
   {
     "id": "site-2026-009",
@@ -416,12 +456,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-9",
+        "src": "/deck-media/image39.png",
         "url": "/deck-media/image39.png",
         "at": "2026-11-17",
         "caption": "JINNAH AVENUE 02 - S#9"
       }
     ],
-    "notes": "Excel S# 9 · Client: ASKARI VILLA - KK PROPERTIES / KIFAYAH · Status: EXTENDABLE · Duration: 22 Jan 2027"
+    "notes": "Excel S# 9 · Client: ASKARI VILLA - KK PROPERTIES / KIFAYAH · Status: EXTENDABLE · Duration: 22 Jan 2027",
+    "widthFt": 60,
+    "heightFt": 30,
+    "from": "Jinnah Avenue facing Malir Cantt",
+    "towards": "Airport"
   },
   {
     "id": "site-2026-010",
@@ -463,12 +508,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-10",
+        "src": "/deck-media/image34.jpg",
         "url": "/deck-media/image34.jpg",
         "at": "2026-11-17",
         "caption": "HIGHWAY, BAQAI UNIVERSITY - S#10"
       }
     ],
-    "notes": "Excel S# 10 · Client: ASKARI VILLA - KK PROPERTIES · Status: EXTENDABLE · Duration: 30-11-2026 + EXT"
+    "notes": "Excel S# 10 · Client: ASKARI VILLA - KK PROPERTIES · Status: EXTENDABLE · Duration: 30-11-2026 + EXT",
+    "widthFt": 70,
+    "heightFt": 12,
+    "from": "AVAILABILITY",
+    "towards": "AVAILABILITY"
   },
   {
     "id": "site-2026-011",
@@ -510,12 +560,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-11",
+        "src": "/deck-media/image22.png",
         "url": "/deck-media/image22.png",
         "at": "2026-11-17",
         "caption": "EXPRESSWAY DHA ITTEHAD - S#11"
       }
     ],
-    "notes": "Excel S# 11 · Client: FALAKNAZ SKYVIEW · Status: EXTENDABLE · Duration: 17-12-2026 EXT"
+    "notes": "Excel S# 11 · Client: FALAKNAZ SKYVIEW · Status: EXTENDABLE · Duration: 17-12-2026 EXT",
+    "widthFt": 100,
+    "heightFt": 30,
+    "from": "Baloch Flyover",
+    "towards": "KPT Flyover/ Ittehad"
   },
   {
     "id": "site-2026-012",
@@ -557,12 +612,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-12",
+        "src": "/deck-media/image33.jpg",
         "url": "/deck-media/image33.jpg",
         "at": "2026-11-17",
         "caption": "DHA EXIT Site 02 - S#12"
       }
     ],
-    "notes": "Excel S# 12 · Client: FALAKNAZ SKYVIEW · Status: WILL BE END · Duration: 30 Mar 2027"
+    "notes": "Excel S# 12 · Client: FALAKNAZ SKYVIEW · Status: WILL BE END · Duration: 30 Mar 2027",
+    "widthFt": 60,
+    "heightFt": 20,
+    "from": "FTCF Sea View, Khayaban E Itth",
+    "towards": "FTCF Sea View, Khayaban E Itthead DHA Golf Cl"
   },
   {
     "id": "site-2026-013",
@@ -604,12 +664,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-13",
+        "src": "/deck-media/image31.png",
         "url": "/deck-media/image31.png",
         "at": "2026-11-17",
         "caption": "DHA SUNSET BOULEVARD - S#13"
       }
     ],
-    "notes": "Excel S# 13 · Client: GFS BUILDERS AND DEVELOPERS / CALL GROUP / DALDA · Status: 18 · Duration: Long Term"
+    "notes": "Excel S# 13 · Client: GFS BUILDERS AND DEVELOPERS / CALL GROUP / DALDA · Status: 18 · Duration: Long Term",
+    "widthFt": 44,
+    "heightFt": 40,
+    "from": "DHA LIBRARY",
+    "towards": "GIZRI UNDERPASS & SCHON CIRCLE"
   },
   {
     "id": "site-2026-014",
@@ -651,12 +716,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-14",
+        "src": "/deck-media/image23.png",
         "url": "/deck-media/image23.png",
         "at": "2026-11-17",
         "caption": "DHA ITTEHAD SIGNAL - S#14"
       }
     ],
-    "notes": "Excel S# 14 · Client: GFS BUILDERS AND DEVELOPERS / CALL GROUP / INDUS VALLEY · Status: 18 · Duration: 10 Jul 2027"
+    "notes": "Excel S# 14 · Client: GFS BUILDERS AND DEVELOPERS / CALL GROUP / INDUS VALLEY · Status: 18 · Duration: 10 Jul 2027",
+    "widthFt": 24,
+    "heightFt": 43,
+    "from": "DHA Aisha Masjid",
+    "towards": "Ittehad signal/ Korangi Road and Expressway"
   },
   {
     "id": "site-2026-015",
@@ -698,12 +768,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-15",
+        "src": "/deck-media/image20.jpg",
         "url": "/deck-media/image20.jpg",
         "at": "2026-11-17",
         "caption": "ABL ROUNDABOUT - S#15"
       }
     ],
-    "notes": "Excel S# 15 · Client: CHASE VALUE  / EMINENT · Status: Long Term · Duration: 29 Jan 2027"
+    "notes": "Excel S# 15 · Client: CHASE VALUE  / EMINENT · Status: Long Term · Duration: 29 Jan 2027",
+    "widthFt": 60,
+    "heightFt": 10,
+    "from": "ABL ROUND ABOUT SHAHEED E MILL",
+    "towards": "ABL ROUND ABOUT SHAHEED E MILLAT"
   },
   {
     "id": "site-2026-016",
@@ -745,12 +820,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-16",
+        "src": "/deck-media/image3.jpg",
         "url": "/deck-media/image3.jpg",
         "at": "2026-11-17",
         "caption": "RJ MALL - S#16"
       }
     ],
-    "notes": "Excel S# 16 · Client: CHASE VALUE  / EMINENT · Status: DEPT ISSUE · Duration: 30 Nov 2026"
+    "notes": "Excel S# 16 · Client: CHASE VALUE  / EMINENT · Status: DEPT ISSUE · Duration: 30 Nov 2026",
+    "widthFt": 80,
+    "heightFt": 15,
+    "from": "Shahrah e Faisal",
+    "towards": "NIPA"
   },
   {
     "id": "site-2026-017",
@@ -792,12 +872,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-17",
+        "src": "/deck-media/image21.png",
         "url": "/deck-media/image21.png",
         "at": "2026-11-17",
         "caption": "SHAHEED E MILLAT NAHEED SUPERSTORE - S#17"
       }
     ],
-    "notes": "Excel S# 17 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT · Status: ? · Duration: 23 Dec 2026"
+    "notes": "Excel S# 17 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT · Status: ? · Duration: 23 Dec 2026",
+    "widthFt": 60,
+    "heightFt": 30,
+    "from": "TCF Jail Road",
+    "towards": "TCF Jail Road"
   },
   {
     "id": "site-2026-018",
@@ -839,12 +924,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-18",
+        "src": "/deck-media/image25.png",
         "url": "/deck-media/image25.png",
         "at": "2026-11-17",
         "caption": "SHAHEED E MILLAT - S#18"
       }
     ],
-    "notes": "Excel S# 18 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT · Status: 36 · Duration: 31 Jan 2027"
+    "notes": "Excel S# 18 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT · Status: 36 · Duration: 31 Jan 2027",
+    "widthFt": 100,
+    "heightFt": 12,
+    "from": "TCF BALOCH FLYOVER",
+    "towards": "TCF BALOCH FLYOVER"
   },
   {
     "id": "site-2026-019",
@@ -886,12 +976,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-19",
+        "src": "/deck-media/image32.png",
         "url": "/deck-media/image32.png",
         "at": "2026-11-17",
         "caption": "FTC flyover - S#19"
       }
     ],
-    "notes": "Excel S# 19 · Client: CHASE VALUE  / EMINENT · Status: WILL BE END · Duration: 25 Nov 2026"
+    "notes": "Excel S# 19 · Client: CHASE VALUE  / EMINENT · Status: WILL BE END · Duration: 25 Nov 2026",
+    "widthFt": 75,
+    "heightFt": 30,
+    "from": "TCF NMC",
+    "towards": "TCF NMC"
   },
   {
     "id": "site-2026-020",
@@ -933,12 +1028,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-20",
+        "src": "/deck-media/image3.jpg",
         "url": "/deck-media/image3.jpg",
         "at": "2026-11-17",
         "caption": "SHAHRAH E FAISAL MACDONALD’S BRIDGE - S#20"
       }
     ],
-    "notes": "Excel S# 20 · Client: Mr. USMAN GRAPHIC EDGE · Status: DEPT ISSUE · Duration: 5 Dec 2026"
+    "notes": "Excel S# 20 · Client: Mr. USMAN GRAPHIC EDGE · Status: DEPT ISSUE · Duration: 5 Dec 2026",
+    "widthFt": 80,
+    "heightFt": 12,
+    "from": "KARSAZ",
+    "towards": "AIRPORT"
   },
   {
     "id": "site-2026-021",
@@ -980,12 +1080,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-21",
+        "src": "/deck-media/image30.png",
         "url": "/deck-media/image30.png",
         "at": "2026-11-17",
         "caption": "DHA BRIDGE 01 - S#21"
       }
     ],
-    "notes": "Excel S# 21 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Status: 37 · Duration: 31 Dec 2026"
+    "notes": "Excel S# 21 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Status: 37 · Duration: 31 Dec 2026",
+    "widthFt": 100,
+    "heightFt": 12,
+    "from": "TCF Korangi Road/ Expressway",
+    "towards": "TCF Korangi Road/ Expressway"
   },
   {
     "id": "site-2026-022",
@@ -1027,12 +1132,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-22",
+        "src": "/deck-media/image28.png",
         "url": "/deck-media/image28.png",
         "at": "2026-11-17",
         "caption": "DHA BRIDGE 02 - S#22"
       }
     ],
-    "notes": "Excel S# 22 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Status: 37 · Duration: 31 Dec 2026"
+    "notes": "Excel S# 22 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Status: 37 · Duration: 31 Dec 2026",
+    "widthFt": 100,
+    "heightFt": 12,
+    "from": "TCF Shahrah e Faisal/ Kala pul",
+    "towards": "TCF Shahrah e Faisal/ Kala pul"
   },
   {
     "id": "site-2026-023",
@@ -1074,12 +1184,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-23",
+        "src": "/deck-media/image41.png",
         "url": "/deck-media/image41.png",
         "at": "2026-11-17",
         "caption": "EXPRESSWAY - S#23"
       }
     ],
-    "notes": "Excel S# 23 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Status: ? · Duration: 31-11-2026"
+    "notes": "Excel S# 23 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Status: ? · Duration: 31-11-2026",
+    "widthFt": 50,
+    "heightFt": 30,
+    "from": "EXPRESSWAY",
+    "towards": "BALOCH"
   },
   {
     "id": "site-2026-024",
@@ -1121,12 +1236,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-24",
+        "src": "/deck-media/image24.jpg",
         "url": "/deck-media/image24.jpg",
         "at": "2026-11-17",
         "caption": "DHA EXIT Site 01 - S#24"
       }
     ],
-    "notes": "Excel S# 24 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Status: WILL BE END · Duration: 30 Mar 2027"
+    "notes": "Excel S# 24 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Status: WILL BE END · Duration: 30 Mar 2027",
+    "widthFt": 60,
+    "heightFt": 20,
+    "from": "FTCF Sea View, Khayaban E Itth",
+    "towards": "FTCF Sea View, Khayaban E Itthead DHA Golf Cl"
   },
   {
     "id": "site-2026-025",
@@ -1168,12 +1288,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-25",
+        "src": "/deck-media/image48.png",
         "url": "/deck-media/image48.png",
         "at": "2026-11-17",
         "caption": "Balochistan sajji ,gulistan-e-johar - S#25"
       }
     ],
-    "notes": "Excel S# 25 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Status: ? · Duration: 1 Jan 2027"
+    "notes": "Excel S# 25 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Status: ? · Duration: 1 Jan 2027",
+    "widthFt": 25,
+    "heightFt": 40,
+    "from": "TCF",
+    "towards": "TCF"
   },
   {
     "id": "site-2026-026",
@@ -1215,12 +1340,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-26",
+        "src": "/deck-media/image26.png",
         "url": "/deck-media/image26.png",
         "at": "2026-11-17",
         "caption": "BAHADURABAD 4 MINAR - S#26"
       }
     ],
-    "notes": "Excel S# 26 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Status: ? · Duration: 10 Dec 2026"
+    "notes": "Excel S# 26 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Status: ? · Duration: 10 Dec 2026",
+    "widthFt": 60,
+    "heightFt": 20,
+    "from": "AVAILABILITY",
+    "towards": "AVAILABILITY"
   },
   {
     "id": "site-2026-027",
@@ -1262,12 +1392,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-27",
+        "src": "/deck-media/image35.png",
         "url": "/deck-media/image35.png",
         "at": "2026-11-17",
         "caption": "DHA NEAR AYESHA MASJID - S#27"
       }
     ],
-    "notes": "Excel S# 27 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Status: ? · Duration: 22 Dec 2026"
+    "notes": "Excel S# 27 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Status: ? · Duration: 22 Dec 2026",
+    "widthFt": 44,
+    "heightFt": 10,
+    "from": "TCF CLOCK TOWER",
+    "towards": "KORANGI CREEK ROAD / KPT"
   },
   {
     "id": "site-2026-028",
@@ -1309,12 +1444,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-28",
+        "src": "/deck-media/image36.png",
         "url": "/deck-media/image36.png",
         "at": "2026-11-17",
         "caption": "SAFOORA - S#28"
       }
     ],
-    "notes": "Excel S# 28 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Status: 73 · Duration: 31 Jan 2027"
+    "notes": "Excel S# 28 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Status: 73 · Duration: 31 Jan 2027",
+    "widthFt": 40,
+    "heightFt": 40,
+    "from": "MOSAMIAT",
+    "towards": "UNIVERSITY"
   },
   {
     "id": "site-2026-029",
@@ -1356,12 +1496,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-29",
+        "src": "/deck-media/image38.png",
         "url": "/deck-media/image38.png",
         "at": "2026-11-17",
         "caption": "EXPRESSWAY TGT BALOCH - S#29"
       }
     ],
-    "notes": "Excel S# 29 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Status: 34 · Duration: 9 Dec 2026"
+    "notes": "Excel S# 29 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Status: 34 · Duration: 9 Dec 2026",
+    "widthFt": 50,
+    "heightFt": 15,
+    "from": "AVAILABILITY",
+    "towards": "AVAILABILITY"
   },
   {
     "id": "site-2026-030",
@@ -1403,12 +1548,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-30",
+        "src": "/deck-media/image51.png",
         "url": "/deck-media/image51.png",
         "at": "2026-11-17",
         "caption": "EXPRESSWAY TG DHA - S#30"
       }
     ],
-    "notes": "Excel S# 30 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Status: 34 · Duration: 9 Dec 2026"
+    "notes": "Excel S# 30 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Status: 34 · Duration: 9 Dec 2026",
+    "widthFt": 50,
+    "heightFt": 15,
+    "from": "AVAILABILITY",
+    "towards": "AVAILABILITY"
   },
   {
     "id": "site-2026-031",
@@ -1450,12 +1600,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-31",
+        "src": "/deck-media/image29.png",
         "url": "/deck-media/image29.png",
         "at": "2026-11-17",
         "caption": "MALIR FLYOVER - S#31"
       }
     ],
-    "notes": "Excel S# 31 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Status: WILL BE END · Duration: 30 Nov 2026"
+    "notes": "Excel S# 31 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Status: WILL BE END · Duration: 30 Nov 2026",
+    "widthFt": 60,
+    "heightFt": 30,
+    "from": "AVAILABILITY",
+    "towards": "AVAILABILITY"
   },
   {
     "id": "site-2026-032",
@@ -1497,12 +1652,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-32",
+        "src": "/deck-media/image3.jpg",
         "url": "/deck-media/image3.jpg",
         "at": "2026-11-17",
         "caption": "MALIR CANTT - S#32"
       }
     ],
-    "notes": "Excel S# 32 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Status: WILL BE END · Duration: 30 Nov 2026"
+    "notes": "Excel S# 32 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Status: WILL BE END · Duration: 30 Nov 2026",
+    "widthFt": 55,
+    "heightFt": 30,
+    "from": "AVAILABILITY",
+    "towards": "AVAILABILITY"
   },
   {
     "id": "site-2026-033",
@@ -1544,12 +1704,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-33",
+        "src": "/deck-media/image49.png",
         "url": "/deck-media/image49.png",
         "at": "2026-11-17",
         "caption": "KALA PUL - S#33"
       }
     ],
-    "notes": "Excel S# 33 · Client: GFS BUILDERS AND DEVELOPERS · Status: 18 · Duration: 10 Jul 2027"
+    "notes": "Excel S# 33 · Client: GFS BUILDERS AND DEVELOPERS · Status: 18 · Duration: 10 Jul 2027",
+    "widthFt": 65,
+    "heightFt": 25,
+    "from": "Shahrah e Faisal",
+    "towards": "DHA Phase 2/ Korangi Road/ Ittehad"
   },
   {
     "id": "site-2026-034",
@@ -1591,12 +1756,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-34",
+        "src": "/deck-media/image3.jpg",
         "url": "/deck-media/image3.jpg",
         "at": "2026-11-17",
         "caption": "SHAFIQ MOR TGT NAGAN - S#34"
       }
     ],
-    "notes": "Excel S# 34 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / PREMIUM BLOCK · Status: 18 · Duration: Long Term"
+    "notes": "Excel S# 34 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / PREMIUM BLOCK · Status: 18 · Duration: Long Term",
+    "widthFt": 113,
+    "heightFt": 30,
+    "from": "SHAFIQ MOR",
+    "towards": "NAGAN"
   },
   {
     "id": "site-2026-035",
@@ -1638,12 +1808,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-35",
+        "src": "/deck-media/image37.jpg",
         "url": "/deck-media/image37.jpg",
         "at": "2026-11-17",
         "caption": "4K CHOWRANGI – BARA MARKET - S#35"
       }
     ],
-    "notes": "Excel S# 35 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Status: 25 · Duration: 6 Jan 2027"
+    "notes": "Excel S# 35 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Status: 25 · Duration: 6 Jan 2027",
+    "widthFt": 50,
+    "heightFt": 15,
+    "from": "4k Chowrangi",
+    "towards": "Nagan Flyover"
   },
   {
     "id": "site-2026-036",
@@ -1685,12 +1860,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-36",
+        "src": "/deck-media/image43.png",
         "url": "/deck-media/image43.png",
         "at": "2026-11-17",
         "caption": "MAIN 4K CHOWRANGI 01 (4K CHOWRANGI TO POWER HOUSE ) - S#36"
       }
     ],
-    "notes": "Excel S# 36 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Status: 53 · Duration: 13 Dec 2026"
+    "notes": "Excel S# 36 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Status: 53 · Duration: 13 Dec 2026",
+    "widthFt": 50,
+    "heightFt": 15,
+    "from": "4K Chowrangi",
+    "towards": "NAGAN"
   },
   {
     "id": "site-2026-037",
@@ -1732,12 +1912,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-37",
+        "src": "/deck-media/image44.png",
         "url": "/deck-media/image44.png",
         "at": "2026-11-17",
         "caption": "ORANGI TOWN - S#37"
       }
     ],
-    "notes": "Excel S# 37 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Status: 48 · Duration: 30 Nov 2026"
+    "notes": "Excel S# 37 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Status: 48 · Duration: 30 Nov 2026",
+    "widthFt": 50,
+    "heightFt": 30,
+    "from": "Banaras",
+    "towards": "Orangi Town"
   },
   {
     "id": "site-2026-038",
@@ -1779,12 +1964,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-38",
+        "src": "/deck-media/image59.jpg",
         "url": "/deck-media/image59.jpg",
         "at": "2026-11-17",
         "caption": "HIGHWAY - M-9 MOTORWAY BAHRIA TOWN - S#38"
       }
     ],
-    "notes": "Excel S# 38 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Status: ? · Duration: 22 Dec 2026"
+    "notes": "Excel S# 38 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Status: ? · Duration: 22 Dec 2026",
+    "widthFt": 60,
+    "heightFt": 20,
+    "from": "TCF: KARACHI TOLL PLAZA",
+    "towards": "TCF: KARACHI TOLL PLAZA"
   },
   {
     "id": "site-2026-039",
@@ -1826,12 +2016,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-39",
+        "src": "/deck-media/image42.jpg",
         "url": "/deck-media/image42.jpg",
         "at": "2026-11-17",
         "caption": "Karimabad Flyover, Shahrah-e-Pakistan - S#39"
       }
     ],
-    "notes": "Excel S# 39 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Status: ? · Duration: 22 Dec 2026"
+    "notes": "Excel S# 39 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Status: ? · Duration: 22 Dec 2026",
+    "widthFt": 60,
+    "heightFt": 30,
+    "from": "TCF: TEEN HATTI",
+    "towards": "TCF: TEEN HATTI"
   },
   {
     "id": "site-2026-040",
@@ -1873,12 +2068,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-40",
+        "src": "/deck-media/image42.jpg",
         "url": "/deck-media/image42.jpg",
         "at": "2026-11-17",
         "caption": "Karimabad Flyover, Shahrah-e-Pakistan - S#40"
       }
     ],
-    "notes": "Excel S# 40 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Status: ? · Duration: 22 Dec 2026"
+    "notes": "Excel S# 40 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Status: ? · Duration: 22 Dec 2026",
+    "widthFt": 55,
+    "heightFt": 30,
+    "from": "TCF: TEEN HATTI",
+    "towards": "TCF: TEEN HATTI"
   },
   {
     "id": "site-2026-041",
@@ -1920,12 +2120,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-41",
+        "src": "/deck-media/image53.png",
         "url": "/deck-media/image53.png",
         "at": "2026-11-17",
         "caption": "RASHID MINHAS FLYOVER - S#41"
       }
     ],
-    "notes": "Excel S# 41 · Client: GFS BUILDERS AND DEVELOPERS · Status: 34 · Duration: 26 Dec 2026"
+    "notes": "Excel S# 41 · Client: GFS BUILDERS AND DEVELOPERS · Status: 34 · Duration: 26 Dec 2026",
+    "widthFt": 70,
+    "heightFt": 15,
+    "from": "RASHID MINHAS FLYOVER",
+    "towards": "MILLENNIUM MALL"
   },
   {
     "id": "site-2026-042",
@@ -1967,12 +2172,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-42",
+        "src": "/deck-media/image40.jpg",
         "url": "/deck-media/image40.jpg",
         "at": "2026-11-17",
         "caption": "NIPA WONDER TOWER - S#42"
       }
     ],
-    "notes": "Excel S# 42 · Client: GFS BUILDERS AND DEVELOPERS · Status: ? · Duration: 31 Jan 2027"
+    "notes": "Excel S# 42 · Client: GFS BUILDERS AND DEVELOPERS · Status: ? · Duration: 31 Jan 2027",
+    "widthFt": 80,
+    "heightFt": 30,
+    "from": "Millennium mall",
+    "towards": "Gulshan chowrangi/Lucky one"
   },
   {
     "id": "site-2026-043",
@@ -2014,12 +2224,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-43",
+        "src": "/deck-media/image47.jpg",
         "url": "/deck-media/image47.jpg",
         "at": "2026-11-17",
         "caption": "SHAFIQ MORE BUFFER ZONE - S#43"
       }
     ],
-    "notes": "Excel S# 43 · Client: GFS BUILDERS AND DEVELOPERS · Status: 53 · Duration: 30-11-2026 + EXT"
+    "notes": "Excel S# 43 · Client: GFS BUILDERS AND DEVELOPERS · Status: 53 · Duration: 30-11-2026 + EXT",
+    "widthFt": 40,
+    "heightFt": 20,
+    "from": "LUCKYONE",
+    "towards": "NAGAN"
   },
   {
     "id": "site-2026-044",
@@ -2061,12 +2276,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-44",
+        "src": "/deck-media/image57.png",
         "url": "/deck-media/image57.png",
         "at": "2026-11-17",
         "caption": "NAGAN FLYOVER - S#44"
       }
     ],
-    "notes": "Excel S# 44 · Client: GFS BUILDERS AND DEVELOPERS · Status: 48 · Duration: 30 Nov 2026"
+    "notes": "Excel S# 44 · Client: GFS BUILDERS AND DEVELOPERS · Status: 48 · Duration: 30 Nov 2026",
+    "widthFt": 60,
+    "heightFt": 30,
+    "from": "Nagan Flyover",
+    "towards": "4k Chowrangi"
   },
   {
     "id": "site-2026-045",
@@ -2108,12 +2328,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-45",
+        "src": "/deck-media/image45.jpg",
         "url": "/deck-media/image45.jpg",
         "at": "2026-11-17",
         "caption": "NEW BARA MARKET - S#45"
       }
     ],
-    "notes": "Excel S# 45 · Client: GFS BUILDERS AND DEVELOPERS · Status: 25 · Duration: 6 Jan 2027"
+    "notes": "Excel S# 45 · Client: GFS BUILDERS AND DEVELOPERS · Status: 25 · Duration: 6 Jan 2027",
+    "widthFt": 50,
+    "heightFt": 15,
+    "from": "Nagan Flyover",
+    "towards": "4k Chowrangi"
   },
   {
     "id": "site-2026-046",
@@ -2155,12 +2380,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-46",
+        "src": "/deck-media/image82.png",
         "url": "/deck-media/image82.png",
         "at": "2026-11-17",
         "caption": "SHAHRAH E QUAIDEEN - S#46"
       }
     ],
-    "notes": "Excel S# 46 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15-01-2027 + EXT"
+    "notes": "Excel S# 46 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15-01-2027 + EXT",
+    "widthFt": 65,
+    "heightFt": 30,
+    "from": "ALLAH WALI CHOWRANGI",
+    "towards": "ALLAH WALI CHOWRANGI"
   },
   {
     "id": "site-2026-047",
@@ -2202,12 +2432,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-47",
+        "src": "/deck-media/image50.png",
         "url": "/deck-media/image50.png",
         "at": "2026-11-17",
         "caption": "MA JINNAH ROAD NUMAISH - S#47"
       }
     ],
-    "notes": "Excel S# 47 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15-01-2027 + EXT"
+    "notes": "Excel S# 47 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15-01-2027 + EXT",
+    "widthFt": 60,
+    "heightFt": 30,
+    "from": "MAIN NUMAISH SIGNAL",
+    "towards": "MAIN NUMAISH SIGNAL"
   },
   {
     "id": "site-2026-048",
@@ -2249,12 +2484,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-48",
+        "src": "/deck-media/image52.png",
         "url": "/deck-media/image52.png",
         "at": "2026-11-17",
         "caption": "BAHRIA UNIVERSITY TGT MILLENIUM MALL - S#48"
       }
     ],
-    "notes": "Excel S# 48 · Client: AA BUILDERS · Status: EXTENDABLE · Duration: 22 Jan 2027"
+    "notes": "Excel S# 48 · Client: AA BUILDERS · Status: EXTENDABLE · Duration: 22 Jan 2027",
+    "widthFt": 85,
+    "heightFt": 12,
+    "from": "BAHRIA UNIVERSITY",
+    "towards": "MILLENIUM MALL"
   },
   {
     "id": "site-2026-049",
@@ -2296,12 +2536,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-49",
+        "src": "/deck-media/image72.png",
         "url": "/deck-media/image72.png",
         "at": "2026-11-17",
         "caption": "BAHRIA UNIVERSITY TGT NATIONAL STADIUM - S#49"
       }
     ],
-    "notes": "Excel S# 49 · Client: AA BUILDERS · Status: EXTENDABLE · Duration: 22 Jan 2027"
+    "notes": "Excel S# 49 · Client: AA BUILDERS · Status: EXTENDABLE · Duration: 22 Jan 2027",
+    "widthFt": 85,
+    "heightFt": 12,
+    "from": "BAHRIA UNIVERSITY",
+    "towards": "STADIUM"
   },
   {
     "id": "site-2026-050",
@@ -2343,12 +2588,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-50",
+        "src": "/deck-media/image55.png",
         "url": "/deck-media/image55.png",
         "at": "2026-11-17",
         "caption": "GULSHAN CHOWRANGI - S#50"
       }
     ],
-    "notes": "Excel S# 50 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15 Jan 2027"
+    "notes": "Excel S# 50 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15 Jan 2027",
+    "widthFt": 70,
+    "heightFt": 11,
+    "from": "MAIN GULSHAN",
+    "towards": "MAIN GULSHAN"
   },
   {
     "id": "site-2026-051",
@@ -2390,12 +2640,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-51",
+        "src": "/deck-media/image67.png",
         "url": "/deck-media/image67.png",
         "at": "2026-11-17",
         "caption": "GULSHAN CHOWRANGI - S#51"
       }
     ],
-    "notes": "Excel S# 51 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15 Jan 2027"
+    "notes": "Excel S# 51 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15 Jan 2027",
+    "widthFt": 61,
+    "heightFt": 11,
+    "from": "MAIN GULSHAN CHOWRANGI",
+    "towards": "MAIN GULSHAN CHOWRANGI"
   },
   {
     "id": "site-2026-052",
@@ -2437,12 +2692,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-52",
+        "src": "/deck-media/image1.png",
         "url": "/deck-media/image1.png",
         "at": "2026-11-17",
         "caption": "RJ MALL TGT SHAHRAH E FAISAL - S#52"
       }
     ],
-    "notes": "Excel S# 52 · Client: AA BUILDERS · Status: DEPT ISSUE · Duration: 15 Jan 2027"
+    "notes": "Excel S# 52 · Client: AA BUILDERS · Status: DEPT ISSUE · Duration: 15 Jan 2027",
+    "widthFt": 80,
+    "heightFt": 15,
+    "from": "TCF:",
+    "towards": "TCF:"
   },
   {
     "id": "site-2026-053",
@@ -2484,12 +2744,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-53",
+        "src": "/deck-media/image3.jpg",
         "url": "/deck-media/image3.jpg",
         "at": "2026-11-17",
         "caption": "KARSAZ ROAD BRIDGE 02 - S#53"
       }
     ],
-    "notes": "Excel S# 53 · Client: AA BUILDERS · Status: Active · Duration: 16 Dec 2026"
+    "notes": "Excel S# 53 · Client: AA BUILDERS · Status: Active · Duration: 16 Dec 2026",
+    "widthFt": 90,
+    "heightFt": 12,
+    "from": "SHAHRAH E FAISAL",
+    "towards": "NATIONAL STADIUM"
   },
   {
     "id": "site-2026-054",
@@ -2531,12 +2796,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-54",
+        "src": "/deck-media/image66.png",
         "url": "/deck-media/image66.png",
         "at": "2026-11-17",
         "caption": "NAZIMABAD - S#54"
       }
     ],
-    "notes": "Excel S# 54 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15 Jan 2027"
+    "notes": "Excel S# 54 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15 Jan 2027",
+    "widthFt": 70,
+    "heightFt": 11,
+    "from": "TCF",
+    "towards": "TCF"
   },
   {
     "id": "site-2026-055",
@@ -2578,12 +2848,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-55",
+        "src": "/deck-media/image79.png",
         "url": "/deck-media/image79.png",
         "at": "2026-11-17",
         "caption": "CIVIC CENTER 1 - S#55"
       }
     ],
-    "notes": "Excel S# 55 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15 Jan 2027"
+    "notes": "Excel S# 55 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15 Jan 2027",
+    "widthFt": 70,
+    "heightFt": 11,
+    "from": "TCF",
+    "towards": "TCF"
   },
   {
     "id": "site-2026-056",
@@ -2625,12 +2900,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-56",
+        "src": "/deck-media/image3.jpg",
         "url": "/deck-media/image3.jpg",
         "at": "2026-11-17",
         "caption": "CIVIC CENTER 2 - S#56"
       }
     ],
-    "notes": "Excel S# 56 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15 Jan 2027"
+    "notes": "Excel S# 56 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15 Jan 2027",
+    "widthFt": 70,
+    "heightFt": 11,
+    "from": "TCF",
+    "towards": "TCF"
   },
   {
     "id": "site-2026-057",
@@ -2672,12 +2952,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-57",
+        "src": "/deck-media/image3.jpg",
         "url": "/deck-media/image3.jpg",
         "at": "2026-11-17",
         "caption": "ESSA NAGRI - S#57"
       }
     ],
-    "notes": "Excel S# 57 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15 Jan 2026"
+    "notes": "Excel S# 57 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15 Jan 2026",
+    "widthFt": 50,
+    "heightFt": 12,
+    "from": "TCF",
+    "towards": "TCF"
   },
   {
     "id": "site-2026-058",
@@ -2719,12 +3004,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-58",
+        "src": "/deck-media/image54.png",
         "url": "/deck-media/image54.png",
         "at": "2026-11-17",
         "caption": "HASSAN SQUARE FLYOVER - S#58"
       }
     ],
-    "notes": "Excel S# 58 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15 Jan 2026"
+    "notes": "Excel S# 58 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15 Jan 2026",
+    "widthFt": 60,
+    "heightFt": 30,
+    "from": "TCF",
+    "towards": "TCF"
   },
   {
     "id": "site-2026-059",
@@ -2766,12 +3056,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-59",
+        "src": "/deck-media/image3.jpg",
         "url": "/deck-media/image3.jpg",
         "at": "2026-11-17",
         "caption": "TIME MEDICOS - S#59"
       }
     ],
-    "notes": "Excel S# 59 · Client: AA BUILDERS · Status: Active · Duration: Extendable"
+    "notes": "Excel S# 59 · Client: AA BUILDERS · Status: Active · Duration: Extendable",
+    "widthFt": 120,
+    "heightFt": 25,
+    "from": "AGHA KHAN",
+    "towards": "RASHID MINHAS/ SHAHRAH E FAISAL / DALMIA"
   },
   {
     "id": "site-2026-060",
@@ -2813,12 +3108,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-60",
+        "src": "/deck-media/image62.png",
         "url": "/deck-media/image62.png",
         "at": "2026-11-17",
         "caption": "BAHADURABAD 4 MINAR - S#60"
       }
     ],
-    "notes": "Excel S# 60 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15 Jan 2026"
+    "notes": "Excel S# 60 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15 Jan 2026",
+    "widthFt": 60,
+    "heightFt": 30,
+    "from": "60x",
+    "towards": "60x"
   },
   {
     "id": "site-2026-061",
@@ -2860,12 +3160,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-61",
+        "src": "/deck-media/image58.png",
         "url": "/deck-media/image58.png",
         "at": "2026-11-17",
         "caption": "SHAHRAH-E-PAKISTAN - S#61"
       }
     ],
-    "notes": "Excel S# 61 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15 Jan 2026"
+    "notes": "Excel S# 61 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15 Jan 2026",
+    "widthFt": 60,
+    "heightFt": 30,
+    "from": "TCF",
+    "towards": "TCF"
   },
   {
     "id": "site-2026-062",
@@ -2907,12 +3212,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-62",
+        "src": "/deck-media/image3.jpg",
         "url": "/deck-media/image3.jpg",
         "at": "2026-11-17",
         "caption": "RASHID MINHAS TGT LUCKYONE - S#62"
       }
     ],
-    "notes": "Excel S# 62 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15 Jan 2026"
+    "notes": "Excel S# 62 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 15 Jan 2026",
+    "widthFt": 60,
+    "heightFt": 20,
+    "from": "TCF",
+    "towards": "TCF"
   },
   {
     "id": "site-2026-063",
@@ -2954,12 +3264,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-63",
+        "src": "/deck-media/image3.jpg",
         "url": "/deck-media/image3.jpg",
         "at": "2026-11-17",
         "caption": "KARSAZ TGT NATIONAL STADIUM - S#63"
       }
     ],
-    "notes": "Excel S# 63 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 29 Dec 2026"
+    "notes": "Excel S# 63 · Client: AA BUILDERS · Status: WILL BE END AS PER CAMPAIGN · Duration: 29 Dec 2026",
+    "widthFt": 60,
+    "heightFt": 40,
+    "from": "TCF",
+    "towards": "TCF"
   },
   {
     "id": "site-2026-064",
@@ -3001,12 +3316,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-64",
+        "src": "/deck-media/image60.png",
         "url": "/deck-media/image60.png",
         "at": "2026-11-17",
         "caption": "SHAHRAH E FAISAL METRO TGT AIRPORT - S#64"
       }
     ],
-    "notes": "Excel S# 64 · Client: KIFAYAH STORE · Status: 34 · Duration: 24 Dec 2026"
+    "notes": "Excel S# 64 · Client: KIFAYAH STORE · Status: 34 · Duration: 24 Dec 2026",
+    "widthFt": 70,
+    "heightFt": 11,
+    "from": "AIRPORT",
+    "towards": "QUAIDABAD"
   },
   {
     "id": "site-2026-065",
@@ -3048,12 +3368,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-65",
+        "src": "/deck-media/image3.jpg",
         "url": "/deck-media/image3.jpg",
         "at": "2026-11-17",
         "caption": "SHAHRAH E FAISAL DRIGH ROAD TURNING - S#65"
       }
     ],
-    "notes": "Excel S# 65 · Client: KIFAYAH STORE · Status: DEPT ISSUE · Duration: 30 Nov 2026"
+    "notes": "Excel S# 65 · Client: KIFAYAH STORE · Status: DEPT ISSUE · Duration: 30 Nov 2026",
+    "widthFt": 80,
+    "heightFt": 12,
+    "from": "TCF Shahrah e Faisal / Karsaz",
+    "towards": "TCF Shahrah e Faisal / Karsaz"
   },
   {
     "id": "site-2026-066",
@@ -3095,12 +3420,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-66",
+        "src": "/deck-media/image3.jpg",
         "url": "/deck-media/image3.jpg",
         "at": "2026-11-17",
         "caption": "SHAHRAH E FAISAL MACDONALD’S BRIDGE - S#66"
       }
     ],
-    "notes": "Excel S# 66 · Client: KIFAYAH STORE · Status: DEPT ISSUE · Duration: 5 Dec 2026"
+    "notes": "Excel S# 66 · Client: KIFAYAH STORE · Status: DEPT ISSUE · Duration: 5 Dec 2026",
+    "widthFt": 80,
+    "heightFt": 12,
+    "from": "TCF Airport",
+    "towards": "Karsaz/ Baloch flyover/ FTC"
   },
   {
     "id": "site-2026-067",
@@ -3142,12 +3472,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-67",
+        "src": "/deck-media/image65.png",
         "url": "/deck-media/image65.png",
         "at": "2026-11-17",
         "caption": "SHAHRAH E FAISAL NURSERY - S#67"
       }
     ],
-    "notes": "Excel S# 67 · Client: KIFAYAH STORE · Status: WILL BE END AS PER CAMPAIGN · Duration: 30 Nov 2026"
+    "notes": "Excel S# 67 · Client: KIFAYAH STORE · Status: WILL BE END AS PER CAMPAIGN · Duration: 30 Nov 2026",
+    "widthFt": 70,
+    "heightFt": 31,
+    "from": "TCF FTC Flyover",
+    "towards": "KARSAZ/ Airport"
   },
   {
     "id": "site-2026-068",
@@ -3189,12 +3524,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-68",
+        "src": "/deck-media/image56.png",
         "url": "/deck-media/image56.png",
         "at": "2026-11-17",
         "caption": "TIME MEDICOS STADIUM - S#68"
       }
     ],
-    "notes": "Excel S# 68 · Client: KIFAYAH STORE · Status: 36 · Duration: 31 Jan 2027"
+    "notes": "Excel S# 68 · Client: KIFAYAH STORE · Status: 36 · Duration: 31 Jan 2027",
+    "widthFt": 90,
+    "heightFt": 12,
+    "from": "AGHA KHAN",
+    "towards": "RASHID MINHAS/ SHAHRAH E FAISAL / DALMIA"
   },
   {
     "id": "site-2026-069",
@@ -3236,12 +3576,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-69",
+        "src": "/deck-media/image64.png",
         "url": "/deck-media/image64.png",
         "at": "2026-11-17",
         "caption": "SHARAH E FAISAL IQRA UNIVERSITY - S#69"
       }
     ],
-    "notes": "Excel S# 69 · Client: KIFAYAH STORE · Status: 34 · Duration: 30 Nov 2026"
+    "notes": "Excel S# 69 · Client: KIFAYAH STORE · Status: 34 · Duration: 30 Nov 2026",
+    "widthFt": 70,
+    "heightFt": 11,
+    "from": "AIRPORT",
+    "towards": "QUAIDABAD"
   },
   {
     "id": "site-2026-070",
@@ -3283,12 +3628,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-70",
+        "src": "/deck-media/image63.png",
         "url": "/deck-media/image63.png",
         "at": "2026-11-17",
         "caption": "SHAHRAH-E-FAISAL MALIR IQRA UNIVERSITY - S#70"
       }
     ],
-    "notes": "Excel S# 70 · Client: KIFAYAH STORE · Status: 34 · Duration: 30 Nov 2026"
+    "notes": "Excel S# 70 · Client: KIFAYAH STORE · Status: 34 · Duration: 30 Nov 2026",
+    "widthFt": 70,
+    "heightFt": 11,
+    "from": "TCF Malir Iqra University",
+    "towards": "Airport"
   },
   {
     "id": "site-2026-071",
@@ -3330,12 +3680,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-71",
+        "src": "/deck-media/image83.png",
         "url": "/deck-media/image83.png",
         "at": "2026-11-17",
         "caption": "Malir cantt Entrance - S#71"
       }
     ],
-    "notes": "Excel S# 71 · Client: KIFAYAH STORE · Status: WILL BE END AS PER CAMPAIGN · Duration: 1 Dec 2026"
+    "notes": "Excel S# 71 · Client: KIFAYAH STORE · Status: WILL BE END AS PER CAMPAIGN · Duration: 1 Dec 2026",
+    "widthFt": 50,
+    "heightFt": 30,
+    "from": "AVAILABILITY",
+    "towards": "AVAILABILITY"
   },
   {
     "id": "site-2026-072",
@@ -3377,12 +3732,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-72",
+        "src": "/deck-media/image61.png",
         "url": "/deck-media/image61.png",
         "at": "2026-11-17",
         "caption": "SHAHRAH-E-FAISAL STAR GATE - S#72"
       }
     ],
-    "notes": "Excel S# 72 · Client: KIFAYAH STORE · Status: WILL BE END AS PER CAMPAIGN · Duration: 2 Dec 2026"
+    "notes": "Excel S# 72 · Client: KIFAYAH STORE · Status: WILL BE END AS PER CAMPAIGN · Duration: 2 Dec 2026",
+    "widthFt": 40,
+    "heightFt": 30,
+    "from": "AVAILABILITY",
+    "towards": "AVAILABILITY"
   },
   {
     "id": "site-2026-073",
@@ -3424,12 +3784,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-73",
+        "src": "/deck-media/image81.png",
         "url": "/deck-media/image81.png",
         "at": "2026-11-17",
         "caption": "SHAMA SHOPPING CENTER - S#73"
       }
     ],
-    "notes": "Excel S# 73 · Client: KIFAYAH STORE · Status: WILL BE END AS PER CAMPAIGN · Duration: 30 Nov 2026"
+    "notes": "Excel S# 73 · Client: KIFAYAH STORE · Status: WILL BE END AS PER CAMPAIGN · Duration: 30 Nov 2026",
+    "widthFt": 50,
+    "heightFt": 25,
+    "from": "AVAILABILITY",
+    "towards": "AVAILABILITY"
   },
   {
     "id": "site-2026-074",
@@ -3471,12 +3836,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-74",
+        "src": "/deck-media/image87.png",
         "url": "/deck-media/image87.png",
         "at": "2026-11-17",
         "caption": "QAIDABAD - S#74"
       }
     ],
-    "notes": "Excel S# 74 · Client: KIFAYAH STORE · Status: WILL BE END AS PER CAMPAIGN · Duration: 30 Nov 2026"
+    "notes": "Excel S# 74 · Client: KIFAYAH STORE · Status: WILL BE END AS PER CAMPAIGN · Duration: 30 Nov 2026",
+    "widthFt": 70,
+    "heightFt": 30,
+    "from": "AVAILABILITY",
+    "towards": "AVAILABILITY"
   },
   {
     "id": "site-2026-075",
@@ -3518,12 +3888,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-75",
+        "src": "/deck-media/image77.png",
         "url": "/deck-media/image77.png",
         "at": "2026-11-17",
         "caption": "SHAHRAH-E-FAISAL STAR GATE 1 - S#75"
       }
     ],
-    "notes": "Excel S# 75 · Client: KIFAYAH STORE · Status: WILL BE END AS PER CAMPAIGN · Duration: 30 Nov 2026"
+    "notes": "Excel S# 75 · Client: KIFAYAH STORE · Status: WILL BE END AS PER CAMPAIGN · Duration: 30 Nov 2026",
+    "widthFt": 80,
+    "heightFt": 30,
+    "from": "AVAILABILITY",
+    "towards": "AVAILABILITY"
   },
   {
     "id": "site-2026-076",
@@ -3565,12 +3940,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-76",
+        "src": "/deck-media/image70.png",
         "url": "/deck-media/image70.png",
         "at": "2026-11-17",
         "caption": "SHAHRAH-E-FAISAL STAR GATE 2 - S#76"
       }
     ],
-    "notes": "Excel S# 76 · Client: KIFAYAH STORE · Status: WILL BE END AS PER CAMPAIGN · Duration: 30 Nov 2026"
+    "notes": "Excel S# 76 · Client: KIFAYAH STORE · Status: WILL BE END AS PER CAMPAIGN · Duration: 30 Nov 2026",
+    "widthFt": 80,
+    "heightFt": 30,
+    "from": "AVAILABILITY",
+    "towards": "AVAILABILITY"
   },
   {
     "id": "site-2026-077",
@@ -3612,12 +3992,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-77",
+        "src": "/deck-media/image84.png",
         "url": "/deck-media/image84.png",
         "at": "2026-11-17",
         "caption": "LANDI 89 - S#77"
       }
     ],
-    "notes": "Excel S# 77 · Client: KIFAYAH STORE · Status: WILL BE END AS PER CAMPAIGN · Duration: 30 Nov 2026"
+    "notes": "Excel S# 77 · Client: KIFAYAH STORE · Status: WILL BE END AS PER CAMPAIGN · Duration: 30 Nov 2026",
+    "widthFt": 40,
+    "heightFt": 30,
+    "from": "AVAILABILITY",
+    "towards": "AVAILABILITY"
   },
   {
     "id": "site-2026-078",
@@ -3659,12 +4044,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-78",
+        "src": "/deck-media/image3.jpg",
         "url": "/deck-media/image3.jpg",
         "at": "2026-11-17",
         "caption": "Backlit boards at FTC flyover - S#78"
       }
     ],
-    "notes": "Excel S# 78 · Client: NEXT? · Status: WILL BE END AS PER CAMPAIGN · Duration: Extendable"
+    "notes": "Excel S# 78 · Client: NEXT? · Status: WILL BE END AS PER CAMPAIGN · Duration: Extendable",
+    "widthFt": 4,
+    "heightFt": 8,
+    "from": "NMC",
+    "towards": "Shahrah-e-Faisal (Vice & versa)"
   },
   {
     "id": "site-2026-079",
@@ -3706,12 +4096,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-79",
+        "src": "/deck-media/image71.jpg",
         "url": "/deck-media/image71.jpg",
         "at": "2026-11-17",
         "caption": "DHA QT Signal SMD - S#79"
       }
     ],
-    "notes": "Excel S# 79 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Status: ? · Duration: 7 Dec 2026"
+    "notes": "Excel S# 79 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Status: ? · Duration: 7 Dec 2026",
+    "widthFt": 40,
+    "heightFt": 20,
+    "from": "FTCF : SUNSET LIBRARY",
+    "towards": "FTCF : SUNSET LIBRARY"
   },
   {
     "id": "site-2026-080",
@@ -3753,12 +4148,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-80",
+        "src": "/deck-media/image68.jpg",
         "url": "/deck-media/image68.jpg",
         "at": "2026-11-17",
         "caption": "Khaleeq uz zaman road / Bacha Party - S#80"
       }
     ],
-    "notes": "Excel S# 80 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Status: ? · Duration: 7 Dec 2026"
+    "notes": "Excel S# 80 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Status: ? · Duration: 7 Dec 2026",
+    "widthFt": 3,
+    "heightFt": 6,
+    "from": "Lilly bridge",
+    "towards": "gizri road"
   },
   {
     "id": "site-2026-081",
@@ -3800,12 +4200,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-81",
+        "src": "/deck-media/image3.jpg",
         "url": "/deck-media/image3.jpg",
         "at": "2026-11-17",
         "caption": "CSD KORANGI ROAD DIGITAL STREAMERS - S#81"
       }
     ],
-    "notes": "Excel S# 81 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Status: 118 · Duration: LONG TERM"
+    "notes": "Excel S# 81 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Status: 118 · Duration: LONG TERM",
+    "widthFt": 3,
+    "heightFt": 6,
+    "from": "FTCF:  NMC KAALA PULL",
+    "towards": "FTCF:  NMC KAALA PULL"
   },
   {
     "id": "site-2026-082",
@@ -3847,12 +4252,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-82",
+        "src": "/deck-media/image74.jpg",
         "url": "/deck-media/image74.jpg",
         "at": "2026-11-17",
         "caption": "SHAHRA E FAISAL AYESHA BAWANI DIGITAL STREAMERS - S#82"
       }
     ],
-    "notes": "Excel S# 82 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Status: 118 · Duration: LONG TERM"
+    "notes": "Excel S# 82 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Status: 118 · Duration: LONG TERM",
+    "widthFt": 3,
+    "heightFt": 6,
+    "from": "FTCF:  Metropole / FTC",
+    "towards": "FTCF:  Metropole / FTC"
   },
   {
     "id": "site-2026-083",
@@ -3894,12 +4304,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-83",
+        "src": "/deck-media/image73.png",
         "url": "/deck-media/image73.png",
         "at": "2026-11-17",
         "caption": "DHA CREEK WALK (OUTSIDE) - S#83"
       }
     ],
-    "notes": "Excel S# 83 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Status: 117 · Duration: 13-01-27"
+    "notes": "Excel S# 83 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Status: 117 · Duration: 13-01-27",
+    "widthFt": 3,
+    "heightFt": 6,
+    "from": "AVAILABILITY",
+    "towards": "AVAILABILITY"
   },
   {
     "id": "site-2026-084",
@@ -3941,12 +4356,17 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-84",
+        "src": "/deck-media/image78.png",
         "url": "/deck-media/image78.png",
         "at": "2026-11-17",
         "caption": "DHA CREEK WALK (INSIDE) - S#84"
       }
     ],
-    "notes": "Excel S# 84 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Status: 117 · Duration: 13-01-27"
+    "notes": "Excel S# 84 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Status: 117 · Duration: 13-01-27",
+    "widthFt": 3,
+    "heightFt": 6,
+    "from": "AVAILABILITY",
+    "towards": "AVAILABILITY"
   }
 ];
 window.MASTER_CAMPAIGNS_2026 = [
@@ -4301,4 +4721,4 @@ window.MASTER_CAMPAIGNS_2026 = [
     "notes": "Client-wise campaign with 6 sites across Karachi."
   }
 ];
-window.MASTER_DATASET_REV = "2026.4";
+window.MASTER_DATASET_REV = "2026.5";

@@ -1478,8 +1478,8 @@ function phFix(img){
 
 /* derived */
 function effStatus(s){if(s.status==="booked"&&s.bookedTill){const d=(new Date(s.bookedTill)-Date.now())/864e5;if(d>=0&&d<=14)return"expiring";if(d<0)return"available"}return s.status||"available"}
-const sizeOf=s=>s?`${s.widthFt||0}x${s.heightFt||0}`:"";
-const photoSrc=p=>p?(p.src||memBlobs[p.asset]||(p.asset?(p.asset.startsWith("http")?p.asset:"/_blob/"+p.asset):null)):null;
+const sizeOf=s=>s?`${s.widthFt||s.width||0}x${s.heightFt||s.height||0}`:"";
+const photoSrc=p=>p?(p.src||p.url||memBlobs[p.asset]||(p.asset?(p.asset.startsWith("http")?p.asset:"/_blob/"+p.asset):null)):null;
 const lastPhoto=s=>(s?.photos&&s.photos.length)?s.photos[s.photos.length-1]:null;
 const isVid=p=>p&&p.kind==="video";
 const imgIdx=s=>(s?.photos||[]).map((p,i)=>isVid(p)?-1:i).filter(i=>i>=0);
@@ -1544,29 +1544,9 @@ async function boot(){
   const initHash = location.hash.slice(1);
   const targetRoute = (initHash && initHash !== "portal") ? initHash : "dashboard";
   go(targetRoute,true);setTimeout(loadQueue,2500);
-  db.collection("sites").onSnapshot(async q=>{
-    let docs = q.docs.map(x=>({id:x.id,...x.data()}));
-    if ((docs.length < 80 || docs.length !== 84) && window.MASTER_SITES_2026 && window.MASTER_SITES_2026.length === 84) {
-      console.log("[OTS] Live DB has " + docs.length + " sites. Upgrading to 84 Master Sites...");
-      S.sites = window.MASTER_SITES_2026;
-      S.campaigns = window.MASTER_CAMPAIGNS_2026 || [];
-      S.loaded.sites = true;
-      S.loaded.campaigns = true;
-      changed();
-      if (typeof CAN_WRITE !== "undefined" && CAN_WRITE) {
-        toast("Updating live system database to 84 Master Sites…");
-        for (const s of window.MASTER_SITES_2026) {
-          await put("sites", s).catch(e=>console.warn(e));
-        }
-        if (window.MASTER_CAMPAIGNS_2026) {
-          for (const c of window.MASTER_CAMPAIGNS_2026) {
-            await put("campaigns", c).catch(e=>console.warn(e));
-          }
-        }
-      }
-      return;
-    }
-    S.sites = docs.length ? docs : (window.MASTER_SITES_2026 || []);
+  db.collection("sites").onSnapshot(q=>{
+    const docs = q.docs.map(x=>({id:x.id,...x.data()}));
+    S.sites = (docs && docs.length >= 80) ? docs : (window.MASTER_SITES_2026 || docs);
     S.loaded.sites = true;
     if(Studio.active&&Studio.cfg&&(!Studio.cfg.slides||Studio.cfg.slides.length===0)){Studio.build()}
     changed();
@@ -1577,8 +1557,8 @@ async function boot(){
     changed();
   });
   db.collection("campaigns").onSnapshot(q=>{
-    let docs = q.docs.map(x=>({id:x.id,...x.data()}));
-    S.campaigns = docs.length ? docs : (window.MASTER_CAMPAIGNS_2026 || []);
+    const docs = q.docs.map(x=>({id:x.id,...x.data()}));
+    S.campaigns = (docs && docs.length >= 10) ? docs : (window.MASTER_CAMPAIGNS_2026 || docs);
     S.loaded.campaigns = true;
     if(Studio.active&&Studio.cfg&&(!Studio.cfg.slides||Studio.cfg.slides.length===0)){Studio.build()}
     changed();
@@ -5645,7 +5625,7 @@ function indexOps(c,t,g){const ops=[...frame(t),T(0.6,0.5,10,0.7,"Site index by 
 function siteOps(c,t,s,v,page,total){
   const f=normFields(c.fields);
   const layout=c.layout||"split";
-  let p=(s.photos||[])[v.photo];if(isVid(p))p=lastImg(s);
+  let p=(v.photo!=null?(s.photos||[])[v.photo]:null)||(s.photos&&s.photos.length?s.photos[0]:null)||lastImg(s);if(isVid(p))p=lastImg(s)||(s.photos&&s.photos.length?s.photos[0]:null);
   const k=effStatus(s),stc={available:"0E9F76",booked:"E03656",expiring:"EE7422",maintenance:"DB8F06"}[k];
   const o=otsOf(s);
   const dirText=(s.from&&s.towards)?`${s.from} → ${s.towards}`:(s.brand?`Booked by ${s.brand}`:"Prime OOH Arterial Network");
@@ -6985,7 +6965,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=27.0").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=28.0").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
