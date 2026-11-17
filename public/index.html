@@ -5891,68 +5891,68 @@ function siteOps(c,t,s,v,page,total){
       R(8.93,1.05,3.80,5.80,t.panel,{r:.16}),
       R(8.93,1.05,0.08,5.80,t.accent,{r:.04}),
 
-      // Dossier Header: EXECUTIVE MEDIA PROFILE (Red uppercase header, balanced size, Black primary OTS value)
-      T(9.20,1.22,3.35,0.18,"EXECUTIVE MEDIA PROFILE",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
-      T(9.20,1.44,3.35,0.36,(f.traffic&&o)?`~${fmtK(o)} DAILY OTS`:(f.size?`${s.widthFt} × ${s.heightFt} FT`:"PRIME DISPLAY"),{size:17,bold:true,color:t.ink,font:"display"}),
+      // Dossier Header: EXECUTIVE MEDIA PROFILE (Balanced 9.5pt Red header, 14pt Black value, no dimension duplicate)
+      T(9.20,1.20,3.35,0.18,"EXECUTIVE MEDIA PROFILE",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
+      T(9.20,1.40,3.35,0.28,(f.traffic&&o)?`~${fmtK(o)} DAILY OTS`:"HIGH-IMPACT ARTERIAL DISPLAY",{size:14,bold:true,color:t.ink,font:"display"}),
 
       // Divider 1
-      R(9.20,1.86,3.30,0.015,t.muted,{alpha:.20}),
+      R(9.20,1.76,3.30,0.015,t.muted,{alpha:.20}),
 
-      // Section 1: Dimensions (Red uppercase header, Red dimensions, Gray sqft subtitle)
-      T(9.20,1.96,3.30,0.18,"DISPLAY DIMENSIONS",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
-      T(9.20,2.16,3.30,0.28,f.size?`${s.widthFt} × ${s.heightFt} FT`:(s.media||"Billboard"),{size:17,bold:true,color:t.accent,font:"mono"}),
-      T(9.20,2.46,3.30,0.18,(f.size&&sqft)?`${sqft.toLocaleString()} sq. ft total display area`:"Standard Arterial Display",{size:10,color:t.muted}),
+      // Section 1: Dimensions (Balanced 9.5pt Red header, 14pt Red dimensions, 12pt Gray area text)
+      T(9.20,1.86,3.30,0.18,"DISPLAY DIMENSIONS",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
+      T(9.20,2.06,3.30,0.26,f.size?`${s.widthFt} × ${s.heightFt} FT`:(s.media||"Billboard"),{size:14,bold:true,color:t.accent,font:"mono"}),
+      T(9.20,2.34,3.30,0.22,(f.size&&sqft)?`${sqft.toLocaleString()} sq. ft total display area`:"Standard Arterial Display",{size:12,color:t.muted}),
 
       // Divider 2
-      R(9.20,2.72,3.30,0.015,t.muted,{alpha:.20}),
+      R(9.20,2.66,3.30,0.015,t.muted,{alpha:.20}),
 
-      // Section 2: Facing & Flow (Red uppercase header, Black clean route text)
-      T(9.20,2.82,3.30,0.18,"ORIENTATION & TRAFFIC FLOW",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
-      T(9.20,3.02,3.30,0.20,f.dir?("From: "+(s.from||"Main Arterial")):(s.area||"Karachi"),{size:10.5,bold:true,color:t.ink}),
-      T(9.20,3.24,3.30,0.48,f.dir?("Towards: "+(s.towards||"Commercial Hub")):(s.facing||"Prime Route"),{size:10.5,bold:true,color:t.ink}),
+      // Section 2: Facing & Flow (Balanced 9.5pt Red header, 12pt Black route lines)
+      T(9.20,2.76,3.30,0.18,"ORIENTATION & TRAFFIC FLOW",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
+      T(9.20,2.96,3.30,0.22,f.dir?("From: "+(s.from||"Main Arterial")):(s.area||"Karachi"),{size:12,bold:true,color:t.ink}),
+      T(9.20,3.20,3.30,0.44,f.dir?("Towards: "+(s.towards||"Commercial Hub")):(s.facing||"Prime Route"),{size:12,bold:true,color:t.ink}),
 
       // Divider 3
-      R(9.20,3.76,3.30,0.015,t.muted,{alpha:.20}),
+      R(9.20,3.72,3.30,0.015,t.muted,{alpha:.20}),
 
-      // Section 3: Format & Illumination (Red uppercase header, Black bold value - no green)
-      T(9.20,3.86,3.30,0.18,"FORMAT & ILLUMINATION",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
-      T(9.20,4.06,3.30,0.22,formatStr,{size:11.5,bold:true,color:t.ink}),
+      // Section 3: Format & Illumination (Balanced 9.5pt Red header, 12pt Black value)
+      T(9.20,3.82,3.30,0.18,"FORMAT & ILLUMINATION",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
+      T(9.20,4.02,3.30,0.22,formatStr,{size:12,bold:true,color:t.ink}),
 
       // Media Vendor (Controlled dynamically by f.vendor checkbox)
       ...(f.vendor && s.vendor ? [
-        R(9.20,4.34,3.30,0.015,t.muted,{alpha:.20}),
-        T(9.20,4.44,3.30,0.18,"MEDIA VENDOR / INVENTORY OWNER",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
-        T(9.20,4.64,3.30,0.22,s.vendor,{size:12,bold:true,color:t.ink,font:"display"}),
+        R(9.20,4.32,3.30,0.015,t.muted,{alpha:.20}),
+        T(9.20,4.42,3.30,0.18,"MEDIA VENDOR / INVENTORY OWNER",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
+        T(9.20,4.62,3.30,0.22,s.vendor,{size:12,bold:true,color:t.ink,font:"display"}),
         R(9.20,4.92,3.30,0.015,t.muted,{alpha:.20}),
         T(9.20,5.02,3.30,0.18,f.price?"PRICE & BOOKING DURATION":"COMMERCIAL STATUS",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
         ...(f.price ? [
-          T(9.20,5.22,3.30,0.24,priceTxt,{size:15,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)})
+          T(9.20,5.22,3.30,0.24,priceTxt,{size:14,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)})
         ] : []),
-        T(9.20,f.price?5.48:5.24,3.30,0.16,f.dates?"BOOKING STATUS / DURATION:":"STATUS:",{size:8.5,bold:true,color:t.accent,upper:true,spacing:1}),
-        T(9.20,f.price?5.66:5.42,3.30,0.30,bDurationFull,{size:10.5,bold:true,color:s.status==="booked"?"D9161D":t.ink}),
+        T(9.20,f.price?5.48:5.24,3.30,0.16,f.dates?"BOOKING STATUS / DURATION:":"STATUS:",{size:9,bold:true,color:t.accent,upper:true,spacing:1}),
+        T(9.20,f.price?5.66:5.42,3.30,0.26,bDurationFull,{size:12,bold:true,color:s.status==="booked"?"D9161D":t.ink}),
         ...(f.gps&&s.lat&&s.lng?[
-          T(9.20,6.04,3.30,0.20,"🗺️ Open in Google Maps ↗",{size:9.5,bold:true,color:t.accent,link:mapsUrl(s)})
+          T(9.20,6.02,3.30,0.20,"🗺️ Open in Google Maps ↗",{size:10,bold:true,color:t.accent,link:mapsUrl(s)})
         ]:[
-          T(9.20,6.04,3.30,0.20,"📍 Verified Karachi Site",{size:9,color:t.muted,font:"mono"})
+          T(9.20,6.02,3.30,0.20,"📍 Verified Karachi Site",{size:10,color:t.muted,font:"mono"})
         ]),
         ...(f.notes&&s.notes?[
-          T(9.20,6.28,3.30,0.20,`Note: ${s.notes.substring(0,40)}`,{size:8.5,color:t.muted})
+          T(9.20,6.26,3.30,0.20,`Note: ${s.notes.substring(0,40)}`,{size:10,color:t.muted})
         ]:[])
       ] : [
-        R(9.20,4.38,3.30,0.015,t.muted,{alpha:.20}),
-        T(9.20,4.48,3.30,0.18,f.price?"PRICE & BOOKING DURATION":"COMMERCIAL STATUS",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
+        R(9.20,4.34,3.30,0.015,t.muted,{alpha:.20}),
+        T(9.20,4.44,3.30,0.18,f.price?"PRICE & BOOKING DURATION":"COMMERCIAL STATUS",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
         ...(f.price ? [
-          T(9.20,4.70,3.30,0.28,priceTxt,{size:15,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)})
+          T(9.20,4.66,3.30,0.26,priceTxt,{size:14,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)})
         ] : []),
-        T(9.20,f.price?5.02:4.74,3.30,0.16,f.dates?"BOOKING STATUS / DURATION:":"STATUS:",{size:8.5,bold:true,color:t.accent,upper:true,spacing:1}),
-        T(9.20,f.price?5.22:4.94,3.30,0.32,bDurationFull,{size:10.5,bold:true,color:s.status==="booked"?"D9161D":t.ink}),
+        T(9.20,f.price?4.96:4.70,3.30,0.16,f.dates?"BOOKING STATUS / DURATION:":"STATUS:",{size:9,bold:true,color:t.accent,upper:true,spacing:1}),
+        T(9.20,f.price?5.14:4.88,3.30,0.28,bDurationFull,{size:12,bold:true,color:s.status==="booked"?"D9161D":t.ink}),
         ...(f.gps&&s.lat&&s.lng?[
-          T(9.20,5.68,3.30,0.20,"🗺️ Open in Google Maps ↗",{size:9.5,bold:true,color:t.accent,link:mapsUrl(s)})
+          T(9.20,5.54,3.30,0.20,"🗺️ Open in Google Maps ↗",{size:10,bold:true,color:t.accent,link:mapsUrl(s)})
         ]:[
-          T(9.20,5.68,3.30,0.20,"📍 Verified Karachi Site",{size:9,color:t.muted,font:"mono"})
+          T(9.20,5.54,3.30,0.20,"📍 Verified Karachi Site",{size:10,color:t.muted,font:"mono"})
         ]),
         ...(f.notes&&s.notes?[
-          T(9.20,5.94,3.30,0.22,`Note: ${s.notes.substring(0,42)}`,{size:8.5,color:t.muted})
+          T(9.20,5.80,3.30,0.20,`Note: ${s.notes.substring(0,42)}`,{size:10,color:t.muted})
         ]:[])
       ])
     ];
