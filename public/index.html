@@ -1598,7 +1598,16 @@ function changed(){if(route==="studio"&&Studio.active){render(true)}else{render(
 function startLocal(){
   S.mode="local";ROLE="team";local=ls.get("sitesnap-local",{sites:[],campaigns:[],decks:[],settings:null,clients:[]});
   S.sites=local.sites;S.campaigns=local.campaigns;
-  if((!S.sites||S.sites.length<50)&&window.MASTER_SITES_2026){S.sites=window.MASTER_SITES_2026;S.campaigns=window.MASTER_CAMPAIGNS_2026||[];persistLocal();}S.decks=local.decks||[];S.clients=local.clients||[];if(local.settings)S.settings=local.settings;applyTheme();S.loaded={sites:true,campaigns:true};renderNav();go(location.hash.slice(1)||"dashboard",true);modeNote();changed();setTimeout(loadQueue,2500);
+  const MASTER_REV = "2026.4";
+  if (window.MASTER_SITES_2026 && (!S.sites || S.sites.length !== 84 || local.masterRev !== MASTER_REV)) {
+    console.log("Upgrading to 2026 Master Dataset: exactly 84 sites & 12 client campaigns...");
+    S.sites = window.MASTER_SITES_2026;
+    S.campaigns = window.MASTER_CAMPAIGNS_2026 || [];
+    local.sites = S.sites;
+    local.campaigns = S.campaigns;
+    local.masterRev = MASTER_REV;
+    persistLocal();
+  }S.decks=local.decks||[];S.clients=local.clients||[];if(local.settings)S.settings=local.settings;applyTheme();S.loaded={sites:true,campaigns:true};renderNav();go(location.hash.slice(1)||"dashboard",true);modeNote();changed();setTimeout(loadQueue,2500);
 }
 function startPresentationGuest(){
   ROLE = "guest";
@@ -4528,7 +4537,7 @@ function campCard(c){
     <div class="stats"><div><b>${sites.length}</b>Sites</div><div><b>${done}/${sites.length}</b>Monitored</div><div><b>${(()=>{const o=sites.reduce((a,x)=>a+otsOf(x),0);return o?"~"+fmtK(o):areas.length})()}</b>${sites.some(x=>otsOf(x))?"Daily OTS":"Areas"}</div><div><b>${left==null?"—":left<0?"Ended":left}</b>${left!=null&&left>=0?"Days left":"Status"}</div></div></div>
    ${timeline(c)}
    <div style="padding:0 18px 12px;font-size:12px;color:var(--muted);font-weight:600">${areas.slice(0,5).map(esc).join(" · ")||"No sites added yet"}</div>
-   <div class="ft"><button class="btn sm" data-act="campsites" data-id="${c.id}">View sites</button><button class="btn sm" data-act="editcamp" data-id="${c.id}">Edit</button><span class="sp"></span><button class="btn sm" data-act="sharecamp" data-id="${c.id}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;vertical-align:middle;margin-right:4px"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Share link</button><button class="btn sm pri" data-act="campdeck" data-id="${c.id}">${ICON.deck}Generate deck</button></div></article>`;
+   <div class="ft"><button class="btn sm pri" data-act="camppresentation" data-id="${c.id}" style="background:linear-gradient(135deg,#D9161D,#F26A21);color:#fff;font-weight:700">📊 Presentation</button><button class="btn sm" data-act="campsites" data-id="${c.id}">View sites</button><button class="btn sm" data-act="editcamp" data-id="${c.id}">Edit</button><span class="sp"></span><button class="btn sm" data-act="sharecamp" data-id="${c.id}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;vertical-align:middle;margin-right:4px"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Share link</button><button class="btn sm pri" data-act="campdeck" data-id="${c.id}">${ICON.deck}Generate deck</button></div></article>`;
 }
 function timeline(c,big){if(!c.startDate||!c.endDate)return"";const tot=Math.max(1,daysTo(c.endDate)-daysTo(c.startDate));const el=Math.max(0,Math.min(1,-daysTo(c.startDate)/tot));const d=daysTo(c.endDate);
   const chip=d<0?`<span class="pill st-maintenance">Ended</span>`:daysTo(c.startDate)>0?`<span class="pill" style="background:var(--surface2);color:var(--ink2)">Starts ${dayWord(daysTo(c.startDate))}</span>`:d<=7?`<span class="pill st-expiring">${d===0?"Ends today":d+" day"+(d>1?"s":"")+" left"}</span>`:`<span class="pill st-available">Live</span>`;
@@ -4990,7 +4999,7 @@ async function parsePdfDeck(file, onProgress) {
 
 /* ============ Master 2026 Deck & Data Functions ============ */
 function openMasterDeck(filterType = "all") {
-  let title = "Master File - All Karachi Sites (2026)";
+  let title = "Master File - All 84 Karachi Sites (2026)";
   let subtitle = "Master Presentation · Complete portfolio overview & booking schedule";
   let src = { type: "all" };
 
@@ -5018,7 +5027,7 @@ function openMasterDeck(filterType = "all") {
 
 async function sync2026MasterData(notify = true) {
   try {
-    if (notify) toast("Updating to 2026 Master Data (96 Sites & Campaigns)…");
+    if (notify) toast("Updating to 2026 Master Data (84 Sites & 12 Client Campaigns)…");
     let sites = window.MASTER_SITES_2026;
     let campaigns = window.MASTER_CAMPAIGNS_2026;
     if (!sites || !sites.length) {
@@ -6901,6 +6910,22 @@ const ACT={
  kpibooked:()=>openMasterDeck("booked"),
  kpicamps:()=>{location.hash="campaigns";go("campaigns")},
  sync2026:()=>sync2026MasterData(true),
+ camppresentation:(a)=>{
+   const id = a.dataset.id;
+   const camp = campOf(id);
+   if (!camp) return;
+   const cSites = (camp.siteIds || []).map(sid => siteOf(sid)).filter(Boolean);
+   Studio.cfg = Studio.fresh({ type: "campaign", campaignId: id });
+   Studio.cfg.title = `${camp.client} - Presentation 2026`;
+   Studio.cfg.subtitle = `${camp.name} · ${cSites.length} Active OOH & Digital Sites`;
+   Studio.cfg.summary = true;
+   Studio.cfg.fields.vendor = true;
+   Studio.build();
+   Studio.active = true;
+   location.hash = "studio";
+   go("studio", true);
+   toast(`Opening presentation for ${camp.client}…`);
+ },
  clearalldata:()=>clearAllData(false),
  clearsample:()=>confirmBox("Remove all sample sites and campaigns?",async()=>{for(const s of S.sites.filter(x=>x.sample))await del("sites",s.id);for(const c of S.campaigns.filter(x=>x.sample))await del("campaigns",c.id);toast("Sample data removed")},"Remove")
 };

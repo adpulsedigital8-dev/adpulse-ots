@@ -1,329 +1,352 @@
 [
   {
-    "id": "camp_2026_1",
-    "name": "ASKARI VILLA - KK PROPERTIES - 2026 Campaign",
+    "id": "camp-2026-01",
     "client": "ASKARI VILLA - KK PROPERTIES",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
-    "color": "#7C3AED",
-    "siteIds": [
-      "site_2026_001",
-      "site_2026_002",
-      "site_2026_003",
-      "site_2026_004",
-      "site_2026_005",
-      "site_2026_006",
-      "site_2026_007",
-      "site_2026_010",
-      "site_2026_001"
-    ],
-    "createdAt": "2026-11-17T10:27:24.468Z"
-  },
-  {
-    "id": "camp_2026_2",
-    "name": "ASKARI VILLA - KK PROPERTIES - 2026 Campaign",
-    "client": "ASKARI VILLA - KK PROPERTIES / KIFAYAH",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
+    "name": "Askari Villa & KK Properties Premium Network",
+    "category": "Real Estate & Housing",
     "color": "#D9161D",
+    "budget": "PKR 12.5M",
+    "status": "active",
+    "startDate": "2026-11-01",
+    "endDate": "2027-01-31",
     "siteIds": [
-      "site_2026_008",
-      "site_2026_009"
+      "site-2026-001",
+      "site-2026-002",
+      "site-2026-003",
+      "site-2026-004",
+      "site-2026-005",
+      "site-2026-006",
+      "site-2026-007",
+      "site-2026-008",
+      "site-2026-009",
+      "site-2026-010"
     ],
-    "createdAt": "2026-11-17T10:27:24.470Z"
+    "siteCount": 10,
+    "areas": [
+      "Clifton",
+      "Shahrah-e-Faisal",
+      "Malir",
+      "Super Highway / M-9"
+    ],
+    "totalSqft": 12288,
+    "dailyOts": 1495000,
+    "notes": "Client-wise campaign with 10 sites across Karachi."
   },
   {
-    "id": "camp_2026_3",
-    "name": "FALAKNAZ SKYVIEW - 2026 Campaign",
+    "id": "camp-2026-02",
     "client": "FALAKNAZ SKYVIEW",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
+    "name": "Falaknaz Skyview DHA Corridor",
+    "category": "Luxury Real Estate",
     "color": "#2563EB",
+    "budget": "PKR 3.8M",
+    "status": "active",
+    "startDate": "2026-11-01",
+    "endDate": "2027-01-31",
     "siteIds": [
-      "site_2026_011",
-      "site_2026_012",
-      "site_2026_002"
+      "site-2026-011",
+      "site-2026-012"
     ],
-    "createdAt": "2026-11-17T10:27:24.470Z"
+    "siteCount": 2,
+    "areas": [
+      "DHA"
+    ],
+    "totalSqft": 4200,
+    "dailyOts": 260000,
+    "notes": "Client-wise campaign with 2 sites across Karachi."
   },
   {
-    "id": "camp_2026_4",
-    "name": "GFS BUILDERS AND DEVELOPERS - 2026 Campaign",
-    "client": "GFS BUILDERS AND DEVELOPERS / CALL GROUP / DALDA",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
-    "color": "#059669",
-    "siteIds": [
-      "site_2026_013"
-    ],
-    "createdAt": "2026-11-17T10:27:24.470Z"
-  },
-  {
-    "id": "camp_2026_5",
-    "name": "GFS BUILDERS AND DEVELOPERS - 2026 Campaign",
-    "client": "GFS BUILDERS AND DEVELOPERS / CALL GROUP / INDUS VALLEY",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
-    "color": "#D97706",
-    "siteIds": [
-      "site_2026_014"
-    ],
-    "createdAt": "2026-11-17T10:27:24.470Z"
-  },
-  {
-    "id": "camp_2026_6",
-    "name": "CHASE VALUE - 2026 Campaign",
-    "client": "CHASE VALUE  / EMINENT",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
-    "color": "#DB2777",
-    "siteIds": [
-      "site_2026_015",
-      "site_2026_016",
-      "site_2026_019"
-    ],
-    "createdAt": "2026-11-17T10:27:24.470Z"
-  },
-  {
-    "id": "camp_2026_7",
-    "name": "GFS BUILDERS AND DEVELOPERS - 2026 Campaign",
-    "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
-    "color": "#4F46E5",
-    "siteIds": [
-      "site_2026_017",
-      "site_2026_018"
-    ],
-    "createdAt": "2026-11-17T10:27:24.470Z"
-  },
-  {
-    "id": "camp_2026_8",
-    "name": "Mr. USMAN GRAPHIC EDGE - 2026 Campaign",
-    "client": "Mr. USMAN GRAPHIC EDGE",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
-    "color": "#0D9488",
-    "siteIds": [
-      "site_2026_020",
-      "site_2026_005"
-    ],
-    "createdAt": "2026-11-17T10:27:24.470Z"
-  },
-  {
-    "id": "camp_2026_9",
-    "name": "GFS BUILDERS AND DEVELOPERS - 2026 Campaign",
-    "client": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
-    "color": "#EA580C",
-    "siteIds": [
-      "site_2026_021",
-      "site_2026_022",
-      "site_2026_023",
-      "site_2026_024",
-      "site_2026_025",
-      "site_2026_026",
-      "site_2026_006"
-    ],
-    "createdAt": "2026-11-17T10:27:24.470Z"
-  },
-  {
-    "id": "camp_2026_10",
-    "name": "GFS BUILDERS AND DEVELOPERS - 2026 Campaign",
-    "client": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
+    "id": "camp-2026-03",
+    "client": "CALL GROUP",
+    "name": "Call Group / Dalda / Indus Valley Campaign",
+    "category": "Consumer Goods & Education",
     "color": "#7C3AED",
+    "budget": "PKR 2.4M",
+    "status": "active",
+    "startDate": "2026-11-01",
+    "endDate": "2027-01-31",
     "siteIds": [
-      "site_2026_027",
-      "site_2026_028",
-      "site_2026_029",
-      "site_2026_030",
-      "site_2026_031",
-      "site_2026_032",
-      "site_2026_007"
+      "site-2026-013",
+      "site-2026-014"
     ],
-    "createdAt": "2026-11-17T10:27:24.470Z"
+    "siteCount": 2,
+    "areas": [
+      "DHA"
+    ],
+    "totalSqft": 2792,
+    "dailyOts": 260000,
+    "notes": "Client-wise campaign with 2 sites across Karachi."
   },
   {
-    "id": "camp_2026_11",
-    "name": "GFS BUILDERS AND DEVELOPERS - 2026 Campaign",
-    "client": "GFS BUILDERS AND DEVELOPERS",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
-    "color": "#D9161D",
-    "siteIds": [
-      "site_2026_033",
-      "site_2026_041",
-      "site_2026_042",
-      "site_2026_043",
-      "site_2026_044",
-      "site_2026_045",
-      "site_2026_008"
-    ],
-    "createdAt": "2026-11-17T10:27:24.470Z"
-  },
-  {
-    "id": "camp_2026_12",
-    "name": "GFS BUILDERS AND DEVELOPERS - 2026 Campaign",
-    "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / PREMIUM BLOCK",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
-    "color": "#2563EB",
-    "siteIds": [
-      "site_2026_034"
-    ],
-    "createdAt": "2026-11-17T10:27:24.470Z"
-  },
-  {
-    "id": "camp_2026_13",
-    "name": "GFS BUILDERS AND DEVELOPERS - 2026 Campaign",
-    "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
-    "color": "#059669",
-    "siteIds": [
-      "site_2026_035",
-      "site_2026_036",
-      "site_2026_037",
-      "site_2026_038",
-      "site_2026_039",
-      "site_2026_040"
-    ],
-    "createdAt": "2026-11-17T10:27:24.470Z"
-  },
-  {
-    "id": "camp_2026_14",
-    "name": "AA BUILDERS - 2026 Campaign",
-    "client": "AA BUILDERS",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
-    "color": "#D97706",
-    "siteIds": [
-      "site_2026_046",
-      "site_2026_047",
-      "site_2026_048",
-      "site_2026_049",
-      "site_2026_050",
-      "site_2026_051",
-      "site_2026_052",
-      "site_2026_053",
-      "site_2026_054",
-      "site_2026_055",
-      "site_2026_056",
-      "site_2026_057",
-      "site_2026_058",
-      "site_2026_059",
-      "site_2026_060",
-      "site_2026_061",
-      "site_2026_062",
-      "site_2026_063",
-      "site_2026_009"
-    ],
-    "createdAt": "2026-11-17T10:27:24.470Z"
-  },
-  {
-    "id": "camp_2026_15",
-    "name": "KIFAYAH STORE - 2026 Campaign",
-    "client": "KIFAYAH STORE",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
-    "color": "#DB2777",
-    "siteIds": [
-      "site_2026_064",
-      "site_2026_065",
-      "site_2026_066",
-      "site_2026_067",
-      "site_2026_068",
-      "site_2026_069",
-      "site_2026_070",
-      "site_2026_071",
-      "site_2026_072",
-      "site_2026_073",
-      "site_2026_074",
-      "site_2026_075",
-      "site_2026_076",
-      "site_2026_077",
-      "site_2026_010"
-    ],
-    "createdAt": "2026-11-17T10:27:24.470Z"
-  },
-  {
-    "id": "camp_2026_16",
-    "name": "NEXT? - 2026 Campaign",
-    "client": "NEXT?",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
-    "color": "#4F46E5",
-    "siteIds": [
-      "site_2026_078"
-    ],
-    "createdAt": "2026-11-17T10:27:24.470Z"
-  },
-  {
-    "id": "camp_2026_17",
-    "name": "GFS BUILDERS AND DEVELOPERS - 2026 Campaign",
-    "client": "GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
-    "color": "#0D9488",
-    "siteIds": [
-      "site_2026_079",
-      "site_2026_080",
-      "site_2026_081",
-      "site_2026_082",
-      "site_2026_083",
-      "site_2026_084"
-    ],
-    "createdAt": "2026-11-17T10:27:24.470Z"
-  },
-  {
-    "id": "camp_2026_18",
-    "name": "CALL GROUP FOR 15 DAYS - 2026 Campaign",
-    "client": "CALL GROUP FOR 15 DAYS",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
-    "color": "#EA580C",
-    "siteIds": [
-      "site_2026_003"
-    ],
-    "createdAt": "2026-11-17T10:27:24.470Z"
-  },
-  {
-    "id": "camp_2026_19",
-    "name": "CHASE VALUE - 2026 Campaign",
+    "id": "camp-2026-04",
     "client": "CHASE VALUE / EMINENT",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
-    "color": "#7C3AED",
+    "name": "Chase Value & Eminent Arterial Branding",
+    "category": "Retail & Departmental",
+    "color": "#059669",
+    "budget": "PKR 6.5M",
+    "status": "active",
+    "startDate": "2026-11-01",
+    "endDate": "2027-01-31",
     "siteIds": [
-      "site_2026_004"
+      "site-2026-015",
+      "site-2026-016",
+      "site-2026-017",
+      "site-2026-018",
+      "site-2026-019"
     ],
-    "createdAt": "2026-11-17T10:27:24.470Z"
+    "siteCount": 5,
+    "areas": [
+      "Saddar",
+      "Shahrah-e-Faisal"
+    ],
+    "totalSqft": 7050,
+    "dailyOts": 745000,
+    "notes": "Client-wise campaign with 5 sites across Karachi."
   },
   {
-    "id": "camp_2026_20",
-    "name": "NEW SITES - 2026 Campaign",
-    "client": "NEW SITES",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
-    "color": "#D9161D",
+    "id": "camp-2026-05",
+    "client": "GRAPHIC EDGE (Mr. USMAN)",
+    "name": "Graphic Edge - Shahrah-e-Faisal Flyover",
+    "category": "Media & Agency",
+    "color": "#D97706",
+    "budget": "PKR 1.2M",
+    "status": "active",
+    "startDate": "2026-11-01",
+    "endDate": "2027-01-31",
     "siteIds": [
-      "site_2026_011"
+      "site-2026-020"
     ],
-    "createdAt": "2026-11-17T10:27:24.470Z"
+    "siteCount": 1,
+    "areas": [
+      "Shahrah-e-Faisal"
+    ],
+    "totalSqft": 960,
+    "dailyOts": 185000,
+    "notes": "Client-wise campaign with 1 sites across Karachi."
   },
   {
-    "id": "camp_2026_21",
-    "name": "DIGITAL MEDIA (MULTIPLE CLIENTS) - 2026 Campaign",
-    "client": "DIGITAL MEDIA (MULTIPLE CLIENTS)",
-    "startDate": "2026-10-01",
-    "endDate": "2026-12-31",
-    "color": "#2563EB",
+    "id": "camp-2026-06",
+    "client": "GFS BUILDERS - INDUS VALLEY CONCERT",
+    "name": "GFS Builders - Indus Valley Concert Brand Blitz",
+    "category": "Event & Entertainment Real Estate",
+    "color": "#DC2626",
+    "budget": "PKR 7.2M",
+    "status": "active",
+    "startDate": "2026-11-01",
+    "endDate": "2027-01-31",
     "siteIds": [
-      "site_2026_012"
+      "site-2026-021",
+      "site-2026-022",
+      "site-2026-023",
+      "site-2026-024",
+      "site-2026-025",
+      "site-2026-026"
     ],
-    "createdAt": "2026-11-17T10:27:24.470Z"
+    "siteCount": 6,
+    "areas": [
+      "DHA",
+      "Shahrah-e-Faisal",
+      "Saddar",
+      "Gulistan-e-Jauhar",
+      "Karachi Central"
+    ],
+    "totalSqft": 7300,
+    "dailyOts": 800000,
+    "notes": "Client-wise campaign with 6 sites across Karachi."
+  },
+  {
+    "id": "camp-2026-07",
+    "client": "GFS BUILDERS - MTR RAMSHA",
+    "name": "GFS Builders - MTR Ramsha Strategic Deployment",
+    "category": "Commercial Real Estate",
+    "color": "#E11D48",
+    "budget": "PKR 8.0M",
+    "status": "active",
+    "startDate": "2026-11-01",
+    "endDate": "2027-01-31",
+    "siteIds": [
+      "site-2026-027",
+      "site-2026-028",
+      "site-2026-029",
+      "site-2026-030",
+      "site-2026-031",
+      "site-2026-032"
+    ],
+    "siteCount": 6,
+    "areas": [
+      "DHA",
+      "Gulistan-e-Jauhar",
+      "Saddar",
+      "Malir"
+    ],
+    "totalSqft": 6990,
+    "dailyOts": 730000,
+    "notes": "Client-wise campaign with 6 sites across Karachi."
+  },
+  {
+    "id": "camp-2026-08",
+    "client": "GFS BUILDERS & DEVELOPERS (MAIN & COMMERCIAL)",
+    "name": "GFS Builders - Mega Karachi Citywide Network",
+    "category": "Mega Infrastructure & Housing",
+    "color": "#B91C1C",
+    "budget": "PKR 16.5M",
+    "status": "active",
+    "startDate": "2026-11-01",
+    "endDate": "2027-01-31",
+    "siteIds": [
+      "site-2026-033",
+      "site-2026-034",
+      "site-2026-035",
+      "site-2026-036",
+      "site-2026-037",
+      "site-2026-038",
+      "site-2026-039",
+      "site-2026-040",
+      "site-2026-041",
+      "site-2026-042",
+      "site-2026-043",
+      "site-2026-044",
+      "site-2026-045"
+    ],
+    "siteCount": 13,
+    "areas": [
+      "Shahrah-e-Faisal",
+      "North Karachi",
+      "Karachi Central",
+      "Super Highway / M-9",
+      "FB Area",
+      "Gulistan-e-Jauhar"
+    ],
+    "totalSqft": 19465,
+    "dailyOts": 1380000,
+    "notes": "Client-wise campaign with 13 sites across Karachi."
+  },
+  {
+    "id": "camp-2026-09",
+    "client": "AA BUILDERS",
+    "name": "AA Builders - Central & East Karachi Domination",
+    "category": "Residential & Builders",
+    "color": "#4F46E5",
+    "budget": "PKR 21.0M",
+    "status": "active",
+    "startDate": "2026-11-01",
+    "endDate": "2027-01-31",
+    "siteIds": [
+      "site-2026-046",
+      "site-2026-047",
+      "site-2026-048",
+      "site-2026-049",
+      "site-2026-050",
+      "site-2026-051",
+      "site-2026-052",
+      "site-2026-053",
+      "site-2026-054",
+      "site-2026-055",
+      "site-2026-056",
+      "site-2026-057",
+      "site-2026-058",
+      "site-2026-059",
+      "site-2026-060",
+      "site-2026-061",
+      "site-2026-062",
+      "site-2026-063"
+    ],
+    "siteCount": 18,
+    "areas": [
+      "Karachi Central",
+      "Karsaz",
+      "Gulistan-e-Jauhar",
+      "Shahrah-e-Faisal",
+      "Nazimabad",
+      "FB Area"
+    ],
+    "totalSqft": 24421,
+    "dailyOts": 2085000,
+    "notes": "Client-wise campaign with 18 sites across Karachi."
+  },
+  {
+    "id": "camp-2026-10",
+    "client": "KIFAYAH STORE",
+    "name": "Kifayah Store - Airport & Malir Arterial Network",
+    "category": "Retail Superstores",
+    "color": "#0D9488",
+    "budget": "PKR 14.8M",
+    "status": "active",
+    "startDate": "2026-11-01",
+    "endDate": "2027-01-31",
+    "siteIds": [
+      "site-2026-064",
+      "site-2026-065",
+      "site-2026-066",
+      "site-2026-067",
+      "site-2026-068",
+      "site-2026-069",
+      "site-2026-070",
+      "site-2026-071",
+      "site-2026-072",
+      "site-2026-073",
+      "site-2026-074",
+      "site-2026-075",
+      "site-2026-076",
+      "site-2026-077"
+    ],
+    "siteCount": 14,
+    "areas": [
+      "Shahrah-e-Faisal",
+      "Malir",
+      "Landhi / Malir",
+      "Karachi Central"
+    ],
+    "totalSqft": 19530,
+    "dailyOts": 2145000,
+    "notes": "Client-wise campaign with 14 sites across Karachi."
+  },
+  {
+    "id": "camp-2026-11",
+    "client": "NEW SITES (UPCOMING PORTFOLIO)",
+    "name": "New Sites - FTC Flyover Pole Sign Backlits",
+    "category": "AdPulse Premium Inventory",
+    "color": "#6B7280",
+    "budget": "PKR 1.5M",
+    "status": "planned",
+    "startDate": "2026-11-01",
+    "endDate": "2027-01-31",
+    "siteIds": [
+      "site-2026-078"
+    ],
+    "siteCount": 1,
+    "areas": [
+      "Shahrah-e-Faisal"
+    ],
+    "totalSqft": 32,
+    "dailyOts": 185000,
+    "notes": "Client-wise campaign with 1 sites across Karachi."
+  },
+  {
+    "id": "camp-2026-12",
+    "client": "DIGITAL MEDIA NETWORK (MULTIPLE CLIENTS)",
+    "name": "AdPulse Digital SMD & Streamers Network",
+    "category": "DOOH Digital LED & Streamers",
+    "color": "#9333EA",
+    "budget": "PKR 11.2M",
+    "status": "active",
+    "startDate": "2026-11-01",
+    "endDate": "2027-01-31",
+    "siteIds": [
+      "site-2026-079",
+      "site-2026-080",
+      "site-2026-081",
+      "site-2026-082",
+      "site-2026-083",
+      "site-2026-084"
+    ],
+    "siteCount": 6,
+    "areas": [
+      "DHA",
+      "Saddar",
+      "Shahrah-e-Faisal"
+    ],
+    "totalSqft": 890,
+    "dailyOts": 855000,
+    "notes": "Client-wise campaign with 6 sites across Karachi."
   }
 ]
