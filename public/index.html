@@ -1760,7 +1760,7 @@ function go(r,silent){
 }
 window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
 
-function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v9.9</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
+function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v10.0</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
 
 let lastRoute=null;
 function render(anim){
@@ -3836,6 +3836,7 @@ function vSites(){
   const siteTopBtns = `<div class="row" style="gap:6px;flex-wrap:wrap">
     <button class="btn pri" data-act="uploaddeck" style="background:linear-gradient(135deg,#D9161D,#F26A21);font-weight:700">📁 Import PPT / PDF</button>
     <button class="btn cy" data-act="sync2026" title="Load 2026 updated master sites & photos">🔄 Update to 2026 Master Data</button>
+    <button class="btn sm" data-act="summarydeck" style="background:linear-gradient(135deg,rgba(124,58,237,0.15),rgba(217,22,29,0.15));border:1px solid rgba(124,58,237,0.4);font-weight:700;color:var(--ink)" title="View &amp; Export Tabular Inventory Summary Presentation">📊 Inventory Summary Report</button>
     <button class="btn hm" data-act="selall">Select all</button>
     <button class="btn pri" data-act="newsite">${ICON.plus}Add site</button>
     
@@ -5608,7 +5609,7 @@ function normFields(f){
 }
 const Studio={
  active:false,cfg:null,
- fresh(src){return{id:uid(),title:"",subtitle:"",source:src||{type:"campaign",campaignId:S.campaigns[0]?.id||""},template:"adpulse",layout:"split",groupBy:"area",fields:{status:true,dir:true,size:true,media:true,light:true,dates:true,traffic:true,gps:true,price:true,vendor:true,brand:false,notes:false},summary:true,index:true,slides:[],version:0}},
+ fresh(src){return{id:uid(),title:"",subtitle:"",source:src||{type:"campaign",campaignId:S.campaigns[0]?.id||""},template:"adpulse",layout:"split",groupBy:"area",fields:{status:true,dir:true,size:true,media:true,light:true,dates:true,traffic:true,gps:true,price:true,vendor:true,brand:false,notes:false},summary:true,index:true,onlySummary:!!src?.onlySummary,hideCover:false,slides:[],version:0}},
  open(src,title){this.cfg=this.fresh(src);if(title)this.cfg.title=title;this.build();this.active=true;location.hash="studio";if(route==="studio")render(true)},
  load(deck){this.cfg=JSON.parse(JSON.stringify(deck));if(!this.cfg.layout)this.cfg.layout="split";this.cfg.fields=normFields(this.cfg.fields);this.cfg.summary=this.cfg.summary!==false;this.cfg.index=this.cfg.index!==false;this.active=true;render(true)},
  sitesFor(){const s=this.cfg.source;let list=[];
@@ -5663,15 +5664,19 @@ const Studio={
   deckOps(forExport){
     const c=this.cfg,t=TPL[c.template]||TPL.adpulse,vis=this.visible(),sites=vis.map(v=>this.siteOf(v.siteId));
     const out=[];
-    out.push({kind:"cover",ops:coverOps(c,t,sites)});
-    // Page 2: Summary Table with full details, duration start & end dates
+    if(!c.hideCover){out.push({kind:"cover",ops:coverOps(c,t,sites)});} 
+    // Summary Table with full details, duration start & end dates
     if(c.summary !== false && sites.length){
       const tableSlides = summaryTableOps(c, t, sites);
       tableSlides.forEach((ops, idx) => out.push({kind:"summary-table", ops}));
     }
-    if(c.index){const g={};vis.forEach((v,i)=>{const s=sites[i];(g[s.area]=g[s.area]||[]).push(s.code)});out.push({kind:"index",ops:indexOps(c,t,g)})}
-    vis.forEach((v,i)=>out.push({kind:"site",idx:c.slides.indexOf(v),ops:siteOps(c,t,sites[i],v,i+1,vis.length)}));
-    out.push({kind:"end",ops:endOps(c,t)});
+    if(!c.onlySummary){
+      if(c.index){const g={};vis.forEach((v,i)=>{const s=sites[i];(g[s.area]=g[s.area]||[]).push(s.code)});out.push({kind:"index",ops:indexOps(c,t,g)})}
+      vis.forEach((v,i)=>out.push({kind:"site",idx:c.slides.indexOf(v),ops:siteOps(c,t,sites[i],v,i+1,vis.length)}));
+    }
+    if(!c.hideEnd){
+      out.push({kind:"end",ops:endOps(c,t)});
+    }
     return out;
   },
  renderSlides(){const box=$("#slides");if(!box)return;
@@ -5682,7 +5687,7 @@ const Studio={
        return`<div class="sl" ${v?`draggable="true" data-i="${sl.idx}"`:""}><div class="num"><b>${String(n+1).padStart(2,"0")}</b>${v?`<button data-act="slmove" data-i="${sl.idx}" data-d="-1" aria-label="Move up">${ICON.up}</button><button data-act="slmove" data-i="${sl.idx}" data-d="1" aria-label="Move down">${ICON.down}</button>`:""}</div><div class="slwrap">${slideHTML(sl.ops,TPL[this.cfg.template]||TPL.adpulse)}${tools}</div></div>`}).join("")+
        (this.cfg.slides.some(s=>s.hidden)?`<div class="card pad"><b>Hidden slides</b><div class="chips" style="margin-top:8px">${this.cfg.slides.map((s,i)=>s.hidden?`<button class="chip" data-act="slshow" data-i="${i}">${esc(S.sites.find(x=>x.id===s.siteId)?.code||"?")} · show</button>`:"").join("")}</div></div>`:"");
       $$("[data-edit]",box).forEach(el=>el.addEventListener("blur",()=>{const[k,i]=el.dataset.edit.split(":");const txt=el.innerText.trim();if(k==="title")this.cfg.title=txt;else if(k==="subtitle")this.cfg.subtitle=txt;else if(k==="stitle")this.cfg.slides[+i].title=txt;else if(k==="snote")this.cfg.slides[+i].note=txt;else if(k==="sprice")this.cfg.slides[+i].price=txt;this.dirty()}));
-      const cnt=$("#slCount");if(cnt)cnt.textContent=`${deck.length} slides · ${this.visible().length} sites`;
+      const cnt=$("#slCount");if(cnt)cnt.textContent=c.onlySummary?`${deck.length} slides · Tabular Inventory Summary (${this.visible().length} sites)`:`${deck.length} slides · ${this.visible().length} sites`;
     }catch(err){
       console.error("[Studio.renderSlides]",err);
       box.innerHTML=`<div class="card pad" style="margin:20px;color:var(--bad)"><h3>Could not render slides</h3><p>${esc(err.message||err)}</p></div>`;
@@ -6064,6 +6069,8 @@ function vStudio(){
     `<div class="grid enter" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
      ${S.campaigns.map(c=>`<button class="card pad" data-act="campdeck" data-id="${c.id}" style="text-align:left;cursor:pointer;border-top:5px solid ${c.color}"><div class="eyebrow">From campaign</div><h3 style="font-size:18px;margin:4px 0">${esc(c.name)}</h3><span style="color:var(--muted);font-size:13px">${(c.siteIds||[]).length} sites · ${esc(c.client||"")}</span></button>`).join("")}
      <button class="card pad" data-act="availdeck" style="text-align:left;cursor:pointer;border-top:5px solid var(--ok)"><div class="eyebrow">From inventory</div><h3 style="font-size:18px;margin:4px 0">All available sites</h3><span style="color:var(--muted);font-size:13px">${S.sites.filter(s=>effStatus(s)==="available").length} sites, grouped by area</span></button>
+     <button class="card pad" data-act="summarydeck" style="text-align:left;cursor:pointer;border-top:5px solid var(--violet);background:linear-gradient(135deg,rgba(124,58,237,0.06),transparent)"><div class="eyebrow" style="color:var(--violet);font-weight:700">📊 Tabular Report</div><h3 style="font-size:18px;margin:4px 0">Only Inventory Summary Table</h3><span style="color:var(--muted);font-size:13px">All ${S.sites.length} sites tabular summary &amp; booking schedule</span></button>
+     <button class="card pad" data-act="summarydeck" data-status="available" style="text-align:left;cursor:pointer;border-top:5px solid #0E9F76;background:linear-gradient(135deg,rgba(14,159,118,0.06),transparent)"><div class="eyebrow" style="color:#0E9F76;font-weight:700">🟢 Available Summary Table</div><h3 style="font-size:18px;margin:4px 0">Available Sites Summary</h3><span style="color:var(--muted);font-size:13px">${S.sites.filter(s=>effStatus(s)==="available").length} available sites tabular schedule</span></button>
     </div>
     ${decks.length?`<div class="sec-h" style="margin-top:26px"><h2>Saved presentations</h2></div><div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">${decks.map(d=>`<div class="card pad row" style="align-items:flex-start"><div style="flex:1;min-width:0"><h3 style="font-size:16px">${esc(d.title)}</h3><span style="color:var(--muted);font-size:12px">v${d.version} · ${TPL[d.template]?.name} · ${ago(d.updatedAt)}</span></div><button class="btn sm" data-act="sharedeck" data-id="${d.id}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;vertical-align:middle;margin-right:2px"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Share</button><button class="btn sm" data-act="opendeck" data-id="${d.id}">Open</button><button class="btn sm ghost danger" data-act="deckdel" data-id="${d.id}" aria-label="Delete ${esc(d.title)}">${ICON.trash}</button></div>`).join("")}</div>`:""}`;
   }
@@ -6084,14 +6091,25 @@ function vStudio(){
   `<div class="studio"><div class="cfg">
     <button class="btn cfgt" data-act="cfgtoggle"><b>Deck settings ▾</b><span style="color:var(--muted);font-weight:600">${(TPL[c.template]||TPL.adpulse).name}</span></button>
     <div class="card pad grid setc" style="gap:14px"><div class="eyebrow">Source</div>
-     <div class="seg">${[["campaign","Campaign"],["filter","Filters"],["selection","Selection"]].map(([k,l])=>`<button class="${c.source.type===k?"on":""}" data-act="stsrc" data-v="${k}" ${k==="selection"&&!(c.source.ids||[]).length?"disabled":""}>${l}</button>`).join("")}</div>${srcSel}
+     <div class="seg" style="flex-wrap:wrap;gap:4px">${[["all",`All Sites (${S.sites.length})`],["campaign","Campaign"],["filter","Filters"],["selection","Selection"]].map(([k,l])=>`<button class="${c.source.type===k?"on":""}" data-act="stsrc" data-v="${k}" ${k==="selection"&&!(c.source.ids||[]).length?"disabled":""}>${l}</button>`).join("")}</div>${srcSel}
      <div class="eyebrow">Slide Layout</div>
-     <div class="seg" style="margin-bottom:2px">${[["split","📑 Executive Pitch (2-Col)"],["wide","🖼️ Widescreen Hero"]].map(([k,l])=>`<button class="${(c.layout||"split")===k?"on":""}" data-act="stlayout" data-v="${k}">${l}</button>`).join("")}</div>
+     <div class="seg" style="margin-bottom:2px">${[
+  ["split","📑 Executive (2-Col)"],
+  ["wide","🖼️ Widescreen Hero"],
+  ["summary","📊 Only Inventory Summary"]
+].map(([k,l])=>{
+  const isAct = k === "summary" ? !!c.onlySummary : (!c.onlySummary && (c.layout || "split") === k);
+  return `<button class="${isAct ? "on" : ""}" data-act="stlayout" data-v="${k}" style="${k==='summary'?'font-weight:700':''}">${l}</button>`;
+}).join("")}</div>
      <div class="eyebrow">Template</div>
      <div class="tpls">${Object.entries(TPL).map(([k,t])=>`<button class="tpl ${c.template===k?"on":""}" data-act="sttpl" data-v="${k}"><i style="background:linear-gradient(135deg,#${t.band} 55%,#${t.accent} 55% 80%,#${t.accent2} 80%)"></i><span>${t.name}</span></button>`).join("")}</div>
      <label class="f">Group slides by<select class="in" id="stGroup">${opt([["area","Area"],["vendor","Media Vendor"],["size","Size"],["status","Status"],["none","No grouping"]],c.groupBy)}</select></label>
      <div class="eyebrow">Show on site slides</div>
-     <div class="toggles">${FIELDS.map(([k,l])=>`<label><input type="checkbox" data-fld="${k}" ${c.fields[k]?"checked":""}>${l}</label>`).join("")}<label><input type="checkbox" id="stSum" ${c.summary?"checked":""}>Summary slide</label><label><input type="checkbox" id="stIdx" ${c.index?"checked":""}>Area index</label></div>
+     <div class="toggles">${FIELDS.map(([k,l])=>`<label><input type="checkbox" data-fld="${k}" ${c.fields[k]?"checked":""}>${l}</label>`).join("")}
+<label style="font-weight:700;color:var(--violet);grid-column:1/-1;background:rgba(124,58,237,0.08);padding:6px 10px;border-radius:8px;display:flex;align-items:center;gap:6px;cursor:pointer"><input type="checkbox" id="stOnlySummary" ${c.onlySummary?"checked":""} style="width:17px;height:17px;accent-color:var(--violet)">📊 Only Inventory Summary Table (Hide individual site photo slides)</label>
+<label><input type="checkbox" id="stCover" ${!c.hideCover?"checked":""}>Cover slide</label>
+<label><input type="checkbox" id="stSum" ${c.summary?"checked":""}>Summary slide</label>
+<label><input type="checkbox" id="stIdx" ${c.index?"checked":""}>Area index</label></div>
     </div>
     <div class="card pad grid" style="gap:10px">
       <button class="btn pri" data-act="export" data-v="pptx" style="justify-content:center">${ICON.dl}Export PowerPoint</button>
@@ -7128,9 +7146,9 @@ const ACT={
  newdeck:()=>Studio.open(S.campaigns.length?{type:"campaign",campaignId:S.campaigns[0].id}:{type:"filter"}),
  opendeck:a=>Studio.load(S.decks.find(d=>d.id===a.dataset.id)),
  closedeck:()=>{Studio.active=false;render(true)},
- stsrc:a=>{const c=Studio.cfg;const t=a.dataset.v;c.source=t==="campaign"?{type:t,campaignId:S.campaigns[0]?.id||""}:t==="filter"?{type:t}:{...c.source,type:t};c.title="";c.subtitle="";c.slides=[];rebuildStudio()},
+ stsrc:a=>{const c=Studio.cfg;const t=a.dataset.v;c.source=t==="all"?{type:"all"}:t==="campaign"?{type:t,campaignId:S.campaigns[0]?.id||""}:t==="filter"?{type:t}:{...c.source,type:t};c.title="";c.subtitle="";c.slides=[];rebuildStudio()},
  sttpl:a=>{Studio.cfg.template=a.dataset.v;$$(".tpl").forEach(b=>b.classList.toggle("on",b===a));Studio.renderSlides();Studio.dirty()},
- stlayout:a=>{Studio.cfg.layout=a.dataset.v;$$("[data-act='stlayout']").forEach(b=>b.classList.toggle("on",b===a));Studio.renderSlides();Studio.dirty()},
+ stlayout:a=>{const v=a.dataset.v;if(v==="summary"){Studio.cfg.onlySummary=true}else{Studio.cfg.onlySummary=false;Studio.cfg.layout=v}$("[data-act='stlayout']").forEach(b=>b.classList.toggle("on",b===a));Studio.renderSlides();Studio.dirty()},
  slmove:a=>{const i=+a.dataset.i,d=+a.dataset.d,s=Studio.cfg.slides;let j=i+d;while(j>=0&&j<s.length&&s[j].hidden)j+=d;if(j<0||j>=s.length)return;[s[i],s[j]]=[s[j],s[i]];Studio.renderSlides();Studio.dirty()},
  slhide:a=>{Studio.cfg.slides[+a.dataset.i].hidden=true;Studio.renderSlides();Studio.dirty()},
  slshow:a=>{Studio.cfg.slides[+a.dataset.i].hidden=false;Studio.renderSlides();Studio.dirty()},
@@ -7187,7 +7205,43 @@ const ACT={
       }
     },"Remove");
   },
- savedeck:async()=>{const c=Studio.cfg;c.version=(c.version||0)+1;try{await put("decks",c);toast(`Saved ${c.title} v${c.version}`);const b=$("#saveDeck");if(b)b.textContent="Save version"}catch(e){toast("Couldn't save: "+e.message)}},
+ summarydeck:a=>{
+  const statusFilter = a.dataset?.status || "";
+  const vendorFilter = a.dataset?.vendor || "";
+  let src = { type: (statusFilter || vendorFilter) ? "filter" : "all" };
+  if (statusFilter) src.status = statusFilter;
+  if (vendorFilter) src.vendor = vendorFilter;
+  let title = "Inventory Summary & Booking Schedule";
+  let subtitle = "Tabular inventory specifications, availability & booking duration";
+  if (statusFilter === "available") {
+    title = "Available & Upcoming Sites - Karachi";
+    subtitle = "Sites ready for immediate booking or upcoming free schedule";
+  } else if (statusFilter === "booked") {
+    title = "Currently Booked Sites Portfolio";
+    subtitle = "Active billboard deployments & campaign bookings with duration";
+  } else if (vendorFilter) {
+    title = `${vendorFilter} - Inventory Summary & Booking Schedule`;
+    subtitle = "Vendor inventory specifications, availability & booking duration";
+  }
+  Studio.cfg = Studio.fresh(src);
+  Studio.cfg.title = title;
+  Studio.cfg.subtitle = subtitle;
+  Studio.cfg.summary = true;
+  Studio.cfg.onlySummary = true;
+  Studio.cfg.fields.vendor = true;
+  Studio.build();
+  Studio.active = true;
+  location.hash = "studio";
+  if (typeof go === "function") go("studio", true);
+  toast(`Opening Tabular ${title}…`);
+},
+stonlysummary:()=>{
+  Studio.cfg.onlySummary = !Studio.cfg.onlySummary;
+  Studio.renderSlides();
+  Studio.dirty();
+  toast(Studio.cfg.onlySummary ? "Showing Only Inventory Summary Table" : "Showing Full Presentation with Site Photos");
+},
+savedeck:async()=>{const c=Studio.cfg;c.version=(c.version||0)+1;try{await put("decks",c);toast(`Saved ${c.title} v${c.version}`);const b=$("#saveDeck");if(b)b.textContent="Save version"}catch(e){toast("Couldn't save: "+e.message)}},
  csv:async()=>{const h=["Code","Area","From","Towards","Width ft","Height ft","Type","Light","Status","Brand","Booked till","Lat","Lng","Photos","Maps link"];const rows=S.sites.map(s=>[s.code,s.area,s.from,s.towards,s.widthFt,s.heightFt,s.media,s.light,STATUS[effStatus(s)],s.brand,s.bookedTill,s.lat,s.lng,(s.photos||[]).length,mapsUrl(s)]);const csv=[h,...rows].map(r=>r.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\n");if(!downloads){toast("Downloads aren't available in this view");return}try{await downloads.save({filename:"sitesnap-sites.csv",data:csv})}catch(e){if(e.code!=="declined")toast("Couldn't save: "+(e.message||e.code))}},
  uploaddeck:()=>openDeckUploader(),
  kpimaster:()=>openMasterDeck("all"),
@@ -7229,6 +7283,22 @@ document.addEventListener("change",e=>{const t=e.target;
  if(t.id==="stGroup"){Studio.cfg.groupBy=t.value;Studio.cfg.slides=[];rebuildStudio()}
  if(t.dataset.fld){Studio.cfg.fields[t.dataset.fld]=t.checked;Studio.renderSlides();Studio.dirty()}
  if(t.id==="stSum"){Studio.cfg.summary=t.checked;Studio.renderSlides()}
+ if(t.id==="stOnlySummary"){
+   Studio.cfg.onlySummary = t.checked;
+   $("[data-act='stlayout']").forEach(b => {
+     if (b.dataset.v === "summary") b.classList.toggle("on", t.checked);
+     else if (!t.checked && b.dataset.v === (Studio.cfg.layout || "split")) b.classList.add("on");
+     else b.classList.remove("on");
+   });
+   Studio.renderSlides();
+   Studio.dirty();
+   toast(t.checked ? "Showing ONLY Inventory Summary Table" : "Showing Full Presentation with Site Photos");
+ }
+ if(t.id==="stCover"){
+   Studio.cfg.hideCover = !t.checked;
+   Studio.renderSlides();
+   Studio.dirty();
+ }
  if(t.id==="stIdx"){Studio.cfg.index=t.checked;Studio.renderSlides()}
 });
 document.addEventListener("input",e=>{if(e.target.id==="fq"){F.q=e.target.value;clearTimeout(window._fq);window._fq=setTimeout(()=>{render(true);const i=$("#fq");i.focus();i.setSelectionRange(i.value.length,i.value.length)},250)}});
