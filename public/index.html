@@ -1342,7 +1342,7 @@ body.client .tabs{display:none}
 <script src="/claude-shim.js?v=3.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="/master_sites_2026.js?v=33.0"></script>
+  <script src="/master_sites_2026.js?v=34.0"></script>
 </head>
 <body>
 
@@ -1489,6 +1489,7 @@ function thumbOf(s){if(!s)return"";const p=lastImg(s);return photoSrc(p)||placeh
 function mediaTag(p,s,extra=""){const src=esc(photoSrc(p));return isVid(p)?`<video src="${src}#t=0.5" muted playsinline preload="metadata" ${extra}></video>`:`<img src="${src}" alt="" data-sid="${s?s.id:""}" onerror="phFix(this)" ${extra}>`}
 const mediaCount=s=>{const n=(s.photos||[]).length,v=vidCount(s);return n?`${n-v?`${n-v} photo${n-v>1?"s":""}`:""}${n-v&&v?" · ":""}${v?`${v} video${v>1?"s":""}`:""}`:""};
 const campOf=id=>S.campaigns.find(c=>c.id===id);
+const siteOf=id=>S.sites.find(s=>s&&(s.id===id||s.code===id))||null;
 const siteCamps=s=>S.campaigns.filter(c=>(c.siteIds||[]).includes(s.id));
 const mapsUrl=s=>(s.lat&&s.lng)?`https://www.google.com/maps?q=${s.lat},${s.lng}`:"";
 
@@ -1564,8 +1565,9 @@ async function boot(){
       const toSync = [];
       activeSites = activeSites.map(s => {
         const m = mMap.get(s.id);
-        if (m && s.masterRev !== "2026.6") {
-          const merged = { ...s, ...m, masterRev: "2026.6" };
+        const hasBadImg = !s.photos || !s.photos.length || s.photos[0].src === "/deck-media/image3.jpg" || s.photos[0].src === "/deck-media/image1.png";
+        if (m && (s.masterRev !== "2026.7" || hasBadImg)) {
+          const merged = { ...s, ...m, photos: m.photos, masterRev: "2026.7" };
           toSync.push(merged);
           return merged;
         }
@@ -1647,7 +1649,7 @@ function changed(){if(route==="studio"&&Studio.active){render(true)}else{render(
 function startLocal(){
   S.mode="local";ROLE="team";local=ls.get("sitesnap-local",{sites:[],campaigns:[],decks:[],settings:null,clients:[]});
   S.sites=local.sites;S.campaigns=local.campaigns;
-  const MASTER_REV = "2026.6";
+  const MASTER_REV = "2026.7";
   if (window.MASTER_SITES_2026 && (!S.sites || S.sites.length !== 84 || local.masterRev !== MASTER_REV)) {
     console.log("Upgrading to 2026 Master Dataset: exactly 84 sites & 12 client campaigns...");
     S.sites = window.MASTER_SITES_2026;
@@ -1778,7 +1780,7 @@ function go(r,silent){
 }
 window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
 
-function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v10.3</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
+function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v10.4</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
 
 let lastRoute=null;
 function render(anim){
@@ -4749,6 +4751,9 @@ function campCard(c){
    <div class="bd"><svg class="ring" viewBox="0 0 84 84"><circle cx="42" cy="42" r="36" stroke="var(--surface2)"/><circle class="fg" cx="42" cy="42" r="36" stroke="${c.color||"#7C3AED"}" stroke-dasharray="${C}" stroke-dashoffset="${C}" data-off="${C*(1-pct/100)}"/><text x="42" y="46" text-anchor="middle" font-family="Bricolage Grotesque" font-weight="800" font-size="18" fill="var(--ink)">${pct}%</text></svg>
     <div class="stats"><div><b>${sites.length}</b>Sites</div><div><b>${done}/${sites.length}</b>Monitored</div><div><b>${(()=>{const o=sites.reduce((a,x)=>a+otsOf(x),0);return o?"~"+fmtK(o):areas.length})()}</b>${sites.some(x=>otsOf(x))?"Daily OTS":"Areas"}</div><div><b>${left==null?"—":left<0?"Ended":left}</b>${left!=null&&left>=0?"Days left":"Status"}</div></div></div>
    ${timeline(c)}
+   <div style="padding:0 18px 8px;display:flex;gap:6px;overflow-x:auto">
+     ${sites.map(s=>`<div data-act="site" data-id="${s.id}" title="S#${s.sNo||''} · ${esc(s.code)} · ${esc(s.name)}" style="flex:none;width:54px;cursor:pointer;text-align:center"><img src="${esc(thumbOf(s))}" alt="${esc(s.code)}" loading="lazy" data-sid="${s.id}" onerror="phFix(this)" style="width:54px;height:36px;object-fit:cover;border-radius:6px;border:1px solid var(--border);display:block"><span class="mono" style="font-size:9px;font-weight:800;color:var(--ink)">${esc(s.code)}</span></div>`).join("")}
+   </div>
    <div style="padding:0 18px 12px;font-size:12px;color:var(--muted);font-weight:600">${areas.slice(0,5).map(esc).join(" · ")||"No sites added yet"}</div>
    <div class="ft"><button class="btn sm pri" data-act="camppresentation" data-id="${c.id}" style="background:linear-gradient(135deg,#D9161D,#F26A21);color:#fff;font-weight:700">📊 Presentation</button><button class="btn sm" data-act="campsites" data-id="${c.id}">View sites</button><button class="btn sm" data-act="editcamp" data-id="${c.id}">Edit</button><span class="sp"></span><button class="btn sm" data-act="sharecamp" data-id="${c.id}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;vertical-align:middle;margin-right:4px"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Share link</button><button class="btn sm pri" data-act="campdeck" data-id="${c.id}">${ICON.deck}Generate deck</button></div></article>`;
 }
@@ -5354,8 +5359,11 @@ function vVendors() {
 
           <div>
             <small style="font-size:10.5px;color:var(--muted);font-weight:700;text-transform:uppercase;display:block;margin-bottom:5px">Billboards & Sites in Portfolio (${v.sites.length}):</small>
-            <div style="display:flex;flex-wrap:wrap;gap:4px;max-height:68px;overflow-y:auto">
-              ${v.sites.map(s => `<span class="tag ${s.status === 'available' ? 'st-available' : 'st-booked'}" style="font-size:10.5px;font-weight:700;font-family:var(--mono);padding:2px 6px;cursor:pointer" data-act="site" data-id="${s.id}" title="${esc(s.name)} · ${esc(s.area)}">${s.code}</span>`).join('')}
+            <div style="display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:6px">
+              ${v.sites.map(s => `<div data-act="site" data-id="${s.id}" title="S#${s.sNo||''} · ${esc(s.code)} · ${esc(s.name)}" style="flex:none;width:56px;cursor:pointer;text-align:center"><img src="${esc(thumbOf(s))}" alt="${esc(s.code)}" loading="lazy" data-sid="${s.id}" onerror="phFix(this)" style="width:56px;height:38px;object-fit:cover;border-radius:6px;border:1px solid var(--border);display:block"><span class="mono" style="font-size:9.5px;font-weight:800;color:var(--ink)">${esc(s.code)}</span></div>`).join('')}
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;max-height:54px;overflow-y:auto">
+              ${v.sites.map(s => `<span class="tag ${s.status === 'available' ? 'st-available' : 'st-booked'}" style="font-size:10.5px;font-weight:700;font-family:var(--mono);padding:2px 6px;cursor:pointer" data-act="site" data-id="${s.id}" title="${esc(s.name)} · ${esc(s.area)}">S#${s.sNo||''}·${s.code}</span>`).join('')}
             </div>
           </div>
         </div>
@@ -5404,7 +5412,7 @@ async function sync2026MasterData(notify = true) {
     let sites = window.MASTER_SITES_2026;
     let campaigns = window.MASTER_CAMPAIGNS_2026;
     if (!sites || !sites.length) {
-      const res = await fetch("/master_sites_2026.js?v=33.0on");
+      const res = await fetch("/master_sites_2026.js?v=34.0on");
       sites = await res.json();
     }
     if (!campaigns || !campaigns.length) {
@@ -5809,7 +5817,7 @@ const Studio={
    if(!c.title){const cp=c.source.type==="campaign"?campOf(c.source.campaignId):null;c.title=cp?cp.name:c.source.type==="filter"?`${c.source.area||"Karachi"} ${c.source.status==="available"?"Available ":""}Sites`:"Site Proposal"}
    if(!c.subtitle){const cp=c.source.type==="campaign"?campOf(c.source.campaignId):null;c.subtitle=cp?.client?`Prepared for ${cp.client}`:"OOH site presentation"}},
  mount(){if(!this.cfg)return;if((!this.cfg.slides||!this.cfg.slides.length)&&(S.sites.length||(this.cfg.sitesData&&this.cfg.sitesData.length))){this.build()}this.renderSlides();this.bindDnD()},
- siteOf(id){if(!id)return null;return (this.cfg?.sitesData||[]).find(x=>x&&(x.id===id||x.code===id))||S.sites.find(x=>x&&(x.id===id||x.code===id))||null},
+ siteOf(id){if(!id)return null;const live=S.sites.find(x=>x&&(x.id===id||x.code===id));const cached=(this.cfg?.sitesData||[]).find(x=>x&&(x.id===id||x.code===id));return live?{...(cached||{}),...live,photos:(live.photos&&live.photos.length)?live.photos:(cached?.photos||[])}:(cached||null)},
   visible(){return (this.cfg?.slides||[]).filter(s=>!s.hidden&&this.siteOf(s.siteId))},
 
 
@@ -6517,7 +6525,7 @@ document.addEventListener("submit",async e=>{if(e.target.id!=="reqForm")return;e
 function vSettings(){const s=S.settings;const hasSample=S.sites.some(x=>x.sample)||S.campaigns.some(x=>x.sample);
   return pgTop("Settings","Branding for watermarks and presentations")+`<div class="grid" style="max-width:720px">
   <div class="card pad grid" style="gap:14px">
-  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v10.3 PWA Ready</span></div>
+  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v10.4 PWA Ready</span></div>
   <p style="margin:0;color:var(--muted);font-size:13px">Install AdPulse OTS on iPhone, iPad, Android or PC for fast offline access, full-screen Google 3D maps, and 1-tap camera upload with GPS.</p>
   <div class="row" style="gap:10px;flex-wrap:wrap">
     <button class="btn pri" data-act="installios" style="flex:1;min-width:180px;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>Install on iPhone / iPad (iOS)</button>
@@ -6702,7 +6710,7 @@ function showMobileUpdateBanner(){
   const b = document.createElement('div');
   b.id = 'mobileUpdateBanner';
   b.style.cssText = 'position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:9999;background:linear-gradient(135deg,#0c0917,#1b1238);color:#fff;padding:8px 16px;border-radius:9999px;box-shadow:0 8px 24px rgba(0,0,0,0.5);border:1px solid #38bdf8;display:flex;align-items:center;gap:10px;font-size:12.5px;max-width:calc(100% - 24px);';
-  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v10.3)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
+  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v10.4)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
   document.body.appendChild(b);
 }
 
@@ -6721,7 +6729,7 @@ function openInstallModal(forceType){
                 <h2 style="font-size:18px;margin:0">AdPulse OTS App</h2>
                 <span class="pill st-available" style="font-size:10px;padding:2px 8px">🟢 Running as App</span>
               </div>
-              <div style="font-size:12px;color:var(--muted);margin-top:2px">v10.3 (Android &amp; iOS Standalone)</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px">v10.4 (Android &amp; iOS Standalone)</div>
             </div>
             <span class="sp"></span>
             <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
@@ -6807,7 +6815,7 @@ function openInstallModal(forceType){
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
           <img src="/icons/icon-192.png" alt="AdPulse OTS" style="width:48px;height:48px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.2)">
           <div>
-            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v10.3)</h2>
+            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v10.4)</h2>
             <div style="font-size:12px;color:var(--muted)">Google 3D Maps &amp; 97 Verified Media Sites</div>
           </div>
           <span class="sp"></span>
@@ -7321,7 +7329,7 @@ const ACT={
  rmshot:a=>{shots=shots.filter(s=>s.id!==a.dataset.id);renderThumbs();renderSiteAgent()},retryq:retryQueue,clearq:async()=>{queue=[];await QDB.clear();render(true);toast("Queue cleared")},
  newcamp:()=>openCamp(null),editcamp:a=>openCamp(a.dataset.id),
  campdel:a=>{const c=campOf(a.dataset.id);confirmBox(`Delete campaign "${c.name}"? Sites stay in inventory.`,async()=>{const copy=JSON.parse(JSON.stringify(c));await del("campaigns",c.id);toast("Campaign deleted",()=>put("campaigns",copy))})},
- campsites:a=>{Object.keys(F).forEach(k=>F[k]="");F.campaign=a.dataset.id;location.hash="sites"},
+ campsites:a=>{Object.keys(F).forEach(k=>F[k]="");F.campaign=a.dataset.id;location.hash="sites";go("sites",true)},
  campdeck:a=>Studio.open({type:"campaign",campaignId:a.dataset.id}),
  availdeck:()=>Studio.open({type:"filter",status:"available"},"Available OOH Sites"),
  newdeck:()=>Studio.open(S.campaigns.length?{type:"campaign",campaignId:S.campaigns[0].id}:{type:"filter"}),
@@ -7432,7 +7440,7 @@ savedeck:async()=>{const c=Studio.cfg;c.version=(c.version||0)+1;try{await put("
  sync2026:()=>sync2026MasterData(true),
  kpivendors:()=>{location.hash="vendors";go("vendors")},
  vendorpresentation:(a)=>{const v=a.dataset.vendor;if(v)openVendorDeck(v)},
- vendorinventory:(a)=>{const v=a.dataset.vendor;if(!v)return;F.vendor=v;location.hash="sites";go("sites");toast(`Showing sites for vendor: ${v}`)},
+ vendorinventory:(a)=>{const v=a.dataset.vendor;if(!v)return;Object.keys(F).forEach(k=>F[k]="");F.vendor=v;location.hash="sites";go("sites",true);toast(`Showing sites for vendor: ${v}`)},
  mastervendordeck:()=>openMasterVendorDeck(),
  camppresentation:(a)=>{
    const id = a.dataset.id;
@@ -7498,7 +7506,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=33.0").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=34.0").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
@@ -7515,7 +7523,7 @@ if("serviceWorker" in navigator){
           });
         }
       });
-      console.log("AdPulse OTS PWA active (v10.3):",r.scope);
+      console.log("AdPulse OTS PWA active (v10.4):",r.scope);
     }).catch(err=>{
       console.warn("PWA ServiceWorker registration failed:",err);
     });

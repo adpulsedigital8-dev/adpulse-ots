@@ -1,4 +1,4 @@
-// AdPulse OTS - 2026 Master Sites & Client-Wise Campaigns Dataset (Synced 100% with DATA OOH SITES.xlsx & ADPULSE - SITE PRESENTATION-2026.pptx)
+// AdPulse OTS - 2026 Master Sites & Client-Wise Campaigns Dataset (Synced 100% with DATA OOH SITES.xlsx & Folder PPTX Decks)
 window.MASTER_SITES_2026 = [
   {
     "id": "site-2026-001",
@@ -69,7 +69,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-002",
@@ -140,7 +140,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-003",
@@ -211,7 +211,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-004",
@@ -282,7 +282,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-005",
@@ -353,7 +353,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-006",
@@ -424,7 +424,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "DEPT ISSUE",
     "excelStatus": "DEPT ISSUE",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-007",
@@ -495,7 +495,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-008",
@@ -566,7 +566,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-009",
@@ -637,7 +637,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-010",
@@ -708,7 +708,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-011",
@@ -779,7 +779,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-012",
@@ -850,7 +850,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END",
     "excelStatus": "WILL BE END",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-013",
@@ -921,7 +921,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-014",
@@ -992,7 +992,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-015",
@@ -1063,7 +1063,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "Long Term",
     "excelStatus": "Long Term",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-016",
@@ -1106,9 +1106,9 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-16",
-        "src": "/deck-media/image3.jpg",
-        "url": "/deck-media/image3.jpg",
-        "at": "2026-11-17",
+        "src": "/deck-media/ppt_s16_rjmall.jpg",
+        "url": "/deck-media/ppt_s16_rjmall.jpg",
+        "at": "2026-11-20",
         "caption": "RJ MALL  TGT NIPA - S#16"
       }
     ],
@@ -1134,7 +1134,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "DEPT ISSUE",
     "excelStatus": "DEPT ISSUE",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-017",
@@ -1205,7 +1205,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-018",
@@ -1276,7 +1276,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-019",
@@ -1347,7 +1347,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END",
     "excelStatus": "WILL BE END",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-020",
@@ -1390,9 +1390,9 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-20",
-        "src": "/deck-media/image3.jpg",
-        "url": "/deck-media/image3.jpg",
-        "at": "2026-11-17",
+        "src": "/deck-media/ppt_s20_macdonald1.png",
+        "url": "/deck-media/ppt_s20_macdonald1.png",
+        "at": "2026-11-20",
         "caption": "SHAHRAH E FAISAL MACDONALDS BRIDGE - S#20"
       }
     ],
@@ -1418,7 +1418,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "DEPT ISSUE",
     "excelStatus": "DEPT ISSUE",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-021",
@@ -1489,7 +1489,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-022",
@@ -1560,7 +1560,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-023",
@@ -1631,7 +1631,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-024",
@@ -1702,7 +1702,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END",
     "excelStatus": "WILL BE END",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-025",
@@ -1773,7 +1773,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-026",
@@ -1844,7 +1844,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-027",
@@ -1915,7 +1915,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-028",
@@ -1986,7 +1986,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-029",
@@ -2057,7 +2057,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-030",
@@ -2128,7 +2128,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-031",
@@ -2199,7 +2199,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END",
     "excelStatus": "WILL BE END",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-032",
@@ -2242,9 +2242,16 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-32",
-        "src": "/deck-media/image3.jpg",
-        "url": "/deck-media/image3.jpg",
-        "at": "2026-11-17",
+        "src": "/deck-media/ppt_s32_malircantt.png",
+        "url": "/deck-media/ppt_s32_malircantt.png",
+        "at": "2026-11-20",
+        "caption": "MALIR CANTT - S#32"
+      },
+      {
+        "id": "photo-2026-32-2",
+        "src": "/deck-media/image83.png",
+        "url": "/deck-media/image83.png",
+        "at": "2026-11-20",
         "caption": "MALIR CANTT - S#32"
       }
     ],
@@ -2270,7 +2277,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END",
     "excelStatus": "WILL BE END",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-033",
@@ -2341,7 +2348,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-034",
@@ -2384,9 +2391,9 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-34",
-        "src": "/deck-media/image3.jpg",
-        "url": "/deck-media/image3.jpg",
-        "at": "2026-11-17",
+        "src": "/deck-media/ppt_s34_shafiqmor.jpg",
+        "url": "/deck-media/ppt_s34_shafiqmor.jpg",
+        "at": "2026-11-20",
         "caption": "SHAFIQ MOR TGT NAGAN - S#34"
       }
     ],
@@ -2412,7 +2419,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-035",
@@ -2483,7 +2490,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-036",
@@ -2554,7 +2561,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-037",
@@ -2625,7 +2632,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-038",
@@ -2696,7 +2703,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-039",
@@ -2767,7 +2774,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-040",
@@ -2838,7 +2845,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-041",
@@ -2909,7 +2916,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-042",
@@ -2980,7 +2987,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-043",
@@ -3051,7 +3058,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-044",
@@ -3122,7 +3129,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-045",
@@ -3193,7 +3200,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-046",
@@ -3264,7 +3271,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-047",
@@ -3335,7 +3342,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-048",
@@ -3406,7 +3413,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-049",
@@ -3477,7 +3484,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-050",
@@ -3548,7 +3555,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-051",
@@ -3619,7 +3626,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-052",
@@ -3662,9 +3669,9 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-52",
-        "src": "/deck-media/image1.png",
-        "url": "/deck-media/image1.png",
-        "at": "2026-11-17",
+        "src": "/deck-media/ppt_s52_rjmall2.jpg",
+        "url": "/deck-media/ppt_s52_rjmall2.jpg",
+        "at": "2026-11-20",
         "caption": "RJ MALL TGT SHAHRAH E FAISAL - S#52"
       }
     ],
@@ -3690,7 +3697,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "DEPT ISSUE",
     "excelStatus": "DEPT ISSUE",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-053",
@@ -3733,9 +3740,9 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-53",
-        "src": "/deck-media/image3.jpg",
-        "url": "/deck-media/image3.jpg",
-        "at": "2026-11-17",
+        "src": "/deck-media/image13.png",
+        "url": "/deck-media/image13.png",
+        "at": "2026-11-20",
         "caption": "KARSAZ ROAD BRIDGE  TGT STADIUM - S#53"
       }
     ],
@@ -3761,7 +3768,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-054",
@@ -3832,7 +3839,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-055",
@@ -3903,7 +3910,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-056",
@@ -3946,9 +3953,9 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-56",
-        "src": "/deck-media/image3.jpg",
-        "url": "/deck-media/image3.jpg",
-        "at": "2026-11-17",
+        "src": "/deck-media/image79.png",
+        "url": "/deck-media/image79.png",
+        "at": "2026-11-20",
         "caption": "CIVIC CENTER 02 - S#56"
       }
     ],
@@ -3974,7 +3981,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-057",
@@ -4017,9 +4024,9 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-57",
-        "src": "/deck-media/image3.jpg",
-        "url": "/deck-media/image3.jpg",
-        "at": "2026-11-17",
+        "src": "/deck-media/ppt_s57_essanagri.png",
+        "url": "/deck-media/ppt_s57_essanagri.png",
+        "at": "2026-11-20",
         "caption": "ESSA NAGRI - S#57"
       }
     ],
@@ -4045,7 +4052,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-058",
@@ -4116,7 +4123,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-059",
@@ -4159,9 +4166,16 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-59",
-        "src": "/deck-media/image3.jpg",
-        "url": "/deck-media/image3.jpg",
-        "at": "2026-11-17",
+        "src": "/deck-media/ppt_s59_timemedicos.png",
+        "url": "/deck-media/ppt_s59_timemedicos.png",
+        "at": "2026-11-20",
+        "caption": "TIME MEDICOS HOARDING - S#59"
+      },
+      {
+        "id": "photo-2026-59-2",
+        "src": "/deck-media/image56.png",
+        "url": "/deck-media/image56.png",
+        "at": "2026-11-20",
         "caption": "TIME MEDICOS HOARDING - S#59"
       }
     ],
@@ -4187,7 +4201,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "ISSUE",
     "excelStatus": "ISSUE",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-060",
@@ -4258,7 +4272,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-061",
@@ -4329,7 +4343,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-062",
@@ -4372,9 +4386,9 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-62",
-        "src": "/deck-media/image3.jpg",
-        "url": "/deck-media/image3.jpg",
-        "at": "2026-11-17",
+        "src": "/deck-media/ppt_s62_luckyone.png",
+        "url": "/deck-media/ppt_s62_luckyone.png",
+        "at": "2026-11-20",
         "caption": "RASHID MINHAS ROAD OPP LUCKYONE - S#62"
       }
     ],
@@ -4400,7 +4414,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-063",
@@ -4443,9 +4457,16 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-63",
-        "src": "/deck-media/image3.jpg",
-        "url": "/deck-media/image3.jpg",
-        "at": "2026-11-17",
+        "src": "/deck-media/ppt_s63_karsazstadium.png",
+        "url": "/deck-media/ppt_s63_karsazstadium.png",
+        "at": "2026-11-20",
+        "caption": "KARSAZ NEAR NATIONAL STADIUM - S#63"
+      },
+      {
+        "id": "photo-2026-63-2",
+        "src": "/deck-media/image72.png",
+        "url": "/deck-media/image72.png",
+        "at": "2026-11-20",
         "caption": "KARSAZ NEAR NATIONAL STADIUM - S#63"
       }
     ],
@@ -4471,7 +4492,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-064",
@@ -4542,7 +4563,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-065",
@@ -4585,9 +4606,16 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-65",
-        "src": "/deck-media/image3.jpg",
-        "url": "/deck-media/image3.jpg",
-        "at": "2026-11-17",
+        "src": "/deck-media/ppt_s65_drighroad.png",
+        "url": "/deck-media/ppt_s65_drighroad.png",
+        "at": "2026-11-20",
+        "caption": "SHAHRAH E FAISAL DRIG ROAD TURNING - S#65"
+      },
+      {
+        "id": "photo-2026-65-2",
+        "src": "/deck-media/ppt_s65_drighroad2.png",
+        "url": "/deck-media/ppt_s65_drighroad2.png",
+        "at": "2026-11-20",
         "caption": "SHAHRAH E FAISAL DRIG ROAD TURNING - S#65"
       }
     ],
@@ -4613,7 +4641,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "DEPT ISSUE",
     "excelStatus": "DEPT ISSUE",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-066",
@@ -4656,9 +4684,9 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-66",
-        "src": "/deck-media/image3.jpg",
-        "url": "/deck-media/image3.jpg",
-        "at": "2026-11-17",
+        "src": "/deck-media/ppt_s66_macdonald2.png",
+        "url": "/deck-media/ppt_s66_macdonald2.png",
+        "at": "2026-11-20",
         "caption": "SHAHRAH E FAISAL MACDONALDS BRIDGE - S#66"
       }
     ],
@@ -4684,7 +4712,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "DEPT ISSUE",
     "excelStatus": "DEPT ISSUE",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-067",
@@ -4755,7 +4783,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-068",
@@ -4826,7 +4854,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-069",
@@ -4897,7 +4925,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-070",
@@ -4968,7 +4996,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-071",
@@ -5039,7 +5067,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-072",
@@ -5110,7 +5138,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-073",
@@ -5181,7 +5209,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-074",
@@ -5252,7 +5280,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-075",
@@ -5323,7 +5351,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-076",
@@ -5394,7 +5422,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-077",
@@ -5465,7 +5493,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-078",
@@ -5508,9 +5536,9 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-78",
-        "src": "/deck-media/image3.jpg",
-        "url": "/deck-media/image3.jpg",
-        "at": "2026-11-17",
+        "src": "/deck-media/image88.png",
+        "url": "/deck-media/image88.png",
+        "at": "2026-11-20",
         "caption": "FTC FLYOVER - S#78"
       }
     ],
@@ -5536,7 +5564,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-079",
@@ -5607,7 +5635,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-080",
@@ -5678,7 +5706,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-081",
@@ -5721,9 +5749,9 @@ window.MASTER_SITES_2026 = [
     "photos": [
       {
         "id": "photo-2026-81",
-        "src": "/deck-media/image3.jpg",
-        "url": "/deck-media/image3.jpg",
-        "at": "2026-11-17",
+        "src": "/deck-media/image76.jpg",
+        "url": "/deck-media/image76.jpg",
+        "at": "2026-11-20",
         "caption": "CSD SIGNAL - S#81"
       }
     ],
@@ -5749,7 +5777,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-082",
@@ -5820,7 +5848,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-083",
@@ -5865,7 +5893,14 @@ window.MASTER_SITES_2026 = [
         "id": "photo-2026-83",
         "src": "/deck-media/image78.png",
         "url": "/deck-media/image78.png",
-        "at": "2026-11-17",
+        "at": "2026-11-20",
+        "caption": "DHA CREEK WALK INSIDE - S#83"
+      },
+      {
+        "id": "photo-2026-83-2",
+        "src": "/deck-media/image75.png",
+        "url": "/deck-media/image75.png",
+        "at": "2026-11-20",
         "caption": "DHA CREEK WALK INSIDE - S#83"
       }
     ],
@@ -5891,7 +5926,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   },
   {
     "id": "site-2026-084",
@@ -5936,7 +5971,21 @@ window.MASTER_SITES_2026 = [
         "id": "photo-2026-84",
         "src": "/deck-media/image73.png",
         "url": "/deck-media/image73.png",
-        "at": "2026-11-17",
+        "at": "2026-11-20",
+        "caption": "DHA CREEK WALK - S#84"
+      },
+      {
+        "id": "photo-2026-84-2",
+        "src": "/deck-media/image69.png",
+        "url": "/deck-media/image69.png",
+        "at": "2026-11-20",
+        "caption": "DHA CREEK WALK - S#84"
+      },
+      {
+        "id": "photo-2026-84-3",
+        "src": "/deck-media/image80.png",
+        "url": "/deck-media/image80.png",
+        "at": "2026-11-20",
         "caption": "DHA CREEK WALK - S#84"
       }
     ],
@@ -5962,7 +6011,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "",
-    "masterRev": "2026.6"
+    "masterRev": "2026.7"
   }
 ];
 window.MASTER_CAMPAIGNS_2026 = [
