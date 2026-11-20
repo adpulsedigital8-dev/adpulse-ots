@@ -1342,7 +1342,8 @@ body.client .tabs{display:none}
 <script src="/claude-shim.js?v=3.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="/master_sites_2026.js?v=35.0"></script>
+  <script src="/master_sites_2026.js?v=36.0"></script>
+  <script src="/vendor_preview_2026.js?v=36.0"></script>
 </head>
 <body>
 
@@ -1440,7 +1441,7 @@ const ICON={
  more:'<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>',
  img:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg>'
 };
-const NAV=[["dashboard","Dashboard","dash"],["capture","Capture","cam"],["sites","Sites","sites"],["campaigns","Campaigns","camp"],["vendors","Vendors","users"],["studio","Presentations","deck"],["clients","Clients","users"],["settings","Settings","gear"]];
+const NAV=[["dashboard","Dashboard","dash"],["capture","Capture","cam"],["sites","Sites","sites"],["campaigns","Campaigns","camp"],["vendors","Vendor Booked Site","users"],["vendors-preview","Vendors Sites Preview","img"],["studio","Presentations","deck"],["clients","Clients","users"],["settings","Settings","gear"]];
 
 /* ============ state ============ */
 const S={sites:[],campaigns:[],decks:[],riders:[],settings:{agency:"AdPulse IMC",phone:"",email:"",web:"adpulse.pk",logo:null},loaded:{sites:false,campaigns:false},mode:"loading"};
@@ -1780,7 +1781,7 @@ function go(r,silent){
 }
 window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
 
-function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v10.5</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
+function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v10.6</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
 
 let lastRoute=null;
 function render(anim){
@@ -1788,7 +1789,7 @@ function render(anim){
   if(route==="capture"&&lastRoute==="capture"&&!anim){refreshCaptureLists();return}
   if(route==="studio"&&lastRoute==="studio"&&!anim&&Studio.active){return}
   if(ROLE==="pending"){v.innerHTML=`<div class="gate"><div class="bot">${ICON.bot}</div><h2>Opening ${APP_SHORT}…</h2><p style="color:var(--muted)">Checking your access</p></div>`;return}
-  const html=({portal:vPortal,clients:vClients,dashboard:vDash,capture:vCapture,sites:vSites,campaigns:vCampaigns,vendors:vVendors,studio:vStudio,settings:vSettings}[route])();
+  const html=({portal:vPortal,clients:vClients,dashboard:vDash,capture:vCapture,sites:vSites,campaigns:vCampaigns,vendors:vVendors,"vendors-preview":vVendorsPreview,studio:vStudio,settings:vSettings}[route])();
   v.innerHTML=`<div class="${anim||lastRoute!==route?"view":""}">${html}</div>`;lastRoute=route;
   after();
 }
@@ -5315,8 +5316,373 @@ function openMasterVendorDeck() {
   toast("Opening Master Deck grouped by Media Vendor…");
 }
 
+
+/* ============ Vendors Sites Preview (11 Vendor PPTs) ============ */
+const VPF = { vendor: "", q: "", media: "", status: "", view: "cards" };
+
+function getVendorPreviewSites() {
+  const raw = window.VENDOR_PREVIEW_SITES_2026 || [];
+  const savedEdits = ls.get("sitesnap-vp-edits", {});
+  return raw.map(s => {
+    const ed = savedEdits[s.id];
+    const merged = ed ? { ...s, ...ed } : s;
+    return {
+      ...merged,
+      photos: merged.photos && merged.photos.length ? merged.photos : (merged.photo ? [{ id: merged.id + "-p1", src: merged.photo, url: merged.photo, at: "2026-11-20", caption: merged.name }] : []),
+      client: merged.vendor,
+      brand: merged.vendor,
+      excelMedium: (merged.media || "BILLBOARD").toUpperCase(),
+      excelSqft: String(merged.sqft || ((+merged.widthFt || 60) * (+merged.heightFt || 20))),
+      excelAvailability: merged.availability || "Available",
+      excelStatus: merged.rate || "Rate on Request",
+      statusLabel: merged.rate || "Rate on Request",
+      startDate: "20-Nov-26",
+      endDate: merged.availability && !/available|immediate/i.test(merged.availability) ? merged.availability : "20-Dec-26",
+      day: "30",
+      vendorEndDate: merged.availability || "Available",
+      price: merged.rate || "Rate on Request",
+      rates: merged.rate || "Rate on Request",
+      area: "Karachi"
+    };
+  });
+}
+
+function saveVendorPreviewEdit(id, updates) {
+  const savedEdits = ls.get("sitesnap-vp-edits", {});
+  savedEdits[id] = { ...(savedEdits[id] || {}), ...updates };
+  ls.set("sitesnap-vp-edits", savedEdits);
+  const raw = window.VENDOR_PREVIEW_SITES_2026 || [];
+  const item = raw.find(x => x.id === id);
+  if (item) Object.assign(item, updates);
+}
+
+function openVendorPreviewDeck(vendorName) {
+  const all = getVendorPreviewSites();
+  const list = vendorName ? all.filter(s => s.vendor === vendorName) : all;
+  if (!list.length) { toast("No sites found for this vendor"); return; }
+  const src = { type: "ids", ids: list.map(s => s.id) };
+  Studio.cfg = Studio.fresh(src);
+  Studio.cfg.title = vendorName ? `${vendorName} — Sites Preview (2026)` : "All 11 Vendors Sites Preview Portfolio (2026)";
+  Studio.cfg.subtitle = `Extracted from Vendor PPT Presentation · ${list.length} OOH & Digital Sites`;
+  Studio.cfg.sitesData = list;
+  Studio.cfg.slides = list.map(s => ({
+    siteId: s.id,
+    hidden: false,
+    photo: 0,
+    title: s.name || s.location,
+    note: s.rawText || "",
+    price: s.rate || "Rate on Request"
+  }));
+  Studio.cfg.summary = true;
+  Studio.cfg.fields.vendor = true;
+  Studio.cfg.fields.price = true;
+  Studio.active = true;
+  location.hash = "studio";
+  go("studio", true);
+  toast(`Opening presentation for ${vendorName || "All 11 Vendors"} (${list.length} sites)…`);
+}
+
+function openVendorPreviewSite(id) {
+  const all = getVendorPreviewSites();
+  const s = all.find(x => x.id === id);
+  if (!s) return;
+  openLayer(`
+    <div class="scrim" data-act="close"></div>
+    <aside class="drawer" role="dialog" aria-label="Vendor Preview Site">
+      <div class="dh">
+        <div>
+          <div class="mono" style="color:#D9161D;font-weight:800;font-size:12px">${esc(s.vendor)} · ${esc(s.code)} (Slide #${s.slideNum})</div>
+          <h2 style="font-size:19px">${esc(s.name || s.location)}</h2>
+        </div>
+        <span class="sp"></span>
+        <span class="pill ${s.status === 'available' ? 'st-available' : 'st-booked'}">${esc(s.availability)}</span>
+        <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
+      </div>
+      <div class="db">
+        <div class="gallery">
+          <figure>
+            <img src="${esc(s.photo || placeholder(s))}" alt="${esc(s.name)}" style="max-height:320px;width:100%;object-fit:contain;background:#0d0b14;border-radius:10px">
+            <figcaption>${esc(s.pptFile)} · Slide #${s.slideNum}</figcaption>
+          </figure>
+        </div>
+        <form id="vpEditForm" data-vpid="${s.id}" class="fgrid" style="margin-top:12px">
+          <label class="f full">Vendor Name<input class="in" name="vendor" value="${esc(s.vendor)}" style="font-weight:800"></label>
+          <label class="f full">Location / Site Title<input class="in" name="location" value="${esc(s.location || s.name)}" style="font-weight:700"></label>
+          <label class="f">From (Direction)<input class="in" name="from" value="${esc(s.from || '')}"></label>
+          <label class="f">Towards (Direction)<input class="in" name="towards" value="${esc(s.towards || '')}"></label>
+          <label class="f">Width (ft)<input class="in mono" name="widthFt" type="number" value="${esc(String(s.widthFt || 60))}"></label>
+          <label class="f">Height (ft)<input class="in mono" name="heightFt" type="number" value="${esc(String(s.heightFt || 20))}"></label>
+          <label class="f">Total SQFT<input class="in mono" name="sqft" value="${esc(String(s.sqft || 1200))}"></label>
+          <label class="f">Media Type<input class="in" name="media" value="${esc(s.media || 'Billboard')}"></label>
+          <label class="f">Availability / Date<input class="in" name="availability" value="${esc(s.availability || 'Available')}" style="font-weight:700"></label>
+          <label class="f">Monthly Rate / Rent (PKR)<input class="in mono" name="rate" value="${esc(s.rate || 'Rate on Request')}" style="font-weight:800;color:#D9161D"></label>
+          <label class="f full">Slide Full Extracted Details<textarea class="in" name="rawText" rows="3">${esc(s.rawText || '')}</textarea></label>
+          <div class="row full" style="grid-column:1/-1;gap:8px;margin-top:8px">
+            <button type="submit" class="btn pri" style="flex:1;justify-content:center;font-weight:700">💾 Save Changes</button>
+            <button type="button" class="btn" data-act="vpdeck" data-vendor="${esc(s.vendor)}" style="font-weight:700">📊 Vendor Presentation</button>
+          </div>
+        </form>
+      </div>
+    </aside>
+  `);
+  const form = $("#vpEditForm");
+  if (form) {
+    form.onsubmit = e => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const w = parseFloat(fd.get("widthFt")) || s.widthFt || 60;
+      const h = parseFloat(fd.get("heightFt")) || s.heightFt || 20;
+      const updates = {
+        vendor: fd.get("vendor").trim() || s.vendor,
+        location: fd.get("location").trim() || s.location,
+        name: fd.get("location").trim() || s.name,
+        from: fd.get("from").trim(),
+        towards: fd.get("towards").trim(),
+        direction: `From ${fd.get("from").trim()} → Towards ${fd.get("towards").trim()}`,
+        widthFt: w,
+        heightFt: h,
+        size: `${w}x${h} ft`,
+        sqft: parseInt(fd.get("sqft"), 10) || (w * h),
+        media: fd.get("media").trim(),
+        availability: fd.get("availability").trim(),
+        status: /available|immediate/i.test(fd.get("availability")) && !/locked|booked/i.test(fd.get("availability")) ? "available" : "booked",
+        rate: fd.get("rate").trim(),
+        rawText: fd.get("rawText").trim()
+      };
+      saveVendorPreviewEdit(s.id, updates);
+      closeLayer();
+      render(true);
+      toast("✅ Vendor site updated!");
+    };
+  }
+}
+
+function vVendorsPreview() {
+  const all = getVendorPreviewSites();
+  if (!all.length) {
+    return pgTop("Vendors Sites Preview", "Loading 11 Vendor PPT Presentations…") + `<div class="cards">${'<div class="skel"></div>'.repeat(6)}</div>`;
+  }
+
+  // Group by the 11 vendors in order
+  const vendorGroupsMap = new Map();
+  all.forEach(s => {
+    if (!vendorGroupsMap.has(s.vendor)) {
+      vendorGroupsMap.set(s.vendor, {
+        name: s.vendor,
+        key: s.vendorKey,
+        pptFile: s.pptFile,
+        total: 0,
+        available: 0,
+        booked: 0,
+        sites: []
+      });
+    }
+    const g = vendorGroupsMap.get(s.vendor);
+    g.total++;
+    if (s.status === "available") g.available++;
+    else g.booked++;
+    g.sites.push(s);
+  });
+  const vendorGroups = [...vendorGroupsMap.values()];
+
+  const q = (VPF.q || "").toLowerCase().trim();
+  const filteredSites = all.filter(s =>
+    (!VPF.vendor || s.vendor === VPF.vendor) &&
+    (!VPF.media || s.media === VPF.media) &&
+    (!VPF.status || s.status === VPF.status) &&
+    (!q || [s.code, s.vendor, s.name, s.location, s.direction, s.from, s.towards, s.size, s.availability, s.rate, s.media, s.rawText].join(" ").toLowerCase().includes(q))
+  );
+
+  const mediaTypes = [...new Set(all.map(s => s.media).filter(Boolean))].sort();
+  const totalAvail = all.filter(s => s.status === "available").length;
+  const totalBooked = all.length - totalAvail;
+
+  // Group filtered sites by vendor for vendor-wise display
+  const activeGroups = [];
+  vendorGroups.forEach(vg => {
+    const vSites = filteredSites.filter(s => s.vendor === vg.name);
+    if (vSites.length > 0) {
+      activeGroups.push({ ...vg, filteredSites: vSites });
+    }
+  });
+
+  const vendorPills = `
+    <div class="card pad" style="margin-bottom:16px;border:1px solid var(--border)">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:10px">
+        <div style="font-weight:800;font-size:13.5px;color:var(--ink)">📁 Select Vendor PPT Deck (11 Vendor Presentations · ${all.length} Sites):</div>
+        ${VPF.vendor ? `<button class="btn sm ghost" data-act="vpfiltervendor" data-vendor="" style="color:#D9161D;font-weight:700">✕ Show All 11 Vendors</button>` : ""}
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:7px">
+        <button class="btn sm ${!VPF.vendor ? 'pri' : ''}" data-act="vpfiltervendor" data-vendor="" style="font-weight:800;border-radius:20px">All 11 Vendors (${all.length})</button>
+        ${vendorGroups.map(vg => `
+          <button class="btn sm ${VPF.vendor === vg.name ? 'pri' : ''}" data-act="vpfiltervendor" data-vendor="${esc(vg.name)}" style="font-weight:700;border-radius:20px">
+            ${esc(vg.name)} <span class="mono" style="opacity:0.85;margin-left:4px">(${vg.total})</span>
+          </button>
+        `).join("")}
+      </div>
+    </div>
+  `;
+
+  const filterBar = `
+    <div class="filters" style="margin-bottom:16px">
+      <input class="in" id="vpSearch" style="max-width:260px;min-height:42px;padding:8px 12px;font-size:13.5px" placeholder="Search location, road, rate, size…" value="${esc(VPF.q)}">
+      <select class="in" id="vpMediaSel" style="max-width:200px;min-height:42px">
+        <option value="">All Media Types (${mediaTypes.length})</option>
+        ${opt(mediaTypes, VPF.media)}
+      </select>
+      <select class="in" id="vpStatusSel" style="max-width:170px;min-height:42px">
+        <option value="">All Status</option>
+        ${opt([["available","Available / Immediate"],["booked","Booked / Date Locked"]], VPF.status)}
+      </select>
+      ${(VPF.vendor || VPF.q || VPF.media || VPF.status) ? `<button class="btn sm ghost" data-act="vpclear">Clear Filters</button>` : ""}
+      <span class="sp"></span>
+      <div class="seg" role="tablist">
+        <button class="${VPF.view === 'cards' ? 'on' : ''}" data-act="vpview" data-v="cards">Vendor Cards</button>
+        <button class="${VPF.view === 'table' ? 'on' : ''}" data-act="vpview" data-v="table">Excel Data Table</button>
+      </div>
+    </div>
+  `;
+
+  let contentHtml = "";
+  if (!activeGroups.length) {
+    contentHtml = `<div class="card">${emptyState("No vendor sites match these filters", "Try clearing the search or selecting All 11 Vendors.")}</div>`;
+  } else if (VPF.view === "table") {
+    contentHtml = activeGroups.map(vg => `
+      <div class="tblwrap card" style="padding:0;overflow-x:auto;border:1.5px solid #1C1A1B;border-radius:12px;margin-bottom:24px">
+        <div style="background:#1C1A1B;color:#FFFFFF;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
+          <div>
+            <div style="font-weight:800;font-size:15px;letter-spacing:0.5px">🏢 ${esc(vg.name)} — (${vg.filteredSites.length} SITES)</div>
+            <small style="color:#D4D4D8;font-family:var(--mono)">Source PPT: ${esc(vg.pptFile)}</small>
+          </div>
+          <div class="row" style="gap:8px">
+            <span style="background:#059669;color:#fff;padding:4px 10px;border-radius:6px;font-size:11.5px;font-weight:800">${vg.available} AVAILABLE</span>
+            <span style="background:#D9161D;color:#fff;padding:4px 10px;border-radius:6px;font-size:11.5px;font-weight:800">${vg.booked} BOOKED</span>
+            <button class="btn sm pri" data-act="vpdeck" data-vendor="${esc(vg.name)}" style="font-weight:800">📊 Open Vendor PPT in Studio</button>
+          </div>
+        </div>
+        <table class="t" style="border-collapse:collapse;width:100%;font-size:12px">
+          <thead>
+            <tr style="background:#D9161D;color:#FFFFFF;text-transform:uppercase;font-weight:800;font-size:11.5px">
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:48px">S#</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:95px">CODE</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:left;min-width:150px">VENDOR</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;min-width:120px">MEDIUM</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:left;min-width:210px">LOCATION</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:left;min-width:210px">DIRECTION (FROM → TOWARDS)</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 6px;text-align:center;width:48px">W</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 6px;text-align:center;width:48px">H</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:68px">SQFT</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:center;min-width:130px">AVAILABILITY</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:center;min-width:130px">RATE / RENT (PKR)</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:74px">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${vg.filteredSites.map((s, idx) => `
+              <tr style="background:${idx % 2 === 0 ? '#FFFFFF' : '#FAFAFA'}">
+                <td class="mono" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:800">${s.sNo}</td>
+                <td class="mono" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:800;color:#D9161D">${esc(s.code)}</td>
+                <td style="border:1px solid #D4D4D8;padding:7px 10px;font-weight:700">${esc(s.vendor)}</td>
+                <td style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:700">${esc(s.media)}</td>
+                <td style="border:1px solid #D4D4D8;padding:7px 10px;font-weight:700"><div class="row" style="flex-wrap:nowrap;gap:8px"><img src="${esc(s.photo || placeholder(s))}" alt="" data-act="vpsite" data-id="${s.id}" style="width:34px;height:26px;border-radius:4px;object-fit:cover;cursor:pointer;flex:none"><span>${esc(s.location || s.name)}</span></div></td>
+                <td style="border:1px solid #D4D4D8;padding:7px 10px;font-size:11.5px">${esc(s.from || '—')} → ${esc(s.towards || '—')}</td>
+                <td class="mono" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center;font-weight:700">${s.widthFt}</td>
+                <td class="mono" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center;font-weight:700">${s.heightFt}</td>
+                <td class="mono" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:800;color:#D9161D">${s.sqft}</td>
+                <td style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:800;color:${s.status === 'available' ? '#059669' : '#1C1A1B'}">${esc(s.availability)}</td>
+                <td class="mono" style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:800;color:#D9161D">${esc(s.rate)}</td>
+                <td style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center"><button class="btn sm pri" data-act="vpsite" data-id="${s.id}" style="padding:4px 10px;font-size:11px;font-weight:700">✏️ View</button></td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      </div>
+    `).join("");
+  } else {
+    contentHtml = activeGroups.map(vg => `
+      <section style="margin-bottom:30px">
+        <div class="card pad" style="margin-bottom:14px;background:linear-gradient(135deg,#1C1A1B,#2D2628);color:#FFFFFF;border-radius:14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+              <span style="background:#D9161D;color:#FFFFFF;padding:4px 10px;border-radius:8px;font-weight:800;font-size:12px;font-family:var(--mono)">VENDOR PPT</span>
+              <h2 style="margin:0;font-size:20px;font-weight:800;color:#FFFFFF">${esc(vg.name)}</h2>
+              <span style="background:rgba(255,255,255,0.14);color:#FFFFFF;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:800">${vg.filteredSites.length} Sites</span>
+            </div>
+            <div style="font-size:12px;color:#D4D4D8;margin-top:4px;font-family:var(--mono)">📁 File: ${esc(vg.pptFile)} · <span style="color:#34D399;font-weight:700">${vg.available} Available</span> · <span style="color:#FCA5A5;font-weight:700">${vg.booked} Booked / Date Locked</span></div>
+          </div>
+          <div class="row" style="gap:8px">
+            <button class="btn sm pri" data-act="vpdeck" data-vendor="${esc(vg.name)}" style="background:linear-gradient(135deg,#D9161D,#F26A21);font-weight:800;padding:8px 14px">📊 Open Vendor Presentation (${vg.total} Slides)</button>
+          </div>
+        </div>
+        <div class="cards enter">
+          ${vg.filteredSites.map(s => `
+            <article class="card scard" data-act="vpsite" data-id="${s.id}" style="cursor:pointer">
+              <div class="ph">
+                <img src="${esc(s.photo || placeholder(s))}" alt="${esc(s.name)}" loading="lazy">
+                <span class="pill ${s.status === 'available' ? 'st-available' : 'st-booked'}">${esc(s.status === 'available' ? 'Available' : 'Booked')}</span>
+                <span class="cnt">Slide #${s.slideNum}</span>
+              </div>
+              <div class="bd">
+                <div class="row" style="gap:6px;align-items:center;margin-bottom:2px">
+                  <span class="code">S#${s.sNo} · ${esc(s.code)}</span>
+                  <span class="tag" style="background:var(--surface2);font-weight:700;color:#D9161D;margin-left:auto">${esc(s.vendor)}</span>
+                </div>
+                <h3 title="${esc(s.location || s.name)}" style="margin:2px 0 4px;font-size:15.5px;line-height:1.3">${esc(s.location || s.name)}</h3>
+                <div class="dir">${esc(s.from || '—')} ${ICON.arrow} ${esc(s.towards || '—')}</div>
+                <div style="font-size:12px;font-weight:700;color:var(--ink);margin:5px 0 2px;display:flex;align-items:center;justify-content:space-between;gap:6px">
+                  <span>Availability: <b style="color:${s.status === 'available' ? '#059669' : 'var(--ink)'}">${esc(s.availability)}</b></span>
+                </div>
+                <div style="font-size:12px;font-weight:800;color:#D9161D;margin:2px 0 4px;display:flex;align-items:center;justify-content:space-between;gap:6px">
+                  <span>Rate / Rent:</span>
+                  <span class="mono">${esc(s.rate)}</span>
+                </div>
+                <div class="meta">
+                  <span class="tag mono" style="font-weight:700">${s.widthFt}×${s.heightFt} ft (${s.sqft} SQFT)</span>
+                  <span class="tag" style="font-weight:700">${esc(s.media)}</span>
+                </div>
+              </div>
+            </article>
+          `).join("")}
+        </div>
+      </section>
+    `).join("");
+  }
+
+  return pgTop(
+    "Vendors Sites Preview",
+    `11 Vendor PPT Presentations · ${all.length} Extracted OOH & Digital Sites Ordered Vendor-Wise`,
+    `<div class="row" style="gap:8px"><button class="btn" onclick="location.hash='vendors';go('vendors',true)" style="font-weight:700">📋 Vendor Booked Site (84)</button><button class="btn pri" data-act="vpdeck" data-vendor="${esc(VPF.vendor)}" style="font-weight:800">${ICON.deck} Presentation (${filteredSites.length} Sites)</button></div>`
+  ) + `
+    <div class="kpis enter" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-bottom:18px">
+      <div class="card kpi" style="--c:#D9161D">
+        <div class="ic" style="background:#D9161D">${ICON.deck}</div>
+        <div class="n" data-count="${vendorGroups.length}">${vendorGroups.length}</div>
+        <small style="font-weight:700">Vendor PPT Decks</small>
+      </div>
+      <div class="card kpi" style="--c:var(--violet)">
+        <div class="ic" style="background:var(--violet)">${ICON.sites}</div>
+        <div class="n" data-count="${all.length}">${all.length}</div>
+        <small style="font-weight:700">Total Preview Sites</small>
+      </div>
+      <div class="card kpi" style="--c:var(--ok)">
+        <div class="ic" style="background:var(--ok)">${ICON.check}</div>
+        <div class="n" data-count="${totalAvail}">${totalAvail}</div>
+        <small style="font-weight:700">Available / Immediate</small>
+      </div>
+      <div class="card kpi" style="--c:var(--bad)">
+        <div class="ic" style="background:var(--bad)">${ICON.camp}</div>
+        <div class="n" data-count="${totalBooked}">${totalBooked}</div>
+        <small style="font-weight:700">Date-Locked / Booked</small>
+      </div>
+    </div>
+    ${vendorPills}
+    ${filterBar}
+    ${contentHtml}
+  `;
+}
+
 function vVendors() {
-  if (!S.loaded.sites) return pgTop("Media Vendors", "Loading vendor portfolio…") + `<div class="cards">${'<div class="skel"></div>'.repeat(6)}</div>`;
+  if (!S.loaded.sites) return pgTop("Vendor Booked Site", "Loading vendor booked sites portfolio…") + `<div class="cards">${'<div class="skel"></div>'.repeat(6)}</div>`;
 
   const vendorsMap = {};
   S.sites.forEach(s => {
@@ -5351,7 +5717,7 @@ function vVendors() {
   const totalAvail = S.sites.filter(s => effStatus(s) === "available").length;
   const totalBooked = S.sites.filter(s => ["booked", "expiring"].includes(effStatus(s))).length;
 
-  return pgTop("Media Vendors", "OOH Inventory Partners & Media Network", `<button class="btn pri" data-act="mastervendordeck">${ICON.deck} Master Deck (All Vendors)</button>`) +
+  return pgTop("Vendor Booked Site", "84 Master Booked & Active OOH Inventory by Media Vendor", `<div class="row" style="gap:8px"><button class="btn" onclick="location.hash='vendors-preview';go('vendors-preview',true)" style="font-weight:700">🖼️ Vendors Sites Preview (11 PPTs)</button><button class="btn pri" data-act="mastervendordeck">${ICON.deck} Master Deck (All Vendors)</button></div>`) +
   `
   <div class="kpis enter" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-bottom:20px">
     <div class="card kpi" style="--c:var(--teal)">
@@ -5883,7 +6249,7 @@ const Studio={
    if(!c.title){const cp=c.source.type==="campaign"?campOf(c.source.campaignId):null;c.title=cp?cp.name:c.source.type==="filter"?`${c.source.area||"Karachi"} ${c.source.status==="available"?"Available ":""}Sites`:"Site Proposal"}
    if(!c.subtitle){const cp=c.source.type==="campaign"?campOf(c.source.campaignId):null;c.subtitle=cp?.client?`Prepared for ${cp.client}`:"OOH site presentation"}},
  mount(){if(!this.cfg)return;if((!this.cfg.slides||!this.cfg.slides.length)&&(S.sites.length||(this.cfg.sitesData&&this.cfg.sitesData.length))){this.build()}this.renderSlides();this.bindDnD()},
- siteOf(id){if(!id)return null;const live=S.sites.find(x=>x&&(x.id===id||x.code===id));const cached=(this.cfg?.sitesData||[]).find(x=>x&&(x.id===id||x.code===id));return live?{...(cached||{}),...live,photos:(live.photos&&live.photos.length)?live.photos:(cached?.photos||[])}:(cached||null)},
+ siteOf(id){if(!id)return null;const live=S.sites.find(x=>x&&(x.id===id||x.code===id))||(window.VENDOR_PREVIEW_SITES_2026||[]).find(x=>x&&(x.id===id||x.code===id));const cached=(this.cfg?.sitesData||[]).find(x=>x&&(x.id===id||x.code===id));return live?{...(cached||{}),...live,photos:(live.photos&&live.photos.length)?live.photos:(live.photo?[{id:live.id+"-p",src:live.photo,url:live.photo,at:"2026-11-20",caption:live.name}]:(cached?.photos||[]))}:(cached||null)},
   visible(){return (this.cfg?.slides||[]).filter(s=>!s.hidden&&this.siteOf(s.siteId))},
 
 
@@ -6604,7 +6970,7 @@ document.addEventListener("submit",async e=>{if(e.target.id!=="reqForm")return;e
 function vSettings(){const s=S.settings;const hasSample=S.sites.some(x=>x.sample)||S.campaigns.some(x=>x.sample);
   return pgTop("Settings","Branding for watermarks and presentations")+`<div class="grid" style="max-width:720px">
   <div class="card pad grid" style="gap:14px">
-  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v10.5 PWA Ready</span></div>
+  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v10.6 PWA Ready</span></div>
   <p style="margin:0;color:var(--muted);font-size:13px">Install AdPulse OTS on iPhone, iPad, Android or PC for fast offline access, full-screen Google 3D maps, and 1-tap camera upload with GPS.</p>
   <div class="row" style="gap:10px;flex-wrap:wrap">
     <button class="btn pri" data-act="installios" style="flex:1;min-width:180px;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>Install on iPhone / iPad (iOS)</button>
@@ -6789,7 +7155,7 @@ function showMobileUpdateBanner(){
   const b = document.createElement('div');
   b.id = 'mobileUpdateBanner';
   b.style.cssText = 'position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:9999;background:linear-gradient(135deg,#0c0917,#1b1238);color:#fff;padding:8px 16px;border-radius:9999px;box-shadow:0 8px 24px rgba(0,0,0,0.5);border:1px solid #38bdf8;display:flex;align-items:center;gap:10px;font-size:12.5px;max-width:calc(100% - 24px);';
-  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v10.5)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
+  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v10.6)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
   document.body.appendChild(b);
 }
 
@@ -6808,7 +7174,7 @@ function openInstallModal(forceType){
                 <h2 style="font-size:18px;margin:0">AdPulse OTS App</h2>
                 <span class="pill st-available" style="font-size:10px;padding:2px 8px">🟢 Running as App</span>
               </div>
-              <div style="font-size:12px;color:var(--muted);margin-top:2px">v10.5 (Android &amp; iOS Standalone)</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px">v10.6 (Android &amp; iOS Standalone)</div>
             </div>
             <span class="sp"></span>
             <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
@@ -6894,7 +7260,7 @@ function openInstallModal(forceType){
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
           <img src="/icons/icon-192.png" alt="AdPulse OTS" style="width:48px;height:48px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.2)">
           <div>
-            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v10.5)</h2>
+            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v10.6)</h2>
             <div style="font-size:12px;color:var(--muted)">Google 3D Maps &amp; 97 Verified Media Sites</div>
           </div>
           <span class="sp"></span>
@@ -7521,6 +7887,11 @@ savedeck:async()=>{const c=Studio.cfg;c.version=(c.version||0)+1;try{await put("
  vendorpresentation:(a)=>{const v=a.dataset.vendor;if(v)openVendorDeck(v)},
  vendorinventory:(a)=>{const v=a.dataset.vendor;if(!v)return;Object.keys(F).forEach(k=>F[k]="");F.vendor=v;location.hash="sites";go("sites",true);toast(`Showing sites for vendor: ${v}`)},
  mastervendordeck:()=>openMasterVendorDeck(),
+ vpfiltervendor:(a)=>{VPF.vendor=a.dataset.vendor||"";render(true)},
+ vpview:(a)=>{VPF.view=a.dataset.v||"cards";render(true)},
+ vpclear:()=>{VPF.vendor="";VPF.q="";VPF.media="";VPF.status="";render(true)},
+ vpsite:(a)=>openVendorPreviewSite(a.dataset.id),
+ vpdeck:(a)=>openVendorPreviewDeck(a.dataset.vendor||""),
  camppresentation:(a)=>{
    const id = a.dataset.id;
    const camp = campOf(id);
@@ -7560,7 +7931,13 @@ document.addEventListener("keydown",e=>{
   const cell=e.target.closest&&e.target.closest("[data-tbledit],[data-edit]");
   if(cell&&e.key==="Enter"){e.preventDefault();cell.blur();}
 });
+document.addEventListener("input",e=>{
+  const t=e.target;
+  if(t&&t.id==="vpSearch"){VPF.q=t.value;render();const el=$("#vpSearch");if(el){el.focus();el.setSelectionRange(el.value.length,el.value.length);}}
+});
 document.addEventListener("change",e=>{const t=e.target;
+ if(t.id==="vpMediaSel"){VPF.media=t.value;render(true)}
+ if(t.id==="vpStatusSel"){VPF.status=t.value;render(true)}
  if(t.dataset.act==="setrole"){ACT.setrole(t)}
  if(t.dataset.f!==undefined){F[t.dataset.f]=t.value;render(true)}
  if(t.id==="bulkSt"&&t.value){const v=t.value;const count=sel.size;[...sel].forEach(id=>{const s=S.sites.find(x=>x.id===id);if(s){s.status=v;if(v!=="booked"){s.bookedTill="";s.bookedFrom=""}}});render();Promise.all([...sel].map(id=>{const s=S.sites.find(x=>x.id===id);return s?put("sites",{...s,status:v}):Promise.resolve()})).then(()=>toast(`${count} sites → ${STATUS[v]}`));t.value=""}
@@ -7604,7 +7981,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=35.0").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=36.0").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
@@ -7621,7 +7998,7 @@ if("serviceWorker" in navigator){
           });
         }
       });
-      console.log("AdPulse OTS PWA active (v10.5):",r.scope);
+      console.log("AdPulse OTS PWA active (v10.6):",r.scope);
     }).catch(err=>{
       console.warn("PWA ServiceWorker registration failed:",err);
     });
