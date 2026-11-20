@@ -3,7 +3,7 @@
   "outputDirectory": "public",
   "rewrites": [
     { "source": "/_blob/:id", "destination": "https://vqttmptwixcevmgzeeon.supabase.co/storage/v1/object/public/media/:id" },
-    { "source": "/((?!api/|_blob/|icons/|deck-media/|master_sites_2026|manifest\\.webmanifest|config\\.js|claude-shim\\.js|sw\\.js|.*\\.[a-zA-Z0-9]+).*)", "destination": "/index.html" }
+    { "source": "/((?!api/|_blob/|icons/|deck-media/|vendor-media/|master_sites_2026|master_campaigns_2026|vendor_preview_2026|manifest\\.webmanifest|config\\.js|claude-shim\\.js|sw\\.js|.*\\.[a-zA-Z0-9]+).*)", "destination": "/index.html" }
   ],
   "headers": [
     { "source": "/sw.js", "headers": [{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }, { "key": "Service-Worker-Allowed", "value": "/" }] },
@@ -11,6 +11,8 @@
     { "source": "/config.js", "headers": [{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }] },
     { "source": "/master_sites_2026.js", "headers": [{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }] },
     { "source": "/master_sites_2026.json", "headers": [{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }] },
+    { "source": "/vendor_preview_2026.js", "headers": [{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }] },
+    { "source": "/vendor_preview_2026.json", "headers": [{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }] },
     { "source": "/index.html", "headers": [{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }] },
     { "source": "/", "headers": [{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }] }
   ]
