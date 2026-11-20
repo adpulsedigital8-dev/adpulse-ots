@@ -1342,7 +1342,7 @@ body.client .tabs{display:none}
 <script src="/claude-shim.js?v=3.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="/master_sites_2026.js?v=34.0"></script>
+  <script src="/master_sites_2026.js?v=35.0"></script>
 </head>
 <body>
 
@@ -1566,8 +1566,8 @@ async function boot(){
       activeSites = activeSites.map(s => {
         const m = mMap.get(s.id);
         const hasBadImg = !s.photos || !s.photos.length || s.photos[0].src === "/deck-media/image3.jpg" || s.photos[0].src === "/deck-media/image1.png";
-        if (m && (s.masterRev !== "2026.7" || hasBadImg)) {
-          const merged = { ...s, ...m, photos: m.photos, masterRev: "2026.7" };
+        if (m && (s.masterRev !== "2026.8" || hasBadImg || !s.startDate || !s.endDate || !s.day)) {
+          const merged = { ...s, ...m, photos: m.photos, masterRev: "2026.8" };
           toSync.push(merged);
           return merged;
         }
@@ -1649,7 +1649,7 @@ function changed(){if(route==="studio"&&Studio.active){render(true)}else{render(
 function startLocal(){
   S.mode="local";ROLE="team";local=ls.get("sitesnap-local",{sites:[],campaigns:[],decks:[],settings:null,clients:[]});
   S.sites=local.sites;S.campaigns=local.campaigns;
-  const MASTER_REV = "2026.7";
+  const MASTER_REV = "2026.8";
   if (window.MASTER_SITES_2026 && (!S.sites || S.sites.length !== 84 || local.masterRev !== MASTER_REV)) {
     console.log("Upgrading to 2026 Master Dataset: exactly 84 sites & 12 client campaigns...");
     S.sites = window.MASTER_SITES_2026;
@@ -1780,7 +1780,7 @@ function go(r,silent){
 }
 window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
 
-function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v10.4</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
+function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v10.5</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
 
 let lastRoute=null;
 function render(anim){
@@ -3834,13 +3834,79 @@ function filtered(){
   return S.sites.filter(s=>(!F.area||s.area===F.area)&&(!F.size||sizeOf(s)===F.size)&&(!F.media||s.media===F.media||s.excelMedium===F.media)&&(!F.status||effStatus(s)===F.status||(F.status==="booked"&&effStatus(s)==="expiring"))&&(!F.lit||s.light===F.lit)&&(!F.traffic||s.traffic===F.traffic)&&(!F.vendor||s.vendor===F.vendor)&&(!F.campaign||(campOf(F.campaign)?.siteIds||[]).includes(s.id))&&(!q||[s.sNo,s.code,s.name,s.title,s.location,s.client,s.brand,s.medium,s.excelMedium,s.media,s.area,s.from,s.towards,s.vendor,s.vendorEndDate,s.availability,s.excelAvailability,s.statusLabel,s.excelStatus,s.rates,s.notes].join(" ").toLowerCase().includes(q))).sort((a,b)=>(a.sNo||999)-(b.sNo||999)||(a.code||"").localeCompare(b.code||""));
 }
 function buildClientSummaryRows(list){
-  if (list.length === 84 && window.MASTER_EXCEL_SUMMARY_2026) return window.MASTER_EXCEL_SUMMARY_2026;
   const counts = new Map();
   list.forEach(s => {
     const k = (s.client || s.brand || "UNASSIGNED").trim();
     counts.set(k, (counts.get(k) || 0) + 1);
   });
+  if (list.length === 84 && window.MASTER_EXCEL_SUMMARY_2026 && !window._customSummaryEdited) return window.MASTER_EXCEL_SUMMARY_2026;
   return [...counts.entries()].map(([summary, qty], idx) => ({ sNo: idx + 1, summary, qty }));
+}
+function parseAnyDate(str){
+  if(!str)return null;
+  const s=String(str).trim();
+  const months=["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
+  let m=s.match(/(\d{1,2})[\-\/](\d{1,2})[\-\/](\d{2,4})/);
+  if(m){let d=+m[1],mo=+m[2]-1,y=+m[3];if(y<100)y+=2000;return new Date(Date.UTC(y,mo,d))}
+  m=s.match(/(\d{1,2})[\-\/\s]+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*[\-\/\s]+(\d{2,4})/i);
+  if(m){let d=+m[1],mo=months.indexOf(m[2].slice(0,3).toLowerCase()),y=+m[3];if(y<100)y+=2000;return new Date(Date.UTC(y,mo,d))}
+  return null;
+}
+function applyInlineTableEdit(siteId, field, rawVal){
+  const s = S.sites.find(x => x && x.id === siteId);
+  if (!s) return null;
+  const val = String(rawVal ?? "").trim();
+  if (field === "sNo") { s.sNo = parseInt(val, 10) || s.sNo; }
+  else if (field === "client") { s.client = s.brand = val; window._customSummaryEdited = true; }
+  else if (field === "medium") { s.excelMedium = s.medium = val.toUpperCase(); s.media = val; }
+  else if (field === "location") { s.location = s.name = s.title = val; }
+  else if (field === "w") {
+    s.width = s.widthFt = parseFloat(val) || s.widthFt || 0;
+    s.sqft = Math.round((+s.widthFt || 0) * (+s.heightFt || 0));
+    s.excelSqft = String(s.sqft);
+  }
+  else if (field === "h") {
+    s.height = s.heightFt = parseFloat(val) || s.heightFt || 0;
+    s.sqft = Math.round((+s.widthFt || 0) * (+s.heightFt || 0));
+    s.excelSqft = String(s.sqft);
+  }
+  else if (field === "sqft") {
+    s.sqft = /^\d+$/.test(val) ? parseInt(val, 10) : val;
+    s.excelSqft = val;
+  }
+  else if (field === "startDate") {
+    s.startDate = s.bookedFrom = val;
+    const d1 = parseAnyDate(s.startDate), d2 = parseAnyDate(s.endDate);
+    if (d1 && d2 && d2 >= d1) s.day = String(Math.max(1, Math.round((d2 - d1) / 86400000)));
+  }
+  else if (field === "endDate") {
+    s.endDate = s.bookedTill = val;
+    const d1 = parseAnyDate(s.startDate), d2 = parseAnyDate(s.endDate);
+    if (d1 && d2 && d2 >= d1) s.day = String(Math.max(1, Math.round((d2 - d1) / 86400000)));
+  }
+  else if (field === "avail") {
+    s.availability = s.excelAvailability = val;
+    s.status = /subject to avail/i.test(val) ? "available" : "booked";
+  }
+  else if (field === "status") {
+    s.statusLabel = s.excelStatus = val;
+  }
+  else if (field === "day") {
+    s.day = val;
+  }
+  else if (field === "vendor") {
+    s.vendor = val;
+  }
+  else if (field === "vendorEnd") {
+    s.vendorEndDate = val;
+  }
+  if (Studio.cfg && Studio.cfg.sitesData) {
+    const cs = Studio.cfg.sitesData.find(x => x && x.id === siteId);
+    if (cs) Object.assign(cs, s);
+  }
+  persistLocal();
+  if (S.mode === "live" && db) put("sites", s).catch(() => {});
+  return s;
 }
 function opt(list,v,lab){return list.map(o=>{const[val,l]=Array.isArray(o)?o:[o,o];return`<option value="${esc(val)}" ${val===v?"selected":""}>${esc(l)}</option>`}).join("")}
 function vSites(){
@@ -3863,8 +3929,8 @@ function vSites(){
     const sumRows = buildClientSummaryRows(list);
     const totalQty = sumRows.reduce((acc, r) => acc + r.qty, 0);
     body=`<div class="tblwrap card" style="padding:0;overflow-x:auto;border:1.5px solid #1C1A1B;border-radius:10px">
-      <div style="background:#1C1A1B;color:#FFFFFF;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;font-weight:800;font-size:14px;letter-spacing:0.8px">
-        <span>📊 OOH UPDATED SHEET — DATA OOH SITES (${list.length} SITES)</span>
+      <div style="background:#1C1A1B;color:#FFFFFF;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;font-weight:800;font-size:14px;letter-spacing:0.8px">
+        <span>📊 OOH UPDATED SHEET — DATA OOH SITES (${list.length} SITES) · <small style="color:#FDE047;font-weight:700">✏️ Click any cell to edit directly</small></span>
         <span style="background:#D9161D;color:#fff;padding:3px 10px;border-radius:6px;font-size:12px;font-family:var(--mono)">TOTAL: ${list.length} SITES</span>
       </div>
       <table class="t" style="border-collapse:collapse;width:100%;font-size:12px">
@@ -3898,23 +3964,23 @@ function vSites(){
             const stVal = s.excelStatus !== undefined ? s.excelStatus : (s.statusLabel || "");
             const isAvail = /subject to avail/i.test(availVal);
             const sepRow = (sNum === 79) ? `<tr style="background:#F3E8E8;font-weight:900;color:#1C1A1B"><td colspan="16" style="border:1px solid #D4D4D8;padding:8px 14px;text-align:center;font-size:12.5px;letter-spacing:1.2px">DIGITAL MEDIA</td></tr>` : "";
-            return sepRow + `<tr data-act="site" data-id="${s.id}" style="background:${idx%2===0?'#FFFFFF':'#FAFAFA'};cursor:pointer">
+            return sepRow + `<tr data-row-sid="${s.id}" style="background:${idx%2===0?'#FFFFFF':'#FAFAFA'}">
               <td style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center"><input type="checkbox" data-act="selck" data-id="${s.id}" ${sel.has(s.id)?"checked":""} aria-label="Select ${esc(s.code)}" style="width:16px;height:16px;accent-color:#D9161D"></td>
-              <td class="mono" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:800;color:#1C1A1B">${esc(String(sNum))}</td>
-              <td style="border:1px solid #D4D4D8;padding:7px 10px;font-weight:700;color:#1C1A1B">${esc(s.client||s.brand||"—")}</td>
-              <td style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:700;color:#3F3A3C">${esc(med)}</td>
-              <td style="border:1px solid #D4D4D8;padding:7px 10px;font-weight:700;color:#1C1A1B"><div class="row" style="flex-wrap:nowrap;gap:8px"><img src="${esc(thumbOf(s))}" alt="" style="width:26px;height:26px;border-radius:4px;object-fit:cover;flex:none"><span>${esc(loc)}</span></div></td>
-              <td class="mono" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center;font-weight:700">${esc(String(s.widthFt||s.width||""))}</td>
-              <td class="mono" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center;font-weight:700">${esc(String(s.heightFt||s.height||""))}</td>
-              <td class="mono" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:800;color:#D9161D">${esc(String(sqftVal))}</td>
-              <td class="mono" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center">${esc(s.startDate||s.bookedFrom||"")}</td>
-              <td class="mono" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center">${esc(s.endDate||"")}</td>
-              <td style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:800;color:${isAvail?'#059669':'#1C1A1B'}">${esc(availVal)}</td>
-              <td style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:800;color:${/ISSUE/i.test(stVal)?'#D9161D':'#1C1A1B'}">${esc(stVal)}</td>
-              <td class="mono" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center">${esc(s.day||"")}</td>
-              <td style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:700;color:#1C1A1B">${esc(s.vendor||"")}</td>
-              <td class="mono" style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:700;color:#D9161D">${esc(s.vendorEndDate||"")}</td>
-              <td style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center"><button class="btn sm pri" data-act="siteedit" data-id="${s.id}" style="padding:4px 10px;font-size:11px;font-weight:700">✏️ Edit</button></td>
+              <td class="mono" contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:sNo" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:800;color:#1C1A1B;cursor:text">${esc(String(sNum))}</td>
+              <td contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:client" style="border:1px solid #D4D4D8;padding:7px 10px;font-weight:700;color:#1C1A1B;cursor:text">${esc(s.client||s.brand||"—")}</td>
+              <td contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:medium" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:700;color:#3F3A3C;cursor:text">${esc(med)}</td>
+              <td style="border:1px solid #D4D4D8;padding:7px 10px;font-weight:700;color:#1C1A1B"><div class="row" style="flex-wrap:nowrap;gap:8px"><img src="${esc(thumbOf(s))}" alt="" data-act="site" data-id="${s.id}" title="Click photo to open drawer" style="width:26px;height:26px;border-radius:4px;object-fit:cover;flex:none;cursor:pointer"><span contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:location" style="flex:1;cursor:text;outline:none">${esc(loc)}</span></div></td>
+              <td class="mono" contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:w" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center;font-weight:700;cursor:text">${esc(String(s.widthFt||s.width||""))}</td>
+              <td class="mono" contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:h" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center;font-weight:700;cursor:text">${esc(String(s.heightFt||s.height||""))}</td>
+              <td class="mono" contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:sqft" data-cell-sqft="${s.id}" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:800;color:#D9161D;cursor:text">${esc(String(sqftVal))}</td>
+              <td class="mono" contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:startDate" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:700;color:#1C1A1B;cursor:text">${esc(s.startDate||s.bookedFrom||"01-Nov-26")}</td>
+              <td class="mono" contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:endDate" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:700;color:#1C1A1B;cursor:text">${esc(s.endDate||"30-Nov-26")}</td>
+              <td contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:avail" style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:800;color:${isAvail?'#059669':'#1C1A1B'};cursor:text">${esc(availVal)}</td>
+              <td contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:status" style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:800;color:${/ISSUE/i.test(stVal)?'#D9161D':'#1C1A1B'};cursor:text">${esc(stVal)}</td>
+              <td class="mono" contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:day" data-cell-day="${s.id}" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center;font-weight:800;color:#D9161D;cursor:text">${esc(s.day||"30")}</td>
+              <td contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:vendor" style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:700;color:#1C1A1B;cursor:text">${esc(s.vendor||"")}</td>
+              <td class="mono" contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:vendorEnd" style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:700;color:#D9161D;cursor:text;white-space:nowrap">${esc(s.vendorEndDate||"")}</td>
+              <td style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center"><button class="btn sm pri" data-act="siteedit" data-id="${s.id}" style="padding:4px 10px;font-size:11px;font-weight:700">✏️ Drawer</button></td>
             </tr>`;
           }).join("")}
         </tbody>
@@ -5412,7 +5478,7 @@ async function sync2026MasterData(notify = true) {
     let sites = window.MASTER_SITES_2026;
     let campaigns = window.MASTER_CAMPAIGNS_2026;
     if (!sites || !sites.length) {
-      const res = await fetch("/master_sites_2026.js?v=34.0on");
+      const res = await fetch("/master_sites_2026.json");
       sites = await res.json();
     }
     if (!campaigns || !campaigns.length) {
@@ -5769,9 +5835,9 @@ function normFields(f){
 }
 const Studio={
  active:false,cfg:null,
- fresh(src){return{id:uid(),title:"",subtitle:"",source:src||{type:"campaign",campaignId:S.campaigns[0]?.id||""},template:"adpulse",layout:"split",groupBy:"none",fields:{status:true,dir:true,size:true,media:true,light:true,dates:true,traffic:true,gps:true,price:true,vendor:true,brand:true,notes:false},summary:true,index:true,onlySummary:!!src?.onlySummary,hideCover:false,slides:[],version:0}},
+ fresh(src){return{id:uid(),title:"",subtitle:"",source:src||{type:"campaign",campaignId:S.campaigns[0]?.id||""},template:"adpulse",layout:"split",groupBy:"none",fields:{status:true,dir:true,size:true,media:true,light:true,dates:true,traffic:true,gps:true,price:true,vendor:true,brand:true,notes:false},summary:true,index:false,onlySummary:!!src?.onlySummary,hideCover:false,slides:[],version:0}},
  open(src,title){this.cfg=this.fresh(src);if(title)this.cfg.title=title;this.build();this.active=true;location.hash="studio";if(route==="studio")render(true)},
- load(deck){this.cfg=JSON.parse(JSON.stringify(deck));if(!this.cfg.layout)this.cfg.layout="split";this.cfg.fields=normFields(this.cfg.fields);this.cfg.summary=this.cfg.summary!==false;this.cfg.index=this.cfg.index!==false;this.active=true;render(true)},
+ load(deck){this.cfg=JSON.parse(JSON.stringify(deck));if(!this.cfg.layout)this.cfg.layout="split";this.cfg.fields=normFields(this.cfg.fields);this.cfg.summary=this.cfg.summary!==false;this.cfg.index=false;this.active=true;render(true)},
  sitesFor(){const s=this.cfg.source;let list=[];
    if(s.type==="all"){list=S.sites.slice()}
    else if(s.type==="campaign"){const c=campOf(s.campaignId);list=(c?.siteIds||[]).map(id=>S.sites.find(x=>x&&(x.id===id||x.code===id))).filter(Boolean)}
@@ -5831,7 +5897,6 @@ const Studio={
       tableSlides.forEach((ops, idx) => out.push({kind:"summary-table", ops}));
     }
     if(!c.onlySummary){
-      if(c.index){const g={};vis.forEach((v,i)=>{const s=sites[i];(g[s.area]=g[s.area]||[]).push(s.code)});out.push({kind:"index",ops:indexOps(c,t,g)})}
       vis.forEach((v,i)=>out.push({kind:"site",idx:c.slides.indexOf(v),ops:siteOps(c,t,sites[i],v,i+1,vis.length)}));
     }
     if(!c.hideEnd){
@@ -5846,7 +5911,21 @@ const Studio={
        const tools=(v&&s)?`<div class="sltools"><button class="btn sm" data-act="slphoto" data-i="${sl.idx}" ${imgIdx(s).length>1?"":"disabled"}>${ICON.img}Swap photo${imgIdx(s).length>1?` (${imgIdx(s).length})`:""}</button><button class="btn sm" data-act="slhide" data-i="${sl.idx}">${ICON.eye}Hide</button><button class="btn sm pri" data-act="siteedit" data-id="${s.id}">✏️ Edit Site</button><button class="btn sm" data-act="site" data-id="${s.id}">Site details</button></div>`:"";
        return`<div class="sl" ${v?`draggable="true" data-i="${sl.idx}"`:""}><div class="num"><b>${String(n+1).padStart(2,"0")}</b>${v?`<button data-act="slmove" data-i="${sl.idx}" data-d="-1" aria-label="Move up">${ICON.up}</button><button data-act="slmove" data-i="${sl.idx}" data-d="1" aria-label="Move down">${ICON.down}</button>`:""}</div><div class="slwrap">${slideHTML(sl.ops,TPL[this.cfg.template]||TPL.adpulse)}${tools}</div></div>`}).join("")+
        (this.cfg.slides.some(s=>s.hidden)?`<div class="card pad"><b>Hidden slides</b><div class="chips" style="margin-top:8px">${this.cfg.slides.map((s,i)=>s.hidden?`<button class="chip" data-act="slshow" data-i="${i}">${esc(S.sites.find(x=>x.id===s.siteId)?.code||"?")} · show</button>`:"").join("")}</div></div>`:"");
-      $$("[data-edit]",box).forEach(el=>el.addEventListener("blur",()=>{const[k,i]=el.dataset.edit.split(":");const txt=el.innerText.trim();if(k==="title")this.cfg.title=txt;else if(k==="subtitle")this.cfg.subtitle=txt;else if(k==="stitle")this.cfg.slides[+i].title=txt;else if(k==="snote")this.cfg.slides[+i].note=txt;else if(k==="sprice")this.cfg.slides[+i].price=txt;this.dirty()}));
+      $$("[data-edit]",box).forEach(el=>el.addEventListener("blur",()=>{
+        const parts=el.dataset.edit.split(":");
+        const k=parts[0],i=parts[1],fld=parts[2];
+        const txt=el.innerText.trim();
+        if(k==="title")this.cfg.title=txt;
+        else if(k==="subtitle")this.cfg.subtitle=txt;
+        else if(k==="stitle")this.cfg.slides[+i].title=txt;
+        else if(k==="snote")this.cfg.slides[+i].note=txt;
+        else if(k==="sprice")this.cfg.slides[+i].price=txt;
+        else if(k==="tbl"){
+          applyInlineTableEdit(i, fld, txt);
+          if(["w","h","startDate","endDate","client"].includes(fld)) this.renderSlides();
+        }
+        this.dirty();
+      }));
       const cnt=$("#slCount");if(cnt)cnt.textContent=c.onlySummary?`${deck.length} slides · Tabular Inventory Summary (${this.visible().length} sites)`:`${deck.length} slides · ${this.visible().length} sites`;
     }catch(err){
       console.error("[Studio.renderSlides]",err);
@@ -5872,20 +5951,20 @@ function summaryTableOps(c, t, sites) {
   const slides = [];
 
   const cols = [
-    { key: "sNo", label: "S#", x: 0.25, w: 0.35, align: "center" },
-    { key: "client", label: "CLIENT", x: 0.60, w: 2.00, align: "left" },
-    { key: "medium", label: "MEDIUM", x: 2.60, w: 0.96, align: "center" },
-    { key: "location", label: "LOCATION", x: 3.56, w: 2.08, align: "left" },
-    { key: "w", label: "W", x: 5.64, w: 0.38, align: "center" },
-    { key: "h", label: "H", x: 6.02, w: 0.38, align: "center" },
-    { key: "sqft", label: "SQFT", x: 6.40, w: 0.52, align: "center" },
-    { key: "startDate", label: "Start Date", x: 6.92, w: 0.66, align: "center" },
-    { key: "endDate", label: "End Date", x: 7.58, w: 0.66, align: "center" },
-    { key: "avail", label: "Availibilty", x: 8.24, w: 1.08, align: "center" },
-    { key: "status", label: "STATUS", x: 9.32, w: 1.18, align: "center" },
-    { key: "day", label: "Day", x: 10.50, w: 0.38, align: "center" },
-    { key: "vendor", label: "VENDOR", x: 10.88, w: 1.22, align: "center" },
-    { key: "vendorEnd", label: "VENDOR ENDING DATE", x: 12.10, w: 0.98, align: "center" }
+    { key: "sNo", label: "S#", x: 0.25, w: 0.34, align: "center" },
+    { key: "client", label: "CLIENT", x: 0.59, w: 1.88, align: "left" },
+    { key: "medium", label: "MEDIUM", x: 2.47, w: 0.94, align: "center" },
+    { key: "location", label: "LOCATION", x: 3.41, w: 1.96, align: "left" },
+    { key: "w", label: "W", x: 5.37, w: 0.35, align: "center" },
+    { key: "h", label: "H", x: 5.72, w: 0.35, align: "center" },
+    { key: "sqft", label: "SQFT", x: 6.07, w: 0.50, align: "center" },
+    { key: "startDate", label: "Start Date", x: 6.57, w: 0.72, align: "center" },
+    { key: "endDate", label: "End Date", x: 7.29, w: 0.72, align: "center" },
+    { key: "avail", label: "Availibilty", x: 8.01, w: 1.05, align: "center" },
+    { key: "status", label: "STATUS", x: 9.06, w: 1.14, align: "center" },
+    { key: "day", label: "Day", x: 10.20, w: 0.38, align: "center" },
+    { key: "vendor", label: "VENDOR", x: 10.58, w: 1.22, align: "center" },
+    { key: "vendorEnd", label: "VENDOR ENDING DATE", x: 11.80, w: 1.28, align: "center" }
   ];
   const tblX = 0.25;
   const tblW = 12.83;
@@ -5898,42 +5977,41 @@ function summaryTableOps(c, t, sites) {
 
       // Header
       { t: "text", x: 0.25, y: 0.28, w: 10.0, h: 0.34, text: "OOH UPDATED SHEET — DATA OOH SITES" + (totalPages > 1 ? ` (${pageIdx + 1}/${totalPages})` : ""), size: 17, bold: true, color: t.ink || "1C1A1B", font: "display" },
-      { t: "text", x: 0.25, y: 0.64, w: 10.0, h: 0.20, text: `${c.title || "Master OOH Portfolio"} · Synced with DATA OOH SITES.xlsx & Presentation Deck`, size: 9, bold: true, color: t.muted || "6E6668" },
+      { t: "text", x: 0.25, y: 0.64, w: 10.0, h: 0.20, text: `${c.title || "Master OOH Portfolio"} · Click any table cell to edit directly`, size: 9, bold: true, color: t.muted || "6E6668" },
 
       // Top right badge
       { t: "rect", x: 10.85, y: 0.32, w: 2.23, h: 0.32, fill: "D9161D", r: .08 },
-      { t: "text", x: 10.85, y: 0.38, w: 2.23, h: 0.20, text: `${sites.length} TOTAL SITES`, size: 9, bold: true, color: "FFFFFF", align: "center", font: "mono" }
+      { t: "text", x: 10.85, y: 0.38, w: 2.23, h: 0.22, text: `${sites.length} TOTAL SITES`, size: 9, bold: true, color: "FFFFFF", align: "center", font: "mono" }
     ];
 
     const yTop = 0.96;
-    const hHead = 0.36;
+    const hHead = 0.38;
     const hRow = 0.46;
 
     // Red Header bar background (Exact Excel Red Header format)
     ops.push({ t: "rect", x: tblX, y: yTop, w: tblW, h: hHead, fill: "D9161D" });
 
-    // Render header column texts
+    // Render header column texts (generous height 0.30 and wide VENDOR ENDING DATE so it never wraps or cuts off)
     cols.forEach(col => {
       ops.push({
         t: "text",
-        x: col.x + 0.03,
-        y: yTop + 0.09,
-        w: col.w - 0.06,
-        h: 0.20,
+        x: col.x + 0.02,
+        y: yTop + 0.11,
+        w: col.w - 0.04,
+        h: 0.26,
         text: col.label,
-        size: 7.2,
+        size: 6.8,
         bold: true,
         color: "FFFFFF",
         align: col.align
       });
     });
 
-    // Render rows
+    // Render rows (all cells editable via edit: "tbl:" + s.id + ":" + col.key)
     pageSites.forEach((s, rowIdx) => {
       const yR = yTop + hHead + (rowIdx * hRow);
       const rowBg = rowIdx % 2 === 0 ? "FFFFFF" : "F7F4F4";
       ops.push({ t: "rect", x: tblX, y: yR, w: tblW, h: hRow, fill: rowBg });
-      // Bottom row border
       ops.push({ t: "rect", x: tblX, y: yR + hRow - 0.01, w: tblW, h: 0.01, fill: "CCCCCC" });
 
       const sNum = s.sNo || (pageIdx * perPage + rowIdx + 1);
@@ -5943,11 +6021,11 @@ function summaryTableOps(c, t, sites) {
       const wStr = String(s.widthFt || s.width || "");
       const hStr = String(s.heightFt || s.height || "");
       const sqftStr = String(s.excelSqft || s.sqft || ((+s.widthFt||0)*(+s.heightFt||0)) || "");
-      const startStr = String(s.startDate || s.bookedFrom || "");
-      const endStr = String(s.endDate || "");
+      const startStr = String(s.startDate || s.bookedFrom || "01-Nov-26");
+      const endStr = String(s.endDate || "30-Nov-26");
       const availStr = String(s.excelAvailability || s.availability || "");
       const statusStr = String(s.excelStatus !== undefined ? s.excelStatus : (s.statusLabel || ""));
-      const dayStr = String(s.day || "");
+      const dayStr = String(s.day || "30");
       const vendorStr = String(s.vendor || "").substring(0, 24);
       const vendorEndStr = String(s.vendorEndDate || "");
 
@@ -5962,11 +6040,11 @@ function summaryTableOps(c, t, sites) {
         w: { text: wStr, bold: true, color: "1C1A1B", font: "mono" },
         h: { text: hStr, bold: true, color: "1C1A1B", font: "mono" },
         sqft: { text: sqftStr, bold: true, color: "D9161D", font: "mono" },
-        startDate: { text: startStr, bold: false, color: "1C1A1B", font: "mono" },
-        endDate: { text: endStr, bold: false, color: "1C1A1B", font: "mono" },
+        startDate: { text: startStr, bold: true, color: "1C1A1B", font: "mono" },
+        endDate: { text: endStr, bold: true, color: "1C1A1B", font: "mono" },
         avail: { text: availStr, bold: true, color: isAvail ? "0E9F76" : "1C1A1B" },
         status: { text: statusStr, bold: true, color: isIssue ? "D9161D" : "1C1A1B" },
-        day: { text: dayStr, bold: false, color: "1C1A1B", font: "mono" },
+        day: { text: dayStr, bold: true, color: "D9161D", font: "mono" },
         vendor: { text: vendorStr, bold: true, color: "1C1A1B" },
         vendorEnd: { text: vendorEndStr, bold: true, color: "D9161D", font: "mono" }
       };
@@ -5975,16 +6053,17 @@ function summaryTableOps(c, t, sites) {
         const cv = cellValues[col.key];
         ops.push({
           t: "text",
-          x: col.x + 0.04,
-          y: yR + 0.11,
-          w: col.w - 0.08,
-          h: 0.26,
+          x: col.x + 0.03,
+          y: yR + 0.08,
+          w: col.w - 0.06,
+          h: 0.34,
           text: cv.text,
-          size: 7.2,
+          size: 7.0,
           bold: cv.bold,
           color: cv.color,
           align: col.align,
-          font: cv.font
+          font: cv.font,
+          edit: `tbl:${s.id}:${col.key}`
         });
       });
     });
@@ -6016,28 +6095,28 @@ function summaryTableOps(c, t, sites) {
     { t: "text", x: 0.60, y: 0.35, w: 9.5, h: 0.36, text: "OOH UPDATED SHEET — CLIENT SUMMARY & QTY BREAKDOWN", size: 18, bold: true, color: t.ink || "1C1A1B", font: "display" },
     { t: "text", x: 0.60, y: 0.72, w: 9.5, h: 0.22, text: "Client-wise inventory allocation matching DATA OOH SITES.xlsx summary table", size: 9.5, bold: true, color: t.muted || "6E6668" },
     { t: "rect", x: 10.40, y: 0.38, w: 2.33, h: 0.34, fill: "D9161D", r: .08 },
-    { t: "text", x: 10.40, y: 0.44, w: 2.33, h: 0.20, text: `TOTAL: ${totalQty} SITES`, size: 9.5, bold: true, color: "FFFFFF", align: "center", font: "mono" }
+    { t: "text", x: 10.40, y: 0.44, w: 2.33, h: 0.22, text: `TOTAL: ${totalQty} SITES`, size: 9.5, bold: true, color: "FFFFFF", align: "center", font: "mono" }
   ];
   const syTop = 1.15, shHead = 0.38, shRow = 0.38;
   sumOps.push({ t: "rect", x: 0.60, y: syTop, w: 8.60, h: shHead, fill: "D9161D" });
-  sumOps.push({ t: "text", x: 0.60, y: syTop + 0.10, w: 0.80, h: 0.20, text: "S#", size: 9, bold: true, color: "FFFFFF", align: "center" });
-  sumOps.push({ t: "text", x: 1.50, y: syTop + 0.10, w: 6.10, h: 0.20, text: "SUMMARY", size: 9, bold: true, color: "FFFFFF", align: "left" });
-  sumOps.push({ t: "text", x: 7.70, y: syTop + 0.10, w: 1.50, h: 0.20, text: "QTY", size: 9, bold: true, color: "FFFFFF", align: "center" });
+  sumOps.push({ t: "text", x: 0.60, y: syTop + 0.10, w: 0.80, h: 0.24, text: "S#", size: 9, bold: true, color: "FFFFFF", align: "center" });
+  sumOps.push({ t: "text", x: 1.50, y: syTop + 0.10, w: 6.10, h: 0.24, text: "SUMMARY", size: 9, bold: true, color: "FFFFFF", align: "left" });
+  sumOps.push({ t: "text", x: 7.70, y: syTop + 0.10, w: 1.50, h: 0.24, text: "QTY", size: 9, bold: true, color: "FFFFFF", align: "center" });
 
   sumRows.slice(0, 13).forEach((r, idx) => {
     const yR = syTop + shHead + (idx * shRow);
     sumOps.push({ t: "rect", x: 0.60, y: yR, w: 8.60, h: shRow, fill: idx % 2 === 0 ? "FFFFFF" : "F7F4F4" });
     sumOps.push({ t: "rect", x: 0.60, y: yR + shRow - 0.01, w: 8.60, h: 0.01, fill: "CCCCCC" });
-    sumOps.push({ t: "text", x: 0.60, y: yR + 0.09, w: 0.80, h: 0.20, text: String(r.sNo), size: 9, bold: true, color: "1C1A1B", align: "center", font: "mono" });
-    sumOps.push({ t: "text", x: 1.50, y: yR + 0.09, w: 6.10, h: 0.20, text: r.summary, size: 9, bold: true, color: "1C1A1B", align: "left" });
-    sumOps.push({ t: "text", x: 7.70, y: yR + 0.09, w: 1.50, h: 0.20, text: String(r.qty), size: 9.5, bold: true, color: "1C1A1B", align: "center", font: "mono" });
+    sumOps.push({ t: "text", x: 0.60, y: yR + 0.09, w: 0.80, h: 0.24, text: String(r.sNo), size: 9, bold: true, color: "1C1A1B", align: "center", font: "mono" });
+    sumOps.push({ t: "text", x: 1.50, y: yR + 0.09, w: 6.10, h: 0.24, text: r.summary, size: 9, bold: true, color: "1C1A1B", align: "left" });
+    sumOps.push({ t: "text", x: 7.70, y: yR + 0.09, w: 1.50, h: 0.24, text: String(r.qty), size: 9.5, bold: true, color: "1C1A1B", align: "center", font: "mono" });
   });
   const yTot = syTop + shHead + (Math.min(sumRows.length, 13) * shRow);
   sumOps.push({ t: "rect", x: 0.60, y: yTot, w: 8.60, h: 0.42, fill: "FEE2E2" });
   sumOps.push({ t: "rect", x: 0.60, y: yTot, w: 8.60, h: 0.015, fill: "1C1A1B" });
   sumOps.push({ t: "rect", x: 0.60, y: yTot + 0.42, w: 8.60, h: 0.015, fill: "1C1A1B" });
-  sumOps.push({ t: "text", x: 1.50, y: yTot + 0.11, w: 6.10, h: 0.22, text: "TOTAL", size: 10.5, bold: true, color: "D9161D", align: "center" });
-  sumOps.push({ t: "text", x: 7.70, y: yTot + 0.11, w: 1.50, h: 0.22, text: String(totalQty), size: 11, bold: true, color: "D9161D", align: "center", font: "mono" });
+  sumOps.push({ t: "text", x: 1.50, y: yTot + 0.11, w: 6.10, h: 0.24, text: "TOTAL", size: 10.5, bold: true, color: "D9161D", align: "center" });
+  sumOps.push({ t: "text", x: 7.70, y: yTot + 0.11, w: 1.50, h: 0.24, text: String(totalQty), size: 11, bold: true, color: "D9161D", align: "center", font: "mono" });
 
   sumOps.push({ t: "rect", x: 0.25, y: 7.02, w: 12.83, h: 0.01, fill: t.muted || "6E6668" });
   sumOps.push({ t: "logo", which: "mark", x: 0.25, y: 7.07, w: 0.34, h: 0.34 });
@@ -6298,7 +6377,7 @@ function vStudio(){
 <label style="font-weight:700;color:var(--violet);grid-column:1/-1;background:rgba(124,58,237,0.08);padding:6px 10px;border-radius:8px;display:flex;align-items:center;gap:6px;cursor:pointer"><input type="checkbox" id="stOnlySummary" ${c.onlySummary?"checked":""} style="width:17px;height:17px;accent-color:var(--violet)">📊 Only Inventory Summary Table (Hide individual site photo slides)</label>
 <label><input type="checkbox" id="stCover" ${!c.hideCover?"checked":""}>Cover slide</label>
 <label><input type="checkbox" id="stSum" ${c.summary?"checked":""}>Summary slide</label>
-<label><input type="checkbox" id="stIdx" ${c.index?"checked":""}>Area index</label></div>
+</div>
     </div>
     <div class="card pad grid" style="gap:10px">
       <button class="btn pri" data-act="export" data-v="pptx" style="justify-content:center">${ICON.dl}Export PowerPoint</button>
@@ -6525,7 +6604,7 @@ document.addEventListener("submit",async e=>{if(e.target.id!=="reqForm")return;e
 function vSettings(){const s=S.settings;const hasSample=S.sites.some(x=>x.sample)||S.campaigns.some(x=>x.sample);
   return pgTop("Settings","Branding for watermarks and presentations")+`<div class="grid" style="max-width:720px">
   <div class="card pad grid" style="gap:14px">
-  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v10.4 PWA Ready</span></div>
+  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v10.5 PWA Ready</span></div>
   <p style="margin:0;color:var(--muted);font-size:13px">Install AdPulse OTS on iPhone, iPad, Android or PC for fast offline access, full-screen Google 3D maps, and 1-tap camera upload with GPS.</p>
   <div class="row" style="gap:10px;flex-wrap:wrap">
     <button class="btn pri" data-act="installios" style="flex:1;min-width:180px;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>Install on iPhone / iPad (iOS)</button>
@@ -6710,7 +6789,7 @@ function showMobileUpdateBanner(){
   const b = document.createElement('div');
   b.id = 'mobileUpdateBanner';
   b.style.cssText = 'position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:9999;background:linear-gradient(135deg,#0c0917,#1b1238);color:#fff;padding:8px 16px;border-radius:9999px;box-shadow:0 8px 24px rgba(0,0,0,0.5);border:1px solid #38bdf8;display:flex;align-items:center;gap:10px;font-size:12.5px;max-width:calc(100% - 24px);';
-  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v10.4)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
+  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v10.5)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
   document.body.appendChild(b);
 }
 
@@ -6729,7 +6808,7 @@ function openInstallModal(forceType){
                 <h2 style="font-size:18px;margin:0">AdPulse OTS App</h2>
                 <span class="pill st-available" style="font-size:10px;padding:2px 8px">🟢 Running as App</span>
               </div>
-              <div style="font-size:12px;color:var(--muted);margin-top:2px">v10.4 (Android &amp; iOS Standalone)</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px">v10.5 (Android &amp; iOS Standalone)</div>
             </div>
             <span class="sp"></span>
             <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
@@ -6815,7 +6894,7 @@ function openInstallModal(forceType){
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
           <img src="/icons/icon-192.png" alt="AdPulse OTS" style="width:48px;height:48px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.2)">
           <div>
-            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v10.4)</h2>
+            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v10.5)</h2>
             <div style="font-size:12px;color:var(--muted)">Google 3D Maps &amp; 97 Verified Media Sites</div>
           </div>
           <span class="sp"></span>
@@ -7462,6 +7541,25 @@ savedeck:async()=>{const c=Studio.cfg;c.version=(c.version||0)+1;try{await put("
  clearsample:()=>confirmBox("Remove all sample sites and campaigns?",async()=>{for(const s of S.sites.filter(x=>x.sample))await del("sites",s.id);for(const c of S.campaigns.filter(x=>x.sample))await del("campaigns",c.id);toast("Sample data removed")},"Remove")
 };
 document.addEventListener("click",e=>{const a=e.target.closest("[data-act]");if(!a||a.disabled)return;const fn=ACT[a.dataset.act];if(fn){if(a.tagName==="A"&&a.dataset.act!=="close")return;if(a.closest("#agentPop")&&!/^agent/.test(a.dataset.act))$("#agentPop").innerHTML="";fn(a,e)}});
+document.addEventListener("focusout",e=>{
+  const cell=e.target.closest&&e.target.closest("[data-tbledit]");
+  if(!cell)return;
+  const [sid,fld]=cell.dataset.tbledit.split(":");
+  const updated=applyInlineTableEdit(sid,fld,cell.innerText);
+  if(updated){
+    const row=cell.closest("tr");
+    if(row){
+      const sqCell=row.querySelector(`[data-cell-sqft="${sid}"]`);
+      if(sqCell&&(fld==="w"||fld==="h"))sqCell.textContent=String(updated.excelSqft||updated.sqft||"");
+      const dayCell=row.querySelector(`[data-cell-day="${sid}"]`);
+      if(dayCell&&(fld==="startDate"||fld==="endDate"))dayCell.textContent=String(updated.day||"");
+    }
+  }
+});
+document.addEventListener("keydown",e=>{
+  const cell=e.target.closest&&e.target.closest("[data-tbledit],[data-edit]");
+  if(cell&&e.key==="Enter"){e.preventDefault();cell.blur();}
+});
 document.addEventListener("change",e=>{const t=e.target;
  if(t.dataset.act==="setrole"){ACT.setrole(t)}
  if(t.dataset.f!==undefined){F[t.dataset.f]=t.value;render(true)}
@@ -7506,7 +7604,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=34.0").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=35.0").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
@@ -7523,7 +7621,7 @@ if("serviceWorker" in navigator){
           });
         }
       });
-      console.log("AdPulse OTS PWA active (v10.4):",r.scope);
+      console.log("AdPulse OTS PWA active (v10.5):",r.scope);
     }).catch(err=>{
       console.warn("PWA ServiceWorker registration failed:",err);
     });

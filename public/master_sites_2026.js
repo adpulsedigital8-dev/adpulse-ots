@@ -31,10 +31,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "ASKARI VILLA - KK PROPERTIES",
       "brand": "ASKARI VILLA - KK PROPERTIES",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "30-11-2026 EXT",
-      "duration": "30-11-2026 EXT",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "EXTENDABLE",
       "vendorEndDate": "31-Jan-27"
     },
@@ -47,7 +47,7 @@ window.MASTER_SITES_2026 = [
         "caption": "OCEAN MALL - S#1"
       }
     ],
-    "notes": "S#1 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Availability: 30-11-2026 EXT · Status: EXTENDABLE · Vendor: DO ADVERTISING (31-Jan-27)",
+    "notes": "S#1 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-11-2026 EXT · Status: EXTENDABLE · Vendor: DO ADVERTISING (31-Jan-27)",
     "widthFt": 80,
     "heightFt": 15,
     "from": "2 sword",
@@ -60,16 +60,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1200",
     "sqftNum": 1200,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "31-Jan-27",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
+    "bookedTill": "30-Nov-26",
     "availability": "30-11-2026 EXT",
     "excelAvailability": "30-11-2026 EXT",
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-002",
@@ -102,10 +102,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "ASKARI VILLA - KK PROPERTIES",
       "brand": "ASKARI VILLA - KK PROPERTIES",
-      "start": "",
-      "end": "",
+      "start": "07-Nov-26",
+      "end": "07-Dec-26",
       "avail": "07-12-2026 +EXT",
-      "duration": "07-12-2026 +EXT",
+      "duration": "07-Nov-26 to 07-Dec-26 (30 days)",
       "statusLabel": "EXTENDABLE",
       "vendorEndDate": "16-Jan-27"
     },
@@ -118,7 +118,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SHAHRAHE FAISAL AYESHA BAWANI TGT AIRPORT - S#2"
       }
     ],
-    "notes": "S#2 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Availability: 07-12-2026 +EXT · Status: EXTENDABLE · Vendor: NEXTIER KAINAT (16-Jan-27)",
+    "notes": "S#2 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Start: 07-Nov-26 · End: 07-Dec-26 (30 Days) · Availability: 07-12-2026 +EXT · Status: EXTENDABLE · Vendor: NEXTIER KAINAT (16-Jan-27)",
     "widthFt": 97,
     "heightFt": 12,
     "from": "METROPOLE",
@@ -131,16 +131,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1164",
     "sqftNum": 1164,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "16-Jan-27",
+    "startDate": "07-Nov-26",
+    "endDate": "07-Dec-26",
+    "bookedFrom": "07-Nov-26",
+    "bookedTill": "07-Dec-26",
     "availability": "07-12-2026 +EXT",
     "excelAvailability": "07-12-2026 +EXT",
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-003",
@@ -173,10 +173,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "ASKARI VILLA - KK PROPERTIES",
       "brand": "ASKARI VILLA - KK PROPERTIES",
-      "start": "",
-      "end": "",
+      "start": "01-Nov-26",
+      "end": "01-Dec-26",
       "avail": "01-12-2026 +EXT",
-      "duration": "01-12-2026 +EXT",
+      "duration": "01-Nov-26 to 01-Dec-26 (30 days)",
       "statusLabel": "EXTENDABLE",
       "vendorEndDate": "16-Jan-27"
     },
@@ -189,7 +189,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SHAHRAHE FAISAL AYESHA BAWANI TGT METROPOLE - S#3"
       }
     ],
-    "notes": "S#3 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Availability: 01-12-2026 +EXT · Status: EXTENDABLE · Vendor: NEXTIER KAINAT (16-Jan-27)",
+    "notes": "S#3 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Start: 01-Nov-26 · End: 01-Dec-26 (30 Days) · Availability: 01-12-2026 +EXT · Status: EXTENDABLE · Vendor: NEXTIER KAINAT (16-Jan-27)",
     "widthFt": 97,
     "heightFt": 12,
     "from": "AIRPORT",
@@ -202,16 +202,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1164",
     "sqftNum": 1164,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "16-Jan-27",
+    "startDate": "01-Nov-26",
+    "endDate": "01-Dec-26",
+    "bookedFrom": "01-Nov-26",
+    "bookedTill": "01-Dec-26",
     "availability": "01-12-2026 +EXT",
     "excelAvailability": "01-12-2026 +EXT",
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-004",
@@ -244,10 +244,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "ASKARI VILLA - KK PROPERTIES",
       "brand": "ASKARI VILLA - KK PROPERTIES",
-      "start": "",
-      "end": "",
+      "start": "28-Oct-26",
+      "end": "27-Nov-26",
       "avail": "27-11-2026 +EXT",
-      "duration": "27-11-2026 +EXT",
+      "duration": "28-Oct-26 to 27-Nov-26 (30 days)",
       "statusLabel": "EXTENDABLE",
       "vendorEndDate": "16-Jan-27"
     },
@@ -260,7 +260,7 @@ window.MASTER_SITES_2026 = [
         "caption": "KARSAZ ROAD BRIDGE 01 TGT SHAHRAHE FAISAL - S#4"
       }
     ],
-    "notes": "S#4 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Availability: 27-11-2026 +EXT · Status: EXTENDABLE · Vendor: NEXTIER KAINAT (16-Jan-27)",
+    "notes": "S#4 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Start: 28-Oct-26 · End: 27-Nov-26 (30 Days) · Availability: 27-11-2026 +EXT · Status: EXTENDABLE · Vendor: NEXTIER KAINAT (16-Jan-27)",
     "widthFt": 90,
     "heightFt": 12,
     "from": "STADIUM",
@@ -273,16 +273,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1080",
     "sqftNum": 1080,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "16-Jan-27",
+    "startDate": "28-Oct-26",
+    "endDate": "27-Nov-26",
+    "bookedFrom": "28-Oct-26",
+    "bookedTill": "27-Nov-26",
     "availability": "27-11-2026 +EXT",
     "excelAvailability": "27-11-2026 +EXT",
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-005",
@@ -315,10 +315,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "ASKARI VILLA - KK PROPERTIES",
       "brand": "ASKARI VILLA - KK PROPERTIES",
-      "start": "",
-      "end": "",
+      "start": "30-Oct-26",
+      "end": "29-Nov-26",
       "avail": "29-11-2026 +EXT",
-      "duration": "29-11-2026 +EXT",
+      "duration": "30-Oct-26 to 29-Nov-26 (30 days)",
       "statusLabel": "EXTENDABLE",
       "vendorEndDate": "16-Jan-27"
     },
@@ -331,7 +331,7 @@ window.MASTER_SITES_2026 = [
         "caption": "KARSAZ ROAD BRIDGE 02 TGT STADIUM - S#5"
       }
     ],
-    "notes": "S#5 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Availability: 29-11-2026 +EXT · Status: EXTENDABLE · Vendor: NEXTIER KAINAT (16-Jan-27)",
+    "notes": "S#5 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Start: 30-Oct-26 · End: 29-Nov-26 (30 Days) · Availability: 29-11-2026 +EXT · Status: EXTENDABLE · Vendor: NEXTIER KAINAT (16-Jan-27)",
     "widthFt": 90,
     "heightFt": 12,
     "from": "SHAHRAH E FAISAL",
@@ -344,16 +344,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1080",
     "sqftNum": 1080,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "16-Jan-27",
+    "startDate": "30-Oct-26",
+    "endDate": "29-Nov-26",
+    "bookedFrom": "30-Oct-26",
+    "bookedTill": "29-Nov-26",
     "availability": "29-11-2026 +EXT",
     "excelAvailability": "29-11-2026 +EXT",
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-006",
@@ -386,10 +386,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "ASKARI VILLA - KK PROPERTIES",
       "brand": "ASKARI VILLA - KK PROPERTIES",
-      "start": "",
-      "end": "",
+      "start": "06-Nov-26",
+      "end": "06-Dec-26",
       "avail": "06-12-2026 +EXT",
-      "duration": "06-12-2026 +EXT",
+      "duration": "06-Nov-26 to 06-Dec-26 (30 days)",
       "statusLabel": "DEPT ISSUE",
       "vendorEndDate": "30-11-2026 + EXT"
     },
@@ -402,7 +402,7 @@ window.MASTER_SITES_2026 = [
         "caption": "MILLINIUM MALL BRIDGE - S#6"
       }
     ],
-    "notes": "S#6 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Availability: 06-12-2026 +EXT · Status: DEPT ISSUE · Vendor: MNB - UMAIR BUTT (30-11-2026 + EXT)",
+    "notes": "S#6 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Start: 06-Nov-26 · End: 06-Dec-26 (30 Days) · Availability: 06-12-2026 +EXT · Status: DEPT ISSUE · Vendor: MNB - UMAIR BUTT (30-11-2026 + EXT)",
     "widthFt": 80,
     "heightFt": 12,
     "from": "STADIUM",
@@ -415,16 +415,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "960",
     "sqftNum": 960,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "30-11-2026 + EXT",
+    "startDate": "06-Nov-26",
+    "endDate": "06-Dec-26",
+    "bookedFrom": "06-Nov-26",
+    "bookedTill": "06-Dec-26",
     "availability": "06-12-2026 +EXT",
     "excelAvailability": "06-12-2026 +EXT",
     "statusLabel": "DEPT ISSUE",
     "excelStatus": "DEPT ISSUE",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-007",
@@ -457,10 +457,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "ASKARI VILLA - KK PROPERTIES",
       "brand": "ASKARI VILLA - KK PROPERTIES",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "30-11-2026 + EXT",
-      "duration": "30-11-2026 + EXT",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "EXTENDABLE",
       "vendorEndDate": "30-11-2026 + EXT"
     },
@@ -473,7 +473,7 @@ window.MASTER_SITES_2026 = [
         "caption": "JINNAH AVENUE MALIR CANTT - S#7"
       }
     ],
-    "notes": "S#7 · Client: ASKARI VILLA - KK PROPERTIES · Medium: HOARDING · Availability: 30-11-2026 + EXT · Status: EXTENDABLE · Vendor: INTERLINK - DARYA KHAN (30-11-2026 + EXT)",
+    "notes": "S#7 · Client: ASKARI VILLA - KK PROPERTIES · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-11-2026 + EXT · Status: EXTENDABLE · Vendor: INTERLINK - DARYA KHAN (30-11-2026 + EXT)",
     "widthFt": 60,
     "heightFt": 20,
     "from": "JINNAH AVENUE MALIR CANTT",
@@ -486,16 +486,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1200",
     "sqftNum": 1200,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "30-11-2026 + EXT",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
+    "bookedTill": "30-Nov-26",
     "availability": "30-11-2026 + EXT",
     "excelAvailability": "30-11-2026 + EXT",
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-008",
@@ -528,10 +528,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "ASKARI VILLA - KK PROPERTIES / KIFAYAH",
       "brand": "ASKARI VILLA - KK PROPERTIES / KIFAYAH",
-      "start": "",
-      "end": "",
+      "start": "10-Nov-26",
+      "end": "10-Dec-26",
       "avail": "10-12-2026 + EXT",
-      "duration": "10-12-2026 + EXT",
+      "duration": "10-Nov-26 to 10-Dec-26 (30 days)",
       "statusLabel": "EXTENDABLE",
       "vendorEndDate": "31-Jan-27"
     },
@@ -544,7 +544,7 @@ window.MASTER_SITES_2026 = [
         "caption": "JINNAH AVENUE 01 - S#8"
       }
     ],
-    "notes": "S#8 · Client: ASKARI VILLA - KK PROPERTIES / KIFAYAH · Medium: HOARDING · Availability: 10-12-2026 + EXT · Status: EXTENDABLE · Vendor: SHARPLINE (31-Jan-27)",
+    "notes": "S#8 · Client: ASKARI VILLA - KK PROPERTIES / KIFAYAH · Medium: HOARDING · Start: 10-Nov-26 · End: 10-Dec-26 (30 Days) · Availability: 10-12-2026 + EXT · Status: EXTENDABLE · Vendor: SHARPLINE (31-Jan-27)",
     "widthFt": 60,
     "heightFt": 30,
     "from": "airport",
@@ -557,16 +557,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1800",
     "sqftNum": 1800,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "31-Jan-27",
+    "startDate": "10-Nov-26",
+    "endDate": "10-Dec-26",
+    "bookedFrom": "10-Nov-26",
+    "bookedTill": "10-Dec-26",
     "availability": "10-12-2026 + EXT",
     "excelAvailability": "10-12-2026 + EXT",
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-009",
@@ -599,10 +599,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "ASKARI VILLA - KK PROPERTIES / KIFAYAH",
       "brand": "ASKARI VILLA - KK PROPERTIES / KIFAYAH",
-      "start": "",
-      "end": "",
+      "start": "05-Nov-26",
+      "end": "05-Dec-26",
       "avail": "05-12-2026 + EXT",
-      "duration": "05-12-2026 + EXT",
+      "duration": "05-Nov-26 to 05-Dec-26 (30 days)",
       "statusLabel": "EXTENDABLE",
       "vendorEndDate": "22-Jan-27"
     },
@@ -615,7 +615,7 @@ window.MASTER_SITES_2026 = [
         "caption": "JINNAH AVENUE 02 - S#9"
       }
     ],
-    "notes": "S#9 · Client: ASKARI VILLA - KK PROPERTIES / KIFAYAH · Medium: HOARDING · Availability: 05-12-2026 + EXT · Status: EXTENDABLE · Vendor: SHARPLINE (22-Jan-27)",
+    "notes": "S#9 · Client: ASKARI VILLA - KK PROPERTIES / KIFAYAH · Medium: HOARDING · Start: 05-Nov-26 · End: 05-Dec-26 (30 Days) · Availability: 05-12-2026 + EXT · Status: EXTENDABLE · Vendor: SHARPLINE (22-Jan-27)",
     "widthFt": 60,
     "heightFt": 30,
     "from": "Malir Cantt",
@@ -628,16 +628,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1800",
     "sqftNum": 1800,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "22-Jan-27",
+    "startDate": "05-Nov-26",
+    "endDate": "05-Dec-26",
+    "bookedFrom": "05-Nov-26",
+    "bookedTill": "05-Dec-26",
     "availability": "05-12-2026 + EXT",
     "excelAvailability": "05-12-2026 + EXT",
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-010",
@@ -670,10 +670,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "ASKARI VILLA - KK PROPERTIES",
       "brand": "ASKARI VILLA - KK PROPERTIES",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "30-11-2026 + EXT",
-      "duration": "30-11-2026 + EXT",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "EXTENDABLE",
       "vendorEndDate": "30-11-2026 + EXT"
     },
@@ -686,7 +686,7 @@ window.MASTER_SITES_2026 = [
         "caption": "AFTER TOLL PLAZA, BAQAI UNIVERSITY TOWARDS KARACHI CITY - S#10"
       }
     ],
-    "notes": "S#10 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Availability: 30-11-2026 + EXT · Status: EXTENDABLE · Vendor: INTERLINK - DARYA KHAN (30-11-2026 + EXT)",
+    "notes": "S#10 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-11-2026 + EXT · Status: EXTENDABLE · Vendor: INTERLINK - DARYA KHAN (30-11-2026 + EXT)",
     "widthFt": 70,
     "heightFt": 12,
     "from": "Sohrab Goth",
@@ -699,16 +699,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "840",
     "sqftNum": 840,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "30-11-2026 + EXT",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
+    "bookedTill": "30-Nov-26",
     "availability": "30-11-2026 + EXT",
     "excelAvailability": "30-11-2026 + EXT",
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-011",
@@ -741,10 +741,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "FALAKNAZ SKYVIEW",
       "brand": "FALAKNAZ SKYVIEW",
-      "start": "",
-      "end": "",
+      "start": "17-Nov-26",
+      "end": "17-Dec-26",
       "avail": "Long Term Booked",
-      "duration": "Long Term Booked",
+      "duration": "17-Nov-26 to 17-Dec-26 (30 days)",
       "statusLabel": "EXTENDABLE",
       "vendorEndDate": "17-12-2026 EXT"
     },
@@ -757,7 +757,7 @@ window.MASTER_SITES_2026 = [
         "caption": "EXPRESSWAY DHA ITTEHAD - S#11"
       }
     ],
-    "notes": "S#11 · Client: FALAKNAZ SKYVIEW · Medium: HOARDING · Availability: Long Term Booked · Status: EXTENDABLE · Vendor: SIGNWAYS (17-12-2026 EXT)",
+    "notes": "S#11 · Client: FALAKNAZ SKYVIEW · Medium: HOARDING · Start: 17-Nov-26 · End: 17-Dec-26 (30 Days) · Availability: Long Term Booked · Status: EXTENDABLE · Vendor: SIGNWAYS (17-12-2026 EXT)",
     "widthFt": 100,
     "heightFt": 30,
     "from": "Baloch Flyover",
@@ -770,16 +770,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "3000",
     "sqftNum": 3000,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "17-12-2026 EXT",
+    "startDate": "17-Nov-26",
+    "endDate": "17-Dec-26",
+    "bookedFrom": "17-Nov-26",
+    "bookedTill": "17-Dec-26",
     "availability": "Long Term Booked",
     "excelAvailability": "Long Term Booked",
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-012",
@@ -812,10 +812,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "FALAKNAZ SKYVIEW",
       "brand": "FALAKNAZ SKYVIEW",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "30-Nov-26",
-      "duration": "30-Nov-26",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "WILL BE END",
       "vendorEndDate": "30-Mar-27"
     },
@@ -828,7 +828,7 @@ window.MASTER_SITES_2026 = [
         "caption": "DHA EXIT 02 - S#12"
       }
     ],
-    "notes": "S#12 · Client: FALAKNAZ SKYVIEW · Medium: HOARDING · Availability: 30-Nov-26 · Status: WILL BE END · Vendor: DO ADVERTISING (30-Mar-27)",
+    "notes": "S#12 · Client: FALAKNAZ SKYVIEW · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: WILL BE END · Vendor: DO ADVERTISING (30-Mar-27)",
     "widthFt": 60,
     "heightFt": 20,
     "from": "Sea View, Khayaban E Itthead DHA Golf Club. Phase 5,6 And 8",
@@ -841,16 +841,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1000",
     "sqftNum": 1000,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "30-Mar-27",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
+    "bookedTill": "30-Nov-26",
     "availability": "30-Nov-26",
     "excelAvailability": "30-Nov-26",
     "statusLabel": "WILL BE END",
     "excelStatus": "WILL BE END",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-013",
@@ -883,10 +883,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / CALL GROUP / DALDA",
       "brand": "GFS BUILDERS AND DEVELOPERS / CALL GROUP / DALDA",
-      "start": "",
-      "end": "",
+      "start": "16-Nov-26",
+      "end": "01-Dec-26",
       "avail": "01-Dec-26",
-      "duration": "01-Dec-26",
+      "duration": "16-Nov-26 to 01-Dec-26 (15 days)",
       "statusLabel": "",
       "vendorEndDate": "Long Term"
     },
@@ -899,7 +899,7 @@ window.MASTER_SITES_2026 = [
         "caption": "DHA SUNSET - S#13"
       }
     ],
-    "notes": "S#13 · Client: GFS BUILDERS AND DEVELOPERS / CALL GROUP / DALDA · Medium: HOARDING · Availability: 01-Dec-26 · Status: — · Vendor: CALL GROUP (Long Term)",
+    "notes": "S#13 · Client: GFS BUILDERS AND DEVELOPERS / CALL GROUP / DALDA · Medium: HOARDING · Start: 16-Nov-26 · End: 01-Dec-26 (15 Days) · Availability: 01-Dec-26 · Status: — · Vendor: CALL GROUP (Long Term)",
     "widthFt": 44,
     "heightFt": 40,
     "from": "DHA LIBRARY",
@@ -912,16 +912,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "VINYL",
     "excelSqft": "1760",
     "sqftNum": 1760,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "Long Term",
+    "startDate": "16-Nov-26",
+    "endDate": "01-Dec-26",
+    "bookedFrom": "16-Nov-26",
+    "bookedTill": "01-Dec-26",
     "availability": "01-Dec-26",
     "excelAvailability": "01-Dec-26",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "15",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-014",
@@ -954,10 +954,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / CALL GROUP / INDUS VALLEY",
       "brand": "GFS BUILDERS AND DEVELOPERS / CALL GROUP / INDUS VALLEY",
-      "start": "",
-      "end": "",
+      "start": "07-Nov-26",
+      "end": "22-Nov-26",
       "avail": "22-Nov-26",
-      "duration": "22-Nov-26",
+      "duration": "07-Nov-26 to 22-Nov-26 (15 days)",
       "statusLabel": "",
       "vendorEndDate": "10-Jul-27"
     },
@@ -970,7 +970,7 @@ window.MASTER_SITES_2026 = [
         "caption": "DHA ITTEHAD SIGNAL - S#14"
       }
     ],
-    "notes": "S#14 · Client: GFS BUILDERS AND DEVELOPERS / CALL GROUP / INDUS VALLEY · Medium: HOARDING · Availability: 22-Nov-26 · Status: — · Vendor: CALL GROUP (10-Jul-27)",
+    "notes": "S#14 · Client: GFS BUILDERS AND DEVELOPERS / CALL GROUP / INDUS VALLEY · Medium: HOARDING · Start: 07-Nov-26 · End: 22-Nov-26 (15 Days) · Availability: 22-Nov-26 · Status: — · Vendor: CALL GROUP (10-Jul-27)",
     "widthFt": 24,
     "heightFt": 43,
     "from": "DHA Aisha Masjid",
@@ -983,16 +983,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "VINYL",
     "excelSqft": "1032",
     "sqftNum": 1032,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "10-Jul-27",
+    "startDate": "07-Nov-26",
+    "endDate": "22-Nov-26",
+    "bookedFrom": "07-Nov-26",
+    "bookedTill": "22-Nov-26",
     "availability": "22-Nov-26",
     "excelAvailability": "22-Nov-26",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "15",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-015",
@@ -1025,10 +1025,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "CHASE VALUE  / EMINENT",
       "brand": "CHASE VALUE  / EMINENT",
-      "start": "",
-      "end": "",
+      "start": "10-Nov-26",
+      "end": "10-Feb-27",
       "avail": "10-Feb-27 + Ext",
-      "duration": "10-Feb-27 + Ext",
+      "duration": "10-Nov-26 to 10-Feb-27 (92 days)",
       "statusLabel": "Long Term",
       "vendorEndDate": "29-Jan-27"
     },
@@ -1041,7 +1041,7 @@ window.MASTER_SITES_2026 = [
         "caption": "ABL ROUND ABOUT SHAHEED E MILLAT - S#15"
       }
     ],
-    "notes": "S#15 · Client: CHASE VALUE  / EMINENT · Medium: BRIDGE PANEL · Availability: 10-Feb-27 + Ext · Status: Long Term · Vendor: DO ADVERTISING (29-Jan-27)",
+    "notes": "S#15 · Client: CHASE VALUE  / EMINENT · Medium: BRIDGE PANEL · Start: 10-Nov-26 · End: 10-Feb-27 (92 Days) · Availability: 10-Feb-27 + Ext · Status: Long Term · Vendor: DO ADVERTISING (29-Jan-27)",
     "widthFt": 60,
     "heightFt": 10,
     "from": "ABL ROUND ABOUT SHAHEED E MILLAT",
@@ -1054,16 +1054,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "600",
     "sqftNum": 600,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "29-Jan-27",
+    "startDate": "10-Nov-26",
+    "endDate": "10-Feb-27",
+    "bookedFrom": "10-Nov-26",
+    "bookedTill": "10-Feb-27",
     "availability": "10-Feb-27 + Ext",
     "excelAvailability": "10-Feb-27 + Ext",
     "statusLabel": "Long Term",
     "excelStatus": "Long Term",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "92",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-016",
@@ -1096,10 +1096,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "CHASE VALUE  / EMINENT",
       "brand": "CHASE VALUE  / EMINENT",
-      "start": "",
-      "end": "",
+      "start": "10-Nov-26",
+      "end": "10-Feb-27",
       "avail": "10-Feb-27 + Ext",
-      "duration": "10-Feb-27 + Ext",
+      "duration": "10-Nov-26 to 10-Feb-27 (92 days)",
       "statusLabel": "DEPT ISSUE",
       "vendorEndDate": "30-Nov-26"
     },
@@ -1112,7 +1112,7 @@ window.MASTER_SITES_2026 = [
         "caption": "RJ MALL  TGT NIPA - S#16"
       }
     ],
-    "notes": "S#16 · Client: CHASE VALUE  / EMINENT · Medium: BRIDGE PANEL · Availability: 10-Feb-27 + Ext · Status: DEPT ISSUE · Vendor: MNB - UMAIR BUTT (30-Nov-26)",
+    "notes": "S#16 · Client: CHASE VALUE  / EMINENT · Medium: BRIDGE PANEL · Start: 10-Nov-26 · End: 10-Feb-27 (92 Days) · Availability: 10-Feb-27 + Ext · Status: DEPT ISSUE · Vendor: MNB - UMAIR BUTT (30-Nov-26)",
     "widthFt": 80,
     "heightFt": 15,
     "from": "Shahrah e Faisal",
@@ -1125,16 +1125,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1200",
     "sqftNum": 1200,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "30-Nov-26",
+    "startDate": "10-Nov-26",
+    "endDate": "10-Feb-27",
+    "bookedFrom": "10-Nov-26",
+    "bookedTill": "10-Feb-27",
     "availability": "10-Feb-27 + Ext",
     "excelAvailability": "10-Feb-27 + Ext",
     "statusLabel": "DEPT ISSUE",
     "excelStatus": "DEPT ISSUE",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "92",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-017",
@@ -1167,10 +1167,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT",
       "brand": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT",
-      "start": "",
-      "end": "",
+      "start": "05-Nov-26",
+      "end": "05-Dec-26",
       "avail": "05-Dec-26",
-      "duration": "05-Dec-26",
+      "duration": "05-Nov-26 to 05-Dec-26 (30 days)",
       "statusLabel": "?",
       "vendorEndDate": "23-Dec-26"
     },
@@ -1183,7 +1183,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SHAHEED E MILLAT NAHEED - S#17"
       }
     ],
-    "notes": "S#17 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT · Medium: HOARDING · Availability: 05-Dec-26 · Status: ? · Vendor: UMAIR BUKARI (23-Dec-26)",
+    "notes": "S#17 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT · Medium: HOARDING · Start: 05-Nov-26 · End: 05-Dec-26 (30 Days) · Availability: 05-Dec-26 · Status: ? · Vendor: UMAIR BUKARI (23-Dec-26)",
     "widthFt": 60,
     "heightFt": 30,
     "from": "Jail Road",
@@ -1196,16 +1196,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1800",
     "sqftNum": 1800,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "23-Dec-26",
+    "startDate": "05-Nov-26",
+    "endDate": "05-Dec-26",
+    "bookedFrom": "05-Nov-26",
+    "bookedTill": "05-Dec-26",
     "availability": "05-Dec-26",
     "excelAvailability": "05-Dec-26",
     "statusLabel": "?",
     "excelStatus": "?",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-018",
@@ -1238,10 +1238,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT",
       "brand": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT",
-      "start": "",
-      "end": "",
+      "start": "05-Nov-26",
+      "end": "05-Dec-26",
       "avail": "05-Dec-26",
-      "duration": "05-Dec-26",
+      "duration": "05-Nov-26 to 05-Dec-26 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "31-Jan-27"
     },
@@ -1254,7 +1254,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SHAHEED E MILLAT BALOCH BRIDGE - S#18"
       }
     ],
-    "notes": "S#18 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT · Medium: BRIDGE PANEL · Availability: 05-Dec-26 · Status: — · Vendor: DO ADVERTISING (31-Jan-27)",
+    "notes": "S#18 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT · Medium: BRIDGE PANEL · Start: 05-Nov-26 · End: 05-Dec-26 (30 Days) · Availability: 05-Dec-26 · Status: — · Vendor: DO ADVERTISING (31-Jan-27)",
     "widthFt": 100,
     "heightFt": 12,
     "from": "BALOCH FLYOVER",
@@ -1267,16 +1267,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1200",
     "sqftNum": 1200,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "31-Jan-27",
+    "startDate": "05-Nov-26",
+    "endDate": "05-Dec-26",
+    "bookedFrom": "05-Nov-26",
+    "bookedTill": "05-Dec-26",
     "availability": "05-Dec-26",
     "excelAvailability": "05-Dec-26",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-019",
@@ -1309,10 +1309,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "CHASE VALUE  / EMINENT",
       "brand": "CHASE VALUE  / EMINENT",
-      "start": "",
-      "end": "",
+      "start": "26-Oct-26",
+      "end": "25-Nov-26",
       "avail": "25-Nov-26",
-      "duration": "25-Nov-26",
+      "duration": "26-Oct-26 to 25-Nov-26 (30 days)",
       "statusLabel": "WILL BE END",
       "vendorEndDate": "25-Nov-26"
     },
@@ -1325,7 +1325,7 @@ window.MASTER_SITES_2026 = [
         "caption": "FTC FLYOVER - S#19"
       }
     ],
-    "notes": "S#19 · Client: CHASE VALUE  / EMINENT · Medium: HOARDING · Availability: 25-Nov-26 · Status: WILL BE END · Vendor: USMAN GRAPHIC EDGE (25-Nov-26)",
+    "notes": "S#19 · Client: CHASE VALUE  / EMINENT · Medium: HOARDING · Start: 26-Oct-26 · End: 25-Nov-26 (30 Days) · Availability: 25-Nov-26 · Status: WILL BE END · Vendor: USMAN GRAPHIC EDGE (25-Nov-26)",
     "widthFt": 75,
     "heightFt": 30,
     "from": "NMC",
@@ -1338,16 +1338,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "2250",
     "sqftNum": 2250,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "26-Oct-26",
+    "endDate": "25-Nov-26",
+    "bookedFrom": "26-Oct-26",
     "bookedTill": "25-Nov-26",
     "availability": "25-Nov-26",
     "excelAvailability": "25-Nov-26",
     "statusLabel": "WILL BE END",
     "excelStatus": "WILL BE END",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-020",
@@ -1380,10 +1380,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "Mr. USMAN GRAPHIC EDGE",
       "brand": "Mr. USMAN GRAPHIC EDGE",
-      "start": "",
-      "end": "",
+      "start": "03-Nov-26",
+      "end": "03-Dec-26",
       "avail": "03-12-2026 + EXT",
-      "duration": "03-12-2026 + EXT",
+      "duration": "03-Nov-26 to 03-Dec-26 (30 days)",
       "statusLabel": "DEPT ISSUE",
       "vendorEndDate": "05-Dec-26"
     },
@@ -1396,7 +1396,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SHAHRAH E FAISAL MACDONALDS BRIDGE - S#20"
       }
     ],
-    "notes": "S#20 · Client: Mr. USMAN GRAPHIC EDGE · Medium: BRIDGE PANEL · Availability: 03-12-2026 + EXT · Status: DEPT ISSUE · Vendor: POINT OUTDOOR - IMRAN AZIZ (05-Dec-26)",
+    "notes": "S#20 · Client: Mr. USMAN GRAPHIC EDGE · Medium: BRIDGE PANEL · Start: 03-Nov-26 · End: 03-Dec-26 (30 Days) · Availability: 03-12-2026 + EXT · Status: DEPT ISSUE · Vendor: POINT OUTDOOR - IMRAN AZIZ (05-Dec-26)",
     "widthFt": 80,
     "heightFt": 12,
     "from": "KARSAZ",
@@ -1409,16 +1409,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "960",
     "sqftNum": 960,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "05-Dec-26",
+    "startDate": "03-Nov-26",
+    "endDate": "03-Dec-26",
+    "bookedFrom": "03-Nov-26",
+    "bookedTill": "03-Dec-26",
     "availability": "03-12-2026 + EXT",
     "excelAvailability": "03-12-2026 + EXT",
     "statusLabel": "DEPT ISSUE",
     "excelStatus": "DEPT ISSUE",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-021",
@@ -1451,10 +1451,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
       "brand": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
-      "start": "",
-      "end": "",
+      "start": "01-Dec-26",
+      "end": "31-Dec-26",
       "avail": "SUBJECT TO AVAILABLE",
-      "duration": "SUBJECT TO AVAILABLE",
+      "duration": "01-Dec-26 to 31-Dec-26 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "31-Dec-26"
     },
@@ -1467,7 +1467,7 @@ window.MASTER_SITES_2026 = [
         "caption": "DHA BRIDGE  01 TGT ITTEHAD - S#21"
       }
     ],
-    "notes": "S#21 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Medium: BRIDGE PANEL · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: Zaib Enterprises (31-Dec-26)",
+    "notes": "S#21 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Medium: BRIDGE PANEL · Start: 01-Dec-26 · End: 31-Dec-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: Zaib Enterprises (31-Dec-26)",
     "widthFt": 100,
     "heightFt": 12,
     "from": "Korangi Road/ Expressway",
@@ -1480,16 +1480,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1200",
     "sqftNum": 1200,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "01-Dec-26",
+    "endDate": "31-Dec-26",
+    "bookedFrom": "01-Dec-26",
     "bookedTill": "31-Dec-26",
     "availability": "SUBJECT TO AVAILABLE",
     "excelAvailability": "SUBJECT TO AVAILABLE",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-022",
@@ -1522,10 +1522,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
       "brand": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
-      "start": "",
-      "end": "",
+      "start": "01-Dec-26",
+      "end": "31-Dec-26",
       "avail": "SUBJECT TO AVAILABLE",
-      "duration": "SUBJECT TO AVAILABLE",
+      "duration": "01-Dec-26 to 31-Dec-26 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "31-Dec-26"
     },
@@ -1538,7 +1538,7 @@ window.MASTER_SITES_2026 = [
         "caption": "DHA BRIDGE  02 - S#22"
       }
     ],
-    "notes": "S#22 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Medium: BRIDGE PANEL · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: Zaib Enterprises (31-Dec-26)",
+    "notes": "S#22 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Medium: BRIDGE PANEL · Start: 01-Dec-26 · End: 31-Dec-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: Zaib Enterprises (31-Dec-26)",
     "widthFt": 100,
     "heightFt": 12,
     "from": "Shahrah e Faisal/ Kala pul",
@@ -1551,16 +1551,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1200",
     "sqftNum": 1200,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "01-Dec-26",
+    "endDate": "31-Dec-26",
+    "bookedFrom": "01-Dec-26",
     "bookedTill": "31-Dec-26",
     "availability": "SUBJECT TO AVAILABLE",
     "excelAvailability": "SUBJECT TO AVAILABLE",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-023",
@@ -1593,10 +1593,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
       "brand": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "SUBJECT TO AVAILABLE",
-      "duration": "SUBJECT TO AVAILABLE",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "?",
       "vendorEndDate": "31-11-2026"
     },
@@ -1609,7 +1609,7 @@ window.MASTER_SITES_2026 = [
         "caption": "EXPRESSWAY - S#23"
       }
     ],
-    "notes": "S#23 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Medium: HOARDING · Availability: SUBJECT TO AVAILABLE · Status: ? · Vendor: UNIQUE ADVERTISING (31-11-2026)",
+    "notes": "S#23 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: ? · Vendor: UNIQUE ADVERTISING (31-11-2026)",
     "widthFt": 50,
     "heightFt": 30,
     "from": "EXPRESSWAY",
@@ -1622,16 +1622,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1500",
     "sqftNum": 1500,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "31-11-2026",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
+    "bookedTill": "30-Nov-26",
     "availability": "SUBJECT TO AVAILABLE",
     "excelAvailability": "SUBJECT TO AVAILABLE",
     "statusLabel": "?",
     "excelStatus": "?",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-024",
@@ -1664,10 +1664,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
       "brand": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "31-11-2026",
-      "duration": "31-11-2026",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "WILL BE END",
       "vendorEndDate": "30-Mar-27"
     },
@@ -1680,7 +1680,7 @@ window.MASTER_SITES_2026 = [
         "caption": "DHA EXIT 01 - S#24"
       }
     ],
-    "notes": "S#24 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Medium: HOARDING · Availability: 31-11-2026 · Status: WILL BE END · Vendor: DO ADVERTISING (30-Mar-27)",
+    "notes": "S#24 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 31-11-2026 · Status: WILL BE END · Vendor: DO ADVERTISING (30-Mar-27)",
     "widthFt": 60,
     "heightFt": 20,
     "from": "Sea View, Khayaban E Itthead DHA Golf Club. Phase 5,6 And 8",
@@ -1693,16 +1693,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1000",
     "sqftNum": 1000,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "30-Mar-27",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
+    "bookedTill": "30-Nov-26",
     "availability": "31-11-2026",
     "excelAvailability": "31-11-2026",
     "statusLabel": "WILL BE END",
     "excelStatus": "WILL BE END",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-025",
@@ -1735,10 +1735,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
       "brand": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
-      "start": "",
-      "end": "",
+      "start": "02-Dec-26",
+      "end": "01-Jan-27",
       "avail": "SUBJECT TO AVAILABLE",
-      "duration": "SUBJECT TO AVAILABLE",
+      "duration": "02-Dec-26 to 01-Jan-27 (30 days)",
       "statusLabel": "?",
       "vendorEndDate": "01-Jan-27"
     },
@@ -1751,7 +1751,7 @@ window.MASTER_SITES_2026 = [
         "caption": "BALOCHISTAN  SAJII GULISTAN E JOHAR - S#25"
       }
     ],
-    "notes": "S#25 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Medium: HOARDING · Availability: SUBJECT TO AVAILABLE · Status: ? · Vendor: INSIGHT SOLUTIONS (01-Jan-27)",
+    "notes": "S#25 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Medium: HOARDING · Start: 02-Dec-26 · End: 01-Jan-27 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: ? · Vendor: INSIGHT SOLUTIONS (01-Jan-27)",
     "widthFt": 25,
     "heightFt": 40,
     "from": "Johar Mor",
@@ -1764,16 +1764,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1000",
     "sqftNum": 1000,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "02-Dec-26",
+    "endDate": "01-Jan-27",
+    "bookedFrom": "02-Dec-26",
     "bookedTill": "01-Jan-27",
     "availability": "SUBJECT TO AVAILABLE",
     "excelAvailability": "SUBJECT TO AVAILABLE",
     "statusLabel": "?",
     "excelStatus": "?",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-026",
@@ -1806,10 +1806,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
       "brand": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
-      "start": "",
-      "end": "",
+      "start": "10-Nov-26",
+      "end": "10-Dec-26",
       "avail": "SUBJECT TO AVAILABLE",
-      "duration": "SUBJECT TO AVAILABLE",
+      "duration": "10-Nov-26 to 10-Dec-26 (30 days)",
       "statusLabel": "?",
       "vendorEndDate": "10-Dec-26"
     },
@@ -1822,7 +1822,7 @@ window.MASTER_SITES_2026 = [
         "caption": "BAHADURABAD 4 MINAR - S#26"
       }
     ],
-    "notes": "S#26 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Medium: HOARDING · Availability: SUBJECT TO AVAILABLE · Status: ? · Vendor: SIGNWAYS (10-Dec-26)",
+    "notes": "S#26 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Medium: HOARDING · Start: 10-Nov-26 · End: 10-Dec-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: ? · Vendor: SIGNWAYS (10-Dec-26)",
     "widthFt": 60,
     "heightFt": 20,
     "from": "BAHADURABAD 4 MINAR",
@@ -1835,16 +1835,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1200",
     "sqftNum": 1200,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "10-Nov-26",
+    "endDate": "10-Dec-26",
+    "bookedFrom": "10-Nov-26",
     "bookedTill": "10-Dec-26",
     "availability": "SUBJECT TO AVAILABLE",
     "excelAvailability": "SUBJECT TO AVAILABLE",
     "statusLabel": "?",
     "excelStatus": "?",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-027",
@@ -1877,10 +1877,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
       "brand": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
-      "start": "",
-      "end": "",
+      "start": "26-Oct-26",
+      "end": "25-Nov-26",
       "avail": "25-Nov-26",
-      "duration": "25-Nov-26",
+      "duration": "26-Oct-26 to 25-Nov-26 (30 days)",
       "statusLabel": "?",
       "vendorEndDate": "22-Dec-26"
     },
@@ -1893,7 +1893,7 @@ window.MASTER_SITES_2026 = [
         "caption": "DHA GANTRY - AYESHA MASJID - S#27"
       }
     ],
-    "notes": "S#27 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Medium: HOARDING · Availability: 25-Nov-26 · Status: ? · Vendor: ZOHAIB (22-Dec-26)",
+    "notes": "S#27 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Medium: HOARDING · Start: 26-Oct-26 · End: 25-Nov-26 (30 Days) · Availability: 25-Nov-26 · Status: ? · Vendor: ZOHAIB (22-Dec-26)",
     "widthFt": 44,
     "heightFt": 10,
     "from": "CLOCK TOWER",
@@ -1906,16 +1906,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "BACKLIT",
     "excelSqft": "440",
     "sqftNum": 440,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "22-Dec-26",
+    "startDate": "26-Oct-26",
+    "endDate": "25-Nov-26",
+    "bookedFrom": "26-Oct-26",
+    "bookedTill": "25-Nov-26",
     "availability": "25-Nov-26",
     "excelAvailability": "25-Nov-26",
     "statusLabel": "?",
     "excelStatus": "?",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-028",
@@ -1948,10 +1948,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
       "brand": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
-      "start": "",
-      "end": "",
+      "start": "25-Oct-26",
+      "end": "24-Nov-26",
       "avail": "24-Nov-26",
-      "duration": "24-Nov-26",
+      "duration": "25-Oct-26 to 24-Nov-26 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "31-Jan-27"
     },
@@ -1964,7 +1964,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SAFOORA - S#28"
       }
     ],
-    "notes": "S#28 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Medium: HOARDING · Availability: 24-Nov-26 · Status: — · Vendor: SHARPLINE (31-Jan-27)",
+    "notes": "S#28 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Medium: HOARDING · Start: 25-Oct-26 · End: 24-Nov-26 (30 Days) · Availability: 24-Nov-26 · Status: — · Vendor: SHARPLINE (31-Jan-27)",
     "widthFt": 40,
     "heightFt": 40,
     "from": "MOSAMIAT",
@@ -1977,16 +1977,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1600",
     "sqftNum": 1600,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "31-Jan-27",
+    "startDate": "25-Oct-26",
+    "endDate": "24-Nov-26",
+    "bookedFrom": "25-Oct-26",
+    "bookedTill": "24-Nov-26",
     "availability": "24-Nov-26",
     "excelAvailability": "24-Nov-26",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-029",
@@ -2019,10 +2019,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
       "brand": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "30-Nov-26",
-      "duration": "30-Nov-26",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "09-Dec-26"
     },
@@ -2035,7 +2035,7 @@ window.MASTER_SITES_2026 = [
         "caption": "EXPRESSWAY 01 - S#29"
       }
     ],
-    "notes": "S#29 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Medium: BRIDGE PANEL · Availability: 30-Nov-26 · Status: — · Vendor: CHINAB ADVERTISING (09-Dec-26)",
+    "notes": "S#29 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Medium: BRIDGE PANEL · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: — · Vendor: CHINAB ADVERTISING (09-Dec-26)",
     "widthFt": 50,
     "heightFt": 15,
     "from": "EXPRESSWAY",
@@ -2048,16 +2048,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "750",
     "sqftNum": 750,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "09-Dec-26",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
+    "bookedTill": "30-Nov-26",
     "availability": "30-Nov-26",
     "excelAvailability": "30-Nov-26",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-030",
@@ -2090,10 +2090,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
       "brand": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "30-Nov-26",
-      "duration": "30-Nov-26",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "09-Dec-26"
     },
@@ -2106,7 +2106,7 @@ window.MASTER_SITES_2026 = [
         "caption": "EXPRESSWAY 02 - S#30"
       }
     ],
-    "notes": "S#30 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Medium: BRIDGE PANEL · Availability: 30-Nov-26 · Status: — · Vendor: CHINAB ADVERTISING (09-Dec-26)",
+    "notes": "S#30 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Medium: BRIDGE PANEL · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: — · Vendor: CHINAB ADVERTISING (09-Dec-26)",
     "widthFt": 50,
     "heightFt": 15,
     "from": "EXPRESSWAY 02",
@@ -2119,16 +2119,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "750",
     "sqftNum": 750,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "09-Dec-26",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
+    "bookedTill": "30-Nov-26",
     "availability": "30-Nov-26",
     "excelAvailability": "30-Nov-26",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-031",
@@ -2161,10 +2161,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
       "brand": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "30-Nov-26",
-      "duration": "30-Nov-26",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "WILL BE END",
       "vendorEndDate": "30-Nov-26"
     },
@@ -2177,7 +2177,7 @@ window.MASTER_SITES_2026 = [
         "caption": "MALIR FLYOVER - S#31"
       }
     ],
-    "notes": "S#31 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Medium: HOARDING · Availability: 30-Nov-26 · Status: WILL BE END · Vendor: USMAN GRAPHIC EDGE (30-Nov-26)",
+    "notes": "S#31 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: WILL BE END · Vendor: USMAN GRAPHIC EDGE (30-Nov-26)",
     "widthFt": 60,
     "heightFt": 30,
     "from": "MALIR FLYOVER",
@@ -2190,16 +2190,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1800",
     "sqftNum": 1800,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
     "bookedTill": "30-Nov-26",
     "availability": "30-Nov-26",
     "excelAvailability": "30-Nov-26",
     "statusLabel": "WILL BE END",
     "excelStatus": "WILL BE END",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-032",
@@ -2232,10 +2232,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
       "brand": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "30-Nov-26",
-      "duration": "30-Nov-26",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "WILL BE END",
       "vendorEndDate": "30-Nov-26"
     },
@@ -2255,7 +2255,7 @@ window.MASTER_SITES_2026 = [
         "caption": "MALIR CANTT - S#32"
       }
     ],
-    "notes": "S#32 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Medium: HOARDING · Availability: 30-Nov-26 · Status: WILL BE END · Vendor: KASHIF RING MEDIA (30-Nov-26)",
+    "notes": "S#32 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: WILL BE END · Vendor: KASHIF RING MEDIA (30-Nov-26)",
     "widthFt": 55,
     "heightFt": 30,
     "from": "MALIR CANTT",
@@ -2268,16 +2268,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1650",
     "sqftNum": 1650,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
     "bookedTill": "30-Nov-26",
     "availability": "30-Nov-26",
     "excelAvailability": "30-Nov-26",
     "statusLabel": "WILL BE END",
     "excelStatus": "WILL BE END",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-033",
@@ -2310,10 +2310,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS",
       "brand": "GFS BUILDERS AND DEVELOPERS",
-      "start": "",
-      "end": "",
+      "start": "10-Jun-27",
+      "end": "10-Jul-27",
       "avail": "SUBJECT TO AVAILABLE",
-      "duration": "SUBJECT TO AVAILABLE",
+      "duration": "10-Jun-27 to 10-Jul-27 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "10-Jul-27"
     },
@@ -2326,7 +2326,7 @@ window.MASTER_SITES_2026 = [
         "caption": "KAALA PUL - S#33"
       }
     ],
-    "notes": "S#33 · Client: GFS BUILDERS AND DEVELOPERS · Medium: HOARDING · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: CALL GROUP (10-Jul-27)",
+    "notes": "S#33 · Client: GFS BUILDERS AND DEVELOPERS · Medium: HOARDING · Start: 10-Jun-27 · End: 10-Jul-27 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: CALL GROUP (10-Jul-27)",
     "widthFt": 65,
     "heightFt": 25,
     "from": "Shahrah e Faisal",
@@ -2339,16 +2339,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1625",
     "sqftNum": 1625,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "10-Jun-27",
+    "endDate": "10-Jul-27",
+    "bookedFrom": "10-Jun-27",
     "bookedTill": "10-Jul-27",
     "availability": "SUBJECT TO AVAILABLE",
     "excelAvailability": "SUBJECT TO AVAILABLE",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-034",
@@ -2381,10 +2381,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / PREMIUM BLOCK",
       "brand": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / PREMIUM BLOCK",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "SUBJECT TO AVAILABLE",
-      "duration": "SUBJECT TO AVAILABLE",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "Long Term"
     },
@@ -2397,7 +2397,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SHAFIQ MOR TGT NAGAN - S#34"
       }
     ],
-    "notes": "S#34 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / PREMIUM BLOCK · Medium: HOARDING · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: CALL GROUP (Long Term)",
+    "notes": "S#34 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / PREMIUM BLOCK · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: CALL GROUP (Long Term)",
     "widthFt": 113,
     "heightFt": 30,
     "from": "SHAFIQ MOR",
@@ -2410,16 +2410,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "3390",
     "sqftNum": 3390,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "Long Term",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
+    "bookedTill": "30-Nov-26",
     "availability": "SUBJECT TO AVAILABLE",
     "excelAvailability": "SUBJECT TO AVAILABLE",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-035",
@@ -2452,10 +2452,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
       "brand": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
-      "start": "",
-      "end": "",
+      "start": "07-Dec-26",
+      "end": "06-Jan-27",
       "avail": "SUBJECT TO AVAILABLE",
-      "duration": "SUBJECT TO AVAILABLE",
+      "duration": "07-Dec-26 to 06-Jan-27 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "06-Jan-27"
     },
@@ -2468,7 +2468,7 @@ window.MASTER_SITES_2026 = [
         "caption": "04K CHOWRANGI  -  BARA MARKET - S#35"
       }
     ],
-    "notes": "S#35 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Medium: BRIDGE PANEL · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: DO ADVERTISING (06-Jan-27)",
+    "notes": "S#35 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Medium: BRIDGE PANEL · Start: 07-Dec-26 · End: 06-Jan-27 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: DO ADVERTISING (06-Jan-27)",
     "widthFt": 50,
     "heightFt": 15,
     "from": "4k Chowrangi",
@@ -2481,16 +2481,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "750",
     "sqftNum": 750,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "07-Dec-26",
+    "endDate": "06-Jan-27",
+    "bookedFrom": "07-Dec-26",
     "bookedTill": "06-Jan-27",
     "availability": "SUBJECT TO AVAILABLE",
     "excelAvailability": "SUBJECT TO AVAILABLE",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-036",
@@ -2523,10 +2523,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
       "brand": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
-      "start": "",
-      "end": "",
+      "start": "13-Nov-26",
+      "end": "13-Dec-26",
       "avail": "SUBJECT TO AVAILABLE",
-      "duration": "SUBJECT TO AVAILABLE",
+      "duration": "13-Nov-26 to 13-Dec-26 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "13-Dec-26"
     },
@@ -2539,7 +2539,7 @@ window.MASTER_SITES_2026 = [
         "caption": "MAIN 4K CHOWRANGI  01 (4K CHOWRANGI TO POWER HOUSE - S#36"
       }
     ],
-    "notes": "S#36 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Medium: BRIDGE PANEL · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: INTERLINK - DARYA KHAN (13-Dec-26)",
+    "notes": "S#36 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Medium: BRIDGE PANEL · Start: 13-Nov-26 · End: 13-Dec-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: INTERLINK - DARYA KHAN (13-Dec-26)",
     "widthFt": 50,
     "heightFt": 15,
     "from": "4K Chowrangi",
@@ -2552,16 +2552,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "750",
     "sqftNum": 750,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "13-Nov-26",
+    "endDate": "13-Dec-26",
+    "bookedFrom": "13-Nov-26",
     "bookedTill": "13-Dec-26",
     "availability": "SUBJECT TO AVAILABLE",
     "excelAvailability": "SUBJECT TO AVAILABLE",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-037",
@@ -2594,10 +2594,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
       "brand": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "SUBJECT TO AVAILABLE",
-      "duration": "SUBJECT TO AVAILABLE",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "30-Nov-26"
     },
@@ -2610,7 +2610,7 @@ window.MASTER_SITES_2026 = [
         "caption": "ORANGI TOWN - S#37"
       }
     ],
-    "notes": "S#37 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Medium: HOARDING · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: ANNAS COMMUNICATION (30-Nov-26)",
+    "notes": "S#37 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: ANNAS COMMUNICATION (30-Nov-26)",
     "widthFt": 50,
     "heightFt": 30,
     "from": "Banaras",
@@ -2623,16 +2623,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1500",
     "sqftNum": 1500,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
     "bookedTill": "30-Nov-26",
     "availability": "SUBJECT TO AVAILABLE",
     "excelAvailability": "SUBJECT TO AVAILABLE",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-038",
@@ -2665,10 +2665,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
       "brand": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
-      "start": "",
-      "end": "",
+      "start": "22-Nov-26",
+      "end": "22-Dec-26",
       "avail": "SUBJECT TO AVAILABLE",
-      "duration": "SUBJECT TO AVAILABLE",
+      "duration": "22-Nov-26 to 22-Dec-26 (30 days)",
       "statusLabel": "?",
       "vendorEndDate": "22-Dec-26"
     },
@@ -2681,7 +2681,7 @@ window.MASTER_SITES_2026 = [
         "caption": "HIGHWAY - M-9 MOTORWAY BAHRIA TOWN - S#38"
       }
     ],
-    "notes": "S#38 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Medium: HOARDING · Availability: SUBJECT TO AVAILABLE · Status: ? · Vendor: INSIGHT SOLUTIONS (22-Dec-26)",
+    "notes": "S#38 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Medium: HOARDING · Start: 22-Nov-26 · End: 22-Dec-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: ? · Vendor: INSIGHT SOLUTIONS (22-Dec-26)",
     "widthFt": 60,
     "heightFt": 20,
     "from": "KARACHI TOLL PLAZA",
@@ -2694,16 +2694,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1200",
     "sqftNum": 1200,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "22-Nov-26",
+    "endDate": "22-Dec-26",
+    "bookedFrom": "22-Nov-26",
     "bookedTill": "22-Dec-26",
     "availability": "SUBJECT TO AVAILABLE",
     "excelAvailability": "SUBJECT TO AVAILABLE",
     "statusLabel": "?",
     "excelStatus": "?",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-039",
@@ -2736,10 +2736,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
       "brand": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
-      "start": "",
-      "end": "",
+      "start": "22-Nov-26",
+      "end": "22-Dec-26",
       "avail": "SUBJECT TO AVAILABLE",
-      "duration": "SUBJECT TO AVAILABLE",
+      "duration": "22-Nov-26 to 22-Dec-26 (30 days)",
       "statusLabel": "?",
       "vendorEndDate": "22-Dec-26"
     },
@@ -2752,7 +2752,7 @@ window.MASTER_SITES_2026 = [
         "caption": "Karimabad Flyover, Shahrah-e-Pakistan - S#39"
       }
     ],
-    "notes": "S#39 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Medium: HOARDING · Availability: SUBJECT TO AVAILABLE · Status: ? · Vendor: INSIGHT SOLUTIONS (22-Dec-26)",
+    "notes": "S#39 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Medium: HOARDING · Start: 22-Nov-26 · End: 22-Dec-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: ? · Vendor: INSIGHT SOLUTIONS (22-Dec-26)",
     "widthFt": 60,
     "heightFt": 30,
     "from": "TEEN HATTI",
@@ -2765,16 +2765,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1800",
     "sqftNum": 1800,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "22-Nov-26",
+    "endDate": "22-Dec-26",
+    "bookedFrom": "22-Nov-26",
     "bookedTill": "22-Dec-26",
     "availability": "SUBJECT TO AVAILABLE",
     "excelAvailability": "SUBJECT TO AVAILABLE",
     "statusLabel": "?",
     "excelStatus": "?",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-040",
@@ -2807,10 +2807,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
       "brand": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
-      "start": "",
-      "end": "",
+      "start": "22-Nov-26",
+      "end": "22-Dec-26",
       "avail": "SUBJECT TO AVAILABLE",
-      "duration": "SUBJECT TO AVAILABLE",
+      "duration": "22-Nov-26 to 22-Dec-26 (30 days)",
       "statusLabel": "?",
       "vendorEndDate": "22-Dec-26"
     },
@@ -2823,7 +2823,7 @@ window.MASTER_SITES_2026 = [
         "caption": "Karimabad Flyover, Shahrah-e-Pakistan - S#40"
       }
     ],
-    "notes": "S#40 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Medium: HOARDING · Availability: SUBJECT TO AVAILABLE · Status: ? · Vendor: INSIGHT SOLUTIONS (22-Dec-26)",
+    "notes": "S#40 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Medium: HOARDING · Start: 22-Nov-26 · End: 22-Dec-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: ? · Vendor: INSIGHT SOLUTIONS (22-Dec-26)",
     "widthFt": 55,
     "heightFt": 30,
     "from": "TEEN HATTI",
@@ -2836,16 +2836,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1800",
     "sqftNum": 1800,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "22-Nov-26",
+    "endDate": "22-Dec-26",
+    "bookedFrom": "22-Nov-26",
     "bookedTill": "22-Dec-26",
     "availability": "SUBJECT TO AVAILABLE",
     "excelAvailability": "SUBJECT TO AVAILABLE",
     "statusLabel": "?",
     "excelStatus": "?",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-041",
@@ -2878,10 +2878,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS",
       "brand": "GFS BUILDERS AND DEVELOPERS",
-      "start": "",
-      "end": "",
+      "start": "26-Nov-26",
+      "end": "26-Dec-26",
       "avail": "SUBJECT TO AVAILABLE",
-      "duration": "SUBJECT TO AVAILABLE",
+      "duration": "26-Nov-26 to 26-Dec-26 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "26-Dec-26"
     },
@@ -2894,7 +2894,7 @@ window.MASTER_SITES_2026 = [
         "caption": "RASHID MINHAS ROAD TGT JOHAR AND MILLINIUM - S#41"
       }
     ],
-    "notes": "S#41 · Client: GFS BUILDERS AND DEVELOPERS · Medium: BRIDGE PANEL · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: CHINAB ADVERTISING (26-Dec-26)",
+    "notes": "S#41 · Client: GFS BUILDERS AND DEVELOPERS · Medium: BRIDGE PANEL · Start: 26-Nov-26 · End: 26-Dec-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: CHINAB ADVERTISING (26-Dec-26)",
     "widthFt": 70,
     "heightFt": 15,
     "from": "RASHID MINHAS FLYOVER",
@@ -2907,16 +2907,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1050",
     "sqftNum": 1050,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "26-Nov-26",
+    "endDate": "26-Dec-26",
+    "bookedFrom": "26-Nov-26",
     "bookedTill": "26-Dec-26",
     "availability": "SUBJECT TO AVAILABLE",
     "excelAvailability": "SUBJECT TO AVAILABLE",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-042",
@@ -2949,10 +2949,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS",
       "brand": "GFS BUILDERS AND DEVELOPERS",
-      "start": "",
-      "end": "",
+      "start": "01-Jan-27",
+      "end": "31-Jan-27",
       "avail": "SUBJECT TO AVAILABLE",
-      "duration": "SUBJECT TO AVAILABLE",
+      "duration": "01-Jan-27 to 31-Jan-27 (30 days)",
       "statusLabel": "?",
       "vendorEndDate": "31-Jan-27"
     },
@@ -2965,7 +2965,7 @@ window.MASTER_SITES_2026 = [
         "caption": "NIPA WONDER TOWER - S#42"
       }
     ],
-    "notes": "S#42 · Client: GFS BUILDERS AND DEVELOPERS · Medium: HOARDING · Availability: SUBJECT TO AVAILABLE · Status: ? · Vendor: DO ADVERTISING (31-Jan-27)",
+    "notes": "S#42 · Client: GFS BUILDERS AND DEVELOPERS · Medium: HOARDING · Start: 01-Jan-27 · End: 31-Jan-27 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: ? · Vendor: DO ADVERTISING (31-Jan-27)",
     "widthFt": 80,
     "heightFt": 30,
     "from": "Millennium mall",
@@ -2978,16 +2978,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "2400",
     "sqftNum": 2400,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "01-Jan-27",
+    "endDate": "31-Jan-27",
+    "bookedFrom": "01-Jan-27",
     "bookedTill": "31-Jan-27",
     "availability": "SUBJECT TO AVAILABLE",
     "excelAvailability": "SUBJECT TO AVAILABLE",
     "statusLabel": "?",
     "excelStatus": "?",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-043",
@@ -3020,10 +3020,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS",
       "brand": "GFS BUILDERS AND DEVELOPERS",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "SUBJECT TO AVAILABLE",
-      "duration": "SUBJECT TO AVAILABLE",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "30-11-2026 + EXT"
     },
@@ -3036,7 +3036,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SHAFIQ MORE BUFFER ZONE - S#43"
       }
     ],
-    "notes": "S#43 · Client: GFS BUILDERS AND DEVELOPERS · Medium: HOARDING · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: INTERLINK - DARYA KHAN (30-11-2026 + EXT)",
+    "notes": "S#43 · Client: GFS BUILDERS AND DEVELOPERS · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: INTERLINK - DARYA KHAN (30-11-2026 + EXT)",
     "widthFt": 40,
     "heightFt": 20,
     "from": "LUCKYONE",
@@ -3049,16 +3049,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "800",
     "sqftNum": 800,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "30-11-2026 + EXT",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
+    "bookedTill": "30-Nov-26",
     "availability": "SUBJECT TO AVAILABLE",
     "excelAvailability": "SUBJECT TO AVAILABLE",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-044",
@@ -3091,10 +3091,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS",
       "brand": "GFS BUILDERS AND DEVELOPERS",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "SUBJECT TO AVAILABLE",
-      "duration": "SUBJECT TO AVAILABLE",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "30-Nov-26"
     },
@@ -3107,7 +3107,7 @@ window.MASTER_SITES_2026 = [
         "caption": "NAGAN FLYOVER - S#44"
       }
     ],
-    "notes": "S#44 · Client: GFS BUILDERS AND DEVELOPERS · Medium: HOARDING · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: ANNAS COMMUNICATION (30-Nov-26)",
+    "notes": "S#44 · Client: GFS BUILDERS AND DEVELOPERS · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: ANNAS COMMUNICATION (30-Nov-26)",
     "widthFt": 60,
     "heightFt": 30,
     "from": "Nagan Flyover",
@@ -3120,16 +3120,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1800",
     "sqftNum": 1800,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
     "bookedTill": "30-Nov-26",
     "availability": "SUBJECT TO AVAILABLE",
     "excelAvailability": "SUBJECT TO AVAILABLE",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-045",
@@ -3162,10 +3162,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS",
       "brand": "GFS BUILDERS AND DEVELOPERS",
-      "start": "",
-      "end": "",
+      "start": "07-Dec-26",
+      "end": "06-Jan-27",
       "avail": "SUBJECT TO AVAILABLE",
-      "duration": "SUBJECT TO AVAILABLE",
+      "duration": "07-Dec-26 to 06-Jan-27 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "06-Jan-27"
     },
@@ -3178,7 +3178,7 @@ window.MASTER_SITES_2026 = [
         "caption": "NEW BARA MARKET 2 - S#45"
       }
     ],
-    "notes": "S#45 · Client: GFS BUILDERS AND DEVELOPERS · Medium: BRIDGE PANEL · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: DO ADVERTISING (06-Jan-27)",
+    "notes": "S#45 · Client: GFS BUILDERS AND DEVELOPERS · Medium: BRIDGE PANEL · Start: 07-Dec-26 · End: 06-Jan-27 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: DO ADVERTISING (06-Jan-27)",
     "widthFt": 50,
     "heightFt": 15,
     "from": "Nagan Flyover",
@@ -3191,16 +3191,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "750",
     "sqftNum": 750,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "07-Dec-26",
+    "endDate": "06-Jan-27",
+    "bookedFrom": "07-Dec-26",
     "bookedTill": "06-Jan-27",
     "availability": "SUBJECT TO AVAILABLE",
     "excelAvailability": "SUBJECT TO AVAILABLE",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-046",
@@ -3233,10 +3233,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
-      "start": "",
-      "end": "",
+      "start": "15-Nov-26",
+      "end": "15-Jan-27",
       "avail": "15-01-2027 + EXT",
-      "duration": "15-01-2027 + EXT",
+      "duration": "15-Nov-26 to 15-Jan-27 (61 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "15-01-2027 + EXT"
     },
@@ -3249,7 +3249,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SHAHRAH E QUAIDEEN - S#46"
       }
     ],
-    "notes": "S#46 · Client: AA BUILDERS · Medium: HOARDING · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: MNB - UMAIR BUTT (15-01-2027 + EXT)",
+    "notes": "S#46 · Client: AA BUILDERS · Medium: HOARDING · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: MNB - UMAIR BUTT (15-01-2027 + EXT)",
     "widthFt": 65,
     "heightFt": 30,
     "from": "ALLAH WALI CHOWRANGI",
@@ -3262,16 +3262,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1950",
     "sqftNum": 1950,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "15-01-2027 + EXT",
+    "startDate": "15-Nov-26",
+    "endDate": "15-Jan-27",
+    "bookedFrom": "15-Nov-26",
+    "bookedTill": "15-Jan-27",
     "availability": "15-01-2027 + EXT",
     "excelAvailability": "15-01-2027 + EXT",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "61",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-047",
@@ -3304,10 +3304,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
-      "start": "",
-      "end": "",
+      "start": "15-Nov-26",
+      "end": "15-Jan-27",
       "avail": "15-01-2027 + EXT",
-      "duration": "15-01-2027 + EXT",
+      "duration": "15-Nov-26 to 15-Jan-27 (61 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "15-01-2027 + EXT"
     },
@@ -3320,7 +3320,7 @@ window.MASTER_SITES_2026 = [
         "caption": "MA JINNAH ROAD NUMAISH - S#47"
       }
     ],
-    "notes": "S#47 · Client: AA BUILDERS · Medium: HOARDING · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: MNB - UMAIR BUTT (15-01-2027 + EXT)",
+    "notes": "S#47 · Client: AA BUILDERS · Medium: HOARDING · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: MNB - UMAIR BUTT (15-01-2027 + EXT)",
     "widthFt": 60,
     "heightFt": 30,
     "from": "MAIN NUMAISH SIGNAL",
@@ -3333,16 +3333,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1800",
     "sqftNum": 1800,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "15-01-2027 + EXT",
+    "startDate": "15-Nov-26",
+    "endDate": "15-Jan-27",
+    "bookedFrom": "15-Nov-26",
+    "bookedTill": "15-Jan-27",
     "availability": "15-01-2027 + EXT",
     "excelAvailability": "15-01-2027 + EXT",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "61",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-048",
@@ -3375,10 +3375,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
-      "start": "",
-      "end": "",
+      "start": "15-Nov-26",
+      "end": "15-Jan-27",
       "avail": "15-01-2027 + EXT",
-      "duration": "15-01-2027 + EXT",
+      "duration": "15-Nov-26 to 15-Jan-27 (61 days)",
       "statusLabel": "EXTENDABLE",
       "vendorEndDate": "22-Jan-27"
     },
@@ -3391,7 +3391,7 @@ window.MASTER_SITES_2026 = [
         "caption": "BAHRIA UNIVERSITY TGT MILLINIUM MALL - S#48"
       }
     ],
-    "notes": "S#48 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Availability: 15-01-2027 + EXT · Status: EXTENDABLE · Vendor: NEXTIER KAINAT (22-Jan-27)",
+    "notes": "S#48 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-01-2027 + EXT · Status: EXTENDABLE · Vendor: NEXTIER KAINAT (22-Jan-27)",
     "widthFt": 85,
     "heightFt": 12,
     "from": "BAHRIA UNIVERSITY",
@@ -3404,16 +3404,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1020",
     "sqftNum": 1020,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "22-Jan-27",
+    "startDate": "15-Nov-26",
+    "endDate": "15-Jan-27",
+    "bookedFrom": "15-Nov-26",
+    "bookedTill": "15-Jan-27",
     "availability": "15-01-2027 + EXT",
     "excelAvailability": "15-01-2027 + EXT",
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "61",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-049",
@@ -3446,10 +3446,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
-      "start": "",
-      "end": "",
+      "start": "15-Nov-26",
+      "end": "15-Jan-27",
       "avail": "15-01-2027 + EXT",
-      "duration": "15-01-2027 + EXT",
+      "duration": "15-Nov-26 to 15-Jan-27 (61 days)",
       "statusLabel": "EXTENDABLE",
       "vendorEndDate": "22-Jan-27"
     },
@@ -3462,7 +3462,7 @@ window.MASTER_SITES_2026 = [
         "caption": "BAHRIA UNIVERSITY TGT NATIONAL STADIUM - S#49"
       }
     ],
-    "notes": "S#49 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Availability: 15-01-2027 + EXT · Status: EXTENDABLE · Vendor: NEXTIER KAINAT (22-Jan-27)",
+    "notes": "S#49 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-01-2027 + EXT · Status: EXTENDABLE · Vendor: NEXTIER KAINAT (22-Jan-27)",
     "widthFt": 85,
     "heightFt": 12,
     "from": "BAHRIA UNIVERSITY",
@@ -3475,16 +3475,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1020",
     "sqftNum": 1020,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "22-Jan-27",
+    "startDate": "15-Nov-26",
+    "endDate": "15-Jan-27",
+    "bookedFrom": "15-Nov-26",
+    "bookedTill": "15-Jan-27",
     "availability": "15-01-2027 + EXT",
     "excelAvailability": "15-01-2027 + EXT",
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "61",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-050",
@@ -3517,10 +3517,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
-      "start": "",
-      "end": "",
+      "start": "15-Nov-26",
+      "end": "15-Jan-27",
       "avail": "15-01-2027 + EXT",
-      "duration": "15-01-2027 + EXT",
+      "duration": "15-Nov-26 to 15-Jan-27 (61 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "15-Jan-27"
     },
@@ -3533,7 +3533,7 @@ window.MASTER_SITES_2026 = [
         "caption": "GULSHAN CHOWRANGI - S#50"
       }
     ],
-    "notes": "S#50 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (15-Jan-27)",
+    "notes": "S#50 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (15-Jan-27)",
     "widthFt": 70,
     "heightFt": 11,
     "from": "MAIN GULSHAN CHOWRANGI",
@@ -3546,16 +3546,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "770",
     "sqftNum": 770,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "15-Nov-26",
+    "endDate": "15-Jan-27",
+    "bookedFrom": "15-Nov-26",
     "bookedTill": "15-Jan-27",
     "availability": "15-01-2027 + EXT",
     "excelAvailability": "15-01-2027 + EXT",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "61",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-051",
@@ -3588,10 +3588,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
-      "start": "",
-      "end": "",
+      "start": "15-Nov-26",
+      "end": "15-Jan-27",
       "avail": "15-01-2027 + EXT",
-      "duration": "15-01-2027 + EXT",
+      "duration": "15-Nov-26 to 15-Jan-27 (61 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "15-Jan-27"
     },
@@ -3604,7 +3604,7 @@ window.MASTER_SITES_2026 = [
         "caption": "GULSHAN CHOWRANGI - S#51"
       }
     ],
-    "notes": "S#51 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (15-Jan-27)",
+    "notes": "S#51 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (15-Jan-27)",
     "widthFt": 61,
     "heightFt": 11,
     "from": "MAIN GULSHAN CHOWRANGI",
@@ -3617,16 +3617,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "671",
     "sqftNum": 671,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "15-Nov-26",
+    "endDate": "15-Jan-27",
+    "bookedFrom": "15-Nov-26",
     "bookedTill": "15-Jan-27",
     "availability": "15-01-2027 + EXT",
     "excelAvailability": "15-01-2027 + EXT",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "61",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-052",
@@ -3659,10 +3659,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
-      "start": "",
-      "end": "",
+      "start": "15-Nov-26",
+      "end": "15-Jan-27",
       "avail": "15-01-2027 + EXT",
-      "duration": "15-01-2027 + EXT",
+      "duration": "15-Nov-26 to 15-Jan-27 (61 days)",
       "statusLabel": "DEPT ISSUE",
       "vendorEndDate": "15-Jan-27"
     },
@@ -3675,7 +3675,7 @@ window.MASTER_SITES_2026 = [
         "caption": "RJ MALL TGT SHAHRAH E FAISAL - S#52"
       }
     ],
-    "notes": "S#52 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Availability: 15-01-2027 + EXT · Status: DEPT ISSUE · Vendor: MNB - UMAIR BUTT (15-Jan-27)",
+    "notes": "S#52 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-01-2027 + EXT · Status: DEPT ISSUE · Vendor: MNB - UMAIR BUTT (15-Jan-27)",
     "widthFt": 80,
     "heightFt": 15,
     "from": "JOHAR / RASHID MINHAS",
@@ -3688,16 +3688,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1200",
     "sqftNum": 1200,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "15-Nov-26",
+    "endDate": "15-Jan-27",
+    "bookedFrom": "15-Nov-26",
     "bookedTill": "15-Jan-27",
     "availability": "15-01-2027 + EXT",
     "excelAvailability": "15-01-2027 + EXT",
     "statusLabel": "DEPT ISSUE",
     "excelStatus": "DEPT ISSUE",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "61",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-053",
@@ -3730,10 +3730,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
-      "start": "",
-      "end": "",
+      "start": "16-Nov-26",
+      "end": "16-Dec-26",
       "avail": "",
-      "duration": "16-Dec-26",
+      "duration": "16-Nov-26 to 16-Dec-26 (30 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "16-Dec-26"
     },
@@ -3746,7 +3746,7 @@ window.MASTER_SITES_2026 = [
         "caption": "KARSAZ ROAD BRIDGE  TGT STADIUM - S#53"
       }
     ],
-    "notes": "S#53 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Availability: — · Status: WILL BE END AS PER CAMPAIGN · Vendor: NEXTIER KAINAT (16-Dec-26)",
+    "notes": "S#53 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Start: 16-Nov-26 · End: 16-Dec-26 (30 Days) · Availability: — · Status: WILL BE END AS PER CAMPAIGN · Vendor: NEXTIER KAINAT (16-Dec-26)",
     "widthFt": 90,
     "heightFt": 12,
     "from": "SHAHRAH E FAISAL",
@@ -3759,16 +3759,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1080",
     "sqftNum": 1080,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "16-Nov-26",
+    "endDate": "16-Dec-26",
+    "bookedFrom": "16-Nov-26",
     "bookedTill": "16-Dec-26",
     "availability": "",
     "excelAvailability": "",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-054",
@@ -3801,10 +3801,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
-      "start": "",
-      "end": "",
+      "start": "15-Nov-26",
+      "end": "15-Jan-27",
       "avail": "15-01-2027 + EXT",
-      "duration": "15-01-2027 + EXT",
+      "duration": "15-Nov-26 to 15-Jan-27 (61 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "15-Jan-27"
     },
@@ -3817,7 +3817,7 @@ window.MASTER_SITES_2026 = [
         "caption": "NAZIMABAD TGT HYDERI - S#54"
       }
     ],
-    "notes": "S#54 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (15-Jan-27)",
+    "notes": "S#54 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (15-Jan-27)",
     "widthFt": 70,
     "heightFt": 11,
     "from": "NAZIMABAD",
@@ -3830,16 +3830,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "770",
     "sqftNum": 770,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "15-Nov-26",
+    "endDate": "15-Jan-27",
+    "bookedFrom": "15-Nov-26",
     "bookedTill": "15-Jan-27",
     "availability": "15-01-2027 + EXT",
     "excelAvailability": "15-01-2027 + EXT",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "61",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-055",
@@ -3872,10 +3872,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
-      "start": "",
-      "end": "",
+      "start": "15-Nov-26",
+      "end": "15-Jan-27",
       "avail": "15-01-2027 + EXT",
-      "duration": "15-01-2027 + EXT",
+      "duration": "15-Nov-26 to 15-Jan-27 (61 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "15-Jan-27"
     },
@@ -3888,7 +3888,7 @@ window.MASTER_SITES_2026 = [
         "caption": "CIVIC CENTER 01 - S#55"
       }
     ],
-    "notes": "S#55 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (15-Jan-27)",
+    "notes": "S#55 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (15-Jan-27)",
     "widthFt": 70,
     "heightFt": 11,
     "from": "CIVIC CENTER 01",
@@ -3901,16 +3901,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "770",
     "sqftNum": 770,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "15-Nov-26",
+    "endDate": "15-Jan-27",
+    "bookedFrom": "15-Nov-26",
     "bookedTill": "15-Jan-27",
     "availability": "15-01-2027 + EXT",
     "excelAvailability": "15-01-2027 + EXT",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "61",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-056",
@@ -3943,10 +3943,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
-      "start": "",
-      "end": "",
+      "start": "15-Nov-26",
+      "end": "15-Jan-27",
       "avail": "15-01-2027 + EXT",
-      "duration": "15-01-2027 + EXT",
+      "duration": "15-Nov-26 to 15-Jan-27 (61 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "15-Jan-27"
     },
@@ -3959,7 +3959,7 @@ window.MASTER_SITES_2026 = [
         "caption": "CIVIC CENTER 02 - S#56"
       }
     ],
-    "notes": "S#56 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (15-Jan-27)",
+    "notes": "S#56 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (15-Jan-27)",
     "widthFt": 70,
     "heightFt": 11,
     "from": "CIVIC CENTER 02",
@@ -3972,16 +3972,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "770",
     "sqftNum": 770,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "15-Nov-26",
+    "endDate": "15-Jan-27",
+    "bookedFrom": "15-Nov-26",
     "bookedTill": "15-Jan-27",
     "availability": "15-01-2027 + EXT",
     "excelAvailability": "15-01-2027 + EXT",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "61",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-057",
@@ -4014,10 +4014,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
-      "start": "",
-      "end": "",
+      "start": "15-Nov-26",
+      "end": "15-Jan-27",
       "avail": "15-Jan-26",
-      "duration": "15-Jan-26",
+      "duration": "15-Nov-26 to 15-Jan-27 (61 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "15-Jan-26"
     },
@@ -4030,7 +4030,7 @@ window.MASTER_SITES_2026 = [
         "caption": "ESSA NAGRI - S#57"
       }
     ],
-    "notes": "S#57 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Availability: 15-Jan-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: DO ADVERTISING (15-Jan-26)",
+    "notes": "S#57 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-Jan-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: DO ADVERTISING (15-Jan-26)",
     "widthFt": 50,
     "heightFt": 12,
     "from": "ESSA NAGRI",
@@ -4043,16 +4043,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "600",
     "sqftNum": 600,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "15-Jan-26",
+    "startDate": "15-Nov-26",
+    "endDate": "15-Jan-27",
+    "bookedFrom": "15-Nov-26",
+    "bookedTill": "15-Jan-27",
     "availability": "15-Jan-26",
     "excelAvailability": "15-Jan-26",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "61",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-058",
@@ -4085,10 +4085,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
-      "start": "",
-      "end": "",
+      "start": "15-Nov-26",
+      "end": "15-Jan-27",
       "avail": "15-Jan-26",
-      "duration": "15-Jan-26",
+      "duration": "15-Nov-26 to 15-Jan-27 (61 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "15-Jan-26"
     },
@@ -4101,7 +4101,7 @@ window.MASTER_SITES_2026 = [
         "caption": "HASAN SQUARE FLYOVER - S#58"
       }
     ],
-    "notes": "S#58 · Client: AA BUILDERS · Medium: HOARDING · Availability: 15-Jan-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: DO ADVERTISING (15-Jan-26)",
+    "notes": "S#58 · Client: AA BUILDERS · Medium: HOARDING · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-Jan-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: DO ADVERTISING (15-Jan-26)",
     "widthFt": 60,
     "heightFt": 30,
     "from": "HASAN SQUARE FLYOVER",
@@ -4114,16 +4114,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1800",
     "sqftNum": 1800,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "15-Jan-26",
+    "startDate": "15-Nov-26",
+    "endDate": "15-Jan-27",
+    "bookedFrom": "15-Nov-26",
+    "bookedTill": "15-Jan-27",
     "availability": "15-Jan-26",
     "excelAvailability": "15-Jan-26",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "61",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-059",
@@ -4156,10 +4156,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
-      "start": "",
-      "end": "",
+      "start": "15-Nov-26",
+      "end": "15-Jan-27",
       "avail": "",
-      "duration": "",
+      "duration": "15-Nov-26 to 15-Jan-27 (61 days)",
       "statusLabel": "ISSUE",
       "vendorEndDate": ""
     },
@@ -4179,7 +4179,7 @@ window.MASTER_SITES_2026 = [
         "caption": "TIME MEDICOS HOARDING - S#59"
       }
     ],
-    "notes": "S#59 · Client: AA BUILDERS · Medium: HOARDING · Availability: — · Status: ISSUE · Vendor: DO ADVERTISING (—)",
+    "notes": "S#59 · Client: AA BUILDERS · Medium: HOARDING · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: — · Status: ISSUE · Vendor: DO ADVERTISING (—)",
     "widthFt": 120,
     "heightFt": 25,
     "from": "AGHA KHAN",
@@ -4192,16 +4192,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "3000",
     "sqftNum": 3000,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "",
+    "startDate": "15-Nov-26",
+    "endDate": "15-Jan-27",
+    "bookedFrom": "15-Nov-26",
+    "bookedTill": "15-Jan-27",
     "availability": "",
     "excelAvailability": "",
     "statusLabel": "ISSUE",
     "excelStatus": "ISSUE",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "61",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-060",
@@ -4234,10 +4234,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
-      "start": "",
-      "end": "",
+      "start": "15-Nov-26",
+      "end": "15-Jan-27",
       "avail": "15-Jan-26",
-      "duration": "15-Jan-26",
+      "duration": "15-Nov-26 to 15-Jan-27 (61 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "15-Jan-26"
     },
@@ -4250,7 +4250,7 @@ window.MASTER_SITES_2026 = [
         "caption": "BAHADURABAD 4 MINAR - S#60"
       }
     ],
-    "notes": "S#60 · Client: AA BUILDERS · Medium: HOARDING · Availability: 15-Jan-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHAMPION SIGN (15-Jan-26)",
+    "notes": "S#60 · Client: AA BUILDERS · Medium: HOARDING · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-Jan-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHAMPION SIGN (15-Jan-26)",
     "widthFt": 60,
     "heightFt": 30,
     "from": "BAHADURABAD 4 MINAR",
@@ -4263,16 +4263,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1800",
     "sqftNum": 1800,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "15-Jan-26",
+    "startDate": "15-Nov-26",
+    "endDate": "15-Jan-27",
+    "bookedFrom": "15-Nov-26",
+    "bookedTill": "15-Jan-27",
     "availability": "15-Jan-26",
     "excelAvailability": "15-Jan-26",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "61",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-061",
@@ -4305,10 +4305,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
-      "start": "",
-      "end": "",
+      "start": "15-Nov-26",
+      "end": "15-Jan-27",
       "avail": "15-Jan-26",
-      "duration": "15-Jan-26",
+      "duration": "15-Nov-26 to 15-Jan-27 (61 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "15-Jan-26"
     },
@@ -4321,7 +4321,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SHAHRAH E PAKISTAN - S#61"
       }
     ],
-    "notes": "S#61 · Client: AA BUILDERS · Medium: HOARDING · Availability: 15-Jan-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHAMPION SIGN / Millinium Graphics (15-Jan-26)",
+    "notes": "S#61 · Client: AA BUILDERS · Medium: HOARDING · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-Jan-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHAMPION SIGN / Millinium Graphics (15-Jan-26)",
     "widthFt": 60,
     "heightFt": 30,
     "from": "SHAHRAH E PAKISTAN",
@@ -4334,16 +4334,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1800",
     "sqftNum": 1800,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "15-Jan-26",
+    "startDate": "15-Nov-26",
+    "endDate": "15-Jan-27",
+    "bookedFrom": "15-Nov-26",
+    "bookedTill": "15-Jan-27",
     "availability": "15-Jan-26",
     "excelAvailability": "15-Jan-26",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "61",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-062",
@@ -4376,10 +4376,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
-      "start": "",
-      "end": "",
+      "start": "15-Nov-26",
+      "end": "15-Jan-27",
       "avail": "15-Jan-26",
-      "duration": "15-Jan-26",
+      "duration": "15-Nov-26 to 15-Jan-27 (61 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "15-Jan-26"
     },
@@ -4392,7 +4392,7 @@ window.MASTER_SITES_2026 = [
         "caption": "RASHID MINHAS ROAD OPP LUCKYONE - S#62"
       }
     ],
-    "notes": "S#62 · Client: AA BUILDERS · Medium: HOARDING · Availability: 15-Jan-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: SOHAIL NOOR (15-Jan-26)",
+    "notes": "S#62 · Client: AA BUILDERS · Medium: HOARDING · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-Jan-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: SOHAIL NOOR (15-Jan-26)",
     "widthFt": 60,
     "heightFt": 20,
     "from": "RASHID MINHAS ROAD",
@@ -4405,16 +4405,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1200",
     "sqftNum": 1200,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "15-Jan-26",
+    "startDate": "15-Nov-26",
+    "endDate": "15-Jan-27",
+    "bookedFrom": "15-Nov-26",
+    "bookedTill": "15-Jan-27",
     "availability": "15-Jan-26",
     "excelAvailability": "15-Jan-26",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "61",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-063",
@@ -4447,10 +4447,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
-      "start": "",
-      "end": "",
+      "start": "29-Nov-26",
+      "end": "29-Dec-26",
       "avail": "29-Dec-26",
-      "duration": "29-Dec-26",
+      "duration": "29-Nov-26 to 29-Dec-26 (30 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "29-Dec-26"
     },
@@ -4470,7 +4470,7 @@ window.MASTER_SITES_2026 = [
         "caption": "KARSAZ NEAR NATIONAL STADIUM - S#63"
       }
     ],
-    "notes": "S#63 · Client: AA BUILDERS · Medium: HOARDING · Availability: 29-Dec-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: BRAND ACTIVE / HARIS (29-Dec-26)",
+    "notes": "S#63 · Client: AA BUILDERS · Medium: HOARDING · Start: 29-Nov-26 · End: 29-Dec-26 (30 Days) · Availability: 29-Dec-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: BRAND ACTIVE / HARIS (29-Dec-26)",
     "widthFt": 60,
     "heightFt": 40,
     "from": "KARSAZ NEAR NATIONAL STADIUM",
@@ -4483,16 +4483,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "2400",
     "sqftNum": 2400,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "29-Nov-26",
+    "endDate": "29-Dec-26",
+    "bookedFrom": "29-Nov-26",
     "bookedTill": "29-Dec-26",
     "availability": "29-Dec-26",
     "excelAvailability": "29-Dec-26",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-064",
@@ -4525,10 +4525,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "30-Nov-26",
-      "duration": "30-Nov-26",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "24-Dec-26"
     },
@@ -4541,7 +4541,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SHAHRAH E FAISAL METRO TGT AIRPORT - S#64"
       }
     ],
-    "notes": "S#64 · Client: KIFAYAH STORE · Medium: BRIDGE PANEL · Availability: 30-Nov-26 · Status: — · Vendor: CHINAB ADVERTISING (24-Dec-26)",
+    "notes": "S#64 · Client: KIFAYAH STORE · Medium: BRIDGE PANEL · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: — · Vendor: CHINAB ADVERTISING (24-Dec-26)",
     "widthFt": 70,
     "heightFt": 11,
     "from": "SHAHRAH E FAISAL METRO",
@@ -4554,16 +4554,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "770",
     "sqftNum": 770,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "24-Dec-26",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
+    "bookedTill": "30-Nov-26",
     "availability": "30-Nov-26",
     "excelAvailability": "30-Nov-26",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-065",
@@ -4596,10 +4596,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "30-Nov-26",
-      "duration": "30-Nov-26",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "DEPT ISSUE",
       "vendorEndDate": "30-Nov-26"
     },
@@ -4619,7 +4619,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SHAHRAH E FAISAL DRIG ROAD TURNING - S#65"
       }
     ],
-    "notes": "S#65 · Client: KIFAYAH STORE · Medium: BRIDGE PANEL · Availability: 30-Nov-26 · Status: DEPT ISSUE · Vendor: MNB - UMAIR BUTT (30-Nov-26)",
+    "notes": "S#65 · Client: KIFAYAH STORE · Medium: BRIDGE PANEL · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: DEPT ISSUE · Vendor: MNB - UMAIR BUTT (30-Nov-26)",
     "widthFt": 80,
     "heightFt": 12,
     "from": "Shahrah e Faisal / Karsaz",
@@ -4632,16 +4632,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "960",
     "sqftNum": 960,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
     "bookedTill": "30-Nov-26",
     "availability": "30-Nov-26",
     "excelAvailability": "30-Nov-26",
     "statusLabel": "DEPT ISSUE",
     "excelStatus": "DEPT ISSUE",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-066",
@@ -4674,10 +4674,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "30-Nov-26",
-      "duration": "30-Nov-26",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "DEPT ISSUE",
       "vendorEndDate": "05-Dec-26"
     },
@@ -4690,7 +4690,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SHAHRAH E FAISAL MACDONALDS BRIDGE - S#66"
       }
     ],
-    "notes": "S#66 · Client: KIFAYAH STORE · Medium: BRIDGE PANEL · Availability: 30-Nov-26 · Status: DEPT ISSUE · Vendor: POINT OUTDOOR - IMRAN AZIZ (05-Dec-26)",
+    "notes": "S#66 · Client: KIFAYAH STORE · Medium: BRIDGE PANEL · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: DEPT ISSUE · Vendor: POINT OUTDOOR - IMRAN AZIZ (05-Dec-26)",
     "widthFt": 80,
     "heightFt": 12,
     "from": "Airport",
@@ -4703,16 +4703,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "960",
     "sqftNum": 960,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "05-Dec-26",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
+    "bookedTill": "30-Nov-26",
     "availability": "30-Nov-26",
     "excelAvailability": "30-Nov-26",
     "statusLabel": "DEPT ISSUE",
     "excelStatus": "DEPT ISSUE",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-067",
@@ -4745,10 +4745,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "30-Nov-26",
-      "duration": "30-Nov-26",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "30-Nov-26"
     },
@@ -4761,7 +4761,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SHAHRAH E FAISAL NURSURY - S#67"
       }
     ],
-    "notes": "S#67 · Client: KIFAYAH STORE · Medium: HOARDING · Availability: 30-Nov-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (30-Nov-26)",
+    "notes": "S#67 · Client: KIFAYAH STORE · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (30-Nov-26)",
     "widthFt": 70,
     "heightFt": 31,
     "from": "FTC Flyover",
@@ -4774,16 +4774,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "2170",
     "sqftNum": 2170,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
     "bookedTill": "30-Nov-26",
     "availability": "30-Nov-26",
     "excelAvailability": "30-Nov-26",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-068",
@@ -4816,10 +4816,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "30-Nov-26",
-      "duration": "30-Nov-26",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "31-Jan-27"
     },
@@ -4832,7 +4832,7 @@ window.MASTER_SITES_2026 = [
         "caption": "TIME MEDICOS STADIUM - S#68"
       }
     ],
-    "notes": "S#68 · Client: KIFAYAH STORE · Medium: BRIDGE PANEL · Availability: 30-Nov-26 · Status: — · Vendor: DO ADVERTISING (31-Jan-27)",
+    "notes": "S#68 · Client: KIFAYAH STORE · Medium: BRIDGE PANEL · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: — · Vendor: DO ADVERTISING (31-Jan-27)",
     "widthFt": 90,
     "heightFt": 12,
     "from": "AGHA KHAN",
@@ -4845,16 +4845,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1080",
     "sqftNum": 1080,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "31-Jan-27",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
+    "bookedTill": "30-Nov-26",
     "availability": "30-Nov-26",
     "excelAvailability": "30-Nov-26",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-069",
@@ -4887,10 +4887,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "30-Nov-26",
-      "duration": "30-Nov-26",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "30-Nov-26"
     },
@@ -4903,7 +4903,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SHARAH E FAISAL IQRA UNIVERSITY - S#69"
       }
     ],
-    "notes": "S#69 · Client: KIFAYAH STORE · Medium: BRIDGE PANEL · Availability: 30-Nov-26 · Status: — · Vendor: CHINAB ADVERTISING (30-Nov-26)",
+    "notes": "S#69 · Client: KIFAYAH STORE · Medium: BRIDGE PANEL · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: — · Vendor: CHINAB ADVERTISING (30-Nov-26)",
     "widthFt": 70,
     "heightFt": 11,
     "from": "AIRPORT",
@@ -4916,16 +4916,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "770",
     "sqftNum": 770,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
     "bookedTill": "30-Nov-26",
     "availability": "30-Nov-26",
     "excelAvailability": "30-Nov-26",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-070",
@@ -4958,10 +4958,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "30-Nov-26",
-      "duration": "30-Nov-26",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "30-Nov-26"
     },
@@ -4974,7 +4974,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SHAHRAH E FAISAL MALIR IQRA UNIVERSITY 2 - S#70"
       }
     ],
-    "notes": "S#70 · Client: KIFAYAH STORE · Medium: BRIDGE PANEL · Availability: 30-Nov-26 · Status: — · Vendor: CHINAB ADVERTISING (30-Nov-26)",
+    "notes": "S#70 · Client: KIFAYAH STORE · Medium: BRIDGE PANEL · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: — · Vendor: CHINAB ADVERTISING (30-Nov-26)",
     "widthFt": 70,
     "heightFt": 11,
     "from": "Malir Iqra University",
@@ -4987,16 +4987,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "770",
     "sqftNum": 770,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
     "bookedTill": "30-Nov-26",
     "availability": "30-Nov-26",
     "excelAvailability": "30-Nov-26",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-071",
@@ -5029,10 +5029,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
-      "start": "",
-      "end": "",
+      "start": "01-Nov-26",
+      "end": "01-Dec-26",
       "avail": "01-Dec-26",
-      "duration": "01-Dec-26",
+      "duration": "01-Nov-26 to 01-Dec-26 (30 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "01-Dec-26"
     },
@@ -5045,7 +5045,7 @@ window.MASTER_SITES_2026 = [
         "caption": "MALIR CANTT - S#71"
       }
     ],
-    "notes": "S#71 · Client: KIFAYAH STORE · Medium: HOARDING · Availability: 01-Dec-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CALL GROUP (01-Dec-26)",
+    "notes": "S#71 · Client: KIFAYAH STORE · Medium: HOARDING · Start: 01-Nov-26 · End: 01-Dec-26 (30 Days) · Availability: 01-Dec-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CALL GROUP (01-Dec-26)",
     "widthFt": 50,
     "heightFt": 30,
     "from": "MALIR CANTT",
@@ -5058,16 +5058,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1500",
     "sqftNum": 1500,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "01-Nov-26",
+    "endDate": "01-Dec-26",
+    "bookedFrom": "01-Nov-26",
     "bookedTill": "01-Dec-26",
     "availability": "01-Dec-26",
     "excelAvailability": "01-Dec-26",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-072",
@@ -5100,10 +5100,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
-      "start": "",
-      "end": "",
+      "start": "02-Nov-26",
+      "end": "02-Dec-26",
       "avail": "02-Dec-26",
-      "duration": "02-Dec-26",
+      "duration": "02-Nov-26 to 02-Dec-26 (30 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "02-Dec-26"
     },
@@ -5116,7 +5116,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SHAHRAH E FAISAL STAR GATE - S#72"
       }
     ],
-    "notes": "S#72 · Client: KIFAYAH STORE · Medium: HOARDING · Availability: 02-Dec-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: SHARPLINE (02-Dec-26)",
+    "notes": "S#72 · Client: KIFAYAH STORE · Medium: HOARDING · Start: 02-Nov-26 · End: 02-Dec-26 (30 Days) · Availability: 02-Dec-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: SHARPLINE (02-Dec-26)",
     "widthFt": 40,
     "heightFt": 30,
     "from": "SHAHRAH E FAISAL STAR GATE",
@@ -5129,16 +5129,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1200",
     "sqftNum": 1200,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "02-Nov-26",
+    "endDate": "02-Dec-26",
+    "bookedFrom": "02-Nov-26",
     "bookedTill": "02-Dec-26",
     "availability": "02-Dec-26",
     "excelAvailability": "02-Dec-26",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-073",
@@ -5171,10 +5171,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "30-Nov-26",
-      "duration": "30-Nov-26",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "30-Nov-26"
     },
@@ -5187,7 +5187,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SHAMA SHOPPING CENTER - S#73"
       }
     ],
-    "notes": "S#73 · Client: KIFAYAH STORE · Medium: HOARDING · Availability: 30-Nov-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (30-Nov-26)",
+    "notes": "S#73 · Client: KIFAYAH STORE · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (30-Nov-26)",
     "widthFt": 50,
     "heightFt": 25,
     "from": "SHAMA SHOPPING CENTER",
@@ -5200,16 +5200,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1250",
     "sqftNum": 1250,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
     "bookedTill": "30-Nov-26",
     "availability": "30-Nov-26",
     "excelAvailability": "30-Nov-26",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-074",
@@ -5242,10 +5242,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "30-Nov-26",
-      "duration": "30-Nov-26",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "30-Nov-26"
     },
@@ -5258,7 +5258,7 @@ window.MASTER_SITES_2026 = [
         "caption": "QUAIDABAD - S#74"
       }
     ],
-    "notes": "S#74 · Client: KIFAYAH STORE · Medium: HOARDING · Availability: 30-Nov-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (30-Nov-26)",
+    "notes": "S#74 · Client: KIFAYAH STORE · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (30-Nov-26)",
     "widthFt": 70,
     "heightFt": 30,
     "from": "QUAIDABAD",
@@ -5271,16 +5271,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "2100",
     "sqftNum": 2100,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
     "bookedTill": "30-Nov-26",
     "availability": "30-Nov-26",
     "excelAvailability": "30-Nov-26",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-075",
@@ -5313,10 +5313,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "30-Nov-26",
-      "duration": "30-Nov-26",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "30-Nov-26"
     },
@@ -5329,7 +5329,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SHAHRAH E FAISAL STAR GATE 01 - S#75"
       }
     ],
-    "notes": "S#75 · Client: KIFAYAH STORE · Medium: HOARDING · Availability: 30-Nov-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (30-Nov-26)",
+    "notes": "S#75 · Client: KIFAYAH STORE · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (30-Nov-26)",
     "widthFt": 80,
     "heightFt": 30,
     "from": "SHAHRAH E FAISAL STAR GATE 01",
@@ -5342,16 +5342,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "2400",
     "sqftNum": 2400,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
     "bookedTill": "30-Nov-26",
     "availability": "30-Nov-26",
     "excelAvailability": "30-Nov-26",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-076",
@@ -5384,10 +5384,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "30-Nov-26",
-      "duration": "30-Nov-26",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "30-Nov-26"
     },
@@ -5400,7 +5400,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SHAHRAH E FAISAL STAR GATE 02 - S#76"
       }
     ],
-    "notes": "S#76 · Client: KIFAYAH STORE · Medium: HOARDING · Availability: 30-Nov-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (30-Nov-26)",
+    "notes": "S#76 · Client: KIFAYAH STORE · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (30-Nov-26)",
     "widthFt": 80,
     "heightFt": 30,
     "from": "SHAHRAH E FAISAL STAR GATE 02",
@@ -5413,16 +5413,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "2400",
     "sqftNum": 2400,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
     "bookedTill": "30-Nov-26",
     "availability": "30-Nov-26",
     "excelAvailability": "30-Nov-26",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-077",
@@ -5455,10 +5455,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "30-Nov-26",
-      "duration": "30-Nov-26",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": "30-Nov-26"
     },
@@ -5471,7 +5471,7 @@ window.MASTER_SITES_2026 = [
         "caption": "LANDHI BABER MARKET - S#77"
       }
     ],
-    "notes": "S#77 · Client: KIFAYAH STORE · Medium: HOARDING · Availability: 30-Nov-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (30-Nov-26)",
+    "notes": "S#77 · Client: KIFAYAH STORE · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (30-Nov-26)",
     "widthFt": 40,
     "heightFt": 30,
     "from": "LANDHI BABER MARKET",
@@ -5484,16 +5484,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "1200",
     "sqftNum": 1200,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
     "bookedTill": "30-Nov-26",
     "availability": "30-Nov-26",
     "excelAvailability": "30-Nov-26",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-078",
@@ -5526,10 +5526,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "NEXT?",
       "brand": "NEXT?",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "SUBJECT TO AVAILABLE",
-      "duration": "SUBJECT TO AVAILABLE",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "WILL BE END AS PER CAMPAIGN",
       "vendorEndDate": ""
     },
@@ -5542,7 +5542,7 @@ window.MASTER_SITES_2026 = [
         "caption": "FTC FLYOVER - S#78"
       }
     ],
-    "notes": "S#78 · Client: NEXT? · Medium: BACKLITS POLE SIGN · Availability: SUBJECT TO AVAILABLE · Status: WILL BE END AS PER CAMPAIGN · Vendor: INSIGHT SOLUTIONS (—)",
+    "notes": "S#78 · Client: NEXT? · Medium: BACKLITS POLE SIGN · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: WILL BE END AS PER CAMPAIGN · Vendor: INSIGHT SOLUTIONS (—)",
     "widthFt": 4,
     "heightFt": 8,
     "from": "NMC",
@@ -5555,16 +5555,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "FLEX",
     "excelSqft": "QTY 32",
     "sqftNum": 32,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "SUBJECT TO AVAILABLE",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
+    "bookedTill": "30-Nov-26",
     "availability": "SUBJECT TO AVAILABLE",
     "excelAvailability": "SUBJECT TO AVAILABLE",
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-079",
@@ -5597,10 +5597,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS",
       "brand": "GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS",
-      "start": "",
-      "end": "",
+      "start": "07-Nov-26",
+      "end": "07-Dec-26",
       "avail": "Subject to Available",
-      "duration": "Subject to Available",
+      "duration": "07-Nov-26 to 07-Dec-26 (30 days)",
       "statusLabel": "?",
       "vendorEndDate": "07-Dec-26"
     },
@@ -5613,7 +5613,7 @@ window.MASTER_SITES_2026 = [
         "caption": "QT SIGNAL DHA - S#79"
       }
     ],
-    "notes": "S#79 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Medium: DIGITAL SMD · Availability: Subject to Available · Status: ? · Vendor: POINT OUTDOOR - IMRAN AZIZ (07-Dec-26)",
+    "notes": "S#79 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Medium: DIGITAL SMD · Start: 07-Nov-26 · End: 07-Dec-26 (30 Days) · Availability: Subject to Available · Status: ? · Vendor: POINT OUTDOOR - IMRAN AZIZ (07-Dec-26)",
     "widthFt": 40,
     "heightFt": 20,
     "from": "SUNSET LIBRARY",
@@ -5626,16 +5626,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "SMD",
     "excelSqft": "800",
     "sqftNum": 800,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "07-Nov-26",
+    "endDate": "07-Dec-26",
+    "bookedFrom": "07-Nov-26",
     "bookedTill": "07-Dec-26",
     "availability": "Subject to Available",
     "excelAvailability": "Subject to Available",
     "statusLabel": "?",
     "excelStatus": "?",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-080",
@@ -5668,10 +5668,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS",
       "brand": "GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS",
-      "start": "",
-      "end": "",
+      "start": "07-Nov-26",
+      "end": "07-Dec-26",
       "avail": "Subject to Available",
-      "duration": "Subject to Available",
+      "duration": "07-Nov-26 to 07-Dec-26 (30 days)",
       "statusLabel": "?",
       "vendorEndDate": "07-Dec-26"
     },
@@ -5684,7 +5684,7 @@ window.MASTER_SITES_2026 = [
         "caption": "KHALIQ UZ ZAMAN ROAD CLIFTON - S#80"
       }
     ],
-    "notes": "S#80 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Medium: DIGITAL STREAMERS · Availability: Subject to Available · Status: ? · Vendor: POINT OUTDOOR - IMRAN AZIZ (07-Dec-26)",
+    "notes": "S#80 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Medium: DIGITAL STREAMERS · Start: 07-Nov-26 · End: 07-Dec-26 (30 Days) · Availability: Subject to Available · Status: ? · Vendor: POINT OUTDOOR - IMRAN AZIZ (07-Dec-26)",
     "widthFt": 3,
     "heightFt": 6,
     "from": "Lilly Bridge",
@@ -5697,16 +5697,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "DIGITAL STREAMERS",
     "excelSqft": "18",
     "sqftNum": 18,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
+    "startDate": "07-Nov-26",
+    "endDate": "07-Dec-26",
+    "bookedFrom": "07-Nov-26",
     "bookedTill": "07-Dec-26",
     "availability": "Subject to Available",
     "excelAvailability": "Subject to Available",
     "statusLabel": "?",
     "excelStatus": "?",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-081",
@@ -5739,10 +5739,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS",
       "brand": "GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "Subject to Available",
-      "duration": "Subject to Available",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "LONG TERM"
     },
@@ -5755,7 +5755,7 @@ window.MASTER_SITES_2026 = [
         "caption": "CSD SIGNAL - S#81"
       }
     ],
-    "notes": "S#81 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Medium: DIGITAL STREAMERS · Availability: Subject to Available · Status: — · Vendor: MR. MAJID - RM ASSOCIATES (LONG TERM)",
+    "notes": "S#81 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Medium: DIGITAL STREAMERS · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: Subject to Available · Status: — · Vendor: MR. MAJID - RM ASSOCIATES (LONG TERM)",
     "widthFt": 3,
     "heightFt": 6,
     "from": "NMC KAALA PULL",
@@ -5768,16 +5768,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "DIGITAL STREAMERS",
     "excelSqft": "18",
     "sqftNum": 18,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "LONG TERM",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
+    "bookedTill": "30-Nov-26",
     "availability": "Subject to Available",
     "excelAvailability": "Subject to Available",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-082",
@@ -5810,10 +5810,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS",
       "brand": "GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS",
-      "start": "",
-      "end": "",
+      "start": "31-Oct-26",
+      "end": "30-Nov-26",
       "avail": "Subject to Available",
-      "duration": "Subject to Available",
+      "duration": "31-Oct-26 to 30-Nov-26 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "LONG TERM"
     },
@@ -5826,7 +5826,7 @@ window.MASTER_SITES_2026 = [
         "caption": "SHAHRAH E FAISAL AYESHA BAWANI - S#82"
       }
     ],
-    "notes": "S#82 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Medium: DIGITAL STREAMERS · Availability: Subject to Available · Status: — · Vendor: MR. MAJID - RM ASSOCIATES (LONG TERM)",
+    "notes": "S#82 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Medium: DIGITAL STREAMERS · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: Subject to Available · Status: — · Vendor: MR. MAJID - RM ASSOCIATES (LONG TERM)",
     "widthFt": 3,
     "heightFt": 6,
     "from": "Metropole / FTC",
@@ -5839,16 +5839,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "DIGITAL STREAMERS",
     "excelSqft": "18",
     "sqftNum": 18,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "LONG TERM",
+    "startDate": "31-Oct-26",
+    "endDate": "30-Nov-26",
+    "bookedFrom": "31-Oct-26",
+    "bookedTill": "30-Nov-26",
     "availability": "Subject to Available",
     "excelAvailability": "Subject to Available",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-083",
@@ -5881,10 +5881,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS",
       "brand": "GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS",
-      "start": "",
-      "end": "",
+      "start": "14-Dec-26",
+      "end": "13-Jan-27",
       "avail": "Subject to Available",
-      "duration": "Subject to Available",
+      "duration": "14-Dec-26 to 13-Jan-27 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "13-01-27"
     },
@@ -5904,7 +5904,7 @@ window.MASTER_SITES_2026 = [
         "caption": "DHA CREEK WALK INSIDE - S#83"
       }
     ],
-    "notes": "S#83 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Medium: DIGITAL STREAMERS · Availability: Subject to Available · Status: — · Vendor: KASHIF GRAMI - CREEK WALK - R & D (13-01-27)",
+    "notes": "S#83 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Medium: DIGITAL STREAMERS · Start: 14-Dec-26 · End: 13-Jan-27 (30 Days) · Availability: Subject to Available · Status: — · Vendor: KASHIF GRAMI - CREEK WALK - R & D (13-01-27)",
     "widthFt": 3,
     "heightFt": 6,
     "from": "DHA CREEK WALK INSIDE",
@@ -5917,16 +5917,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "DIGITAL STREAMERS",
     "excelSqft": "18",
     "sqftNum": 18,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "13-01-27",
+    "startDate": "14-Dec-26",
+    "endDate": "13-Jan-27",
+    "bookedFrom": "14-Dec-26",
+    "bookedTill": "13-Jan-27",
     "availability": "Subject to Available",
     "excelAvailability": "Subject to Available",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   },
   {
     "id": "site-2026-084",
@@ -5959,10 +5959,10 @@ window.MASTER_SITES_2026 = [
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS",
       "brand": "GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS",
-      "start": "",
-      "end": "",
+      "start": "14-Dec-26",
+      "end": "13-Jan-27",
       "avail": "Subject to Available",
-      "duration": "Subject to Available",
+      "duration": "14-Dec-26 to 13-Jan-27 (30 days)",
       "statusLabel": "",
       "vendorEndDate": "13-01-27"
     },
@@ -5989,7 +5989,7 @@ window.MASTER_SITES_2026 = [
         "caption": "DHA CREEK WALK - S#84"
       }
     ],
-    "notes": "S#84 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Medium: DIGITAL STREAMERS · Availability: Subject to Available · Status: — · Vendor: KASHIF GRAMI - CREEK WALK - R & D (13-01-27)",
+    "notes": "S#84 · Client: GFS BUILDERS AND DEVELOPERS / FALAKNAZ / KIFAYAH / ADPULSE / LEGENDS AWARDS · Medium: DIGITAL STREAMERS · Start: 14-Dec-26 · End: 13-Jan-27 (30 Days) · Availability: Subject to Available · Status: — · Vendor: KASHIF GRAMI - CREEK WALK - R & D (13-01-27)",
     "widthFt": 3,
     "heightFt": 6,
     "from": "DHA CREEK WALK",
@@ -6002,16 +6002,16 @@ window.MASTER_SITES_2026 = [
     "pptMedium": "DIGITAL STREAMERS",
     "excelSqft": "18",
     "sqftNum": 18,
-    "startDate": "",
-    "endDate": "",
-    "bookedFrom": "",
-    "bookedTill": "13-01-27",
+    "startDate": "14-Dec-26",
+    "endDate": "13-Jan-27",
+    "bookedFrom": "14-Dec-26",
+    "bookedTill": "13-Jan-27",
     "availability": "Subject to Available",
     "excelAvailability": "Subject to Available",
     "statusLabel": "",
     "excelStatus": "",
-    "day": "",
-    "masterRev": "2026.7"
+    "day": "30",
+    "masterRev": "2026.8"
   }
 ];
 window.MASTER_CAMPAIGNS_2026 = [
