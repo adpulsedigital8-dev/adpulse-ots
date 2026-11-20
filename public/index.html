@@ -1342,7 +1342,7 @@ body.client .tabs{display:none}
 <script src="/claude-shim.js?v=3.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="/master_sites_2026.js"></script>
+  <script src="/master_sites_2026.js?v=33.0"></script>
 </head>
 <body>
 
@@ -1373,7 +1373,7 @@ body.client .tabs{display:none}
 /* ============ constants ============ */
 const AREAS={"Clifton":[24.8138,67.0300,"CLF"],"DHA":[24.7985,67.0640,"DHA"],"Shahrah-e-Faisal":[24.8700,67.1000,"SEF"],"Karsaz":[24.8785,67.0880,"KRZ"],"Tariq Road":[24.8720,67.0600,"TRQ"],"PECHS / Nursery":[24.8640,67.0700,"PEC"],"Shaheed-e-Millat / PECHS":[24.8710,67.0680,"SEM"],"Saddar":[24.8580,67.0220,"SDR"],"Saddar / Cantt":[24.8540,67.0320,"SDR"],"I.I. Chundrigar":[24.8490,67.0070,"IIC"],"Gulshan-e-Iqbal":[24.9200,67.0950,"GSI"],"Gulistan-e-Jauhar":[24.9140,67.1300,"GLJ"],"North Nazimabad":[24.9420,67.0420,"NNZ"],"North Karachi":[24.9920,67.0640,"NKH"],"FB Area":[24.9300,67.0720,"FBA"],"Korangi":[24.8330,67.1300,"KOR"],"Airport / Malir":[24.8990,67.1700,"AIR"],"Super Highway / M-9":[24.9850,67.1400,"M09"],"S.I.T.E. / Orangi":[24.9120,67.0050,"SIT"]};
 const SIZES=["20x40","20x60","30x60","30x90","10x30","40x120","15x45"];
-const MEDIA=["Billboard","Hoarding","Pole Sign / Streamer","SMD / Digital Screen","Bridge Panel","Rooftop","Wall Wrap","Bus Shelter"];
+const MEDIA=["Bridge Panel","Hoarding","Backlits Pole Sign","Digital SMD","Digital Streamers","Billboard","Pole Sign / Streamer","SMD / Digital Screen","Rooftop","Wall Wrap","Bus Shelter"];
 const LIGHT=["Lit","Non-lit","Backlit","Digital"];
 const STATUS={available:"Available",booked:"Not Available",maintenance:"Maintenance",expiring:"Expiring Soon"};
 const TAGS=["Day","Night","Close-up","Long shot"];
@@ -1558,7 +1558,25 @@ async function boot(){
       }, 1000);
     }
 
-    S.sites = (masterSites.length >= 80) ? masterSites : (window.MASTER_SITES_2026 || docs);
+    let activeSites = (masterSites.length >= 80) ? masterSites : (window.MASTER_SITES_2026 || docs);
+    if (window.MASTER_SITES_2026 && window.MASTER_SITES_2026.length === 84) {
+      const mMap = new Map(window.MASTER_SITES_2026.map(m => [m.id, m]));
+      const toSync = [];
+      activeSites = activeSites.map(s => {
+        const m = mMap.get(s.id);
+        if (m && s.masterRev !== "2026.6") {
+          const merged = { ...s, ...m, masterRev: "2026.6" };
+          toSync.push(merged);
+          return merged;
+        }
+        return s;
+      });
+      if (toSync.length > 0) {
+        setTimeout(() => { toSync.forEach(ms => put("sites", ms).catch(() => {})); }, 1200);
+      }
+    }
+    activeSites.sort((a, b) => (a.sNo || 999) - (b.sNo || 999) || String(a.code || "").localeCompare(String(b.code || "")));
+    S.sites = activeSites;
     S.loaded.sites = true;
     if(Studio.active&&Studio.cfg&&(!Studio.cfg.slides||Studio.cfg.slides.length===0)){Studio.build()}
     changed();
@@ -1629,7 +1647,7 @@ function changed(){if(route==="studio"&&Studio.active){render(true)}else{render(
 function startLocal(){
   S.mode="local";ROLE="team";local=ls.get("sitesnap-local",{sites:[],campaigns:[],decks:[],settings:null,clients:[]});
   S.sites=local.sites;S.campaigns=local.campaigns;
-  const MASTER_REV = "2026.4";
+  const MASTER_REV = "2026.6";
   if (window.MASTER_SITES_2026 && (!S.sites || S.sites.length !== 84 || local.masterRev !== MASTER_REV)) {
     console.log("Upgrading to 2026 Master Dataset: exactly 84 sites & 12 client campaigns...");
     S.sites = window.MASTER_SITES_2026;
@@ -1760,7 +1778,7 @@ function go(r,silent){
 }
 window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
 
-function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v10.2</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
+function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v10.3</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
 
 let lastRoute=null;
 function render(anim){
@@ -3811,7 +3829,16 @@ const pill=s=>{
 /* ============ Sites ============ */
 function filtered(){
   const q=F.q.toLowerCase().trim();
-  return S.sites.filter(s=>(!F.area||s.area===F.area)&&(!F.size||sizeOf(s)===F.size)&&(!F.media||s.media===F.media)&&(!F.status||effStatus(s)===F.status||(F.status==="booked"&&effStatus(s)==="expiring"))&&(!F.lit||s.light===F.lit)&&(!F.traffic||s.traffic===F.traffic)&&(!F.vendor||s.vendor===F.vendor)&&(!F.campaign||(campOf(F.campaign)?.siteIds||[]).includes(s.id))&&(!q||[s.code,s.name,s.title,s.area,s.from,s.towards,s.media,s.brand,s.vendor,s.availability,s.rates,s.notes].join(" ").toLowerCase().includes(q))).sort((a,b)=>(a.area||"").localeCompare(b.area||"")||(a.code||"").localeCompare(b.code||""));
+  return S.sites.filter(s=>(!F.area||s.area===F.area)&&(!F.size||sizeOf(s)===F.size)&&(!F.media||s.media===F.media||s.excelMedium===F.media)&&(!F.status||effStatus(s)===F.status||(F.status==="booked"&&effStatus(s)==="expiring"))&&(!F.lit||s.light===F.lit)&&(!F.traffic||s.traffic===F.traffic)&&(!F.vendor||s.vendor===F.vendor)&&(!F.campaign||(campOf(F.campaign)?.siteIds||[]).includes(s.id))&&(!q||[s.sNo,s.code,s.name,s.title,s.location,s.client,s.brand,s.medium,s.excelMedium,s.media,s.area,s.from,s.towards,s.vendor,s.vendorEndDate,s.availability,s.excelAvailability,s.statusLabel,s.excelStatus,s.rates,s.notes].join(" ").toLowerCase().includes(q))).sort((a,b)=>(a.sNo||999)-(b.sNo||999)||(a.code||"").localeCompare(b.code||""));
+}
+function buildClientSummaryRows(list){
+  if (list.length === 84 && window.MASTER_EXCEL_SUMMARY_2026) return window.MASTER_EXCEL_SUMMARY_2026;
+  const counts = new Map();
+  list.forEach(s => {
+    const k = (s.client || s.brand || "UNASSIGNED").trim();
+    counts.set(k, (counts.get(k) || 0) + 1);
+  });
+  return [...counts.entries()].map(([summary, qty], idx) => ({ sNo: idx + 1, summary, qty }));
 }
 function opt(list,v,lab){return list.map(o=>{const[val,l]=Array.isArray(o)?o:[o,o];return`<option value="${esc(val)}" ${val===v?"selected":""}>${esc(l)}</option>`}).join("")}
 function vSites(){
@@ -3830,7 +3857,91 @@ function vSites(){
   let body;
   if(!list.length)body=`<div class="card">${emptyState(S.sites.length?"No sites match these filters":"No sites yet",S.sites.length?"Try removing a filter.":"Add your first site or capture one from the field.")}</div>`;
   else if(siteView==="grid")body=`<div class="cards enter">${list.map(card).join("")}</div>`;
-  else if(siteView==="table")body=`<div class="tblwrap card"><table class="t"><thead><tr><th><input type="checkbox" data-act="selalltoggle" ${list.length>0&&list.every(s=>sel.has(s.id))?"checked":""} title="Select/Deselect all visible" aria-label="Select all" style="width:18px;height:18px;accent-color:var(--violet);cursor:pointer"></th><th>Code</th><th>Site Name</th><th>Area</th><th>Direction</th><th>Size</th><th>Type</th><th>Light</th><th>Traffic</th><th>Status / Availability</th><th>Booking</th><th>Last photo</th><th>Action</th></tr></thead><tbody>${list.map(s=>`<tr data-act="site" data-id="${s.id}"><td><input type="checkbox" data-act="selck" data-id="${s.id}" ${sel.has(s.id)?"checked":""} aria-label="Select ${esc(s.code)}" style="width:18px;height:18px;accent-color:var(--violet)"></td><td class="mono" style="color:var(--violet);font-weight:700">${esc(s.code)}</td><td style="font-weight:700;max-width:220px;line-height:1.3"><div class="row" style="flex-wrap:nowrap"><img src="${esc(thumbOf(s))}" alt="" style="width:28px;height:28px;border-radius:4px;object-fit:cover;margin-right:6px"><span>${esc(s.name||s.title||s.area)}</span></div></td><td>${esc(s.area)}</td><td>${esc(s.from||"—")} → ${esc(s.towards||"—")}</td><td class="mono">${sizeOf(s)}</td><td>${esc(s.media)}</td><td>${esc(s.light)}</td><td>${s.traffic||s.vehiclesDay?`${TLEV[s.traffic]||s.traffic||"Counted"}<br><small style="color:var(--muted)">~${fmtK(otsOf(s))} OTS/day</small>`:"—"}</td><td>${pill(s)}</td><td>${esc(bookingTxt(s))||"—"}${s.brand?`<br><small style="color:var(--muted)">${esc(s.brand)}</small>`:""}</td><td>${lastPhoto(s)?ago(lastPhoto(s).at):"—"}</td><td><button class="btn sm pri" data-act="siteedit" data-id="${s.id}" style="padding:4px 10px;font-size:11.5px;font-weight:700">✏️ Edit</button></td></tr>`).join("")}</tbody></table></div>`;
+  else if(siteView==="table"){
+    const sumRows = buildClientSummaryRows(list);
+    const totalQty = sumRows.reduce((acc, r) => acc + r.qty, 0);
+    body=`<div class="tblwrap card" style="padding:0;overflow-x:auto;border:1.5px solid #1C1A1B;border-radius:10px">
+      <div style="background:#1C1A1B;color:#FFFFFF;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;font-weight:800;font-size:14px;letter-spacing:0.8px">
+        <span>📊 OOH UPDATED SHEET — DATA OOH SITES (${list.length} SITES)</span>
+        <span style="background:#D9161D;color:#fff;padding:3px 10px;border-radius:6px;font-size:12px;font-family:var(--mono)">TOTAL: ${list.length} SITES</span>
+      </div>
+      <table class="t" style="border-collapse:collapse;width:100%;font-size:12px">
+        <thead>
+          <tr style="background:#D9161D;color:#FFFFFF;text-transform:uppercase;font-weight:800;font-size:11.5px;letter-spacing:0.4px">
+            <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:36px"><input type="checkbox" data-act="selalltoggle" ${list.length>0&&list.every(s=>sel.has(s.id))?"checked":""} title="Select/Deselect all visible" aria-label="Select all" style="width:16px;height:16px;accent-color:#1C1A1B;cursor:pointer"></th>
+            <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:44px">S#</th>
+            <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:left;min-width:190px">CLIENT</th>
+            <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;min-width:115px">MEDIUM</th>
+            <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:left;min-width:210px">LOCATION</th>
+            <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 6px;text-align:center;width:48px">W</th>
+            <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 6px;text-align:center;width:48px">H</th>
+            <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:64px">SQFT</th>
+            <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:85px">Start Date</th>
+            <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:85px">End Date</th>
+            <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:center;min-width:130px">Availibilty</th>
+            <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:center;min-width:140px">STATUS</th>
+            <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 6px;text-align:center;width:52px">Day</th>
+            <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:center;min-width:150px">VENDOR</th>
+            <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:center;min-width:135px">VENDOR ENDING DATE</th>
+            <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:72px">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${list.map((s,idx)=>{
+            const sNum = s.sNo || (idx + 1);
+            const med = (s.excelMedium || s.medium || s.media || "HOARDING").toUpperCase();
+            const loc = s.location || s.name || s.title || s.area || "—";
+            const sqftVal = s.excelSqft || s.sqft || ((+s.widthFt||0)*(+s.heightFt||0)) || "";
+            const availVal = s.excelAvailability || s.availability || "";
+            const stVal = s.excelStatus !== undefined ? s.excelStatus : (s.statusLabel || "");
+            const isAvail = /subject to avail/i.test(availVal);
+            const sepRow = (sNum === 79) ? `<tr style="background:#F3E8E8;font-weight:900;color:#1C1A1B"><td colspan="16" style="border:1px solid #D4D4D8;padding:8px 14px;text-align:center;font-size:12.5px;letter-spacing:1.2px">DIGITAL MEDIA</td></tr>` : "";
+            return sepRow + `<tr data-act="site" data-id="${s.id}" style="background:${idx%2===0?'#FFFFFF':'#FAFAFA'};cursor:pointer">
+              <td style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center"><input type="checkbox" data-act="selck" data-id="${s.id}" ${sel.has(s.id)?"checked":""} aria-label="Select ${esc(s.code)}" style="width:16px;height:16px;accent-color:#D9161D"></td>
+              <td class="mono" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:800;color:#1C1A1B">${esc(String(sNum))}</td>
+              <td style="border:1px solid #D4D4D8;padding:7px 10px;font-weight:700;color:#1C1A1B">${esc(s.client||s.brand||"—")}</td>
+              <td style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:700;color:#3F3A3C">${esc(med)}</td>
+              <td style="border:1px solid #D4D4D8;padding:7px 10px;font-weight:700;color:#1C1A1B"><div class="row" style="flex-wrap:nowrap;gap:8px"><img src="${esc(thumbOf(s))}" alt="" style="width:26px;height:26px;border-radius:4px;object-fit:cover;flex:none"><span>${esc(loc)}</span></div></td>
+              <td class="mono" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center;font-weight:700">${esc(String(s.widthFt||s.width||""))}</td>
+              <td class="mono" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center;font-weight:700">${esc(String(s.heightFt||s.height||""))}</td>
+              <td class="mono" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:800;color:#D9161D">${esc(String(sqftVal))}</td>
+              <td class="mono" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center">${esc(s.startDate||s.bookedFrom||"")}</td>
+              <td class="mono" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center">${esc(s.endDate||"")}</td>
+              <td style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:800;color:${isAvail?'#059669':'#1C1A1B'}">${esc(availVal)}</td>
+              <td style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:800;color:${/ISSUE/i.test(stVal)?'#D9161D':'#1C1A1B'}">${esc(stVal)}</td>
+              <td class="mono" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center">${esc(s.day||"")}</td>
+              <td style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:700;color:#1C1A1B">${esc(s.vendor||"")}</td>
+              <td class="mono" style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:700;color:#D9161D">${esc(s.vendorEndDate||"")}</td>
+              <td style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center"><button class="btn sm pri" data-act="siteedit" data-id="${s.id}" style="padding:4px 10px;font-size:11px;font-weight:700">✏️ Edit</button></td>
+            </tr>`;
+          }).join("")}
+        </tbody>
+      </table>
+      <div style="padding:18px;background:#F8F6F6;border-top:2px solid #1C1A1B">
+        <table style="border-collapse:collapse;max-width:540px;width:100%;font-size:12px;background:#FFFFFF;border:1.5px solid #1C1A1B">
+          <thead>
+            <tr style="background:#D9161D;color:#FFFFFF;font-weight:800;text-transform:uppercase">
+              <th style="border:1px solid #1C1A1B;padding:7px 10px;text-align:center;width:54px">S#</th>
+              <th style="border:1px solid #1C1A1B;padding:7px 12px;text-align:left">SUMMARY</th>
+              <th style="border:1px solid #1C1A1B;padding:7px 12px;text-align:center;width:90px">QTY</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${sumRows.map(r=>`<tr>
+              <td class="mono" style="border:1px solid #D4D4D8;padding:6px 10px;text-align:center;font-weight:700">${r.sNo}</td>
+              <td style="border:1px solid #D4D4D8;padding:6px 12px;font-weight:700;color:#1C1A1B">${esc(r.summary)}</td>
+              <td class="mono" style="border:1px solid #D4D4D8;padding:6px 12px;text-align:center;font-weight:800">${r.qty}</td>
+            </tr>`).join("")}
+            <tr style="background:#FEE2E2;font-weight:900;font-size:13px">
+              <td style="border:1px solid #1C1A1B;padding:8px 10px"></td>
+              <td style="border:1px solid #1C1A1B;padding:8px 12px;text-align:center;color:#D9161D">TOTAL</td>
+              <td class="mono" style="border:1px solid #1C1A1B;padding:8px 12px;text-align:center;color:#D9161D">${totalQty}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>`;
+  }
   else body=`<div class="card pad">${mapHTML(list)}<p style="color:var(--muted);font-size:12px;margin:10px 0 0">Interactive map. Tap a pin for the site card; "Open in Google Maps" is inside each site.</p></div>`;
   const bulk=sel.size?`<div class="bulk"><b>${sel.size} selected</b><span class="sp"></span><select id="bulkSt" aria-label="Set status"><option value="">Set status…</option><option value="available">Available</option><option value="booked">Not available</option><option value="maintenance">Maintenance</option></select><select id="bulkC" aria-label="Add to campaign"><option value="">Add to campaign…</option>${opt(S.campaigns.map(c=>[c.id,c.name]))}</select><button class="btn sm" data-act="bulkdeck">${ICON.deck}Make deck</button><button class="btn sm" data-act="bulkdel" style="color:#ff8fa3;border-color:rgba(255,143,163,.45)">${ICON.trash}Delete</button><button class="btn sm" data-act="selnone">Clear</button></div>`:"";
   const siteTopBtns = `<div class="row" style="gap:6px;flex-wrap:wrap">
@@ -3844,21 +3955,31 @@ function vSites(){
   return pgTop("Sites",`${list.length} of ${S.sites.length} sites`,siteTopBtns)+filt+body+bulk;
 }
 function card(s){
-  const n=(s.photos||[]).length;const cs=siteCamps(s);
-  const siteTitle=s.name||s.title||s.area;
+  const n=(s.photos||[]).length;
+  const siteTitle=s.location||s.name||s.title||s.area;
+  const availVal=s.excelAvailability||s.availability||"";
+  const stVal=s.excelStatus!==undefined?s.excelStatus:(s.statusLabel||"");
+  const medVal=(s.excelMedium||s.medium||s.media||"HOARDING").toUpperCase();
+  const sqftVal=s.excelSqft||s.sqft||((+s.widthFt||0)*(+s.heightFt||0))||"";
   return`<article class="card scard ${sel.has(s.id)?"sel":""}" data-act="site" data-id="${s.id}">
   <div class="ph"><img src="${esc(thumbOf(s))}" alt="${esc(s.code)} photo" loading="lazy" data-sid="${s.id}" onerror="phFix(this)">${pill(s)}<button class="ck" data-act="sel" data-id="${s.id}" aria-label="Select">${sel.has(s.id)?ICON.check:""}</button>${n?`<span class="cnt">${mediaCount(s)}</span>`:""}</div>
   <div class="bd">
     <div class="row" style="gap:6px;align-items:center;margin-bottom:2px">
-      <span class="code">${esc(s.code)}${s.sample?' <span class="tag sample">Sample</span>':""}</span>
+      <span class="code">S#${esc(String(s.sNo||"—"))} · ${esc(s.code)}</span>
       <span class="tag" style="background:var(--surface2);font-weight:700;color:var(--violet)">${esc(s.area)}</span>
+      ${stVal?`<span class="tag" style="background:rgba(217,22,29,0.1);color:#D9161D;font-weight:800;margin-left:auto">${esc(stVal)}</span>`:""}
     </div>
-    <h3 title="${esc(siteTitle)}" style="margin:2px 0 4px;font-size:16px;line-height:1.3">${esc(siteTitle)}</h3>
+    <h3 title="${esc(siteTitle)}" style="margin:2px 0 4px;font-size:15.5px;line-height:1.3">${esc(siteTitle)}</h3>
     <div class="dir">${esc(s.from||"—")} ${ICON.arrow} ${esc(s.towards||"—")}</div>
-    ${s.brand||s.tagline?`<div style="font-size:12px;font-weight:600;color:var(--ink);margin:4px 0 2px;display:flex;align-items:center;gap:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><span style="color:var(--violet)">●</span> ${esc(s.brand||"")}${s.tagline?` <span style="font-weight:400;color:var(--muted);font-style:italic">"${esc(s.tagline)}"</span>`:""}</div>`:""}
-    ${s.availability?`<div style="font-size:12px;font-weight:600;color:var(--muted);margin:3px 0;display:flex;align-items:center;gap:6px"><span>Availability:</span> <b style="color:var(--ink)">${esc(s.availability)}</b></div>`:bookingTxt(s)?`<div class="dates">${ICON.cal}${bookingTxt(s)}${s.brand&&!RO()?` · ${esc(s.brand)}`:""}</div>`:""}
-    ${trafficTag(s)?`<div>${trafficTag(s)}</div>`:""}
-    <div class="meta"><span class="tag mono">${sizeOf(s)} ft</span><span class="tag">${esc(s.media)}</span><span class="tag">${esc(s.light)}</span>${cs.slice(0,1).map(c=>`<span class="tag" style="color:${c.color};border-color:${c.color}">${esc(c.name)}</span>`).join("")}</div>
+    <div style="font-size:12px;font-weight:700;color:var(--ink);margin:5px 0 2px;display:flex;align-items:center;gap:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><span style="color:#D9161D">CLIENT:</span> <span>${esc(s.client||s.brand||"—")}</span></div>
+    <div style="font-size:12px;font-weight:600;color:var(--muted);margin:2px 0;display:flex;align-items:center;justify-content:space-between;gap:6px">
+      <span>Availibilty: <b style="color:var(--ink)">${esc(availVal||"—")}</b></span>
+    </div>
+    <div style="font-size:11.5px;font-weight:600;color:var(--muted);margin:2px 0 4px;display:flex;align-items:center;justify-content:space-between;gap:6px">
+      <span>Vendor: <b style="color:var(--ink)">${esc(s.vendor||"—")}</b></span>
+      ${s.vendorEndDate?`<span class="mono" style="color:#D9161D;font-weight:700">End: ${esc(s.vendorEndDate)}</span>`:""}
+    </div>
+    <div class="meta"><span class="tag mono" style="font-weight:700">${sizeOf(s)} ft (${esc(String(sqftVal))} SQFT)</span><span class="tag" style="font-weight:700">${esc(medVal)}</span></div>
   </div></article>`;
 }
 
@@ -3872,19 +3993,24 @@ function openSite(id,editMode){
   const gal=ph.length?`<div class="gallery">${ph.map((p,i)=>`<figure>${canDel?`<button class="pdel" data-act="photodel" data-id="${d.id}" data-i="${ph.length-1-i}" data-at="${esc(p.at)}" aria-label="Delete this ${isVid(p)?"video":"photo"}" title="Delete">${ICON.trash}</button>`:""}${isVid(p)?`<video src="${esc(photoSrc(p))}" controls playsinline preload="metadata"></video>`:`<img src="${esc(photoSrc(p))}" alt="">`}<figcaption>${esc(p.tag||"Photo")} · ${fmtDT(p.at)} · ${esc(p.by||"")}</figcaption></figure>`).join("")}</div>`:`<div class="gallery"><figure><img src="${esc(placeholder(d))}" alt=""><figcaption>No photos yet</figcaption></figure></div>`;
   const info=`<div class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
     ${[
-      ...(d.name||d.title?[["Site Name",`<span style="font-size:14.5px;color:var(--ink);font-weight:700">${esc(d.name||d.title)}</span>`]]:[]),
-      ["Area",esc(d.area)],
-      ...(d.availability?[["Availability",`<span class="pill ${/subject to avail|available/i.test(d.availability)?'st-available':'st-booked'}" style="font-size:11.5px;font-weight:700">${esc(d.availability)}</span>`]]:[]),
-      ["Size",`<span class="mono">${sizeOf(d)} ft</span>`],
-      ["Type",esc(d.media)],
-      ["Light",esc(d.light)],
-      ["From",esc(d.from||"—")],
-      ["Towards",esc(d.towards||"—")],
+      ["S# & Code",`<span class="mono" style="font-weight:800;color:#D9161D">S#${esc(String(d.sNo||"—"))} · ${esc(d.code||"")}</span>`],
+      ["CLIENT",`<span style="font-weight:800;color:var(--ink)">${esc(d.client||d.brand||"—")}</span>`],
+      ["MEDIUM",`<span style="font-weight:700">${esc((d.excelMedium||d.medium||d.media||"—").toUpperCase())}</span>`],
+      ["LOCATION",`<span style="font-size:14px;color:var(--ink);font-weight:800">${esc(d.location||d.name||d.title||"—")}</span>`],
+      ["W × H (ft)",`<span class="mono" style="font-weight:700">${esc(String(d.widthFt||d.width||0))} × ${esc(String(d.heightFt||d.height||0))} ft</span>`],
+      ["SQFT",`<span class="mono" style="font-weight:800;color:#D9161D">${esc(String(d.excelSqft||d.sqft||((+d.widthFt||0)*(+d.heightFt||0))))}</span>`],
+      ["Start Date",`<span class="mono">${esc(d.startDate||d.bookedFrom||"—")}</span>`],
+      ["End Date",`<span class="mono">${esc(d.endDate||"—")}</span>`],
+      ["Availibilty",`<span class="pill ${/subject to avail/i.test(d.excelAvailability||d.availability||"")?'st-available':'st-booked'}" style="font-size:11.5px;font-weight:700">${esc(d.excelAvailability||d.availability||"—")}</span>`],
+      ["STATUS",`<span style="font-weight:800;color:#D9161D">${esc(d.excelStatus!==undefined?d.excelStatus:(d.statusLabel||"—"))}</span>`],
+      ["Day",`<span class="mono">${esc(d.day||"—")}</span>`],
+      ["VENDOR",`<span style="font-weight:800;color:var(--ink)">${esc(d.vendor||"—")}</span>`],
+      ["VENDOR ENDING DATE",`<span class="mono" style="font-weight:800;color:#D9161D">${esc(d.vendorEndDate||"—")}</span>`],
+      ["Area",esc(d.area||"Karachi")],
+      ["From (Direction)",esc(d.from||"—")],
+      ["Towards (Direction)",esc(d.towards||"—")],
       ...(d.rates||d.price?[["Rate / Price (PKR)",`<span class="mono" style="color:var(--ok);font-weight:700">${esc(d.rates||d.price)}</span>`]]:[]),
-      ...(RO()?[]:[["Brand on site",esc(d.brand||"—")],["Tagline / Slogan",d.tagline?`<span style="color:var(--ink);font-style:italic">"${esc(d.tagline)}"</span>`:"—"],["Brand Logo",d.logo?`<span class="tag" style="background:rgba(217,22,29,0.1);color:#d9161d;font-weight:700">${esc(d.logo)}</span>`:"—"]]),
-      ["Booking",d.status==="booked"&&d.bookedTill?`${d.bookedFrom?fmtDate(d.bookedFrom)+" → ":"Till "}${fmtDate(d.bookedTill)}`:"—"],
-      ["GPS",d.lat?`<span class="mono">${(+d.lat).toFixed(5)}, ${(+d.lng).toFixed(5)}</span>`:"—"],
-      ["Campaigns",siteCamps(d).map(c=>esc(c.name)).join(", ")||"—"]
+      ["GPS",d.lat?`<span class="mono">${(+d.lat).toFixed(5)}, ${(+d.lng).toFixed(5)}</span>`:"—"]
     ].map(([k,v])=>`<div><div class="eyebrow">${k}</div><div style="font-weight:600;margin-top:2px">${v}</div></div>`).join("")}
   </div>${d.verifiedBy?`<small style="color:var(--muted);font-weight:600">✓ Details confirmed by ${esc(d.verifiedBy)} on ${fmtDate(d.verifiedAt)}${d.agentAssisted?" · filled with Site Agent":""}${d.heading!=null?` · faces traffic heading ${cmp(d.heading)}`:""}</small>`:""}${d.traffic||d.vehiclesDay?`<div class="tbox" style="gap:10px"><h4>${tBars(d.traffic)}Traffic: ${esc(d.from||"—")} → ${esc(d.towards||"—")}</h4>
     <div class="ots"><div><b>~${fmtK(otsOf(d))}</b></div><small>Estimated daily OTS<br>${d.traffic?(TLEV[d.traffic]||d.traffic)+" traffic · ":""}${d.vehiclesDay?Number(d.vehiclesDay).toLocaleString("en-US")+" vehicles/day (counted)":"≈ "+fmtK(vehOf(d))+" vehicles/day (estimate)"}${d.signal?" · signal nearby":""}</small></div>
@@ -3911,8 +4037,18 @@ function siteForm(d,p){
   const sz=sizeOf(d);const pre=SIZES.includes(sz);
   const formAreas=[...new Set([...Object.keys(AREAS),...S.sites.map(s=>s.area).filter(Boolean)])].sort();
   return`<div class="fgrid">
-   <label class="f full">Site Name / Location<input class="in" id="${p}-name" value="${esc(d.name||d.title||"")}" placeholder="e.g. DHA SUNSET BOULEVARD"></label>
-   <label class="f full">Media Vendor / Inventory Owner<input class="in" id="${p}-vendor" value="${esc(d.vendor||"")}" placeholder="e.g. MNB - UMAIR BUTT, AdPulse IMC, MEDIA POINT" style="font-weight:700"></label>
+   <label class="f">S# (Serial Number)<input class="in mono" id="${p}-sno" type="number" min="1" value="${esc(String(d.sNo||""))}" placeholder="1..84"></label>
+   <label class="f">CLIENT<input class="in" id="${p}-client" value="${esc(d.client||d.brand||"")}" placeholder="e.g. ASKARI VILLA - KK PROPERTIES" style="font-weight:700"></label>
+   <label class="f full">LOCATION (Site Name)<input class="in" id="${p}-name" value="${esc(d.location||d.name||d.title||"")}" placeholder="e.g. OCEAN MALL" style="font-weight:700"></label>
+   <label class="f">MEDIUM (Excel Format)<input class="in" id="${p}-excelmedium" value="${esc(d.excelMedium||d.medium||(d.media||"").toUpperCase())}" placeholder="e.g. BRIDGE PANEL, HOARDING"></label>
+   <label class="f">SQFT<input class="in mono" id="${p}-sqft" value="${esc(String(d.excelSqft||d.sqft||((+d.widthFt||0)*(+d.heightFt||0))||""))}" placeholder="e.g. 1200"></label>
+   <label class="f">Start Date<input class="in" id="${p}-startdate" value="${esc(d.startDate||d.bookedFrom||"")}" placeholder="Start Date"></label>
+   <label class="f">End Date<input class="in" id="${p}-enddate" value="${esc(d.endDate||"")}" placeholder="End Date"></label>
+   <label class="f">Availibilty<input class="in" id="${p}-availability" value="${esc(d.excelAvailability||d.availability||"")}" placeholder="e.g. 30-11-2026 EXT or SUBJECT TO AVAILABLE" style="font-weight:700"></label>
+   <label class="f">STATUS<input class="in" id="${p}-statuslabel" value="${esc(d.excelStatus!==undefined?d.excelStatus:(d.statusLabel||""))}" placeholder="e.g. EXTENDABLE, DEPT ISSUE, WILL BE END" style="font-weight:700"></label>
+   <label class="f">Day<input class="in" id="${p}-day" value="${esc(d.day||"")}" placeholder="Day"></label>
+   <label class="f">VENDOR<input class="in" id="${p}-vendor" value="${esc(d.vendor||"")}" placeholder="e.g. DO ADVERTISING, NEXTIER KAINAT" style="font-weight:700"></label>
+   <label class="f full">VENDOR ENDING DATE<input class="in mono" id="${p}-vendorend" value="${esc(d.vendorEndDate||"")}" placeholder="e.g. 31-Jan-27, 16-Jan-27, 30-11-2026 + EXT" style="font-weight:700"></label>
    <label class="f">Area<select class="in" id="${p}-area">${opt(formAreas,d.area)}<option value="__new">+ New area…</option></select></label>
    <label class="f" id="${p}-newareaL" hidden>New area name<input class="in" id="${p}-newarea" placeholder="e.g. Bahadurabad"></label>
    <label class="f">Media type<select class="in" id="${p}-media">${opt(MEDIA,d.media)}</select></label>
@@ -3978,10 +4114,26 @@ function readForm(root,p,d){
     heightFt:h,
     from:g("from")?g("from").value.trim():(d.from||""),
     towards:g("towards")?g("towards").value.trim():(d.towards||""),
-    brand:g("brand")?g("brand").value.trim():(d.brand||""),
+    sNo:g("sno")&&+g("sno").value?+g("sno").value:(d.sNo||999),
+    client:g("client")?g("client").value.trim():(g("brand")?g("brand").value.trim():(d.client||d.brand||"")),
+    brand:g("client")?g("client").value.trim():(g("brand")?g("brand").value.trim():(d.brand||d.client||"")),
+    excelMedium:g("excelmedium")?g("excelmedium").value.trim().toUpperCase():(d.excelMedium||d.medium||(d.media||"").toUpperCase()),
+    medium:g("excelmedium")?g("excelmedium").value.trim().toUpperCase():(d.medium||d.excelMedium||(d.media||"").toUpperCase()),
+    width:w,
+    height:h,
+    sqft:g("sqft")&&g("sqft").value.trim()?g("sqft").value.trim():(w*h),
+    excelSqft:g("sqft")&&g("sqft").value.trim()?g("sqft").value.trim():String(w*h),
+    startDate:g("startdate")?g("startdate").value.trim():(d.startDate||""),
+    endDate:g("enddate")?g("enddate").value.trim():(d.endDate||""),
+    excelAvailability:g("availability")?g("availability").value.trim():(d.excelAvailability||d.availability||""),
+    statusLabel:g("statuslabel")?g("statuslabel").value.trim():(d.statusLabel||""),
+    excelStatus:g("statuslabel")?g("statuslabel").value.trim():(d.excelStatus||""),
+    day:g("day")?g("day").value.trim():(d.day||""),
+    vendorEndDate:g("vendorend")?g("vendorend").value.trim():(d.vendorEndDate||""),
     tagline:g("tagline")?g("tagline").value.trim():(d.tagline||""),
     logo:g("logo")?g("logo").value.trim():(d.logo||""),
     name:g("name")?g("name").value.trim():(d.name||d.title||""),
+    location:g("name")?g("name").value.trim():(d.location||d.name||d.title||""),
     vendor:g("vendor")?g("vendor").value.trim():(d.vendor||""),
     rates:g("rates")?g("rates").value.trim():(d.rates||d.price||""),
     price:g("rates")?g("rates").value.trim():(d.price||d.rates||""),
@@ -5252,7 +5404,7 @@ async function sync2026MasterData(notify = true) {
     let sites = window.MASTER_SITES_2026;
     let campaigns = window.MASTER_CAMPAIGNS_2026;
     if (!sites || !sites.length) {
-      const res = await fetch("/master_sites_2026.json");
+      const res = await fetch("/master_sites_2026.js?v=33.0on");
       sites = await res.json();
     }
     if (!campaigns || !campaigns.length) {
@@ -5609,7 +5761,7 @@ function normFields(f){
 }
 const Studio={
  active:false,cfg:null,
- fresh(src){return{id:uid(),title:"",subtitle:"",source:src||{type:"campaign",campaignId:S.campaigns[0]?.id||""},template:"adpulse",layout:"split",groupBy:"area",fields:{status:true,dir:true,size:true,media:true,light:true,dates:true,traffic:true,gps:true,price:true,vendor:true,brand:false,notes:false},summary:true,index:true,onlySummary:!!src?.onlySummary,hideCover:false,slides:[],version:0}},
+ fresh(src){return{id:uid(),title:"",subtitle:"",source:src||{type:"campaign",campaignId:S.campaigns[0]?.id||""},template:"adpulse",layout:"split",groupBy:"none",fields:{status:true,dir:true,size:true,media:true,light:true,dates:true,traffic:true,gps:true,price:true,vendor:true,brand:true,notes:false},summary:true,index:true,onlySummary:!!src?.onlySummary,hideCover:false,slides:[],version:0}},
  open(src,title){this.cfg=this.fresh(src);if(title)this.cfg.title=title;this.build();this.active=true;location.hash="studio";if(route==="studio")render(true)},
  load(deck){this.cfg=JSON.parse(JSON.stringify(deck));if(!this.cfg.layout)this.cfg.layout="split";this.cfg.fields=normFields(this.cfg.fields);this.cfg.summary=this.cfg.summary!==false;this.cfg.index=this.cfg.index!==false;this.active=true;render(true)},
  sitesFor(){const s=this.cfg.source;let list=[];
@@ -5618,7 +5770,7 @@ const Studio={
    else if(s.type==="filter"){list=S.sites.filter(x=>(!s.area||x.area===s.area)&&(!s.size||sizeOf(x)===s.size)&&(!s.status||effStatus(x)===s.status||(s.status==="booked"&&effStatus(x)==="expiring"))&&(!s.media||x.media===s.media)&&(!s.vendor||x.vendor===s.vendor))}
    else list=(s.ids||[]).map(id=>S.sites.find(x=>x&&(x.id===id||x.code===id))).filter(Boolean);return list},
  build(){const c=this.cfg;const list=this.sitesFor();const key=({area:x=>x.area,vendor:x=>x.vendor||"AdPulse IMC",size:x=>sizeOf(x),status:x=>STATUS[effStatus(x)],none:()=>""}[c.groupBy])||(()=>"");
-    list.sort((a,b)=>String(key(a)).localeCompare(String(key(b)))||a.code.localeCompare(b.code));
+    list.sort((a,b)=>String(key(a)).localeCompare(String(key(b)))||(a.sNo||999)-(b.sNo||999)||String(a.code||"").localeCompare(String(b.code||"")));
     c.sitesData=list.map(s=>({
       ...s,
       id:s.id,
@@ -5707,147 +5859,183 @@ function frame(t){return[R(0,0,13.333,7.5,t.bg)]}
 function footer(c,t,page,total){return[R(0.5,7.02,12.33,0.01,t.muted),{t:"logo",which:"mark",x:0.5,y:7.07,w:0.34,h:0.34},T(0.92,7.1,6,0.3,S.settings.agency||"",{size:9,color:t.muted,bold:true}),T(6.83,7.1,6,0.3,page?`${page} / ${total}`:"",{size:9,color:t.muted,align:"right",font:"mono"})]}
 /* ============ Executive Summary Table on Page 2 ============ */
 function summaryTableOps(c, t, sites) {
-  const f = normFields(c.fields);
-  const perPage = 10;
+  const perPage = 12;
   const totalPages = Math.ceil(sites.length / perPage) || 1;
   const slides = [];
+
+  const cols = [
+    { key: "sNo", label: "S#", x: 0.25, w: 0.35, align: "center" },
+    { key: "client", label: "CLIENT", x: 0.60, w: 2.00, align: "left" },
+    { key: "medium", label: "MEDIUM", x: 2.60, w: 0.96, align: "center" },
+    { key: "location", label: "LOCATION", x: 3.56, w: 2.08, align: "left" },
+    { key: "w", label: "W", x: 5.64, w: 0.38, align: "center" },
+    { key: "h", label: "H", x: 6.02, w: 0.38, align: "center" },
+    { key: "sqft", label: "SQFT", x: 6.40, w: 0.52, align: "center" },
+    { key: "startDate", label: "Start Date", x: 6.92, w: 0.66, align: "center" },
+    { key: "endDate", label: "End Date", x: 7.58, w: 0.66, align: "center" },
+    { key: "avail", label: "Availibilty", x: 8.24, w: 1.08, align: "center" },
+    { key: "status", label: "STATUS", x: 9.32, w: 1.18, align: "center" },
+    { key: "day", label: "Day", x: 10.50, w: 0.38, align: "center" },
+    { key: "vendor", label: "VENDOR", x: 10.88, w: 1.22, align: "center" },
+    { key: "vendorEnd", label: "VENDOR ENDING DATE", x: 12.10, w: 0.98, align: "center" }
+  ];
+  const tblX = 0.25;
+  const tblW = 12.83;
 
   for (let pageIdx = 0; pageIdx < totalPages; pageIdx++) {
     const pageSites = sites.slice(pageIdx * perPage, (pageIdx + 1) * perPage);
     const ops = [
       // Frame background
       { t: "rect", x: 0, y: 0, w: 13.333, h: 7.5, fill: t.bg || "FFFFFF" },
-      
+
       // Header
-      { t: "text", x: 0.60, y: 0.38, w: 9.50, h: 0.38, text: "INVENTORY SUMMARY & BOOKING SCHEDULE" + (totalPages > 1 ? ` (${pageIdx + 1}/${totalPages})` : ""), size: 19, bold: true, color: t.ink || "1C1A1B", font: "display" },
-      { t: "text", x: 0.60, y: 0.78, w: 9.50, h: 0.22, text: `${c.title || "Master Portfolio"} · Tabular inventory specifications, availability & booking duration`, size: 9.5, bold: true, color: t.muted || "6E6668" },
-      
+      { t: "text", x: 0.25, y: 0.28, w: 10.0, h: 0.34, text: "OOH UPDATED SHEET — DATA OOH SITES" + (totalPages > 1 ? ` (${pageIdx + 1}/${totalPages})` : ""), size: 17, bold: true, color: t.ink || "1C1A1B", font: "display" },
+      { t: "text", x: 0.25, y: 0.64, w: 10.0, h: 0.20, text: `${c.title || "Master OOH Portfolio"} · Synced with DATA OOH SITES.xlsx & Presentation Deck`, size: 9, bold: true, color: t.muted || "6E6668" },
+
       // Top right badge
-      { t: "rect", x: 10.40, y: 0.40, w: 2.33, h: 0.34, fill: t.accent || "D9161D", r: .14 },
-      { t: "text", x: 10.40, y: 0.46, w: 2.33, h: 0.20, text: `${sites.length} TOTAL SITES`, size: 9.5, bold: true, color: "FFFFFF", align: "center", font: "mono" }
+      { t: "rect", x: 10.85, y: 0.32, w: 2.23, h: 0.32, fill: "D9161D", r: .08 },
+      { t: "text", x: 10.85, y: 0.38, w: 2.23, h: 0.20, text: `${sites.length} TOTAL SITES`, size: 9, bold: true, color: "FFFFFF", align: "center", font: "mono" }
     ];
 
-    const hasVendor = !!f.vendor;
-    const yTop = 1.22;
-    const hHead = 0.38;
-    const hRow = 0.48;
+    const yTop = 0.96;
+    const hHead = 0.36;
+    const hRow = 0.46;
 
-    // Header bar background
-    ops.push({ t: "rect", x: 0.60, y: yTop, w: 12.133, h: hHead, fill: t.band || "1E2A2C", r: .06 });
-
-    // Columns config
-    let cols = [];
-    if (hasVendor) {
-      cols = [
-        { label: "#", x: 0.60, w: 0.45, align: "center" },
-        { label: "SITE & LOCATION", x: 1.05, w: 2.45, align: "left" },
-        { label: "SIZE & TYPE", x: 3.50, w: 1.55, align: "left" },
-        { label: "TRAFFIC ORIENTATION", x: 5.05, w: 1.90, align: "left" },
-        { label: "STATUS", x: 6.95, w: 1.30, align: "center" },
-        { label: "BOOKING DURATION", x: 8.25, w: 1.85, align: "left" },
-        { label: "VENDOR / OWNER", x: 10.10, w: 1.40, align: "left" },
-        { label: "RATE (PKR)", x: 11.50, w: 1.23, align: "right" }
-      ];
-    } else {
-      cols = [
-        { label: "#", x: 0.60, w: 0.45, align: "center" },
-        { label: "SITE & LOCATION", x: 1.05, w: 2.85, align: "left" },
-        { label: "SIZE & TYPE", x: 3.90, w: 1.65, align: "left" },
-        { label: "TRAFFIC ORIENTATION", x: 5.55, w: 2.10, align: "left" },
-        { label: "STATUS", x: 7.65, w: 1.40, align: "center" },
-        { label: "BOOKING DURATION", x: 9.05, w: 2.05, align: "left" },
-        { label: "RATE (PKR)", x: 11.10, w: 1.63, align: "right" }
-      ];
-    }
+    // Red Header bar background (Exact Excel Red Header format)
+    ops.push({ t: "rect", x: tblX, y: yTop, w: tblW, h: hHead, fill: "D9161D" });
 
     // Render header column texts
     cols.forEach(col => {
       ops.push({
         t: "text",
-        x: col.x + (col.align === "right" ? -0.1 : (col.align === "center" ? 0 : 0.08)),
-        y: yTop + 0.10,
-        w: col.w,
+        x: col.x + 0.03,
+        y: yTop + 0.09,
+        w: col.w - 0.06,
         h: 0.20,
         text: col.label,
-        size: 8,
+        size: 7.2,
         bold: true,
         color: "FFFFFF",
-        align: col.align,
-        spacing: 1.1
+        align: col.align
       });
     });
 
     // Render rows
     pageSites.forEach((s, rowIdx) => {
       const yR = yTop + hHead + (rowIdx * hRow);
-      const rowBg = rowIdx % 2 === 0 ? (t.bg || "FFFFFF") : (t.panel || "F5F1F0");
-      
-      ops.push({ t: "rect", x: 0.60, y: yR, w: 12.133, h: hRow, fill: rowBg });
-      ops.push({ t: "rect", x: 0.60, y: yR + hRow - 0.01, w: 12.133, h: 0.01, fill: t.muted || "6E6668", alpha: .18 });
+      const rowBg = rowIdx % 2 === 0 ? "FFFFFF" : "F7F4F4";
+      ops.push({ t: "rect", x: tblX, y: yR, w: tblW, h: hRow, fill: rowBg });
+      // Bottom row border
+      ops.push({ t: "rect", x: tblX, y: yR + hRow - 0.01, w: tblW, h: 0.01, fill: "CCCCCC" });
 
-      const num = pageIdx * perPage + rowIdx + 1;
-      const k = effStatus(s);
-      const stColor = { available: "0E9F76", booked: "E03656", expiring: "EE7422", maintenance: "DB8F06" }[k] || "0E9F76";
-      const stLabel = (STATUS[k] || "AVAILABLE").toUpperCase();
+      const sNum = s.sNo || (pageIdx * perPage + rowIdx + 1);
+      const clientStr = (s.client || s.brand || "—").substring(0, 34);
+      const medStr = (s.excelMedium || s.medium || s.media || "HOARDING").toUpperCase();
+      const locStr = (s.location || s.name || s.title || s.area || "—").substring(0, 36);
+      const wStr = String(s.widthFt || s.width || "");
+      const hStr = String(s.heightFt || s.height || "");
+      const sqftStr = String(s.excelSqft || s.sqft || ((+s.widthFt||0)*(+s.heightFt||0)) || "");
+      const startStr = String(s.startDate || s.bookedFrom || "");
+      const endStr = String(s.endDate || "");
+      const availStr = String(s.excelAvailability || s.availability || "");
+      const statusStr = String(s.excelStatus !== undefined ? s.excelStatus : (s.statusLabel || ""));
+      const dayStr = String(s.day || "");
+      const vendorStr = String(s.vendor || "").substring(0, 24);
+      const vendorEndStr = String(s.vendorEndDate || "");
 
-      let durationTxt = "Available for booking";
-      if (s.status === "booked") {
-        if (s.bookedFrom && s.bookedTill) {
-          durationTxt = `${fmtDate(s.bookedFrom)} to ${fmtDate(s.bookedTill)}`;
-        } else if (s.bookedTill) {
-          durationTxt = `Till ${fmtDate(s.bookedTill)}`;
-        } else {
-          durationTxt = s.availability || "Currently Booked";
-        }
-      }
+      const isAvail = /subject to avail/i.test(availStr);
+      const isIssue = /ISSUE/i.test(statusStr);
 
-      const sizeStr = `${s.widthFt||0}×${s.heightFt||0} ft`;
-      const formatStr = s.media || "Billboard";
-      const dirStr = (s.from && s.towards) ? `${s.from} → ${s.towards}` : (s.from || s.area || "Karachi");
+      const cellValues = {
+        sNo: { text: String(sNum), bold: true, color: "1C1A1B", font: "mono" },
+        client: { text: clientStr, bold: true, color: "1C1A1B" },
+        medium: { text: medStr, bold: true, color: "3F3A3C" },
+        location: { text: locStr, bold: true, color: "1C1A1B" },
+        w: { text: wStr, bold: true, color: "1C1A1B", font: "mono" },
+        h: { text: hStr, bold: true, color: "1C1A1B", font: "mono" },
+        sqft: { text: sqftStr, bold: true, color: "D9161D", font: "mono" },
+        startDate: { text: startStr, bold: false, color: "1C1A1B", font: "mono" },
+        endDate: { text: endStr, bold: false, color: "1C1A1B", font: "mono" },
+        avail: { text: availStr, bold: true, color: isAvail ? "0E9F76" : "1C1A1B" },
+        status: { text: statusStr, bold: true, color: isIssue ? "D9161D" : "1C1A1B" },
+        day: { text: dayStr, bold: false, color: "1C1A1B", font: "mono" },
+        vendor: { text: vendorStr, bold: true, color: "1C1A1B" },
+        vendorEnd: { text: vendorEndStr, bold: true, color: "D9161D", font: "mono" }
+      };
 
-      if (hasVendor) {
-        // #
-        ops.push({ t: "text", x: 0.60, y: yR + 0.14, w: 0.45, h: 0.22, text: String(num), size: 10, bold: true, color: t.muted || "6E6668", align: "center", font: "mono" });
-        // Code & Location
-        ops.push({ t: "text", x: 1.12, y: yR + 0.07, w: 2.38, h: 0.18, text: s.code || "SITE", size: 9.5, bold: true, color: t.accent || "D9161D", font: "mono" });
-        ops.push({ t: "text", x: 1.12, y: yR + 0.25, w: 2.38, h: 0.18, text: (s.name || s.title || s.area).substring(0, 32), size: 8.5, color: t.ink || "1C1A1B", bold: true });
-        // Size & Type
-        ops.push({ t: "text", x: 3.55, y: yR + 0.07, w: 1.50, h: 0.18, text: sizeStr, size: 9.5, bold: true, color: t.ink || "1C1A1B", font: "mono" });
-        ops.push({ t: "text", x: 3.55, y: yR + 0.25, w: 1.50, h: 0.18, text: formatStr, size: 8, color: t.muted || "6E6668" });
-        // Traffic Direction
-        ops.push({ t: "text", x: 5.12, y: yR + 0.14, w: 1.80, h: 0.26, text: dirStr.substring(0, 38), size: 8.5, color: t.ink || "1C1A1B" });
-        // Status Pill
-        ops.push({ t: "rect", x: 7.02, y: yR + 0.12, w: 1.16, h: 0.24, fill: stColor, r: .12 });
-        ops.push({ t: "text", x: 7.02, y: yR + 0.16, w: 1.16, h: 0.18, text: stLabel, size: 7.5, bold: true, color: "FFFFFF", align: "center" });
-        // Duration
-        ops.push({ t: "text", x: 8.32, y: yR + 0.14, w: 1.75, h: 0.24, text: durationTxt, size: 8.5, bold: true, color: t.ink || "1C1A1B" });
-        // Vendor
-        ops.push({ t: "text", x: 10.15, y: yR + 0.14, w: 1.35, h: 0.24, text: (s.vendor || "AdPulse IMC").substring(0, 22), size: 8.5, bold: true, color: t.ink || "1C1A1B" });
-        // Rate
-        ops.push({ t: "text", x: 11.50, y: yR + 0.14, w: 1.15, h: 0.24, text: s.price || s.rates || "PKR", size: 8.5, bold: true, color: t.accent || "D9161D", align: "right", font: "mono" });
-      } else {
-        // Without vendor
-        ops.push({ t: "text", x: 0.60, y: yR + 0.14, w: 0.45, h: 0.22, text: String(num), size: 10, bold: true, color: t.muted || "6E6668", align: "center", font: "mono" });
-        ops.push({ t: "text", x: 1.12, y: yR + 0.07, w: 2.78, h: 0.18, text: s.code || "SITE", size: 9.5, bold: true, color: t.accent || "D9161D", font: "mono" });
-        ops.push({ t: "text", x: 1.12, y: yR + 0.25, w: 2.78, h: 0.18, text: (s.name || s.title || s.area).substring(0, 36), size: 8.5, color: t.ink || "1C1A1B", bold: true });
-        ops.push({ t: "text", x: 3.95, y: yR + 0.07, w: 1.60, h: 0.18, text: sizeStr, size: 9.5, bold: true, color: t.ink || "1C1A1B", font: "mono" });
-        ops.push({ t: "text", x: 3.95, y: yR + 0.25, w: 1.60, h: 0.18, text: formatStr, size: 8, color: t.muted || "6E6668" });
-        ops.push({ t: "text", x: 5.62, y: yR + 0.14, w: 2.00, h: 0.26, text: dirStr.substring(0, 42), size: 8.5, color: t.ink || "1C1A1B" });
-        ops.push({ t: "rect", x: 7.72, y: yR + 0.12, w: 1.26, h: 0.24, fill: stColor, r: .12 });
-        ops.push({ t: "text", x: 7.72, y: yR + 0.16, w: 1.26, h: 0.18, text: stLabel, size: 8, bold: true, color: "FFFFFF", align: "center" });
-        ops.push({ t: "text", x: 9.12, y: yR + 0.14, w: 1.95, h: 0.24, text: durationTxt, size: 8.5, bold: true, color: t.ink || "1C1A1B" });
-        ops.push({ t: "text", x: 11.10, y: yR + 0.14, w: 1.55, h: 0.24, text: s.price || s.rates || "PKR Rate", size: 8.5, bold: true, color: t.accent || "D9161D", align: "right", font: "mono" });
-      }
+      cols.forEach(col => {
+        const cv = cellValues[col.key];
+        ops.push({
+          t: "text",
+          x: col.x + 0.04,
+          y: yR + 0.11,
+          w: col.w - 0.08,
+          h: 0.26,
+          text: cv.text,
+          size: 7.2,
+          bold: cv.bold,
+          color: cv.color,
+          align: col.align,
+          font: cv.font
+        });
+      });
     });
 
+    // Vertical grid lines
+    const tableBodyH = hHead + (pageSites.length * hRow);
+    cols.forEach(col => {
+      ops.push({ t: "rect", x: col.x, y: yTop, w: 0.01, h: tableBodyH, fill: "CCCCCC" });
+    });
+    ops.push({ t: "rect", x: tblX + tblW, y: yTop, w: 0.01, h: tableBodyH, fill: "1C1A1B" });
+    ops.push({ t: "rect", x: tblX, y: yTop, w: 0.01, h: tableBodyH, fill: "1C1A1B" });
+    ops.push({ t: "rect", x: tblX, y: yTop, w: tblW, h: 0.015, fill: "1C1A1B" });
+    ops.push({ t: "rect", x: tblX, y: yTop + tableBodyH, w: tblW, h: 0.015, fill: "1C1A1B" });
+
     // Footer
-    ops.push({ t: "rect", x: 0.5, y: 7.02, w: 12.33, h: 0.01, fill: t.muted || "6E6668" });
-    ops.push({ t: "logo", which: "mark", x: 0.5, y: 7.07, w: 0.34, h: 0.34 });
-    ops.push({ t: "text", x: 0.92, y: 7.10, w: 6.0, h: 0.30, text: S.settings.agency || "AdPulse IMC", size: 9, color: t.muted || "6E6668", bold: true });
-    ops.push({ t: "text", x: 6.83, y: 7.10, w: 6.0, h: 0.30, text: `Page ${pageIdx + 2} / Summary`, size: 9, color: t.muted || "6E6668", align: "right", font: "mono" });
+    ops.push({ t: "rect", x: 0.25, y: 7.02, w: 12.83, h: 0.01, fill: t.muted || "6E6668" });
+    ops.push({ t: "logo", which: "mark", x: 0.25, y: 7.07, w: 0.34, h: 0.34 });
+    ops.push({ t: "text", x: 0.67, y: 7.10, w: 6.0, h: 0.30, text: S.settings.agency || "AdPulse IMC", size: 9, color: t.muted || "6E6668", bold: true });
+    ops.push({ t: "text", x: 7.08, y: 7.10, w: 6.0, h: 0.30, text: `Summary Table ${pageIdx + 1}/${totalPages}`, size: 9, color: t.muted || "6E6668", align: "right", font: "mono" });
 
     slides.push(ops);
   }
+
+  // Client Summary Breakdown Slide (Matches bottom table of DATA OOH SITES.xlsx: S# | SUMMARY | QTY | TOTAL)
+  const sumRows = buildClientSummaryRows(sites);
+  const totalQty = sumRows.reduce((a, r) => a + r.qty, 0);
+  const sumOps = [
+    { t: "rect", x: 0, y: 0, w: 13.333, h: 7.5, fill: t.bg || "FFFFFF" },
+    { t: "text", x: 0.60, y: 0.35, w: 9.5, h: 0.36, text: "OOH UPDATED SHEET — CLIENT SUMMARY & QTY BREAKDOWN", size: 18, bold: true, color: t.ink || "1C1A1B", font: "display" },
+    { t: "text", x: 0.60, y: 0.72, w: 9.5, h: 0.22, text: "Client-wise inventory allocation matching DATA OOH SITES.xlsx summary table", size: 9.5, bold: true, color: t.muted || "6E6668" },
+    { t: "rect", x: 10.40, y: 0.38, w: 2.33, h: 0.34, fill: "D9161D", r: .08 },
+    { t: "text", x: 10.40, y: 0.44, w: 2.33, h: 0.20, text: `TOTAL: ${totalQty} SITES`, size: 9.5, bold: true, color: "FFFFFF", align: "center", font: "mono" }
+  ];
+  const syTop = 1.15, shHead = 0.38, shRow = 0.38;
+  sumOps.push({ t: "rect", x: 0.60, y: syTop, w: 8.60, h: shHead, fill: "D9161D" });
+  sumOps.push({ t: "text", x: 0.60, y: syTop + 0.10, w: 0.80, h: 0.20, text: "S#", size: 9, bold: true, color: "FFFFFF", align: "center" });
+  sumOps.push({ t: "text", x: 1.50, y: syTop + 0.10, w: 6.10, h: 0.20, text: "SUMMARY", size: 9, bold: true, color: "FFFFFF", align: "left" });
+  sumOps.push({ t: "text", x: 7.70, y: syTop + 0.10, w: 1.50, h: 0.20, text: "QTY", size: 9, bold: true, color: "FFFFFF", align: "center" });
+
+  sumRows.slice(0, 13).forEach((r, idx) => {
+    const yR = syTop + shHead + (idx * shRow);
+    sumOps.push({ t: "rect", x: 0.60, y: yR, w: 8.60, h: shRow, fill: idx % 2 === 0 ? "FFFFFF" : "F7F4F4" });
+    sumOps.push({ t: "rect", x: 0.60, y: yR + shRow - 0.01, w: 8.60, h: 0.01, fill: "CCCCCC" });
+    sumOps.push({ t: "text", x: 0.60, y: yR + 0.09, w: 0.80, h: 0.20, text: String(r.sNo), size: 9, bold: true, color: "1C1A1B", align: "center", font: "mono" });
+    sumOps.push({ t: "text", x: 1.50, y: yR + 0.09, w: 6.10, h: 0.20, text: r.summary, size: 9, bold: true, color: "1C1A1B", align: "left" });
+    sumOps.push({ t: "text", x: 7.70, y: yR + 0.09, w: 1.50, h: 0.20, text: String(r.qty), size: 9.5, bold: true, color: "1C1A1B", align: "center", font: "mono" });
+  });
+  const yTot = syTop + shHead + (Math.min(sumRows.length, 13) * shRow);
+  sumOps.push({ t: "rect", x: 0.60, y: yTot, w: 8.60, h: 0.42, fill: "FEE2E2" });
+  sumOps.push({ t: "rect", x: 0.60, y: yTot, w: 8.60, h: 0.015, fill: "1C1A1B" });
+  sumOps.push({ t: "rect", x: 0.60, y: yTot + 0.42, w: 8.60, h: 0.015, fill: "1C1A1B" });
+  sumOps.push({ t: "text", x: 1.50, y: yTot + 0.11, w: 6.10, h: 0.22, text: "TOTAL", size: 10.5, bold: true, color: "D9161D", align: "center" });
+  sumOps.push({ t: "text", x: 7.70, y: yTot + 0.11, w: 1.50, h: 0.22, text: String(totalQty), size: 11, bold: true, color: "D9161D", align: "center", font: "mono" });
+
+  sumOps.push({ t: "rect", x: 0.25, y: 7.02, w: 12.83, h: 0.01, fill: t.muted || "6E6668" });
+  sumOps.push({ t: "logo", which: "mark", x: 0.25, y: 7.07, w: 0.34, h: 0.34 });
+  sumOps.push({ t: "text", x: 0.67, y: 7.10, w: 6.0, h: 0.30, text: S.settings.agency || "AdPulse IMC", size: 9, color: t.muted || "6E6668", bold: true });
+  sumOps.push({ t: "text", x: 7.08, y: 7.10, w: 6.0, h: 0.30, text: "Client Summary Breakdown", size: 9, color: t.muted || "6E6668", align: "right", font: "mono" });
+  slides.push(sumOps);
 
   return slides;
 }
@@ -5888,28 +6076,21 @@ function siteOps(c,t,s,v,page,total){
   const rawPrice = v.price || s.price || (s.rates && !/^(PKR|USD|EUR)$/i.test(s.rates) ? s.rates : "");
   const priceTxt = rawPrice ? (rawPrice.toUpperCase().includes("PKR") || rawPrice.toUpperCase().includes("RS") ? rawPrice : "PKR " + rawPrice) : "PKR Rate on Request";
 
-  // Field-aware Booking Duration calculation
-  const bDuration = s.status==="booked"
-    ? (f.dates && s.bookedFrom && s.bookedTill
-        ? `${fmtDate(s.bookedFrom)} to ${fmtDate(s.bookedTill)}`
-        : (f.dates && s.bookedTill ? `Till ${fmtDate(s.bookedTill)}` : "Currently Booked"))
-    : "Available for Booking";
-  const bClient = (f.brand && s.brand) ? `${s.brand} · ` : "";
-  const bDurationFull = s.status==="booked"
-    ? `${bClient}${bDuration}`
-    : "Ready for Immediate Booking";
-  const mediaStr = f.media ? (s.media || "Billboard").toUpperCase() : "";
-  const lightStr = f.light ? (s.light || "Lit").toUpperCase() : "";
-  const formatStr = (mediaStr && lightStr)
-    ? `${mediaStr} · ${lightStr}`
-    : (mediaStr || (lightStr ? `${lightStr} DISPLAY` : "OOH DISPLAY"));
+  const excelAvail = s.excelAvailability || s.availability || "";
+  const excelStatus = s.excelStatus !== undefined ? s.excelStatus : (s.statusLabel || "");
+  const bDurationFull = excelAvail
+    ? (excelStatus ? `${excelAvail} (${excelStatus})` : excelAvail)
+    : (s.status==="booked" ? "Currently Booked" : "SUBJECT TO AVAILABLE");
+  const mediaStr = f.media ? (s.excelMedium || s.medium || s.media || "HOARDING").toUpperCase() : "";
+  const formatStr = [mediaStr, s.pptMedium || "", excelStatus].filter(Boolean).join(" · ") || "OOH DISPLAY";
+  const vendorFull = [s.vendor || "AdPulse IMC", s.vendorEndDate ? `Ends: ${s.vendorEndDate}` : ""].filter(Boolean).join(" · ");
 
   if(layout==="split"){
     const ops=[
       ...frame(t),
-      // Header Bar (Clean Minimalist: Code Badge + Full-Width Title)
-      R(0.60,0.28,2.30,0.28,t.accent,{r:.14}),
-      T(0.60,0.32,2.30,0.20,s.code||"OOH SITE",{size:10,bold:true,color:"FFFFFF",font:"mono",align:"center"}),
+      // Header Bar (Clean Minimalist: S# + Code Badge + Full-Width Title)
+      R(0.60,0.28,2.50,0.28,t.accent,{r:.14}),
+      T(0.60,0.32,2.50,0.20,(s.sNo?`S#${s.sNo} · `:"")+(s.code||"OOH SITE"),{size:10,bold:true,color:"FFFFFF",font:"mono",align:"center"}),
       T(0.60,0.60,12.133,0.38,siteTitle,{size:20,bold:true,color:t.ink,font:"display",edit:"stitle:"+c.slides.indexOf(v)}),
 
       // Left Column: ENLARGED Clean Billboard Photo (8.15 x 5.80 in, clean without watermark tags)
@@ -5919,9 +6100,9 @@ function siteOps(c,t,s,v,page,total){
       R(8.93,1.05,3.80,5.80,t.panel,{r:.16}),
       R(8.93,1.05,0.08,5.80,t.accent,{r:.04}),
 
-      // Dossier Header: EXECUTIVE MEDIA PROFILE (Balanced 9.5pt Red header, 14pt Black value, no dimension duplicate)
-      T(9.20,1.20,3.35,0.18,"EXECUTIVE MEDIA PROFILE",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
-      T(9.20,1.40,3.35,0.28,(f.traffic&&o)?`~${fmtK(o)} DAILY OTS`:"HIGH-IMPACT ARTERIAL DISPLAY",{size:14,bold:true,color:t.ink,font:"display"}),
+      // Dossier Header: CLIENT & EXECUTIVE MEDIA PROFILE
+      T(9.20,1.20,3.35,0.18,"CLIENT / CAMPAIGN",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
+      T(9.20,1.40,3.35,0.28,(s.client||s.brand||"AdPulse OOH Network").substring(0,34),{size:12.5,bold:true,color:t.ink,font:"display"}),
 
       // Divider 1
       R(9.20,1.76,3.30,0.015,t.muted,{alpha:.20}),
@@ -5949,15 +6130,15 @@ function siteOps(c,t,s,v,page,total){
       // Media Vendor (Controlled dynamically by f.vendor checkbox)
       ...(f.vendor && s.vendor ? [
         R(9.20,4.32,3.30,0.015,t.muted,{alpha:.20}),
-        T(9.20,4.42,3.30,0.18,"MEDIA VENDOR / INVENTORY OWNER",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
-        T(9.20,4.62,3.30,0.22,s.vendor,{size:12,bold:true,color:t.ink,font:"display"}),
+        T(9.20,4.42,3.30,0.18,"VENDOR & VENDOR ENDING DATE",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
+        T(9.20,4.62,3.30,0.22,vendorFull,{size:11.5,bold:true,color:t.ink,font:"display"}),
         R(9.20,4.92,3.30,0.015,t.muted,{alpha:.20}),
-        T(9.20,5.02,3.30,0.18,f.price?"PRICE & BOOKING DURATION":"COMMERCIAL STATUS",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
+        T(9.20,5.02,3.30,0.18,f.price?"RATES & AVAILIBILTY":"AVAILIBILTY & STATUS",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
         ...(f.price ? [
           T(9.20,5.22,3.30,0.24,priceTxt,{size:14,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)})
         ] : []),
-        T(9.20,f.price?5.48:5.24,3.30,0.16,f.dates?"BOOKING STATUS / DURATION:":"STATUS:",{size:9,bold:true,color:t.accent,upper:true,spacing:1}),
-        T(9.20,f.price?5.66:5.42,3.30,0.26,bDurationFull,{size:12,bold:true,color:s.status==="booked"?"D9161D":t.ink}),
+        T(9.20,f.price?5.48:5.24,3.30,0.16,"AVAILIBILTY / STATUS:",{size:9,bold:true,color:t.accent,upper:true,spacing:1}),
+        T(9.20,f.price?5.66:5.42,3.30,0.26,bDurationFull,{size:11.5,bold:true,color:t.ink}),
         ...(f.gps&&s.lat&&s.lng?[
           T(9.20,6.02,3.30,0.20,"🗺️ Open in Google Maps ↗",{size:10,bold:true,color:t.accent,link:mapsUrl(s)})
         ]:[
@@ -6103,7 +6284,7 @@ function vStudio(){
 }).join("")}</div>
      <div class="eyebrow">Template</div>
      <div class="tpls">${Object.entries(TPL).map(([k,t])=>`<button class="tpl ${c.template===k?"on":""}" data-act="sttpl" data-v="${k}"><i style="background:linear-gradient(135deg,#${t.band} 55%,#${t.accent} 55% 80%,#${t.accent2} 80%)"></i><span>${t.name}</span></button>`).join("")}</div>
-     <label class="f">Group slides by<select class="in" id="stGroup">${opt([["area","Area"],["vendor","Media Vendor"],["size","Size"],["status","Status"],["none","No grouping"]],c.groupBy)}</select></label>
+     <label class="f">Group slides by<select class="in" id="stGroup">${opt([["none","Excel S# Order (1–84)"],["area","Area"],["vendor","Media Vendor"],["size","Size"],["status","Status"]],c.groupBy)}</select></label>
      <div class="eyebrow">Show on site slides</div>
      <div class="toggles">${FIELDS.map(([k,l])=>`<label><input type="checkbox" data-fld="${k}" ${c.fields[k]?"checked":""}>${l}</label>`).join("")}
 <label style="font-weight:700;color:var(--violet);grid-column:1/-1;background:rgba(124,58,237,0.08);padding:6px 10px;border-radius:8px;display:flex;align-items:center;gap:6px;cursor:pointer"><input type="checkbox" id="stOnlySummary" ${c.onlySummary?"checked":""} style="width:17px;height:17px;accent-color:var(--violet)">📊 Only Inventory Summary Table (Hide individual site photo slides)</label>
@@ -6336,7 +6517,7 @@ document.addEventListener("submit",async e=>{if(e.target.id!=="reqForm")return;e
 function vSettings(){const s=S.settings;const hasSample=S.sites.some(x=>x.sample)||S.campaigns.some(x=>x.sample);
   return pgTop("Settings","Branding for watermarks and presentations")+`<div class="grid" style="max-width:720px">
   <div class="card pad grid" style="gap:14px">
-  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v10.2 PWA Ready</span></div>
+  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v10.3 PWA Ready</span></div>
   <p style="margin:0;color:var(--muted);font-size:13px">Install AdPulse OTS on iPhone, iPad, Android or PC for fast offline access, full-screen Google 3D maps, and 1-tap camera upload with GPS.</p>
   <div class="row" style="gap:10px;flex-wrap:wrap">
     <button class="btn pri" data-act="installios" style="flex:1;min-width:180px;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>Install on iPhone / iPad (iOS)</button>
@@ -6521,7 +6702,7 @@ function showMobileUpdateBanner(){
   const b = document.createElement('div');
   b.id = 'mobileUpdateBanner';
   b.style.cssText = 'position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:9999;background:linear-gradient(135deg,#0c0917,#1b1238);color:#fff;padding:8px 16px;border-radius:9999px;box-shadow:0 8px 24px rgba(0,0,0,0.5);border:1px solid #38bdf8;display:flex;align-items:center;gap:10px;font-size:12.5px;max-width:calc(100% - 24px);';
-  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v10.2)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
+  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v10.3)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
   document.body.appendChild(b);
 }
 
@@ -6540,7 +6721,7 @@ function openInstallModal(forceType){
                 <h2 style="font-size:18px;margin:0">AdPulse OTS App</h2>
                 <span class="pill st-available" style="font-size:10px;padding:2px 8px">🟢 Running as App</span>
               </div>
-              <div style="font-size:12px;color:var(--muted);margin-top:2px">v10.2 (Android &amp; iOS Standalone)</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px">v10.3 (Android &amp; iOS Standalone)</div>
             </div>
             <span class="sp"></span>
             <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
@@ -6626,7 +6807,7 @@ function openInstallModal(forceType){
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
           <img src="/icons/icon-192.png" alt="AdPulse OTS" style="width:48px;height:48px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.2)">
           <div>
-            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v10.2)</h2>
+            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v10.3)</h2>
             <div style="font-size:12px;color:var(--muted)">Google 3D Maps &amp; 97 Verified Media Sites</div>
           </div>
           <span class="sp"></span>
@@ -7317,7 +7498,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=32.0").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=33.0").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
@@ -7334,7 +7515,7 @@ if("serviceWorker" in navigator){
           });
         }
       });
-      console.log("AdPulse OTS PWA active (v10.2):",r.scope);
+      console.log("AdPulse OTS PWA active (v10.3):",r.scope);
     }).catch(err=>{
       console.warn("PWA ServiceWorker registration failed:",err);
     });
