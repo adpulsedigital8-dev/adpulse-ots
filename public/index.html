@@ -6578,6 +6578,592 @@ function openVendorDeck(vendorName) {
   toast(`Opening presentation for ${vendorName} (${vendorSites.length} sites)…`);
 }
 
+
+/* ============ Propose Campaign Sites (Presentation & Proposal Builder) ============ */
+const PCF = {
+  q: "",
+  vendor: "",
+  area: "",
+  media: "",
+  status: "",
+  source: "all", // "all", "vendor", "master"
+  selected: new Set(),
+  view: "cards", // "cards", "table"
+  client: "",
+  title: "",
+  date: ""
+};
+
+function getAllProposalSitesPool() {
+  const master = S.sites.map(s => {
+    const w = +(s.widthFt || s.width || 60);
+    const h = +(s.heightFt || s.height || 20);
+    const sq = s.sqft || (w * h);
+    return {
+      ...s,
+      id: s.id,
+      code: s.code,
+      sNo: s.sNo || (s.code ? s.code.replace(/\D/g, '') : ''),
+      name: s.name || s.title || s.area,
+      location: s.location || s.name || s.area,
+      area: s.area || "Karachi",
+      widthFt: w,
+      heightFt: h,
+      sqft: sq,
+      media: s.media || "Billboard",
+      vendor: s.vendor || "AdPulse IMC",
+      from: s.from || "",
+      towards: s.towards || "",
+      availability: s.status === "available" ? "Available / Immediate" : (s.statusLabel || "Booked"),
+      status: s.status || "available",
+      rate: s.rate || (s.excelStatus && s.excelStatus.startsWith("PKR") ? s.excelStatus : "Rate on Request"),
+      photo: thumbOf(s),
+      photos: (s.photos && s.photos.length) ? s.photos : (s.photo ? [{ id: s.id + "-p", src: s.photo, url: s.photo }] : []),
+      source: "master",
+      sourceLabel: "AdPulse Master Site"
+    };
+  });
+
+  const vpRaw = (typeof getVendorPreviewSites === "function" ? getVendorPreviewSites() : (window.VENDOR_PREVIEW_SITES_2026 || []));
+  const vp = vpRaw.map(s => {
+    const w = +(s.widthFt || 60);
+    const h = +(s.heightFt || 20);
+    const sq = s.sqft || (w * h);
+    return {
+      ...s,
+      id: s.id,
+      code: s.code,
+      sNo: s.sNo,
+      name: s.name || s.location,
+      location: s.location || s.name,
+      area: s.area || "Karachi",
+      widthFt: w,
+      heightFt: h,
+      sqft: sq,
+      media: s.media || "Billboard",
+      vendor: s.vendor || "Vendor Partner",
+      from: s.from || "",
+      towards: s.towards || "",
+      availability: s.availability || (s.status === "available" ? "Available" : "Booked"),
+      status: s.status || "available",
+      rate: s.rate || "Rate on Request",
+      photo: s.photo || (s.photos && s.photos[0] ? s.photos[0].src : ""),
+      photos: (s.photos && s.photos.length) ? s.photos : (s.photo ? [{ id: s.id + "-p", src: s.photo, url: s.photo }] : []),
+      source: "vendor",
+      sourceLabel: "Vendor Preview (" + s.vendor + ")"
+    };
+  });
+
+  return [...master, ...vp];
+}
+
+function parseRateNum(r) {
+  if (!r) return 0;
+  const numStr = String(r).replace(/[^0-9]/g, '');
+  return +numStr || 0;
+}
+
+function generateProposedPresentation(selectedIds, clientName, proposalTitle, subtitleText) {
+  const allPool = getAllProposalSitesPool();
+  const selIds = Array.isArray(selectedIds) && selectedIds.length ? selectedIds : [...(PCF.selected || [])];
+  const chosen = allPool.filter(s => selIds.includes(s.id));
+  if (!chosen.length) {
+    toast("⚠️ Please select at least 1 site to generate proposal presentation");
+    return;
+  }
+  const client = (clientName || PCF.client || "").trim() || "Valued Client";
+  const title = (proposalTitle || PCF.title || "").trim() || (client + " - Proposed OOH Campaign 2026");
+  const subtitle = subtitleText || ("Strategic OOH & Digital Media Proposal · " + chosen.length + " Strategic Sites Selected · Prepared by AdPulse IMC");
+
+  Studio.cfg = Studio.fresh({ type: "ids", ids: chosen.map(s => s.id) });
+  Studio.cfg.title = title;
+  Studio.cfg.subtitle = subtitle;
+  Studio.cfg.client = client;
+  Studio.cfg.sitesData = chosen;
+  Studio.cfg.slides = chosen.map(s => ({
+    siteId: s.id,
+    hidden: false,
+    photo: 0,
+    title: s.name || s.location,
+    note: [
+      s.from && s.towards ? (s.from + " → " + s.towards) : "",
+      s.vendor ? ("Media Partner: " + s.vendor) : "",
+      s.availability ? ("Availability: " + s.availability) : "",
+      s.rate ? ("Rate: " + s.rate) : ""
+    ].filter(Boolean).join(" · "),
+    price: s.rate || "Rate on Request"
+  }));
+  Studio.cfg.summary = true;
+  Studio.cfg.fields.vendor = true;
+  Studio.cfg.fields.price = true;
+  Studio.cfg.fields.media = true;
+  Studio.cfg.fields.size = true;
+  Studio.active = true;
+  location.hash = "studio";
+  go("studio", true);
+  toast("Opening Proposal Presentation for " + client + " (" + chosen.length + " Slides) in Studio…");
+}
+
+async function saveAsProposedCampaign(selectedIds, clientName, campaignName) {
+  const selIds = Array.isArray(selectedIds) && selectedIds.length ? selectedIds : [...(PCF.selected || [])];
+  if (!selIds.length) {
+    toast("⚠️ Please select at least 1 site to save as campaign");
+    return;
+  }
+  const client = (clientName || PCF.client || "").trim() || "Proposed Client";
+  const name = (campaignName || PCF.title || "").trim() || (client + " Proposed Campaign 2026");
+  const newCamp = {
+    id: uid(),
+    name,
+    client,
+    status: "proposed",
+    startDate: today(),
+    endDate: "",
+    color: CCOLORS[S.campaigns.length % CCOLORS.length],
+    siteIds: [...selIds]
+  };
+  try {
+    await put("campaigns", newCamp);
+    toast("🎉 Saved \"" + name + "\" (" + selIds.length + " sites) in Campaigns!");
+    location.hash = "campaigns";
+    go("campaigns", true);
+  } catch (err) {
+    toast("Error saving campaign: " + err.message);
+  }
+}
+
+function openProposeCampaignModal(preSelectedIds, defaultTitle) {
+  if (Array.isArray(preSelectedIds) && preSelectedIds.length) {
+    PCF.selected = new Set(preSelectedIds);
+  }
+  if (defaultTitle) PCF.title = defaultTitle;
+
+  const allPool = getAllProposalSitesPool();
+  const cAreas = [...new Set(allPool.map(s => s.area).filter(Boolean))].sort();
+  const cVendors = [...new Set(allPool.map(s => s.vendor).filter(Boolean))].sort();
+
+  const renderPickItems = (q = "", area = "", vendor = "") => {
+    const needle = (q || "").trim().toLowerCase();
+    const filtered = allPool.filter(s => {
+      if (area && (s.area || "").toLowerCase() !== area.toLowerCase()) return false;
+      if (vendor && s.vendor !== vendor) return false;
+      if (!needle) return true;
+      const haystack = [s.code, s.vendor, s.name, s.location, s.area, s.media, s.rate, s.from, s.towards, s.availability].join(" ").toLowerCase();
+      return haystack.includes(needle);
+    });
+
+    return filtered.map(s => {
+      const isChecked = PCF.selected.has(s.id);
+      const isAvail = s.status === "available";
+      const thumb = s.photo || thumbOf(s) || placeholder(s);
+      return `<label class="camp-site-item ${isChecked ? 'selected' : ''}" data-sid="${esc(s.id)}" data-area="${esc(s.area)}" data-vendor="${esc(s.vendor)}" style="position:relative;${isChecked ? 'border-left:4px solid #D9161D;background:rgba(217,22,29,0.06);' : ''}">
+        <input type="checkbox" value="${esc(s.id)}" ${isChecked ? 'checked' : ''} style="width:20px;height:20px;accent-color:#D9161D;flex:none;cursor:pointer">
+        <div class="camp-site-thumb" style="width:80px;height:58px;border-radius:8px;overflow:hidden;flex:none;background:#181617">
+          <img src="${esc(thumb)}" alt="${esc(s.code)}" loading="lazy" style="width:100%;height:100%;object-fit:cover" onerror="phFix(this)">
+        </div>
+        <div class="camp-site-body" style="flex:1;min-width:0">
+          <div class="camp-site-top" style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+            <span class="camp-site-code" style="font-family:var(--mono);font-weight:800;color:#D9161D">${esc(s.code)}</span>
+            <span class="camp-site-size" style="font-size:11.5px;font-weight:700">${s.widthFt}×${s.heightFt} ft (${s.sqft} SQFT)</span>
+            <span style="font-size:11px;background:${s.source==='master'?'#7C3AED':'#2563EB'};color:#fff;padding:1px 6px;border-radius:4px;font-weight:700">${esc(s.source==='master'?'AdPulse Master':s.vendor)}</span>
+            <span class="pill ${isAvail ? 'st-available' : 'st-booked'}" style="font-size:10px;padding:1px 6px">${esc(s.availability)}</span>
+          </div>
+          <div style="font-weight:800;font-size:13.5px;color:var(--ink);margin:2px 0 1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(s.name || s.location)}</div>
+          <div class="camp-site-loc" style="font-size:12px;color:var(--muted)">
+            <b>${esc(s.area)}</b> ${(s.from || s.towards) ? `· ${esc(s.from || '—')} → ${esc(s.towards || '—')}` : ''} · <b style="color:#D9161D">${esc(s.rate)}</b>
+          </div>
+        </div>
+      </label>`;
+    }).join("");
+  };
+
+  openLayer(`<div class="scrim" data-act="close"></div>
+    <div class="modal camp-modal" role="dialog" aria-label="Propose Campaign Sites" style="max-width:980px;width:min(980px,calc(100% - 20px));border-radius:18px;max-height:92vh">
+      <form id="pcModalForm">
+        <div class="mh" style="padding:16px 20px 12px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <h2 style="font-size:22px;margin:0;display:flex;align-items:center;gap:8px">📋 Propose Campaign Sites</h2>
+            <p style="margin:2px 0 0;font-size:12.5px;color:var(--muted)">Select sites from 1,826 Vendor Preview & 84 Master Sites to generate Proposal PPT</p>
+          </div>
+          <button type="button" class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
+        </div>
+        <div class="mb" style="padding:16px 20px;display:flex;flex-direction:column;gap:14px">
+          <div class="fgrid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px">
+            <label class="f">Proposed Client / Brand
+              <input class="in" id="pcmClient" placeholder="e.g. Dewan Farooque KIA / Dalda Foods" value="${esc(PCF.client)}">
+            </label>
+            <label class="f">Proposal / Campaign Title
+              <input class="in" id="pcmTitle" placeholder="e.g. Strategic Arterial OOH Proposal 2026" value="${esc(PCF.title)}">
+            </label>
+          </div>
+
+          <div class="row camp-filter-row" style="gap:8px;align-items:center;flex-wrap:wrap;background:var(--surface2);padding:10px 14px;border-radius:12px;border:1px solid var(--border)">
+            <div style="display:flex;align-items:center;gap:8px">
+              <b style="font-size:14.5px">Sites Selection</b>
+              <span class="pill" id="pcmCountPill" style="font-weight:800;font-size:11.5px;background:#D9161D;color:#fff">${PCF.selected.size} selected</span>
+            </div>
+            <span class="sp"></span>
+            <input class="in sm" id="pcmSearch" placeholder="🔍 Search code, vendor, area, road…" style="max-width:210px;min-height:36px;padding:4px 10px;font-size:12.5px" autocomplete="off">
+            <select class="in sm" id="pcmVendor" style="max-width:180px;min-height:36px;padding:4px 8px;font-size:12px;font-weight:700">
+              <option value="">All Vendors (${cVendors.length})</option>
+              ${cVendors.map(v => `<option value="${esc(v)}">${esc(v)}</option>`).join("")}
+            </select>
+            <select class="in sm" id="pcmArea" style="max-width:160px;min-height:36px;padding:4px 8px;font-size:12px">
+              <option value="">All Areas (${cAreas.length})</option>
+              ${cAreas.map(a => `<option value="${esc(a)}">${esc(a)}</option>`).join("")}
+            </select>
+            <div class="row" style="gap:4px">
+              <button type="button" class="btn sm ghost" id="pcmSelAll" style="font-size:11px;padding:4px 8px">Select all</button>
+              <button type="button" class="btn sm ghost" id="pcmClrAll" style="font-size:11px;padding:4px 8px">Clear</button>
+            </div>
+          </div>
+
+          <div class="picklist camp-picklist" id="pcmPickList" style="max-height:44vh;overflow-y:auto;border:1px solid var(--border);border-radius:12px">
+            ${renderPickItems()}
+          </div>
+
+          <div class="row" style="gap:10px;flex-wrap:wrap;align-items:center;padding-top:6px;border-top:1px solid var(--border)">
+            <span style="font-size:12.5px;color:var(--muted);font-weight:600">✨ Click any site to select/deselect · Ready to generate PPT or save</span>
+            <span class="sp"></span>
+            <button type="button" class="btn ghost" data-act="close">Cancel</button>
+            <button type="button" class="btn" id="pcmSaveCampBtn" style="font-weight:700">💾 Save as Proposed Campaign</button>
+            <button type="button" class="btn pri" id="pcmGenPptBtn" style="min-width:180px;justify-content:center;font-weight:800;background:linear-gradient(135deg,#D9161D,#F26A21)">📊 Generate Proposal PPT</button>
+          </div>
+        </div>
+      </form>
+    </div>`);
+
+  const updateModalCount = () => {
+    const pill = $("#pcmCountPill");
+    if (pill) pill.textContent = PCF.selected.size + " selected";
+  };
+
+  const applyModalFilter = () => {
+    const q = ($("#pcmSearch")?.value || "").toLowerCase().trim();
+    const v = ($("#pcmVendor")?.value || "").toLowerCase().trim();
+    const a = ($("#pcmArea")?.value || "").toLowerCase().trim();
+    $("#pcmPickList label").forEach(l => {
+      const txt = l.textContent.toLowerCase();
+      const vMatch = !v || (l.dataset.vendor || "").toLowerCase() === v;
+      const aMatch = !a || (l.dataset.area || "").toLowerCase() === a;
+      const qMatch = !q || txt.includes(q);
+      l.hidden = !(vMatch && aMatch && qMatch);
+    });
+  };
+
+  $("#pcmPickList").onchange = e => {
+    const ck = e.target;
+    if (ck && ck.type === "checkbox") {
+      if (ck.checked) PCF.selected.add(ck.value);
+      else PCF.selected.delete(ck.value);
+      ck.closest("label")?.classList.toggle("selected", ck.checked);
+      updateModalCount();
+    }
+  };
+
+  if ($("#pcmSearch")) $("#pcmSearch").oninput = applyModalFilter;
+  if ($("#pcmVendor")) $("#pcmVendor").onchange = applyModalFilter;
+  if ($("#pcmArea")) $("#pcmArea").onchange = applyModalFilter;
+
+  if ($("#pcmSelAll")) $("#pcmSelAll").onclick = () => {
+    $("#pcmPickList label:not([hidden]) input[type=checkbox]").forEach(ck => {
+      ck.checked = true;
+      PCF.selected.add(ck.value);
+      ck.closest("label")?.classList.add("selected");
+    });
+    updateModalCount();
+  };
+
+  if ($("#pcmClrAll")) $("#pcmClrAll").onclick = () => {
+    $("#pcmPickList label input[type=checkbox]").forEach(ck => {
+      ck.checked = false;
+      PCF.selected.delete(ck.value);
+      ck.closest("label")?.classList.remove("selected");
+    });
+    updateModalCount();
+  };
+
+  if ($("#pcmGenPptBtn")) $("#pcmGenPptBtn").onclick = () => {
+    const client = ($("#pcmClient")?.value || "").trim();
+    const title = ($("#pcmTitle")?.value || "").trim();
+    PCF.client = client;
+    PCF.title = title;
+    closeLayer();
+    generateProposedPresentation([...PCF.selected], client, title);
+  };
+
+  if ($("#pcmSaveCampBtn")) $("#pcmSaveCampBtn").onclick = async () => {
+    const client = ($("#pcmClient")?.value || "").trim();
+    const title = ($("#pcmTitle")?.value || "").trim();
+    PCF.client = client;
+    PCF.title = title;
+    closeLayer();
+    await saveAsProposedCampaign([...PCF.selected], client, title);
+  };
+}
+
+function vProposeCampaign() {
+  const allPool = getAllProposalSitesPool();
+  if (!allPool.length) {
+    return pgTop("Propose Campaign Sites", "Loading inventory pool…") + `<div class="cards">${'<div class="skel"></div>'.repeat(6)}</div>`;
+  }
+
+  const masterSites = allPool.filter(s => s.source === "master");
+  const vendorSites = allPool.filter(s => s.source === "vendor");
+
+  // Filter pool
+  const q = (PCF.q || "").toLowerCase().trim();
+  const filtered = allPool.filter(s => {
+    if (PCF.source === "master" && s.source !== "master") return false;
+    if (PCF.source === "vendor" && s.source !== "vendor") return false;
+    if (PCF.vendor && s.vendor !== PCF.vendor) return false;
+    if (PCF.area && s.area.toLowerCase() !== PCF.area.toLowerCase()) return false;
+    if (PCF.media && s.media !== PCF.media) return false;
+    if (PCF.status && s.status !== PCF.status) return false;
+    if (!q) return true;
+    const haystack = [s.code, s.vendor, s.name, s.location, s.area, s.media, s.rate, s.from, s.towards, s.availability].join(" ").toLowerCase();
+    return haystack.includes(q);
+  });
+
+  const allVendors = [...new Set(allPool.map(s => s.vendor).filter(Boolean))].sort();
+  const allAreas = [...new Set(allPool.map(s => s.area).filter(Boolean))].sort();
+  const allMedia = [...new Set(allPool.map(s => s.media).filter(Boolean))].sort();
+
+  // Metrics for selected sites
+  const selectedList = allPool.filter(s => PCF.selected.has(s.id));
+  const totalSqft = selectedList.reduce((acc, s) => acc + (s.sqft || 0), 0);
+  const totalRateNum = selectedList.reduce((acc, s) => acc + parseRateNum(s.rate), 0);
+  const availSelected = selectedList.filter(s => s.status === "available").length;
+
+  const topActions = `
+    <div class="row" style="gap:8px;flex-wrap:wrap">
+      <button class="btn" data-act="pcclall" style="font-weight:700">🔄 Reset</button>
+      <button class="btn" data-act="pcmakesave" style="font-weight:700">💾 Save Campaign</button>
+      <button class="btn pri" data-act="pcmakeppt" style="font-weight:800;background:linear-gradient(135deg,#D9161D,#F26A21)">📊 Generate Proposal PPT (${PCF.selected.size})</button>
+    </div>
+  `;
+
+  const kpisHtml = `
+    <div class="kpis enter" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-bottom:18px">
+      <div class="card kpi" style="--c:#D9161D">
+        <div class="ic" style="background:#D9161D">${ICON.propose || ICON.deck}</div>
+        <div class="n">${PCF.selected.size}</div>
+        <small style="font-weight:700">Selected Sites</small>
+      </div>
+      <div class="card kpi" style="--c:var(--violet)">
+        <div class="ic" style="background:var(--violet)">${ICON.sites}</div>
+        <div class="n">${totalSqft.toLocaleString()}</div>
+        <small style="font-weight:700">Total SQFT Area</small>
+      </div>
+      <div class="card kpi" style="--c:var(--ok)">
+        <div class="ic" style="background:var(--ok)">${ICON.check}</div>
+        <div class="n">${availSelected} / ${PCF.selected.size}</div>
+        <small style="font-weight:700">Available / Immediate</small>
+      </div>
+      <div class="card kpi" style="--c:#2563EB">
+        <div class="ic" style="background:#2563EB">${ICON.camp}</div>
+        <div class="n">${allPool.length.toLocaleString()}</div>
+        <small style="font-weight:700">Total Pool (84 M + 1826 VP)</small>
+      </div>
+    </div>
+  `;
+
+  const proposalFormCard = `
+    <div class="card pad" style="margin-bottom:16px;border:1.5px solid var(--border);background:var(--surface);box-shadow:var(--shadow)">
+      <div style="font-weight:800;font-size:15px;margin-bottom:10px;display:flex;align-items:center;gap:8px">
+        <span>📝 Proposed Campaign Brief & Client Details</span>
+        <span class="sp"></span>
+        <span class="tag" style="background:rgba(217,22,29,0.12);color:#D9161D;font-weight:800">${PCF.selected.size} Sites Chosen</span>
+      </div>
+      <div class="fgrid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:12px">
+        <label class="f">Proposed Client / Brand Name
+          <input class="in" id="pcClientInp" placeholder="e.g. KIA Lucky Motors / Shehzore / Dalda" value="${esc(PCF.client)}">
+        </label>
+        <label class="f">Proposed Campaign Title
+          <input class="in" id="pcTitleInp" placeholder="e.g. Q1 2026 Strategic OOH Network Proposal" value="${esc(PCF.title)}">
+        </label>
+      </div>
+      <div class="row" style="gap:10px;align-items:center;flex-wrap:wrap">
+        <span style="font-size:12.5px;color:var(--muted)">💡 Select any sites below with checkboxes, then click <b>Generate Proposal PPT</b> to open in Presentation Studio.</span>
+        <span class="sp"></span>
+        <button class="btn sm" data-act="pcmakesave" style="font-weight:700">💾 Save Campaign Proposal</button>
+        <button class="btn sm pri" data-act="pcmakeppt" style="font-weight:800;background:linear-gradient(135deg,#D9161D,#F26A21)">📊 Generate Proposal Presentation (PPT)</button>
+      </div>
+    </div>
+  `;
+
+  const filterBar = `
+    <div class="card pad" style="margin-bottom:16px;border:1px solid var(--border)">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px">
+        <div class="seg" role="tablist">
+          <button class="${PCF.source === 'all' ? 'on' : ''}" data-act="pcsource" data-v="all">All Sites (${allPool.length})</button>
+          <button class="${PCF.source === 'vendor' ? 'on' : ''}" data-act="pcsource" data-v="vendor">🖼️ Vendor Preview (${vendorSites.length})</button>
+          <button class="${PCF.source === 'master' ? 'on' : ''}" data-act="pcsource" data-v="master">🏙️ AdPulse Master (${masterSites.length})</button>
+        </div>
+        <div class="row" style="gap:6px">
+          <button class="btn sm ghost" data-act="pcselall" style="font-weight:700">Select All Filtered (${filtered.length})</button>
+          <button class="btn sm ghost" data-act="pcselavail" style="font-weight:700">Select Available Only</button>
+          <button class="btn sm ghost" data-act="pcclall" style="color:var(--muted)">Clear Selection</button>
+        </div>
+      </div>
+      <div class="filters" style="margin:0;gap:8px">
+        <input class="in" id="pcSearchInp" style="max-width:240px;min-height:40px;padding:6px 12px;font-size:13px" placeholder="Search code, location, vendor…" value="${esc(PCF.q)}">
+        <select class="in" id="pcVendorSel" style="max-width:220px;min-height:40px;font-weight:700">
+          <option value="">All ${allVendors.length} Vendors</option>
+          ${allVendors.map(v => `<option value="${esc(v)}" ${PCF.vendor === v ? 'selected' : ''}>${esc(v)}</option>`).join("")}
+        </select>
+        <select class="in" id="pcAreaSel" style="max-width:180px;min-height:40px">
+          <option value="">All ${allAreas.length} Areas</option>
+          ${allAreas.map(a => `<option value="${esc(a)}" ${PCF.area === a ? 'selected' : ''}>${esc(a)}</option>`).join("")}
+        </select>
+        <select class="in" id="pcMediaSel" style="max-width:170px;min-height:40px">
+          <option value="">All Media (${allMedia.length})</option>
+          ${allMedia.map(m => `<option value="${esc(m)}" ${PCF.media === m ? 'selected' : ''}>${esc(m)}</option>`).join("")}
+        </select>
+        <select class="in" id="pcStatusSel" style="max-width:160px;min-height:40px">
+          <option value="">All Status</option>
+          <option value="available" ${PCF.status === 'available' ? 'selected' : ''}>Available Only</option>
+          <option value="booked" ${PCF.status === 'booked' ? 'selected' : ''}>Booked Only</option>
+        </select>
+        ${(PCF.q || PCF.vendor || PCF.area || PCF.media || PCF.status || PCF.source !== 'all') ? `<button class="btn sm ghost" data-act="pcclearfilt">Clear Filters</button>` : ''}
+        <span class="sp"></span>
+        <div class="seg" role="tablist">
+          <button class="${PCF.view === 'cards' ? 'on' : ''}" data-act="pcview" data-v="cards">Visual Cards</button>
+          <button class="${PCF.view === 'table' ? 'on' : ''}" data-act="pcview" data-v="table">Detailed Table</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  let contentHtml = "";
+  if (!filtered.length) {
+    contentHtml = `<div class="card">${emptyState("No sites found matching criteria", "Try adjusting the filters or searching for another term.")}</div>`;
+  } else if (PCF.view === "table") {
+    contentHtml = `
+      <div class="tblwrap card" style="padding:0;overflow-x:auto;border:1.5px solid #1C1A1B;border-radius:12px;margin-bottom:24px">
+        <table class="t" style="border-collapse:collapse;width:100%;font-size:12px">
+          <thead>
+            <tr style="background:#D9161D;color:#FFFFFF;text-transform:uppercase;font-weight:800;font-size:11.5px">
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:40px">Select</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:95px">CODE</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:left;min-width:140px">VENDOR</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;min-width:110px">MEDIUM</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:left;min-width:200px">LOCATION</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:left;min-width:180px">DIRECTION</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 6px;text-align:center;width:48px">W</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 6px;text-align:center;width:48px">H</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:68px">SQFT</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:center;min-width:120px">AVAILABILITY</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:center;min-width:120px">RATE (PKR)</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:70px">Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${filtered.map((s, idx) => {
+              const isChecked = PCF.selected.has(s.id);
+              return `
+                <tr style="background:${isChecked ? 'rgba(217,22,29,0.08)' : (idx % 2 === 0 ? '#FFFFFF' : '#FAFAFA')};cursor:pointer" data-act="pctogglesite" data-id="${s.id}">
+                  <td style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center">
+                    <input type="checkbox" ${isChecked ? 'checked' : ''} style="accent-color:#D9161D;width:18px;height:18px;cursor:pointer" onclick="event.stopPropagation();ACT.pctogglesite({dataset:{id:'${s.id}'}})">
+                  </td>
+                  <td class="mono" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:800;color:#D9161D">${esc(s.code)}</td>
+                  <td style="border:1px solid #D4D4D8;padding:7px 10px;font-weight:700">${esc(s.vendor)}</td>
+                  <td style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:600">${esc(s.media)}</td>
+                  <td style="border:1px solid #D4D4D8;padding:7px 10px;font-weight:700">
+                    <div class="row" style="flex-wrap:nowrap;gap:8px">
+                      <img src="${esc(s.photo || placeholder(s))}" alt="" style="width:36px;height:26px;border-radius:4px;object-fit:cover;flex:none" onerror="phFix(this)">
+                      <span>${esc(s.location || s.name)}</span>
+                    </div>
+                  </td>
+                  <td style="border:1px solid #D4D4D8;padding:7px 10px;font-size:11.5px">${esc(s.from || '—')} → ${esc(s.towards || '—')}</td>
+                  <td class="mono" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center">${s.widthFt}</td>
+                  <td class="mono" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center">${s.heightFt}</td>
+                  <td class="mono" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:800;color:#D9161D">${s.sqft}</td>
+                  <td style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:800;color:${s.status === 'available' ? '#059669' : '#1C1A1B'}">${esc(s.availability)}</td>
+                  <td class="mono" style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:800;color:#D9161D">${esc(s.rate)}</td>
+                  <td style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center">
+                    <span style="font-size:10px;font-weight:800;padding:2px 6px;border-radius:4px;background:${s.source==='master'?'#7C3AED':'#2563EB'};color:#fff">${s.source==='master'?'Master':'Preview'}</span>
+                  </td>
+                </tr>
+              `;
+            }).join("")}
+          </tbody>
+        </table>
+      </div>
+    `;
+  } else {
+    contentHtml = `
+      <div class="cards enter">
+        ${filtered.map(s => {
+          const isChecked = PCF.selected.has(s.id);
+          const thumb = s.photo || thumbOf(s) || placeholder(s);
+          return `
+            <article class="card scard ${isChecked ? 'selected' : ''}" data-act="pctogglesite" data-id="${s.id}" style="cursor:pointer;position:relative;${isChecked ? 'border:2px solid #D9161D;box-shadow:0 6px 20px rgba(217,22,29,0.22);background:rgba(217,22,29,0.02);' : ''}">
+              <div class="ph">
+                <img src="${esc(thumb)}" alt="${esc(s.name)}" loading="lazy" onerror="phFix(this)">
+                <span class="pill ${s.status === 'available' ? 'st-available' : 'st-booked'}">${esc(s.status === 'available' ? 'Available' : 'Booked')}</span>
+                <label onclick="event.stopPropagation()" style="position:absolute;top:10px;left:10px;z-index:2;background:rgba(18,16,17,0.9);color:#fff;padding:4px 9px;border-radius:8px;font-size:11.5px;font-weight:800;display:inline-flex;align-items:center;gap:6px;cursor:pointer;border:1.5px solid ${isChecked ? '#D9161D' : 'rgba(255,255,255,0.3)'};box-shadow:0 3px 8px rgba(0,0,0,0.5)">
+                  <input type="checkbox" ${isChecked ? 'checked' : ''} style="accent-color:#D9161D;width:16px;height:16px;cursor:pointer" onclick="event.stopPropagation();ACT.pctogglesite({dataset:{id:'${s.id}'}})">
+                  <span>${isChecked ? '✓ PROPOSED' : 'Add to Proposal'}</span>
+                </label>
+                <span class="cnt" style="background:${s.source==='master'?'#7C3AED':'#1C1A1B'}">${s.source==='master'?'AdPulse Master':s.vendor}</span>
+              </div>
+              <div class="bd">
+                <div class="row" style="gap:6px;align-items:center;margin-bottom:2px">
+                  <span class="code" style="color:#D9161D">S#${s.sNo || ''} · ${esc(s.code)}</span>
+                  <span class="tag" style="background:var(--surface2);font-weight:700;color:var(--ink);margin-left:auto">${esc(s.vendor)}</span>
+                </div>
+                <h3 title="${esc(s.location || s.name)}" style="margin:2px 0 4px;font-size:15px;line-height:1.3">${esc(s.location || s.name)}</h3>
+                <div class="dir">${esc(s.from || '—')} ${ICON.arrow} ${esc(s.towards || '—')}</div>
+                <div style="font-size:12px;font-weight:700;color:var(--ink);margin:4px 0 2px;display:flex;align-items:center;justify-content:space-between;gap:6px">
+                  <span>Availability: <b style="color:${s.status === 'available' ? '#059669' : 'var(--ink)'}">${esc(s.availability)}</b></span>
+                </div>
+                <div style="font-size:12px;font-weight:800;color:#D9161D;margin:2px 0 4px;display:flex;align-items:center;justify-content:space-between;gap:6px">
+                  <span>Rate / Rent:</span>
+                  <span class="mono">${esc(s.rate)}</span>
+                </div>
+                <div class="meta" style="align-items:center">
+                  <span class="tag mono" style="font-weight:700">${s.widthFt}×${s.heightFt} ft (${s.sqft} SQFT)</span>
+                  <span class="tag" style="font-weight:700">${esc(s.media)}</span>
+                  <button type="button" class="btn sm ${isChecked ? 'pri' : 'ghost'}" style="margin-left:auto;padding:3px 8px;font-size:11px;font-weight:800;border-radius:6px" onclick="event.stopPropagation();ACT.pctogglesite({dataset:{id:'${s.id}'}})">
+                    ${isChecked ? '✓ Selected' : '+ Select'}
+                  </button>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join("")}
+      </div>
+    `;
+  }
+
+  const floatingDock = PCF.selected.size > 0 ? `
+    <div style="position:fixed;bottom:22px;right:22px;z-index:9999;background:linear-gradient(135deg,#1C1A1B,#2D2628);color:#FFFFFF;padding:12px 20px;border-radius:16px;border:1.5px solid #D9161D;box-shadow:0 12px 36px rgba(0,0,0,0.65);display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+      <div>
+        <div style="font-weight:800;font-size:14px;letter-spacing:0.3px">📋 ${PCF.selected.size} Sites Selected for Proposal</div>
+        <div style="font-size:11.5px;color:#FCA5A5">${totalSqft.toLocaleString()} Total SQFT · ${availSelected} Immediate Available</div>
+      </div>
+      <div class="row" style="gap:8px">
+        <button class="btn sm" data-act="pcclall" style="background:rgba(255,255,255,0.12);color:#fff;border:none">Clear</button>
+        <button class="btn sm" data-act="pcmakesave" style="background:#27272A;color:#fff;border:1px solid #52525B;font-weight:700">💾 Save Campaign</button>
+        <button class="btn sm pri" data-act="pcmakeppt" style="font-weight:800;background:linear-gradient(135deg,#D9161D,#F26A21)">📊 Generate Proposal PPT</button>
+      </div>
+    </div>
+  ` : "";
+
+  return pgTop(
+    "Propose Campaign Sites",
+    `Select Sites from 1,826 Vendor Preview & 84 Master Inventory · Generate Proposal PPT Deck in 1 Click`,
+    topActions
+  ) + `
+    ${kpisHtml}
+    ${proposalFormCard}
+    ${filterBar}
+    ${contentHtml}
+    ${floatingDock}
+  `;
+}
+
 function openMasterVendorDeck() {
   const src = { type: "all" };
   Studio.cfg = Studio.fresh(src);
@@ -7094,7 +7680,7 @@ function vVendorsPreview() {
             <div style="font-size:12px;color:#D4D4D8;margin-top:4px;font-family:var(--mono)">📁 File: ${esc(vg.pptFile)} · <span style="color:#34D399;font-weight:700">${vg.available} Available</span> · <span style="color:#FCA5A5;font-weight:700">${vg.booked} Booked / Date Locked</span></div>
           </div>
           <div class="row" style="gap:8px">
-            <button class="btn sm" data-act="vpsite" data-id="__new" style="background:rgba(255,255,255,0.12);color:#FFFFFF;border:1px solid rgba(255,255,255,0.25);font-weight:700;padding:8px 12px">➕ Add Site</button>
+            <button class="btn sm" data-act="proposevendor" data-vendor="${esc(vg.name)}" style="background:#7C3AED;color:#fff;border:1px solid rgba(255,255,255,0.25);font-weight:800;padding:8px 12px" title="Select all sites of this vendor and generate proposal deck">📋 Propose Vendor (${vg.filteredSites.length})</button><button class="btn sm" data-act="vpsite" data-id="__new" style="background:rgba(255,255,255,0.12);color:#FFFFFF;border:1px solid rgba(255,255,255,0.25);font-weight:700;padding:8px 12px">➕ Add Site</button>
             <button class="btn sm" data-act="vpdeck" data-vendor="${esc(vg.name)}" data-mode="table" style="background:rgba(255,255,255,0.12);color:#FFFFFF;border:1px solid rgba(255,255,255,0.25);font-weight:700;padding:8px 10px" title="Show only summary table in presentation">📊 Table Only</button><button class="btn sm" data-act="vpdeck" data-vendor="${esc(vg.name)}" data-mode="sites" style="background:rgba(255,255,255,0.12);color:#FFFFFF;border:1px solid rgba(255,255,255,0.25);font-weight:700;padding:8px 10px" title="Show only site slides in presentation">🖼️ Sites Only</button><button class="btn sm pri" data-act="vpdeck" data-vendor="${esc(vg.name)}" style="background:linear-gradient(135deg,#D9161D,#F26A21);font-weight:800;padding:8px 14px">📊 Full Presentation (${vg.total} Slides)</button>
           </div>
         </div>
@@ -7104,6 +7690,10 @@ function vVendorsPreview() {
               <div class="ph">
                 <img src="${esc(s.photo || placeholder(s))}" alt="${esc(s.name)}" loading="lazy">
                 <span class="pill ${s.status === 'available' ? 'st-available' : 'st-booked'}">${esc(s.status === 'available' ? 'Available' : 'Booked')}</span>
+                <label onclick="event.stopPropagation()" style="position:absolute;top:10px;left:10px;z-index:2;background:rgba(18,16,17,0.9);color:#fff;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:800;display:inline-flex;align-items:center;gap:5px;cursor:pointer;border:1.5px solid ${PCF.selected.has(s.id)?'#D9161D':'rgba(255,255,255,0.3)'};box-shadow:0 2px 6px rgba(0,0,0,0.5)">
+                  <input type="checkbox" data-act="vptoggleprop" data-id="${s.id}" ${PCF.selected.has(s.id)?'checked':''} style="accent-color:#D9161D;width:14px;height:14px;cursor:pointer">
+                  <span>${PCF.selected.has(s.id)?'✓ PROPOSED':'Propose'}</span>
+                </label>
                 <span class="cnt">Slide #${s.slideNum}</span>
               </div>
               <div class="bd">
@@ -7136,7 +7726,7 @@ function vVendorsPreview() {
   return pgTop(
     "Vendors Sites Preview",
     `44 Vendor PPT & PDF Presentations · ${all.length} Extracted OOH & Digital Sites Ordered Vendor-Wise`,
-    `<div class="row" style="gap:8px;flex-wrap:wrap"><button class="btn" data-act="vpsite" data-id="__new" style="font-weight:700">➕ Add Vendor Site</button><button class="btn" onclick="location.hash='vendors';go('vendors',true)" style="font-weight:700">📋 Vendor Booked Site (84)</button><button class="btn pri" data-act="vpdeck" data-vendor="${esc(VPF.vendor)}" style="font-weight:800">${ICON.deck} Presentation (${filteredSites.length} Sites)</button></div>`
+    `<div class="row" style="gap:8px;flex-wrap:wrap"><button class="btn pri" data-act="openproposemodal" style="font-weight:800;background:linear-gradient(135deg,#7C3AED,#D9161D);box-shadow:0 3px 10px rgba(124,58,237,0.35)">📋 Propose Campaign Sites ${PCF.selected.size ? `(${PCF.selected.size})` : ""}</button><button class="btn" data-act="vpsite" data-id="__new" style="font-weight:700">➕ Add Vendor Site</button><button class="btn" onclick="location.hash='vendors';go('vendors',true)" style="font-weight:700">📋 Vendor Booked Site (84)</button><button class="btn pri" data-act="vpdeck" data-vendor="${esc(VPF.vendor)}" style="font-weight:800">${ICON.deck} Presentation (${filteredSites.length} Sites)</button></div>`
   ) + `
     <div class="kpis enter" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-bottom:18px">
       <div class="card kpi" style="--c:#D9161D">
@@ -9387,6 +9977,64 @@ savedeck:async()=>{const c=Studio.cfg;c.version=(c.version||0)+1;try{await put("
  vpview:(a)=>{VPF.view=a.dataset.v||"cards";render(true)},
  vpclear:()=>{VPF.vendor="";VPF.q="";VPF.media="";VPF.status="";render(true)},
  vpsite:(a)=>openVendorPreviewSite(a.dataset.id),
+ openproposemodal:(a)=>openProposeCampaignModal(),
+ proposevendor:(a)=>{
+   const v=a.dataset.vendor;
+   const all=getAllProposalSitesPool().filter(s=>s.vendor===v);
+   openProposeCampaignModal(all.map(s=>s.id), (v ? v + " - Strategic OOH Proposal 2026" : "Vendor Proposal 2026"));
+ },
+ vptoggleprop:(a,e)=>{
+   const id=a.dataset.id;
+   if(!id)return;
+   if(PCF.selected.has(id))PCF.selected.delete(id);
+   else PCF.selected.add(id);
+   render(true);
+ },
+ pctogglesite:(a,e)=>{
+   const id=a.dataset.id;
+   if(!id)return;
+   if(PCF.selected.has(id))PCF.selected.delete(id);
+   else PCF.selected.add(id);
+   render(true);
+ },
+ pcsource:(a)=>{PCF.source=a.dataset.v||"all";render(true)},
+ pcview:(a)=>{PCF.view=a.dataset.v||"cards";render(true)},
+ pcselall:()=>{
+   const allPool=getAllProposalSitesPool();
+   const q=(PCF.q||"").toLowerCase().trim();
+   const filtered=allPool.filter(s=>{
+     if(PCF.source==="master"&&s.source!=="master")return false;
+     if(PCF.source==="vendor"&&s.source!=="vendor")return false;
+     if(PCF.vendor&&s.vendor!==PCF.vendor)return false;
+     if(PCF.area&&s.area.toLowerCase()!==PCF.area.toLowerCase())return false;
+     if(PCF.media&&s.media!==PCF.media)return false;
+     if(PCF.status&&s.status!==PCF.status)return false;
+     if(!q)return true;
+     return [s.code,s.vendor,s.name,s.location,s.area,s.media,s.rate,s.from,s.towards].join(" ").toLowerCase().includes(q);
+   });
+   filtered.forEach(s=>PCF.selected.add(s.id));
+   render(true);
+   toast("Selected all " + filtered.length + " filtered sites for proposal!");
+ },
+ pcselavail:()=>{
+   const allPool=getAllProposalSitesPool();
+   const avail=allPool.filter(s=>s.status==="available");
+   avail.forEach(s=>PCF.selected.add(s.id));
+   render(true);
+   toast("Selected " + avail.length + " available sites for proposal!");
+ },
+ pcclall:()=>{PCF.selected.clear();render(true);toast("Cleared proposal selection");},
+ pcclearfilt:()=>{PCF.q="";PCF.vendor="";PCF.area="";PCF.media="";PCF.status="";PCF.source="all";render(true)},
+ pcmakeppt:()=>{
+   const cInp=$("#pcClientInp");if(cInp&&cInp.value)PCF.client=cInp.value.trim();
+   const tInp=$("#pcTitleInp");if(tInp&&tInp.value)PCF.title=tInp.value.trim();
+   generateProposedPresentation([...PCF.selected], PCF.client, PCF.title);
+ },
+ pcmakesave:async ()=>{
+   const cInp=$("#pcClientInp");if(cInp&&cInp.value)PCF.client=cInp.value.trim();
+   const tInp=$("#pcTitleInp");if(tInp&&tInp.value)PCF.title=tInp.value.trim();
+   await saveAsProposedCampaign([...PCF.selected], PCF.client, PCF.title);
+ },
  vpdeck:(a)=>openVendorPreviewDeck(a.dataset.vendor||"",a.dataset.mode||""),
  camppresentation:(a)=>{
    const id = a.dataset.id;
@@ -9440,9 +10088,16 @@ document.addEventListener("keydown",e=>{
 });
 document.addEventListener("input",e=>{
   const t=e.target;
+  if(t&&t.id==="pcSearchInp"){PCF.q=t.value;render();const el=$("#pcSearchInp");if(el){el.focus();el.setSelectionRange(el.value.length,el.value.length);}}
+  if(t&&t.id==="pcClientInp"){PCF.client=t.value;}
+  if(t&&t.id==="pcTitleInp"){PCF.title=t.value;}
   if(t&&t.id==="vpSearch"){VPF.q=t.value;render();const el=$("#vpSearch");if(el){el.focus();el.setSelectionRange(el.value.length,el.value.length);}}
 });
 document.addEventListener("change",e=>{const t=e.target;
+ if(t.id==="pcVendorSel"){PCF.vendor=t.value;render(true)}
+ if(t.id==="pcAreaSel"){PCF.area=t.value;render(true)}
+ if(t.id==="pcMediaSel"){PCF.media=t.value;render(true)}
+ if(t.id==="pcStatusSel"){PCF.status=t.value;render(true)}
  if(t.id==="vpVendorSel"){VPF.vendor=t.value;render(true)}
  if(t.id==="vpMediaSel"){VPF.media=t.value;render(true)}
  if(t.id==="vpStatusSel"){VPF.status=t.value;render(true)}
