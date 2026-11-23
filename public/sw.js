@@ -1,4 +1,4 @@
-const CACHE_NAME = 'adpulse-ots-v42.0';
+const CACHE_NAME = 'adpulse-ots-v43.0';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -8,6 +8,8 @@ const PRECACHE_ASSETS = [
   '/manifest.webmanifest',
   '/master_sites_2026.js',
   '/master_sites_2026.json',
+  '/master_campaigns_2026.js',
+  '/master_campaigns_2026.json',
   '/vendor_preview_2026.js',
   '/vendor_preview_2026.json',
   '/icons/icon-192.png',
