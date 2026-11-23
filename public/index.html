@@ -1342,8 +1342,8 @@ body.client .tabs{display:none}
 <script src="/claude-shim.js?v=3.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="/master_sites_2026.js?v=39.0"></script>
-  <script src="/vendor_preview_2026.js?v=39.0"></script>
+  <script src="/master_sites_2026.js?v=40.0"></script>
+  <script src="/vendor_preview_2026.js?v=40.0"></script>
 </head>
 <body>
 
@@ -1781,7 +1781,7 @@ function go(r,silent){
 }
 window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
 
-function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v10.9</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
+function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v11.0</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
 
 let lastRoute=null;
 function render(anim){
@@ -5325,7 +5325,7 @@ function getVendorPreviewSites() {
   const raw = window.VENDOR_PREVIEW_SITES_2026 || [];
   if (!raw.length && !_vpFetching) {
     _vpFetching = true;
-    fetch("/vendor_preview_2026.json?v=39.0").then(r => r.json()).then(data => {
+    fetch("/vendor_preview_2026.json?v=40.0").then(r => r.json()).then(data => {
       if (Array.isArray(data) && data.length) {
         window.VENDOR_PREVIEW_SITES_2026 = data;
         render(true);
@@ -5339,7 +5339,7 @@ function getVendorPreviewSites() {
   return combined.map(s => {
     const ed = savedEdits[s.id];
     const merged = ed ? { ...s, ...ed } : s;
-    const pUrl = merged.photo ? (merged.photo.startsWith("data:") || merged.photo.includes("?") ? merged.photo : merged.photo + "?v=39.0") : "";
+    const pUrl = merged.photo ? (merged.photo.startsWith("data:") || merged.photo.includes("?") ? merged.photo : merged.photo + "?v=40.0") : "";
     return {
       ...merged,
       photo: pUrl,
@@ -5427,7 +5427,7 @@ function applyVpInlineTableEdit(siteId, field, rawVal) {
   return { ...s, ...updates };
 }
 
-function openVendorPreviewDeck(vendorName) {
+function openVendorPreviewDeck(vendorName, mode) {
   const all = getVendorPreviewSites();
   const list = vendorName ? all.filter(s => s.vendor === vendorName) : all;
   if (!list.length) { toast("No sites found for this vendor"); return; }
@@ -5444,7 +5444,10 @@ function openVendorPreviewDeck(vendorName) {
     note: s.rawText || "",
     price: s.rate || "Rate on Request"
   }));
-  Studio.cfg.summary = true;
+  Studio.cfg.summary = mode !== "sites";
+  Studio.cfg.onlySummary = mode === "table";
+  Studio.cfg.onlySites = mode === "sites";
+  Studio.cfg.hideCover = mode === "sites";
   Studio.cfg.fields.vendor = true;
   Studio.cfg.fields.price = true;
   Studio.active = true;
@@ -5815,7 +5818,7 @@ function vVendorsPreview() {
           </div>
           <div class="row" style="gap:8px">
             <button class="btn sm" data-act="vpsite" data-id="__new" style="background:rgba(255,255,255,0.12);color:#FFFFFF;border:1px solid rgba(255,255,255,0.25);font-weight:700;padding:8px 12px">➕ Add Site</button>
-            <button class="btn sm pri" data-act="vpdeck" data-vendor="${esc(vg.name)}" style="background:linear-gradient(135deg,#D9161D,#F26A21);font-weight:800;padding:8px 14px">📊 Open Vendor Presentation (${vg.total} Slides)</button>
+            <button class="btn sm" data-act="vpdeck" data-vendor="${esc(vg.name)}" data-mode="table" style="background:rgba(255,255,255,0.12);color:#FFFFFF;border:1px solid rgba(255,255,255,0.25);font-weight:700;padding:8px 10px" title="Show only summary table in presentation">📊 Table Only</button><button class="btn sm" data-act="vpdeck" data-vendor="${esc(vg.name)}" data-mode="sites" style="background:rgba(255,255,255,0.12);color:#FFFFFF;border:1px solid rgba(255,255,255,0.25);font-weight:700;padding:8px 10px" title="Show only site slides in presentation">🖼️ Sites Only</button><button class="btn sm pri" data-act="vpdeck" data-vendor="${esc(vg.name)}" style="background:linear-gradient(135deg,#D9161D,#F26A21);font-weight:800;padding:8px 14px">📊 Full Presentation (${vg.total} Slides)</button>
           </div>
         </div>
         <div class="cards enter">
@@ -6406,7 +6409,7 @@ function normFields(f){
 }
 const Studio={
  active:false,cfg:null,
- fresh(src){return{id:uid(),title:"",subtitle:"",source:src||{type:"campaign",campaignId:S.campaigns[0]?.id||""},template:"adpulse",layout:"split",groupBy:"none",fields:{status:true,dir:true,size:true,media:true,light:true,dates:true,traffic:true,gps:true,price:true,vendor:true,brand:true,notes:false},summary:true,index:false,onlySummary:!!src?.onlySummary,hideCover:false,slides:[],version:0}},
+ fresh(src){return{id:uid(),title:"",subtitle:"",source:src||{type:"campaign",campaignId:S.campaigns[0]?.id||""},template:"adpulse",layout:"split",groupBy:"none",fields:{status:true,dir:true,size:true,media:true,light:true,dates:true,traffic:true,gps:true,price:true,vendor:true,brand:true,notes:false},summary:true,index:false,onlySummary:!!src?.onlySummary,onlySites:!!src?.onlySites,hideCover:false,slides:[],version:0}},
  open(src,title){this.cfg=this.fresh(src);if(title)this.cfg.title=title;this.build();this.active=true;location.hash="studio";if(route==="studio")render(true)},
  load(deck){this.cfg=JSON.parse(JSON.stringify(deck));if(!this.cfg.layout)this.cfg.layout="split";this.cfg.fields=normFields(this.cfg.fields);this.cfg.summary=this.cfg.summary!==false;this.cfg.index=false;this.active=true;render(true)},
  sitesFor(){const s=this.cfg.source;let list=[];
@@ -6461,16 +6464,16 @@ const Studio={
   deckOps(forExport){
     const c=this.cfg,t=TPL[c.template]||TPL.adpulse,vis=this.visible(),sites=vis.map(v=>this.siteOf(v.siteId));
     const out=[];
-    if(!c.hideCover){out.push({kind:"cover",ops:coverOps(c,t,sites)});} 
+    if(!c.hideCover && !c.onlySites){out.push({kind:"cover",ops:coverOps(c,t,sites)});} 
     // Summary Table with full details, duration start & end dates
-    if(c.summary !== false && sites.length){
+    if(c.summary !== false && !c.onlySites && sites.length){
       const tableSlides = summaryTableOps(c, t, sites);
       tableSlides.forEach((ops, idx) => out.push({kind:"summary-table", ops}));
     }
     if(!c.onlySummary){
       vis.forEach((v,i)=>out.push({kind:"site",idx:c.slides.indexOf(v),ops:siteOps(c,t,sites[i],v,i+1,vis.length)}));
     }
-    if(!c.hideEnd){
+    if(!c.hideEnd && !c.onlySites){
       out.push({kind:"end",ops:endOps(c,t)});
     }
     return out;
@@ -6479,7 +6482,7 @@ const Studio={
     try{
       const deck=this.deckOps();
       box.innerHTML=deck.map((sl,n)=>{const v=sl.kind==="site"?this.cfg.slides[sl.idx]:null;const s=v&&this.siteOf(v.siteId);
-       const tools=(v&&s)?`<div class="sltools"><button class="btn sm" data-act="slphoto" data-i="${sl.idx}" ${imgIdx(s).length>1?"":"disabled"}>${ICON.img}Swap photo${imgIdx(s).length>1?` (${imgIdx(s).length})`:""}</button><button class="btn sm" data-act="slhide" data-i="${sl.idx}">${ICON.eye}Hide</button><button class="btn sm pri" data-act="siteedit" data-id="${s.id}">✏️ Edit Site</button><button class="btn sm" data-act="site" data-id="${s.id}">Site details</button></div>`:"";
+       const tools=(v&&s)?`<div class="sltools"><button class="btn sm" data-act="slphoto" data-i="${sl.idx}" ${imgIdx(s).length>1?"":"disabled"}>${ICON.img}Swap photo${imgIdx(s).length>1?` (${imgIdx(s).length})`:""}</button><button class="btn sm" data-act="slhide" data-i="${sl.idx}">${ICON.eye}Hide</button><button class="btn sm pri" data-act="${String(s.id).startsWith('vp-')?'vpsite':'siteedit'}" data-id="${s.id}">✏️ Edit Site</button><button class="btn sm" data-act="${String(s.id).startsWith('vp-')?'vpsite':'site'}" data-id="${s.id}">Site details</button></div>`:"";
        return`<div class="sl" ${v?`draggable="true" data-i="${sl.idx}"`:""}><div class="num"><b>${String(n+1).padStart(2,"0")}</b>${v?`<button data-act="slmove" data-i="${sl.idx}" data-d="-1" aria-label="Move up">${ICON.up}</button><button data-act="slmove" data-i="${sl.idx}" data-d="1" aria-label="Move down">${ICON.down}</button>`:""}</div><div class="slwrap">${slideHTML(sl.ops,TPL[this.cfg.template]||TPL.adpulse)}${tools}</div></div>`}).join("")+
        (this.cfg.slides.some(s=>s.hidden)?`<div class="card pad"><b>Hidden slides</b><div class="chips" style="margin-top:8px">${this.cfg.slides.map((s,i)=>s.hidden?`<button class="chip" data-act="slshow" data-i="${i}">${esc(S.sites.find(x=>x.id===s.siteId)?.code||"?")} · show</button>`:"").join("")}</div></div>`:"");
       $$("[data-edit]",box).forEach(el=>el.addEventListener("blur",()=>{
@@ -6497,7 +6500,7 @@ const Studio={
         }
         this.dirty();
       }));
-      const cnt=$("#slCount");if(cnt)cnt.textContent=c.onlySummary?`${deck.length} slides · Tabular Inventory Summary (${this.visible().length} sites)`:`${deck.length} slides · ${this.visible().length} sites`;
+      const cnt=$("#slCount");if(cnt)cnt.textContent=c.onlySummary?`${deck.length} slides · Only Inventory Summary Table (${this.visible().length} sites)`:c.onlySites?`${deck.length} slides · Only Site Slides (${this.visible().length} sites)`:`${deck.length} slides · ${this.visible().length} sites`;
     }catch(err){
       console.error("[Studio.renderSlides]",err);
       box.innerHTML=`<div class="card pad" style="margin:20px;color:var(--bad)"><h3>Could not render slides</h3><p>${esc(err.message||err)}</p></div>`;
@@ -6719,107 +6722,109 @@ function siteOps(c,t,s,v,page,total){
   const f=normFields(c.fields);
   const layout=c.layout||"split";
   let p=(v.photo!=null?(s.photos||[])[v.photo]:null)||(s.photos&&s.photos.length?s.photos[0]:null)||lastImg(s);if(isVid(p))p=lastImg(s)||(s.photos&&s.photos.length?s.photos[0]:null);
-  const k=effStatus(s),stc={available:"0E9F76",booked:"E03656",expiring:"EE7422",maintenance:"DB8F06"}[k];
-  const o=otsOf(s);
-  const dirText=(s.from&&s.towards)?`${s.from} → ${s.towards}`:(s.brand?`Booked by ${s.brand}`:"Prime OOH Arterial Network");
-  const sqft=(+s.widthFt||0)*(+s.heightFt||0);
-  const isLit=/lit/i.test(s.light||"");
-  const bTxt=s.status==="booked"?(s.bookedTill?(s.brand?`${s.brand} (Till ${fmtShort(s.bookedTill)})`:`Booked till ${fmtShort(s.bookedTill)}`):"Currently Booked"):"Ready for Immediate Booking";
-  const trafficZone=s.traffic?`${TLEV[s.traffic]||s.traffic} traffic corridor`:"Prime arterial corridor";
-  const vCount=s.vehiclesDay?`${fmtK(s.vehiclesDay)} vehicles/day`:(s.traffic?`${TLEV[s.traffic]||s.traffic} volume`:"Counted traffic");
-  const siteTitle=v.title||s.name||s.area||"Karachi OOH Billboard";
-  const pDateStr=p&&(p.at||p.date)?fmtDate(p.at||p.date):"Verified Site";
+  const sqft=s.sqft||((+s.widthFt||0)*(+s.heightFt||0));
+  const siteTitle=v.title||s.name||s.location||s.area||"Karachi OOH Billboard";
 
   // Price extraction for slides
-  const rawPrice = v.price || s.price || (s.rates && !/^(PKR|USD|EUR)$/i.test(s.rates) ? s.rates : "");
-  const priceTxt = rawPrice ? (rawPrice.toUpperCase().includes("PKR") || rawPrice.toUpperCase().includes("RS") ? rawPrice : "PKR " + rawPrice) : "PKR Rate on Request";
+  const rawPrice = v.price || s.price || s.rate || (s.rates && !/^(PKR|USD|EUR)$/i.test(s.rates) ? s.rates : "");
+  const priceTxt = rawPrice ? (rawPrice.toUpperCase().includes("PKR") || rawPrice.toUpperCase().includes("RS") || /rate on request/i.test(rawPrice) ? rawPrice : "PKR " + rawPrice) : "Rate on Request";
 
   const excelAvail = s.excelAvailability || s.availability || "";
   const excelStatus = s.excelStatus !== undefined ? s.excelStatus : (s.statusLabel || "");
+  const showSecStatus = excelStatus && excelStatus !== excelAvail && excelStatus !== rawPrice && excelStatus !== priceTxt && !/rate on request/i.test(excelStatus);
   const bDurationFull = excelAvail
-    ? (excelStatus ? `${excelAvail} (${excelStatus})` : excelAvail)
+    ? (showSecStatus ? `${excelAvail} (${excelStatus})` : excelAvail)
     : (s.status==="booked" ? "Currently Booked" : "SUBJECT TO AVAILABLE");
+
   const mediaStr = f.media ? (s.excelMedium || s.medium || s.media || "HOARDING").toUpperCase() : "";
-  const formatStr = [mediaStr, s.pptMedium || "", excelStatus].filter(Boolean).join(" · ") || "OOH DISPLAY";
-  const vendorFull = [s.vendor || "AdPulse IMC", s.vendorEndDate ? `Ends: ${s.vendorEndDate}` : ""].filter(Boolean).join(" · ");
+  const formatParts = [mediaStr, s.pptMedium || ""];
+  if (showSecStatus && !formatParts.includes(excelStatus)) formatParts.push(excelStatus);
+  const formatStr = formatParts.filter(Boolean).join(" · ") || "OOH DISPLAY";
+
+  const vendorNameStr = String(s.vendor || "AdPulse IMC");
+  const vendorEndVal = String(s.vendorEndDate || s.availability || "Available");
+  const vendorFull = s.vendorEndDate ? `${vendorNameStr} · Ends: ${vendorEndVal}` : vendorNameStr;
+
+  const fromStr = String(s.from || s.area || "Main Arterial").substring(0, 52);
+  const towardsStr = String(s.towards || s.facing || "Commercial Hub").substring(0, 58);
 
   if(layout==="split"){
     const ops=[
       ...frame(t),
       // Header Bar (Clean Minimalist: S# + Code Badge + Full-Width Title)
-      R(0.60,0.28,2.50,0.28,t.accent,{r:.14}),
-      T(0.60,0.32,2.50,0.20,(s.sNo?`S#${s.sNo} · `:"")+(s.code||"OOH SITE"),{size:10,bold:true,color:"FFFFFF",font:"mono",align:"center"}),
-      T(0.60,0.60,12.133,0.38,siteTitle,{size:20,bold:true,color:t.ink,font:"display",edit:"stitle:"+c.slides.indexOf(v)}),
+      R(0.60,0.26,2.60,0.28,t.accent,{r:.14}),
+      T(0.60,0.30,2.60,0.20,(s.sNo?`S#${s.sNo} · `:"")+(s.code||"OOH SITE"),{size:9.8,bold:true,color:"FFFFFF",font:"mono",align:"center"}),
+      T(0.60,0.58,12.133,0.38,siteTitle,{size:18.5,bold:true,color:t.ink,font:"display",edit:"stitle:"+c.slides.indexOf(v)}),
 
-      // Left Column: ENLARGED Clean Billboard Photo (8.15 x 5.80 in, clean without watermark tags)
+      // Left Column: ENLARGED Clean Billboard Photo (8.15 x 5.80 in)
       {t:"img",x:0.60,y:1.05,w:8.15,h:5.80,site:s.id,photo:v.photo,src:p?photoSrc(p):placeholder(s)},
 
       // Right Column: Executive Media Dossier Card (3.80 in width, 5.80 in height)
       R(8.93,1.05,3.80,5.80,t.panel,{r:.16}),
       R(8.93,1.05,0.08,5.80,t.accent,{r:.04}),
 
-      // Dossier Header: CLIENT & EXECUTIVE MEDIA PROFILE
-      T(9.20,1.20,3.35,0.18,"CLIENT / CAMPAIGN",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
-      T(9.20,1.40,3.35,0.28,(s.client||s.brand||"AdPulse OOH Network").substring(0,34),{size:12.5,bold:true,color:t.ink,font:"display"}),
+      // Dossier Header: CLIENT & EXECUTIVE MEDIA PROFILE (Generous 0.44 height for 2-line vendor/client names)
+      T(9.18,1.15,3.38,0.16,"CLIENT / CAMPAIGN",{size:8.8,bold:true,color:t.accent,upper:true,spacing:1.1}),
+      T(9.18,1.33,3.38,0.44,(s.client||s.brand||s.vendor||"AdPulse OOH Network").substring(0,68),{size:11.0,bold:true,color:t.ink,font:"display"}),
 
       // Divider 1
-      R(9.20,1.76,3.30,0.015,t.muted,{alpha:.20}),
+      R(9.18,1.81,3.34,0.012,t.muted,{alpha:.20}),
 
-      // Section 1: Dimensions (Balanced 9.5pt Red header, 14pt Red dimensions, 12pt Gray area text)
-      T(9.20,1.86,3.30,0.18,"DISPLAY DIMENSIONS",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
-      T(9.20,2.06,3.30,0.26,f.size?`${s.widthFt} × ${s.heightFt} FT`:(s.media||"Billboard"),{size:14,bold:true,color:t.accent,font:"mono"}),
-      T(9.20,2.34,3.30,0.22,(f.size&&sqft)?`${sqft.toLocaleString()} sq. ft total display area`:"Standard Arterial Display",{size:12,color:t.muted}),
+      // Section 1: Dimensions
+      T(9.18,1.89,3.38,0.16,"DISPLAY DIMENSIONS",{size:8.8,bold:true,color:t.accent,upper:true,spacing:1.1}),
+      T(9.18,2.07,3.38,0.25,f.size?`${s.widthFt} × ${s.heightFt} FT`:(s.media||"Billboard"),{size:13.5,bold:true,color:t.accent,font:"mono"}),
+      T(9.18,2.33,3.38,0.20,(f.size&&sqft)?`${Number(sqft).toLocaleString()} sq. ft total display area`:"Standard Arterial Display",{size:10.5,color:t.muted}),
 
       // Divider 2
-      R(9.20,2.66,3.30,0.015,t.muted,{alpha:.20}),
+      R(9.18,2.58,3.34,0.012,t.muted,{alpha:.20}),
 
-      // Section 2: Facing & Flow (Balanced 9.5pt Red header, 12pt Black route lines)
-      T(9.20,2.76,3.30,0.18,"ORIENTATION & TRAFFIC FLOW",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
-      T(9.20,2.96,3.30,0.22,f.dir?("From: "+(s.from||"Main Arterial")):(s.area||"Karachi"),{size:12,bold:true,color:t.ink}),
-      T(9.20,3.20,3.30,0.44,f.dir?("Towards: "+(s.towards||"Commercial Hub")):(s.facing||"Prime Route"),{size:12,bold:true,color:t.ink}),
+      // Section 2: Facing & Flow (Multi-line safe heights: 0.34 for From, 0.38 for Towards)
+      T(9.18,2.66,3.38,0.16,"ORIENTATION & TRAFFIC FLOW",{size:8.8,bold:true,color:t.accent,upper:true,spacing:1.1}),
+      T(9.18,2.84,3.38,0.34,f.dir?("From: "+fromStr):(s.area||"Karachi"),{size:10.2,bold:true,color:t.ink}),
+      T(9.18,3.20,3.38,0.38,f.dir?("Towards: "+towardsStr):(s.facing||"Prime Route"),{size:10.2,bold:true,color:t.ink}),
 
       // Divider 3
-      R(9.20,3.72,3.30,0.015,t.muted,{alpha:.20}),
+      R(9.18,3.63,3.34,0.012,t.muted,{alpha:.20}),
 
-      // Section 3: Format & Illumination (Balanced 9.5pt Red header, 12pt Black value)
-      T(9.20,3.82,3.30,0.18,"FORMAT & ILLUMINATION",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
-      T(9.20,4.02,3.30,0.22,formatStr,{size:12,bold:true,color:t.ink}),
+      // Section 3: Format & Illumination (0.34 height so medium + status never clips)
+      T(9.18,3.71,3.38,0.16,"FORMAT & ILLUMINATION",{size:8.8,bold:true,color:t.accent,upper:true,spacing:1.1}),
+      T(9.18,3.89,3.38,0.34,formatStr.substring(0,68),{size:10.2,bold:true,color:t.ink}),
 
-      // Media Vendor (Controlled dynamically by f.vendor checkbox)
+      // Media Vendor (Generous 0.50 height for 2 full lines so VENDOR & VENDOR ENDING DATE never cuts off!)
       ...(f.vendor && s.vendor ? [
-        R(9.20,4.32,3.30,0.015,t.muted,{alpha:.20}),
-        T(9.20,4.42,3.30,0.18,"VENDOR & VENDOR ENDING DATE",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
-        T(9.20,4.62,3.30,0.22,vendorFull,{size:11.5,bold:true,color:t.ink,font:"display"}),
-        R(9.20,4.92,3.30,0.015,t.muted,{alpha:.20}),
-        T(9.20,5.02,3.30,0.18,f.price?"RATES & AVAILIBILTY":"AVAILIBILTY & STATUS",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
+        R(9.18,4.28,3.34,0.012,t.muted,{alpha:.20}),
+        T(9.18,4.36,3.38,0.16,"VENDOR & VENDOR ENDING DATE",{size:8.8,bold:true,color:t.accent,upper:true,spacing:1.1}),
+        T(9.18,4.54,3.38,0.50,vendorFull,{size:10.2,bold:true,color:t.ink,font:"display"}),
+        R(9.18,5.08,3.34,0.012,t.muted,{alpha:.20}),
+        T(9.18,5.16,3.38,0.16,f.price?"RATES & AVAILIBILTY":"AVAILIBILTY & STATUS",{size:8.8,bold:true,color:t.accent,upper:true,spacing:1.1}),
         ...(f.price ? [
-          T(9.20,5.22,3.30,0.24,priceTxt,{size:14,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)})
+          T(9.18,5.34,3.38,0.26,priceTxt,{size:12.5,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)})
         ] : []),
-        T(9.20,f.price?5.48:5.24,3.30,0.16,"AVAILIBILTY / STATUS:",{size:9,bold:true,color:t.accent,upper:true,spacing:1}),
-        T(9.20,f.price?5.66:5.42,3.30,0.26,bDurationFull,{size:11.5,bold:true,color:t.ink}),
+        T(9.18,f.price?5.62:5.36,3.38,0.15,"AVAILIBILTY / STATUS:",{size:8.4,bold:true,color:t.accent,upper:true,spacing:0.9}),
+        T(9.18,f.price?5.79:5.53,3.38,0.38,bDurationFull,{size:10.2,bold:true,color:t.ink}),
         ...(f.gps&&s.lat&&s.lng?[
-          T(9.20,6.02,3.30,0.20,"🗺️ Open in Google Maps ↗",{size:10,bold:true,color:t.accent,link:mapsUrl(s)})
+          T(9.18,6.22,3.38,0.20,"🗺️ Open in Google Maps ↗",{size:9.5,bold:true,color:t.accent,link:mapsUrl(s)})
         ]:[
-          T(9.20,6.02,3.30,0.20,"📍 Verified Karachi Site",{size:10,color:t.muted,font:"mono"})
+          T(9.18,6.22,3.38,0.20,"📍 Verified OOH Site",{size:9.5,color:t.muted,font:"mono"})
         ]),
         ...(f.notes&&s.notes?[
-          T(9.20,6.26,3.30,0.20,`Note: ${s.notes.substring(0,40)}`,{size:10,color:t.muted})
+          T(9.18,6.44,3.38,0.30,`Note: ${s.notes.substring(0,55)}`,{size:9.2,color:t.muted})
         ]:[])
       ] : [
-        R(9.20,4.34,3.30,0.015,t.muted,{alpha:.20}),
-        T(9.20,4.44,3.30,0.18,f.price?"PRICE & BOOKING DURATION":"COMMERCIAL STATUS",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
+        R(9.18,4.30,3.34,0.012,t.muted,{alpha:.20}),
+        T(9.18,4.40,3.38,0.16,f.price?"PRICE & BOOKING DURATION":"COMMERCIAL STATUS",{size:8.8,bold:true,color:t.accent,upper:true,spacing:1.1}),
         ...(f.price ? [
-          T(9.20,4.66,3.30,0.26,priceTxt,{size:14,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)})
+          T(9.18,4.60,3.38,0.28,priceTxt,{size:13,bold:true,color:t.accent,font:"display",edit:"sprice:"+c.slides.indexOf(v)})
         ] : []),
-        T(9.20,f.price?4.96:4.70,3.30,0.16,f.dates?"BOOKING STATUS / DURATION:":"STATUS:",{size:9,bold:true,color:t.accent,upper:true,spacing:1}),
-        T(9.20,f.price?5.14:4.88,3.30,0.28,bDurationFull,{size:12,bold:true,color:s.status==="booked"?"D9161D":t.ink}),
+        T(9.18,f.price?4.92:4.64,3.38,0.16,f.dates?"BOOKING STATUS / DURATION:":"STATUS:",{size:8.5,bold:true,color:t.accent,upper:true,spacing:1}),
+        T(9.18,f.price?5.10:4.82,3.38,0.40,bDurationFull,{size:10.8,bold:true,color:s.status==="booked"?"D9161D":t.ink}),
         ...(f.gps&&s.lat&&s.lng?[
-          T(9.20,5.54,3.30,0.20,"🗺️ Open in Google Maps ↗",{size:10,bold:true,color:t.accent,link:mapsUrl(s)})
+          T(9.18,5.56,3.38,0.20,"🗺️ Open in Google Maps ↗",{size:9.5,bold:true,color:t.accent,link:mapsUrl(s)})
         ]:[
-          T(9.20,5.54,3.30,0.20,"📍 Verified Karachi Site",{size:10,color:t.muted,font:"mono"})
+          T(9.18,5.56,3.38,0.20,"📍 Verified OOH Site",{size:9.5,color:t.muted,font:"mono"})
         ]),
         ...(f.notes&&s.notes?[
-          T(9.20,5.80,3.30,0.20,`Note: ${s.notes.substring(0,42)}`,{size:10,color:t.muted})
+          T(9.18,5.80,3.38,0.32,`Note: ${s.notes.substring(0,55)}`,{size:9.5,color:t.muted})
         ]:[])
       ])
     ];
@@ -6829,54 +6834,53 @@ function siteOps(c,t,s,v,page,total){
   // Widescreen Unified Ribbon Layout with Upper OTS/Location & Bottom PKR
   const ops=[
     ...frame(t),
-    // Upper Bar: Code Badge + Full-Width Site Title
-    R(0.60,0.26,2.20,0.28,t.accent,{r:.14}),
-    T(0.60,0.30,2.20,0.20,s.code||"OOH SITE",{size:10,bold:true,color:"FFFFFF",font:"mono",align:"center"}),
-    T(0.60,0.58,12.133,0.34,siteTitle,{size:19,bold:true,color:t.ink,font:"display",edit:"stitle:"+c.slides.indexOf(v)}),
+    R(0.60,0.26,2.40,0.28,t.accent,{r:.14}),
+    T(0.60,0.30,2.40,0.20,(s.sNo?`S#${s.sNo} · `:"")+(s.code||"OOH SITE"),{size:9.8,bold:true,color:"FFFFFF",font:"mono",align:"center"}),
+    T(0.60,0.58,12.133,0.34,siteTitle,{size:18,bold:true,color:t.ink,font:"display",edit:"stitle:"+c.slides.indexOf(v)}),
 
-    // Hero Large Center Photo (Expanded height 4.44, clean without watermark tags)
-    {t:"img",x:0.60,y:0.94,w:12.133,h:4.44,site:s.id,photo:v.photo,src:p?photoSrc(p):placeholder(s)},
+    // Hero Large Center Photo
+    {t:"img",x:0.60,y:0.94,w:12.133,h:4.42,site:s.id,photo:v.photo,src:p?photoSrc(p):placeholder(s)},
 
-    // Unified Spacious Luxury Ribbon at Bottom (Expanded height 1.46 for large readable non-clipping text)
-    R(0.60,5.50,12.133,1.46,t.panel,{r:.14}),
-    R(0.60,5.50,12.133,0.04,t.accent),
+    // Unified Spacious Luxury Ribbon at Bottom
+    R(0.60,5.48,12.133,1.48,t.panel,{r:.14}),
+    R(0.60,5.48,12.133,0.04,t.accent),
 
-    R(3.63,5.62,0.015,1.22,t.muted,{alpha:.22}),
-    R(6.66,5.62,0.015,1.22,t.muted,{alpha:.22}),
-    R(9.69,5.62,0.015,1.22,t.muted,{alpha:.22}),
+    R(3.63,5.60,0.015,1.24,t.muted,{alpha:.22}),
+    R(6.66,5.60,0.015,1.24,t.muted,{alpha:.22}),
+    R(9.69,5.60,0.015,1.24,t.muted,{alpha:.22}),
 
-    // Col 1: Facing & Orientation (Red uppercase header, Black route values)
-    T(0.85,5.62,2.65,0.18,"FACING & ORIENTATION",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
-    T(0.85,5.86,2.65,0.36,f.dir?("From: "+(s.from||"Main Arterial")):(s.area||"Karachi"),{size:11,bold:true,color:t.ink}),
-    T(0.85,6.26,2.65,0.52,f.dir?("Towards: "+(s.towards||"Commercial Hub")):(s.facing||"Arterial Corridor"),{size:11,bold:true,color:t.ink}),
+    // Col 1: Facing & Orientation
+    T(0.82,5.60,2.70,0.16,"FACING & ORIENTATION",{size:8.8,bold:true,color:t.accent,upper:true,spacing:1.1}),
+    T(0.82,5.80,2.70,0.44,f.dir?("From: "+fromStr):(s.area||"Karachi"),{size:10.0,bold:true,color:t.ink}),
+    T(0.82,6.28,2.70,0.56,f.dir?("Towards: "+towardsStr):(s.facing||"Arterial Corridor"),{size:10.0,bold:true,color:t.ink}),
 
-    // Col 2: Display Dimensions (Red uppercase header, Red dimensions, Gray subtitle)
-    T(3.88,5.62,2.65,0.18,"DISPLAY DIMENSIONS",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
-    T(3.88,5.84,2.65,0.34,f.size?`${s.widthFt} × ${s.heightFt} FT`:(s.media||"Billboard"),{size:16,bold:true,color:t.accent,font:"mono"}),
-    T(3.88,6.22,2.65,0.24,(f.size&&sqft)?`${sqft.toLocaleString()} sq. ft total impact`:(s.media||"Billboard"),{size:10.5,color:t.muted}),
-    T(3.88,6.50,2.65,0.20,(s.media||"Billboard")+" Format",{size:9.5,color:t.muted}),
+    // Col 2: Display Dimensions
+    T(3.85,5.60,2.70,0.16,"DISPLAY DIMENSIONS",{size:8.8,bold:true,color:t.accent,upper:true,spacing:1.1}),
+    T(3.85,5.80,2.70,0.32,f.size?`${s.widthFt} × ${s.heightFt} FT`:(s.media||"Billboard"),{size:14.5,bold:true,color:t.accent,font:"mono"}),
+    T(3.85,6.16,2.70,0.24,(f.size&&sqft)?`${Number(sqft).toLocaleString()} sq. ft total impact`:(s.media||"Billboard"),{size:10.0,color:t.muted}),
+    T(3.85,6.44,2.70,0.34,(s.media||"Billboard")+" Format",{size:9.5,color:t.muted}),
 
-    // Col 3: Format & Illumination (Red uppercase header, Black values - no green)
-    T(6.91,5.62,2.65,0.18,"FORMAT & ILLUMINATION",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
-    T(6.91,5.84,2.65,0.28,formatStr,{size:11.5,bold:true,color:t.ink}),
+    // Col 3: Format, Vendor & Availability (Multi-line safe heights)
+    T(6.88,5.60,2.70,0.16,"VENDOR & AVAILABILITY",{size:8.8,bold:true,color:t.accent,upper:true,spacing:1.1}),
+    T(6.88,5.80,2.70,0.30,formatStr.substring(0,55),{size:10.0,bold:true,color:t.ink}),
     ...(f.vendor && s.vendor ? [
-      T(6.91,6.16,2.65,0.22,`Vendor: ${s.vendor}`,{size:10.5,bold:true,color:t.ink,font:"display"}),
-      T(6.91,6.42,2.65,0.24,bDurationFull,{size:10,bold:true,color:s.status==="booked"?"D9161D":t.ink})
+      T(6.88,6.12,2.70,0.42,vendorFull,{size:9.6,bold:true,color:t.ink,font:"display"}),
+      T(6.88,6.56,2.70,0.32,bDurationFull,{size:9.5,bold:true,color:s.status==="booked"?"D9161D":t.ink})
     ] : [
-      T(6.91,6.20,2.65,0.26,bDurationFull,{size:10.5,bold:true,color:s.status==="booked"?"D9161D":t.ink}),
-      T(6.91,6.50,2.65,0.20,s.signal?"Traffic signal nearby (stop & view)":"Prime Arterial Location",{size:9.5,color:t.muted})
+      T(6.88,6.16,2.70,0.36,bDurationFull,{size:10.0,bold:true,color:s.status==="booked"?"D9161D":t.ink}),
+      T(6.88,6.54,2.70,0.24,"Prime Arterial Location",{size:9.2,color:t.muted})
     ]),
 
-    // Col 4: Price / Rate (PKR) (Red uppercase header, Red price, Red link)
-    T(9.94,5.62,2.65,0.18,f.price?"PRICE / RATE (PKR)":"COMMERCIAL STATUS",{size:9.5,bold:true,color:t.accent,upper:true,spacing:1.2}),
-    T(9.94,5.84,2.65,0.34,f.price?priceTxt:(s.status==="booked"?"Reserved Site":"Ready for Booking"),{size:15,bold:true,color:t.accent,font:"display",edit:f.price?"sprice:"+c.slides.indexOf(v):undefined}),
+    // Col 4: Price / Rate (PKR)
+    T(9.91,5.60,2.70,0.16,f.price?"PRICE / RATE (PKR)":"COMMERCIAL STATUS",{size:8.8,bold:true,color:t.accent,upper:true,spacing:1.1}),
+    T(9.91,5.80,2.70,0.38,f.price?priceTxt:(s.status==="booked"?"Reserved Site":"Ready for Booking"),{size:13.0,bold:true,color:t.accent,font:"display",edit:f.price?"sprice:"+c.slides.indexOf(v):undefined}),
     ...(f.gps&&s.lat&&s.lng?[
-      T(9.94,6.24,2.65,0.20,"🗺️ Open in Google Maps ↗",{size:9.5,bold:true,color:t.accent,link:mapsUrl(s)})
+      T(9.91,6.22,2.70,0.22,"🗺️ Open in Google Maps ↗",{size:9.5,bold:true,color:t.accent,link:mapsUrl(s)})
     ]:[
-      T(9.94,6.24,2.65,0.20,"📍 Verified Karachi Site",{size:9.5,color:t.muted,font:"mono"})
+      T(9.91,6.22,2.70,0.22,"📍 Verified OOH Site",{size:9.5,color:t.muted,font:"mono"})
     ]),
     ...(f.notes&&s.notes?[
-      T(9.94,6.48,2.65,0.20,`Note: ${s.notes.substring(0,34)}`,{size:9,color:t.muted})
+      T(9.91,6.46,2.70,0.32,`Note: ${s.notes.substring(0,45)}`,{size:9.0,color:t.muted})
     ]:[])
   ];
   return ops.concat(footer(c,t,page,total));
@@ -6945,7 +6949,8 @@ function vStudio(){
      <label class="f">Group slides by<select class="in" id="stGroup">${opt([["none","Excel S# Order (1–84)"],["area","Area"],["vendor","Media Vendor"],["size","Size"],["status","Status"]],c.groupBy)}</select></label>
      <div class="eyebrow">Show on site slides</div>
      <div class="toggles">${FIELDS.map(([k,l])=>`<label><input type="checkbox" data-fld="${k}" ${c.fields[k]?"checked":""}>${l}</label>`).join("")}
-<label style="font-weight:700;color:var(--violet);grid-column:1/-1;background:rgba(124,58,237,0.08);padding:6px 10px;border-radius:8px;display:flex;align-items:center;gap:6px;cursor:pointer"><input type="checkbox" id="stOnlySummary" ${c.onlySummary?"checked":""} style="width:17px;height:17px;accent-color:var(--violet)">📊 Only Inventory Summary Table (Hide individual site photo slides)</label>
+<label style="font-weight:700;color:var(--violet);grid-column:1/-1;background:rgba(124,58,237,0.08);padding:6px 10px;border-radius:8px;display:flex;align-items:center;gap:6px;cursor:pointer"><input type="checkbox" id="stOnlySummary" ${c.onlySummary?"checked":""} style="width:17px;height:17px;accent-color:var(--violet)">📊 Only Inventory Summary Table (Sirf Table dikhayein)</label>
+<label style="font-weight:700;color:#D9161D;grid-column:1/-1;background:rgba(217,22,29,0.08);padding:6px 10px;border-radius:8px;display:flex;align-items:center;gap:6px;cursor:pointer"><input type="checkbox" id="stOnlySites" ${c.onlySites?"checked":""} style="width:17px;height:17px;accent-color:#D9161D">🖼️ Show ONLY Site Slides (Sirf Sites dikhayein — Hide Table &amp; Cover)</label>
 <label><input type="checkbox" id="stCover" ${!c.hideCover?"checked":""}>Cover slide</label>
 <label><input type="checkbox" id="stSum" ${c.summary?"checked":""}>Summary slide</label>
 </div>
@@ -7175,7 +7180,7 @@ document.addEventListener("submit",async e=>{if(e.target.id!=="reqForm")return;e
 function vSettings(){const s=S.settings;const hasSample=S.sites.some(x=>x.sample)||S.campaigns.some(x=>x.sample);
   return pgTop("Settings","Branding for watermarks and presentations")+`<div class="grid" style="max-width:720px">
   <div class="card pad grid" style="gap:14px">
-  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v10.9 PWA Ready</span></div>
+  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v11.0 PWA Ready</span></div>
   <p style="margin:0;color:var(--muted);font-size:13px">Install AdPulse OTS on iPhone, iPad, Android or PC for fast offline access, full-screen Google 3D maps, and 1-tap camera upload with GPS.</p>
   <div class="row" style="gap:10px;flex-wrap:wrap">
     <button class="btn pri" data-act="installios" style="flex:1;min-width:180px;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>Install on iPhone / iPad (iOS)</button>
@@ -7360,7 +7365,7 @@ function showMobileUpdateBanner(){
   const b = document.createElement('div');
   b.id = 'mobileUpdateBanner';
   b.style.cssText = 'position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:9999;background:linear-gradient(135deg,#0c0917,#1b1238);color:#fff;padding:8px 16px;border-radius:9999px;box-shadow:0 8px 24px rgba(0,0,0,0.5);border:1px solid #38bdf8;display:flex;align-items:center;gap:10px;font-size:12.5px;max-width:calc(100% - 24px);';
-  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v10.9)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
+  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v11.0)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
   document.body.appendChild(b);
 }
 
@@ -7379,7 +7384,7 @@ function openInstallModal(forceType){
                 <h2 style="font-size:18px;margin:0">AdPulse OTS App</h2>
                 <span class="pill st-available" style="font-size:10px;padding:2px 8px">🟢 Running as App</span>
               </div>
-              <div style="font-size:12px;color:var(--muted);margin-top:2px">v10.9 (Android &amp; iOS Standalone)</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px">v11.0 (Android &amp; iOS Standalone)</div>
             </div>
             <span class="sp"></span>
             <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
@@ -7465,7 +7470,7 @@ function openInstallModal(forceType){
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
           <img src="/icons/icon-192.png" alt="AdPulse OTS" style="width:48px;height:48px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.2)">
           <div>
-            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v10.9)</h2>
+            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v11.0)</h2>
             <div style="font-size:12px;color:var(--muted)">Google 3D Maps &amp; 97 Verified Media Sites</div>
           </div>
           <span class="sp"></span>
@@ -7987,7 +7992,7 @@ const ACT={
  closedeck:()=>{Studio.active=false;render(true)},
  stsrc:a=>{const c=Studio.cfg;const t=a.dataset.v;c.source=t==="all"?{type:"all"}:t==="campaign"?{type:t,campaignId:S.campaigns[0]?.id||""}:t==="filter"?{type:t}:{...c.source,type:t};c.title="";c.subtitle="";c.slides=[];rebuildStudio()},
  sttpl:a=>{Studio.cfg.template=a.dataset.v;$$(".tpl").forEach(b=>b.classList.toggle("on",b===a));Studio.renderSlides();Studio.dirty()},
- stlayout:a=>{const v=a.dataset.v;if(v==="summary"){Studio.cfg.onlySummary=true;Studio.cfg.summary=true;const sumEl=$("#stSum");if(sumEl)sumEl.checked=true}else{Studio.cfg.onlySummary=false;Studio.cfg.layout=v}$$("[data-act='stlayout']").forEach(b=>b.classList.toggle("on",b===a));Studio.renderSlides();Studio.dirty()},
+ stlayout:a=>{const v=a.dataset.v;if(v==="summary"){Studio.cfg.onlySummary=true;Studio.cfg.onlySites=false;Studio.cfg.summary=true;const sumEl=$("#stSum");if(sumEl)sumEl.checked=true;const osEl=$("#stOnlySummary");if(osEl)osEl.checked=true;const ostEl=$("#stOnlySites");if(ostEl)ostEl.checked=false;}else if(v==="sites"){Studio.cfg.onlySites=true;Studio.cfg.onlySummary=false;Studio.cfg.summary=false;Studio.cfg.hideCover=true;const sumEl=$("#stSum");if(sumEl)sumEl.checked=false;const covEl=$("#stCover");if(covEl)covEl.checked=false;const osEl=$("#stOnlySummary");if(osEl)osEl.checked=false;const ostEl=$("#stOnlySites");if(ostEl)ostEl.checked=true;}else{Studio.cfg.onlySummary=false;Studio.cfg.onlySites=false;Studio.cfg.layout=v;const osEl=$("#stOnlySummary");if(osEl)osEl.checked=false;const ostEl=$("#stOnlySites");if(ostEl)ostEl.checked=false;}$("[data-act='stlayout']").forEach(b=>b.classList.toggle("on",b===a));Studio.renderSlides();Studio.dirty()},
  slmove:a=>{const i=+a.dataset.i,d=+a.dataset.d,s=Studio.cfg.slides;let j=i+d;while(j>=0&&j<s.length&&s[j].hidden)j+=d;if(j<0||j>=s.length)return;[s[i],s[j]]=[s[j],s[i]];Studio.renderSlides();Studio.dirty()},
  slhide:a=>{Studio.cfg.slides[+a.dataset.i].hidden=true;Studio.renderSlides();Studio.dirty()},
  slshow:a=>{Studio.cfg.slides[+a.dataset.i].hidden=false;Studio.renderSlides();Studio.dirty()},
@@ -8096,7 +8101,7 @@ savedeck:async()=>{const c=Studio.cfg;c.version=(c.version||0)+1;try{await put("
  vpview:(a)=>{VPF.view=a.dataset.v||"cards";render(true)},
  vpclear:()=>{VPF.vendor="";VPF.q="";VPF.media="";VPF.status="";render(true)},
  vpsite:(a)=>openVendorPreviewSite(a.dataset.id),
- vpdeck:(a)=>openVendorPreviewDeck(a.dataset.vendor||""),
+ vpdeck:(a)=>openVendorPreviewDeck(a.dataset.vendor||"",a.dataset.mode||""),
  camppresentation:(a)=>{
    const id = a.dataset.id;
    const camp = campOf(id);
@@ -8198,7 +8203,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=39.0").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=40.0").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
@@ -8215,7 +8220,7 @@ if("serviceWorker" in navigator){
           });
         }
       });
-      console.log("AdPulse OTS PWA active (v10.9):",r.scope);
+      console.log("AdPulse OTS PWA active (v11.0):",r.scope);
     }).catch(err=>{
       console.warn("PWA ServiceWorker registration failed:",err);
     });
