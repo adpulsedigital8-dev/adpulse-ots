@@ -6805,7 +6805,13 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
               <p style="margin:2px 0 0;font-size:13px;color:var(--muted)">Select sites from <b>84 AdPulse OOH Sites</b> & <b>1,826 Vendor Preview Sites</b> to generate Client Proposal PPT</p>
             </div>
           </div>
-          <button type="button" class="btn sm ghost" data-act="close" aria-label="Close" style="padding:6px;border-radius:8px">${ICON.x}</button>
+          <div style="display:flex;align-items:center;gap:8px">
+            <button type="button" class="btn sm" id="pcmToggleExpand" title="Toggle Full Page / Chota karen" style="font-weight:800;font-size:12px;padding:6px 12px;background:var(--surface2);border:1.5px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:6px;cursor:pointer;color:var(--ink)">
+              <span id="pcmExpandIcon" style="font-size:14px">⛶</span>
+              <span id="pcmExpandLabel">Full Page</span>
+            </button>
+            <button type="button" class="btn sm ghost" data-act="close" aria-label="Close" style="padding:6px 10px;border-radius:8px">${ICON.x}</button>
+          </div>
         </div>
 
         <!-- Body -->
@@ -7009,6 +7015,21 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
     closeLayer();
     await saveAsProposedCampaign([...PCF.selected], client, title);
   };
+
+    // Full Page Toggle Handler
+  let isFull = false;
+  const modalWrap = document.querySelector(".pc-expanded-modal");
+  const toggleFull = () => {
+    isFull = !isFull;
+    if (modalWrap) modalWrap.classList.toggle("pc-fullscreen", isFull);
+    const icon = $("#pcmExpandIcon");
+    const lab = $("#pcmExpandLabel");
+    if (icon) icon.textContent = isFull ? "🗗" : "⛶";
+    if (lab) lab.textContent = isFull ? "Chota karen" : "Full Page";
+  };
+  if ($("#pcmToggleExpand")) $("#pcmToggleExpand").onclick = toggleFull;
+  const mhEl = document.querySelector(".pc-expanded-modal .mh");
+  if (mhEl) mhEl.ondblclick = toggleFull;
 
   updateModalStats();
 }
@@ -10256,7 +10277,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=48.0").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=49.1").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
