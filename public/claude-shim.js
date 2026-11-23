@@ -174,7 +174,7 @@
   }
   ready = (async function () {
     try {
-      var got = await sb.auth.getSession();
+      var got = await Promise.race([sb.auth.getSession(), new Promise(function(r){setTimeout(function(){r({data:{session:null}});}, 2200);})]);
       var isPublicView = /#(presentation|deck|campdeck|view):/i.test(location.hash);
       if (got.data && got.data.session) {
         session = got.data.session;
