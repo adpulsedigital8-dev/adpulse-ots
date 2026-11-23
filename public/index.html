@@ -1413,9 +1413,9 @@ body.client .tabs{display:none}
 <script src="/claude-shim.js?v=3.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="/master_sites_2026.js?v=45.0"></script>
-  <script src="/master_campaigns_2026.js?v=45.0"></script>
-  <script src="/vendor_preview_2026.js?v=45.0"></script>
+  <script src="/master_sites_2026.js?v=46.0"></script>
+  <script src="/master_campaigns_2026.js?v=46.0"></script>
+  <script src="/vendor_preview_2026.js?v=46.0"></script>
 </head>
 <body>
 
@@ -1511,10 +1511,11 @@ const ICON={
  bot:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="4"/><path d="M12 8V4M9 14h.01M15 14h.01M2 13v3M22 13v3"/><circle cx="12" cy="3.5" r="1.2"/></svg>',
  cal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
  booked:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2.5"/><path d="M3 9.5h18M8 2.5v3M16 2.5v3"/><path d="m9 15 2.2 2.2 4.3-4.4"/></svg>',
+ expire:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2.5"/><path d="M3 9.5h18M8 2.5v3M16 2.5v3"/><circle cx="12" cy="15" r="3.5"/><path d="M12 13.5V15l1.2 1"/></svg>',
  more:'<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>',
  img:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg>'
 };
-const NAV=[["dashboard","Dashboard","dash"],["capture","Capture","cam"],["sites","Sites","sites"],["campaigns","Campaigns","camp"],["vendors","Vendor Booked Site","users"],["vendors-preview","Vendors Sites Preview","img"],["studio","Presentations","deck"],["clients","Clients","users"],["settings","Settings","gear"]];
+const NAV=[["dashboard","Dashboard","dash"],["capture","Capture","cam"],["sites","OOH AdPulse Sites","sites"],["booked-expire","Booked Expire Sites","expire"],["campaigns","Campaigns","camp"],["vendors","Vendor Booked Site","users"],["vendors-preview","Vendors Sites Preview","img"],["studio","Presentations","deck"],["clients","Clients","users"],["settings","Settings","gear"]];
 
 /* ============ state ============ */
 const S={sites:[],campaigns:[],decks:[],riders:[],settings:{agency:"AdPulse IMC",phone:"",email:"",web:"adpulse.pk",logo:null},loaded:{sites:false,campaigns:false},mode:"loading"};
@@ -1831,7 +1832,7 @@ async function uploadBlob(blob,type="image/jpeg"){
 function renderNav(){
   if(ROLE==="client"){$("#sideNav").innerHTML=`<a href="#portal" data-r="portal" class="on">${ICON.camp}My campaigns</a><div style="margin-top:12px;padding:0 8px"><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="width:100%;justify-content:flex-start;color:var(--muted);font-size:12px">🚪 Sign out</button></div>`;$("#tabNav").innerHTML=`<div style="display:flex;justify-content:center;padding:10px;width:100%"><button class="btn sm" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px">🚪 Sign out / Switch Account</button></div>`;return}
   $("#sideNav").innerHTML=NAV.map(([k,l,i])=>`<a href="#${k}" data-r="${k}">${ICON[i]}${l}</a>`).join("")+`<div style="margin-top:18px;padding:0 8px"><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="width:100%;justify-content:flex-start;color:var(--muted);font-size:12px">🚪 Sign out</button></div>`;
-  const t=[["dashboard","Home","dash"],["sites","Sites","sites"],["capture","Capture","cam"],["campaigns","Campaigns","camp"],["settings","Settings","gear"]];
+  const t=[["dashboard","Home","dash"],["sites","OOH Sites","sites"],["capture","Capture","cam"],["booked-expire","Expire","expire"],["campaigns","Campaigns","camp"]];
   $("#tabNav").innerHTML=t.map(([k,l,i])=>k==="capture"?`<a href="#capture" class="cap" data-r="capture"><span class="ball">${ICON.cam}</span><em>${l}</em></a>`:`<a href="#${k}" data-r="${k}">${ICON[i]}${l}</a>`).join("");
 }
 function go(r,silent){
@@ -1887,7 +1888,7 @@ function go(r,silent){
 }
 window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
 
-function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v11.5</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
+function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v11.6</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
 
 let lastRoute=null;
 function render(anim){
@@ -1895,7 +1896,7 @@ function render(anim){
   if(route==="capture"&&lastRoute==="capture"&&!anim){refreshCaptureLists();return}
   if(route==="studio"&&lastRoute==="studio"&&!anim&&Studio.active){return}
   if(ROLE==="pending"){v.innerHTML=`<div class="gate"><div class="bot">${ICON.bot}</div><h2>Opening ${APP_SHORT}…</h2><p style="color:var(--muted)">Checking your access</p></div>`;return}
-  const html=({portal:vPortal,clients:vClients,dashboard:vDash,capture:vCapture,sites:vSites,campaigns:vCampaigns,vendors:vVendors,"vendors-preview":vVendorsPreview,studio:vStudio,settings:vSettings}[route])();
+  const html=({portal:vPortal,clients:vClients,dashboard:vDash,capture:vCapture,sites:vSites,"booked-expire":vBookedExpire,campaigns:vCampaigns,vendors:vVendors,"vendors-preview":vVendorsPreview,studio:vStudio,settings:vSettings}[route])();
   v.innerHTML=`<div class="${anim||lastRoute!==route?"view":""}">${html}</div>`;lastRoute=route;
   after();
 }
@@ -1920,13 +1921,14 @@ function vDash(){
   const activeC=S.campaigns.filter(c=>!c.endDate||new Date(c.endDate)>=new Date(today())).length;
   const photosToday=S.sites.flatMap(s=>s.photos||[]).filter(p=>(p.at||"").slice(0,10)===today()).length;
   const allVendors = [...new Set(S.sites.map(s => s.vendor).filter(Boolean))];
+  const expireBookedCount = S.sites.filter(s => s.status === "booked" || /WILL BE END|EXTENDABLE|ISSUE/i.test(s.excelStatus || s.statusLabel || "") || !/subject to avail/i.test(s.excelAvailability || s.availability || "")).length;
   const k=[
-    ["Master file for All sites",S.sites.length,"var(--violet)","sites",false,"kpimaster"],
+    ["OOH AdPulse Sites",S.sites.length,"var(--violet)","sites",false,"kpimaster"],
     ["Available",cnt("available"),"var(--ok)","check",false,"kpiavail"],
     ["Booked",cnt("booked")+cnt("expiring"),"var(--bad)","booked",false,"kpibooked"],
+    ["Booked Expire Sites",expireBookedCount,"var(--orange)","expire",false,"kpiexpire"],
     ["Active campaigns",activeC,"var(--pink)","deck",false,"kpicamps"],
-    ["Vendor-wise data",allVendors.length||8,"#0E9F76","users",false,"kpivendors"],
-    ["Photos today",photosToday,"var(--cyan)","cam",false,""]
+    ["Vendor-wise data",allVendors.length||8,"#0E9F76","users",false,"kpivendors"]
   ];
   const bookedOts=S.sites.filter(x=>x.status==="booked").reduce((a,x)=>a+otsOf(x),0);
   if(bookedOts)k.push(["Daily OTS on booked sites","~"+fmtK(bookedOts),"var(--blue)","eye",true,""]);
@@ -3794,7 +3796,8 @@ function mountLeafletMap(list){
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:6px">
         <button class="btn sm pri" data-act="site" data-id="${s.id}" style="justify-content:center;padding:5px 0">Open site</button>
         <a class="btn sm cy" href="${navUrl}" target="_blank" rel="noopener" style="justify-content:center;padding:5px 0;text-decoration:none" title="Start Live GPS Navigation">${ICON.pin}Navigate</a>
-        <button class="btn sm pri" onclick="zoomToSite3D('${s.id}')" style="grid-column:1/-1;justify-content:center;padding:6px 0;font-size:12px;font-weight:700;background:linear-gradient(135deg,#7C3AED,#D9161D);border:0;color:#fff;box-shadow:0 2px 8px rgba(124,58,237,0.4)" title="Zoom & Inspect directly on this map">🔍 3D Satellite Zoom &amp; Inspect Here</button>
+        <button class="btn sm pri" onclick="openStreetView3D('${s.id}')" style="grid-column:1/-1;justify-content:center;padding:6px 0;font-size:12px;font-weight:800;background:linear-gradient(135deg,#D9161D,#F26A21);border:0;color:#fff;box-shadow:0 3px 10px rgba(217,22,29,0.45)" title="Open 360° Road Street View with AdPulse Site Overlay">🛣️ 360° Street View &amp; AdPulse Site</button>
+        <button class="btn sm" onclick="zoomToSite3D('${s.id}')" style="grid-column:1/-1;justify-content:center;padding:5px 0;font-size:11.5px;font-weight:700;background:linear-gradient(135deg,#7C3AED,#2563EB);border:0;color:#fff" title="Zoom & Inspect directly on this map">🔍 3D Satellite Zoom Here</button>
       </div>
     </div>`;
     m.bindPopup(popHtml, { maxWidth: 280 });
@@ -3912,6 +3915,7 @@ function mapHTML(list){
 
       <button class="btn sm pri" data-act="askmaps" style="padding:4px 9px;font-size:11px;font-weight:700;border-radius:8px;background:linear-gradient(135deg,#7C3AED,#D9161D);border:0;color:#fff;box-shadow:0 2px 6px rgba(124,58,237,0.35)">✨ Ask Maps</button>
       <button class="btn sm" onclick="openRiderTrackingModal()" style="padding:4px 9px;font-size:11px;font-weight:700;border-radius:8px;background:linear-gradient(135deg,#10B981,#047857);border:0;color:#fff;box-shadow:0 2px 6px rgba(16,185,129,0.35);display:inline-flex;align-items:center;gap:4px" title="Live Field Staff &amp; Riders Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="mapRiderCount">1</span>)</button>
+      <button class="btn sm" onclick="openStreetView3D(S.sites[0]?.id)" style="padding:4px 10px;font-size:11px;font-weight:800;border-radius:8px;background:linear-gradient(135deg,#18181B,#3F3F46);color:#FDE047;border:1px solid #D9161D;box-shadow:0 3px 10px rgba(0,0,0,0.4)" title="Open 360° Google Road Street View with AdPulse Site Overlay">🛣️ 360° Street View</button>
       <button class="btn sm cy" onclick="openGoogle3DFullscreen()" style="padding:4px 10px;font-size:11px;font-weight:800;border-radius:8px;background:linear-gradient(135deg,#0284C7,#0369A1);color:#fff;border:0;box-shadow:0 3px 10px rgba(2,132,199,0.4)" title="Open Google Photorealistic 3D Maps in Fullscreen">🌍 3D Studio</button>
       <button class="btn sm pri" data-mapfs-btn onclick="toggleFullPageMap(this)" style="padding:4px 10px;font-size:11px;font-weight:800;border-radius:8px;background:linear-gradient(135deg,#D9161D,#F26A21);color:#fff;border:0;box-shadow:0 3px 10px rgba(217,22,29,0.4)" title="Expand Map to Full Screen">⛶ Full Page Map</button>
     </div>
@@ -3973,6 +3977,301 @@ const pill=s=>{
   const k=effStatus(s);
   return`<span class="pill st-${k}">${STATUS[k]}</span>`;
 };
+
+
+/* ============ 360° Google Street View + AdPulse 3D Billboard AR Overlay ============ */
+function openStreetView3D(id) {
+  const allVp = typeof getVendorPreviewSites === "function" ? getVendorPreviewSites() : [];
+  const s = S.sites.find(x => x && x.id === id) || allVp.find(x => x && x.id === id) || S.sites[0];
+  if (!s) return;
+  const lat = isFinite(+s.lat) && +s.lat ? +s.lat : 24.8700;
+  const lng = isFinite(+s.lng) && +s.lng ? +s.lng : 67.1000;
+  const adpulseMark = markSrc();
+  const photoUrl = thumbOf(s);
+  const siteTitle = s.location || s.name || s.title || s.area || "Karachi OOH Site";
+  const svDirectUrl = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${lat},${lng}&heading=220&pitch=8&fov=80`;
+  const earthDirectUrl = `https://earth.google.com/web/search/@${lat},${lng},45a,140d,35y,220h,75t,0r`;
+  const svEmbedUrl = `https://maps.google.com/maps?q=${lat},${lng}&hl=en&z=19&t=k&output=svembed`;
+  const satEmbedUrl = `https://maps.google.com/maps?q=${lat},${lng}&hl=en&z=19&t=h&output=embed`;
+
+  openLayer(`
+    <div class="scrim" data-act="close"></div>
+    <div class="modal gmp-3d-modal" style="width:min(1440px,calc(100vw - 16px));height:min(900px,94vh);display:flex;flex-direction:column;border-radius:18px;overflow:hidden;box-shadow:0 35px 90px rgba(0,0,0,0.88);border:1.5px solid #D9161D;background:#08070C">
+      <!-- Top Bar -->
+      <div class="dh" style="padding:10px 18px;background:linear-gradient(135deg,#1C1A1B,#2D2628);color:#fff;border-bottom:1px solid rgba(255,255,255,0.12);flex-wrap:wrap;gap:10px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <img src="${esc(adpulseMark)}" alt="AdPulse" style="width:36px;height:36px;border-radius:10px;background:#fff;padding:2px;object-fit:contain">
+          <div>
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+              <span style="background:#D9161D;color:#fff;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:800;font-family:var(--mono)">360° STREET &amp; 3D ROAD VIEW</span>
+              <span class="mono" style="color:#FDE047;font-weight:800;font-size:12.5px">S#${esc(String(s.sNo||"—"))} · ${esc(s.code)}</span>
+              <span class="pill ${s.status==='available'?'st-available':'st-booked'}" style="font-size:10.5px;padding:1px 8px">${esc(s.excelAvailability||s.availability||STATUS[effStatus(s)])}</span>
+            </div>
+            <h2 style="font-size:17px;margin:2px 0 0;color:#fff">${esc(siteTitle)} <small style="color:#D4D4D8;font-size:12px;font-weight:600">(${esc(s.from||"—")} → ${esc(s.towards||"—")})</small></h2>
+          </div>
+        </div>
+        <span class="sp"></span>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <div class="seg" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2)">
+            <button type="button" id="btnSvModePano" class="on" onclick="switchSv3DMode('pano',${lat},${lng})" style="color:#fff;font-size:11.5px;padding:5px 10px">🛣️ 360° Street View</button>
+            <button type="button" id="btnSvModeSplit" onclick="switchSv3DMode('split',${lat},${lng})" style="color:#fff;font-size:11.5px;padding:5px 10px">🖼️ Split View (Street + Site Photo)</button>
+            <button type="button" id="btnSvModeSat" onclick="switchSv3DMode('sat',${lat},${lng})" style="color:#fff;font-size:11.5px;padding:5px 10px">🛰️ 3D Satellite Zoom</button>
+          </div>
+          <select class="in" style="height:34px;padding:2px 10px;font-size:12px;background:#18181B;color:#fff;border-color:#3F3F46;max-width:220px;font-weight:700" onchange="if(this.value)openStreetView3D(this.value)">
+            ${S.sites.map(x => `<option value="${esc(x.id)}" ${x.id===s.id?'selected':''}>S#${x.sNo} · ${esc(x.code)} · ${esc((x.location||x.name).substring(0,22))}</option>`).join("")}
+          </select>
+          <a class="btn sm pri" href="${svDirectUrl}" target="_blank" rel="noopener" style="text-decoration:none;font-weight:800;background:linear-gradient(135deg,#D9161D,#F26A21)">🚗 Google Street View ↗</a>
+          <button class="btn sm ghost" data-act="close" style="color:#fff" aria-label="Close">${ICON.x}</button>
+        </div>
+      </div>
+
+      <!-- Main 360 Street View + Live AdPulse Site Overlay Viewport -->
+      <div id="sv3DMainGrid" style="flex:1;display:grid;grid-template-columns:1fr;position:relative;background:#050508;overflow:hidden">
+        <!-- Left/Main: Live Google 360 Street View Iframe -->
+        <div style="position:relative;width:100%;height:100%;overflow:hidden">
+          <iframe id="sv3DIframe" src="${svEmbedUrl}" style="width:100%;height:100%;border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+          <!-- Floating AdPulse 3D Billboard Overlay Card on top of the Street View Road (Draggable / Toggleable) -->
+          <div id="svFloatingBillboardCard" style="position:absolute;top:16px;right:16px;z-index:40;width:335px;max-width:calc(100% - 32px);background:rgba(18,16,17,0.93);backdrop-filter:blur(12px);color:#fff;border:2px solid #D9161D;border-radius:16px;padding:10px;box-shadow:0 20px 50px rgba(0,0,0,0.75);transition:all 0.25s ease">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:8px">
+              <div style="display:flex;align-items:center;gap:6px">
+                <img src="${esc(adpulseMark)}" alt="AdPulse" style="width:20px;height:20px;border-radius:5px;background:#fff;padding:1px;object-fit:contain">
+                <span style="font-weight:800;font-size:11.5px;color:#fff">AdPulse Site on This Road</span>
+              </div>
+              <span class="mono" style="background:#D9161D;color:#fff;padding:2px 7px;border-radius:6px;font-size:10.5px;font-weight:800">${esc(String(s.widthFt||60))}×${esc(String(s.heightFt||20))} FT</span>
+            </div>
+            <!-- Billboard structure mockup frame -->
+            <div style="position:relative;border:3px solid #E4E4E7;border-radius:10px;overflow:hidden;background:#000;box-shadow:0 8px 20px rgba(0,0,0,0.6)">
+              <img src="${esc(photoUrl)}" alt="${esc(siteTitle)}" style="width:100%;height:165px;object-fit:cover;display:block" onerror="phFix(this)">
+              <div style="position:absolute;top:8px;left:8px;background:rgba(18,16,17,0.88);color:#fff;padding:2px 8px;border-radius:6px;font-size:10px;font-weight:800;display:flex;align-items:center;gap:4px;border:1px solid #D9161D">
+                <img src="${esc(adpulseMark)}" alt="" style="width:12px;height:12px;border-radius:50%;background:#fff">
+                <span>AdPulse · S#${esc(String(s.sNo||""))}</span>
+              </div>
+            </div>
+            <!-- Billboard Pillar Stand Graphic -->
+            <div style="display:flex;justify-content:space-around;padding:0 50px;margin-bottom:6px">
+              <div style="width:8px;height:14px;background:linear-gradient(90deg,#52525B,#A1A1AA,#3F3F46)"></div>
+              <div style="width:8px;height:14px;background:linear-gradient(90deg,#52525B,#A1A1AA,#3F3F46)"></div>
+            </div>
+            <div style="font-size:12px;font-weight:800;color:#fff;margin-bottom:2px">${esc(siteTitle)}</div>
+            <div style="font-size:11px;color:#FDE047;font-weight:700;margin-bottom:4px">CLIENT: ${esc(s.client||s.brand||"—")}</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:10.5px;color:#D4D4D8;background:rgba(255,255,255,0.06);padding:6px 8px;border-radius:8px;margin-bottom:8px">
+              <div><b>Medium:</b> ${esc(s.excelMedium||s.media||"Hoarding")}</div>
+              <div><b>SQFT:</b> ${esc(String(s.sqft||((+s.widthFt||0)*(+s.heightFt||0))))}</div>
+              <div><b>Vendor:</b> ${esc(s.vendor||"AdPulse")}</div>
+              <div><b>End Date:</b> <span style="color:#FCA5A5;font-weight:700">${esc(s.vendorEndDate||s.endDate||"—")}</span></div>
+            </div>
+            <div style="display:flex;gap:6px">
+              <button type="button" class="btn sm pri" data-act="siteedit" data-id="${s.id}" style="flex:1;justify-content:center;padding:5px 8px;font-size:11px;font-weight:800">✏️ Edit Site</button>
+              <a class="btn sm cy" href="${earthDirectUrl}" target="_blank" rel="noopener" style="flex:1;justify-content:center;padding:5px 8px;font-size:11px;font-weight:800;text-decoration:none">🌍 3D Earth ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column (Shown in Split Mode): Full High-Res AdPulse Billboard Photo -->
+        <div id="svSplitPhotoPane" style="display:none;background:#0E0C14;border-left:2px solid #D9161D;padding:16px;flex-direction:column;justify-content:center;align-items:center;gap:12px;overflow-y:auto">
+          <div style="display:flex;align-items:center;gap:8px;align-self:flex-start">
+            <img src="${esc(adpulseMark)}" alt="AdPulse" style="width:26px;height:26px;border-radius:6px;background:#fff;padding:2px">
+            <div>
+              <div style="font-weight:800;font-size:14px;color:#fff">AdPulse Actual Site Photo — S#${esc(String(s.sNo||""))} (${esc(s.code)})</div>
+              <small style="color:#A1A1AA">${esc(siteTitle)} · ${esc(String(s.widthFt||60))}×${esc(String(s.heightFt||20))} ft (${esc(String(s.sqft||1200))} SQFT)</small>
+            </div>
+          </div>
+          <img src="${esc(photoUrl)}" alt="${esc(siteTitle)}" style="width:100%;max-height:62vh;object-fit:contain;border-radius:12px;border:2px solid rgba(255,255,255,0.18);box-shadow:0 16px 40px rgba(0,0,0,0.7)" onerror="phFix(this)">
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="dh" style="padding:8px 18px;background:#121016;color:#D4D4D8;border-top:1px solid rgba(255,255,255,0.1);font-size:12px;flex-wrap:wrap;gap:8px">
+        <span>📍 <b>GPS:</b> <span class="mono" style="color:#38BDF8">${lat.toFixed(6)}, ${lng.toFixed(6)}</span> · Drag the 360° road view to look around the flyover/corridor while comparing with the AdPulse site card on the right.</span>
+        <span class="sp"></span>
+        <button type="button" class="btn sm" onclick="const c=document.getElementById('svFloatingBillboardCard');if(c)c.style.display=c.style.display==='none'?'block':'none'" style="background:#27272A;color:#fff;border-color:#3F3F46;font-size:11px">🖼️ Toggle Site Overlay Card</button>
+      </div>
+    </div>
+  `);
+}
+
+function switchSv3DMode(mode, lat, lng) {
+  const ifr = document.getElementById("sv3DIframe");
+  const grid = document.getElementById("sv3DMainGrid");
+  const pane = document.getElementById("svSplitPhotoPane");
+  const card = document.getElementById("svFloatingBillboardCard");
+  ["Pano","Split","Sat"].forEach(k => {
+    const b = document.getElementById("btnSvMode" + k);
+    if (b) b.classList.toggle("on", k.toLowerCase() === mode);
+  });
+  if (mode === "sat") {
+    if (ifr) ifr.src = `https://maps.google.com/maps?q=${lat},${lng}&hl=en&z=19&t=h&output=embed`;
+    if (grid) grid.style.gridTemplateColumns = "1fr";
+    if (pane) pane.style.display = "none";
+    if (card) card.style.display = "block";
+  } else if (mode === "split") {
+    if (ifr) ifr.src = `https://maps.google.com/maps?q=${lat},${lng}&hl=en&z=19&t=k&output=svembed`;
+    if (grid) grid.style.gridTemplateColumns = "1.15fr 0.85fr";
+    if (pane) pane.style.display = "flex";
+    if (card) card.style.display = "none";
+  } else {
+    if (ifr) ifr.src = `https://maps.google.com/maps?q=${lat},${lng}&hl=en&z=19&t=k&output=svembed`;
+    if (grid) grid.style.gridTemplateColumns = "1fr";
+    if (pane) pane.style.display = "none";
+    if (card) card.style.display = "block";
+  }
+}
+
+/* ============ Booked Expire Sites Tab ============ */
+const BEF = { cat: "all", q: "", vendor: "", view: "table" };
+
+function getBookedExpireSites() {
+  return S.sites.filter(s => {
+    const avail = String(s.excelAvailability || s.availability || "").trim();
+    const st = String(s.excelStatus || s.statusLabel || "").trim();
+    const isSubjAvail = /^subject to avail/i.test(avail) && !/WILL BE END|ISSUE/i.test(st);
+    return !isSubjAvail || s.status === "booked";
+  });
+}
+
+function vBookedExpire() {
+  if (!S.loaded.sites) return pgTop("Booked Expire Sites", "Loading booked & expiring sites schedule…") + `<div class="cards">${'<div class="skel"></div>'.repeat(6)}</div>`;
+  const allBooked = getBookedExpireSites();
+  const willEndList = allBooked.filter(s => /WILL BE END/i.test(s.excelStatus || s.statusLabel || ""));
+  const deptIssueList = allBooked.filter(s => /ISSUE/i.test(s.excelStatus || s.statusLabel || ""));
+  const extendableList = allBooked.filter(s => /EXTENDABLE/i.test(s.excelStatus || s.statusLabel || ""));
+
+  const q = (BEF.q || "").toLowerCase().trim();
+  const list = allBooked.filter(s => {
+    const st = String(s.excelStatus || s.statusLabel || "");
+    if (BEF.cat === "will_end" && !/WILL BE END/i.test(st)) return false;
+    if (BEF.cat === "issue" && !/ISSUE/i.test(st)) return false;
+    if (BEF.cat === "extendable" && !/EXTENDABLE/i.test(st)) return false;
+    if (BEF.vendor && s.vendor !== BEF.vendor) return false;
+    if (q && ![s.sNo, s.code, s.client, s.brand, s.location, s.name, s.vendor, s.vendorEndDate, s.startDate, s.endDate, s.excelAvailability, s.availability, st].join(" ").toLowerCase().includes(q)) return false;
+    return true;
+  }).sort((a, b) => (a.sNo || 999) - (b.sNo || 999));
+
+  const vendors = [...new Set(allBooked.map(s => s.vendor).filter(Boolean))].sort();
+
+  const kpiHtml = `
+    <div class="kpis enter" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-bottom:16px">
+      <div class="card kpi clickable" onclick="BEF.cat='all';render(true)" style="--c:#D9161D;cursor:pointer;${BEF.cat==='all'?'outline:2.5px solid #D9161D':''}">
+        <div class="ic" style="background:#D9161D">${ICON.expire}</div>
+        <div class="n" data-count="${allBooked.length}">${allBooked.length}</div>
+        <small style="font-weight:700">All Booked &amp; Expiry Sites</small>
+      </div>
+      <div class="card kpi clickable" onclick="BEF.cat='will_end';render(true)" style="--c:var(--orange);cursor:pointer;${BEF.cat==='will_end'?'outline:2.5px solid var(--orange)':''}">
+        <div class="ic" style="background:var(--orange)">${ICON.warn}</div>
+        <div class="n" data-count="${willEndList.length}">${willEndList.length}</div>
+        <small style="font-weight:700">Will Be End (Expiring)</small>
+      </div>
+      <div class="card kpi clickable" onclick="BEF.cat='extendable';render(true)" style="--c:var(--ok);cursor:pointer;${BEF.cat==='extendable'?'outline:2.5px solid var(--ok)':''}">
+        <div class="ic" style="background:var(--ok)">${ICON.booked}</div>
+        <div class="n" data-count="${extendableList.length}">${extendableList.length}</div>
+        <small style="font-weight:700">Extendable Bookings</small>
+      </div>
+      <div class="card kpi clickable" onclick="BEF.cat='issue';render(true)" style="--c:var(--bad);cursor:pointer;${BEF.cat==='issue'?'outline:2.5px solid var(--bad)':''}">
+        <div class="ic" style="background:var(--bad)">${ICON.warn}</div>
+        <div class="n" data-count="${deptIssueList.length}">${deptIssueList.length}</div>
+        <small style="font-weight:700">Dept Issue / Hold</small>
+      </div>
+    </div>
+  `;
+
+  const filterHtml = `
+    <div class="filters" style="margin-bottom:16px">
+      <input class="in" id="befSearch" style="max-width:240px;min-height:42px;padding:8px 12px;font-size:13.5px" placeholder="Search client, location, expiry date…" value="${esc(BEF.q)}" oninput="BEF.q=this.value;render();const el=document.getElementById('befSearch');if(el){el.focus();el.setSelectionRange(el.value.length,el.value.length);}">
+      <select class="in" style="max-width:210px;min-height:42px;font-weight:700" onchange="BEF.cat=this.value;render(true)">
+        <option value="all" ${BEF.cat==='all'?'selected':''}>All Booked / Expiry (${allBooked.length})</option>
+        <option value="will_end" ${BEF.cat==='will_end'?'selected':''}>🔴 Will Be End (${willEndList.length})</option>
+        <option value="extendable" ${BEF.cat==='extendable'?'selected':''}>🟢 Extendable (${extendableList.length})</option>
+        <option value="issue" ${BEF.cat==='issue'?'selected':''}>⚠️ Dept Issue (${deptIssueList.length})</option>
+      </select>
+      <select class="in" style="max-width:210px;min-height:42px" onchange="BEF.vendor=this.value;render(true)">
+        <option value="">All Vendors (${vendors.length})</option>
+        ${opt(vendors, BEF.vendor)}
+      </select>
+      ${(BEF.cat !== 'all' || BEF.q || BEF.vendor) ? `<button class="btn sm ghost" onclick="BEF.cat='all';BEF.q='';BEF.vendor='';render(true)">Clear Filters</button>` : ""}
+      <span class="sp"></span>
+      <div class="seg" role="tablist">
+        <button class="${BEF.view==='table'?'on':''}" onclick="BEF.view='table';render(true)">📅 Expiry Schedule Table</button>
+        <button class="${BEF.view==='cards'?'on':''}" onclick="BEF.view='cards';render(true)">🏙️ Site Cards</button>
+        <button class="${BEF.view==='map'?'on':''}" onclick="BEF.view='map';render(true)">🗺️ Expiry Map</button>
+      </div>
+    </div>
+  `;
+
+  let bodyHtml = "";
+  if (!list.length) {
+    bodyHtml = `<div class="card">${emptyState("No booked/expiring sites match these filters", "Try selecting All Booked / Expiry.")}</div>`;
+  } else if (BEF.view === "map") {
+    bodyHtml = `<div class="card pad">${mapHTML(list)}</div>`;
+  } else if (BEF.view === "cards") {
+    bodyHtml = `<div class="cards enter">${list.map(card).join("")}</div>`;
+  } else {
+    bodyHtml = `
+      <div class="tblwrap card" style="padding:0;overflow-x:auto;border:1.5px solid #1C1A1B;border-radius:10px">
+        <div style="background:#1C1A1B;color:#FFFFFF;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;font-weight:800;font-size:14px">
+          <span>📅 BOOKED &amp; EXPIRING SITES SCHEDULE (${list.length} SITES) · <small style="color:#FDE047;font-weight:700">✏️ Click any cell to edit expiry date or status directly</small></span>
+          <span style="background:#D9161D;color:#fff;padding:3px 10px;border-radius:6px;font-size:12px;font-family:var(--mono)">SHOWING: ${list.length} SITES</span>
+        </div>
+        <table class="t" style="border-collapse:collapse;width:100%;font-size:12px">
+          <thead>
+            <tr style="background:#D9161D;color:#FFFFFF;text-transform:uppercase;font-weight:800;font-size:11.5px">
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:44px">S#</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:left;min-width:185px">CLIENT</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;min-width:110px">MEDIUM</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:left;min-width:205px">LOCATION</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 6px;text-align:center;width:46px">W</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 6px;text-align:center;width:46px">H</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:62px">SQFT</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:85px">Start Date</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:85px">End Date</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:center;min-width:130px">Availibilty / Expiry</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:center;min-width:145px">EXPIRY STATUS</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 6px;text-align:center;width:48px">Day</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:center;min-width:140px">VENDOR</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:center;min-width:135px">VENDOR ENDING DATE</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:110px">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${list.map((s, idx) => {
+              const sNum = s.sNo || (idx + 1);
+              const med = (s.excelMedium || s.medium || s.media || "HOARDING").toUpperCase();
+              const loc = s.location || s.name || s.title || s.area || "—";
+              const sqftVal = s.excelSqft || s.sqft || ((+s.widthFt||0)*(+s.heightFt||0)) || "";
+              const availVal = s.excelAvailability || s.availability || "";
+              const stVal = s.excelStatus !== undefined ? s.excelStatus : (s.statusLabel || "");
+              const isWillEnd = /WILL BE END/i.test(stVal);
+              const isIssue = /ISSUE/i.test(stVal);
+              return `<tr style="background:${isWillEnd ? '#FFF7ED' : (idx%2===0?'#FFFFFF':'#FAFAFA')}">
+                <td class="mono" contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:sNo" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:800;color:#1C1A1B;cursor:text">${esc(String(sNum))}</td>
+                <td contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:client" style="border:1px solid #D4D4D8;padding:7px 10px;font-weight:700;color:#1C1A1B;cursor:text">${esc(s.client||s.brand||"—")}</td>
+                <td contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:medium" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:700;color:#3F3A3C;cursor:text">${esc(med)}</td>
+                <td style="border:1px solid #D4D4D8;padding:7px 10px;font-weight:700;color:#1C1A1B"><div class="row" style="flex-wrap:nowrap;gap:8px"><img src="${esc(thumbOf(s))}" alt="" data-act="site" data-id="${s.id}" style="width:30px;height:24px;border-radius:4px;object-fit:cover;flex:none;cursor:pointer"><span contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:location" style="flex:1;cursor:text">${esc(loc)}</span></div></td>
+                <td class="mono" contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:w" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center;font-weight:700;cursor:text">${esc(String(s.widthFt||s.width||""))}</td>
+                <td class="mono" contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:h" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center;font-weight:700;cursor:text">${esc(String(s.heightFt||s.height||""))}</td>
+                <td class="mono" contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:sqft" data-cell-sqft="${s.id}" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:800;color:#D9161D;cursor:text">${esc(String(sqftVal))}</td>
+                <td class="mono" contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:startDate" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:700;color:#1C1A1B;cursor:text">${esc(s.startDate||s.bookedFrom||"01-Nov-26")}</td>
+                <td class="mono" contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:endDate" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:800;color:#D9161D;cursor:text">${esc(s.endDate||"30-Nov-26")}</td>
+                <td contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:avail" style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:800;color:#1C1A1B;cursor:text">${esc(availVal)}</td>
+                <td contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:status" style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:800;color:${isIssue?'#D9161D':isWillEnd?'#EA580C':'#059669'};cursor:text">${esc(stVal||"BOOKED")}</td>
+                <td class="mono" contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:day" data-cell-day="${s.id}" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center;font-weight:800;color:#D9161D;cursor:text">${esc(s.day||"30")}</td>
+                <td contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:vendor" style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:700;color:#1C1A1B;cursor:text">${esc(s.vendor||"")}</td>
+                <td class="mono" contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:vendorEnd" style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:800;color:#D9161D;cursor:text;white-space:nowrap">${esc(s.vendorEndDate||"")}</td>
+                <td style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center"><div class="row" style="gap:4px;justify-content:center;flex-wrap:nowrap"><button class="btn sm" onclick="openStreetView3D('${s.id}')" style="padding:4px 7px;font-size:10.5px;font-weight:800;background:#18181B;color:#fff" title="360 Street View & Site">🛣️ 360°</button><button class="btn sm pri" data-act="siteedit" data-id="${s.id}" style="padding:4px 8px;font-size:10.5px;font-weight:700">✏️ Edit</button></div></td>
+              </tr>`;
+            }).join("")}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  return pgTop(
+    "Booked Expire Sites",
+    `${allBooked.length} Active Booked & Expiring OOH Sites · Track Campaign End Dates, Vendor Expiry & Renewal Status`,
+    `<div class="row" style="gap:8px;flex-wrap:wrap"><button class="btn" onclick="location.hash='sites';go('sites',true)" style="font-weight:700">🏙️ OOH AdPulse Sites (84)</button><button class="btn pri" onclick="Studio.open({type:'selection',ids:getBookedExpireSites().map(s=>s.id)},'Booked & Expiring Sites Portfolio (2026)')" style="font-weight:800">${ICON.deck} Export Expiry Deck (${list.length} Sites)</button></div>`
+  ) + kpiHtml + filterHtml + bodyHtml;
+}
 
 /* ============ Sites ============ */
 function filtered(){
@@ -4056,7 +4355,7 @@ function applyInlineTableEdit(siteId, field, rawVal){
 }
 function opt(list,v,lab){return list.map(o=>{const[val,l]=Array.isArray(o)?o:[o,o];return`<option value="${esc(val)}" ${val===v?"selected":""}>${esc(l)}</option>`}).join("")}
 function vSites(){
-  if(!S.loaded.sites)return pgTop("Sites","Loading…")+`<div class="cards">${'<div class="skel"></div>'.repeat(6)}</div>`;
+  if(!S.loaded.sites)return pgTop("OOH AdPulse Sites","Loading…")+`<div class="cards">${'<div class="skel"></div>'.repeat(6)}</div>`;
   const list=filtered();const sizes=[...new Set([...SIZES,...S.sites.map(sizeOf)])];const allAreas=[...new Set([...Object.keys(AREAS),...S.sites.map(s=>s.area).filter(Boolean)])].sort();
   const nf=Object.entries(F).filter(([k,v])=>k!=="q"&&v).length;
   const f=(k,lab,opts)=>`<select data-f="${k}" class="${F[k]?"set":""}" aria-label="${lab}"><option value="">${lab}: all</option>${opt(opts,F[k])}</select>`;
@@ -4166,7 +4465,7 @@ function vSites(){
     <button class="btn pri" data-act="newsite">${ICON.plus}Add site</button>
     
   </div>`;
-  return pgTop("Sites",`${list.length} of ${S.sites.length} sites`,siteTopBtns)+filt+body+bulk;
+  return pgTop("OOH AdPulse Sites",`${list.length} of ${S.sites.length} AdPulse OOH sites`,siteTopBtns)+filt+body+bulk;
 }
 function card(s){
   const n=(s.photos||[]).length;
@@ -5470,7 +5769,7 @@ function getVendorPreviewSites() {
   const raw = window.VENDOR_PREVIEW_SITES_2026 || [];
   if (!raw.length && !_vpFetching) {
     _vpFetching = true;
-    fetch("/vendor_preview_2026.json?v=45.0").then(r => r.json()).then(data => {
+    fetch("/vendor_preview_2026.json?v=46.0").then(r => r.json()).then(data => {
       if (Array.isArray(data) && data.length) {
         window.VENDOR_PREVIEW_SITES_2026 = data;
         render(true);
@@ -5484,7 +5783,7 @@ function getVendorPreviewSites() {
   return combined.map(s => {
     const ed = savedEdits[s.id];
     const merged = ed ? { ...s, ...ed } : s;
-    const pUrl = merged.photo ? (merged.photo.startsWith("data:") || merged.photo.includes("?") ? merged.photo : merged.photo + "?v=45.0") : "";
+    const pUrl = merged.photo ? (merged.photo.startsWith("data:") || merged.photo.includes("?") ? merged.photo : merged.photo + "?v=46.0") : "";
     return {
       ...merged,
       photo: pUrl,
@@ -7331,7 +7630,7 @@ document.addEventListener("submit",async e=>{if(e.target.id!=="reqForm")return;e
 function vSettings(){const s=S.settings;const hasSample=S.sites.some(x=>x.sample)||S.campaigns.some(x=>x.sample);
   return pgTop("Settings","Branding for watermarks and presentations")+`<div class="grid" style="max-width:720px">
   <div class="card pad grid" style="gap:14px">
-  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v11.5 PWA Ready</span></div>
+  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v11.6 PWA Ready</span></div>
   <p style="margin:0;color:var(--muted);font-size:13px">Install AdPulse OTS on iPhone, iPad, Android or PC for fast offline access, full-screen Google 3D maps, and 1-tap camera upload with GPS.</p>
   <div class="row" style="gap:10px;flex-wrap:wrap">
     <button class="btn pri" data-act="installios" style="flex:1;min-width:180px;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>Install on iPhone / iPad (iOS)</button>
@@ -7516,7 +7815,7 @@ function showMobileUpdateBanner(){
   const b = document.createElement('div');
   b.id = 'mobileUpdateBanner';
   b.style.cssText = 'position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:9999;background:linear-gradient(135deg,#0c0917,#1b1238);color:#fff;padding:8px 16px;border-radius:9999px;box-shadow:0 8px 24px rgba(0,0,0,0.5);border:1px solid #38bdf8;display:flex;align-items:center;gap:10px;font-size:12.5px;max-width:calc(100% - 24px);';
-  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v11.5)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
+  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v11.6)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
   document.body.appendChild(b);
 }
 
@@ -7535,7 +7834,7 @@ function openInstallModal(forceType){
                 <h2 style="font-size:18px;margin:0">AdPulse OTS App</h2>
                 <span class="pill st-available" style="font-size:10px;padding:2px 8px">🟢 Running as App</span>
               </div>
-              <div style="font-size:12px;color:var(--muted);margin-top:2px">v11.5 (Android &amp; iOS Standalone)</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px">v11.6 (Android &amp; iOS Standalone)</div>
             </div>
             <span class="sp"></span>
             <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
@@ -7621,7 +7920,7 @@ function openInstallModal(forceType){
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
           <img src="/icons/icon-192.png" alt="AdPulse OTS" style="width:48px;height:48px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.2)">
           <div>
-            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v11.5)</h2>
+            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v11.6)</h2>
             <div style="font-size:12px;color:var(--muted)">Google 3D Maps &amp; 97 Verified Media Sites</div>
           </div>
           <span class="sp"></span>
@@ -8242,6 +8541,7 @@ savedeck:async()=>{const c=Studio.cfg;c.version=(c.version||0)+1;try{await put("
  kpimaster:()=>openMasterDeck("all"),
  kpiavail:()=>openMasterDeck("available"),
  kpibooked:()=>openMasterDeck("booked"),
+ kpiexpire:()=>{location.hash="booked-expire";go("booked-expire",true)},
  kpicamps:()=>{location.hash="campaigns";go("campaigns")},
  sync2026:()=>sync2026MasterData(true),
  kpivendors:()=>{location.hash="vendors";go("vendors")},
@@ -8354,7 +8654,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=45.0").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=46.0").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
@@ -8371,7 +8671,7 @@ if("serviceWorker" in navigator){
           });
         }
       });
-      console.log("AdPulse OTS PWA active (v11.5):",r.scope);
+      console.log("AdPulse OTS PWA active (v11.6):",r.scope);
     }).catch(err=>{
       console.warn("PWA ServiceWorker registration failed:",err);
     });
