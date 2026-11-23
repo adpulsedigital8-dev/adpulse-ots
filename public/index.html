@@ -1342,8 +1342,8 @@ body.client .tabs{display:none}
 <script src="/claude-shim.js?v=3.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="/master_sites_2026.js?v=37.0"></script>
-  <script src="/vendor_preview_2026.js?v=37.0"></script>
+  <script src="/master_sites_2026.js?v=38.0"></script>
+  <script src="/vendor_preview_2026.js?v=38.0"></script>
 </head>
 <body>
 
@@ -1781,7 +1781,7 @@ function go(r,silent){
 }
 window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
 
-function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v10.7</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
+function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v10.8</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
 
 let lastRoute=null;
 function render(anim){
@@ -5325,7 +5325,7 @@ function getVendorPreviewSites() {
   const raw = window.VENDOR_PREVIEW_SITES_2026 || [];
   if (!raw.length && !_vpFetching) {
     _vpFetching = true;
-    fetch("/vendor_preview_2026.json?v=37.0").then(r => r.json()).then(data => {
+    fetch("/vendor_preview_2026.json?v=38.0").then(r => r.json()).then(data => {
       if (Array.isArray(data) && data.length) {
         window.VENDOR_PREVIEW_SITES_2026 = data;
         render(true);
@@ -5336,7 +5336,7 @@ function getVendorPreviewSites() {
   return raw.map(s => {
     const ed = savedEdits[s.id];
     const merged = ed ? { ...s, ...ed } : s;
-    const pUrl = merged.photo ? (merged.photo.includes("?") ? merged.photo : merged.photo + "?v=37.0") : "";
+    const pUrl = merged.photo ? (merged.photo.includes("?") ? merged.photo : merged.photo + "?v=38.0") : "";
     return {
       ...merged,
       photo: pUrl,
@@ -5374,7 +5374,7 @@ function openVendorPreviewDeck(vendorName) {
   if (!list.length) { toast("No sites found for this vendor"); return; }
   const src = { type: "ids", ids: list.map(s => s.id) };
   Studio.cfg = Studio.fresh(src);
-  Studio.cfg.title = vendorName ? `${vendorName} — Sites Preview (2026)` : "All 11 Vendors Sites Preview Portfolio (2026)";
+  Studio.cfg.title = vendorName ? `${vendorName} — Sites Preview (2026)` : "All 44 Vendors Sites Preview Portfolio (2026)";
   Studio.cfg.subtitle = `Extracted from Vendor PPT Presentation · ${list.length} OOH & Digital Sites`;
   Studio.cfg.sitesData = list;
   Studio.cfg.slides = list.map(s => ({
@@ -5391,7 +5391,7 @@ function openVendorPreviewDeck(vendorName) {
   Studio.active = true;
   location.hash = "studio";
   go("studio", true);
-  toast(`Opening presentation for ${vendorName || "All 11 Vendors"} (${list.length} sites)…`);
+  toast(`Opening presentation for ${vendorName || "All 44 Vendors"} (${list.length} sites)…`);
 }
 
 function openVendorPreviewSite(id) {
@@ -5472,7 +5472,7 @@ function openVendorPreviewSite(id) {
 function vVendorsPreview() {
   const all = getVendorPreviewSites();
   if (!all.length) {
-    return pgTop("Vendors Sites Preview", "Loading 11 Vendor PPT Presentations…") + `<div class="cards">${'<div class="skel"></div>'.repeat(6)}</div>`;
+    return pgTop("Vendors Sites Preview", "Loading 44 Vendor PPT & PDF Presentations…") + `<div class="cards">${'<div class="skel"></div>'.repeat(6)}</div>`;
   }
 
   // Group by the 11 vendors in order
@@ -5522,10 +5522,10 @@ function vVendorsPreview() {
     <div class="card pad" style="margin-bottom:16px;border:1px solid var(--border)">
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:10px">
         <div style="font-weight:800;font-size:13.5px;color:var(--ink)">📁 Select Vendor PPT Deck (11 Vendor Presentations · ${all.length} Sites):</div>
-        ${VPF.vendor ? `<button class="btn sm ghost" data-act="vpfiltervendor" data-vendor="" style="color:#D9161D;font-weight:700">✕ Show All 11 Vendors</button>` : ""}
+        ${VPF.vendor ? `<button class="btn sm ghost" data-act="vpfiltervendor" data-vendor="" style="color:#D9161D;font-weight:700">✕ Show All 44 Vendors</button>` : ""}
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:7px">
-        <button class="btn sm ${!VPF.vendor ? 'pri' : ''}" data-act="vpfiltervendor" data-vendor="" style="font-weight:800;border-radius:20px">All 11 Vendors (${all.length})</button>
+        <button class="btn sm ${!VPF.vendor ? 'pri' : ''}" data-act="vpfiltervendor" data-vendor="" style="font-weight:800;border-radius:20px">All 44 Vendors (${all.length})</button>
         ${vendorGroups.map(vg => `
           <button class="btn sm ${VPF.vendor === vg.name ? 'pri' : ''}" data-act="vpfiltervendor" data-vendor="${esc(vg.name)}" style="font-weight:700;border-radius:20px">
             ${esc(vg.name)} <span class="mono" style="opacity:0.85;margin-left:4px">(${vg.total})</span>
@@ -5537,8 +5537,12 @@ function vVendorsPreview() {
 
   const filterBar = `
     <div class="filters" style="margin-bottom:16px">
-      <input class="in" id="vpSearch" style="max-width:260px;min-height:42px;padding:8px 12px;font-size:13.5px" placeholder="Search location, road, rate, size…" value="${esc(VPF.q)}">
-      <select class="in" id="vpMediaSel" style="max-width:200px;min-height:42px">
+      <input class="in" id="vpSearch" style="max-width:240px;min-height:42px;padding:8px 12px;font-size:13.5px" placeholder="Search vendor, location, rate, size…" value="${esc(VPF.q)}">
+      <select class="in" id="vpVendorSel" style="max-width:240px;min-height:42px;font-weight:700">
+        <option value="">All 44 Vendors (${all.length} Sites)</option>
+        ${vendorGroups.map(vg => `<option value="${esc(vg.name)}" ${VPF.vendor === vg.name ? 'selected' : ''}>${esc(vg.name)} (${vg.total})</option>`).join("")}
+      </select>
+      <select class="in" id="vpMediaSel" style="max-width:190px;min-height:42px">
         <option value="">All Media Types (${mediaTypes.length})</option>
         ${opt(mediaTypes, VPF.media)}
       </select>
@@ -5557,7 +5561,7 @@ function vVendorsPreview() {
 
   let contentHtml = "";
   if (!activeGroups.length) {
-    contentHtml = `<div class="card">${emptyState("No vendor sites match these filters", "Try clearing the search or selecting All 11 Vendors.")}</div>`;
+    contentHtml = `<div class="card">${emptyState("No vendor sites match these filters", "Try clearing the search or selecting All 44 Vendors.")}</div>`;
   } else if (VPF.view === "table") {
     contentHtml = activeGroups.map(vg => `
       <div class="tblwrap card" style="padding:0;overflow-x:auto;border:1.5px solid #1C1A1B;border-radius:12px;margin-bottom:24px">
@@ -5662,7 +5666,7 @@ function vVendorsPreview() {
 
   return pgTop(
     "Vendors Sites Preview",
-    `11 Vendor PPT Presentations · ${all.length} Extracted OOH & Digital Sites Ordered Vendor-Wise`,
+    `44 Vendor PPT & PDF Presentations · ${all.length} Extracted OOH & Digital Sites Ordered Vendor-Wise`,
     `<div class="row" style="gap:8px"><button class="btn" onclick="location.hash='vendors';go('vendors',true)" style="font-weight:700">📋 Vendor Booked Site (84)</button><button class="btn pri" data-act="vpdeck" data-vendor="${esc(VPF.vendor)}" style="font-weight:800">${ICON.deck} Presentation (${filteredSites.length} Sites)</button></div>`
   ) + `
     <div class="kpis enter" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-bottom:18px">
@@ -5729,7 +5733,7 @@ function vVendors() {
   const totalAvail = S.sites.filter(s => effStatus(s) === "available").length;
   const totalBooked = S.sites.filter(s => ["booked", "expiring"].includes(effStatus(s))).length;
 
-  return pgTop("Vendor Booked Site", "84 Master Booked & Active OOH Inventory by Media Vendor", `<div class="row" style="gap:8px"><button class="btn" onclick="location.hash='vendors-preview';go('vendors-preview',true)" style="font-weight:700">🖼️ Vendors Sites Preview (11 PPTs)</button><button class="btn pri" data-act="mastervendordeck">${ICON.deck} Master Deck (All Vendors)</button></div>`) +
+  return pgTop("Vendor Booked Site", "84 Master Booked & Active OOH Inventory by Media Vendor", `<div class="row" style="gap:8px"><button class="btn" onclick="location.hash='vendors-preview';go('vendors-preview',true)" style="font-weight:700">🖼️ Vendors Sites Preview (44 Decks)</button><button class="btn pri" data-act="mastervendordeck">${ICON.deck} Master Deck (All Vendors)</button></div>`) +
   `
   <div class="kpis enter" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-bottom:20px">
     <div class="card kpi" style="--c:var(--teal)">
@@ -6982,7 +6986,7 @@ document.addEventListener("submit",async e=>{if(e.target.id!=="reqForm")return;e
 function vSettings(){const s=S.settings;const hasSample=S.sites.some(x=>x.sample)||S.campaigns.some(x=>x.sample);
   return pgTop("Settings","Branding for watermarks and presentations")+`<div class="grid" style="max-width:720px">
   <div class="card pad grid" style="gap:14px">
-  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v10.7 PWA Ready</span></div>
+  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v10.8 PWA Ready</span></div>
   <p style="margin:0;color:var(--muted);font-size:13px">Install AdPulse OTS on iPhone, iPad, Android or PC for fast offline access, full-screen Google 3D maps, and 1-tap camera upload with GPS.</p>
   <div class="row" style="gap:10px;flex-wrap:wrap">
     <button class="btn pri" data-act="installios" style="flex:1;min-width:180px;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>Install on iPhone / iPad (iOS)</button>
@@ -7167,7 +7171,7 @@ function showMobileUpdateBanner(){
   const b = document.createElement('div');
   b.id = 'mobileUpdateBanner';
   b.style.cssText = 'position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:9999;background:linear-gradient(135deg,#0c0917,#1b1238);color:#fff;padding:8px 16px;border-radius:9999px;box-shadow:0 8px 24px rgba(0,0,0,0.5);border:1px solid #38bdf8;display:flex;align-items:center;gap:10px;font-size:12.5px;max-width:calc(100% - 24px);';
-  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v10.7)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
+  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v10.8)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
   document.body.appendChild(b);
 }
 
@@ -7186,7 +7190,7 @@ function openInstallModal(forceType){
                 <h2 style="font-size:18px;margin:0">AdPulse OTS App</h2>
                 <span class="pill st-available" style="font-size:10px;padding:2px 8px">🟢 Running as App</span>
               </div>
-              <div style="font-size:12px;color:var(--muted);margin-top:2px">v10.7 (Android &amp; iOS Standalone)</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px">v10.8 (Android &amp; iOS Standalone)</div>
             </div>
             <span class="sp"></span>
             <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
@@ -7272,7 +7276,7 @@ function openInstallModal(forceType){
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
           <img src="/icons/icon-192.png" alt="AdPulse OTS" style="width:48px;height:48px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.2)">
           <div>
-            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v10.7)</h2>
+            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v10.8)</h2>
             <div style="font-size:12px;color:var(--muted)">Google 3D Maps &amp; 97 Verified Media Sites</div>
           </div>
           <span class="sp"></span>
@@ -7948,6 +7952,7 @@ document.addEventListener("input",e=>{
   if(t&&t.id==="vpSearch"){VPF.q=t.value;render();const el=$("#vpSearch");if(el){el.focus();el.setSelectionRange(el.value.length,el.value.length);}}
 });
 document.addEventListener("change",e=>{const t=e.target;
+ if(t.id==="vpVendorSel"){VPF.vendor=t.value;render(true)}
  if(t.id==="vpMediaSel"){VPF.media=t.value;render(true)}
  if(t.id==="vpStatusSel"){VPF.status=t.value;render(true)}
  if(t.dataset.act==="setrole"){ACT.setrole(t)}
@@ -7993,7 +7998,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=37.0").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=38.0").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
@@ -8010,7 +8015,7 @@ if("serviceWorker" in navigator){
           });
         }
       });
-      console.log("AdPulse OTS PWA active (v10.7):",r.scope);
+      console.log("AdPulse OTS PWA active (v10.8):",r.scope);
     }).catch(err=>{
       console.warn("PWA ServiceWorker registration failed:",err);
     });
