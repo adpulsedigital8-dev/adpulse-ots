@@ -36,6 +36,77 @@ body.guest-presentation .main {
 }
 
 
+
+/* ============ AdPulse Branded Map Pins & Full-Page Map Mode ============ */
+.mapwrap.map-fullscreen-active {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  z-index: 9990 !important;
+  border-radius: 0 !important;
+  border: 0 !important;
+}
+.adpulse-pin-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.55));
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.adpulse-pin-wrap:hover {
+  transform: scale(1.18) translateY(-3px);
+  z-index: 999 !important;
+}
+.adpulse-pin-tag {
+  background: rgba(18, 16, 17, 0.94);
+  color: #ffffff;
+  border: 1.5px solid #D9161D;
+  border-radius: 999px;
+  padding: 1px 6px 1px 3px;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-bottom: 2px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.45);
+  font-family: var(--body);
+}
+.adpulse-pin-tag img {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+  display: block;
+}
+.adpulse-pin-body {
+  width: 28px;
+  height: 28px;
+  border: 2.2px solid #ffffff;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.25);
+}
+.adpulse-pin-body img {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  transform: rotate(45deg);
+  object-fit: cover;
+  background: #ffffff;
+  padding: 1px;
+  display: block;
+}
+
 /* ============ Immersive 3D Navigation Styles ============ */
 .mapwrap {
   perspective: 1400px;
@@ -1342,9 +1413,9 @@ body.client .tabs{display:none}
 <script src="/claude-shim.js?v=3.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="/master_sites_2026.js?v=44.0"></script>
-  <script src="/master_campaigns_2026.js?v=44.0"></script>
-  <script src="/vendor_preview_2026.js?v=44.0"></script>
+  <script src="/master_sites_2026.js?v=45.0"></script>
+  <script src="/master_campaigns_2026.js?v=45.0"></script>
+  <script src="/vendor_preview_2026.js?v=45.0"></script>
 </head>
 <body>
 
@@ -1816,7 +1887,7 @@ function go(r,silent){
 }
 window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
 
-function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v11.4</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
+function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v11.5</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
 
 let lastRoute=null;
 function render(anim){
@@ -1879,7 +1950,7 @@ function vDash(){
   const alerts=[exp.length?`<div class="alert">${ICON.warn}<span><b>${exp.length}</b> booking${exp.length>1?"s":""} expire within 14 days: ${exp.slice(0,3).map(s=>`<span class="mono">${esc(s.code)}</span>`).join(", ")}${exp.length>3?"…":""}</span></div>`:"",stale.length?`<div class="alert b">${ICON.warn}<span><b>${stale.length}</b> site${stale.length>1?"s have":" has"} no photo in the last 30 days</span></div>`:""].join("");
   return pgTop("Dashboard",new Date().toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"})+" · Karachi",`<a class="btn pri" href="#capture">${ICON.cam}Capture</a>`)+kp+
   `<div class="dash enter">
-    <div class="card pad" style="grid-column:1/-1"><div class="sec-h"><h2>Site map</h2><span class="sp"></span><div class="legend"><span style="--c:var(--ok)">Available</span><span style="--c:var(--bad)">Booked</span><span style="--c:var(--orange)">Expiring</span><span style="--c:var(--warn)">Maint.</span></div></div>${mapHTML(S.sites)}</div>
+    <div class="card pad" style="grid-column:1/-1;padding:14px"><div class="sec-h" style="margin-bottom:10px;flex-wrap:wrap;gap:10px"><div style="display:flex;align-items:center;gap:10px"><img src="${esc(markSrc())}" alt="AdPulse" style="width:32px;height:32px;border-radius:8px;background:#fff;padding:2px;box-shadow:0 2px 8px rgba(0,0,0,0.12);object-fit:contain"><div><h2 style="margin:0;font-size:19px">AdPulse OOH Site Map — All ${S.sites.length} Karachi Sites Pinned</h2><small style="color:var(--muted);font-weight:600">Tap any AdPulse pin to inspect site photo, client, availability &amp; 3D satellite zoom</small></div></div><span class="sp"></span><div class="legend"><span style="--c:var(--ok)">Available</span><span style="--c:var(--bad)">Booked</span><span style="--c:var(--orange)">Expiring</span><span style="--c:var(--warn)">Maint.</span></div><button class="btn sm pri" data-mapfs-btn onclick="toggleFullPageMap(this)" style="font-weight:800;background:linear-gradient(135deg,#D9161D,#F26A21)">⛶ Full Page Map</button></div>${mapHTML(S.sites)}</div>
     ${alerts?`<div style="grid-column:1/-1;display:grid;gap:10px">${alerts}</div>`:""}
     <div class="card pad"><div class="sec-h"><h2>Availability by area</h2></div><div class="bars">${bars}</div></div>
     <div class="card pad"><div class="sec-h"><h2>Sizes in inventory</h2></div>${donut}</div>
@@ -3600,6 +3671,24 @@ function resetMapZoom(){
   _leafletMap.flyToBounds(group.getBounds().pad(0.15), { duration: 0.8 });
 }
 
+
+function toggleFullPageMap(btn) {
+  const wrap = document.querySelector(".mapwrap");
+  if (!wrap) return;
+  const isFull = wrap.classList.toggle("map-fullscreen-active");
+  document.body.style.overflow = isFull ? "hidden" : "";
+  const allBtns = document.querySelectorAll("[data-mapfs-btn]");
+  allBtns.forEach(b => {
+    b.innerHTML = isFull ? "✕ Exit Full Page Map" : "⛶ Full Page Map";
+  });
+  setTimeout(() => {
+    if (_leafletMap) _leafletMap.invalidateSize();
+  }, 150);
+  setTimeout(() => {
+    if (_leafletMap) _leafletMap.invalidateSize();
+  }, 400);
+}
+
 function mountLeafletMap(list){
   const el = document.getElementById("leafletMap");
   if(!el || typeof L === "undefined") return;
@@ -3609,7 +3698,7 @@ function mountLeafletMap(list){
   }
   _mapMarkerList = [];
 
-  const map = L.map(el, { maxZoom: 22, scrollWheelZoom: false, attributionControl: false });
+  const map = L.map(el, { maxZoom: 22, scrollWheelZoom: true, attributionControl: false });
   _leafletMap = map;
 
   const googleHybrid = L.tileLayer('https://mt{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
@@ -3664,30 +3753,44 @@ function mountLeafletMap(list){
   const valid = (list || []).filter(s => s && s.lat && s.lng && isFinite(+s.lat) && isFinite(+s.lng));
   const markers = [];
 
+  const adpulseMark = markSrc();
   valid.forEach(s => {
     const st = effStatus(s);
-    const c = col[st] || "#7C3AED";
+    const c = col[st] || "#D9161D";
+    const sLabel = s.sNo ? `S#${s.sNo}` : (s.code || "");
     const icon = L.divIcon({
       className: "custom-map-pin",
-      html: `<div style="width:24px;height:24px;background:${c};border:2px solid #fff;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 3px 6px rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center"><div style="width:7px;height:7px;background:#fff;border-radius:50%"></div></div>`,
-      iconSize: [24, 24],
-      iconAnchor: [12, 24],
-      popupAnchor: [0, -24]
+      html: `<div class="adpulse-pin-wrap" title="AdPulse · ${esc(sLabel)} · ${esc(s.name || s.location || s.area)}">
+        <div class="adpulse-pin-tag"><img src="${esc(adpulseMark)}" alt=""><span>AdPulse</span><b style="color:#FDE047">${esc(sLabel)}</b></div>
+        <div class="adpulse-pin-body" style="background:${c}"><img src="${esc(adpulseMark)}" alt="AdPulse"></div>
+      </div>`,
+      iconSize: [74, 48],
+      iconAnchor: [37, 46],
+      popupAnchor: [0, -44]
     });
     const m = L.marker([+s.lat, +s.lng], { icon });
     const navUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(s.lat+','+s.lng)}&travelmode=driving`;
-    const earthUrl = `https://earth.google.com/web/search/@${encodeURIComponent(s.lat+','+s.lng)},150a,35y,0h,60t,0r`;
     
-    const popHtml = `<div style="min-width:200px;max-width:260px;font-family:var(--body)">
-      <img src="${esc(thumbOf(s))}" alt="" style="width:100%;height:100px;object-fit:cover;border-radius:6px;margin-bottom:6px" onerror="phFix(this)">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
-        <span class="mono" style="font-size:12px;font-weight:700;color:var(--violet)">${esc(s.code)}</span>
+    const popHtml = `<div style="min-width:225px;max-width:275px;font-family:var(--body)">
+      <div style="display:flex;align-items:center;gap:7px;background:linear-gradient(135deg,#1C1A1B,#2D2628);color:#fff;padding:6px 9px;border-radius:8px;margin-bottom:7px;border-left:3.5px solid #D9161D">
+        <img src="${esc(adpulseMark)}" alt="AdPulse" style="width:22px;height:22px;border-radius:6px;background:#fff;padding:1.5px;object-fit:contain;flex:none">
+        <div style="line-height:1.15;min-width:0;flex:1">
+          <div style="font-weight:800;font-size:11.5px;letter-spacing:0.3px;color:#fff">AdPulse OOH Network</div>
+          <div style="font-size:9.5px;color:#FCA5A5;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">S#${esc(String(s.sNo||"—"))} · ${esc(s.client||s.brand||"Verified Site")}</div>
+        </div>
+      </div>
+      <div style="position:relative">
+        <img src="${esc(thumbOf(s))}" alt="" style="width:100%;height:112px;object-fit:cover;border-radius:7px;margin-bottom:6px;display:block" onerror="phFix(this)">
+        <span style="position:absolute;bottom:12px;left:6px;background:rgba(18,16,17,0.86);color:#fff;padding:2px 7px;border-radius:6px;font-size:10px;font-weight:800;display:inline-flex;align-items:center;gap:4px;border:1px solid rgba(217,22,29,0.7)"><img src="${esc(adpulseMark)}" alt="" style="width:12px;height:12px;border-radius:50%;background:#fff">AdPulse · ${esc(s.code)}</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;gap:4px">
+        <span class="mono" style="font-size:12px;font-weight:800;color:#D9161D">S#${esc(String(s.sNo||""))} · ${esc(s.code)}</span>
         ${pill(s)}
       </div>
-      <div style="font-weight:700;font-size:13.5px;color:var(--ink);margin-bottom:2px">${esc(s.name || s.title || s.area)}</div>
-      <div style="font-size:11px;color:var(--muted);margin-bottom:4px"><b>${esc(s.area)}</b> · ${sizeOf(s)} ft</div>
-      <div style="font-size:11px;color:var(--muted);margin-bottom:6px">${esc(s.from||"—")} → ${esc(s.towards||"—")}</div>
-      ${s.traffic||s.vehiclesDay?`<div style="font-size:11px;color:var(--ink2);margin-bottom:6px">~${fmtK(otsOf(s))} OTS/day</div>`:""}
+      <div style="font-weight:800;font-size:13.5px;color:var(--ink);margin-bottom:2px">${esc(s.location || s.name || s.title || s.area)}</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:3px"><b>${esc(s.area)}</b> · ${sizeOf(s)} ft (${esc(String(s.sqft||((+s.widthFt||0)*(+s.heightFt||0))))} SQFT) · ${esc(s.excelMedium||s.media||"Hoarding")}</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:4px">${esc(s.from||"—")} → ${esc(s.towards||"—")}</div>
+      <div style="font-size:11px;color:var(--ink2);margin-bottom:6px;display:flex;justify-content:space-between"><span>Vendor: <b>${esc(s.vendor||"AdPulse IMC")}</b></span>${s.traffic||s.vehiclesDay?`<span>~${fmtK(otsOf(s))} OTS/d</span>`:""}</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:6px">
         <button class="btn sm pri" data-act="site" data-id="${s.id}" style="justify-content:center;padding:5px 0">Open site</button>
         <a class="btn sm cy" href="${navUrl}" target="_blank" rel="noopener" style="justify-content:center;padding:5px 0;text-decoration:none" title="Start Live GPS Navigation">${ICON.pin}Navigate</a>
@@ -3713,7 +3816,8 @@ function mountLeafletMap(list){
 
 function mapHTML(list){
   const hasPins = list && list.some(s => s.lat && s.lng && isFinite(+s.lat) && isFinite(+s.lng));
-  return `<div class="mapwrap" style="position:relative;width:100%;height:520px;min-height:380px;border-radius:var(--r2);overflow:hidden;border:1px solid var(--line)">
+  const pinCount = (list || []).filter(s => s && s.lat && s.lng && isFinite(+s.lat) && isFinite(+s.lng)).length;
+  return `<div class="mapwrap" style="position:relative;width:100%;height:calc(100vh - 115px);min-height:740px;border-radius:var(--r2);overflow:hidden;border:1.5px solid var(--line);box-shadow:0 14px 36px rgba(0,0,0,0.18)">
     
     <!-- True Google Immersive 3D Vector Cockpit Overlay -->
     <div id="immersive3DOverlay" class="immersive-3d-overlay" style="display:none">
@@ -3781,7 +3885,12 @@ function mapHTML(list){
     </div>
 
     <!-- Top AI & 3D Navigation Controls -->
-    <div class="map-ai-bar" style="position:absolute;top:10px;left:10px;z-index:500;display:flex;align-items:center;gap:6px;background:var(--surface);padding:4px 8px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.35);border:1px solid var(--border);max-width:calc(100% - 130px);flex-wrap:wrap">
+    <div class="map-ai-bar" style="position:absolute;top:10px;left:10px;z-index:500;display:flex;align-items:center;gap:6px;background:var(--surface);padding:5px 10px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.35);border:1px solid var(--border);max-width:calc(100% - 130px);flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,#1C1A1B,#2D2628);color:#fff;padding:4px 10px 4px 6px;border-radius:9px;border:1px solid #D9161D;box-shadow:0 2px 6px rgba(217,22,29,0.28)">
+        <img src="${esc(markSrc())}" alt="AdPulse" style="width:20px;height:20px;border-radius:5px;background:#fff;padding:1px;object-fit:contain">
+        <span style="font-weight:800;font-size:12px;letter-spacing:0.3px">AdPulse</span>
+        <span style="background:#D9161D;color:#fff;padding:1px 6px;border-radius:999px;font-size:10.5px;font-weight:800;font-family:var(--mono)">${pinCount} Pins</span>
+      </div>
       <div style="display:flex;align-items:center;gap:6px;flex:1;min-width:130px">
         <span style="font-size:14px">🤖</span>
         <input id="mapAiSearch" type="text" placeholder="Filter or Ask AI…" style="background:transparent;border:0;outline:0;color:var(--ink);font-size:12px;width:130px" oninput="filterMapMarkers(this.value)" onkeydown="if(event.key==='Enter')AskMapsAI.open(this.value)">
@@ -3804,6 +3913,7 @@ function mapHTML(list){
       <button class="btn sm pri" data-act="askmaps" style="padding:4px 9px;font-size:11px;font-weight:700;border-radius:8px;background:linear-gradient(135deg,#7C3AED,#D9161D);border:0;color:#fff;box-shadow:0 2px 6px rgba(124,58,237,0.35)">✨ Ask Maps</button>
       <button class="btn sm" onclick="openRiderTrackingModal()" style="padding:4px 9px;font-size:11px;font-weight:700;border-radius:8px;background:linear-gradient(135deg,#10B981,#047857);border:0;color:#fff;box-shadow:0 2px 6px rgba(16,185,129,0.35);display:inline-flex;align-items:center;gap:4px" title="Live Field Staff &amp; Riders Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="mapRiderCount">1</span>)</button>
       <button class="btn sm cy" onclick="openGoogle3DFullscreen()" style="padding:4px 10px;font-size:11px;font-weight:800;border-radius:8px;background:linear-gradient(135deg,#0284C7,#0369A1);color:#fff;border:0;box-shadow:0 3px 10px rgba(2,132,199,0.4)" title="Open Google Photorealistic 3D Maps in Fullscreen">🌍 3D Studio</button>
+      <button class="btn sm pri" data-mapfs-btn onclick="toggleFullPageMap(this)" style="padding:4px 10px;font-size:11px;font-weight:800;border-radius:8px;background:linear-gradient(135deg,#D9161D,#F26A21);color:#fff;border:0;box-shadow:0 3px 10px rgba(217,22,29,0.4)" title="Expand Map to Full Screen">⛶ Full Page Map</button>
     </div>
 
     <!-- Google 3D HUD & Floating Controls Overlay -->
@@ -3851,7 +3961,7 @@ function mapHTML(list){
       </div>
     </div>
 
-    <div id="leafletMap" style="width:100%;height:100%;min-height:380px"></div>
+    <div id="leafletMap" style="width:100%;height:100%;min-height:740px"></div>
     ${!hasPins ? `<div style="position:absolute;bottom:12px;left:12px;z-index:400;background:var(--surface);padding:6px 12px;border-radius:6px;font-size:12px;color:var(--muted);box-shadow:var(--shadow)">No GPS coordinates on selected sites</div>` : ""}
   </div>`;
 }
@@ -5360,7 +5470,7 @@ function getVendorPreviewSites() {
   const raw = window.VENDOR_PREVIEW_SITES_2026 || [];
   if (!raw.length && !_vpFetching) {
     _vpFetching = true;
-    fetch("/vendor_preview_2026.json?v=44.0").then(r => r.json()).then(data => {
+    fetch("/vendor_preview_2026.json?v=45.0").then(r => r.json()).then(data => {
       if (Array.isArray(data) && data.length) {
         window.VENDOR_PREVIEW_SITES_2026 = data;
         render(true);
@@ -5374,7 +5484,7 @@ function getVendorPreviewSites() {
   return combined.map(s => {
     const ed = savedEdits[s.id];
     const merged = ed ? { ...s, ...ed } : s;
-    const pUrl = merged.photo ? (merged.photo.startsWith("data:") || merged.photo.includes("?") ? merged.photo : merged.photo + "?v=44.0") : "";
+    const pUrl = merged.photo ? (merged.photo.startsWith("data:") || merged.photo.includes("?") ? merged.photo : merged.photo + "?v=45.0") : "";
     return {
       ...merged,
       photo: pUrl,
@@ -7221,7 +7331,7 @@ document.addEventListener("submit",async e=>{if(e.target.id!=="reqForm")return;e
 function vSettings(){const s=S.settings;const hasSample=S.sites.some(x=>x.sample)||S.campaigns.some(x=>x.sample);
   return pgTop("Settings","Branding for watermarks and presentations")+`<div class="grid" style="max-width:720px">
   <div class="card pad grid" style="gap:14px">
-  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v11.4 PWA Ready</span></div>
+  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v11.5 PWA Ready</span></div>
   <p style="margin:0;color:var(--muted);font-size:13px">Install AdPulse OTS on iPhone, iPad, Android or PC for fast offline access, full-screen Google 3D maps, and 1-tap camera upload with GPS.</p>
   <div class="row" style="gap:10px;flex-wrap:wrap">
     <button class="btn pri" data-act="installios" style="flex:1;min-width:180px;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>Install on iPhone / iPad (iOS)</button>
@@ -7406,7 +7516,7 @@ function showMobileUpdateBanner(){
   const b = document.createElement('div');
   b.id = 'mobileUpdateBanner';
   b.style.cssText = 'position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:9999;background:linear-gradient(135deg,#0c0917,#1b1238);color:#fff;padding:8px 16px;border-radius:9999px;box-shadow:0 8px 24px rgba(0,0,0,0.5);border:1px solid #38bdf8;display:flex;align-items:center;gap:10px;font-size:12.5px;max-width:calc(100% - 24px);';
-  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v11.4)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
+  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v11.5)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
   document.body.appendChild(b);
 }
 
@@ -7425,7 +7535,7 @@ function openInstallModal(forceType){
                 <h2 style="font-size:18px;margin:0">AdPulse OTS App</h2>
                 <span class="pill st-available" style="font-size:10px;padding:2px 8px">🟢 Running as App</span>
               </div>
-              <div style="font-size:12px;color:var(--muted);margin-top:2px">v11.4 (Android &amp; iOS Standalone)</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px">v11.5 (Android &amp; iOS Standalone)</div>
             </div>
             <span class="sp"></span>
             <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
@@ -7511,7 +7621,7 @@ function openInstallModal(forceType){
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
           <img src="/icons/icon-192.png" alt="AdPulse OTS" style="width:48px;height:48px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.2)">
           <div>
-            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v11.4)</h2>
+            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v11.5)</h2>
             <div style="font-size:12px;color:var(--muted)">Google 3D Maps &amp; 97 Verified Media Sites</div>
           </div>
           <span class="sp"></span>
@@ -8244,7 +8354,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=44.0").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=45.0").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
@@ -8261,7 +8371,7 @@ if("serviceWorker" in navigator){
           });
         }
       });
-      console.log("AdPulse OTS PWA active (v11.4):",r.scope);
+      console.log("AdPulse OTS PWA active (v11.5):",r.scope);
     }).catch(err=>{
       console.warn("PWA ServiceWorker registration failed:",err);
     });
