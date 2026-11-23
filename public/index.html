@@ -1342,8 +1342,8 @@ body.client .tabs{display:none}
 <script src="/claude-shim.js?v=3.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="/master_sites_2026.js?v=38.0"></script>
-  <script src="/vendor_preview_2026.js?v=38.0"></script>
+  <script src="/master_sites_2026.js?v=39.0"></script>
+  <script src="/vendor_preview_2026.js?v=39.0"></script>
 </head>
 <body>
 
@@ -1781,7 +1781,7 @@ function go(r,silent){
 }
 window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
 
-function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v10.8</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
+function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v10.9</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
 
 let lastRoute=null;
 function render(anim){
@@ -5317,7 +5317,7 @@ function openMasterVendorDeck() {
 }
 
 
-/* ============ Vendors Sites Preview (11 Vendor PPTs) ============ */
+/* ============ Vendors Sites Preview (44 Vendor PPT & PDF Presentations) ============ */
 const VPF = { vendor: "", q: "", media: "", status: "", view: "cards" };
 
 let _vpFetching = false;
@@ -5325,7 +5325,7 @@ function getVendorPreviewSites() {
   const raw = window.VENDOR_PREVIEW_SITES_2026 || [];
   if (!raw.length && !_vpFetching) {
     _vpFetching = true;
-    fetch("/vendor_preview_2026.json?v=38.0").then(r => r.json()).then(data => {
+    fetch("/vendor_preview_2026.json?v=39.0").then(r => r.json()).then(data => {
       if (Array.isArray(data) && data.length) {
         window.VENDOR_PREVIEW_SITES_2026 = data;
         render(true);
@@ -5333,14 +5333,17 @@ function getVendorPreviewSites() {
     }).catch(() => {}).finally(() => { _vpFetching = false; });
   }
   const savedEdits = ls.get("sitesnap-vp-edits", {});
-  return raw.map(s => {
+  const customAdded = ls.get("sitesnap-vp-added", []);
+  const deletedMap = ls.get("sitesnap-vp-deleted", {});
+  const combined = [...raw, ...(Array.isArray(customAdded) ? customAdded : [])].filter(s => s && !deletedMap[s.id]);
+  return combined.map(s => {
     const ed = savedEdits[s.id];
     const merged = ed ? { ...s, ...ed } : s;
-    const pUrl = merged.photo ? (merged.photo.includes("?") ? merged.photo : merged.photo + "?v=38.0") : "";
+    const pUrl = merged.photo ? (merged.photo.startsWith("data:") || merged.photo.includes("?") ? merged.photo : merged.photo + "?v=39.0") : "";
     return {
       ...merged,
       photo: pUrl,
-      photos: merged.photos && merged.photos.length ? merged.photos : (pUrl ? [{ id: merged.id + "-p1", src: pUrl, url: pUrl, at: "2026-11-20", caption: merged.name }] : []),
+      photos: merged.photos && merged.photos.length ? merged.photos : (pUrl ? [{ id: merged.id + "-p1", src: pUrl, url: pUrl, at: "2026-11-23", caption: merged.name }] : []),
       client: merged.vendor,
       brand: merged.vendor,
       excelMedium: (merged.media || "BILLBOARD").toUpperCase(),
@@ -5354,7 +5357,7 @@ function getVendorPreviewSites() {
       vendorEndDate: merged.availability || "Available",
       price: merged.rate || "Rate on Request",
       rates: merged.rate || "Rate on Request",
-      area: "Karachi"
+      area: merged.area || "Karachi"
     };
   });
 }
@@ -5366,6 +5369,62 @@ function saveVendorPreviewEdit(id, updates) {
   const raw = window.VENDOR_PREVIEW_SITES_2026 || [];
   const item = raw.find(x => x.id === id);
   if (item) Object.assign(item, updates);
+  const customAdded = ls.get("sitesnap-vp-added", []);
+  const cItem = Array.isArray(customAdded) ? customAdded.find(x => x.id === id) : null;
+  if (cItem) {
+    Object.assign(cItem, updates);
+    ls.set("sitesnap-vp-added", customAdded);
+  }
+}
+
+function applyVpInlineTableEdit(siteId, field, rawVal) {
+  const all = getVendorPreviewSites();
+  const s = all.find(x => x && x.id === siteId);
+  if (!s) return null;
+  const val = String(rawVal ?? "").trim();
+  const updates = {};
+  if (field === "sNo") updates.sNo = parseInt(val, 10) || s.sNo;
+  else if (field === "code") updates.code = val || s.code;
+  else if (field === "vendor") updates.vendor = val || s.vendor;
+  else if (field === "media") updates.media = val || s.media;
+  else if (field === "location") { updates.location = val || s.location; updates.name = val || s.name; }
+  else if (field === "direction") {
+    const parts = val.split(/→|->/);
+    if (parts.length >= 2) {
+      updates.from = parts[0].replace(/^From\s+/i, "").trim();
+      updates.towards = parts.slice(1).join(" ").replace(/^Towards\s+/i, "").trim();
+    } else {
+      updates.from = val;
+    }
+    updates.direction = `From ${updates.from || s.from} → Towards ${updates.towards || s.towards}`;
+  }
+  else if (field === "w") {
+    const w = parseFloat(val) || s.widthFt || 60;
+    const h = +s.heightFt || 20;
+    updates.widthFt = w;
+    updates.sqft = Math.round(w * h);
+    updates.size = `${w}x${h} ft`;
+  }
+  else if (field === "h") {
+    const w = +s.widthFt || 60;
+    const h = parseFloat(val) || s.heightFt || 20;
+    updates.heightFt = h;
+    updates.sqft = Math.round(w * h);
+    updates.size = `${w}x${h} ft`;
+  }
+  else if (field === "sqft") {
+    updates.sqft = parseInt(val, 10) || s.sqft;
+  }
+  else if (field === "availability") {
+    updates.availability = val || "Available";
+    updates.status = /available|immediate|current|avl|new arrival/i.test(updates.availability) && !/not\s*available|booked/i.test(updates.availability) ? "available" : "booked";
+  }
+  else if (field === "rate") {
+    updates.rate = val || "Rate on Request";
+  }
+  saveVendorPreviewEdit(siteId, updates);
+  toast("✅ Site updated");
+  return { ...s, ...updates };
 }
 
 function openVendorPreviewDeck(vendorName) {
@@ -5375,7 +5434,7 @@ function openVendorPreviewDeck(vendorName) {
   const src = { type: "ids", ids: list.map(s => s.id) };
   Studio.cfg = Studio.fresh(src);
   Studio.cfg.title = vendorName ? `${vendorName} — Sites Preview (2026)` : "All 44 Vendors Sites Preview Portfolio (2026)";
-  Studio.cfg.subtitle = `Extracted from Vendor PPT Presentation · ${list.length} OOH & Digital Sites`;
+  Studio.cfg.subtitle = `Extracted from Vendor PPT & PDF Presentation · ${list.length} OOH & Digital Sites`;
   Studio.cfg.sitesData = list;
   Studio.cfg.slides = list.map(s => ({
     siteId: s.id,
@@ -5396,15 +5455,39 @@ function openVendorPreviewDeck(vendorName) {
 
 function openVendorPreviewSite(id) {
   const all = getVendorPreviewSites();
-  const s = all.find(x => x.id === id);
+  const isNew = !id || id === "__new";
+  const defaultVendor = VPF.vendor || (all[0] ? all[0].vendor : "Aadchannel OOH Media");
+  const vendorCount = all.filter(x => x.vendor === defaultVendor).length;
+  const s = !isNew ? all.find(x => x.id === id) : {
+    id: "vp-custom-" + Date.now(),
+    sNo: vendorCount + 1,
+    slideNum: vendorCount + 2,
+    code: `VP-NEW-${String(vendorCount + 1).padStart(2, "0")}`,
+    vendor: defaultVendor,
+    pptFile: "Custom Added Vendor Site",
+    name: "",
+    location: "",
+    from: "",
+    towards: "",
+    widthFt: 60,
+    heightFt: 20,
+    sqft: 1200,
+    media: "Billboard / Hoarding",
+    availability: "Available",
+    status: "available",
+    rate: "Rate on Request",
+    photo: "",
+    rawText: ""
+  };
   if (!s) return;
+  let pendingPhotoDataUrl = "";
   openLayer(`
     <div class="scrim" data-act="close"></div>
-    <aside class="drawer" role="dialog" aria-label="Vendor Preview Site">
+    <aside class="drawer" role="dialog" aria-label="Edit Vendor Preview Site">
       <div class="dh">
         <div>
-          <div class="mono" style="color:#D9161D;font-weight:800;font-size:12px">${esc(s.vendor)} · ${esc(s.code)} (Slide #${s.slideNum})</div>
-          <h2 style="font-size:19px">${esc(s.name || s.location)}</h2>
+          <div class="mono" style="color:#D9161D;font-weight:800;font-size:12px">${esc(s.vendor)} · ${esc(s.code)} ${s.slideNum ? `(Slide #${s.slideNum})` : ""}</div>
+          <h2 style="font-size:19px">${isNew ? "➕ Add New Vendor Site" : "✏️ Edit Site: " + esc(s.name || s.location)}</h2>
         </div>
         <span class="sp"></span>
         <span class="pill ${s.status === 'available' ? 'st-available' : 'st-booked'}">${esc(s.availability)}</span>
@@ -5412,31 +5495,121 @@ function openVendorPreviewSite(id) {
       </div>
       <div class="db">
         <div class="gallery">
-          <figure>
-            <img src="${esc(s.photo || placeholder(s))}" alt="${esc(s.name)}" style="max-height:320px;width:100%;object-fit:contain;background:#0d0b14;border-radius:10px">
-            <figcaption>${esc(s.pptFile)} · Slide #${s.slideNum}</figcaption>
+          <figure style="position:relative">
+            <img id="vpModalImg" src="${esc(s.photo || placeholder(s))}" alt="${esc(s.name)}" style="max-height:300px;width:100%;object-fit:contain;background:#0d0b14;border-radius:10px">
+            <figcaption style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:6px">
+              <span>${esc(s.pptFile || "Vendor Presentation")} · Slide #${s.slideNum || s.sNo}</span>
+              <label class="btn sm" style="cursor:pointer;font-weight:700;padding:4px 10px">
+                📷 Change Site Photo
+                <input type="file" id="vpPhotoInput" accept="image/*" style="display:none">
+              </label>
+            </figcaption>
           </figure>
         </div>
         <form id="vpEditForm" data-vpid="${s.id}" class="fgrid" style="margin-top:12px">
-          <label class="f full">Vendor Name<input class="in" name="vendor" value="${esc(s.vendor)}" style="font-weight:800"></label>
-          <label class="f full">Location / Site Title<input class="in" name="location" value="${esc(s.location || s.name)}" style="font-weight:700"></label>
-          <label class="f">From (Direction)<input class="in" name="from" value="${esc(s.from || '')}"></label>
-          <label class="f">Towards (Direction)<input class="in" name="towards" value="${esc(s.towards || '')}"></label>
-          <label class="f">Width (ft)<input class="in mono" name="widthFt" type="number" value="${esc(String(s.widthFt || 60))}"></label>
-          <label class="f">Height (ft)<input class="in mono" name="heightFt" type="number" value="${esc(String(s.heightFt || 20))}"></label>
-          <label class="f">Total SQFT<input class="in mono" name="sqft" value="${esc(String(s.sqft || 1200))}"></label>
-          <label class="f">Media Type<input class="in" name="media" value="${esc(s.media || 'Billboard')}"></label>
+          <label class="f">S# (Serial No)<input class="in mono" name="sNo" type="number" value="${esc(String(s.sNo || 1))}" style="font-weight:800"></label>
+          <label class="f">Site Code<input class="in mono" name="code" value="${esc(s.code || '')}" style="font-weight:800;color:#D9161D"></label>
+          <label class="f full">Vendor Name<input class="in" name="vendor" value="${esc(s.vendor)}" style="font-weight:800" required></label>
+          <label class="f full">Location / Site Title<input class="in" name="location" value="${esc(s.location || s.name)}" placeholder="e.g. Clifton Teen Talwar / Main Shahrah-e-Faisal" style="font-weight:700" required></label>
+          <label class="f">From (Traffic Coming From)<input class="in" name="from" value="${esc(s.from || '')}" placeholder="e.g. Metropole"></label>
+          <label class="f">Towards (Traffic Going Towards)<input class="in" name="towards" value="${esc(s.towards || '')}" placeholder="e.g. Nursery / Airport"></label>
+          <label class="f">Width (ft)<input class="in mono" id="vpW" name="widthFt" type="number" step="any" value="${esc(String(s.widthFt || 60))}"></label>
+          <label class="f">Height (ft)<input class="in mono" id="vpH" name="heightFt" type="number" step="any" value="${esc(String(s.heightFt || 20))}"></label>
+          <label class="f">Total SQFT<input class="in mono" id="vpSqft" name="sqft" value="${esc(String(s.sqft || 1200))}"></label>
+          <label class="f">Media Type / Medium<input class="in" name="media" value="${esc(s.media || 'Billboard / Hoarding')}"></label>
           <label class="f">Availability / Date<input class="in" name="availability" value="${esc(s.availability || 'Available')}" style="font-weight:700"></label>
           <label class="f">Monthly Rate / Rent (PKR)<input class="in mono" name="rate" value="${esc(s.rate || 'Rate on Request')}" style="font-weight:800;color:#D9161D"></label>
-          <label class="f full">Slide Full Extracted Details<textarea class="in" name="rawText" rows="3">${esc(s.rawText || '')}</textarea></label>
-          <div class="row full" style="grid-column:1/-1;gap:8px;margin-top:8px">
-            <button type="submit" class="btn pri" style="flex:1;justify-content:center;font-weight:700">💾 Save Changes</button>
-            <button type="button" class="btn" data-act="vpdeck" data-vendor="${esc(s.vendor)}" style="font-weight:700">📊 Vendor Presentation</button>
+          <label class="f full">Slide Full Extracted Details / Notes<textarea class="in" name="rawText" rows="3">${esc(s.rawText || '')}</textarea></label>
+          <div class="row full" style="grid-column:1/-1;gap:8px;margin-top:8px;flex-wrap:wrap">
+            <button type="submit" class="btn pri" style="flex:1;min-width:170px;justify-content:center;font-weight:800">💾 ${isNew ? "Add Vendor Site" : "Save Site Changes"}</button>
+            ${!isNew ? `<button type="button" class="btn" id="vpCopyToBookedBtn" style="font-weight:700">📋 Copy to Master Booked Sites</button>` : ""}
+            ${!isNew ? `<button type="button" class="btn danger" id="vpDeleteSiteBtn" style="font-weight:700">🗑️ Delete</button>` : ""}
           </div>
         </form>
       </div>
     </aside>
   `);
+  const wInp = $("#vpW"), hInp = $("#vpH"), sqInp = $("#vpSqft");
+  if (wInp && hInp && sqInp) {
+    const syncSq = () => {
+      const w = parseFloat(wInp.value) || 0, h = parseFloat(hInp.value) || 0;
+      if (w > 0 && h > 0) sqInp.value = String(Math.round(w * h));
+    };
+    wInp.oninput = syncSq;
+    hInp.oninput = syncSq;
+  }
+  const photoInp = $("#vpPhotoInput");
+  if (photoInp) {
+    photoInp.onchange = e => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        pendingPhotoDataUrl = ev.target.result;
+        const imgEl = $("#vpModalImg");
+        if (imgEl) imgEl.src = pendingPhotoDataUrl;
+        toast("📷 New photo selected — click Save Site Changes to apply!");
+      };
+      reader.readAsDataURL(file);
+    };
+  }
+  const copyBtn = $("#vpCopyToBookedBtn");
+  if (copyBtn) {
+    copyBtn.onclick = async () => {
+      const newSite = {
+        id: "site-vp-" + Date.now(),
+        sNo: S.sites.length + 1,
+        code: s.code || `VP-${S.sites.length + 1}`,
+        client: s.vendor,
+        brand: s.vendor,
+        medium: (s.media || "HOARDING").toUpperCase(),
+        excelMedium: (s.media || "HOARDING").toUpperCase(),
+        media: s.media || "Hoarding",
+        name: s.location || s.name,
+        title: s.location || s.name,
+        location: s.location || s.name,
+        area: "Karachi",
+        from: s.from || "",
+        towards: s.towards || "",
+        widthFt: +s.widthFt || 60,
+        heightFt: +s.heightFt || 20,
+        width: +s.widthFt || 60,
+        height: +s.heightFt || 20,
+        sqft: s.sqft || 1200,
+        excelSqft: String(s.sqft || 1200),
+        startDate: today(),
+        endDate: s.availability || "",
+        availability: s.availability || "Available",
+        excelAvailability: s.availability || "Available",
+        statusLabel: s.rate || "EXTENDABLE",
+        excelStatus: s.rate || "EXTENDABLE",
+        status: s.status || "available",
+        day: "30",
+        vendor: s.vendor,
+        vendorEndDate: s.availability || "Available",
+        rates: s.rate || "Rate on Request",
+        price: s.rate || "Rate on Request",
+        photos: s.photo ? [{ id: "p-" + Date.now(), src: s.photo, url: s.photo, tag: "Day", at: new Date().toISOString() }] : []
+      };
+      await put("sites", newSite);
+      S.sites.push(newSite);
+      persistLocal();
+      toast(`✅ Added "${newSite.name}" to Master Sites & Vendor Booked Site!`);
+    };
+  }
+  const delBtn = $("#vpDeleteSiteBtn");
+  if (delBtn) {
+    delBtn.onclick = () => {
+      confirmBox(`Delete "${s.location || s.name}" from ${s.vendor}?`, () => {
+        const deletedMap = ls.get("sitesnap-vp-deleted", {});
+        deletedMap[s.id] = true;
+        ls.set("sitesnap-vp-deleted", deletedMap);
+        closeLayer();
+        render(true);
+        toast("🗑️ Vendor site deleted");
+      });
+    };
+  }
   const form = $("#vpEditForm");
   if (form) {
     form.onsubmit = e => {
@@ -5445,6 +5618,8 @@ function openVendorPreviewSite(id) {
       const w = parseFloat(fd.get("widthFt")) || s.widthFt || 60;
       const h = parseFloat(fd.get("heightFt")) || s.heightFt || 20;
       const updates = {
+        sNo: parseInt(fd.get("sNo"), 10) || s.sNo || 1,
+        code: fd.get("code").trim() || s.code,
         vendor: fd.get("vendor").trim() || s.vendor,
         location: fd.get("location").trim() || s.location,
         name: fd.get("location").trim() || s.name,
@@ -5454,17 +5629,27 @@ function openVendorPreviewSite(id) {
         widthFt: w,
         heightFt: h,
         size: `${w}x${h} ft`,
-        sqft: parseInt(fd.get("sqft"), 10) || (w * h),
+        sqft: parseInt(fd.get("sqft"), 10) || Math.round(w * h),
         media: fd.get("media").trim(),
         availability: fd.get("availability").trim(),
-        status: /available|immediate/i.test(fd.get("availability")) && !/locked|booked/i.test(fd.get("availability")) ? "available" : "booked",
+        status: /available|immediate|current|avl|new arrival/i.test(fd.get("availability")) && !/not\s*available|booked/i.test(fd.get("availability")) ? "available" : "booked",
         rate: fd.get("rate").trim(),
         rawText: fd.get("rawText").trim()
       };
-      saveVendorPreviewEdit(s.id, updates);
+      if (pendingPhotoDataUrl) {
+        updates.photo = pendingPhotoDataUrl;
+        updates.photos = [{ id: s.id + "-p1", src: pendingPhotoDataUrl, url: pendingPhotoDataUrl, at: new Date().toISOString(), caption: updates.name }];
+      }
+      if (isNew) {
+        const customAdded = ls.get("sitesnap-vp-added", []);
+        customAdded.push({ ...s, ...updates });
+        ls.set("sitesnap-vp-added", customAdded);
+      } else {
+        saveVendorPreviewEdit(s.id, updates);
+      }
       closeLayer();
       render(true);
-      toast("✅ Vendor site updated!");
+      toast(isNew ? "✅ New vendor site added!" : "✅ Vendor site changes saved!");
     };
   }
 }
@@ -5475,7 +5660,6 @@ function vVendorsPreview() {
     return pgTop("Vendors Sites Preview", "Loading 44 Vendor PPT & PDF Presentations…") + `<div class="cards">${'<div class="skel"></div>'.repeat(6)}</div>`;
   }
 
-  // Group by the 11 vendors in order
   const vendorGroupsMap = new Map();
   all.forEach(s => {
     if (!vendorGroupsMap.has(s.vendor)) {
@@ -5509,7 +5693,6 @@ function vVendorsPreview() {
   const totalAvail = all.filter(s => s.status === "available").length;
   const totalBooked = all.length - totalAvail;
 
-  // Group filtered sites by vendor for vendor-wise display
   const activeGroups = [];
   vendorGroups.forEach(vg => {
     const vSites = filteredSites.filter(s => s.vendor === vg.name);
@@ -5521,11 +5704,14 @@ function vVendorsPreview() {
   const vendorPills = `
     <div class="card pad" style="margin-bottom:16px;border:1px solid var(--border)">
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:10px">
-        <div style="font-weight:800;font-size:13.5px;color:var(--ink)">📁 Select Vendor PPT Deck (11 Vendor Presentations · ${all.length} Sites):</div>
-        ${VPF.vendor ? `<button class="btn sm ghost" data-act="vpfiltervendor" data-vendor="" style="color:#D9161D;font-weight:700">✕ Show All 44 Vendors</button>` : ""}
+        <div style="font-weight:800;font-size:13.5px;color:var(--ink)">📁 Select Vendor PPT / PDF Deck (${vendorGroups.length} Vendor Presentations · ${all.length} Sites):</div>
+        <div class="row" style="gap:8px">
+          ${VPF.vendor ? `<button class="btn sm ghost" data-act="vpfiltervendor" data-vendor="" style="color:#D9161D;font-weight:700">✕ Show All ${vendorGroups.length} Vendors</button>` : ""}
+          <button class="btn sm pri" data-act="vpsite" data-id="__new" style="font-weight:800">➕ Add New Vendor Site</button>
+        </div>
       </div>
-      <div style="display:flex;flex-wrap:wrap;gap:7px">
-        <button class="btn sm ${!VPF.vendor ? 'pri' : ''}" data-act="vpfiltervendor" data-vendor="" style="font-weight:800;border-radius:20px">All 44 Vendors (${all.length})</button>
+      <div style="display:flex;flex-wrap:wrap;gap:7px;max-height:145px;overflow-y:auto;padding-right:4px">
+        <button class="btn sm ${!VPF.vendor ? 'pri' : ''}" data-act="vpfiltervendor" data-vendor="" style="font-weight:800;border-radius:20px">All ${vendorGroups.length} Vendors (${all.length})</button>
         ${vendorGroups.map(vg => `
           <button class="btn sm ${VPF.vendor === vg.name ? 'pri' : ''}" data-act="vpfiltervendor" data-vendor="${esc(vg.name)}" style="font-weight:700;border-radius:20px">
             ${esc(vg.name)} <span class="mono" style="opacity:0.85;margin-left:4px">(${vg.total})</span>
@@ -5539,7 +5725,7 @@ function vVendorsPreview() {
     <div class="filters" style="margin-bottom:16px">
       <input class="in" id="vpSearch" style="max-width:240px;min-height:42px;padding:8px 12px;font-size:13.5px" placeholder="Search vendor, location, rate, size…" value="${esc(VPF.q)}">
       <select class="in" id="vpVendorSel" style="max-width:240px;min-height:42px;font-weight:700">
-        <option value="">All 44 Vendors (${all.length} Sites)</option>
+        <option value="">All ${vendorGroups.length} Vendors (${all.length} Sites)</option>
         ${vendorGroups.map(vg => `<option value="${esc(vg.name)}" ${VPF.vendor === vg.name ? 'selected' : ''}>${esc(vg.name)} (${vg.total})</option>`).join("")}
       </select>
       <select class="in" id="vpMediaSel" style="max-width:190px;min-height:42px">
@@ -5554,7 +5740,7 @@ function vVendorsPreview() {
       <span class="sp"></span>
       <div class="seg" role="tablist">
         <button class="${VPF.view === 'cards' ? 'on' : ''}" data-act="vpview" data-v="cards">Vendor Cards</button>
-        <button class="${VPF.view === 'table' ? 'on' : ''}" data-act="vpview" data-v="table">Excel Data Table</button>
+        <button class="${VPF.view === 'table' ? 'on' : ''}" data-act="vpview" data-v="table">✏️ Editable Excel Table</button>
       </div>
     </div>
   `;
@@ -5567,12 +5753,13 @@ function vVendorsPreview() {
       <div class="tblwrap card" style="padding:0;overflow-x:auto;border:1.5px solid #1C1A1B;border-radius:12px;margin-bottom:24px">
         <div style="background:#1C1A1B;color:#FFFFFF;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
           <div>
-            <div style="font-weight:800;font-size:15px;letter-spacing:0.5px">🏢 ${esc(vg.name)} — (${vg.filteredSites.length} SITES)</div>
-            <small style="color:#D4D4D8;font-family:var(--mono)">Source PPT: ${esc(vg.pptFile)}</small>
+            <div style="font-weight:800;font-size:15px;letter-spacing:0.5px">🏢 ${esc(vg.name)} — (${vg.filteredSites.length} SITES) · <small style="color:#FDE047;font-weight:700">✏️ Click any cell to edit inline or click Edit button</small></div>
+            <small style="color:#D4D4D8;font-family:var(--mono)">Source Deck: ${esc(vg.pptFile)}</small>
           </div>
           <div class="row" style="gap:8px">
             <span style="background:#059669;color:#fff;padding:4px 10px;border-radius:6px;font-size:11.5px;font-weight:800">${vg.available} AVAILABLE</span>
             <span style="background:#D9161D;color:#fff;padding:4px 10px;border-radius:6px;font-size:11.5px;font-weight:800">${vg.booked} BOOKED</span>
+            <button class="btn sm" data-act="vpsite" data-id="__new" style="background:#27272A;color:#fff;border:1px solid #52525B;font-weight:700">➕ Add Site</button>
             <button class="btn sm pri" data-act="vpdeck" data-vendor="${esc(vg.name)}" style="font-weight:800">📊 Open Vendor PPT in Studio</button>
           </div>
         </div>
@@ -5590,24 +5777,24 @@ function vVendorsPreview() {
               <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:68px">SQFT</th>
               <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:center;min-width:130px">AVAILABILITY</th>
               <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 10px;text-align:center;min-width:130px">RATE / RENT (PKR)</th>
-              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:74px">Action</th>
+              <th style="background:#D9161D;color:#FFFFFF;border:1px solid #B91C1C;padding:9px 8px;text-align:center;width:82px">Action</th>
             </tr>
           </thead>
           <tbody>
             ${vg.filteredSites.map((s, idx) => `
               <tr style="background:${idx % 2 === 0 ? '#FFFFFF' : '#FAFAFA'}">
-                <td class="mono" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:800">${s.sNo}</td>
-                <td class="mono" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:800;color:#D9161D">${esc(s.code)}</td>
-                <td style="border:1px solid #D4D4D8;padding:7px 10px;font-weight:700">${esc(s.vendor)}</td>
-                <td style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:700">${esc(s.media)}</td>
-                <td style="border:1px solid #D4D4D8;padding:7px 10px;font-weight:700"><div class="row" style="flex-wrap:nowrap;gap:8px"><img src="${esc(s.photo || placeholder(s))}" alt="" data-act="vpsite" data-id="${s.id}" style="width:34px;height:26px;border-radius:4px;object-fit:cover;cursor:pointer;flex:none"><span>${esc(s.location || s.name)}</span></div></td>
-                <td style="border:1px solid #D4D4D8;padding:7px 10px;font-size:11.5px">${esc(s.from || '—')} → ${esc(s.towards || '—')}</td>
-                <td class="mono" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center;font-weight:700">${s.widthFt}</td>
-                <td class="mono" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center;font-weight:700">${s.heightFt}</td>
-                <td class="mono" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:800;color:#D9161D">${s.sqft}</td>
-                <td style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:800;color:${s.status === 'available' ? '#059669' : '#1C1A1B'}">${esc(s.availability)}</td>
-                <td class="mono" style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:800;color:#D9161D">${esc(s.rate)}</td>
-                <td style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center"><button class="btn sm pri" data-act="vpsite" data-id="${s.id}" style="padding:4px 10px;font-size:11px;font-weight:700">✏️ View</button></td>
+                <td class="mono" contenteditable="true" spellcheck="false" data-vptbledit="${s.id}:sNo" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:800;cursor:text">${s.sNo}</td>
+                <td class="mono" contenteditable="true" spellcheck="false" data-vptbledit="${s.id}:code" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:800;color:#D9161D;cursor:text">${esc(s.code)}</td>
+                <td contenteditable="true" spellcheck="false" data-vptbledit="${s.id}:vendor" style="border:1px solid #D4D4D8;padding:7px 10px;font-weight:700;cursor:text">${esc(s.vendor)}</td>
+                <td contenteditable="true" spellcheck="false" data-vptbledit="${s.id}:media" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:700;cursor:text">${esc(s.media)}</td>
+                <td style="border:1px solid #D4D4D8;padding:7px 10px;font-weight:700"><div class="row" style="flex-wrap:nowrap;gap:8px"><img src="${esc(s.photo || placeholder(s))}" alt="" data-act="vpsite" data-id="${s.id}" style="width:36px;height:26px;border-radius:4px;object-fit:cover;cursor:pointer;flex:none" title="Click to edit site & photo"><span contenteditable="true" spellcheck="false" data-vptbledit="${s.id}:location" style="cursor:text;flex:1">${esc(s.location || s.name)}</span></div></td>
+                <td contenteditable="true" spellcheck="false" data-vptbledit="${s.id}:direction" style="border:1px solid #D4D4D8;padding:7px 10px;font-size:11.5px;cursor:text">${esc(s.from || '—')} → ${esc(s.towards || '—')}</td>
+                <td class="mono" contenteditable="true" spellcheck="false" data-vptbledit="${s.id}:w" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center;font-weight:700;cursor:text">${s.widthFt}</td>
+                <td class="mono" contenteditable="true" spellcheck="false" data-vptbledit="${s.id}:h" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center;font-weight:700;cursor:text">${s.heightFt}</td>
+                <td class="mono" contenteditable="true" spellcheck="false" data-vptbledit="${s.id}:sqft" data-vpcell-sqft="${s.id}" style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center;font-weight:800;color:#D9161D;cursor:text">${s.sqft}</td>
+                <td contenteditable="true" spellcheck="false" data-vptbledit="${s.id}:availability" style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:800;color:${s.status === 'available' ? '#059669' : '#1C1A1B'};cursor:text">${esc(s.availability)}</td>
+                <td class="mono" contenteditable="true" spellcheck="false" data-vptbledit="${s.id}:rate" style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:800;color:#D9161D;cursor:text">${esc(s.rate)}</td>
+                <td style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center"><button class="btn sm pri" data-act="vpsite" data-id="${s.id}" style="padding:4px 10px;font-size:11px;font-weight:700">✏️ Edit</button></td>
               </tr>
             `).join("")}
           </tbody>
@@ -5620,13 +5807,14 @@ function vVendorsPreview() {
         <div class="card pad" style="margin-bottom:14px;background:linear-gradient(135deg,#1C1A1B,#2D2628);color:#FFFFFF;border-radius:14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
           <div>
             <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-              <span style="background:#D9161D;color:#FFFFFF;padding:4px 10px;border-radius:8px;font-weight:800;font-size:12px;font-family:var(--mono)">VENDOR PPT</span>
+              <span style="background:#D9161D;color:#FFFFFF;padding:4px 10px;border-radius:8px;font-weight:800;font-size:12px;font-family:var(--mono)">VENDOR DECK</span>
               <h2 style="margin:0;font-size:20px;font-weight:800;color:#FFFFFF">${esc(vg.name)}</h2>
               <span style="background:rgba(255,255,255,0.14);color:#FFFFFF;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:800">${vg.filteredSites.length} Sites</span>
             </div>
             <div style="font-size:12px;color:#D4D4D8;margin-top:4px;font-family:var(--mono)">📁 File: ${esc(vg.pptFile)} · <span style="color:#34D399;font-weight:700">${vg.available} Available</span> · <span style="color:#FCA5A5;font-weight:700">${vg.booked} Booked / Date Locked</span></div>
           </div>
           <div class="row" style="gap:8px">
+            <button class="btn sm" data-act="vpsite" data-id="__new" style="background:rgba(255,255,255,0.12);color:#FFFFFF;border:1px solid rgba(255,255,255,0.25);font-weight:700;padding:8px 12px">➕ Add Site</button>
             <button class="btn sm pri" data-act="vpdeck" data-vendor="${esc(vg.name)}" style="background:linear-gradient(135deg,#D9161D,#F26A21);font-weight:800;padding:8px 14px">📊 Open Vendor Presentation (${vg.total} Slides)</button>
           </div>
         </div>
@@ -5652,9 +5840,10 @@ function vVendorsPreview() {
                   <span>Rate / Rent:</span>
                   <span class="mono">${esc(s.rate)}</span>
                 </div>
-                <div class="meta">
+                <div class="meta" style="align-items:center">
                   <span class="tag mono" style="font-weight:700">${s.widthFt}×${s.heightFt} ft (${s.sqft} SQFT)</span>
                   <span class="tag" style="font-weight:700">${esc(s.media)}</span>
+                  <button type="button" class="btn sm pri" data-act="vpsite" data-id="${s.id}" style="margin-left:auto;padding:4px 10px;font-size:11px;font-weight:800;border-radius:6px">✏️ Edit Site</button>
                 </div>
               </div>
             </article>
@@ -5667,7 +5856,7 @@ function vVendorsPreview() {
   return pgTop(
     "Vendors Sites Preview",
     `44 Vendor PPT & PDF Presentations · ${all.length} Extracted OOH & Digital Sites Ordered Vendor-Wise`,
-    `<div class="row" style="gap:8px"><button class="btn" onclick="location.hash='vendors';go('vendors',true)" style="font-weight:700">📋 Vendor Booked Site (84)</button><button class="btn pri" data-act="vpdeck" data-vendor="${esc(VPF.vendor)}" style="font-weight:800">${ICON.deck} Presentation (${filteredSites.length} Sites)</button></div>`
+    `<div class="row" style="gap:8px;flex-wrap:wrap"><button class="btn" data-act="vpsite" data-id="__new" style="font-weight:700">➕ Add Vendor Site</button><button class="btn" onclick="location.hash='vendors';go('vendors',true)" style="font-weight:700">📋 Vendor Booked Site (84)</button><button class="btn pri" data-act="vpdeck" data-vendor="${esc(VPF.vendor)}" style="font-weight:800">${ICON.deck} Presentation (${filteredSites.length} Sites)</button></div>`
   ) + `
     <div class="kpis enter" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-bottom:18px">
       <div class="card kpi" style="--c:#D9161D">
@@ -6986,7 +7175,7 @@ document.addEventListener("submit",async e=>{if(e.target.id!=="reqForm")return;e
 function vSettings(){const s=S.settings;const hasSample=S.sites.some(x=>x.sample)||S.campaigns.some(x=>x.sample);
   return pgTop("Settings","Branding for watermarks and presentations")+`<div class="grid" style="max-width:720px">
   <div class="card pad grid" style="gap:14px">
-  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v10.8 PWA Ready</span></div>
+  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v10.9 PWA Ready</span></div>
   <p style="margin:0;color:var(--muted);font-size:13px">Install AdPulse OTS on iPhone, iPad, Android or PC for fast offline access, full-screen Google 3D maps, and 1-tap camera upload with GPS.</p>
   <div class="row" style="gap:10px;flex-wrap:wrap">
     <button class="btn pri" data-act="installios" style="flex:1;min-width:180px;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>Install on iPhone / iPad (iOS)</button>
@@ -7171,7 +7360,7 @@ function showMobileUpdateBanner(){
   const b = document.createElement('div');
   b.id = 'mobileUpdateBanner';
   b.style.cssText = 'position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:9999;background:linear-gradient(135deg,#0c0917,#1b1238);color:#fff;padding:8px 16px;border-radius:9999px;box-shadow:0 8px 24px rgba(0,0,0,0.5);border:1px solid #38bdf8;display:flex;align-items:center;gap:10px;font-size:12.5px;max-width:calc(100% - 24px);';
-  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v10.8)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
+  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v10.9)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
   document.body.appendChild(b);
 }
 
@@ -7190,7 +7379,7 @@ function openInstallModal(forceType){
                 <h2 style="font-size:18px;margin:0">AdPulse OTS App</h2>
                 <span class="pill st-available" style="font-size:10px;padding:2px 8px">🟢 Running as App</span>
               </div>
-              <div style="font-size:12px;color:var(--muted);margin-top:2px">v10.8 (Android &amp; iOS Standalone)</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px">v10.9 (Android &amp; iOS Standalone)</div>
             </div>
             <span class="sp"></span>
             <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
@@ -7276,7 +7465,7 @@ function openInstallModal(forceType){
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
           <img src="/icons/icon-192.png" alt="AdPulse OTS" style="width:48px;height:48px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.2)">
           <div>
-            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v10.8)</h2>
+            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v10.9)</h2>
             <div style="font-size:12px;color:var(--muted)">Google 3D Maps &amp; 97 Verified Media Sites</div>
           </div>
           <span class="sp"></span>
@@ -7929,6 +8118,17 @@ savedeck:async()=>{const c=Studio.cfg;c.version=(c.version||0)+1;try{await put("
 };
 document.addEventListener("click",e=>{const a=e.target.closest("[data-act]");if(!a||a.disabled)return;const fn=ACT[a.dataset.act];if(fn){if(a.tagName==="A"&&a.dataset.act!=="close")return;if(a.closest("#agentPop")&&!/^agent/.test(a.dataset.act))$("#agentPop").innerHTML="";fn(a,e)}});
 document.addEventListener("focusout",e=>{
+  const vpCell=e.target.closest&&e.target.closest("[data-vptbledit]");
+  if(vpCell){
+    const [vpid,vpfld]=vpCell.dataset.vptbledit.split(":");
+    const vpUp=applyVpInlineTableEdit(vpid,vpfld,vpCell.innerText);
+    if(vpUp&&(vpfld==="w"||vpfld==="h")){
+      const r=vpCell.closest("tr");
+      const sq=r&&r.querySelector(`[data-vpcell-sqft="${vpid}"]`);
+      if(sq)sq.textContent=String(vpUp.sqft||"");
+    }
+    return;
+  }
   const cell=e.target.closest&&e.target.closest("[data-tbledit]");
   if(!cell)return;
   const [sid,fld]=cell.dataset.tbledit.split(":");
@@ -7944,7 +8144,7 @@ document.addEventListener("focusout",e=>{
   }
 });
 document.addEventListener("keydown",e=>{
-  const cell=e.target.closest&&e.target.closest("[data-tbledit],[data-edit]");
+  const cell=e.target.closest&&e.target.closest("[data-tbledit],[data-vptbledit],[data-edit]");
   if(cell&&e.key==="Enter"){e.preventDefault();cell.blur();}
 });
 document.addEventListener("input",e=>{
@@ -7998,7 +8198,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=38.0").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=39.0").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
@@ -8015,7 +8215,7 @@ if("serviceWorker" in navigator){
           });
         }
       });
-      console.log("AdPulse OTS PWA active (v10.8):",r.scope);
+      console.log("AdPulse OTS PWA active (v10.9):",r.scope);
     }).catch(err=>{
       console.warn("PWA ServiceWorker registration failed:",err);
     });
