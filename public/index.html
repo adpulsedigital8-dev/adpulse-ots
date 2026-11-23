@@ -1342,9 +1342,9 @@ body.client .tabs{display:none}
 <script src="/claude-shim.js?v=3.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="/master_sites_2026.js?v=43.0"></script>
-  <script src="/master_campaigns_2026.js?v=43.0"></script>
-  <script src="/vendor_preview_2026.js?v=43.0"></script>
+  <script src="/master_sites_2026.js?v=44.0"></script>
+  <script src="/master_campaigns_2026.js?v=44.0"></script>
+  <script src="/vendor_preview_2026.js?v=44.0"></script>
 </head>
 <body>
 
@@ -1439,6 +1439,7 @@ const ICON={
  bell:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg>',
  bot:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="4"/><path d="M12 8V4M9 14h.01M15 14h.01M2 13v3M22 13v3"/><circle cx="12" cy="3.5" r="1.2"/></svg>',
  cal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+ booked:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2.5"/><path d="M3 9.5h18M8 2.5v3M16 2.5v3"/><path d="m9 15 2.2 2.2 4.3-4.4"/></svg>',
  more:'<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>',
  img:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg>'
 };
@@ -1815,7 +1816,7 @@ function go(r,silent){
 }
 window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
 
-function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v11.3</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
+function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v11.4</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
 
 let lastRoute=null;
 function render(anim){
@@ -1851,7 +1852,7 @@ function vDash(){
   const k=[
     ["Master file for All sites",S.sites.length,"var(--violet)","sites",false,"kpimaster"],
     ["Available",cnt("available"),"var(--ok)","check",false,"kpiavail"],
-    ["Booked",cnt("booked")+cnt("expiring"),"var(--bad)","camp",false,"kpibooked"],
+    ["Booked",cnt("booked")+cnt("expiring"),"var(--bad)","booked",false,"kpibooked"],
     ["Active campaigns",activeC,"var(--pink)","deck",false,"kpicamps"],
     ["Vendor-wise data",allVendors.length||8,"#0E9F76","users",false,"kpivendors"],
     ["Photos today",photosToday,"var(--cyan)","cam",false,""]
@@ -5359,7 +5360,7 @@ function getVendorPreviewSites() {
   const raw = window.VENDOR_PREVIEW_SITES_2026 || [];
   if (!raw.length && !_vpFetching) {
     _vpFetching = true;
-    fetch("/vendor_preview_2026.json?v=43.0").then(r => r.json()).then(data => {
+    fetch("/vendor_preview_2026.json?v=44.0").then(r => r.json()).then(data => {
       if (Array.isArray(data) && data.length) {
         window.VENDOR_PREVIEW_SITES_2026 = data;
         render(true);
@@ -5373,7 +5374,7 @@ function getVendorPreviewSites() {
   return combined.map(s => {
     const ed = savedEdits[s.id];
     const merged = ed ? { ...s, ...ed } : s;
-    const pUrl = merged.photo ? (merged.photo.startsWith("data:") || merged.photo.includes("?") ? merged.photo : merged.photo + "?v=43.0") : "";
+    const pUrl = merged.photo ? (merged.photo.startsWith("data:") || merged.photo.includes("?") ? merged.photo : merged.photo + "?v=44.0") : "";
     return {
       ...merged,
       photo: pUrl,
@@ -5912,7 +5913,7 @@ function vVendorsPreview() {
         <small style="font-weight:700">Available / Immediate</small>
       </div>
       <div class="card kpi" style="--c:var(--bad)">
-        <div class="ic" style="background:var(--bad)">${ICON.camp}</div>
+        <div class="ic" style="background:var(--bad)">${ICON.booked}</div>
         <div class="n" data-count="${totalBooked}">${totalBooked}</div>
         <small style="font-weight:700">Date-Locked / Booked</small>
       </div>
@@ -5978,7 +5979,7 @@ function vVendors() {
       <small style="font-weight:700">Available Sites ↗</small>
     </div>
     <div class="card kpi clickable" data-act="kpibooked" style="--c:var(--bad);cursor:pointer">
-      <div class="ic" style="background:var(--bad)">${ICON.camp}</div>
+      <div class="ic" style="background:var(--bad)">${ICON.booked}</div>
       <div class="n" data-count="${totalBooked}">${totalBooked}</div>
       <small style="font-weight:700">Currently Booked ↗</small>
     </div>
@@ -7220,7 +7221,7 @@ document.addEventListener("submit",async e=>{if(e.target.id!=="reqForm")return;e
 function vSettings(){const s=S.settings;const hasSample=S.sites.some(x=>x.sample)||S.campaigns.some(x=>x.sample);
   return pgTop("Settings","Branding for watermarks and presentations")+`<div class="grid" style="max-width:720px">
   <div class="card pad grid" style="gap:14px">
-  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v11.3 PWA Ready</span></div>
+  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v11.4 PWA Ready</span></div>
   <p style="margin:0;color:var(--muted);font-size:13px">Install AdPulse OTS on iPhone, iPad, Android or PC for fast offline access, full-screen Google 3D maps, and 1-tap camera upload with GPS.</p>
   <div class="row" style="gap:10px;flex-wrap:wrap">
     <button class="btn pri" data-act="installios" style="flex:1;min-width:180px;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>Install on iPhone / iPad (iOS)</button>
@@ -7405,7 +7406,7 @@ function showMobileUpdateBanner(){
   const b = document.createElement('div');
   b.id = 'mobileUpdateBanner';
   b.style.cssText = 'position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:9999;background:linear-gradient(135deg,#0c0917,#1b1238);color:#fff;padding:8px 16px;border-radius:9999px;box-shadow:0 8px 24px rgba(0,0,0,0.5);border:1px solid #38bdf8;display:flex;align-items:center;gap:10px;font-size:12.5px;max-width:calc(100% - 24px);';
-  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v11.3)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
+  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v11.4)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
   document.body.appendChild(b);
 }
 
@@ -7424,7 +7425,7 @@ function openInstallModal(forceType){
                 <h2 style="font-size:18px;margin:0">AdPulse OTS App</h2>
                 <span class="pill st-available" style="font-size:10px;padding:2px 8px">🟢 Running as App</span>
               </div>
-              <div style="font-size:12px;color:var(--muted);margin-top:2px">v11.3 (Android &amp; iOS Standalone)</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px">v11.4 (Android &amp; iOS Standalone)</div>
             </div>
             <span class="sp"></span>
             <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
@@ -7510,7 +7511,7 @@ function openInstallModal(forceType){
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
           <img src="/icons/icon-192.png" alt="AdPulse OTS" style="width:48px;height:48px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.2)">
           <div>
-            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v11.3)</h2>
+            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v11.4)</h2>
             <div style="font-size:12px;color:var(--muted)">Google 3D Maps &amp; 97 Verified Media Sites</div>
           </div>
           <span class="sp"></span>
@@ -8243,7 +8244,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=43.0").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=44.0").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
@@ -8260,7 +8261,7 @@ if("serviceWorker" in navigator){
           });
         }
       });
-      console.log("AdPulse OTS PWA active (v11.3):",r.scope);
+      console.log("AdPulse OTS PWA active (v11.4):",r.scope);
     }).catch(err=>{
       console.warn("PWA ServiceWorker registration failed:",err);
     });
