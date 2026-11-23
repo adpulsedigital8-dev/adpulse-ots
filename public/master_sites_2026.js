@@ -1,4 +1,4 @@
-// AdPulse OTS - 2026 Master Sites & Client-Wise Campaigns Dataset (Synced 100% with DATA OOH SITES.xlsx & Folder PPTX Decks)
+// AdPulse OTS - 84 Master Sites Dataset (2026.9)
 window.MASTER_SITES_2026 = [
   {
     "id": "site-2026-001",
@@ -26,8 +26,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "DO ADVERTISING",
     "vendorEndDate": "31-Jan-27",
     "client": "ASKARI VILLA - KK PROPERTIES",
-    "campaignId": "camp-2026-01",
-    "campaignName": "Askari Villa & KK Properties Premium Network",
+    "campaignId": "camp-2026-02",
+    "campaignName": "ASKARI CAMPAIGN",
     "booking": {
       "client": "ASKARI VILLA - KK PROPERTIES",
       "brand": "ASKARI VILLA - KK PROPERTIES",
@@ -40,11 +40,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-1",
-        "src": "/deck-media/image6.png",
-        "url": "/deck-media/image6.png",
-        "at": "2026-11-17",
-        "caption": "OCEAN MALL - S#1"
+        "id": "photo-camp-askari-1",
+        "src": "/deck-media/camp_askari_s1.jpg",
+        "url": "/deck-media/camp_askari_s1.jpg",
+        "at": "2026-11-23",
+        "caption": "OCEAN MALL - ASKARI CAMPAIGN"
       }
     ],
     "notes": "S#1 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-11-2026 EXT · Status: EXTENDABLE · Vendor: DO ADVERTISING (31-Jan-27)",
@@ -69,7 +69,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-002",
@@ -97,8 +97,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "NEXTIER KAINAT",
     "vendorEndDate": "16-Jan-27",
     "client": "ASKARI VILLA - KK PROPERTIES",
-    "campaignId": "camp-2026-01",
-    "campaignName": "Askari Villa & KK Properties Premium Network",
+    "campaignId": "camp-2026-07",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "ASKARI VILLA - KK PROPERTIES",
       "brand": "ASKARI VILLA - KK PROPERTIES",
@@ -111,11 +111,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-2",
-        "src": "/deck-media/image9.png",
-        "url": "/deck-media/image9.png",
-        "at": "2026-11-17",
-        "caption": "SHAHRAHE FAISAL AYESHA BAWANI TGT AIRPORT - S#2"
+        "id": "photo-camp-gfs_main-2",
+        "src": "/deck-media/camp_gfs_main_s2.jpg",
+        "url": "/deck-media/camp_gfs_main_s2.jpg",
+        "at": "2026-11-23",
+        "caption": "SHAHRAHE FAISAL AYESHA BAWANI TGT AIRPORT - GFS CAMPAIGN"
       }
     ],
     "notes": "S#2 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Start: 07-Nov-26 · End: 07-Dec-26 (30 Days) · Availability: 07-12-2026 +EXT · Status: EXTENDABLE · Vendor: NEXTIER KAINAT (16-Jan-27)",
@@ -140,7 +140,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-003",
@@ -168,8 +168,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "NEXTIER KAINAT",
     "vendorEndDate": "16-Jan-27",
     "client": "ASKARI VILLA - KK PROPERTIES",
-    "campaignId": "camp-2026-01",
-    "campaignName": "Askari Villa & KK Properties Premium Network",
+    "campaignId": "camp-2026-07",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "ASKARI VILLA - KK PROPERTIES",
       "brand": "ASKARI VILLA - KK PROPERTIES",
@@ -182,11 +182,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-3",
-        "src": "/deck-media/image16.png",
-        "url": "/deck-media/image16.png",
-        "at": "2026-11-17",
-        "caption": "SHAHRAHE FAISAL AYESHA BAWANI TGT METROPOLE - S#3"
+        "id": "photo-camp-gfs_main-3",
+        "src": "/deck-media/camp_gfs_main_s3.jpg",
+        "url": "/deck-media/camp_gfs_main_s3.jpg",
+        "at": "2026-11-23",
+        "caption": "SHAHRAHE FAISAL AYESHA BAWANI TGT METROPOLE - GFS CAMPAIGN"
       }
     ],
     "notes": "S#3 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Start: 01-Nov-26 · End: 01-Dec-26 (30 Days) · Availability: 01-12-2026 +EXT · Status: EXTENDABLE · Vendor: NEXTIER KAINAT (16-Jan-27)",
@@ -211,7 +211,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-004",
@@ -239,8 +239,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "NEXTIER KAINAT",
     "vendorEndDate": "16-Jan-27",
     "client": "ASKARI VILLA - KK PROPERTIES",
-    "campaignId": "camp-2026-01",
-    "campaignName": "Askari Villa & KK Properties Premium Network",
+    "campaignId": "camp-2026-02",
+    "campaignName": "ASKARI CAMPAIGN",
     "booking": {
       "client": "ASKARI VILLA - KK PROPERTIES",
       "brand": "ASKARI VILLA - KK PROPERTIES",
@@ -253,11 +253,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-4",
-        "src": "/deck-media/image7.png",
-        "url": "/deck-media/image7.png",
-        "at": "2026-11-17",
-        "caption": "KARSAZ ROAD BRIDGE 01 TGT SHAHRAHE FAISAL - S#4"
+        "id": "photo-camp-askari-4",
+        "src": "/deck-media/camp_askari_s4.jpg",
+        "url": "/deck-media/camp_askari_s4.jpg",
+        "at": "2026-11-23",
+        "caption": "KARSAZ ROAD BRIDGE 01 TGT SHAHRAHE FAISAL - ASKARI CAMPAIGN"
       }
     ],
     "notes": "S#4 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Start: 28-Oct-26 · End: 27-Nov-26 (30 Days) · Availability: 27-11-2026 +EXT · Status: EXTENDABLE · Vendor: NEXTIER KAINAT (16-Jan-27)",
@@ -282,7 +282,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-005",
@@ -310,8 +310,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "NEXTIER KAINAT",
     "vendorEndDate": "16-Jan-27",
     "client": "ASKARI VILLA - KK PROPERTIES",
-    "campaignId": "camp-2026-01",
-    "campaignName": "Askari Villa & KK Properties Premium Network",
+    "campaignId": "camp-2026-02",
+    "campaignName": "ASKARI CAMPAIGN",
     "booking": {
       "client": "ASKARI VILLA - KK PROPERTIES",
       "brand": "ASKARI VILLA - KK PROPERTIES",
@@ -324,11 +324,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-5",
-        "src": "/deck-media/image13.png",
-        "url": "/deck-media/image13.png",
-        "at": "2026-11-17",
-        "caption": "KARSAZ ROAD BRIDGE 02 TGT STADIUM - S#5"
+        "id": "photo-camp-askari-5",
+        "src": "/deck-media/camp_askari_s5.jpg",
+        "url": "/deck-media/camp_askari_s5.jpg",
+        "at": "2026-11-23",
+        "caption": "KARSAZ ROAD BRIDGE 02 TGT STADIUM - ASKARI CAMPAIGN"
       }
     ],
     "notes": "S#5 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Start: 30-Oct-26 · End: 29-Nov-26 (30 Days) · Availability: 29-11-2026 +EXT · Status: EXTENDABLE · Vendor: NEXTIER KAINAT (16-Jan-27)",
@@ -353,7 +353,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-006",
@@ -381,8 +381,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "MNB - UMAIR BUTT",
     "vendorEndDate": "30-11-2026 + EXT",
     "client": "ASKARI VILLA - KK PROPERTIES",
-    "campaignId": "camp-2026-01",
-    "campaignName": "Askari Villa & KK Properties Premium Network",
+    "campaignId": "camp-2026-02",
+    "campaignName": "ASKARI CAMPAIGN",
     "booking": {
       "client": "ASKARI VILLA - KK PROPERTIES",
       "brand": "ASKARI VILLA - KK PROPERTIES",
@@ -395,11 +395,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-6",
-        "src": "/deck-media/image11.jpg",
-        "url": "/deck-media/image11.jpg",
-        "at": "2026-11-17",
-        "caption": "MILLINIUM MALL BRIDGE - S#6"
+        "id": "photo-camp-askari-6",
+        "src": "/deck-media/camp_askari_s6.jpg",
+        "url": "/deck-media/camp_askari_s6.jpg",
+        "at": "2026-11-23",
+        "caption": "MILLINIUM MALL BRIDGE - ASKARI CAMPAIGN"
       }
     ],
     "notes": "S#6 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Start: 06-Nov-26 · End: 06-Dec-26 (30 Days) · Availability: 06-12-2026 +EXT · Status: DEPT ISSUE · Vendor: MNB - UMAIR BUTT (30-11-2026 + EXT)",
@@ -424,7 +424,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "DEPT ISSUE",
     "excelStatus": "DEPT ISSUE",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-007",
@@ -495,7 +495,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-008",
@@ -523,8 +523,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "SHARPLINE",
     "vendorEndDate": "31-Jan-27",
     "client": "ASKARI VILLA - KK PROPERTIES / KIFAYAH",
-    "campaignId": "camp-2026-01",
-    "campaignName": "Askari Villa & KK Properties Premium Network",
+    "campaignId": "camp-2026-08",
+    "campaignName": "KIFAYAH CAMPAIGN",
     "booking": {
       "client": "ASKARI VILLA - KK PROPERTIES / KIFAYAH",
       "brand": "ASKARI VILLA - KK PROPERTIES / KIFAYAH",
@@ -537,11 +537,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-8",
-        "src": "/deck-media/image27.png",
-        "url": "/deck-media/image27.png",
-        "at": "2026-11-17",
-        "caption": "JINNAH AVENUE 01 - S#8"
+        "id": "photo-camp-kifayah-8",
+        "src": "/deck-media/camp_kifayah_s8.jpg",
+        "url": "/deck-media/camp_kifayah_s8.jpg",
+        "at": "2026-11-23",
+        "caption": "JINNAH AVENUE 01 - KIFAYAH CAMPAIGN"
       }
     ],
     "notes": "S#8 · Client: ASKARI VILLA - KK PROPERTIES / KIFAYAH · Medium: HOARDING · Start: 10-Nov-26 · End: 10-Dec-26 (30 Days) · Availability: 10-12-2026 + EXT · Status: EXTENDABLE · Vendor: SHARPLINE (31-Jan-27)",
@@ -566,7 +566,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-009",
@@ -594,8 +594,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "SHARPLINE",
     "vendorEndDate": "22-Jan-27",
     "client": "ASKARI VILLA - KK PROPERTIES / KIFAYAH",
-    "campaignId": "camp-2026-01",
-    "campaignName": "Askari Villa & KK Properties Premium Network",
+    "campaignId": "camp-2026-08",
+    "campaignName": "KIFAYAH CAMPAIGN",
     "booking": {
       "client": "ASKARI VILLA - KK PROPERTIES / KIFAYAH",
       "brand": "ASKARI VILLA - KK PROPERTIES / KIFAYAH",
@@ -608,11 +608,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-9",
-        "src": "/deck-media/image39.png",
-        "url": "/deck-media/image39.png",
-        "at": "2026-11-17",
-        "caption": "JINNAH AVENUE 02 - S#9"
+        "id": "photo-camp-kifayah-9",
+        "src": "/deck-media/camp_kifayah_s9.jpg",
+        "url": "/deck-media/camp_kifayah_s9.jpg",
+        "at": "2026-11-23",
+        "caption": "JINNAH AVENUE 02 - KIFAYAH CAMPAIGN"
       }
     ],
     "notes": "S#9 · Client: ASKARI VILLA - KK PROPERTIES / KIFAYAH · Medium: HOARDING · Start: 05-Nov-26 · End: 05-Dec-26 (30 Days) · Availability: 05-12-2026 + EXT · Status: EXTENDABLE · Vendor: SHARPLINE (22-Jan-27)",
@@ -637,7 +637,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-010",
@@ -665,8 +665,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "INTERLINK - DARYA KHAN",
     "vendorEndDate": "30-11-2026 + EXT",
     "client": "ASKARI VILLA - KK PROPERTIES",
-    "campaignId": "camp-2026-01",
-    "campaignName": "Askari Villa & KK Properties Premium Network",
+    "campaignId": "camp-2026-02",
+    "campaignName": "ASKARI CAMPAIGN",
     "booking": {
       "client": "ASKARI VILLA - KK PROPERTIES",
       "brand": "ASKARI VILLA - KK PROPERTIES",
@@ -679,11 +679,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-10",
-        "src": "/deck-media/image34.jpg",
-        "url": "/deck-media/image34.jpg",
-        "at": "2026-11-17",
-        "caption": "AFTER TOLL PLAZA, BAQAI UNIVERSITY TOWARDS KARACHI CITY - S#10"
+        "id": "photo-camp-askari-10",
+        "src": "/deck-media/camp_askari_s10.jpg",
+        "url": "/deck-media/camp_askari_s10.jpg",
+        "at": "2026-11-23",
+        "caption": "AFTER TOLL PLAZA, BAQAI UNIVERSITY TOWARDS KARACHI CITY - ASKARI CAMPAIGN"
       }
     ],
     "notes": "S#10 · Client: ASKARI VILLA - KK PROPERTIES · Medium: BRIDGE PANEL · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-11-2026 + EXT · Status: EXTENDABLE · Vendor: INTERLINK - DARYA KHAN (30-11-2026 + EXT)",
@@ -708,7 +708,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-011",
@@ -736,8 +736,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "SIGNWAYS",
     "vendorEndDate": "17-12-2026 EXT",
     "client": "FALAKNAZ SKYVIEW",
-    "campaignId": "camp-2026-02",
-    "campaignName": "Falaknaz Skyview DHA Corridor",
+    "campaignId": "camp-2026-05",
+    "campaignName": "FALAKNAZ CAMPAIGN",
     "booking": {
       "client": "FALAKNAZ SKYVIEW",
       "brand": "FALAKNAZ SKYVIEW",
@@ -750,11 +750,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-11",
-        "src": "/deck-media/image22.png",
-        "url": "/deck-media/image22.png",
-        "at": "2026-11-17",
-        "caption": "EXPRESSWAY DHA ITTEHAD - S#11"
+        "id": "photo-camp-falaknaz-11",
+        "src": "/deck-media/camp_falaknaz_s11.jpg",
+        "url": "/deck-media/camp_falaknaz_s11.jpg",
+        "at": "2026-11-23",
+        "caption": "EXPRESSWAY DHA ITTEHAD - FALAKNAZ CAMPAIGN"
       }
     ],
     "notes": "S#11 · Client: FALAKNAZ SKYVIEW · Medium: HOARDING · Start: 17-Nov-26 · End: 17-Dec-26 (30 Days) · Availability: Long Term Booked · Status: EXTENDABLE · Vendor: SIGNWAYS (17-12-2026 EXT)",
@@ -779,7 +779,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-012",
@@ -807,8 +807,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "DO ADVERTISING",
     "vendorEndDate": "30-Mar-27",
     "client": "FALAKNAZ SKYVIEW",
-    "campaignId": "camp-2026-02",
-    "campaignName": "Falaknaz Skyview DHA Corridor",
+    "campaignId": "camp-2026-07",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "FALAKNAZ SKYVIEW",
       "brand": "FALAKNAZ SKYVIEW",
@@ -821,11 +821,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-12",
-        "src": "/deck-media/image33.jpg",
-        "url": "/deck-media/image33.jpg",
-        "at": "2026-11-17",
-        "caption": "DHA EXIT 02 - S#12"
+        "id": "photo-camp-gfs_main-12",
+        "src": "/deck-media/camp_gfs_main_s12.jpg",
+        "url": "/deck-media/camp_gfs_main_s12.jpg",
+        "at": "2026-11-23",
+        "caption": "DHA EXIT 02 - GFS CAMPAIGN"
       }
     ],
     "notes": "S#12 · Client: FALAKNAZ SKYVIEW · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: WILL BE END · Vendor: DO ADVERTISING (30-Mar-27)",
@@ -850,7 +850,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END",
     "excelStatus": "WILL BE END",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-013",
@@ -878,8 +878,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CALL GROUP",
     "vendorEndDate": "Long Term",
     "client": "GFS BUILDERS AND DEVELOPERS / CALL GROUP / DALDA",
-    "campaignId": "camp-2026-03",
-    "campaignName": "Call Group / Dalda / Indus Valley Campaign",
+    "campaignId": "camp-2026-07",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / CALL GROUP / DALDA",
       "brand": "GFS BUILDERS AND DEVELOPERS / CALL GROUP / DALDA",
@@ -892,11 +892,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-13",
-        "src": "/deck-media/image31.png",
-        "url": "/deck-media/image31.png",
-        "at": "2026-11-17",
-        "caption": "DHA SUNSET - S#13"
+        "id": "photo-camp-gfs_main-13",
+        "src": "/deck-media/camp_gfs_main_s13.jpg",
+        "url": "/deck-media/camp_gfs_main_s13.jpg",
+        "at": "2026-11-23",
+        "caption": "DHA SUNSET - GFS CAMPAIGN"
       }
     ],
     "notes": "S#13 · Client: GFS BUILDERS AND DEVELOPERS / CALL GROUP / DALDA · Medium: HOARDING · Start: 16-Nov-26 · End: 01-Dec-26 (15 Days) · Availability: 01-Dec-26 · Status: — · Vendor: CALL GROUP (Long Term)",
@@ -921,7 +921,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "15",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-014",
@@ -949,8 +949,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CALL GROUP",
     "vendorEndDate": "10-Jul-27",
     "client": "GFS BUILDERS AND DEVELOPERS / CALL GROUP / INDUS VALLEY",
-    "campaignId": "camp-2026-03",
-    "campaignName": "Call Group / Dalda / Indus Valley Campaign",
+    "campaignId": "camp-2026-06",
+    "campaignName": "GFS (INDUS VALLEY) CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / CALL GROUP / INDUS VALLEY",
       "brand": "GFS BUILDERS AND DEVELOPERS / CALL GROUP / INDUS VALLEY",
@@ -963,11 +963,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-14",
-        "src": "/deck-media/image23.png",
-        "url": "/deck-media/image23.png",
-        "at": "2026-11-17",
-        "caption": "DHA ITTEHAD SIGNAL - S#14"
+        "id": "photo-camp-gfs_indus-14",
+        "src": "/deck-media/camp_gfs_indus_s14.jpg",
+        "url": "/deck-media/camp_gfs_indus_s14.jpg",
+        "at": "2026-11-23",
+        "caption": "DHA ITTEHAD SIGNAL - GFS (INDUS VALLEY) CAMPAIGN"
       }
     ],
     "notes": "S#14 · Client: GFS BUILDERS AND DEVELOPERS / CALL GROUP / INDUS VALLEY · Medium: HOARDING · Start: 07-Nov-26 · End: 22-Nov-26 (15 Days) · Availability: 22-Nov-26 · Status: — · Vendor: CALL GROUP (10-Jul-27)",
@@ -992,7 +992,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "15",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-015",
@@ -1020,8 +1020,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "DO ADVERTISING",
     "vendorEndDate": "29-Jan-27",
     "client": "CHASE VALUE  / EMINENT",
-    "campaignId": "camp-2026-04",
-    "campaignName": "Chase Value & Eminent Arterial Branding",
+    "campaignId": "camp-2026-05",
+    "campaignName": "FALAKNAZ CAMPAIGN",
     "booking": {
       "client": "CHASE VALUE  / EMINENT",
       "brand": "CHASE VALUE  / EMINENT",
@@ -1034,11 +1034,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-15",
-        "src": "/deck-media/image20.jpg",
-        "url": "/deck-media/image20.jpg",
-        "at": "2026-11-17",
-        "caption": "ABL ROUND ABOUT SHAHEED E MILLAT - S#15"
+        "id": "photo-camp-falaknaz-15",
+        "src": "/deck-media/camp_falaknaz_s15.jpg",
+        "url": "/deck-media/camp_falaknaz_s15.jpg",
+        "at": "2026-11-23",
+        "caption": "ABL ROUND ABOUT SHAHEED E MILLAT - FALAKNAZ CAMPAIGN"
       }
     ],
     "notes": "S#15 · Client: CHASE VALUE  / EMINENT · Medium: BRIDGE PANEL · Start: 10-Nov-26 · End: 10-Feb-27 (92 Days) · Availability: 10-Feb-27 + Ext · Status: Long Term · Vendor: DO ADVERTISING (29-Jan-27)",
@@ -1063,7 +1063,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "Long Term",
     "excelStatus": "Long Term",
     "day": "92",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-016",
@@ -1091,8 +1091,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "MNB - UMAIR BUTT",
     "vendorEndDate": "30-Nov-26",
     "client": "CHASE VALUE  / EMINENT",
-    "campaignId": "camp-2026-04",
-    "campaignName": "Chase Value & Eminent Arterial Branding",
+    "campaignId": "camp-2026-05",
+    "campaignName": "FALAKNAZ CAMPAIGN",
     "booking": {
       "client": "CHASE VALUE  / EMINENT",
       "brand": "CHASE VALUE  / EMINENT",
@@ -1105,11 +1105,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-16",
-        "src": "/deck-media/ppt_s16_rjmall.jpg",
-        "url": "/deck-media/ppt_s16_rjmall.jpg",
-        "at": "2026-11-20",
-        "caption": "RJ MALL  TGT NIPA - S#16"
+        "id": "photo-camp-falaknaz-16",
+        "src": "/deck-media/camp_falaknaz_s16.jpg",
+        "url": "/deck-media/camp_falaknaz_s16.jpg",
+        "at": "2026-11-23",
+        "caption": "RJ MALL  TGT NIPA - FALAKNAZ CAMPAIGN"
       }
     ],
     "notes": "S#16 · Client: CHASE VALUE  / EMINENT · Medium: BRIDGE PANEL · Start: 10-Nov-26 · End: 10-Feb-27 (92 Days) · Availability: 10-Feb-27 + Ext · Status: DEPT ISSUE · Vendor: MNB - UMAIR BUTT (30-Nov-26)",
@@ -1134,7 +1134,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "DEPT ISSUE",
     "excelStatus": "DEPT ISSUE",
     "day": "92",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-017",
@@ -1162,8 +1162,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "UMAIR BUKARI",
     "vendorEndDate": "23-Dec-26",
     "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT",
-    "campaignId": "camp-2026-04",
-    "campaignName": "Chase Value & Eminent Arterial Branding",
+    "campaignId": "camp-2026-05",
+    "campaignName": "FALAKNAZ CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT",
       "brand": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT",
@@ -1176,11 +1176,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-17",
-        "src": "/deck-media/image21.png",
-        "url": "/deck-media/image21.png",
-        "at": "2026-11-17",
-        "caption": "SHAHEED E MILLAT NAHEED - S#17"
+        "id": "photo-camp-falaknaz-17",
+        "src": "/deck-media/camp_falaknaz_s17.jpg",
+        "url": "/deck-media/camp_falaknaz_s17.jpg",
+        "at": "2026-11-23",
+        "caption": "SHAHEED E MILLAT NAHEED - FALAKNAZ CAMPAIGN"
       }
     ],
     "notes": "S#17 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT · Medium: HOARDING · Start: 05-Nov-26 · End: 05-Dec-26 (30 Days) · Availability: 05-Dec-26 · Status: ? · Vendor: UMAIR BUKARI (23-Dec-26)",
@@ -1205,7 +1205,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-018",
@@ -1233,8 +1233,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "DO ADVERTISING",
     "vendorEndDate": "31-Jan-27",
     "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT",
-    "campaignId": "camp-2026-04",
-    "campaignName": "Chase Value & Eminent Arterial Branding",
+    "campaignId": "camp-2026-05",
+    "campaignName": "FALAKNAZ CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT",
       "brand": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT",
@@ -1247,11 +1247,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-18",
-        "src": "/deck-media/image25.png",
-        "url": "/deck-media/image25.png",
-        "at": "2026-11-17",
-        "caption": "SHAHEED E MILLAT BALOCH BRIDGE - S#18"
+        "id": "photo-camp-falaknaz-18",
+        "src": "/deck-media/camp_falaknaz_s18.jpg",
+        "url": "/deck-media/camp_falaknaz_s18.jpg",
+        "at": "2026-11-23",
+        "caption": "SHAHEED E MILLAT BALOCH BRIDGE - FALAKNAZ CAMPAIGN"
       }
     ],
     "notes": "S#18 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / EMINENT · Medium: BRIDGE PANEL · Start: 05-Nov-26 · End: 05-Dec-26 (30 Days) · Availability: 05-Dec-26 · Status: — · Vendor: DO ADVERTISING (31-Jan-27)",
@@ -1276,7 +1276,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-019",
@@ -1304,8 +1304,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "USMAN GRAPHIC EDGE",
     "vendorEndDate": "25-Nov-26",
     "client": "CHASE VALUE  / EMINENT",
-    "campaignId": "camp-2026-04",
-    "campaignName": "Chase Value & Eminent Arterial Branding",
+    "campaignId": "camp-2026-05",
+    "campaignName": "FALAKNAZ CAMPAIGN",
     "booking": {
       "client": "CHASE VALUE  / EMINENT",
       "brand": "CHASE VALUE  / EMINENT",
@@ -1318,11 +1318,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-19",
-        "src": "/deck-media/image32.png",
-        "url": "/deck-media/image32.png",
-        "at": "2026-11-17",
-        "caption": "FTC FLYOVER - S#19"
+        "id": "photo-camp-falaknaz-19",
+        "src": "/deck-media/camp_falaknaz_s19.jpg",
+        "url": "/deck-media/camp_falaknaz_s19.jpg",
+        "at": "2026-11-23",
+        "caption": "FTC FLYOVER - FALAKNAZ CAMPAIGN"
       }
     ],
     "notes": "S#19 · Client: CHASE VALUE  / EMINENT · Medium: HOARDING · Start: 26-Oct-26 · End: 25-Nov-26 (30 Days) · Availability: 25-Nov-26 · Status: WILL BE END · Vendor: USMAN GRAPHIC EDGE (25-Nov-26)",
@@ -1347,7 +1347,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END",
     "excelStatus": "WILL BE END",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-020",
@@ -1376,7 +1376,7 @@ window.MASTER_SITES_2026 = [
     "vendorEndDate": "05-Dec-26",
     "client": "Mr. USMAN GRAPHIC EDGE",
     "campaignId": "camp-2026-05",
-    "campaignName": "Graphic Edge - Shahrah-e-Faisal Flyover",
+    "campaignName": "FALAKNAZ CAMPAIGN",
     "booking": {
       "client": "Mr. USMAN GRAPHIC EDGE",
       "brand": "Mr. USMAN GRAPHIC EDGE",
@@ -1389,11 +1389,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-20",
-        "src": "/deck-media/ppt_s20_macdonald1.png",
-        "url": "/deck-media/ppt_s20_macdonald1.png",
-        "at": "2026-11-20",
-        "caption": "SHAHRAH E FAISAL MACDONALDS BRIDGE - S#20"
+        "id": "photo-camp-falaknaz-20",
+        "src": "/deck-media/camp_falaknaz_s20.jpg",
+        "url": "/deck-media/camp_falaknaz_s20.jpg",
+        "at": "2026-11-23",
+        "caption": "SHAHRAH E FAISAL MACDONALDS BRIDGE - FALAKNAZ CAMPAIGN"
       }
     ],
     "notes": "S#20 · Client: Mr. USMAN GRAPHIC EDGE · Medium: BRIDGE PANEL · Start: 03-Nov-26 · End: 03-Dec-26 (30 Days) · Availability: 03-12-2026 + EXT · Status: DEPT ISSUE · Vendor: POINT OUTDOOR - IMRAN AZIZ (05-Dec-26)",
@@ -1418,7 +1418,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "DEPT ISSUE",
     "excelStatus": "DEPT ISSUE",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-021",
@@ -1447,7 +1447,7 @@ window.MASTER_SITES_2026 = [
     "vendorEndDate": "31-Dec-26",
     "client": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
     "campaignId": "camp-2026-06",
-    "campaignName": "GFS Builders - Indus Valley Concert Brand Blitz",
+    "campaignName": "GFS (INDUS VALLEY) CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
       "brand": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
@@ -1460,11 +1460,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-21",
-        "src": "/deck-media/image30.png",
-        "url": "/deck-media/image30.png",
-        "at": "2026-11-17",
-        "caption": "DHA BRIDGE  01 TGT ITTEHAD - S#21"
+        "id": "photo-camp-gfs_indus-21",
+        "src": "/deck-media/camp_gfs_indus_s21.jpg",
+        "url": "/deck-media/camp_gfs_indus_s21.jpg",
+        "at": "2026-11-23",
+        "caption": "DHA BRIDGE  01 TGT ITTEHAD - GFS (INDUS VALLEY) CAMPAIGN"
       }
     ],
     "notes": "S#21 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Medium: BRIDGE PANEL · Start: 01-Dec-26 · End: 31-Dec-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: Zaib Enterprises (31-Dec-26)",
@@ -1489,7 +1489,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-022",
@@ -1518,7 +1518,7 @@ window.MASTER_SITES_2026 = [
     "vendorEndDate": "31-Dec-26",
     "client": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
     "campaignId": "camp-2026-06",
-    "campaignName": "GFS Builders - Indus Valley Concert Brand Blitz",
+    "campaignName": "GFS (INDUS VALLEY) CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
       "brand": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
@@ -1531,11 +1531,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-22",
-        "src": "/deck-media/image28.png",
-        "url": "/deck-media/image28.png",
-        "at": "2026-11-17",
-        "caption": "DHA BRIDGE  02 - S#22"
+        "id": "photo-camp-gfs_indus-22",
+        "src": "/deck-media/camp_gfs_indus_s22.jpg",
+        "url": "/deck-media/camp_gfs_indus_s22.jpg",
+        "at": "2026-11-23",
+        "caption": "DHA BRIDGE  02 - GFS (INDUS VALLEY) CAMPAIGN"
       }
     ],
     "notes": "S#22 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Medium: BRIDGE PANEL · Start: 01-Dec-26 · End: 31-Dec-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: Zaib Enterprises (31-Dec-26)",
@@ -1560,7 +1560,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-023",
@@ -1589,7 +1589,7 @@ window.MASTER_SITES_2026 = [
     "vendorEndDate": "31-11-2026",
     "client": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
     "campaignId": "camp-2026-06",
-    "campaignName": "GFS Builders - Indus Valley Concert Brand Blitz",
+    "campaignName": "GFS (INDUS VALLEY) CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
       "brand": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
@@ -1602,11 +1602,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-23",
-        "src": "/deck-media/image41.png",
-        "url": "/deck-media/image41.png",
-        "at": "2026-11-17",
-        "caption": "EXPRESSWAY - S#23"
+        "id": "photo-camp-gfs_indus-23",
+        "src": "/deck-media/camp_gfs_indus_s23.jpg",
+        "url": "/deck-media/camp_gfs_indus_s23.jpg",
+        "at": "2026-11-23",
+        "caption": "EXPRESSWAY - GFS (INDUS VALLEY) CAMPAIGN"
       }
     ],
     "notes": "S#23 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: ? · Vendor: UNIQUE ADVERTISING (31-11-2026)",
@@ -1631,7 +1631,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-024",
@@ -1659,8 +1659,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "DO ADVERTISING",
     "vendorEndDate": "30-Mar-27",
     "client": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
-    "campaignId": "camp-2026-06",
-    "campaignName": "GFS Builders - Indus Valley Concert Brand Blitz",
+    "campaignId": "camp-2026-05",
+    "campaignName": "FALAKNAZ CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
       "brand": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
@@ -1673,11 +1673,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-24",
-        "src": "/deck-media/image24.jpg",
-        "url": "/deck-media/image24.jpg",
-        "at": "2026-11-17",
-        "caption": "DHA EXIT 01 - S#24"
+        "id": "photo-camp-falaknaz-24",
+        "src": "/deck-media/camp_falaknaz_s24.jpg",
+        "url": "/deck-media/camp_falaknaz_s24.jpg",
+        "at": "2026-11-23",
+        "caption": "DHA EXIT 01 - FALAKNAZ CAMPAIGN"
       }
     ],
     "notes": "S#24 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 31-11-2026 · Status: WILL BE END · Vendor: DO ADVERTISING (30-Mar-27)",
@@ -1702,7 +1702,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END",
     "excelStatus": "WILL BE END",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-025",
@@ -1773,7 +1773,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-026",
@@ -1802,7 +1802,7 @@ window.MASTER_SITES_2026 = [
     "vendorEndDate": "10-Dec-26",
     "client": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
     "campaignId": "camp-2026-06",
-    "campaignName": "GFS Builders - Indus Valley Concert Brand Blitz",
+    "campaignName": "GFS (INDUS VALLEY) CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
       "brand": "GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT",
@@ -1815,11 +1815,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-26",
-        "src": "/deck-media/image26.png",
-        "url": "/deck-media/image26.png",
-        "at": "2026-11-17",
-        "caption": "BAHADURABAD 4 MINAR - S#26"
+        "id": "photo-camp-gfs_indus-26",
+        "src": "/deck-media/camp_gfs_indus_s26.jpg",
+        "url": "/deck-media/camp_gfs_indus_s26.jpg",
+        "at": "2026-11-23",
+        "caption": "BAHADURABAD 4 MINAR - GFS (INDUS VALLEY) CAMPAIGN"
       }
     ],
     "notes": "S#26 · Client: GFS BUILDERS AND DEVELOPERS / INDUS VALLY CONCERT · Medium: HOARDING · Start: 10-Nov-26 · End: 10-Dec-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: ? · Vendor: SIGNWAYS (10-Dec-26)",
@@ -1844,7 +1844,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-027",
@@ -1873,7 +1873,7 @@ window.MASTER_SITES_2026 = [
     "vendorEndDate": "22-Dec-26",
     "client": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
     "campaignId": "camp-2026-07",
-    "campaignName": "GFS Builders - MTR Ramsha Strategic Deployment",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
       "brand": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
@@ -1886,11 +1886,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-27",
-        "src": "/deck-media/image35.png",
-        "url": "/deck-media/image35.png",
-        "at": "2026-11-17",
-        "caption": "DHA GANTRY - AYESHA MASJID - S#27"
+        "id": "photo-camp-gfs_main-27",
+        "src": "/deck-media/camp_gfs_main_s27.jpg",
+        "url": "/deck-media/camp_gfs_main_s27.jpg",
+        "at": "2026-11-23",
+        "caption": "DHA GANTRY - AYESHA MASJID - GFS CAMPAIGN"
       }
     ],
     "notes": "S#27 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Medium: HOARDING · Start: 26-Oct-26 · End: 25-Nov-26 (30 Days) · Availability: 25-Nov-26 · Status: ? · Vendor: ZOHAIB (22-Dec-26)",
@@ -1915,7 +1915,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-028",
@@ -1944,7 +1944,7 @@ window.MASTER_SITES_2026 = [
     "vendorEndDate": "31-Jan-27",
     "client": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
     "campaignId": "camp-2026-07",
-    "campaignName": "GFS Builders - MTR Ramsha Strategic Deployment",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
       "brand": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
@@ -1957,11 +1957,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-28",
-        "src": "/deck-media/image36.png",
-        "url": "/deck-media/image36.png",
-        "at": "2026-11-17",
-        "caption": "SAFOORA - S#28"
+        "id": "photo-camp-gfs_main-28",
+        "src": "/deck-media/camp_gfs_main_s28.jpg",
+        "url": "/deck-media/camp_gfs_main_s28.jpg",
+        "at": "2026-11-23",
+        "caption": "SAFOORA - GFS CAMPAIGN"
       }
     ],
     "notes": "S#28 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Medium: HOARDING · Start: 25-Oct-26 · End: 24-Nov-26 (30 Days) · Availability: 24-Nov-26 · Status: — · Vendor: SHARPLINE (31-Jan-27)",
@@ -1986,7 +1986,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-029",
@@ -2015,7 +2015,7 @@ window.MASTER_SITES_2026 = [
     "vendorEndDate": "09-Dec-26",
     "client": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
     "campaignId": "camp-2026-07",
-    "campaignName": "GFS Builders - MTR Ramsha Strategic Deployment",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
       "brand": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
@@ -2028,11 +2028,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-29",
-        "src": "/deck-media/image38.png",
-        "url": "/deck-media/image38.png",
-        "at": "2026-11-17",
-        "caption": "EXPRESSWAY 01 - S#29"
+        "id": "photo-camp-gfs_main-29",
+        "src": "/deck-media/camp_gfs_main_s29.jpg",
+        "url": "/deck-media/camp_gfs_main_s29.jpg",
+        "at": "2026-11-23",
+        "caption": "EXPRESSWAY 01 - GFS CAMPAIGN"
       }
     ],
     "notes": "S#29 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Medium: BRIDGE PANEL · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: — · Vendor: CHINAB ADVERTISING (09-Dec-26)",
@@ -2057,7 +2057,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-030",
@@ -2086,7 +2086,7 @@ window.MASTER_SITES_2026 = [
     "vendorEndDate": "09-Dec-26",
     "client": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
     "campaignId": "camp-2026-07",
-    "campaignName": "GFS Builders - MTR Ramsha Strategic Deployment",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
       "brand": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
@@ -2099,11 +2099,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-30",
-        "src": "/deck-media/image51.png",
-        "url": "/deck-media/image51.png",
-        "at": "2026-11-17",
-        "caption": "EXPRESSWAY 02 - S#30"
+        "id": "photo-camp-gfs_main-30",
+        "src": "/deck-media/camp_gfs_main_s30.jpg",
+        "url": "/deck-media/camp_gfs_main_s30.jpg",
+        "at": "2026-11-23",
+        "caption": "EXPRESSWAY 02 - GFS CAMPAIGN"
       }
     ],
     "notes": "S#30 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Medium: BRIDGE PANEL · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: — · Vendor: CHINAB ADVERTISING (09-Dec-26)",
@@ -2128,7 +2128,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-031",
@@ -2199,7 +2199,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END",
     "excelStatus": "WILL BE END",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-032",
@@ -2227,8 +2227,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "KASHIF RING MEDIA",
     "vendorEndDate": "30-Nov-26",
     "client": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
-    "campaignId": "camp-2026-07",
-    "campaignName": "GFS Builders - MTR Ramsha Strategic Deployment",
+    "campaignId": "camp-2026-08",
+    "campaignName": "KIFAYAH CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
       "brand": "GFS BUILDERS AND DEVELOPERS / MTR RAMSHA",
@@ -2241,18 +2241,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-32",
-        "src": "/deck-media/ppt_s32_malircantt.png",
-        "url": "/deck-media/ppt_s32_malircantt.png",
-        "at": "2026-11-20",
-        "caption": "MALIR CANTT - S#32"
-      },
-      {
-        "id": "photo-2026-32-2",
-        "src": "/deck-media/image83.png",
-        "url": "/deck-media/image83.png",
-        "at": "2026-11-20",
-        "caption": "MALIR CANTT - S#32"
+        "id": "photo-camp-kifayah-32",
+        "src": "/deck-media/camp_kifayah_s32.jpg",
+        "url": "/deck-media/camp_kifayah_s32.jpg",
+        "at": "2026-11-23",
+        "caption": "MALIR CANTT - KIFAYAH CAMPAIGN"
       }
     ],
     "notes": "S#32 · Client: GFS BUILDERS AND DEVELOPERS / MTR RAMSHA · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: WILL BE END · Vendor: KASHIF RING MEDIA (30-Nov-26)",
@@ -2277,7 +2270,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END",
     "excelStatus": "WILL BE END",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-033",
@@ -2305,8 +2298,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CALL GROUP",
     "vendorEndDate": "10-Jul-27",
     "client": "GFS BUILDERS AND DEVELOPERS",
-    "campaignId": "camp-2026-08",
-    "campaignName": "GFS Builders - Mega Karachi Citywide Network",
+    "campaignId": "camp-2026-07",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS",
       "brand": "GFS BUILDERS AND DEVELOPERS",
@@ -2319,11 +2312,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-33",
-        "src": "/deck-media/image49.png",
-        "url": "/deck-media/image49.png",
-        "at": "2026-11-17",
-        "caption": "KAALA PUL - S#33"
+        "id": "photo-camp-gfs_main-33",
+        "src": "/deck-media/camp_gfs_main_s33.jpg",
+        "url": "/deck-media/camp_gfs_main_s33.jpg",
+        "at": "2026-11-23",
+        "caption": "KAALA PUL - GFS CAMPAIGN"
       }
     ],
     "notes": "S#33 · Client: GFS BUILDERS AND DEVELOPERS · Medium: HOARDING · Start: 10-Jun-27 · End: 10-Jul-27 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: CALL GROUP (10-Jul-27)",
@@ -2348,7 +2341,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-034",
@@ -2376,8 +2369,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CALL GROUP",
     "vendorEndDate": "Long Term",
     "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / PREMIUM BLOCK",
-    "campaignId": "camp-2026-08",
-    "campaignName": "GFS Builders - Mega Karachi Citywide Network",
+    "campaignId": "camp-2026-07",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / PREMIUM BLOCK",
       "brand": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / PREMIUM BLOCK",
@@ -2390,11 +2383,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-34",
-        "src": "/deck-media/ppt_s34_shafiqmor.jpg",
-        "url": "/deck-media/ppt_s34_shafiqmor.jpg",
-        "at": "2026-11-20",
-        "caption": "SHAFIQ MOR TGT NAGAN - S#34"
+        "id": "photo-camp-gfs_main-34",
+        "src": "/deck-media/camp_gfs_main_s34.jpg",
+        "url": "/deck-media/camp_gfs_main_s34.jpg",
+        "at": "2026-11-23",
+        "caption": "SHAFIQ MOR TGT NAGAN - GFS CAMPAIGN"
       }
     ],
     "notes": "S#34 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS / PREMIUM BLOCK · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: CALL GROUP (Long Term)",
@@ -2419,7 +2412,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-035",
@@ -2447,8 +2440,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "DO ADVERTISING",
     "vendorEndDate": "06-Jan-27",
     "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
-    "campaignId": "camp-2026-08",
-    "campaignName": "GFS Builders - Mega Karachi Citywide Network",
+    "campaignId": "camp-2026-07",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
       "brand": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
@@ -2461,11 +2454,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-35",
-        "src": "/deck-media/image37.jpg",
-        "url": "/deck-media/image37.jpg",
-        "at": "2026-11-17",
-        "caption": "04K CHOWRANGI  -  BARA MARKET - S#35"
+        "id": "photo-camp-gfs_main-35",
+        "src": "/deck-media/camp_gfs_main_s35.jpg",
+        "url": "/deck-media/camp_gfs_main_s35.jpg",
+        "at": "2026-11-23",
+        "caption": "04K CHOWRANGI  -  BARA MARKET - GFS CAMPAIGN"
       }
     ],
     "notes": "S#35 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Medium: BRIDGE PANEL · Start: 07-Dec-26 · End: 06-Jan-27 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: DO ADVERTISING (06-Jan-27)",
@@ -2490,7 +2483,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-036",
@@ -2518,8 +2511,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "INTERLINK - DARYA KHAN",
     "vendorEndDate": "13-Dec-26",
     "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
-    "campaignId": "camp-2026-08",
-    "campaignName": "GFS Builders - Mega Karachi Citywide Network",
+    "campaignId": "camp-2026-07",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
       "brand": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
@@ -2532,11 +2525,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-36",
-        "src": "/deck-media/image43.png",
-        "url": "/deck-media/image43.png",
-        "at": "2026-11-17",
-        "caption": "MAIN 4K CHOWRANGI  01 (4K CHOWRANGI TO POWER HOUSE - S#36"
+        "id": "photo-camp-gfs_main-36",
+        "src": "/deck-media/camp_gfs_main_s36.jpg",
+        "url": "/deck-media/camp_gfs_main_s36.jpg",
+        "at": "2026-11-23",
+        "caption": "MAIN 4K CHOWRANGI  01 (4K CHOWRANGI TO POWER HOUSE - GFS CAMPAIGN"
       }
     ],
     "notes": "S#36 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Medium: BRIDGE PANEL · Start: 13-Nov-26 · End: 13-Dec-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: INTERLINK - DARYA KHAN (13-Dec-26)",
@@ -2561,7 +2554,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-037",
@@ -2589,8 +2582,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "ANNAS COMMUNICATION",
     "vendorEndDate": "30-Nov-26",
     "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
-    "campaignId": "camp-2026-08",
-    "campaignName": "GFS Builders - Mega Karachi Citywide Network",
+    "campaignId": "camp-2026-07",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
       "brand": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
@@ -2603,11 +2596,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-37",
-        "src": "/deck-media/image44.png",
-        "url": "/deck-media/image44.png",
-        "at": "2026-11-17",
-        "caption": "ORANGI TOWN - S#37"
+        "id": "photo-camp-gfs_main-37",
+        "src": "/deck-media/camp_gfs_main_s37.jpg",
+        "url": "/deck-media/camp_gfs_main_s37.jpg",
+        "at": "2026-11-23",
+        "caption": "ORANGI TOWN - GFS CAMPAIGN"
       }
     ],
     "notes": "S#37 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: ANNAS COMMUNICATION (30-Nov-26)",
@@ -2632,7 +2625,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-038",
@@ -2703,7 +2696,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-039",
@@ -2731,8 +2724,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "INSIGHT SOLUTIONS",
     "vendorEndDate": "22-Dec-26",
     "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
-    "campaignId": "camp-2026-08",
-    "campaignName": "GFS Builders - Mega Karachi Citywide Network",
+    "campaignId": "camp-2026-07",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
       "brand": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
@@ -2745,11 +2738,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-39",
-        "src": "/deck-media/image42.jpg",
-        "url": "/deck-media/image42.jpg",
-        "at": "2026-11-17",
-        "caption": "Karimabad Flyover, Shahrah-e-Pakistan - S#39"
+        "id": "photo-camp-gfs_main-39",
+        "src": "/deck-media/camp_gfs_main_s39.jpg",
+        "url": "/deck-media/camp_gfs_main_s39.jpg",
+        "at": "2026-11-23",
+        "caption": "Karimabad Flyover, Shahrah-e-Pakistan - GFS CAMPAIGN"
       }
     ],
     "notes": "S#39 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Medium: HOARDING · Start: 22-Nov-26 · End: 22-Dec-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: ? · Vendor: INSIGHT SOLUTIONS (22-Dec-26)",
@@ -2774,7 +2767,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-040",
@@ -2802,8 +2795,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "INSIGHT SOLUTIONS",
     "vendorEndDate": "22-Dec-26",
     "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
-    "campaignId": "camp-2026-08",
-    "campaignName": "GFS Builders - Mega Karachi Citywide Network",
+    "campaignId": "camp-2026-07",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
       "brand": "GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS",
@@ -2816,11 +2809,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-40",
-        "src": "/deck-media/image42.jpg",
-        "url": "/deck-media/image42.jpg",
-        "at": "2026-11-17",
-        "caption": "Karimabad Flyover, Shahrah-e-Pakistan - S#40"
+        "id": "photo-camp-gfs_main-40",
+        "src": "/deck-media/camp_gfs_main_s40.jpg",
+        "url": "/deck-media/camp_gfs_main_s40.jpg",
+        "at": "2026-11-23",
+        "caption": "Karimabad Flyover, Shahrah-e-Pakistan - GFS CAMPAIGN"
       }
     ],
     "notes": "S#40 · Client: GFS BUILDERS AND DEVELOPERS / COMMERCIAL PLOTS · Medium: HOARDING · Start: 22-Nov-26 · End: 22-Dec-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: ? · Vendor: INSIGHT SOLUTIONS (22-Dec-26)",
@@ -2845,7 +2838,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-041",
@@ -2873,8 +2866,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CHINAB ADVERTISING",
     "vendorEndDate": "26-Dec-26",
     "client": "GFS BUILDERS AND DEVELOPERS",
-    "campaignId": "camp-2026-08",
-    "campaignName": "GFS Builders - Mega Karachi Citywide Network",
+    "campaignId": "camp-2026-07",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS",
       "brand": "GFS BUILDERS AND DEVELOPERS",
@@ -2887,11 +2880,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-41",
-        "src": "/deck-media/image53.png",
-        "url": "/deck-media/image53.png",
-        "at": "2026-11-17",
-        "caption": "RASHID MINHAS ROAD TGT JOHAR AND MILLINIUM - S#41"
+        "id": "photo-camp-gfs_main-41",
+        "src": "/deck-media/camp_gfs_main_s41.jpg",
+        "url": "/deck-media/camp_gfs_main_s41.jpg",
+        "at": "2026-11-23",
+        "caption": "RASHID MINHAS ROAD TGT JOHAR AND MILLINIUM - GFS CAMPAIGN"
       }
     ],
     "notes": "S#41 · Client: GFS BUILDERS AND DEVELOPERS · Medium: BRIDGE PANEL · Start: 26-Nov-26 · End: 26-Dec-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: CHINAB ADVERTISING (26-Dec-26)",
@@ -2916,7 +2909,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-042",
@@ -2944,8 +2937,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "DO ADVERTISING",
     "vendorEndDate": "31-Jan-27",
     "client": "GFS BUILDERS AND DEVELOPERS",
-    "campaignId": "camp-2026-08",
-    "campaignName": "GFS Builders - Mega Karachi Citywide Network",
+    "campaignId": "camp-2026-07",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS",
       "brand": "GFS BUILDERS AND DEVELOPERS",
@@ -2958,11 +2951,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-42",
-        "src": "/deck-media/image40.jpg",
-        "url": "/deck-media/image40.jpg",
-        "at": "2026-11-17",
-        "caption": "NIPA WONDER TOWER - S#42"
+        "id": "photo-camp-gfs_main-42",
+        "src": "/deck-media/camp_gfs_main_s42.jpg",
+        "url": "/deck-media/camp_gfs_main_s42.jpg",
+        "at": "2026-11-23",
+        "caption": "NIPA WONDER TOWER - GFS CAMPAIGN"
       }
     ],
     "notes": "S#42 · Client: GFS BUILDERS AND DEVELOPERS · Medium: HOARDING · Start: 01-Jan-27 · End: 31-Jan-27 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: ? · Vendor: DO ADVERTISING (31-Jan-27)",
@@ -2987,7 +2980,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-043",
@@ -3015,8 +3008,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "INTERLINK - DARYA KHAN",
     "vendorEndDate": "30-11-2026 + EXT",
     "client": "GFS BUILDERS AND DEVELOPERS",
-    "campaignId": "camp-2026-08",
-    "campaignName": "GFS Builders - Mega Karachi Citywide Network",
+    "campaignId": "camp-2026-07",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS",
       "brand": "GFS BUILDERS AND DEVELOPERS",
@@ -3029,11 +3022,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-43",
-        "src": "/deck-media/image47.jpg",
-        "url": "/deck-media/image47.jpg",
-        "at": "2026-11-17",
-        "caption": "SHAFIQ MORE BUFFER ZONE - S#43"
+        "id": "photo-camp-gfs_main-43",
+        "src": "/deck-media/camp_gfs_main_s43.jpg",
+        "url": "/deck-media/camp_gfs_main_s43.jpg",
+        "at": "2026-11-23",
+        "caption": "SHAFIQ MORE BUFFER ZONE - GFS CAMPAIGN"
       }
     ],
     "notes": "S#43 · Client: GFS BUILDERS AND DEVELOPERS · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: INTERLINK - DARYA KHAN (30-11-2026 + EXT)",
@@ -3058,7 +3051,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-044",
@@ -3086,8 +3079,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "ANNAS COMMUNICATION",
     "vendorEndDate": "30-Nov-26",
     "client": "GFS BUILDERS AND DEVELOPERS",
-    "campaignId": "camp-2026-08",
-    "campaignName": "GFS Builders - Mega Karachi Citywide Network",
+    "campaignId": "camp-2026-07",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS",
       "brand": "GFS BUILDERS AND DEVELOPERS",
@@ -3100,11 +3093,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-44",
-        "src": "/deck-media/image57.png",
-        "url": "/deck-media/image57.png",
-        "at": "2026-11-17",
-        "caption": "NAGAN FLYOVER - S#44"
+        "id": "photo-camp-gfs_main-44",
+        "src": "/deck-media/camp_gfs_main_s44.jpg",
+        "url": "/deck-media/camp_gfs_main_s44.jpg",
+        "at": "2026-11-23",
+        "caption": "NAGAN FLYOVER - GFS CAMPAIGN"
       }
     ],
     "notes": "S#44 · Client: GFS BUILDERS AND DEVELOPERS · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: ANNAS COMMUNICATION (30-Nov-26)",
@@ -3129,7 +3122,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-045",
@@ -3157,8 +3150,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "DO ADVERTISING",
     "vendorEndDate": "06-Jan-27",
     "client": "GFS BUILDERS AND DEVELOPERS",
-    "campaignId": "camp-2026-08",
-    "campaignName": "GFS Builders - Mega Karachi Citywide Network",
+    "campaignId": "camp-2026-07",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "GFS BUILDERS AND DEVELOPERS",
       "brand": "GFS BUILDERS AND DEVELOPERS",
@@ -3171,11 +3164,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-45",
-        "src": "/deck-media/image45.jpg",
-        "url": "/deck-media/image45.jpg",
-        "at": "2026-11-17",
-        "caption": "NEW BARA MARKET 2 - S#45"
+        "id": "photo-camp-gfs_main-45",
+        "src": "/deck-media/camp_gfs_main_s45.jpg",
+        "url": "/deck-media/camp_gfs_main_s45.jpg",
+        "at": "2026-11-23",
+        "caption": "NEW BARA MARKET 2 - GFS CAMPAIGN"
       }
     ],
     "notes": "S#45 · Client: GFS BUILDERS AND DEVELOPERS · Medium: BRIDGE PANEL · Start: 07-Dec-26 · End: 06-Jan-27 (30 Days) · Availability: SUBJECT TO AVAILABLE · Status: — · Vendor: DO ADVERTISING (06-Jan-27)",
@@ -3200,7 +3193,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-046",
@@ -3228,8 +3221,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "MNB - UMAIR BUTT",
     "vendorEndDate": "15-01-2027 + EXT",
     "client": "AA BUILDERS",
-    "campaignId": "camp-2026-09",
-    "campaignName": "AA Builders - Central & East Karachi Domination",
+    "campaignId": "camp-2026-01",
+    "campaignName": "AA AVENUE CAMPAIGN",
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
@@ -3242,11 +3235,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-46",
-        "src": "/deck-media/image82.png",
-        "url": "/deck-media/image82.png",
-        "at": "2026-11-17",
-        "caption": "SHAHRAH E QUAIDEEN - S#46"
+        "id": "photo-camp-aa_avenue-46",
+        "src": "/deck-media/camp_aa_avenue_s46.jpg",
+        "url": "/deck-media/camp_aa_avenue_s46.jpg",
+        "at": "2026-11-23",
+        "caption": "SHAHRAH E QUAIDEEN - AA AVENUE CAMPAIGN"
       }
     ],
     "notes": "S#46 · Client: AA BUILDERS · Medium: HOARDING · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: MNB - UMAIR BUTT (15-01-2027 + EXT)",
@@ -3271,7 +3264,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "61",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-047",
@@ -3299,8 +3292,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "MNB - UMAIR BUTT",
     "vendorEndDate": "15-01-2027 + EXT",
     "client": "AA BUILDERS",
-    "campaignId": "camp-2026-09",
-    "campaignName": "AA Builders - Central & East Karachi Domination",
+    "campaignId": "camp-2026-01",
+    "campaignName": "AA AVENUE CAMPAIGN",
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
@@ -3313,11 +3306,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-47",
-        "src": "/deck-media/image50.png",
-        "url": "/deck-media/image50.png",
-        "at": "2026-11-17",
-        "caption": "MA JINNAH ROAD NUMAISH - S#47"
+        "id": "photo-camp-aa_avenue-47",
+        "src": "/deck-media/camp_aa_avenue_s47.jpg",
+        "url": "/deck-media/camp_aa_avenue_s47.jpg",
+        "at": "2026-11-23",
+        "caption": "MA JINNAH ROAD NUMAISH - AA AVENUE CAMPAIGN"
       }
     ],
     "notes": "S#47 · Client: AA BUILDERS · Medium: HOARDING · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: MNB - UMAIR BUTT (15-01-2027 + EXT)",
@@ -3342,7 +3335,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "61",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-048",
@@ -3370,8 +3363,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "NEXTIER KAINAT",
     "vendorEndDate": "22-Jan-27",
     "client": "AA BUILDERS",
-    "campaignId": "camp-2026-09",
-    "campaignName": "AA Builders - Central & East Karachi Domination",
+    "campaignId": "camp-2026-01",
+    "campaignName": "AA AVENUE CAMPAIGN",
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
@@ -3384,11 +3377,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-48",
-        "src": "/deck-media/image52.png",
-        "url": "/deck-media/image52.png",
-        "at": "2026-11-17",
-        "caption": "BAHRIA UNIVERSITY TGT MILLINIUM MALL - S#48"
+        "id": "photo-camp-aa_avenue-48",
+        "src": "/deck-media/camp_aa_avenue_s48.jpg",
+        "url": "/deck-media/camp_aa_avenue_s48.jpg",
+        "at": "2026-11-23",
+        "caption": "BAHRIA UNIVERSITY TGT MILLINIUM MALL - AA AVENUE CAMPAIGN"
       }
     ],
     "notes": "S#48 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-01-2027 + EXT · Status: EXTENDABLE · Vendor: NEXTIER KAINAT (22-Jan-27)",
@@ -3413,7 +3406,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "61",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-049",
@@ -3441,8 +3434,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "NEXTIER KAINAT",
     "vendorEndDate": "22-Jan-27",
     "client": "AA BUILDERS",
-    "campaignId": "camp-2026-09",
-    "campaignName": "AA Builders - Central & East Karachi Domination",
+    "campaignId": "camp-2026-01",
+    "campaignName": "AA AVENUE CAMPAIGN",
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
@@ -3455,11 +3448,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-49",
-        "src": "/deck-media/image72.png",
-        "url": "/deck-media/image72.png",
-        "at": "2026-11-17",
-        "caption": "BAHRIA UNIVERSITY TGT NATIONAL STADIUM - S#49"
+        "id": "photo-camp-aa_avenue-49",
+        "src": "/deck-media/camp_aa_avenue_s49.jpg",
+        "url": "/deck-media/camp_aa_avenue_s49.jpg",
+        "at": "2026-11-23",
+        "caption": "BAHRIA UNIVERSITY TGT NATIONAL STADIUM - AA AVENUE CAMPAIGN"
       }
     ],
     "notes": "S#49 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-01-2027 + EXT · Status: EXTENDABLE · Vendor: NEXTIER KAINAT (22-Jan-27)",
@@ -3484,7 +3477,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "EXTENDABLE",
     "excelStatus": "EXTENDABLE",
     "day": "61",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-050",
@@ -3512,8 +3505,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CHINAB ADVERTISING",
     "vendorEndDate": "15-Jan-27",
     "client": "AA BUILDERS",
-    "campaignId": "camp-2026-09",
-    "campaignName": "AA Builders - Central & East Karachi Domination",
+    "campaignId": "camp-2026-01",
+    "campaignName": "AA AVENUE CAMPAIGN",
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
@@ -3526,11 +3519,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-50",
-        "src": "/deck-media/image55.png",
-        "url": "/deck-media/image55.png",
-        "at": "2026-11-17",
-        "caption": "GULSHAN CHOWRANGI - S#50"
+        "id": "photo-camp-aa_avenue-50",
+        "src": "/deck-media/camp_aa_avenue_s50.jpg",
+        "url": "/deck-media/camp_aa_avenue_s50.jpg",
+        "at": "2026-11-23",
+        "caption": "GULSHAN CHOWRANGI - AA AVENUE CAMPAIGN"
       }
     ],
     "notes": "S#50 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (15-Jan-27)",
@@ -3555,7 +3548,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "61",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-051",
@@ -3583,8 +3576,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CHINAB ADVERTISING",
     "vendorEndDate": "15-Jan-27",
     "client": "AA BUILDERS",
-    "campaignId": "camp-2026-09",
-    "campaignName": "AA Builders - Central & East Karachi Domination",
+    "campaignId": "camp-2026-01",
+    "campaignName": "AA AVENUE CAMPAIGN",
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
@@ -3597,11 +3590,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-51",
-        "src": "/deck-media/image67.png",
-        "url": "/deck-media/image67.png",
-        "at": "2026-11-17",
-        "caption": "GULSHAN CHOWRANGI - S#51"
+        "id": "photo-camp-aa_avenue-51",
+        "src": "/deck-media/camp_aa_avenue_s51.jpg",
+        "url": "/deck-media/camp_aa_avenue_s51.jpg",
+        "at": "2026-11-23",
+        "caption": "GULSHAN CHOWRANGI - AA AVENUE CAMPAIGN"
       }
     ],
     "notes": "S#51 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (15-Jan-27)",
@@ -3626,7 +3619,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "61",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-052",
@@ -3654,8 +3647,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "MNB - UMAIR BUTT",
     "vendorEndDate": "15-Jan-27",
     "client": "AA BUILDERS",
-    "campaignId": "camp-2026-09",
-    "campaignName": "AA Builders - Central & East Karachi Domination",
+    "campaignId": "camp-2026-07",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
@@ -3668,11 +3661,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-52",
-        "src": "/deck-media/ppt_s52_rjmall2.jpg",
-        "url": "/deck-media/ppt_s52_rjmall2.jpg",
-        "at": "2026-11-20",
-        "caption": "RJ MALL TGT SHAHRAH E FAISAL - S#52"
+        "id": "photo-camp-gfs_main-52",
+        "src": "/deck-media/camp_gfs_main_s52.jpg",
+        "url": "/deck-media/camp_gfs_main_s52.jpg",
+        "at": "2026-11-23",
+        "caption": "RJ MALL TGT SHAHRAH E FAISAL - GFS CAMPAIGN"
       }
     ],
     "notes": "S#52 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-01-2027 + EXT · Status: DEPT ISSUE · Vendor: MNB - UMAIR BUTT (15-Jan-27)",
@@ -3697,7 +3690,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "DEPT ISSUE",
     "excelStatus": "DEPT ISSUE",
     "day": "61",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-053",
@@ -3725,8 +3718,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "NEXTIER KAINAT",
     "vendorEndDate": "16-Dec-26",
     "client": "AA BUILDERS",
-    "campaignId": "camp-2026-09",
-    "campaignName": "AA Builders - Central & East Karachi Domination",
+    "campaignId": "camp-2026-01",
+    "campaignName": "AA AVENUE CAMPAIGN",
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
@@ -3739,11 +3732,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-53",
-        "src": "/deck-media/image13.png",
-        "url": "/deck-media/image13.png",
-        "at": "2026-11-20",
-        "caption": "KARSAZ ROAD BRIDGE  TGT STADIUM - S#53"
+        "id": "photo-camp-aa_avenue-53",
+        "src": "/deck-media/camp_aa_avenue_s53.jpg",
+        "url": "/deck-media/camp_aa_avenue_s53.jpg",
+        "at": "2026-11-23",
+        "caption": "KARSAZ ROAD BRIDGE  TGT STADIUM - AA AVENUE CAMPAIGN"
       }
     ],
     "notes": "S#53 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Start: 16-Nov-26 · End: 16-Dec-26 (30 Days) · Availability: — · Status: WILL BE END AS PER CAMPAIGN · Vendor: NEXTIER KAINAT (16-Dec-26)",
@@ -3768,7 +3761,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-054",
@@ -3796,8 +3789,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CHINAB ADVERTISING",
     "vendorEndDate": "15-Jan-27",
     "client": "AA BUILDERS",
-    "campaignId": "camp-2026-09",
-    "campaignName": "AA Builders - Central & East Karachi Domination",
+    "campaignId": "camp-2026-01",
+    "campaignName": "AA AVENUE CAMPAIGN",
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
@@ -3810,11 +3803,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-54",
-        "src": "/deck-media/image66.png",
-        "url": "/deck-media/image66.png",
-        "at": "2026-11-17",
-        "caption": "NAZIMABAD TGT HYDERI - S#54"
+        "id": "photo-camp-aa_avenue-54",
+        "src": "/deck-media/camp_aa_avenue_s54.jpg",
+        "url": "/deck-media/camp_aa_avenue_s54.jpg",
+        "at": "2026-11-23",
+        "caption": "NAZIMABAD TGT HYDERI - AA AVENUE CAMPAIGN"
       }
     ],
     "notes": "S#54 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (15-Jan-27)",
@@ -3839,7 +3832,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "61",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-055",
@@ -3867,8 +3860,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CHINAB ADVERTISING",
     "vendorEndDate": "15-Jan-27",
     "client": "AA BUILDERS",
-    "campaignId": "camp-2026-09",
-    "campaignName": "AA Builders - Central & East Karachi Domination",
+    "campaignId": "camp-2026-01",
+    "campaignName": "AA AVENUE CAMPAIGN",
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
@@ -3881,11 +3874,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-55",
-        "src": "/deck-media/image79.png",
-        "url": "/deck-media/image79.png",
-        "at": "2026-11-17",
-        "caption": "CIVIC CENTER 01 - S#55"
+        "id": "photo-camp-aa_avenue-55",
+        "src": "/deck-media/camp_aa_avenue_s55.jpg",
+        "url": "/deck-media/camp_aa_avenue_s55.jpg",
+        "at": "2026-11-23",
+        "caption": "CIVIC CENTER 01 - AA AVENUE CAMPAIGN"
       }
     ],
     "notes": "S#55 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (15-Jan-27)",
@@ -3910,7 +3903,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "61",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-056",
@@ -3938,8 +3931,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CHINAB ADVERTISING",
     "vendorEndDate": "15-Jan-27",
     "client": "AA BUILDERS",
-    "campaignId": "camp-2026-09",
-    "campaignName": "AA Builders - Central & East Karachi Domination",
+    "campaignId": "camp-2026-01",
+    "campaignName": "AA AVENUE CAMPAIGN",
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
@@ -3952,11 +3945,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-56",
-        "src": "/deck-media/image79.png",
-        "url": "/deck-media/image79.png",
-        "at": "2026-11-20",
-        "caption": "CIVIC CENTER 02 - S#56"
+        "id": "photo-camp-aa_avenue-56",
+        "src": "/deck-media/camp_aa_avenue_s56.jpg",
+        "url": "/deck-media/camp_aa_avenue_s56.jpg",
+        "at": "2026-11-23",
+        "caption": "CIVIC CENTER 02 - AA AVENUE CAMPAIGN"
       }
     ],
     "notes": "S#56 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-01-2027 + EXT · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (15-Jan-27)",
@@ -3981,7 +3974,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "61",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-057",
@@ -4009,8 +4002,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "DO ADVERTISING",
     "vendorEndDate": "15-Jan-26",
     "client": "AA BUILDERS",
-    "campaignId": "camp-2026-09",
-    "campaignName": "AA Builders - Central & East Karachi Domination",
+    "campaignId": "camp-2026-01",
+    "campaignName": "AA AVENUE CAMPAIGN",
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
@@ -4023,11 +4016,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-57",
-        "src": "/deck-media/ppt_s57_essanagri.png",
-        "url": "/deck-media/ppt_s57_essanagri.png",
-        "at": "2026-11-20",
-        "caption": "ESSA NAGRI - S#57"
+        "id": "photo-camp-aa_avenue-57",
+        "src": "/deck-media/camp_aa_avenue_s57.jpg",
+        "url": "/deck-media/camp_aa_avenue_s57.jpg",
+        "at": "2026-11-23",
+        "caption": "ESSA NAGRI - AA AVENUE CAMPAIGN"
       }
     ],
     "notes": "S#57 · Client: AA BUILDERS · Medium: BRIDGE PANEL · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-Jan-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: DO ADVERTISING (15-Jan-26)",
@@ -4052,7 +4045,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "61",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-058",
@@ -4080,8 +4073,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "DO ADVERTISING",
     "vendorEndDate": "15-Jan-26",
     "client": "AA BUILDERS",
-    "campaignId": "camp-2026-09",
-    "campaignName": "AA Builders - Central & East Karachi Domination",
+    "campaignId": "camp-2026-01",
+    "campaignName": "AA AVENUE CAMPAIGN",
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
@@ -4094,11 +4087,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-58",
-        "src": "/deck-media/image54.png",
-        "url": "/deck-media/image54.png",
-        "at": "2026-11-17",
-        "caption": "HASAN SQUARE FLYOVER - S#58"
+        "id": "photo-camp-aa_avenue-58",
+        "src": "/deck-media/camp_aa_avenue_s58.jpg",
+        "url": "/deck-media/camp_aa_avenue_s58.jpg",
+        "at": "2026-11-23",
+        "caption": "HASAN SQUARE FLYOVER - AA AVENUE CAMPAIGN"
       }
     ],
     "notes": "S#58 · Client: AA BUILDERS · Medium: HOARDING · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-Jan-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: DO ADVERTISING (15-Jan-26)",
@@ -4123,7 +4116,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "61",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-059",
@@ -4201,7 +4194,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "ISSUE",
     "excelStatus": "ISSUE",
     "day": "61",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-060",
@@ -4229,8 +4222,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CHAMPION SIGN",
     "vendorEndDate": "15-Jan-26",
     "client": "AA BUILDERS",
-    "campaignId": "camp-2026-09",
-    "campaignName": "AA Builders - Central & East Karachi Domination",
+    "campaignId": "camp-2026-01",
+    "campaignName": "AA AVENUE CAMPAIGN",
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
@@ -4243,11 +4236,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-60",
-        "src": "/deck-media/image62.png",
-        "url": "/deck-media/image62.png",
-        "at": "2026-11-17",
-        "caption": "BAHADURABAD 4 MINAR - S#60"
+        "id": "photo-camp-aa_avenue-60",
+        "src": "/deck-media/camp_aa_avenue_s60.jpg",
+        "url": "/deck-media/camp_aa_avenue_s60.jpg",
+        "at": "2026-11-23",
+        "caption": "BAHADURABAD 4 MINAR - AA AVENUE CAMPAIGN"
       }
     ],
     "notes": "S#60 · Client: AA BUILDERS · Medium: HOARDING · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-Jan-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHAMPION SIGN (15-Jan-26)",
@@ -4272,7 +4265,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "61",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-061",
@@ -4300,8 +4293,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CHAMPION SIGN / Millinium Graphics",
     "vendorEndDate": "15-Jan-26",
     "client": "AA BUILDERS",
-    "campaignId": "camp-2026-09",
-    "campaignName": "AA Builders - Central & East Karachi Domination",
+    "campaignId": "camp-2026-01",
+    "campaignName": "AA AVENUE CAMPAIGN",
     "booking": {
       "client": "AA BUILDERS",
       "brand": "AA BUILDERS",
@@ -4314,11 +4307,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-61",
-        "src": "/deck-media/image58.png",
-        "url": "/deck-media/image58.png",
-        "at": "2026-11-17",
-        "caption": "SHAHRAH E PAKISTAN - S#61"
+        "id": "photo-camp-aa_avenue-61",
+        "src": "/deck-media/camp_aa_avenue_s61.jpg",
+        "url": "/deck-media/camp_aa_avenue_s61.jpg",
+        "at": "2026-11-23",
+        "caption": "SHAHRAH E PAKISTAN - AA AVENUE CAMPAIGN"
       }
     ],
     "notes": "S#61 · Client: AA BUILDERS · Medium: HOARDING · Start: 15-Nov-26 · End: 15-Jan-27 (61 Days) · Availability: 15-Jan-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHAMPION SIGN / Millinium Graphics (15-Jan-26)",
@@ -4343,7 +4336,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "61",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-062",
@@ -4414,7 +4407,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "61",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-063",
@@ -4492,7 +4485,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-064",
@@ -4520,8 +4513,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CHINAB ADVERTISING",
     "vendorEndDate": "24-Dec-26",
     "client": "KIFAYAH STORE",
-    "campaignId": "camp-2026-10",
-    "campaignName": "Kifayah Store - Airport & Malir Arterial Network",
+    "campaignId": "camp-2026-08",
+    "campaignName": "KIFAYAH CAMPAIGN",
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
@@ -4534,11 +4527,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-64",
-        "src": "/deck-media/image60.png",
-        "url": "/deck-media/image60.png",
-        "at": "2026-11-17",
-        "caption": "SHAHRAH E FAISAL METRO TGT AIRPORT - S#64"
+        "id": "photo-camp-kifayah-64",
+        "src": "/deck-media/camp_kifayah_s64.jpg",
+        "url": "/deck-media/camp_kifayah_s64.jpg",
+        "at": "2026-11-23",
+        "caption": "SHAHRAH E FAISAL METRO TGT AIRPORT - KIFAYAH CAMPAIGN"
       }
     ],
     "notes": "S#64 · Client: KIFAYAH STORE · Medium: BRIDGE PANEL · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: — · Vendor: CHINAB ADVERTISING (24-Dec-26)",
@@ -4563,7 +4556,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-065",
@@ -4591,8 +4584,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "MNB - UMAIR BUTT",
     "vendorEndDate": "30-Nov-26",
     "client": "KIFAYAH STORE",
-    "campaignId": "camp-2026-10",
-    "campaignName": "Kifayah Store - Airport & Malir Arterial Network",
+    "campaignId": "camp-2026-07",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
@@ -4605,18 +4598,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-65",
-        "src": "/deck-media/ppt_s65_drighroad.png",
-        "url": "/deck-media/ppt_s65_drighroad.png",
-        "at": "2026-11-20",
-        "caption": "SHAHRAH E FAISAL DRIG ROAD TURNING - S#65"
-      },
-      {
-        "id": "photo-2026-65-2",
-        "src": "/deck-media/ppt_s65_drighroad2.png",
-        "url": "/deck-media/ppt_s65_drighroad2.png",
-        "at": "2026-11-20",
-        "caption": "SHAHRAH E FAISAL DRIG ROAD TURNING - S#65"
+        "id": "photo-camp-gfs_main-65",
+        "src": "/deck-media/camp_gfs_main_s65.jpg",
+        "url": "/deck-media/camp_gfs_main_s65.jpg",
+        "at": "2026-11-23",
+        "caption": "SHAHRAH E FAISAL DRIG ROAD TURNING - GFS CAMPAIGN"
       }
     ],
     "notes": "S#65 · Client: KIFAYAH STORE · Medium: BRIDGE PANEL · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: DEPT ISSUE · Vendor: MNB - UMAIR BUTT (30-Nov-26)",
@@ -4641,7 +4627,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "DEPT ISSUE",
     "excelStatus": "DEPT ISSUE",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-066",
@@ -4669,8 +4655,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "POINT OUTDOOR - IMRAN AZIZ",
     "vendorEndDate": "05-Dec-26",
     "client": "KIFAYAH STORE",
-    "campaignId": "camp-2026-10",
-    "campaignName": "Kifayah Store - Airport & Malir Arterial Network",
+    "campaignId": "camp-2026-07",
+    "campaignName": "GFS CAMPAIGN",
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
@@ -4683,11 +4669,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-66",
-        "src": "/deck-media/ppt_s66_macdonald2.png",
-        "url": "/deck-media/ppt_s66_macdonald2.png",
-        "at": "2026-11-20",
-        "caption": "SHAHRAH E FAISAL MACDONALDS BRIDGE - S#66"
+        "id": "photo-camp-gfs_main-66",
+        "src": "/deck-media/camp_gfs_main_s66.jpg",
+        "url": "/deck-media/camp_gfs_main_s66.jpg",
+        "at": "2026-11-23",
+        "caption": "SHAHRAH E FAISAL MACDONALDS BRIDGE - GFS CAMPAIGN"
       }
     ],
     "notes": "S#66 · Client: KIFAYAH STORE · Medium: BRIDGE PANEL · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: DEPT ISSUE · Vendor: POINT OUTDOOR - IMRAN AZIZ (05-Dec-26)",
@@ -4712,7 +4698,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "DEPT ISSUE",
     "excelStatus": "DEPT ISSUE",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-067",
@@ -4740,8 +4726,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CHINAB ADVERTISING",
     "vendorEndDate": "30-Nov-26",
     "client": "KIFAYAH STORE",
-    "campaignId": "camp-2026-10",
-    "campaignName": "Kifayah Store - Airport & Malir Arterial Network",
+    "campaignId": "camp-2026-08",
+    "campaignName": "KIFAYAH CAMPAIGN",
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
@@ -4754,11 +4740,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-67",
-        "src": "/deck-media/image65.png",
-        "url": "/deck-media/image65.png",
-        "at": "2026-11-17",
-        "caption": "SHAHRAH E FAISAL NURSURY - S#67"
+        "id": "photo-camp-kifayah-67",
+        "src": "/deck-media/camp_kifayah_s67.jpg",
+        "url": "/deck-media/camp_kifayah_s67.jpg",
+        "at": "2026-11-23",
+        "caption": "SHAHRAH E FAISAL NURSURY - KIFAYAH CAMPAIGN"
       }
     ],
     "notes": "S#67 · Client: KIFAYAH STORE · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (30-Nov-26)",
@@ -4783,7 +4769,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-068",
@@ -4811,8 +4797,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "DO ADVERTISING",
     "vendorEndDate": "31-Jan-27",
     "client": "KIFAYAH STORE",
-    "campaignId": "camp-2026-10",
-    "campaignName": "Kifayah Store - Airport & Malir Arterial Network",
+    "campaignId": "camp-2026-08",
+    "campaignName": "KIFAYAH CAMPAIGN",
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
@@ -4825,11 +4811,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-68",
-        "src": "/deck-media/image56.png",
-        "url": "/deck-media/image56.png",
-        "at": "2026-11-17",
-        "caption": "TIME MEDICOS STADIUM - S#68"
+        "id": "photo-camp-kifayah-68",
+        "src": "/deck-media/camp_kifayah_s68.jpg",
+        "url": "/deck-media/camp_kifayah_s68.jpg",
+        "at": "2026-11-23",
+        "caption": "TIME MEDICOS STADIUM - KIFAYAH CAMPAIGN"
       }
     ],
     "notes": "S#68 · Client: KIFAYAH STORE · Medium: BRIDGE PANEL · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: — · Vendor: DO ADVERTISING (31-Jan-27)",
@@ -4854,7 +4840,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-069",
@@ -4882,8 +4868,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CHINAB ADVERTISING",
     "vendorEndDate": "30-Nov-26",
     "client": "KIFAYAH STORE",
-    "campaignId": "camp-2026-10",
-    "campaignName": "Kifayah Store - Airport & Malir Arterial Network",
+    "campaignId": "camp-2026-08",
+    "campaignName": "KIFAYAH CAMPAIGN",
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
@@ -4896,11 +4882,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-69",
-        "src": "/deck-media/image64.png",
-        "url": "/deck-media/image64.png",
-        "at": "2026-11-17",
-        "caption": "SHARAH E FAISAL IQRA UNIVERSITY - S#69"
+        "id": "photo-camp-kifayah-69",
+        "src": "/deck-media/camp_kifayah_s69.jpg",
+        "url": "/deck-media/camp_kifayah_s69.jpg",
+        "at": "2026-11-23",
+        "caption": "SHARAH E FAISAL IQRA UNIVERSITY - KIFAYAH CAMPAIGN"
       }
     ],
     "notes": "S#69 · Client: KIFAYAH STORE · Medium: BRIDGE PANEL · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: — · Vendor: CHINAB ADVERTISING (30-Nov-26)",
@@ -4925,7 +4911,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-070",
@@ -4953,8 +4939,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CHINAB ADVERTISING",
     "vendorEndDate": "30-Nov-26",
     "client": "KIFAYAH STORE",
-    "campaignId": "camp-2026-10",
-    "campaignName": "Kifayah Store - Airport & Malir Arterial Network",
+    "campaignId": "camp-2026-08",
+    "campaignName": "KIFAYAH CAMPAIGN",
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
@@ -4967,11 +4953,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-70",
-        "src": "/deck-media/image63.png",
-        "url": "/deck-media/image63.png",
-        "at": "2026-11-17",
-        "caption": "SHAHRAH E FAISAL MALIR IQRA UNIVERSITY 2 - S#70"
+        "id": "photo-camp-kifayah-70",
+        "src": "/deck-media/camp_kifayah_s70.jpg",
+        "url": "/deck-media/camp_kifayah_s70.jpg",
+        "at": "2026-11-23",
+        "caption": "SHAHRAH E FAISAL MALIR IQRA UNIVERSITY 2 - KIFAYAH CAMPAIGN"
       }
     ],
     "notes": "S#70 · Client: KIFAYAH STORE · Medium: BRIDGE PANEL · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: — · Vendor: CHINAB ADVERTISING (30-Nov-26)",
@@ -4996,7 +4982,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-071",
@@ -5024,8 +5010,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CALL GROUP",
     "vendorEndDate": "01-Dec-26",
     "client": "KIFAYAH STORE",
-    "campaignId": "camp-2026-10",
-    "campaignName": "Kifayah Store - Airport & Malir Arterial Network",
+    "campaignId": "camp-2026-08",
+    "campaignName": "KIFAYAH CAMPAIGN",
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
@@ -5038,11 +5024,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-71",
-        "src": "/deck-media/image83.png",
-        "url": "/deck-media/image83.png",
-        "at": "2026-11-17",
-        "caption": "MALIR CANTT - S#71"
+        "id": "photo-camp-kifayah-71",
+        "src": "/deck-media/camp_kifayah_s71.jpg",
+        "url": "/deck-media/camp_kifayah_s71.jpg",
+        "at": "2026-11-23",
+        "caption": "MALIR CANTT - KIFAYAH CAMPAIGN"
       }
     ],
     "notes": "S#71 · Client: KIFAYAH STORE · Medium: HOARDING · Start: 01-Nov-26 · End: 01-Dec-26 (30 Days) · Availability: 01-Dec-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CALL GROUP (01-Dec-26)",
@@ -5067,7 +5053,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-072",
@@ -5095,8 +5081,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "SHARPLINE",
     "vendorEndDate": "02-Dec-26",
     "client": "KIFAYAH STORE",
-    "campaignId": "camp-2026-10",
-    "campaignName": "Kifayah Store - Airport & Malir Arterial Network",
+    "campaignId": "camp-2026-08",
+    "campaignName": "KIFAYAH CAMPAIGN",
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
@@ -5109,11 +5095,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-72",
-        "src": "/deck-media/image61.png",
-        "url": "/deck-media/image61.png",
-        "at": "2026-11-17",
-        "caption": "SHAHRAH E FAISAL STAR GATE - S#72"
+        "id": "photo-camp-kifayah-72",
+        "src": "/deck-media/camp_kifayah_s72.jpg",
+        "url": "/deck-media/camp_kifayah_s72.jpg",
+        "at": "2026-11-23",
+        "caption": "SHAHRAH E FAISAL STAR GATE - KIFAYAH CAMPAIGN"
       }
     ],
     "notes": "S#72 · Client: KIFAYAH STORE · Medium: HOARDING · Start: 02-Nov-26 · End: 02-Dec-26 (30 Days) · Availability: 02-Dec-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: SHARPLINE (02-Dec-26)",
@@ -5138,7 +5124,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-073",
@@ -5166,8 +5152,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CHINAB ADVERTISING",
     "vendorEndDate": "30-Nov-26",
     "client": "KIFAYAH STORE",
-    "campaignId": "camp-2026-10",
-    "campaignName": "Kifayah Store - Airport & Malir Arterial Network",
+    "campaignId": "camp-2026-08",
+    "campaignName": "KIFAYAH CAMPAIGN",
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
@@ -5180,11 +5166,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-73",
-        "src": "/deck-media/image81.png",
-        "url": "/deck-media/image81.png",
-        "at": "2026-11-17",
-        "caption": "SHAMA SHOPPING CENTER - S#73"
+        "id": "photo-camp-kifayah-73",
+        "src": "/deck-media/camp_kifayah_s73.jpg",
+        "url": "/deck-media/camp_kifayah_s73.jpg",
+        "at": "2026-11-23",
+        "caption": "SHAMA SHOPPING CENTER - KIFAYAH CAMPAIGN"
       }
     ],
     "notes": "S#73 · Client: KIFAYAH STORE · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (30-Nov-26)",
@@ -5209,7 +5195,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-074",
@@ -5237,8 +5223,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CHINAB ADVERTISING",
     "vendorEndDate": "30-Nov-26",
     "client": "KIFAYAH STORE",
-    "campaignId": "camp-2026-10",
-    "campaignName": "Kifayah Store - Airport & Malir Arterial Network",
+    "campaignId": "camp-2026-08",
+    "campaignName": "KIFAYAH CAMPAIGN",
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
@@ -5251,11 +5237,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-74",
-        "src": "/deck-media/image87.png",
-        "url": "/deck-media/image87.png",
-        "at": "2026-11-17",
-        "caption": "QUAIDABAD - S#74"
+        "id": "photo-camp-kifayah-74",
+        "src": "/deck-media/camp_kifayah_s74.jpg",
+        "url": "/deck-media/camp_kifayah_s74.jpg",
+        "at": "2026-11-23",
+        "caption": "QUAIDABAD - KIFAYAH CAMPAIGN"
       }
     ],
     "notes": "S#74 · Client: KIFAYAH STORE · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (30-Nov-26)",
@@ -5280,7 +5266,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-075",
@@ -5308,8 +5294,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CHINAB ADVERTISING",
     "vendorEndDate": "30-Nov-26",
     "client": "KIFAYAH STORE",
-    "campaignId": "camp-2026-10",
-    "campaignName": "Kifayah Store - Airport & Malir Arterial Network",
+    "campaignId": "camp-2026-08",
+    "campaignName": "KIFAYAH CAMPAIGN",
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
@@ -5322,11 +5308,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-75",
-        "src": "/deck-media/image77.png",
-        "url": "/deck-media/image77.png",
-        "at": "2026-11-17",
-        "caption": "SHAHRAH E FAISAL STAR GATE 01 - S#75"
+        "id": "photo-camp-kifayah-75",
+        "src": "/deck-media/camp_kifayah_s75.jpg",
+        "url": "/deck-media/camp_kifayah_s75.jpg",
+        "at": "2026-11-23",
+        "caption": "SHAHRAH E FAISAL STAR GATE 01 - KIFAYAH CAMPAIGN"
       }
     ],
     "notes": "S#75 · Client: KIFAYAH STORE · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (30-Nov-26)",
@@ -5351,7 +5337,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-076",
@@ -5379,8 +5365,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CHINAB ADVERTISING",
     "vendorEndDate": "30-Nov-26",
     "client": "KIFAYAH STORE",
-    "campaignId": "camp-2026-10",
-    "campaignName": "Kifayah Store - Airport & Malir Arterial Network",
+    "campaignId": "camp-2026-08",
+    "campaignName": "KIFAYAH CAMPAIGN",
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
@@ -5393,11 +5379,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-76",
-        "src": "/deck-media/image70.png",
-        "url": "/deck-media/image70.png",
-        "at": "2026-11-17",
-        "caption": "SHAHRAH E FAISAL STAR GATE 02 - S#76"
+        "id": "photo-camp-kifayah-76",
+        "src": "/deck-media/camp_kifayah_s76.jpg",
+        "url": "/deck-media/camp_kifayah_s76.jpg",
+        "at": "2026-11-23",
+        "caption": "SHAHRAH E FAISAL STAR GATE 02 - KIFAYAH CAMPAIGN"
       }
     ],
     "notes": "S#76 · Client: KIFAYAH STORE · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (30-Nov-26)",
@@ -5422,7 +5408,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-077",
@@ -5450,8 +5436,8 @@ window.MASTER_SITES_2026 = [
     "vendor": "CHINAB ADVERTISING",
     "vendorEndDate": "30-Nov-26",
     "client": "KIFAYAH STORE",
-    "campaignId": "camp-2026-10",
-    "campaignName": "Kifayah Store - Airport & Malir Arterial Network",
+    "campaignId": "camp-2026-08",
+    "campaignName": "KIFAYAH CAMPAIGN",
     "booking": {
       "client": "KIFAYAH STORE",
       "brand": "KIFAYAH STORE",
@@ -5464,11 +5450,11 @@ window.MASTER_SITES_2026 = [
     },
     "photos": [
       {
-        "id": "photo-2026-77",
-        "src": "/deck-media/image84.png",
-        "url": "/deck-media/image84.png",
-        "at": "2026-11-17",
-        "caption": "LANDHI BABER MARKET - S#77"
+        "id": "photo-camp-kifayah-77",
+        "src": "/deck-media/camp_kifayah_s77.jpg",
+        "url": "/deck-media/camp_kifayah_s77.jpg",
+        "at": "2026-11-23",
+        "caption": "LANDHI BABER MARKET - KIFAYAH CAMPAIGN"
       }
     ],
     "notes": "S#77 · Client: KIFAYAH STORE · Medium: HOARDING · Start: 31-Oct-26 · End: 30-Nov-26 (30 Days) · Availability: 30-Nov-26 · Status: WILL BE END AS PER CAMPAIGN · Vendor: CHINAB ADVERTISING (30-Nov-26)",
@@ -5493,7 +5479,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-078",
@@ -5564,7 +5550,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "WILL BE END AS PER CAMPAIGN",
     "excelStatus": "WILL BE END AS PER CAMPAIGN",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-079",
@@ -5635,7 +5621,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-080",
@@ -5706,7 +5692,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "?",
     "excelStatus": "?",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-081",
@@ -5777,7 +5763,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-082",
@@ -5848,7 +5834,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-083",
@@ -5926,7 +5912,7 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   },
   {
     "id": "site-2026-084",
@@ -6011,361 +5997,10 @@ window.MASTER_SITES_2026 = [
     "statusLabel": "",
     "excelStatus": "",
     "day": "30",
-    "masterRev": "2026.8"
+    "masterRev": "2026.9"
   }
 ];
-window.MASTER_CAMPAIGNS_2026 = [
-  {
-    "id": "camp-2026-01",
-    "client": "ASKARI VILLA - KK PROPERTIES",
-    "name": "Askari Villa & KK Properties Premium Network",
-    "category": "Real Estate & Housing",
-    "color": "#D9161D",
-    "budget": "PKR 12.5M",
-    "status": "active",
-    "startDate": "2026-11-01",
-    "endDate": "2027-01-31",
-    "siteIds": [
-      "site-2026-001",
-      "site-2026-002",
-      "site-2026-003",
-      "site-2026-004",
-      "site-2026-005",
-      "site-2026-006",
-      "site-2026-007",
-      "site-2026-008",
-      "site-2026-009",
-      "site-2026-010"
-    ],
-    "siteCount": 10,
-    "areas": [
-      "Clifton",
-      "Shahrah-e-Faisal",
-      "Malir",
-      "Super Highway / M-9"
-    ],
-    "totalSqft": 12288,
-    "dailyOts": 1495000,
-    "notes": "Client-wise campaign with 10 sites across Karachi."
-  },
-  {
-    "id": "camp-2026-02",
-    "client": "FALAKNAZ SKYVIEW",
-    "name": "Falaknaz Skyview DHA Corridor",
-    "category": "Luxury Real Estate",
-    "color": "#2563EB",
-    "budget": "PKR 3.8M",
-    "status": "active",
-    "startDate": "2026-11-01",
-    "endDate": "2027-01-31",
-    "siteIds": [
-      "site-2026-011",
-      "site-2026-012"
-    ],
-    "siteCount": 2,
-    "areas": [
-      "DHA"
-    ],
-    "totalSqft": 4200,
-    "dailyOts": 260000,
-    "notes": "Client-wise campaign with 2 sites across Karachi."
-  },
-  {
-    "id": "camp-2026-03",
-    "client": "CALL GROUP",
-    "name": "Call Group / Dalda / Indus Valley Campaign",
-    "category": "Consumer Goods & Education",
-    "color": "#7C3AED",
-    "budget": "PKR 2.4M",
-    "status": "active",
-    "startDate": "2026-11-01",
-    "endDate": "2027-01-31",
-    "siteIds": [
-      "site-2026-013",
-      "site-2026-014"
-    ],
-    "siteCount": 2,
-    "areas": [
-      "DHA"
-    ],
-    "totalSqft": 2792,
-    "dailyOts": 260000,
-    "notes": "Client-wise campaign with 2 sites across Karachi."
-  },
-  {
-    "id": "camp-2026-04",
-    "client": "CHASE VALUE / EMINENT",
-    "name": "Chase Value & Eminent Arterial Branding",
-    "category": "Retail & Departmental",
-    "color": "#059669",
-    "budget": "PKR 6.5M",
-    "status": "active",
-    "startDate": "2026-11-01",
-    "endDate": "2027-01-31",
-    "siteIds": [
-      "site-2026-015",
-      "site-2026-016",
-      "site-2026-017",
-      "site-2026-018",
-      "site-2026-019"
-    ],
-    "siteCount": 5,
-    "areas": [
-      "Saddar",
-      "Shahrah-e-Faisal"
-    ],
-    "totalSqft": 7050,
-    "dailyOts": 745000,
-    "notes": "Client-wise campaign with 5 sites across Karachi."
-  },
-  {
-    "id": "camp-2026-05",
-    "client": "GRAPHIC EDGE (Mr. USMAN)",
-    "name": "Graphic Edge - Shahrah-e-Faisal Flyover",
-    "category": "Media & Agency",
-    "color": "#D97706",
-    "budget": "PKR 1.2M",
-    "status": "active",
-    "startDate": "2026-11-01",
-    "endDate": "2027-01-31",
-    "siteIds": [
-      "site-2026-020"
-    ],
-    "siteCount": 1,
-    "areas": [
-      "Shahrah-e-Faisal"
-    ],
-    "totalSqft": 960,
-    "dailyOts": 185000,
-    "notes": "Client-wise campaign with 1 sites across Karachi."
-  },
-  {
-    "id": "camp-2026-06",
-    "client": "GFS BUILDERS - INDUS VALLEY CONCERT",
-    "name": "GFS Builders - Indus Valley Concert Brand Blitz",
-    "category": "Event & Entertainment Real Estate",
-    "color": "#DC2626",
-    "budget": "PKR 7.2M",
-    "status": "active",
-    "startDate": "2026-11-01",
-    "endDate": "2027-01-31",
-    "siteIds": [
-      "site-2026-021",
-      "site-2026-022",
-      "site-2026-023",
-      "site-2026-024",
-      "site-2026-025",
-      "site-2026-026"
-    ],
-    "siteCount": 6,
-    "areas": [
-      "DHA",
-      "Shahrah-e-Faisal",
-      "Saddar",
-      "Gulistan-e-Jauhar",
-      "Karachi Central"
-    ],
-    "totalSqft": 7300,
-    "dailyOts": 800000,
-    "notes": "Client-wise campaign with 6 sites across Karachi."
-  },
-  {
-    "id": "camp-2026-07",
-    "client": "GFS BUILDERS - MTR RAMSHA",
-    "name": "GFS Builders - MTR Ramsha Strategic Deployment",
-    "category": "Commercial Real Estate",
-    "color": "#E11D48",
-    "budget": "PKR 8.0M",
-    "status": "active",
-    "startDate": "2026-11-01",
-    "endDate": "2027-01-31",
-    "siteIds": [
-      "site-2026-027",
-      "site-2026-028",
-      "site-2026-029",
-      "site-2026-030",
-      "site-2026-031",
-      "site-2026-032"
-    ],
-    "siteCount": 6,
-    "areas": [
-      "DHA",
-      "Gulistan-e-Jauhar",
-      "Saddar",
-      "Malir"
-    ],
-    "totalSqft": 6990,
-    "dailyOts": 730000,
-    "notes": "Client-wise campaign with 6 sites across Karachi."
-  },
-  {
-    "id": "camp-2026-08",
-    "client": "GFS BUILDERS & DEVELOPERS (MAIN & COMMERCIAL)",
-    "name": "GFS Builders - Mega Karachi Citywide Network",
-    "category": "Mega Infrastructure & Housing",
-    "color": "#B91C1C",
-    "budget": "PKR 16.5M",
-    "status": "active",
-    "startDate": "2026-11-01",
-    "endDate": "2027-01-31",
-    "siteIds": [
-      "site-2026-033",
-      "site-2026-034",
-      "site-2026-035",
-      "site-2026-036",
-      "site-2026-037",
-      "site-2026-038",
-      "site-2026-039",
-      "site-2026-040",
-      "site-2026-041",
-      "site-2026-042",
-      "site-2026-043",
-      "site-2026-044",
-      "site-2026-045"
-    ],
-    "siteCount": 13,
-    "areas": [
-      "Shahrah-e-Faisal",
-      "North Karachi",
-      "Karachi Central",
-      "Super Highway / M-9",
-      "FB Area",
-      "Gulistan-e-Jauhar"
-    ],
-    "totalSqft": 19465,
-    "dailyOts": 1380000,
-    "notes": "Client-wise campaign with 13 sites across Karachi."
-  },
-  {
-    "id": "camp-2026-09",
-    "client": "AA BUILDERS",
-    "name": "AA Builders - Central & East Karachi Domination",
-    "category": "Residential & Builders",
-    "color": "#4F46E5",
-    "budget": "PKR 21.0M",
-    "status": "active",
-    "startDate": "2026-11-01",
-    "endDate": "2027-01-31",
-    "siteIds": [
-      "site-2026-046",
-      "site-2026-047",
-      "site-2026-048",
-      "site-2026-049",
-      "site-2026-050",
-      "site-2026-051",
-      "site-2026-052",
-      "site-2026-053",
-      "site-2026-054",
-      "site-2026-055",
-      "site-2026-056",
-      "site-2026-057",
-      "site-2026-058",
-      "site-2026-059",
-      "site-2026-060",
-      "site-2026-061",
-      "site-2026-062",
-      "site-2026-063"
-    ],
-    "siteCount": 18,
-    "areas": [
-      "Karachi Central",
-      "Karsaz",
-      "Gulistan-e-Jauhar",
-      "Shahrah-e-Faisal",
-      "Nazimabad",
-      "FB Area"
-    ],
-    "totalSqft": 24421,
-    "dailyOts": 2085000,
-    "notes": "Client-wise campaign with 18 sites across Karachi."
-  },
-  {
-    "id": "camp-2026-10",
-    "client": "KIFAYAH STORE",
-    "name": "Kifayah Store - Airport & Malir Arterial Network",
-    "category": "Retail Superstores",
-    "color": "#0D9488",
-    "budget": "PKR 14.8M",
-    "status": "active",
-    "startDate": "2026-11-01",
-    "endDate": "2027-01-31",
-    "siteIds": [
-      "site-2026-064",
-      "site-2026-065",
-      "site-2026-066",
-      "site-2026-067",
-      "site-2026-068",
-      "site-2026-069",
-      "site-2026-070",
-      "site-2026-071",
-      "site-2026-072",
-      "site-2026-073",
-      "site-2026-074",
-      "site-2026-075",
-      "site-2026-076",
-      "site-2026-077"
-    ],
-    "siteCount": 14,
-    "areas": [
-      "Shahrah-e-Faisal",
-      "Malir",
-      "Landhi / Malir",
-      "Karachi Central"
-    ],
-    "totalSqft": 19530,
-    "dailyOts": 2145000,
-    "notes": "Client-wise campaign with 14 sites across Karachi."
-  },
-  {
-    "id": "camp-2026-11",
-    "client": "NEW SITES (UPCOMING PORTFOLIO)",
-    "name": "New Sites - FTC Flyover Pole Sign Backlits",
-    "category": "AdPulse Premium Inventory",
-    "color": "#6B7280",
-    "budget": "PKR 1.5M",
-    "status": "planned",
-    "startDate": "2026-11-01",
-    "endDate": "2027-01-31",
-    "siteIds": [
-      "site-2026-078"
-    ],
-    "siteCount": 1,
-    "areas": [
-      "Shahrah-e-Faisal"
-    ],
-    "totalSqft": 32,
-    "dailyOts": 185000,
-    "notes": "Client-wise campaign with 1 sites across Karachi."
-  },
-  {
-    "id": "camp-2026-12",
-    "client": "DIGITAL MEDIA NETWORK (MULTIPLE CLIENTS)",
-    "name": "AdPulse Digital SMD & Streamers Network",
-    "category": "DOOH Digital LED & Streamers",
-    "color": "#9333EA",
-    "budget": "PKR 11.2M",
-    "status": "active",
-    "startDate": "2026-11-01",
-    "endDate": "2027-01-31",
-    "siteIds": [
-      "site-2026-079",
-      "site-2026-080",
-      "site-2026-081",
-      "site-2026-082",
-      "site-2026-083",
-      "site-2026-084"
-    ],
-    "siteCount": 6,
-    "areas": [
-      "DHA",
-      "Saddar",
-      "Shahrah-e-Faisal"
-    ],
-    "totalSqft": 890,
-    "dailyOts": 855000,
-    "notes": "Client-wise campaign with 6 sites across Karachi."
-  }
-];
+
 window.MASTER_EXCEL_SUMMARY_2026 = [
   { sNo: 1, summary: "ASKARI VILLA - KK PROPERTIES", qty: 10 },
   { sNo: 2, summary: "FALAKNAZ SKYVIEW", qty: 2 },

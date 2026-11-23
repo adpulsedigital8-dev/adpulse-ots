@@ -1342,8 +1342,8 @@ body.client .tabs{display:none}
 <script src="/claude-shim.js?v=3.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="/master_sites_2026.js?v=40.0"></script>
-  <script src="/vendor_preview_2026.js?v=40.0"></script>
+  <script src="/master_sites_2026.js?v=41.0"></script>
+  <script src="/vendor_preview_2026.js?v=41.0"></script>
 </head>
 <body>
 
@@ -1567,8 +1567,8 @@ async function boot(){
       activeSites = activeSites.map(s => {
         const m = mMap.get(s.id);
         const hasBadImg = !s.photos || !s.photos.length || s.photos[0].src === "/deck-media/image3.jpg" || s.photos[0].src === "/deck-media/image1.png";
-        if (m && (s.masterRev !== "2026.8" || hasBadImg || !s.startDate || !s.endDate || !s.day)) {
-          const merged = { ...s, ...m, photos: m.photos, masterRev: "2026.8" };
+        if (m && (s.masterRev !== "2026.9" || hasBadImg || !s.startDate || !s.endDate || !s.day)) {
+          const merged = { ...s, ...m, photos: m.photos, masterRev: "2026.9" };
           toSync.push(merged);
           return merged;
         }
@@ -1591,19 +1591,34 @@ async function boot(){
   });
   db.collection("campaigns").onSnapshot(q=>{
     const docs = q.docs.map(x=>({id:x.id,...x.data()}));
-    const masterCamps = docs.filter(x => x.id && x.id.startsWith("camp-2026-"));
-    const obsoleteCamps = docs.filter(x => x.id && !x.id.startsWith("camp-2026-"));
+    const targetCamps = window.MASTER_CAMPAIGNS_2026 || [];
+    const validIds = new Set(targetCamps.map(c => c.id));
+    const obsoleteCamps = docs.filter(x => x.id && !validIds.has(x.id));
 
-    // Auto-clean obsolete 3 sample campaigns from live DB so count is strictly 12 Client Campaigns
-    if (obsoleteCamps.length > 0 && (masterCamps.length >= 10 || (window.MASTER_CAMPAIGNS_2026 && window.MASTER_CAMPAIGNS_2026.length >= 10))) {
+    // Auto-clean old campaigns (e.g. camp-2026-09..12 or old samples) from live DB
+    if (obsoleteCamps.length > 0 && targetCamps.length === 8) {
       setTimeout(() => {
         obsoleteCamps.forEach(c => {
           del("campaigns", c.id).catch(() => {});
         });
-      }, 1200);
+      }, 1000);
     }
 
-    S.campaigns = (masterCamps.length >= 10) ? masterCamps : (window.MASTER_CAMPAIGNS_2026 || docs);
+    // Sync the 8 new campaign PPT decks into live DB if any differ
+    if (targetCamps.length === 8) {
+      const dMap = new Map(docs.map(d => [d.id, d]));
+      const toUpdate = targetCamps.filter(tc => {
+        const ex = dMap.get(tc.id);
+        return !ex || ex.name !== tc.name || ex.pptFile !== tc.pptFile || (ex.siteIds || []).length !== tc.siteIds.length;
+      });
+      if (toUpdate.length > 0) {
+        setTimeout(() => {
+          toUpdate.forEach(tc => put("campaigns", tc).catch(() => {}));
+        }, 1100);
+      }
+    }
+
+    S.campaigns = targetCamps.length === 8 ? targetCamps : docs;
     S.loaded.campaigns = true;
     if(Studio.active&&Studio.cfg&&(!Studio.cfg.slides||Studio.cfg.slides.length===0)){Studio.build()}
     changed();
@@ -1650,9 +1665,9 @@ function changed(){if(route==="studio"&&Studio.active){render(true)}else{render(
 function startLocal(){
   S.mode="local";ROLE="team";local=ls.get("sitesnap-local",{sites:[],campaigns:[],decks:[],settings:null,clients:[]});
   S.sites=local.sites;S.campaigns=local.campaigns;
-  const MASTER_REV = "2026.8";
+  const MASTER_REV = "2026.9";
   if (window.MASTER_SITES_2026 && (!S.sites || S.sites.length !== 84 || local.masterRev !== MASTER_REV)) {
-    console.log("Upgrading to 2026 Master Dataset: exactly 84 sites & 12 client campaigns...");
+    console.log("Upgrading to 2026 Master Dataset: exactly 84 sites & 8 client campaigns...");
     S.sites = window.MASTER_SITES_2026;
     S.campaigns = window.MASTER_CAMPAIGNS_2026 || [];
     local.sites = S.sites;
@@ -1781,7 +1796,7 @@ function go(r,silent){
 }
 window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
 
-function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v11.0</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
+function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v11.1</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
 
 let lastRoute=null;
 function render(anim){
@@ -1824,7 +1839,7 @@ function vDash(){
   ];
   const bookedOts=S.sites.filter(x=>x.status==="booked").reduce((a,x)=>a+otsOf(x),0);
   if(bookedOts)k.push(["Daily OTS on booked sites","~"+fmtK(bookedOts),"var(--blue)","eye",true,""]);
-  const syncBanner = (S.sites.length !== 84) ? `<div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#7C3AED,#D9161D);color:#fff;padding:12px 18px;border-radius:14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;box-shadow:0 6px 20px rgba(217,22,29,0.3)"><div><b>🔄 2026 Master Data Available:</b> Currently viewing ${S.sites.length} sites. Click to load all 84 sites & 12 client campaigns.</div><button class="btn sm" data-act="sync2026" style="background:#fff;color:#D9161D;font-weight:800;border:none">Update to 84 Sites Now</button></div>` : "";
+  const syncBanner = (S.sites.length !== 84) ? `<div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#7C3AED,#D9161D);color:#fff;padding:12px 18px;border-radius:14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;box-shadow:0 6px 20px rgba(217,22,29,0.3)"><div><b>🔄 2026 Master Data Available:</b> Currently viewing ${S.sites.length} sites. Click to load all 84 sites & 8 client campaigns.</div><button class="btn sm" data-act="sync2026" style="background:#fff;color:#D9161D;font-weight:800;border:none">Update to 84 Sites Now</button></div>` : "";
   const kp=`<div class="kpis enter" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">${k.map(([l,n,c,i,raw,act])=>`<div class="card kpi ${act?'clickable':''}" ${act?`data-act="${act}" title="Open presentation for ${esc(l)}"`:''} style="--c:${c};${act?'cursor:pointer;':''}"><div class="ic" style="background:${c}">${ICON[i]}</div><div class="n" ${raw?"":`data-count="${n}"`}>${raw?n:0}</div><small style="${act?'font-weight:700;color:var(--ink);':''}">${l}${act?' ↗':''}</small></div>`).join("")}</div>`;
   if(!S.sites.length)return pgTop("Dashboard","Your OOH inventory at a glance")+syncBanner+kp+`<div class="card" style="margin-top:16px">${emptyState("No sites yet","Capture your first billboard from the field, or add one from the Sites page.",`<a class="btn pri" href="#capture">${ICON.cam}Capture a site</a>`)}</div>`;
   // area bars
@@ -4798,7 +4813,7 @@ async function exifGPS(file){
 /* ============ Campaigns ============ */
 function vCampaigns(){
   if(!S.loaded.campaigns)return pgTop("Campaigns","Loading…")+`<div class="camps">${'<div class="skel"></div>'.repeat(3)}</div>`;
-  const list=S.campaigns.slice().sort((a,b)=>(b.startDate||"").localeCompare(a.startDate||""));
+  const list=S.campaigns.slice().sort((a,b)=>String(a.id||"").localeCompare(String(b.id||""))||(b.startDate||"").localeCompare(a.startDate||""));
   const topBtns = `<div class="row" style="gap:8px;flex-wrap:wrap">
     <button class="btn pri" data-act="uploaddeck" style="background:linear-gradient(135deg,#D9161D,#F26A21);box-shadow:0 4px 14px rgba(217,22,29,0.35);font-weight:700">📁 Upload PPT / PDF (Auto Campaign)</button>
     <button class="btn" data-act="newcamp">${ICON.plus}New campaign</button>
@@ -4814,7 +4829,7 @@ function campCard(c){
   const C=2*Math.PI*36;const left=c.endDate?Math.ceil((new Date(c.endDate)-new Date(today()))/864e5):null;
   const areas=[...new Set(sites.map(s=>s.area))];
   return`<article class="card camp" style="--cc:linear-gradient(125deg,${c.color||"#7C3AED"},color-mix(in srgb,${c.color||"#7C3AED"} 55%,#E6398C))">
-   <div class="hd"><small>${esc(c.client||"Client")}${c.sample?" · Sample":""}</small><h3>${esc(c.name)}</h3><small>${fmtDate(c.startDate)} → ${fmtDate(c.endDate)}</small></div>
+   <div class="hd"><small>${esc(c.client||"Client")}${c.pptFile?` · 📁 ${esc(c.pptFile)}`:""}</small><h3>${esc(c.name)}</h3><small>${fmtDate(c.startDate)} → ${fmtDate(c.endDate)}</small></div>
    <div class="bd"><svg class="ring" viewBox="0 0 84 84"><circle cx="42" cy="42" r="36" stroke="var(--surface2)"/><circle class="fg" cx="42" cy="42" r="36" stroke="${c.color||"#7C3AED"}" stroke-dasharray="${C}" stroke-dashoffset="${C}" data-off="${C*(1-pct/100)}"/><text x="42" y="46" text-anchor="middle" font-family="Bricolage Grotesque" font-weight="800" font-size="18" fill="var(--ink)">${pct}%</text></svg>
     <div class="stats"><div><b>${sites.length}</b>Sites</div><div><b>${done}/${sites.length}</b>Monitored</div><div><b>${(()=>{const o=sites.reduce((a,x)=>a+otsOf(x),0);return o?"~"+fmtK(o):areas.length})()}</b>${sites.some(x=>otsOf(x))?"Daily OTS":"Areas"}</div><div><b>${left==null?"—":left<0?"Ended":left}</b>${left!=null&&left>=0?"Days left":"Status"}</div></div></div>
    ${timeline(c)}
@@ -5325,7 +5340,7 @@ function getVendorPreviewSites() {
   const raw = window.VENDOR_PREVIEW_SITES_2026 || [];
   if (!raw.length && !_vpFetching) {
     _vpFetching = true;
-    fetch("/vendor_preview_2026.json?v=40.0").then(r => r.json()).then(data => {
+    fetch("/vendor_preview_2026.json?v=41.0").then(r => r.json()).then(data => {
       if (Array.isArray(data) && data.length) {
         window.VENDOR_PREVIEW_SITES_2026 = data;
         render(true);
@@ -5339,7 +5354,7 @@ function getVendorPreviewSites() {
   return combined.map(s => {
     const ed = savedEdits[s.id];
     const merged = ed ? { ...s, ...ed } : s;
-    const pUrl = merged.photo ? (merged.photo.startsWith("data:") || merged.photo.includes("?") ? merged.photo : merged.photo + "?v=40.0") : "";
+    const pUrl = merged.photo ? (merged.photo.startsWith("data:") || merged.photo.includes("?") ? merged.photo : merged.photo + "?v=41.0") : "";
     return {
       ...merged,
       photo: pUrl,
@@ -6048,7 +6063,7 @@ function openMasterDeck(filterType = "all") {
 
 async function sync2026MasterData(notify = true) {
   try {
-    if (notify) toast("Updating to 2026 Master Data (84 Sites & 12 Client Campaigns)…");
+    if (notify) toast("Updating to 2026 Master Data (84 Sites & 8 client campaigns)…");
     let sites = window.MASTER_SITES_2026;
     let campaigns = window.MASTER_CAMPAIGNS_2026;
     if (!sites || !sites.length) {
@@ -6066,6 +6081,7 @@ async function sync2026MasterData(notify = true) {
     persistLocal();
     if (S.mode === "live" && db) {
       for (const s of sites) await put("sites", s);
+      for (const oldC of S.campaigns) { if (!(campaigns || []).some(nc => nc.id === oldC.id)) await del("campaigns", oldC.id).catch(() => {}); }
       for (const c of (campaigns || [])) await put("campaigns", c);
     }
     render(true);
@@ -7180,7 +7196,7 @@ document.addEventListener("submit",async e=>{if(e.target.id!=="reqForm")return;e
 function vSettings(){const s=S.settings;const hasSample=S.sites.some(x=>x.sample)||S.campaigns.some(x=>x.sample);
   return pgTop("Settings","Branding for watermarks and presentations")+`<div class="grid" style="max-width:720px">
   <div class="card pad grid" style="gap:14px">
-  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v11.0 PWA Ready</span></div>
+  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v11.1 PWA Ready</span></div>
   <p style="margin:0;color:var(--muted);font-size:13px">Install AdPulse OTS on iPhone, iPad, Android or PC for fast offline access, full-screen Google 3D maps, and 1-tap camera upload with GPS.</p>
   <div class="row" style="gap:10px;flex-wrap:wrap">
     <button class="btn pri" data-act="installios" style="flex:1;min-width:180px;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>Install on iPhone / iPad (iOS)</button>
@@ -7365,7 +7381,7 @@ function showMobileUpdateBanner(){
   const b = document.createElement('div');
   b.id = 'mobileUpdateBanner';
   b.style.cssText = 'position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:9999;background:linear-gradient(135deg,#0c0917,#1b1238);color:#fff;padding:8px 16px;border-radius:9999px;box-shadow:0 8px 24px rgba(0,0,0,0.5);border:1px solid #38bdf8;display:flex;align-items:center;gap:10px;font-size:12.5px;max-width:calc(100% - 24px);';
-  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v11.0)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
+  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v11.1)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
   document.body.appendChild(b);
 }
 
@@ -7384,7 +7400,7 @@ function openInstallModal(forceType){
                 <h2 style="font-size:18px;margin:0">AdPulse OTS App</h2>
                 <span class="pill st-available" style="font-size:10px;padding:2px 8px">🟢 Running as App</span>
               </div>
-              <div style="font-size:12px;color:var(--muted);margin-top:2px">v11.0 (Android &amp; iOS Standalone)</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px">v11.1 (Android &amp; iOS Standalone)</div>
             </div>
             <span class="sp"></span>
             <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
@@ -7470,7 +7486,7 @@ function openInstallModal(forceType){
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
           <img src="/icons/icon-192.png" alt="AdPulse OTS" style="width:48px;height:48px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.2)">
           <div>
-            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v11.0)</h2>
+            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v11.1)</h2>
             <div style="font-size:12px;color:var(--muted)">Google 3D Maps &amp; 97 Verified Media Sites</div>
           </div>
           <span class="sp"></span>
@@ -8203,7 +8219,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=40.0").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=41.0").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
@@ -8220,7 +8236,7 @@ if("serviceWorker" in navigator){
           });
         }
       });
-      console.log("AdPulse OTS PWA active (v11.0):",r.scope);
+      console.log("AdPulse OTS PWA active (v11.1):",r.scope);
     }).catch(err=>{
       console.warn("PWA ServiceWorker registration failed:",err);
     });
