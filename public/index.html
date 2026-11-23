@@ -731,6 +731,118 @@ body.guest-presentation .main {
   }
 }
 
+
+/* ============ AI Chatbot OOH Site Information Styles ============ */
+.ai-chat-fab {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 9500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #D9161D, #7C3AED);
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 10px 16px 10px 12px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 12px 32px rgba(217, 22, 29, 0.45), 0 0 0 4px rgba(124, 58, 237, 0.22);
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.2s ease;
+}
+.ai-chat-fab:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(217, 22, 29, 0.6), 0 0 0 6px rgba(124, 58, 237, 0.3);
+}
+.ai-chat-fab img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  padding: 2px;
+  object-fit: contain;
+}
+.ai-chat-drawer {
+  position: fixed;
+  bottom: 84px;
+  right: 22px;
+  z-index: 9550;
+  width: min(470px, calc(100vw - 24px));
+  height: min(670px, calc(100vh - 115px));
+  background: var(--surface);
+  border: 2px solid #D9161D;
+  border-radius: 20px;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  animation: popIn 0.22s ease;
+}
+.ai-chat-drawer.open {
+  display: flex;
+}
+.ai-msg-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+.ai-msg-row.user {
+  flex-direction: row-reverse;
+}
+.ai-msg-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+.ai-msg-bubble {
+  max-width: 84%;
+  padding: 12px 15px;
+  border-radius: 16px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+.ai-msg-row.bot .ai-msg-bubble {
+  background: var(--surface2);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-top-left-radius: 4px;
+}
+.ai-msg-row.user .ai-msg-bubble {
+  background: linear-gradient(135deg, #D9161D, #B91C1C);
+  color: #fff;
+  border-top-right-radius: 4px;
+}
+.ai-site-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+.ai-site-mini-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+@media (max-width: 760px) {
+  .ai-chat-fab { bottom: 82px; right: 14px; padding: 8px 13px 8px 9px; font-size: 12px; }
+  .ai-chat-drawer { bottom: 138px; right: 12px; width: calc(100vw - 24px); height: calc(100vh - 165px); }
+}
+
 </style>
 <title>AdPulse OOH Tracking System</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1413,9 +1525,9 @@ body.client .tabs{display:none}
 <script src="/claude-shim.js?v=3.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="/master_sites_2026.js?v=46.0"></script>
-  <script src="/master_campaigns_2026.js?v=46.0"></script>
-  <script src="/vendor_preview_2026.js?v=46.0"></script>
+  <script src="/master_sites_2026.js?v=47.0"></script>
+  <script src="/master_campaigns_2026.js?v=47.0"></script>
+  <script src="/vendor_preview_2026.js?v=47.0"></script>
 </head>
 <body>
 
@@ -1511,11 +1623,12 @@ const ICON={
  bot:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="4"/><path d="M12 8V4M9 14h.01M15 14h.01M2 13v3M22 13v3"/><circle cx="12" cy="3.5" r="1.2"/></svg>',
  cal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
  booked:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2.5"/><path d="M3 9.5h18M8 2.5v3M16 2.5v3"/><path d="m9 15 2.2 2.2 4.3-4.4"/></svg>',
+ ai:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 1 3 3v1h3a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-4l-3 3-3-3H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3V5a3 3 0 0 1 3-3z"/><circle cx="9" cy="12" r="1.3"/><circle cx="15" cy="12" r="1.3"/><path d="M9.5 15.5c1.5 1 3.5 1 5 0"/></svg>',
  expire:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2.5"/><path d="M3 9.5h18M8 2.5v3M16 2.5v3"/><circle cx="12" cy="15" r="3.5"/><path d="M12 13.5V15l1.2 1"/></svg>',
  more:'<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>',
  img:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg>'
 };
-const NAV=[["dashboard","Dashboard","dash"],["capture","Capture","cam"],["sites","OOH AdPulse Sites","sites"],["booked-expire","Booked Expire Sites","expire"],["campaigns","Campaigns","camp"],["vendors","Vendor Booked Site","users"],["vendors-preview","Vendors Sites Preview","img"],["studio","Presentations","deck"],["clients","Clients","users"],["settings","Settings","gear"]];
+const NAV=[["dashboard","Dashboard","dash"],["capture","Capture","cam"],["sites","OOH AdPulse Sites","sites"],["booked-expire","Booked Expire Sites","expire"],["ai-chatbot","AI Chatbot OOH Site Info","ai"],["campaigns","Campaigns","camp"],["vendors","Vendor Booked Site","users"],["vendors-preview","Vendors Sites Preview","img"],["studio","Presentations","deck"],["clients","Clients","users"],["settings","Settings","gear"]];
 
 /* ============ state ============ */
 const S={sites:[],campaigns:[],decks:[],riders:[],settings:{agency:"AdPulse IMC",phone:"",email:"",web:"adpulse.pk",logo:null},loaded:{sites:false,campaigns:false},mode:"loading"};
@@ -1888,7 +2001,7 @@ function go(r,silent){
 }
 window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
 
-function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v11.6</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
+function pgTop(title,sub,right=""){const n=Agent.count();return`<div class="top"><img class="mbrand" src="${esc(markSrc())}" alt=""><h1>${title}<small>${sub}</small></h1>${right}<button class="btn sm" data-act="forceupdate" style="font-size:11.5px;padding:5px 10px;background:linear-gradient(135deg,rgba(217,22,29,0.18),rgba(242,106,33,0.18));border:1px solid rgba(217,22,29,0.35);border-radius:10px;display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;cursor:pointer" title="Click to refresh software & verify 97 live sites">🔄 Sync Live (${S.sites.length})</button><button class="btn sm ghost" data-act="installapp" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(56,189,248,0.45);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(56,189,248,0.08)" title="Mobile App &amp; Updates (Android &amp; iOS)">📱 App v11.7</button><button class="btn sm pri" data-act="openaichat" style="font-size:11.5px;padding:5px 10px;border:1px solid #7C3AED;border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:#fff;font-weight:800;cursor:pointer;background:linear-gradient(135deg,#7C3AED,#D9161D);box-shadow:0 3px 10px rgba(124,58,237,0.35)" title="Talk to AI Chatbot OOH Site Information">🤖 AI Site Info</button><button class="btn sm ghost" data-act="ridertracking" style="font-size:11.5px;padding:5px 9px;border:1px solid rgba(16,185,129,0.5);border-radius:10px;display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:700;cursor:pointer;background:rgba(16,185,129,0.08)" title="Live Field Staff &amp; Rider Tracking"><span class="rider-live-dot"></span>🛵 Riders (<span id="topRiderCnt">1</span>)</button><button class="bell ${n?"ring":""}" data-act="agent" aria-label="Campaign agent alerts">${ICON.bell}<b ${n?"":"hidden"}>${n}</b></button><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px;padding:4px 8px;color:var(--muted);border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;gap:4px" title="Sign out">🚪 Sign out</button>${ROLE==="team"?`<button class="bell more" data-act="more" aria-label="More pages">${ICON.more}</button>`:""}<div class="search" data-act="palette">${'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'}<span>Search sites, areas, campaigns…</span></div></div>`}
 
 let lastRoute=null;
 function render(anim){
@@ -1896,13 +2009,14 @@ function render(anim){
   if(route==="capture"&&lastRoute==="capture"&&!anim){refreshCaptureLists();return}
   if(route==="studio"&&lastRoute==="studio"&&!anim&&Studio.active){return}
   if(ROLE==="pending"){v.innerHTML=`<div class="gate"><div class="bot">${ICON.bot}</div><h2>Opening ${APP_SHORT}…</h2><p style="color:var(--muted)">Checking your access</p></div>`;return}
-  const html=({portal:vPortal,clients:vClients,dashboard:vDash,capture:vCapture,sites:vSites,"booked-expire":vBookedExpire,campaigns:vCampaigns,vendors:vVendors,"vendors-preview":vVendorsPreview,studio:vStudio,settings:vSettings}[route])();
+  const html=({portal:vPortal,clients:vClients,dashboard:vDash,capture:vCapture,sites:vSites,"booked-expire":vBookedExpire,"ai-chatbot":vAiChatbot,campaigns:vCampaigns,vendors:vVendors,"vendors-preview":vVendorsPreview,studio:vStudio,settings:vSettings}[route])();
   v.innerHTML=`<div class="${anim||lastRoute!==route?"view":""}">${html}</div>`;lastRoute=route;
   after();
 }
 function after(){
   $$("[data-count]").forEach(el=>{const to=+el.dataset.count;if(el.dataset.done)return;el.dataset.done=1;const t0=performance.now();const step=t=>{const p=Math.min(1,(t-t0)/900);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)});
   $$(".ring .fg").forEach(c=>requestAnimationFrame(()=>c.style.strokeDashoffset=c.dataset.off));
+  if(typeof OOHSiteAIChatbot!=="undefined")OOHSiteAIChatbot.mountFloatingWidget();
   if(route==="capture")initCapture();
   if(route==="studio")Studio.mount();
   if(route==="settings"&&CAN_ADMIN&&user&&user.members)loadTeamList();
@@ -1928,7 +2042,8 @@ function vDash(){
     ["Booked",cnt("booked")+cnt("expiring"),"var(--bad)","booked",false,"kpibooked"],
     ["Booked Expire Sites",expireBookedCount,"var(--orange)","expire",false,"kpiexpire"],
     ["Active campaigns",activeC,"var(--pink)","deck",false,"kpicamps"],
-    ["Vendor-wise data",allVendors.length||8,"#0E9F76","users",false,"kpivendors"]
+    ["Vendor-wise data",allVendors.length||8,"#0E9F76","users",false,"kpivendors"],
+    ["AI Chatbot OOH Site Info","24/7 AI","#7C3AED","ai",true,"kpiaichat"]
   ];
   const bookedOts=S.sites.filter(x=>x.status==="booked").reduce((a,x)=>a+otsOf(x),0);
   if(bookedOts)k.push(["Daily OTS on booked sites","~"+fmtK(bookedOts),"var(--blue)","eye",true,""]);
@@ -4273,6 +4388,743 @@ function vBookedExpire() {
   ) + kpiHtml + filterHtml + bodyHtml;
 }
 
+
+/* ============ AI Chatbot OOH Site Information (Human-LikeTrained Agent) ============ */
+const OOHSiteAIChatbot = {
+  voiceOn: false,
+  isListening: false,
+  widgetOpen: false,
+  messages: [],
+
+  quickQuestions: [
+    "👋 Assalam-o-Alaikum! Pooray system ka summary aur status batao",
+    "🟢 Abhi kaunsi OOH sites Available (khali) hain booking ke liye?",
+    "🔴 Kaunsi Booked sites Expire (Will Be End) hone wali hain?",
+    "🛣️ Nagan Flyover aur Shahrah-e-Faisal ki sites ki details dikhao",
+    "📢 Tamam 8 Active Campaigns (GFS, Chase Value, Kifayah, AA Avenue) ki report do",
+    "🏢 Vendor-wise breakdown batao (84 Master + 1,826 Saturday Vendor Preview sites)",
+    "🌊 Clifton aur DHA mein SMD / Hoarding sites kaunsi hain?",
+    "🔢 Site S#1 se S#10 tak ki complete details aur sizes batao"
+  ],
+
+  init() {
+    if (this.messages.length === 0) {
+      const mCount = (S.sites || []).length || 84;
+      const vpCount = (typeof getVendorPreviewSites === "function" ? getVendorPreviewSites() : (window.VENDOR_PREVIEW_SITES_2026 || [])).length || 1826;
+      const cCount = (S.campaigns || []).length || 8;
+      this.messages.push({
+        role: "bot",
+        time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+        html: `
+          <div style="font-weight:800;font-size:14.5px;color:#D9161D;margin-bottom:4px">Assalam-o-Alaikum! 👋 Main aapka <b>AI Chatbot — OOH Site Information Agent</b> hoon.</div>
+          <div>Maine aapke pooray <b>AdPulse OOH Tracking System</b> ko live read aur train kar liya hai:</div>
+          <ul style="margin:6px 0 8px 18px;padding:0;font-size:12.8px">
+            <li><b>${mCount} OOH AdPulse Master Sites</b> (S#1 se S#${mCount}, sizes, SQFT, clients, start/end dates, GPS &amp; 360° road view)</li>
+            <li><b>59 Booked &amp; Expiring Sites</b> (28 <code>WILL BE END</code>, <code>EXTENDABLE</code> &amp; <code>DEPT ISSUE</code>)</li>
+            <li><b>${cCount} Live Client Campaigns</b> (AA Avenue, Askari, Chase Value, Eminent, Falaknaz, GFS Indus Valley, GFS Builders, Kifayah)</li>
+            <li><b>${vpCount.toLocaleString()} Vendors Sites Preview</b> (44 Saturday Vendor PPT/PDF decks)</li>
+          </ul>
+          <div style="font-size:12.8px">Aap mujhse <b>Roman Urdu</b> ya <b>English</b> mein bilkul insaan ki tarah kisi bhi site, location, road, client, vendor, size, expiry date, ya campaign ke baare mein pooch sakte hain! 👇</div>
+        `,
+        sites: []
+      });
+    }
+    this.mountFloatingWidget();
+  },
+
+  mountFloatingWidget() {
+    if (document.getElementById("aiChatFabBtn")) return;
+    const fab = document.createElement("button");
+    fab.id = "aiChatFabBtn";
+    fab.className = "ai-chat-fab";
+    fab.type = "button";
+    fab.title = "Open AI Chatbot OOH Site Information";
+    fab.onclick = () => this.toggleWidget();
+    fab.innerHTML = `
+      <img src="${esc(markSrc())}" alt="AdPulse AI">
+      <span>🤖 AI Chatbot · OOH Site Info</span>
+    `;
+    document.body.appendChild(fab);
+
+    const drw = document.createElement("div");
+    drw.id = "aiChatFloatingDrawer";
+    drw.className = "ai-chat-drawer";
+    document.body.appendChild(drw);
+    this.renderFloatingDrawer();
+  },
+
+  toggleWidget(forceState) {
+    this.init();
+    this.widgetOpen = typeof forceState === "boolean" ? forceState : !this.widgetOpen;
+    const drw = document.getElementById("aiChatFloatingDrawer");
+    if (drw) {
+      drw.classList.toggle("open", this.widgetOpen);
+      if (this.widgetOpen) {
+        this.renderFloatingDrawer();
+        setTimeout(() => {
+          const inp = document.getElementById("aiFloatInput");
+          if (inp) inp.focus();
+        }, 80);
+      }
+    }
+  },
+
+  speak(text) {
+    if (!this.voiceOn || !("speechSynthesis" in window)) return;
+    try {
+      window.speechSynthesis.cancel();
+      const cleanTxt = String(text || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+      const u = new SpeechSynthesisUtterance(cleanTxt.slice(0, 420));
+      u.lang = "en-PK";
+      u.rate = 1.03;
+      window.speechSynthesis.speak(u);
+    } catch (e) {}
+  },
+
+  toggleVoice() {
+    this.voiceOn = !this.voiceOn;
+    if (!this.voiceOn && "speechSynthesis" in window) {
+      try { window.speechSynthesis.cancel(); } catch (e) {}
+    }
+    toast(this.voiceOn ? "🔊 AI Voice Reply Enabled" : "🔇 AI Voice Reply Muted");
+    this.refreshUI();
+  },
+
+  startMic(inputId) {
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR) {
+      toast("Voice microphone browser mein supported nahi hai — please type karein.");
+      return;
+    }
+    try {
+      const rec = new SR();
+      rec.lang = "en-US";
+      rec.interimResults = false;
+      this.isListening = true;
+      this.refreshUI();
+      toast("🎙️ Bolिये... AI sun raha hai");
+      rec.onresult = (e) => {
+        const txt = e.results[0][0].transcript;
+        const inp = document.getElementById(inputId);
+        if (inp) inp.value = txt;
+        this.isListening = false;
+        this.ask(txt);
+      };
+      rec.onerror = () => { this.isListening = false; this.refreshUI(); };
+      rec.onend = () => { this.isListening = false; this.refreshUI(); };
+      rec.start();
+    } catch (e) {
+      this.isListening = false;
+      this.refreshUI();
+    }
+  },
+
+  clearChat() {
+    this.messages = [];
+    this.init();
+    this.refreshUI();
+    toast("💬 Chat history refreshed!");
+  },
+
+  openProposalFromSites(ids, title) {
+    const cleanIds = (ids || []).filter(id => S.sites.some(s => s.id === id));
+    if (!cleanIds.length) {
+      toast("Presentation Studio ke liye Master OOH sites select honi chahiye.");
+      return;
+    }
+    Studio.open({ type: "selection", ids: cleanIds }, title || "AI Curated OOH Site Proposal (2026)");
+    this.toggleWidget(false);
+  },
+
+  ask(rawQuery) {
+    const q = String(rawQuery || "").trim();
+    if (!q) return;
+    this.init();
+
+    const nowTime = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    this.messages.push({
+      role: "user",
+      time: nowTime,
+      text: q
+    });
+
+    const reply = this.generateHumanReply(q);
+    this.messages.push({
+      role: "bot",
+      time: nowTime,
+      html: reply.html,
+      sites: reply.sites || [],
+      deckTitle: reply.deckTitle || "AI Curated OOH Sites"
+    });
+
+    this.refreshUI();
+    this.speak(reply.speech || reply.html);
+  },
+
+  generateHumanReply(query) {
+    const q = query.toLowerCase().trim();
+    const masterSites = S.sites || [];
+    const vpSites = typeof getVendorPreviewSites === "function" ? getVendorPreviewSites() : (window.VENDOR_PREVIEW_SITES_2026 || []);
+    const campaigns = S.campaigns || [];
+    const allBooked = typeof getBookedExpireSites === "function" ? getBookedExpireSites() : masterSites.filter(s => s.status === "booked");
+    const willEndSites = masterSites.filter(s => /WILL BE END/i.test(s.excelStatus || s.statusLabel || ""));
+    const extendableSites = masterSites.filter(s => /EXTENDABLE/i.test(s.excelStatus || s.statusLabel || ""));
+    const deptIssueSites = masterSites.filter(s => /ISSUE/i.test(s.excelStatus || s.statusLabel || ""));
+    const availSites = masterSites.filter(s => effStatus(s) === "available" || /subject to avail/i.test(s.excelAvailability || s.availability || ""));
+
+    // 1. Check for specific Site Serial Number (e.g., "S#44", "S# 12", "site 5", "serial 10", or range "S#1 se S#10")
+    const rangeMatch = q.match(/s#?\s*(\d{1,2})\s*(?:se|to|-|tak)\s*s?#?\s*(\d{1,2})/i);
+    if (rangeMatch) {
+      const fromNo = Math.min(+rangeMatch[1], +rangeMatch[2]);
+      const toNo = Math.max(+rangeMatch[1], +rangeMatch[2]);
+      const matched = masterSites.filter(s => +s.sNo >= fromNo && +s.sNo <= toNo);
+      return {
+        html: `Jee zaroor! Yeh rahi <b>OOH AdPulse Sites S#${fromNo} se S#${toNo}</b> tak ki complete details (${matched.length} sites):<br>
+        <div style="margin-top:6px;font-size:12.5px">Inmein se kisi bhi site ke <b>🛣️ 360° Road View</b>, <b>✏️ Edit Site</b>, ya <b>📍 Map</b> button par click kar ke aap foran open kar sakte hain:</div>`,
+        sites: matched,
+        deckTitle: `AdPulse OOH Sites S#${fromNo}-S#${toNo}`,
+        speech: `Here are the details for AdPulse sites S number ${fromNo} to ${toNo}.`
+      };
+    }
+
+    const sNoMatch = q.match(/(?:\bs#\s*(\d{1,2})\b|\bsite\s*#?\s*(\d{1,2})\b|\bkhi-s0*(\d{1,2})\b)/i);
+    if (sNoMatch) {
+      const num = +(sNoMatch[1] || sNoMatch[2] || sNoMatch[3]);
+      const s = masterSites.find(x => +x.sNo === num || String(x.code || "").toLowerCase() === `khi-s${String(num).padStart(2, "0")}`);
+      if (s) {
+        const loc = s.location || s.name || s.area || "Karachi";
+        const avail = s.excelAvailability || s.availability || STATUS[effStatus(s)];
+        const st = s.excelStatus || s.statusLabel || "VERIFIED";
+        return {
+          html: `
+            <div style="font-weight:800;font-size:14.5px;color:#D9161D;margin-bottom:4px">📍 Site S#${s.sNo} (${esc(s.code)}) — ${esc(loc)}</div>
+            <div>Jee, <b>Site S#${s.sNo}</b> ki poori details yeh hain:</div>
+            <ul style="margin:6px 0 8px 18px;padding:0;font-size:12.8px">
+              <li><b>Location &amp; Facing:</b> ${esc(loc)} (${esc(s.from || "—")} → ${esc(s.towards || "—")})</li>
+              <li><b>Current Client / Campaign:</b> <b style="color:#D9161D">${esc(s.client || s.brand || "Available")}</b></li>
+              <li><b>Media &amp; Dimensions:</b> ${esc(s.excelMedium || s.media || "Hoarding")} · <b>${s.widthFt} × ${s.heightFt} ft</b> (<b>${s.sqft || ((+s.widthFt||0)*(+s.heightFt||0))} SQFT</b>)</li>
+              <li><b>Booking Duration:</b> ${esc(s.startDate || "—")} se ${esc(s.endDate || "—")} (${esc(String(s.day || "30"))} Days)</li>
+              <li><b>Availability &amp; Expiry Status:</b> <b>${esc(avail)}</b> · <span style="color:#EA580C;font-weight:800">${esc(st)}</span></li>
+              <li><b>Vendor &amp; Vendor Ending Date:</b> ${esc(s.vendor || "AdPulse")} (Ends: <b>${esc(s.vendorEndDate || "—")}</b>)</li>
+              <li><b>GPS Coordinates:</b> <code>${s.lat}, ${s.lng}</code> (~<b>${fmtK(otsOf(s))} OTS/day</b>)</li>
+            </ul>
+          `,
+          sites: [s],
+          deckTitle: `Site S#${s.sNo} - ${loc}`,
+          speech: `Site S number ${s.sNo} at ${loc} is a ${s.widthFt} by ${s.heightFt} feet ${s.media} for client ${s.client || "Available"}.`
+        };
+      }
+    }
+
+    // 2. Greeting / Full System Summary / Training Check
+    if (/^(hi|hello|salam|assalam|aoa|hey|help|summary|overview|system|poora|kya hai|train|kaam)/i.test(q) || (q.includes("summary") && q.includes("system"))) {
+      const vendors = [...new Set(masterSites.map(s => s.vendor).filter(Boolean))];
+      const vpVendors = [...new Set(vpSites.map(s => s.vendor).filter(Boolean))];
+      const totalSqft = masterSites.reduce((sum, s) => sum + (+s.sqft || ((+s.widthFt||0)*(+s.heightFt||0))), 0);
+      return {
+        html: `
+          <div style="font-weight:800;font-size:14.5px;color:#D9161D;margin-bottom:6px">📊 AdPulse OOH Tracking System — Complete Live Intelligence Report</div>
+          <div>Walaikum Assalam! Main is system ke har tab aur database se real-time connected hoon. Abhi system mein yeh data live hai:</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin:10px 0">
+            <div style="background:var(--surface);padding:9px 11px;border-radius:10px;border-left:3.5px solid #D9161D">
+              <div style="font-size:11px;color:var(--muted);font-weight:700">OOH ADPULSE SITES</div>
+              <div style="font-size:18px;font-weight:800;color:var(--ink)">${masterSites.length} Sites</div>
+              <small style="color:var(--muted)">${totalSqft.toLocaleString()} Total SQFT</small>
+            </div>
+            <div style="background:var(--surface);padding:9px 11px;border-radius:10px;border-left:3.5px solid #059669">
+              <div style="font-size:11px;color:var(--muted);font-weight:700">AVAILABLE (SUBJECT TO AVAIL)</div>
+              <div style="font-size:18px;font-weight:800;color:#059669">${availSites.length} Sites</div>
+              <small style="color:var(--muted)">Ready for booking</small>
+            </div>
+            <div style="background:var(--surface);padding:9px 11px;border-radius:10px;border-left:3.5px solid #EA580C">
+              <div style="font-size:11px;color:var(--muted);font-weight:700">BOOKED &amp; EXPIRING</div>
+              <div style="font-size:18px;font-weight:800;color:#EA580C">${allBooked.length} Sites</div>
+              <small style="color:var(--muted)">${willEndSites.length} Will Be End · ${extendableSites.length} Extendable</small>
+            </div>
+            <div style="background:var(--surface);padding:9px 11px;border-radius:10px;border-left:3.5px solid #7C3AED">
+              <div style="font-size:11px;color:var(--muted);font-weight:700">VENDORS PREVIEW &amp; CAMPAIGNS</div>
+              <div style="font-size:18px;font-weight:800;color:#7C3AED">${vpSites.length.toLocaleString()} Sites</div>
+              <small style="color:var(--muted)">${vpVendors.length} Decks · ${campaigns.length} Campaigns</small>
+            </div>
+          </div>
+          <div style="font-size:12.6px"><b>Active Master Vendors (${vendors.length}):</b> ${vendors.map(v => esc(v)).join(" · ")}</div>
+          <div style="font-size:12.6px;margin-top:4px"><b>Active Client Campaigns (${campaigns.length}):</b> ${campaigns.map(c => `<b>${esc(c.client)}</b> (${(c.siteIds||[]).length} sites)`).join(", ")}</div>
+        `,
+        sites: masterSites.slice(0, 6),
+        deckTitle: "AdPulse OOH Master Overview (2026)",
+        speech: `AdPulse OOH System currently tracks ${masterSites.length} master OOH sites, ${availSites.length} available sites, ${allBooked.length} booked and expiring sites, ${campaigns.length} active client campaigns, and ${vpSites.length} vendor preview sites.`
+      };
+    }
+
+    // 3. Campaign Queries
+    if (q.includes("campaign") || q.includes("campagin") || q.includes("aa avenue") || q.includes("askari") || q.includes("chase value") || q.includes("eminent") || q.includes("falaknaz") || q.includes("indus valley") || q.includes("gfs") || q.includes("kifayah")) {
+      const matchedCamp = campaigns.find(c => {
+        const cname = (c.name + " " + c.client).toLowerCase();
+        return (q.includes("aa avenue") && cname.includes("aa avenue")) ||
+               (q.includes("askari") && cname.includes("askari")) ||
+               (q.includes("chase") && cname.includes("chase")) ||
+               (q.includes("eminent") && cname.includes("eminent")) ||
+               (q.includes("falaknaz") && cname.includes("falaknaz")) ||
+               (q.includes("indus") && cname.includes("indus")) ||
+               (q.includes("gfs") && !q.includes("indus") && cname.includes("gfs builders")) ||
+               (q.includes("kifayah") && cname.includes("kifayah"));
+      });
+
+      if (matchedCamp) {
+        const cSites = (matchedCamp.siteIds || []).map(id => siteOf(id)).filter(Boolean);
+        return {
+          html: `
+            <div style="font-weight:800;font-size:14.5px;color:#D9161D;margin-bottom:4px">📢 Campaign Report: ${esc(matchedCamp.client)} (${cSites.length} Sites)</div>
+            <div><b>${esc(matchedCamp.name)}</b> mein total <b>${cSites.length} OOH sites</b> active hain (Source Deck: <code>${esc(matchedCamp.pptFile || "Master 2026")}</code>).</div>
+            <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn sm pri" data-act="camppresentation" data-id="${matchedCamp.id}" onclick="OOHSiteAIChatbot.toggleWidget(false)">📊 Open ${esc(matchedCamp.client)} Presentation</button>
+              <button class="btn sm" data-act="campsites" data-id="${matchedCamp.id}" onclick="OOHSiteAIChatbot.toggleWidget(false)">🏙️ View All ${cSites.length} Sites in Table</button>
+            </div>
+          `,
+          sites: cSites,
+          deckTitle: `${matchedCamp.client} - Campaign 2026`,
+          speech: `Campaign ${matchedCamp.client} has ${cSites.length} active OOH sites.`
+        };
+      }
+
+      // All 8 campaigns overview
+      const campRows = campaigns.map((c, idx) => {
+        const cnt = (c.siteIds || []).length;
+        return `<div style="display:flex;align-items:center;justify-content:space-between;padding:7px 10px;background:var(--surface);border:1px solid var(--border);border-radius:8px;margin-bottom:5px;gap:8px">
+          <div><b>${idx + 1}. ${esc(c.client)}</b> <small style="color:var(--muted)">(${cnt} Sites · ${esc(c.pptFile || "")})</small></div>
+          <button class="btn sm pri" data-act="camppresentation" data-id="${c.id}" onclick="OOHSiteAIChatbot.toggleWidget(false)" style="padding:3px 9px;font-size:11px">📊 Open Deck</button>
+        </div>`;
+      }).join("");
+      return {
+        html: `
+          <div style="font-weight:800;font-size:14.5px;color:#D9161D;margin-bottom:6px">📢 Tamam ${campaigns.length} Active Client Campaigns (2026)</div>
+          <div>Jee! Hamare system mein yeh <b>${campaigns.length} client campaigns</b> (79 slide photos ke saath) live hain:</div>
+          <div style="margin-top:8px">${campRows}</div>
+        `,
+        sites: masterSites.filter(s => s.status === "booked").slice(0, 6),
+        deckTitle: "All Active Client Campaigns 2026",
+        speech: `There are ${campaigns.length} active client campaigns in the system.`
+      };
+    }
+
+    // 4. Expiry / Will Be End / Booked Expire Sites Queries
+    if (q.includes("expir") || q.includes("will be end") || q.includes("khatam") || q.includes("ending") || q.includes("extendable") || q.includes("dept issue") || q.includes("hold")) {
+      let targetList = allBooked;
+      let title = `Tamam ${allBooked.length} Booked & Expiring Sites`;
+      if (q.includes("will be end") || q.includes("expir") || q.includes("khatam")) {
+        targetList = willEndSites;
+        title = `🔴 ${willEndSites.length} Expiring Sites (WILL BE END)`;
+      } else if (q.includes("extendable")) {
+        targetList = extendableSites;
+        title = `🟢 ${extendableSites.length} Extendable Booking Sites`;
+      } else if (q.includes("issue") || q.includes("dept") || q.includes("hold")) {
+        targetList = deptIssueSites;
+        title = `⚠️ ${deptIssueSites.length} Dept Issue / Hold Sites`;
+      }
+
+      const topLines = targetList.slice(0, 10).map(s =>
+        `<li><b>S#${s.sNo} (${esc(s.code)})</b> — <b>${esc(s.location || s.name)}</b> · Client: <b style="color:#D9161D">${esc(s.client || s.brand)}</b> · End Date: <b>${esc(s.endDate || s.excelAvailability || "—")}</b> · Status: <code>${esc(s.excelStatus || s.statusLabel || "BOOKED")}</code> · Vendor End: <b>${esc(s.vendorEndDate || "—")}</b></li>`
+      ).join("");
+
+      return {
+        html: `
+          <div style="font-weight:800;font-size:14.5px;color:#D9161D;margin-bottom:4px">📅 ${title}</div>
+          <div>Hamare <b>Booked Expire Sites</b> schedule ke mutabiq total <b>${allBooked.length} booked/expiry sites</b> hain, jinmein <b>${willEndSites.length} sites WILL BE END</b> hain, <b>${extendableSites.length} EXTENDABLE</b> hain, aur <b>${deptIssueSites.length} DEPT ISSUE</b> par hain.</div>
+          <ul style="margin:7px 0 8px 18px;padding:0;font-size:12.2px">${topLines}</ul>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
+            <button class="btn sm pri" onclick="location.hash='booked-expire';go('booked-expire',true);OOHSiteAIChatbot.toggleWidget(false)">📅 Open Booked Expire Sites Tab (${allBooked.length})</button>
+          </div>
+        `,
+        sites: targetList.slice(0, 8),
+        deckTitle: title,
+        speech: `Found ${targetList.length} booked and expiring sites matching your request.`
+      };
+    }
+
+    // 5. Available / Khali Sites Queries
+    if (q.includes("available") || q.includes("khali") || q.includes("free") || q.includes("vacant") || q.includes("subject to avail")) {
+      let filteredAvail = availSites;
+      // Check if user also mentioned an area
+      const areaKeywords = ["clifton", "dha", "defense", "faisal", "karsaz", "nagan", "nazimabad", "hyderi", "gulshan", "johar", "university", "rashid minhas", "tariq road", "saddar", "korangi", "malir", "airport", "ii chundrigar", "chundrigar", "seaview", "boat basin", "jail", "hassan square", "nipa"];
+      const hitArea = areaKeywords.find(a => q.includes(a));
+      if (hitArea) {
+        filteredAvail = availSites.filter(s => [s.location, s.name, s.area, s.from, s.towards, s.client].join(" ").toLowerCase().includes(hitArea));
+      }
+      const listToUse = filteredAvail.length ? filteredAvail : availSites;
+      const sampleBullets = listToUse.slice(0, 10).map(s =>
+        `<li><b>S#${s.sNo} (${esc(s.code)})</b> — <b>${esc(s.location || s.name)}</b> (${s.widthFt}×${s.heightFt} ft · ${esc(s.excelMedium || s.media)}) · Vendor: <b>${esc(s.vendor || "AdPulse")}</b> (${esc(s.excelAvailability || "Subject to Avail")})</li>`
+      ).join("");
+      return {
+        html: `
+          <div style="font-weight:800;font-size:14.5px;color:#059669;margin-bottom:4px">🟢 Available / Subject to Availability OOH Sites (${listToUse.length} Sites${hitArea ? " in " + hitArea.toUpperCase() : ""})</div>
+          <div>Jee! Abhi hamare paas <b>${listToUse.length} OOH AdPulse sites</b> available / subject to availability hain:</div>
+          <ul style="margin:7px 0 8px 18px;padding:0;font-size:12.2px">${sampleBullets}</ul>
+        `,
+        sites: listToUse.slice(0, 8),
+        deckTitle: "Available OOH AdPulse Sites (2026)",
+        speech: `There are ${listToUse.length} available OOH sites ready for booking.`
+      };
+    }
+
+    // 6. Vendor Queries (Master Vendors + 44 Saturday Vendor Preview Decks)
+    if (q.includes("vendor") || q.includes("saturday") || q.includes("preview") || q.includes("ad solution") || q.includes("printech") || q.includes("outdoor") || q.includes("media")) {
+      const masterVendors = {};
+      masterSites.forEach(s => { const v = s.vendor || "AdPulse IMC"; masterVendors[v] = (masterVendors[v] || 0) + 1; });
+      const vpVendors = {};
+      vpSites.forEach(s => { const v = s.vendor || "Vendor"; vpVendors[v] = (vpVendors[v] || 0) + 1; });
+
+      // Check if specific vendor name is asked
+      const allVNames = [...Object.keys(masterVendors), ...Object.keys(vpVendors)];
+      const matchedV = allVNames.find(v => q.includes(v.toLowerCase().split("(")[0].trim().toLowerCase()) && v.toLowerCase().split("(")[0].trim().length > 3);
+      if (matchedV && !q.includes("vendor-wise") && !q.includes("breakdown") && !q.includes("all vendor")) {
+        const mList = masterSites.filter(s => (s.vendor || "").toLowerCase().includes(matchedV.toLowerCase()));
+        const vpList = vpSites.filter(s => (s.vendor || "").toLowerCase().includes(matchedV.toLowerCase()));
+        const showSites = [...mList, ...vpList].slice(0, 8);
+        return {
+          html: `
+            <div style="font-weight:800;font-size:14.5px;color:#D9161D;margin-bottom:4px">🏢 Vendor Profile: ${esc(matchedV)}</div>
+            <div><b>${esc(matchedV)}</b> ki hamare system mein:</div>
+            <ul style="margin:6px 0 8px 18px;padding:0;font-size:12.5px">
+              <li><b>Master Booked / OOH AdPulse Sites:</b> ${mList.length} sites</li>
+              <li><b>Vendors Sites Preview (Saturday Folder Deck):</b> ${vpList.length} sites</li>
+            </ul>
+          `,
+          sites: showSites,
+          deckTitle: `${matchedV} - OOH Inventory`,
+          speech: `Vendor ${matchedV} has ${mList.length} master sites and ${vpList.length} preview sites.`
+        };
+      }
+
+      const mRows = Object.entries(masterVendors).sort((a,b)=>b[1]-a[1]).map(([v,c]) => `<li><b>${esc(v)}:</b> ${c} Master Sites</li>`).join("");
+      const vpTop = Object.entries(vpVendors).sort((a,b)=>b[1]-a[1]).slice(0, 10).map(([v,c]) => `<li><b>${esc(v)}:</b> ${c} Preview Sites</li>`).join("");
+      return {
+        html: `
+          <div style="font-weight:800;font-size:14.5px;color:#D9161D;margin-bottom:4px">🏢 Complete Vendor-Wise OOH Inventory Breakdown</div>
+          <div><b>1. Master Booked OOH AdPulse Vendors (${masterSites.length} Sites):</b></div>
+          <ul style="margin:4px 0 8px 18px;padding:0;font-size:12.2px">${mRows}</ul>
+          <div><b>2. Vendors Sites Preview — 44 Saturday Decks (${vpSites.length.toLocaleString()} Sites, Top 10 shown):</b></div>
+          <ul style="margin:4px 0 8px 18px;padding:0;font-size:12.2px">${vpTop}</ul>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
+            <button class="btn sm pri" onclick="location.hash='vendors';go('vendors',true);OOHSiteAIChatbot.toggleWidget(false)">🏢 Open Vendor Booked Sites</button>
+            <button class="btn sm" onclick="location.hash='vendors-preview';go('vendors-preview',true);OOHSiteAIChatbot.toggleWidget(false)">🖼️ Open Vendors Sites Preview (${vpSites.length.toLocaleString()})</button>
+          </div>
+        `,
+        sites: masterSites.slice(0, 6),
+        deckTitle: "Master Vendor-Wise Inventory",
+        speech: `We have ${Object.keys(masterVendors).length} master vendors across 84 sites and 44 vendor preview decks with ${vpSites.length} sites.`
+      };
+    }
+
+    // 7. General Keyword / Area / Road / Client / Size Search across Master 84 Sites + 1,826 Vendor Preview Sites
+    const stopWords = new Set(["ka", "ki", "ke", "ko", "se", "mein", "mai", "par", "per", "hai", "hain", "ho", "aur", "and", "or", "the", "in", "on", "at", "for", "of", "to", "show", "tell", "batao", "dikhao", "details", "detail", "site", "sites", "ooh", "adpulse", "billboard", "billboards", "kaunsi", "konsi", "kitni", "kahan", "where", "what", "which", "all", "list", "please", "mujhe", "hamari"]);
+    const tokens = q.replace(/[^a-z0-9\s#-]/gi, " ").split(/\s+/).filter(t => t.length >= 2 && !stopWords.has(t));
+
+    const scoreSite = (s) => {
+      const hay = [
+        s.sNo ? "s#" + s.sNo : "",
+        s.code,
+        s.location,
+        s.name,
+        s.title,
+        s.area,
+        s.from,
+        s.towards,
+        s.client,
+        s.brand,
+        s.vendor,
+        s.excelMedium,
+        s.media,
+        s.widthFt + "x" + s.heightFt,
+        s.excelAvailability,
+        s.availability,
+        s.excelStatus,
+        s.statusLabel,
+        s.vendorEndDate,
+        s.endDate
+      ].filter(Boolean).join(" ").toLowerCase();
+
+      let score = 0;
+      for (const tk of tokens) {
+        if (hay.includes(tk)) {
+          score += 3;
+          if ((s.location || s.name || "").toLowerCase().includes(tk)) score += 4;
+          if ((s.client || s.brand || "").toLowerCase().includes(tk)) score += 4;
+          if ((s.area || "").toLowerCase().includes(tk)) score += 3;
+        }
+      }
+      return score;
+    };
+
+    const scoredMaster = masterSites
+      .map(s => ({ s, score: scoreSite(s) }))
+      .filter(x => x.score > 0)
+      .sort((a, b) => b.score - a.score || (a.s.sNo || 999) - (b.s.sNo || 999))
+      .map(x => x.s);
+
+    const scoredVp = vpSites
+      .map(s => ({ s, score: scoreSite(s) }))
+      .filter(x => x.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .map(x => x.s);
+
+    if (scoredMaster.length > 0 || scoredVp.length > 0) {
+      const combined = [...scoredMaster, ...scoredVp.slice(0, 6)];
+      const topBullets = scoredMaster.slice(0, 8).map(s =>
+        `<li><b>S#${s.sNo} (${esc(s.code)})</b> — <b>${esc(s.location || s.name)}</b> (${s.widthFt}×${s.heightFt} ft · ${esc(s.excelMedium || s.media)}) · Client: <b style="color:#D9161D">${esc(s.client || s.brand || "—")}</b> · Status: <b>${esc(s.excelAvailability || s.availability || STATUS[effStatus(s)])}</b> (${esc(s.excelStatus || "Verified")}) · Vendor: ${esc(s.vendor || "AdPulse")}</li>`
+      ).join("");
+
+      const vpBullets = scoredVp.slice(0, 4).map(s =>
+        `<li><b>[Vendor Preview] ${esc(s.code)}</b> — <b>${esc(s.location || s.name)}</b> (${s.widthFt}×${s.heightFt} ft) · Vendor Deck: <b>${esc(s.vendor)}</b></li>`
+      ).join("");
+
+      return {
+        html: `
+          <div style="font-weight:800;font-size:14.5px;color:#D9161D;margin-bottom:4px">🔍 "${esc(query)}" ke liye System Results</div>
+          <div>Mujhe aapki query ke mutabiq <b>${scoredMaster.length} OOH AdPulse Master Sites</b> aur <b>${scoredVp.length} Vendor Preview Sites</b> mili hain:</div>
+          ${topBullets ? `<div style="font-weight:700;font-size:12.2px;margin-top:6px;color:var(--ink)">🏙️ OOH AdPulse Master Sites (${scoredMaster.length}):</div><ul style="margin:4px 0 8px 18px;padding:0;font-size:12.1px">${topBullets}</ul>` : ""}
+          ${vpBullets ? `<div style="font-weight:700;font-size:12.2px;margin-top:6px;color:#7C3AED">🖼️ Vendors Sites Preview Matches (${scoredVp.length}):</div><ul style="margin:4px 0 8px 18px;padding:0;font-size:12.1px">${vpBullets}</ul>` : ""}
+          <div style="font-size:12px;color:var(--muted)">Neeche cards par click kar ke aap har site ka <b>🛣️ 360° Road Street View</b>, <b>📍 Map</b>, ya <b>✏️ Edit</b> khol sakte hain:</div>
+        `,
+        sites: combined.slice(0, 8),
+        deckTitle: `AI Search - ${query}`,
+        speech: `I found ${scoredMaster.length} master OOH sites and ${scoredVp.length} vendor preview sites matching ${query}.`
+      };
+    }
+
+    // 8. Friendly Human Fallback with Smart Suggestions
+    return {
+      html: `
+        <div style="font-weight:800;font-size:14px;color:#D9161D;margin-bottom:4px">🤖 Main aapki poori madad ke liye hazir hoon!</div>
+        <div>Aapki baat <b>"${esc(query)}"</b> par exact filter match nahi hua, lekin main <b>84 OOH AdPulse Master Sites</b>, <b>59 Booked Expire Sites</b>, <b>8 Campaigns</b>, aur <b>1,826 Vendor Preview Sites</b> par trained hoon. Aap mujhse is tarah pooch sakte hain:</div>
+        <ul style="margin:6px 0 8px 18px;padding:0;font-size:12.4px">
+          <li><b>Site Number se:</b> <code>"S#44 ki detail batao"</code> ya <code>"S#1 se S#10 dikhao"</code></li>
+          <li><b>Road / Area se:</b> <code>"Nagan Flyover"</code>, <code>"Shahrah-e-Faisal"</code>, <code>"Clifton"</code>, <code>"DHA"</code>, <code>"Nazimabad"</code>, <code>"Rashid Minhas"</code></li>
+          <li><b>Client / Campaign se:</b> <code>"GFS Builders"</code>, <code>"Chase Value"</code>, <code>"Kifayah"</code>, <code>"AA Avenue"</code>, <code>"Falaknaz"</code></li>
+          <li><b>Availability / Expiry se:</b> <code>"Available sites dikhao"</code> ya <code>"Will Be End expiring sites batao"</code></li>
+        </ul>
+      `,
+      sites: masterSites.slice(0, 4),
+      deckTitle: "Featured OOH AdPulse Sites",
+      speech: "You can ask me about any site number from S1 to S84, any road or area in Karachi, any client campaign, or expiring sites."
+    };
+  },
+
+  renderSiteMiniCard(s) {
+    const isVp = String(s.id || "").startsWith("vp-");
+    const loc = s.location || s.name || s.title || s.area || "Karachi Site";
+    const sBadge = s.sNo ? `S#${s.sNo} · ${s.code}` : (s.code || "SITE");
+    const availTxt = s.excelAvailability || s.availability || STATUS[effStatus(s)] || "Verified";
+    const stTxt = s.excelStatus || s.statusLabel || (isVp ? "Vendor Preview" : "Master Site");
+    return `
+      <div class="ai-site-mini-card">
+        <div style="position:relative;height:110px;background:#121016">
+          <img src="${esc(thumbOf(s))}" alt="${esc(loc)}" style="width:100%;height:100%;object-fit:cover;display:block" onerror="phFix(this)">
+          <span style="position:absolute;top:6px;left:6px;background:rgba(18,16,17,0.9);color:#fff;padding:2px 7px;border-radius:6px;font-size:10px;font-weight:800;border:1px solid #D9161D;font-family:var(--mono)">${esc(sBadge)}</span>
+          <span style="position:absolute;bottom:6px;right:6px;background:#D9161D;color:#fff;padding:1.5px 6px;border-radius:5px;font-size:10px;font-weight:800;font-family:var(--mono)">${esc(String(s.widthFt||60))}×${esc(String(s.heightFt||20))} ft</span>
+        </div>
+        <div style="padding:9px 10px;display:flex;flex-direction:column;gap:3px;flex:1">
+          <div style="font-weight:800;font-size:12.5px;color:var(--ink);line-height:1.25">${esc(loc)}</div>
+          <div style="font-size:11px;color:#D9161D;font-weight:800">Client: ${esc(s.client || s.brand || "Available")}</div>
+          <div style="font-size:10.8px;color:var(--muted)"><b>Vendor:</b> ${esc(s.vendor || "AdPulse")} · <b>${esc(s.excelMedium || s.media || "Hoarding")}</b></div>
+          <div style="font-size:10.5px;color:var(--ink2);background:var(--surface2);padding:3px 6px;border-radius:5px;margin-top:2px">
+            <b>Avail:</b> ${esc(availTxt)} · <b style="color:#EA580C">${esc(stTxt)}</b>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:6px">
+            <button type="button" class="btn sm pri" onclick="openStreetView3D('${s.id}')" style="grid-column:1/-1;justify-content:center;padding:4px 6px;font-size:10.8px;font-weight:800;background:linear-gradient(135deg,#D9161D,#F26A21)">🛣️ 360° Street View &amp; Site</button>
+            ${isVp
+              ? `<button type="button" class="btn sm" onclick="openVendorPreviewSite('${s.id}')" style="grid-column:1/-1;justify-content:center;padding:4px 6px;font-size:10.5px;font-weight:700">✏️ Edit Vendor Site</button>`
+              : `<button type="button" class="btn sm" data-act="site" data-id="${s.id}" style="justify-content:center;padding:4px 6px;font-size:10.5px;font-weight:700">👁️ Details</button>
+                 <button type="button" class="btn sm" data-act="siteedit" data-id="${s.id}" style="justify-content:center;padding:4px 6px;font-size:10.5px;font-weight:700">✏️ Edit</button>`
+            }
+          </div>
+        </div>
+      </div>
+    `;
+  },
+
+  renderMessagesHtml() {
+    this.init();
+    const mark = esc(markSrc());
+    return this.messages.map((m, idx) => {
+      if (m.role === "user") {
+        return `
+          <div class="ai-msg-row user">
+            <div class="ai-msg-avatar" style="background:#1C1A1B;color:#fff">YOU</div>
+            <div class="ai-msg-bubble">
+              <div style="font-weight:700">${esc(m.text)}</div>
+              <div style="font-size:10px;opacity:0.78;margin-top:4px;text-align:right">${esc(m.time || "")}</div>
+            </div>
+          </div>
+        `;
+      }
+      const masterIds = (m.sites || []).filter(s => !String(s.id || "").startsWith("vp-")).map(s => s.id);
+      const cardsGrid = (m.sites && m.sites.length)
+        ? `<div class="ai-site-mini-grid">${m.sites.map(s => this.renderSiteMiniCard(s)).join("")}</div>`
+        : "";
+      const deckBtn = masterIds.length >= 1
+        ? `<div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">
+            <button type="button" class="btn sm pri" onclick="OOHSiteAIChatbot.openProposalFromSites(${JSON.stringify(masterIds).replace(/"/g, "'")}, '${esc(m.deckTitle || "AI Curated Sites")}')">📊 Open These ${masterIds.length} Sites in Presentation Studio</button>
+          </div>`
+        : "";
+      return `
+        <div class="ai-msg-row bot" data-msg-idx="${idx}">
+          <div class="ai-msg-avatar" style="background:#fff;border:1.5px solid #D9161D;padding:2px">
+            <img src="${mark}" alt="AI" style="width:100%;height:100%;object-fit:contain;border-radius:7px">
+          </div>
+          <div class="ai-msg-bubble" style="flex:1">
+            ${m.html}
+            ${cardsGrid}
+            ${deckBtn}
+            <div style="font-size:10px;color:var(--muted);margin-top:6px;display:flex;align-items:center;justify-content:space-between">
+              <span>🤖 AdPulse AI Agent · Trained on 84 Master + 1,826 Vendor Sites</span>
+              <span>${esc(m.time || "")}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join("");
+  },
+
+  renderFloatingDrawer() {
+    const drw = document.getElementById("aiChatFloatingDrawer");
+    if (!drw) return;
+    const chips = this.quickQuestions.slice(0, 5).map(q =>
+      `<button type="button" class="chip" onclick="OOHSiteAIChatbot.ask(${JSON.stringify(q).replace(/"/g, "'")})" style="font-size:11px;padding:4px 9px;white-space:nowrap;background:var(--surface2);border:1px solid var(--border);border-radius:999px;cursor:pointer;font-weight:700">${esc(q)}</button>`
+    ).join("");
+
+    drw.innerHTML = `
+      <div style="background:linear-gradient(135deg,#1C1A1B,#2D2628);color:#fff;padding:12px 15px;display:flex;align-items:center;gap:10px;border-bottom:2px solid #D9161D">
+        <img src="${esc(markSrc())}" alt="AdPulse" style="width:34px;height:34px;border-radius:9px;background:#fff;padding:2px;object-fit:contain">
+        <div style="flex:1;min-width:0">
+          <div style="display:flex;align-items:center;gap:6px">
+            <b style="font-size:14px;color:#fff">AI Chatbot · OOH Site Information</b>
+            <span style="background:#10B981;color:#fff;font-size:9.5px;font-weight:800;padding:1px 6px;border-radius:999px">● LIVE</span>
+          </div>
+          <div style="font-size:11px;color:#D4D4D8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Trained on 84 Master Sites · 59 Expiry · 8 Campaigns · 44 Vendor Decks</div>
+        </div>
+        <button type="button" class="btn sm ghost" onclick="OOHSiteAIChatbot.toggleVoice()" style="color:#fff;padding:4px 7px" title="Toggle Voice Readout">${this.voiceOn ? "🔊" : "🔇"}</button>
+        <button type="button" class="btn sm ghost" onclick="location.hash='ai-chatbot';go('ai-chatbot',true);OOHSiteAIChatbot.toggleWidget(false)" style="color:#FDE047;padding:4px 7px;font-size:11px;font-weight:800" title="Open Full Screen AI Tab">⛶ Full</button>
+        <button type="button" class="btn sm ghost" onclick="OOHSiteAIChatbot.toggleWidget(false)" style="color:#fff;padding:4px 7px">✕</button>
+      </div>
+      <div style="display:flex;gap:6px;overflow-x:auto;padding:8px 12px;background:var(--surface2);border-bottom:1px solid var(--border)">
+        ${chips}
+      </div>
+      <div id="aiFloatMsgList" style="flex:1;overflow-y:auto;padding:14px 12px;background:var(--bg)">
+        ${this.renderMessagesHtml()}
+      </div>
+      <form onsubmit="event.preventDefault();const el=document.getElementById('aiFloatInput');if(el&&el.value.trim()){OOHSiteAIChatbot.ask(el.value);el.value='';}" style="padding:10px 12px;background:var(--surface);border-top:1px solid var(--border);display:flex;gap:6px;align-items:center">
+        <button type="button" class="btn sm" onclick="OOHSiteAIChatbot.startMic('aiFloatInput')" style="height:40px;padding:0 10px;background:${this.isListening?'#D9161D':'var(--surface2)'};color:${this.isListening?'#fff':'var(--ink)'}" title="Speak with Microphone">🎙️</button>
+        <input id="aiFloatInput" class="in" placeholder="Ask about any site S#1-S#84, area, expiry, vendor…" style="flex:1;height:40px;font-size:13px" autocomplete="off">
+        <button type="submit" class="btn pri" style="height:40px;padding:0 14px;font-weight:800;background:linear-gradient(135deg,#D9161D,#7C3AED)">Send ➤</button>
+      </form>
+    `;
+    const listEl = document.getElementById("aiFloatMsgList");
+    if (listEl) listEl.scrollTop = listEl.scrollHeight;
+  },
+
+  refreshUI() {
+    this.renderFloatingDrawer();
+    if (route === "ai-chatbot") {
+      render(true);
+      setTimeout(() => {
+        const box = document.getElementById("aiFullPageMsgList");
+        if (box) box.scrollTop = box.scrollHeight;
+      }, 40);
+    }
+  }
+};
+
+function vAiChatbot() {
+  OOHSiteAIChatbot.init();
+  const masterCount = (S.sites || []).length || 84;
+  const vpCount = (typeof getVendorPreviewSites === "function" ? getVendorPreviewSites() : (window.VENDOR_PREVIEW_SITES_2026 || [])).length || 1826;
+  const bookedCount = (typeof getBookedExpireSites === "function" ? getBookedExpireSites() : []).length || 59;
+  const campCount = (S.campaigns || []).length || 8;
+
+  const chipsHtml = OOHSiteAIChatbot.quickQuestions.map(q =>
+    `<button type="button" class="btn sm" onclick="OOHSiteAIChatbot.ask(${JSON.stringify(q).replace(/"/g, "'")})" style="background:var(--surface);border:1.5px solid var(--border);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;text-align:left">${esc(q)}</button>`
+  ).join("");
+
+  return pgTop(
+    "AI Chatbot — OOH Site Information",
+    `Human-like AI Assistant trained on all ${masterCount} OOH AdPulse Sites, ${bookedCount} Booked/Expiring Sites, ${campCount} Client Campaigns & ${vpCount.toLocaleString()} Vendor Preview Sites`,
+    `<div class="row" style="gap:8px;flex-wrap:wrap">
+      <button class="btn sm" onclick="OOHSiteAIChatbot.toggleVoice()" style="font-weight:700">${OOHSiteAIChatbot.voiceOn ? "🔊 Voice On" : "🔇 Voice Off"}</button>
+      <button class="btn sm" onclick="OOHSiteAIChatbot.clearChat()" style="font-weight:700">🔄 New Conversation</button>
+    </div>`
+  ) + `
+    <div style="display:grid;grid-template-columns:1fr 310px;gap:16px;align-items:start" class="enter">
+      <!-- Main Conversational Console -->
+      <div class="card" style="padding:0;overflow:hidden;border:2px solid #D9161D;border-radius:18px;display:flex;flex-direction:column;height:calc(100vh - 185px);min-height:620px">
+        <div style="background:linear-gradient(135deg,#1C1A1B,#2D2628);color:#fff;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;border-bottom:2px solid #D9161D">
+          <div style="display:flex;align-items:center;gap:10px">
+            <img src="${esc(markSrc())}" alt="AdPulse AI" style="width:38px;height:38px;border-radius:10px;background:#fff;padding:2px;object-fit:contain">
+            <div>
+              <div style="display:flex;align-items:center;gap:8px">
+                <b style="font-size:15.5px;color:#fff">AI Chatbot OOH Site Information</b>
+                <span style="background:#10B981;color:#fff;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:800">● HUMAN-LIKE AI AGENT</span>
+              </div>
+              <small style="color:#D4D4D8">Ask in Roman Urdu or English about any Site S#1–S#84, Dimensions, Availability, Client, Vendor, or 360° Road View</small>
+            </div>
+          </div>
+          <select class="in" style="height:34px;max-width:230px;background:#18181B;color:#fff;border-color:#3F3F46;font-size:12px;font-weight:700" onchange="if(this.value){OOHSiteAIChatbot.ask('Site S#'+this.value+' ki complete detail batao');this.value='';}">
+            <option value="">🔍 Quick Inspect Any Site (S#1–S#84)…</option>
+            ${(S.sites || []).map(s => `<option value="${s.sNo}">S#${s.sNo} · ${esc(s.code)} · ${esc((s.location || s.name || "").slice(0, 24))}</option>`).join("")}
+          </select>
+        </div>
+
+        <!-- Quick Prompt Chips -->
+        <div style="padding:10px 14px;background:var(--surface2);border-bottom:1px solid var(--border);display:flex;gap:6px;overflow-x:auto;flex-wrap:nowrap">
+          ${chipsHtml}
+        </div>
+
+        <!-- Chat Messages Scroll Area -->
+        <div id="aiFullPageMsgList" style="flex:1;overflow-y:auto;padding:18px 16px;background:var(--bg)">
+          ${OOHSiteAIChatbot.renderMessagesHtml()}
+        </div>
+
+        <!-- Chat Input Bar -->
+        <form onsubmit="event.preventDefault();const inp=document.getElementById('aiPageInput');if(inp&&inp.value.trim()){OOHSiteAIChatbot.ask(inp.value);inp.value='';}" style="padding:12px 16px;background:var(--surface);border-top:1.5px solid var(--border);display:flex;gap:10px;align-items:center">
+          <button type="button" class="btn" onclick="OOHSiteAIChatbot.startMic('aiPageInput')" style="height:46px;padding:0 14px;font-weight:800;background:${OOHSiteAIChatbot.isListening?'#D9161D':'var(--surface2)'};color:${OOHSiteAIChatbot.isListening?'#fff':'var(--ink)'}" title="Voice Input (Roman Urdu / English)">🎙️ Speak</button>
+          <input id="aiPageInput" class="in" placeholder="Yahan likhein (e.g. 'S#44 Nagan Flyover ki detail batao', 'Kaunsi sites expire hone wali hain?', 'Clifton ki available sites')…" style="flex:1;height:46px;font-size:14px;padding:0 14px" autocomplete="off">
+          <button type="submit" class="btn pri" style="height:46px;padding:0 22px;font-size:14px;font-weight:800;background:linear-gradient(135deg,#D9161D,#7C3AED)">Ask AI Agent ➤</button>
+        </form>
+      </div>
+
+      <!-- Right Knowledge Base Sidebar -->
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="card pad" style="border:1.5px solid var(--border)">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+            <span style="font-size:20px">🧠</span>
+            <div>
+              <h3 style="margin:0;font-size:15px">Live Trained Knowledge</h3>
+              <small style="color:var(--muted)">100% Real-Time System Sync</small>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:7px;font-size:12.5px">
+            <div style="display:flex;justify-content:space-between;padding:6px 9px;background:var(--surface2);border-radius:8px"><span>🏙️ OOH AdPulse Sites:</span><b>${masterCount} Sites</b></div>
+            <div style="display:flex;justify-content:space-between;padding:6px 9px;background:var(--surface2);border-radius:8px"><span>📅 Booked Expire Sites:</span><b style="color:#EA580C">${bookedCount} Sites</b></div>
+            <div style="display:flex;justify-content:space-between;padding:6px 9px;background:var(--surface2);border-radius:8px"><span>📢 Active Campaigns:</span><b style="color:#D9161D">${campCount} Decks</b></div>
+            <div style="display:flex;justify-content:space-between;padding:6px 9px;background:var(--surface2);border-radius:8px"><span>🖼️ Vendors Preview:</span><b style="color:#7C3AED">${vpCount.toLocaleString()} Sites</b></div>
+          </div>
+        </div>
+
+        <div class="card pad" style="border:1.5px solid var(--border)">
+          <h3 style="margin:0 0 8px;font-size:14.5px">⚡ 1-Click Topic Queries</h3>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <button type="button" class="btn sm" onclick="OOHSiteAIChatbot.ask('Pooray system ka summary aur status batao')" style="justify-content:flex-start;text-align:left;font-weight:700">📊 Complete System Summary</button>
+            <button type="button" class="btn sm" onclick="OOHSiteAIChatbot.ask('Abhi kaunsi OOH sites Available hain?')" style="justify-content:flex-start;text-align:left;font-weight:700">🟢 Available Sites for Booking</button>
+            <button type="button" class="btn sm" onclick="OOHSiteAIChatbot.ask('Kaunsi sites WILL BE END expire hone wali hain?')" style="justify-content:flex-start;text-align:left;font-weight:700">🔴 Expiring (Will Be End) Sites</button>
+            <button type="button" class="btn sm" onclick="OOHSiteAIChatbot.ask('Extendable bookings kaunsi hain?')" style="justify-content:flex-start;text-align:left;font-weight:700">🟢 Extendable Bookings List</button>
+            <button type="button" class="btn sm" onclick="OOHSiteAIChatbot.ask('Tamam 8 Active Campaigns ki report dikhao')" style="justify-content:flex-start;text-align:left;font-weight:700">📢 All 8 Client Campaigns</button>
+            <button type="button" class="btn sm" onclick="OOHSiteAIChatbot.ask('Vendor-wise inventory breakdown batao')" style="justify-content:flex-start;text-align:left;font-weight:700">🏢 Vendor-Wise Breakdown</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 /* ============ Sites ============ */
 function filtered(){
   const q=F.q.toLowerCase().trim();
@@ -5769,7 +6621,7 @@ function getVendorPreviewSites() {
   const raw = window.VENDOR_PREVIEW_SITES_2026 || [];
   if (!raw.length && !_vpFetching) {
     _vpFetching = true;
-    fetch("/vendor_preview_2026.json?v=46.0").then(r => r.json()).then(data => {
+    fetch("/vendor_preview_2026.json?v=47.0").then(r => r.json()).then(data => {
       if (Array.isArray(data) && data.length) {
         window.VENDOR_PREVIEW_SITES_2026 = data;
         render(true);
@@ -5783,7 +6635,7 @@ function getVendorPreviewSites() {
   return combined.map(s => {
     const ed = savedEdits[s.id];
     const merged = ed ? { ...s, ...ed } : s;
-    const pUrl = merged.photo ? (merged.photo.startsWith("data:") || merged.photo.includes("?") ? merged.photo : merged.photo + "?v=46.0") : "";
+    const pUrl = merged.photo ? (merged.photo.startsWith("data:") || merged.photo.includes("?") ? merged.photo : merged.photo + "?v=47.0") : "";
     return {
       ...merged,
       photo: pUrl,
@@ -7630,7 +8482,7 @@ document.addEventListener("submit",async e=>{if(e.target.id!=="reqForm")return;e
 function vSettings(){const s=S.settings;const hasSample=S.sites.some(x=>x.sample)||S.campaigns.some(x=>x.sample);
   return pgTop("Settings","Branding for watermarks and presentations")+`<div class="grid" style="max-width:720px">
   <div class="card pad grid" style="gap:14px">
-  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v11.6 PWA Ready</span></div>
+  <div class="row"><h2 style="font-size:18px">📱 Mobile &amp; Desktop App (Android &amp; iOS)</h2><span class="sp"></span><span class="pill st-available" style="font-size:11px">v11.7 PWA Ready</span></div>
   <p style="margin:0;color:var(--muted);font-size:13px">Install AdPulse OTS on iPhone, iPad, Android or PC for fast offline access, full-screen Google 3D maps, and 1-tap camera upload with GPS.</p>
   <div class="row" style="gap:10px;flex-wrap:wrap">
     <button class="btn pri" data-act="installios" style="flex:1;min-width:180px;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>Install on iPhone / iPad (iOS)</button>
@@ -7815,7 +8667,7 @@ function showMobileUpdateBanner(){
   const b = document.createElement('div');
   b.id = 'mobileUpdateBanner';
   b.style.cssText = 'position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:9999;background:linear-gradient(135deg,#0c0917,#1b1238);color:#fff;padding:8px 16px;border-radius:9999px;box-shadow:0 8px 24px rgba(0,0,0,0.5);border:1px solid #38bdf8;display:flex;align-items:center;gap:10px;font-size:12.5px;max-width:calc(100% - 24px);';
-  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v11.6)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
+  b.innerHTML = `<span>🚀 New AdPulse OTS Update (v11.7)</span><button onclick="ACT.forceupdate()" style="background:#38bdf8;color:#0c0917;border:none;border-radius:9999px;padding:4px 10px;font-weight:700;font-size:11.5px;cursor:pointer">Update Now</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:0 4px">×</button>`;
   document.body.appendChild(b);
 }
 
@@ -7834,7 +8686,7 @@ function openInstallModal(forceType){
                 <h2 style="font-size:18px;margin:0">AdPulse OTS App</h2>
                 <span class="pill st-available" style="font-size:10px;padding:2px 8px">🟢 Running as App</span>
               </div>
-              <div style="font-size:12px;color:var(--muted);margin-top:2px">v11.6 (Android &amp; iOS Standalone)</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px">v11.7 (Android &amp; iOS Standalone)</div>
             </div>
             <span class="sp"></span>
             <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
@@ -7920,7 +8772,7 @@ function openInstallModal(forceType){
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
           <img src="/icons/icon-192.png" alt="AdPulse OTS" style="width:48px;height:48px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.2)">
           <div>
-            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v11.6)</h2>
+            <h2 style="font-size:18px;margin:0">Install AdPulse OTS (v11.7)</h2>
             <div style="font-size:12px;color:var(--muted)">Google 3D Maps &amp; 97 Verified Media Sites</div>
           </div>
           <span class="sp"></span>
@@ -8545,6 +9397,8 @@ savedeck:async()=>{const c=Studio.cfg;c.version=(c.version||0)+1;try{await put("
  kpicamps:()=>{location.hash="campaigns";go("campaigns")},
  sync2026:()=>sync2026MasterData(true),
  kpivendors:()=>{location.hash="vendors";go("vendors")},
+ kpiaichat:()=>{location.hash="ai-chatbot";go("ai-chatbot",true)},
+ openaichat:()=>OOHSiteAIChatbot.toggleWidget(true),
  vendorpresentation:(a)=>{const v=a.dataset.vendor;if(v)openVendorDeck(v)},
  vendorinventory:(a)=>{const v=a.dataset.vendor;if(!v)return;Object.keys(F).forEach(k=>F[k]="");F.vendor=v;location.hash="sites";go("sites",true);toast(`Showing sites for vendor: ${v}`)},
  mastervendordeck:()=>openMasterVendorDeck(),
@@ -8654,7 +9508,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=46.0").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=47.0").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
@@ -8671,7 +9525,7 @@ if("serviceWorker" in navigator){
           });
         }
       });
-      console.log("AdPulse OTS PWA active (v11.6):",r.scope);
+      console.log("AdPulse OTS PWA active (v11.7):",r.scope);
     }).catch(err=>{
       console.warn("PWA ServiceWorker registration failed:",err);
     });
