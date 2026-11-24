@@ -1716,7 +1716,7 @@ const ICON={
  more:'<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>',
  img:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg>'
 };
-const NAV=[["dashboard","Dashboard","dash"],["capture","Capture","cam"],["sites","OOH AdPulse Sites","sites"],["booked-expire","Booked Expire Sites","expire"],["ai-chatbot","OOH Assistant","ai"],["campaigns","Campaigns","camp"],["vendors","Vendor Booked Site","users"],["vendors-preview","Vendors Sites Preview","img"],["studio","Presentations","deck"],["clients","Clients","users"],["settings","Settings","gear"]];
+const NAV=[["dashboard","Dashboard","dash"],["capture","Capture","cam"],["sites","Master File","sites"],["booked-expire","Booked Expire Sites","expire"],["ai-chatbot","OOH Assistant","ai"],["campaigns","Campaigns","camp"],["vendors","Vendor Booked Site","users"],["vendors-preview","Vendors Sites Preview","img"],["studio","Presentations","deck"],["clients","Clients","users"],["settings","Settings","gear"]];
 
 /* ============ state ============ */
 const S={sites:[],campaigns:[],decks:[],riders:[],settings:{agency:"AdPulse IMC",phone:"",email:"",web:"adpulse.pk",logo:null},loaded:{sites:false,campaigns:false},mode:"loading"};
@@ -2033,7 +2033,7 @@ async function uploadBlob(blob,type="image/jpeg"){
 function renderNav(){
   if(ROLE==="client"){$("#sideNav").innerHTML=`<a href="#portal" data-r="portal" class="on">${ICON.camp}My campaigns</a><div style="margin-top:12px;padding:0 8px"><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="width:100%;justify-content:flex-start;color:var(--muted);font-size:12px">🚪 Sign out</button></div>`;$("#tabNav").innerHTML=`<div style="display:flex;justify-content:center;padding:10px;width:100%"><button class="btn sm" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="font-size:12px">🚪 Sign out / Switch Account</button></div>`;return}
   $("#sideNav").innerHTML=NAV.map(([k,l,i])=>`<a href="#${k}" data-r="${k}">${ICON[i]}${l}</a>`).join("")+`<div style="margin-top:18px;padding:0 8px"><button class="btn sm ghost" onclick="if(window.OTS_signOut)window.OTS_signOut();else location.reload();" style="width:100%;justify-content:flex-start;color:var(--muted);font-size:12px">🚪 Sign out</button></div>`;
-  const t=[["dashboard","Home","dash"],["sites","OOH Sites","sites"],["capture","Capture","cam"],["booked-expire","Expire","expire"],["campaigns","Campaigns","camp"]];
+  const t=[["dashboard","Home","dash"],["sites","Master File","sites"],["capture","Capture","cam"],["booked-expire","Expire","expire"],["campaigns","Campaigns","camp"]];
   $("#tabNav").innerHTML=t.map(([k,l,i])=>k==="capture"?`<a href="#capture" class="cap" data-r="capture"><span class="ball">${ICON.cam}</span><em>${l}</em></a>`:`<a href="#${k}" data-r="${k}">${ICON[i]}${l}</a>`).join("");
 }
 function go(r,silent){
@@ -2125,7 +2125,7 @@ function vDash(){
   const allVendors = [...new Set(S.sites.map(s => s.vendor).filter(Boolean))];
   const expireBookedCount = S.sites.filter(s => s.status === "booked" || /WILL BE END|EXTENDABLE|ISSUE/i.test(s.excelStatus || s.statusLabel || "") || !/subject to avail/i.test(s.excelAvailability || s.availability || "")).length;
   const k=[
-    ["OOH AdPulse Sites",S.sites.length,"var(--violet)","sites",false,"kpimaster"],
+    ["Master File","Master File","#D9161D","sites",true,"kpimaster"],
     ["Available",cnt("available"),"var(--ok)","check",false,"kpiavail"],
     ["Booked",cnt("booked")+cnt("expiring"),"var(--bad)","booked",false,"kpibooked"],
     ["Booked Expire Sites",expireBookedCount,"var(--orange)","expire",false,"kpiexpire"],
@@ -2135,7 +2135,7 @@ function vDash(){
   const bookedOts=S.sites.filter(x=>x.status==="booked").reduce((a,x)=>a+otsOf(x),0);
   if(bookedOts)k.push(["Daily OTS on booked sites","~"+fmtK(bookedOts),"var(--blue)","eye",true,""]);
   const syncBanner = (S.sites.length !== 84) ? `<div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#7C3AED,#D9161D);color:#fff;padding:12px 18px;border-radius:14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;box-shadow:0 6px 20px rgba(217,22,29,0.3)"><div><b>🔄 2026 Master Data Available:</b> Currently viewing ${S.sites.length} sites. Click to load all 84 sites & 8 client campaigns.</div><button class="btn sm" data-act="sync2026" style="background:#fff;color:#D9161D;font-weight:800;border:none">Update to 84 Sites Now</button></div>` : "";
-  const kp=`<div class="kpis enter" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">${k.map(([l,n,c,i,raw,act])=>`<div class="card kpi ${act?'clickable':''}" ${act?`data-act="${act}" title="Open presentation for ${esc(l)}"`:''} style="--c:${c};${act?'cursor:pointer;':''}"><div class="ic" style="background:${c}">${ICON[i]}</div><div class="n" ${raw?"":`data-count="${n}"`}>${raw?n:0}</div><small style="${act?'font-weight:700;color:var(--ink);':''}">${l}${act?' ↗':''}</small></div>`).join("")}</div>`;
+  const kp=`<div class="kpis enter" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">${k.map(([l,n,c,i,raw,act])=>`<div class="card kpi ${act?'clickable':''}" ${act?`data-act="${act}" title="Open ${esc(l)}"`:''} style="--c:${c};${act?'cursor:pointer;':''}"><div class="ic" style="background:${c}">${ICON[i]}</div><div class="n" ${raw?"":`data-count="${n}"`} style="${act==='kpimaster'?'font-size:20px;font-weight:800;letter-spacing:-0.3px;margin:4px 0 2px;line-height:1.2;':''}">${raw?n:0}</div><small style="${act?'font-weight:700;color:var(--ink);':''}">${act==='kpimaster'?'Open Master File ↗':(l+(act?' ↗':''))}</small></div>`).join("")}</div>`;
   if(!S.sites.length)return pgTop("Dashboard","Your OOH inventory at a glance")+syncBanner+kp+`<div class="card" style="margin-top:16px">${emptyState("No sites yet","Capture your first billboard from the field, or add one from the Sites page.",`<a class="btn pri" href="#capture">${ICON.cam}Capture a site</a>`)}</div>`;
   // area bars
   const areas={};S.sites.forEach(s=>{const a=areas[s.area]||(areas[s.area]={available:0,booked:0,maintenance:0,expiring:0});a[effStatus(s)]++});
@@ -4471,7 +4471,7 @@ function vBookedExpire() {
   return pgTop(
     "Booked Expire Sites",
     `${allBooked.length} Active Booked & Expiring OOH Sites · Track Campaign End Dates, Vendor Expiry & Renewal Status`,
-    `<div class="row" style="gap:8px;flex-wrap:wrap"><button class="btn" onclick="location.hash='sites';go('sites',true)" style="font-weight:700">🏙️ OOH AdPulse Sites (84)</button><button class="btn pri" onclick="Studio.open({type:'selection',ids:getBookedExpireSites().map(s=>s.id)},'Booked & Expiring Sites Portfolio (2026)')" style="font-weight:800">${ICON.deck} Export Expiry Deck (${list.length} Sites)</button></div>`
+    `<div class="row" style="gap:8px;flex-wrap:wrap"><button class="btn" onclick="location.hash='sites';go('sites',true)" style="font-weight:700">🏙️ Master File</button><button class="btn pri" onclick="Studio.open({type:'selection',ids:getBookedExpireSites().map(s=>s.id)},'Booked & Expiring Sites Portfolio (2026)')" style="font-weight:800">${ICON.deck} Export Expiry Deck (${list.length} Sites)</button></div>`
   ) + kpiHtml + filterHtml + bodyHtml;
 }
 
@@ -5166,7 +5166,7 @@ function vAiChatbot() {
         <div class="card pad" style="border:1.5px solid var(--border)">
           <h3 style="margin:0 0 8px;font-size:15px">📊 Live Inventory Data</h3>
           <div style="display:flex;flex-direction:column;gap:7px;font-size:12.5px">
-            <div style="display:flex;justify-content:space-between;padding:6px 9px;background:var(--surface2);border-radius:8px"><span>🏙️ OOH AdPulse Sites:</span><b>${masterCount} Sites</b></div>
+            <div style="display:flex;justify-content:space-between;padding:6px 9px;background:var(--surface2);border-radius:8px"><span>📋 Master File:</span><b>${masterCount} Sites</b></div>
             <div style="display:flex;justify-content:space-between;padding:6px 9px;background:var(--surface2);border-radius:8px"><span>📅 Booked Expire Sites:</span><b style="color:#EA580C">${bookedCount} Sites</b></div>
             <div style="display:flex;justify-content:space-between;padding:6px 9px;background:var(--surface2);border-radius:8px"><span>📢 Active Campaigns:</span><b style="color:#D9161D">${campCount} Decks</b></div>
             <div style="display:flex;justify-content:space-between;padding:6px 9px;background:var(--surface2);border-radius:8px"><span>🖼️ Vendors Preview:</span><b style="color:#7C3AED">${vpCount.toLocaleString()} Sites</b></div>
@@ -5271,7 +5271,7 @@ function applyInlineTableEdit(siteId, field, rawVal){
 }
 function opt(list,v,lab){return list.map(o=>{const[val,l]=Array.isArray(o)?o:[o,o];return`<option value="${esc(val)}" ${val===v?"selected":""}>${esc(l)}</option>`}).join("")}
 function vSites(){
-  if(!S.loaded.sites)return pgTop("OOH AdPulse Sites","Loading…")+`<div class="cards">${'<div class="skel"></div>'.repeat(6)}</div>`;
+  if(!S.loaded.sites)return pgTop("Master File","Loading…")+`<div class="cards">${'<div class="skel"></div>'.repeat(6)}</div>`;
   const list=filtered();const sizes=[...new Set([...SIZES,...S.sites.map(sizeOf)])];const allAreas=[...new Set([...Object.keys(AREAS),...S.sites.map(s=>s.area).filter(Boolean)])].sort();
   const nf=Object.entries(F).filter(([k,v])=>k!=="q"&&v).length;
   const f=(k,lab,opts)=>`<select data-f="${k}" class="${F[k]?"set":""}" aria-label="${lab}"><option value="">${lab}: all</option>${opt(opts,F[k])}</select>`;
@@ -5381,7 +5381,7 @@ function vSites(){
     <button class="btn pri" data-act="newsite">${ICON.plus}Add site</button>
     
   </div>`;
-  return pgTop("OOH AdPulse Sites",`${list.length} of ${S.sites.length} AdPulse OOH sites`,siteTopBtns)+filt+body+bulk;
+  return pgTop("Master File",`${list.length} Master OOH Sites`,siteTopBtns)+filt+body+bulk;
 }
 function card(s){
   const n=(s.photos||[]).length;
@@ -6852,7 +6852,7 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
           <div class="camp-site-top" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
             <span class="camp-site-code" style="font-family:var(--mono);font-weight:900;font-size:15px;color:#D9161D">${esc(s.code)}</span>
             <span class="camp-site-size" style="font-size:12px;font-weight:700;background:var(--surface2);padding:2px 8px;border-radius:6px;border:1px solid var(--border)">${s.widthFt}×${s.heightFt} ft (${s.sqft} SQFT)</span>
-            <span style="font-size:11.5px;background:${isMaster ? '#7C3AED' : '#2563EB'};color:#fff;padding:2px 8px;border-radius:6px;font-weight:800;letter-spacing:0.3px">${isMaster ? '🏙️ AdPulse OOH Sites' : ('🖼️ ' + esc(s.vendor))}</span>
+            <span style="font-size:11.5px;background:${isMaster ? '#7C3AED' : '#2563EB'};color:#fff;padding:2px 8px;border-radius:6px;font-weight:800;letter-spacing:0.3px">${isMaster ? '📋 Master File' :  ('🖼️ ' + esc(s.vendor))}</span>
             <span class="pill ${isAvail ? 'st-available' : 'st-booked'}" style="font-size:10.5px;padding:2px 8px;font-weight:700">${esc(s.availability)}</span>
           </div>
           <div style="font-weight:800;font-size:15px;color:var(--ink);margin:2px 0 1px;line-height:1.3">${esc(s.location || s.name)}</div>
@@ -6881,7 +6881,7 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
                 Propose Campaign Sites
                 <span class="tag" style="background:rgba(217,22,29,0.12);color:#D9161D;font-size:12px;font-weight:800;padding:2px 8px">${allPool.length} Total Inventory Pool</span>
               </h2>
-              <p style="margin:2px 0 0;font-size:13px;color:var(--muted)">Select sites from <b>84 AdPulse OOH Sites</b> & <b>2,093 Vendor Preview Sites</b> to generate Client Proposal PPT</p>
+              <p style="margin:2px 0 0;font-size:13px;color:var(--muted)">Select sites from <b>Master File</b> & <b>2,093 Vendor Preview Sites</b> to generate Client Proposal PPT</p>
             </div>
           </div>
           <div style="display:flex;align-items:center;gap:8px">
@@ -6910,7 +6910,7 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
           <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;flex:none;background:var(--surface2);padding:10px 14px;border-radius:12px;border:1px solid var(--border)">
             <div class="seg" role="tablist" id="pcmSourceTabs" style="background:var(--surface);padding:3px;border-radius:10px;border:1px solid var(--border)">
               <button type="button" class="on" data-msrc="all" style="font-weight:800;font-size:12.5px;padding:6px 14px">🌟 All Sites (${allPool.length})</button>
-              <button type="button" data-msrc="master" style="font-weight:800;font-size:12.5px;padding:6px 14px;color:#7C3AED">🏙️ AdPulse OOH Sites (${masterSites.length})</button>
+              <button type="button" data-msrc="master" style="font-weight:800;font-size:12.5px;padding:6px 14px;color:#7C3AED">📋 Master File</button>
               <button type="button" data-msrc="vendor" style="font-weight:800;font-size:12.5px;padding:6px 14px;color:#2563EB">🖼️ Vendors Sites Preview (${vendorSites.length})</button>
             </div>
             
@@ -6929,7 +6929,7 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
             
             <select class="in sm" id="pcmVendor" style="max-width:220px;min-height:42px;padding:6px 10px;font-size:12.5px;font-weight:700;border-radius:10px">
               <option value="">All Inventory Providers (${cVendors.length + 1})</option>
-              <option value="__adpulse__" style="font-weight:800;color:#7C3AED">🏙️ AdPulse OOH Sites (84 Sites)</option>
+              <option value="__adpulse__" style="font-weight:800;color:#7C3AED">📋 Master File</option>
               <optgroup label="Vendor Partners">
                 ${cVendors.map(v => `<option value="${esc(v)}">${esc(v)}</option>`).join("")}
               </optgroup>
@@ -10173,7 +10173,7 @@ stonlysummary:()=>{
 savedeck:async()=>{const c=Studio.cfg;c.version=(c.version||0)+1;try{await put("decks",c);toast(`Saved ${c.title} v${c.version}`);const b=$("#saveDeck");if(b)b.textContent="Save version"}catch(e){toast("Couldn't save: "+e.message)}},
  csv:async()=>{const h=["Code","Area","From","Towards","Width ft","Height ft","Type","Light","Status","Brand","Booked till","Lat","Lng","Photos","Maps link"];const rows=S.sites.map(s=>[s.code,s.area,s.from,s.towards,s.widthFt,s.heightFt,s.media,s.light,STATUS[effStatus(s)],s.brand,s.bookedTill,s.lat,s.lng,(s.photos||[]).length,mapsUrl(s)]);const csv=[h,...rows].map(r=>r.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\n");if(!downloads){toast("Downloads aren't available in this view");return}try{await downloads.save({filename:"sitesnap-sites.csv",data:csv})}catch(e){if(e.code!=="declined")toast("Couldn't save: "+(e.message||e.code))}},
  uploaddeck:()=>openDeckUploader(),
- kpimaster:()=>openMasterDeck("all"),
+ kpimaster:()=>{location.hash="sites";go("sites",true)},
  kpiavail:()=>openMasterDeck("available"),
  kpibooked:()=>openMasterDeck("booked"),
  kpiexpire:()=>{location.hash="booked-expire";go("booked-expire",true)},
@@ -10356,7 +10356,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=50.0").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=50.1").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
