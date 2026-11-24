@@ -4497,7 +4497,7 @@ const OOHSiteAIChatbot = {
   init() {
     if (this.messages.length === 0) {
       const mCount = (S.sites || []).length || 84;
-      const vpCount = (typeof getVendorPreviewSites === "function" ? getVendorPreviewSites() : (window.VENDOR_PREVIEW_SITES_2026 || [])).length || 1826;
+      const vpCount = (typeof getVendorPreviewSites === "function" ? getVendorPreviewSites() : (window.VENDOR_PREVIEW_SITES_2026 || [])).length || 2093;
       const cCount = (S.campaigns || []).length || 8;
       this.messages.push({
         role: "bot",
@@ -4509,7 +4509,7 @@ const OOHSiteAIChatbot = {
             <li><b>${mCount} OOH AdPulse Sites</b> (S#1 – S#${mCount}, sizes, SQFT, clients, dates &amp; 360° street view)</li>
             <li><b>59 Booked &amp; Expiring Sites</b> (28 <code>WILL BE END</code>, <code>EXTENDABLE</code> &amp; <code>DEPT ISSUE</code>)</li>
             <li><b>${cCount} Active Client Campaigns</b> (AA Avenue, Askari, Chase Value, Eminent, Falaknaz, GFS, Kifayah)</li>
-            <li><b>${vpCount.toLocaleString()} Vendors Sites Preview</b> (44 Vendor Decks)</li>
+            <li><b>${vpCount.toLocaleString()} Vendors Sites Preview</b> (50 Vendor Decks)</li>
           </ul>
         `,
         sites: []
@@ -4884,7 +4884,7 @@ const OOHSiteAIChatbot = {
         `,
         sites: masterSites.slice(0, 6),
         deckTitle: "Master Vendor-Wise Inventory",
-        speech: `We have ${Object.keys(masterVendors).length} master vendors across 84 sites and 44 vendor preview decks.`
+        speech: `We have ${Object.keys(masterVendors).length} master vendors across 84 sites and 50 vendor preview decks.`
       };
     }
 
@@ -5070,7 +5070,7 @@ const OOHSiteAIChatbot = {
             <b style="font-size:14.5px;color:#fff">OOH Assistant</b>
             <span style="background:#10B981;color:#fff;font-size:9.5px;font-weight:800;padding:1px 6px;border-radius:999px">● LIVE</span>
           </div>
-          <div style="font-size:11px;color:#D4D4D8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">84 Master Sites · 59 Expiry · 8 Campaigns · 44 Vendor Decks</div>
+          <div style="font-size:11px;color:#D4D4D8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">84 Master Sites · 59 Expiry · 8 Campaigns · 50 Vendor Decks</div>
         </div>
         <button type="button" class="btn sm ghost" onclick="OOHSiteAIChatbot.toggleVoice()" style="color:#fff;padding:4px 7px" title="Toggle Voice Audio">${this.voiceOn ? "🔊" : "🔇"}</button>
         <button type="button" class="btn sm ghost" onclick="location.hash='ai-chatbot';go('ai-chatbot',true);OOHSiteAIChatbot.toggleWidget(false)" style="color:#FDE047;padding:4px 7px;font-size:11px;font-weight:800" title="Open Full Screen">⛶ Full</button>
@@ -5107,7 +5107,7 @@ const OOHSiteAIChatbot = {
 function vAiChatbot() {
   OOHSiteAIChatbot.init();
   const masterCount = (S.sites || []).length || 84;
-  const vpCount = (typeof getVendorPreviewSites === "function" ? getVendorPreviewSites() : (window.VENDOR_PREVIEW_SITES_2026 || [])).length || 1826;
+  const vpCount = (typeof getVendorPreviewSites === "function" ? getVendorPreviewSites() : (window.VENDOR_PREVIEW_SITES_2026 || [])).length || 2093;
   const bookedCount = (typeof getBookedExpireSites === "function" ? getBookedExpireSites() : []).length || 59;
   const campCount = (S.campaigns || []).length || 8;
 
@@ -6881,7 +6881,7 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
                 Propose Campaign Sites
                 <span class="tag" style="background:rgba(217,22,29,0.12);color:#D9161D;font-size:12px;font-weight:800;padding:2px 8px">${allPool.length} Total Inventory Pool</span>
               </h2>
-              <p style="margin:2px 0 0;font-size:13px;color:var(--muted)">Select sites from <b>84 AdPulse OOH Sites</b> & <b>1,826 Vendor Preview Sites</b> to generate Client Proposal PPT</p>
+              <p style="margin:2px 0 0;font-size:13px;color:var(--muted)">Select sites from <b>84 AdPulse OOH Sites</b> & <b>2,093 Vendor Preview Sites</b> to generate Client Proposal PPT</p>
             </div>
           </div>
           <div style="display:flex;align-items:center;gap:8px">
@@ -7175,7 +7175,7 @@ function vProposeCampaign() {
       <div class="card kpi" style="--c:#2563EB">
         <div class="ic" style="background:#2563EB">${ICON.camp}</div>
         <div class="n">${allPool.length.toLocaleString()}</div>
-        <small style="font-weight:700">Total Pool (84 M + 1826 VP)</small>
+        <small style="font-weight:700">Total Pool (84 M + 2093 VP)</small>
       </div>
     </div>
   `;
@@ -7365,7 +7365,7 @@ function vProposeCampaign() {
 
   return pgTop(
     "Propose Campaign Sites",
-    `Select Sites from 1,826 Vendor Preview & 84 Master Inventory · Generate Proposal PPT Deck in 1 Click`,
+    `Select Sites from 2,093 Vendor Preview & 84 Master Inventory · Generate Proposal PPT Deck in 1 Click`,
     topActions
   ) + `
     ${kpisHtml}
@@ -7508,7 +7508,7 @@ function openVendorPreviewDeck(vendorName, mode) {
   if (!list.length) { toast("No sites found for this vendor"); return; }
   const src = { type: "ids", ids: list.map(s => s.id) };
   Studio.cfg = Studio.fresh(src);
-  Studio.cfg.title = vendorName ? `${vendorName} — Sites Preview (2026)` : "All 44 Vendors Sites Preview Portfolio (2026)";
+  Studio.cfg.title = vendorName ? `${vendorName} — Sites Preview (2026)` : "All 50 Vendors Sites Preview Portfolio (2026)";
   Studio.cfg.subtitle = `Extracted from Vendor PPT & PDF Presentation · ${list.length} OOH & Digital Sites`;
   Studio.cfg.sitesData = list;
   Studio.cfg.slides = list.map(s => ({
@@ -7735,7 +7735,7 @@ function openVendorPreviewSite(id) {
 function vVendorsPreview() {
   const all = getVendorPreviewSites();
   if (!all.length) {
-    return pgTop("Vendors Sites Preview", "Loading 44 Vendor PPT & PDF Presentations…") + `<div class="cards">${'<div class="skel"></div>'.repeat(6)}</div>`;
+    return pgTop("Vendors Sites Preview", "Loading 50 Vendor PPT & PDF Presentations…") + `<div class="cards">${'<div class="skel"></div>'.repeat(6)}</div>`;
   }
 
   const vendorGroupsMap = new Map();
@@ -7937,7 +7937,7 @@ function vVendorsPreview() {
 
   return pgTop(
     "Vendors Sites Preview",
-    `44 Vendor PPT & PDF Presentations · ${all.length} Extracted OOH & Digital Sites Ordered Vendor-Wise`,
+    `${vendorGroups.length} Vendor PPT & PDF Presentations · ${all.length} Extracted OOH & Digital Sites Ordered Vendor-Wise`,
     `<div class="row" style="gap:8px;flex-wrap:wrap"><button class="btn pri" data-act="openproposemodal" style="font-weight:800;background:linear-gradient(135deg,#7C3AED,#D9161D);box-shadow:0 3px 10px rgba(124,58,237,0.35)">📋 Propose Campaign Sites ${PCF.selected.size ? `(${PCF.selected.size})` : ""}</button><button class="btn" data-act="vpsite" data-id="__new" style="font-weight:700">➕ Add Vendor Site</button><button class="btn" onclick="location.hash='vendors';go('vendors',true)" style="font-weight:700">📋 Vendor Booked Site (84)</button><button class="btn pri" data-act="vpdeck" data-vendor="${esc(VPF.vendor)}" style="font-weight:800">${ICON.deck} Presentation (${filteredSites.length} Sites)</button></div>`
   ) + `
     <div class="kpis enter" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-bottom:18px">
@@ -10356,7 +10356,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=49.2").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=50.0").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
