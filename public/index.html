@@ -1281,6 +1281,10 @@ table.t img{width:56px;height:38px;object-fit:cover;border-radius:7px;display:bl
 .gmp-3d-modal{position:fixed!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:62!important;margin:0!important;max-height:94vh!important}
 .camp-picklist{max-height:min(48vh,450px)!important;overflow-y:auto!important;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
 .camp-site-item{display:flex!important;align-items:center!important;gap:12px!important;padding:10px 14px!important;border-bottom:1px solid var(--line);cursor:pointer;transition:background .15s ease,border-color .15s ease;user-select:none}
+.camp-site-item[hidden],
+.camp-site-item.is-hidden {
+  display: none !important;
+}
 .camp-site-item:hover{background:color-mix(in srgb,var(--violet) 4%,transparent)}
 .camp-site-item.selected{background:color-mix(in srgb,var(--violet) 8%,transparent)}
 .camp-site-item:last-child{border-bottom:none}
@@ -6279,7 +6283,7 @@ function openCamp(id){
       const txt=l.textContent.toLowerCase();
       const areaMatch=!a||(l.dataset.area||"").toLowerCase().includes(a)||txt.includes(a);
       const qMatch=!q||txt.includes(q);
-      l.hidden=!(areaMatch&&qMatch);
+      const isV=Boolean(areaMatch&&qMatch);l.hidden=!isV;l.classList.toggle("is-hidden",!isV);l.style.setProperty("display",isV?"flex":"none","important");
     });
   }
   if($("#cArea"))$("#cArea").onchange=applyCampFilter;
@@ -6776,7 +6780,8 @@ function parseRateNum(r) {
 function generateProposedPresentation(selectedIds, clientName, proposalTitle, subtitleText) {
   const allPool = getAllProposalSitesPool();
   const selIds = Array.isArray(selectedIds) && selectedIds.length ? selectedIds : [...(PCF.selected || [])];
-  const chosen = allPool.filter(s => selIds.includes(s.id));
+  const poolMap = new Map(allPool.map(s => [s.id, s]));
+  const chosen = selIds.map(id => poolMap.get(id)).filter(Boolean);
   if (!chosen.length) {
     toast("⚠️ Please select at least 1 site to generate proposal presentation");
     return;
@@ -6854,7 +6859,14 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
   const cAreas = [...new Set(allPool.map(s => s.area).filter(Boolean))].sort();
   const cVendors = [...new Set(vendorSites.map(s => s.vendor).filter(Boolean))].sort();
 
-  let activeSource = "all"; // "all", "master", "vendor"
+  // Vendor counts for dropdown
+  const vendorCounts = {};
+  vendorSites.forEach(s => {
+    const v = s.vendor || "Vendor Partner";
+    vendorCounts[v] = (vendorCounts[v] || 0) + 1;
+  });
+
+  let activeSource = "all"; // "all", "master", "vendor", "selected"
   let activeModalView = "list"; // "list", "cards"
 
   const renderPickItems = () => {
@@ -6866,6 +6878,7 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
 
       return `<label class="camp-site-item ${isChecked ? 'selected' : ''}" 
         data-sid="${esc(s.id)}" 
+        data-code="${esc(s.code)}" 
         data-source="${s.source}" 
         data-area="${esc(s.area)}" 
         data-vendor="${esc(s.vendor)}" 
@@ -6933,19 +6946,21 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
             </label>
           </div>
 
-          <!-- Source Tabs Bar (ALL SITES vs ADPULSE OOH SITES vs VENDOR SITES) -->
+          <!-- Source Tabs Bar (ALL SITES vs MASTER FILE vs VENDOR SITES vs SELECTED ONLY) -->
           <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;flex:none;background:var(--surface2);padding:10px 14px;border-radius:12px;border:1px solid var(--border)">
-            <div class="seg" role="tablist" id="pcmSourceTabs" style="background:var(--surface);padding:3px;border-radius:10px;border:1px solid var(--border)">
+            <div class="seg" role="tablist" id="pcmSourceTabs" style="background:var(--surface);padding:3px;border-radius:10px;border:1px solid var(--border);display:inline-flex;flex-wrap:wrap;gap:2px">
               <button type="button" class="on" data-msrc="all" style="font-weight:800;font-size:12.5px;padding:6px 14px">🌟 All Sites (${allPool.length})</button>
-              <button type="button" data-msrc="master" style="font-weight:800;font-size:12.5px;padding:6px 14px;color:#7C3AED">📋 Master File</button>
+              <button type="button" data-msrc="master" style="font-weight:800;font-size:12.5px;padding:6px 14px;color:#7C3AED">📋 Master File (${masterSites.length})</button>
               <button type="button" data-msrc="vendor" style="font-weight:800;font-size:12.5px;padding:6px 14px;color:#2563EB">🖼️ Vendors Sites Preview (${vendorSites.length})</button>
+              <button type="button" data-msrc="selected" id="pcmTabSelected" style="font-weight:800;font-size:12.5px;padding:6px 14px;color:#D9161D">⭐ Selected Only (<span id="pcmTabSelCnt">${PCF.selected.size}</span>)</button>
             </div>
             
-            <div style="display:flex;align-items:center;gap:10px">
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
               <span class="pill" id="pcmCountPill" style="font-weight:800;font-size:12px;background:#D9161D;color:#fff;padding:4px 12px;border-radius:20px">${PCF.selected.size} sites selected</span>
               <div class="row" style="gap:4px">
-                <button type="button" class="btn sm ghost" id="pcmSelAll" style="font-size:11.5px;font-weight:700;padding:5px 10px">Select All Visible</button>
-                <button type="button" class="btn sm ghost" id="pcmClrAll" style="font-size:11.5px;padding:5px 10px;color:var(--muted)">Clear</button>
+                <button type="button" class="btn sm ghost" id="pcmSelAll" style="font-size:11.5px;font-weight:700;padding:5px 10px" title="Select all currently visible sites">Select All Visible</button>
+                <button type="button" class="btn sm ghost" id="pcmClrVisible" style="font-size:11.5px;font-weight:700;padding:5px 10px;color:var(--muted)" title="Deselect currently visible sites">Clear Visible</button>
+                <button type="button" class="btn sm ghost" id="pcmClrAll" style="font-size:11.5px;font-weight:700;padding:5px 10px;color:#D9161D" title="Deselect all sites across all vendors">Clear All</button>
               </div>
             </div>
           </div>
@@ -6954,11 +6969,11 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
           <div class="row" style="gap:10px;align-items:center;flex-wrap:wrap;flex:none">
             <input class="in" id="pcmSearch" placeholder="🔍 Live search code (KHI-S01..S84, VP-...), location, road, area, vendor, rate…" style="flex:1;min-width:260px;min-height:42px;padding:8px 14px;font-size:13.5px;font-weight:600;border-radius:10px" autocomplete="off">
             
-            <select class="in sm" id="pcmVendor" style="max-width:220px;min-height:42px;padding:6px 10px;font-size:12.5px;font-weight:700;border-radius:10px">
-              <option value="">All Inventory Providers (${cVendors.length + 1})</option>
-              <option value="__adpulse__" style="font-weight:800;color:#7C3AED">📋 Master File</option>
+            <select class="in sm" id="pcmVendor" style="min-width:240px;max-width:320px;min-height:42px;padding:6px 10px;font-size:12.5px;font-weight:700;border-radius:10px">
+              <option value="">All Vendors / Advertisers (${cVendors.length + 1})</option>
+              <option value="__adpulse__" style="font-weight:800;color:#7C3AED">📋 Master File (${masterSites.length} sites)</option>
               <optgroup label="Vendor Partners">
-                ${cVendors.map(v => `<option value="${esc(v)}">${esc(v)}</option>`).join("")}
+                ${cVendors.map(v => `<option value="${esc(v)}">${esc(v)} (${vendorCounts[v] || 0} sites)</option>`).join("")}
               </optgroup>
             </select>
 
@@ -6973,7 +6988,7 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
               <option value="booked">Date-Locked / Booked</option>
             </select>
 
-            <button type="button" class="btn sm ghost" id="pcmResetFilt" style="font-size:12px;color:var(--muted)">Reset</button>
+            <button type="button" class="btn sm ghost" id="pcmResetFilt" style="font-size:12px;color:var(--muted);font-weight:700">🔄 Reset Filters</button>
           </div>
 
           <!-- Picklist Container -->
@@ -6997,14 +7012,27 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
       </form>
     </div>`);
 
-  const updateModalStats = () => {
+  const updateModalStats = (visCount) => {
     const pill = $("#pcmCountPill");
-    if (pill) pill.textContent = PCF.selected.size + " sites selected";
+    const tabSelCnt = $("#pcmTabSelCnt");
+    if (tabSelCnt) tabSelCnt.textContent = PCF.selected.size;
+
+    const selSites = allPool.filter(s => PCF.selected.has(s.id));
+    const selVendors = new Set(selSites.map(s => s.vendor || "AdPulse IMC"));
+    const vCount = selVendors.size;
+    const vText = vCount > 1 ? ` (${vCount} vendors)` : (vCount === 1 ? ` (1 vendor)` : "");
+
+    if (pill) {
+      if (typeof visCount === "number") {
+        pill.textContent = `${PCF.selected.size} selected${vText} (${visCount} shown)`;
+      } else {
+        pill.textContent = `${PCF.selected.size} selected${vText}`;
+      }
+    }
     const sumEl = $("#pcmStatsSummary");
     if (sumEl && PCF.selected.size > 0) {
-      const selSites = allPool.filter(s => PCF.selected.has(s.id));
       const sqft = selSites.reduce((acc, s) => acc + (s.sqft || 0), 0);
-      sumEl.textContent = "· " + sqft.toLocaleString() + " Total SQFT";
+      sumEl.textContent = `· ${sqft.toLocaleString()} Total SQFT · ${vCount} Media Provider${vCount > 1 ? 's' : ''}`;
     } else if (sumEl) {
       sumEl.textContent = "";
     }
@@ -7019,10 +7047,23 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
     const items = $$("#pcmPickList .camp-site-item");
     let visibleCount = 0;
 
+    // Tokenize search query for multi-keyword matching
+    const qTokens = q.split(/\s+/).filter(Boolean);
+
     items.forEach(l => {
+      const sid = l.dataset.sid || "";
+      const isSelected = PCF.selected.has(sid);
       const src = l.dataset.source || "";
-      const srcMatch = activeSource === "all" || src === activeSource;
+
+      // 1. Source / Selected Only tab match
+      let srcMatch = true;
+      if (activeSource === "selected") {
+        srcMatch = isSelected;
+      } else if (activeSource !== "all") {
+        srcMatch = src === activeSource;
+      }
       
+      // 2. Vendor / Advertiser dropdown match
       let vMatch = true;
       if (v === "__adpulse__") {
         vMatch = src === "master";
@@ -7030,24 +7071,38 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
         vMatch = (l.dataset.vendor || "") === v;
       }
 
+      // 3. Area match
       const aMatch = !a || (l.dataset.area || "").toLowerCase() === a;
+
+      // 4. Status match
       const stMatch = !st || (st === "available" ? l.querySelector(".st-available") : l.querySelector(".st-booked"));
       
+      // 5. Search query match
       let qMatch = true;
-      if (q) {
-        const txt = l.textContent.toLowerCase();
-        qMatch = txt.includes(q);
+      if (qTokens.length) {
+        const textToSearch = (
+          (l.dataset.sid || "") + " " +
+          (l.dataset.code || "") + " " +
+          (l.dataset.vendor || "") + " " +
+          (l.dataset.area || "") + " " +
+          (l.textContent || "")
+        ).toLowerCase();
+        const normSearch = textToSearch.replace(/[-\s]/g, "");
+
+        qMatch = qTokens.every(tok => {
+          const normTok = tok.replace(/[-\s]/g, "");
+          return textToSearch.includes(tok) || (normTok && normSearch.includes(normTok));
+        });
       }
 
-      const isVis = srcMatch && vMatch && aMatch && stMatch && qMatch;
+      const isVis = Boolean(srcMatch && vMatch && aMatch && stMatch && qMatch);
       l.hidden = !isVis;
+      l.classList.toggle("is-hidden", !isVis);
+      l.style.setProperty("display", isVis ? "flex" : "none", "important");
       if (isVis) visibleCount++;
     });
 
-    const pill = $("#pcmCountPill");
-    if (pill) {
-      pill.textContent = PCF.selected.size + " selected (" + visibleCount + " shown)";
-    }
+    updateModalStats(visibleCount);
   };
 
   // Wire Source Segment Tabs
@@ -7057,10 +7112,22 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
       tabBtns.forEach(b => b.classList.remove("on"));
       btn.classList.add("on");
       activeSource = btn.dataset.msrc;
+      if (activeSource === "master") {
+        if ($("#pcmVendor") && $("#pcmVendor").value !== "__adpulse__") {
+          $("#pcmVendor").value = "";
+        }
+      } else if (activeSource === "vendor") {
+        if ($("#pcmVendor") && $("#pcmVendor").value === "__adpulse__") {
+          $("#pcmVendor").value = "";
+        }
+      } else if (activeSource === "selected") {
+        if ($("#pcmVendor")) $("#pcmVendor").value = "";
+      }
       applyModalFilter();
     };
   });
 
+  // Checkbox toggle handler
   $("#pcmPickList").onchange = e => {
     const ck = e.target;
     if (ck && ck.type === "checkbox") {
@@ -7068,11 +7135,31 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
       else PCF.selected.delete(ck.value);
       ck.closest("label")?.classList.toggle("selected", ck.checked);
       updateModalStats();
+      if (activeSource === "selected" && !ck.checked) {
+        const lbl = ck.closest("label");
+        if (lbl) {
+          lbl.hidden = true;
+          lbl.classList.add("is-hidden");
+          lbl.style.setProperty("display", "none", "important");
+        }
+      }
     }
   };
 
   if ($("#pcmSearch")) $("#pcmSearch").oninput = applyModalFilter;
-  if ($("#pcmVendor")) $("#pcmVendor").onchange = applyModalFilter;
+  if ($("#pcmVendor")) $("#pcmVendor").onchange = () => {
+    const v = $("#pcmVendor").value;
+    if (v === "__adpulse__") {
+      activeSource = "master";
+      tabBtns.forEach(b => b.classList.toggle("on", b.dataset.msrc === "master"));
+    } else if (v) {
+      if (activeSource === "master" || activeSource === "selected") {
+        activeSource = "all";
+        tabBtns.forEach(b => b.classList.toggle("on", b.dataset.msrc === "all"));
+      }
+    }
+    applyModalFilter();
+  };
   if ($("#pcmArea")) $("#pcmArea").onchange = applyModalFilter;
   if ($("#pcmStatus")) $("#pcmStatus").onchange = applyModalFilter;
 
@@ -7086,22 +7173,37 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
     applyModalFilter();
   };
 
+  // Select all visible / filtered sites
   if ($("#pcmSelAll")) $("#pcmSelAll").onclick = () => {
-    $$("#pcmPickList label:not([hidden]) input[type=checkbox]").forEach(ck => {
+    $$("#pcmPickList label:not([hidden]):not(.is-hidden) input[type=checkbox]").forEach(ck => {
       ck.checked = true;
       PCF.selected.add(ck.value);
       ck.closest("label")?.classList.add("selected");
     });
     updateModalStats();
+    if (activeSource === "selected") applyModalFilter();
   };
 
-  if ($("#pcmClrAll")) $("#pcmClrAll").onclick = () => {
-    $$("#pcmPickList label input[type=checkbox]").forEach(ck => {
+  // Deselect only currently visible / filtered sites
+  if ($("#pcmClrVisible")) $("#pcmClrVisible").onclick = () => {
+    $$("#pcmPickList label:not([hidden]):not(.is-hidden) input[type=checkbox]").forEach(ck => {
       ck.checked = false;
       PCF.selected.delete(ck.value);
       ck.closest("label")?.classList.remove("selected");
     });
     updateModalStats();
+    if (activeSource === "selected") applyModalFilter();
+  };
+
+  // Deselect all sites across all vendors
+  if ($("#pcmClrAll")) $("#pcmClrAll").onclick = () => {
+    $$("#pcmPickList label input[type=checkbox]").forEach(ck => {
+      ck.checked = false;
+      ck.closest("label")?.classList.remove("selected");
+    });
+    PCF.selected.clear();
+    updateModalStats();
+    if (activeSource === "selected") applyModalFilter();
   };
 
   if ($("#pcmGenPptBtn")) $("#pcmGenPptBtn").onclick = () => {
@@ -7122,7 +7224,7 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
     await saveAsProposedCampaign([...PCF.selected], client, title);
   };
 
-    // Full Page Toggle Handler
+  // Full Page Toggle Handler
   let isFull = false;
   const modalWrap = document.querySelector(".pc-expanded-modal");
   const toggleFull = () => {
@@ -10383,7 +10485,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=50.2").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=50.3").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
