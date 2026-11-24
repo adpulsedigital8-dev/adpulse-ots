@@ -1756,6 +1756,46 @@ let fOpen=false,siteView="grid",sel=new Set(),route="dashboard",queue=[],local=n
 let db=null,assets=null,downloads=null,user=null,sampleFn=null,sampleImg=null;
 let ROLE="pending",ME=null,CAN_ADMIN=true,CAN_WRITE=null,PORTAL=null,PORTAL_READY=false,MYREQ=null,PREVIEW=null,pCamp=null,portals={};
 S.clients=[];S.requests=[];
+S.archivedSites = ls.get("adpulse_archived_sites", []);
+function saveArchivedSites(){ ls.set("adpulse_archived_sites", S.archivedSites || []); }
+async function restoreSite(id){
+  if(!S.archivedSites) S.archivedSites = [];
+  const idx = S.archivedSites.findIndex(x => x.id === id);
+  if(idx < 0){ toast("Site not found in Recycle Bin"); return null; }
+  const s = S.archivedSites.splice(idx, 1)[0];
+  delete s.deletedAt;
+  delete s.archived;
+  if(!S.sites.some(x => x.id === s.id)){
+    S.sites.push(s);
+    S.sites.sort((a,b) => (a.sNo||999) - (b.sNo||999));
+  }
+  saveArchivedSites();
+  try{
+    await put("sites", s);
+    toast("Restored " + (s.code || ('S#' + (s.sNo||''))) + " to Master File!");
+  }catch(e){
+    console.warn("[OTS] Failed to put restored site to DB:", e);
+    toast("Restored " + (s.code || ('S#' + (s.sNo||''))) + " locally");
+  }
+  render();
+  return s;
+}
+async function restoreAllSites(){
+  if(!S.archivedSites || !S.archivedSites.length) return;
+  const count = S.archivedSites.length;
+  const list = S.archivedSites.slice();
+  S.archivedSites = [];
+  saveArchivedSites();
+  for(const s of list){
+    delete s.deletedAt;
+    delete s.archived;
+    if(!S.sites.some(x => x.id === s.id)) S.sites.push(s);
+    try{ await put("sites", s); }catch(e){}
+  }
+  S.sites.sort((a,b) => (a.sNo||999) - (b.sNo||999));
+  toast("Restored " + count + " sites to Master File!");
+  render();
+}
 const memBlobs={}; // local-mode photo sources
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -5223,7 +5263,8 @@ function vAiChatbot() {
 /* ============ Sites ============ */
 function filtered(){
   const q=F.q.toLowerCase().trim();
-  return S.sites.filter(s=>(!F.area||s.area===F.area)&&(!F.size||sizeOf(s)===F.size)&&(!F.media||s.media===F.media||s.excelMedium===F.media)&&(!F.status||effStatus(s)===F.status||(F.status==="booked"&&effStatus(s)==="expiring"))&&(!F.lit||s.light===F.lit)&&(!F.traffic||s.traffic===F.traffic)&&(!F.vendor||s.vendor===F.vendor)&&(!F.campaign||(campOf(F.campaign)?.siteIds||[]).includes(s.id))&&(!q||[s.sNo,s.code,s.name,s.title,s.location,s.client,s.brand,s.medium,s.excelMedium,s.media,s.area,s.from,s.towards,s.vendor,s.vendorEndDate,s.availability,s.excelAvailability,s.statusLabel,s.excelStatus,s.rates,s.notes].join(" ").toLowerCase().includes(q))).sort((a,b)=>(a.sNo||999)-(b.sNo||999)||(a.code||"").localeCompare(b.code||""));
+  const pool = (F.status === "archived") ? (S.archivedSites || []) : S.sites;
+  return pool.filter(s=>(!F.area||s.area===F.area)&&(!F.size||sizeOf(s)===F.size)&&(!F.media||s.media===F.media||s.excelMedium===F.media)&&(!F.status||F.status==="archived"||effStatus(s)===F.status||(F.status==="booked"&&effStatus(s)==="expiring"))&&(!F.lit||s.light===F.lit)&&(!F.traffic||s.traffic===F.traffic)&&(!F.vendor||s.vendor===F.vendor)&&(!F.campaign||(campOf(F.campaign)?.siteIds||[]).includes(s.id))&&(!q||[s.sNo,s.code,s.name,s.title,s.location,s.client,s.brand,s.medium,s.excelMedium,s.media,s.area,s.from,s.towards,s.vendor,s.vendorEndDate,s.availability,s.excelAvailability,s.statusLabel,s.excelStatus,s.rates,s.notes].join(" ").toLowerCase().includes(q))).sort((a,b)=>(a.sNo||999)-(b.sNo||999)||(a.code||"").localeCompare(b.code||""));
 }
 function buildClientSummaryRows(list){
   const counts = new Map();
@@ -5309,7 +5350,7 @@ function vSites(){
   const filt=`<div class="filters">
     <input class="in" style="max-width:220px;min-height:44px;padding:8px 12px;font-size:14px" placeholder="Search code, road, brand" value="${esc(F.q)}" id="fq">
     <button class="btn fbtn ${nf?"pri":""}" data-act="ftoggle">Filters${nf?` (${nf})`:""}</button>
-    <div class="fsel ${fOpen?"open":""}">${f("area","Area",allAreas)}${f("size","Size",sizes.map(x=>[x,x+" ft"]))}${f("media","Type",MEDIA)}${f("status","Status",[["available","Available"],["booked","Not available"],["expiring","Expiring soon"],["maintenance","Maintenance"]])}${f("vendor","Vendor",[...new Set(S.sites.map(s=>s.vendor).filter(Boolean))].sort())}${f("lit","Light",LIGHT)}${f("traffic","Traffic",Object.entries(TLEV))}${f("campaign","Campaign",S.campaigns.map(c=>[c.id,c.name]))}
+    <div class="fsel ${fOpen?"open":""}">${f("area","Area",allAreas)}${f("size","Size",sizes.map(x=>[x,x+" ft"]))}${f("media","Type",MEDIA)}${f("status","Status",[["available","Available"],["booked","Not available"],["expiring","Expiring soon"],["maintenance","Maintenance"],...((S.archivedSites||[]).length?[["archived","♻️ Recycle Bin ("+(S.archivedSites||[]).length+")"]]:[])])}${f("vendor","Vendor",[...new Set(S.sites.map(s=>s.vendor).filter(Boolean))].sort())}${f("lit","Light",LIGHT)}${f("traffic","Traffic",Object.entries(TLEV))}${f("campaign","Campaign",S.campaigns.map(c=>[c.id,c.name]))}
     ${Object.values(F).some(Boolean)?`<button class="btn sm ghost" data-act="clearf">Clear</button>`:""}</div>
     <span class="sp"></span>
     <div class="seg" role="tablist">${[["grid","Cards"],["table","Table"],["map","Map"]].map(([k,l])=>`<button class="${siteView===k?"on":""}" data-act="sview" data-v="${k}">${l}</button>`).join("")}</div>
@@ -5372,7 +5413,7 @@ function vSites(){
               <td class="mono" contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:day" data-cell-day="${s.id}" style="border:1px solid #D4D4D8;padding:7px 6px;text-align:center;font-weight:800;color:#D9161D;cursor:text">${esc(s.day||"30")}</td>
               <td contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:vendor" style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:700;color:#1C1A1B;cursor:text">${esc(s.vendor||"")}</td>
               <td class="mono" contenteditable="plaintext-only" spellcheck="false" data-tbledit="${s.id}:vendorEnd" style="border:1px solid #D4D4D8;padding:7px 10px;text-align:center;font-weight:700;color:#D9161D;cursor:text;white-space:nowrap">${esc(s.vendorEndDate||"")}</td>
-              <td style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center"><button class="btn sm pri" data-act="siteedit" data-id="${s.id}" style="padding:4px 10px;font-size:11px;font-weight:700">✏️ Drawer</button></td>
+              <td style="border:1px solid #D4D4D8;padding:7px 8px;text-align:center">${s.archived ? `<button type="button" class="btn sm pri" data-act="restoresite" data-id="${s.id}" style="padding:4px 10px;font-size:11px;font-weight:700;background:#10B981" title="Restore this site to Master File">♻️ Restore</button>` : `<button class="btn sm pri" data-act="siteedit" data-id="${s.id}" style="padding:4px 10px;font-size:11px;font-weight:700">✏️ Drawer</button>`}</td>
             </tr>`;
           }).join("")}
         </tbody>
@@ -5410,7 +5451,7 @@ function vSites(){
     <button class="btn sm" data-act="summarydeck" style="background:linear-gradient(135deg,rgba(124,58,237,0.15),rgba(217,22,29,0.15));border:1px solid rgba(124,58,237,0.4);font-weight:700;color:var(--ink)" title="View &amp; Export Tabular Inventory Summary Presentation">📊 Inventory Summary Report</button>
     <button class="btn hm" data-act="selall">Select all</button>
     <button class="btn pri" data-act="newsite">${ICON.plus}Add site</button>
-    
+    ${(S.archivedSites||[]).length ? `<button class="btn sm" data-act="openarchivedmodal" style="background:rgba(217,22,29,0.08);border:1.5px solid rgba(217,22,29,0.35);color:#D9161D;font-weight:800;display:inline-flex;align-items:center;gap:5px" title="View soft-deleted sites in Recycle Bin">♻️ Recycle Bin (${(S.archivedSites||[]).length})</button>` : `<button class="btn sm ghost" data-act="openarchivedmodal" style="color:var(--muted);font-size:11.5px;display:inline-flex;align-items:center;gap:4px" title="Recycle Bin / Archived Sites">♻️ Bin (0)</button>`}
   </div>`;
   return pgTop("Master File",`${list.length} Master OOH Sites`,siteTopBtns)+filt+body+bulk;
 }
@@ -5421,13 +5462,14 @@ function card(s){
   const stVal=s.excelStatus!==undefined?s.excelStatus:(s.statusLabel||"");
   const medVal=(s.excelMedium||s.medium||s.media||"HOARDING").toUpperCase();
   const sqftVal=s.excelSqft||s.sqft||((+s.widthFt||0)*(+s.heightFt||0))||"";
-  return`<article class="card scard ${sel.has(s.id)?"sel":""}" data-act="site" data-id="${s.id}">
-  <div class="ph"><img src="${esc(thumbOf(s))}" alt="${esc(s.code)} photo" loading="lazy" data-sid="${s.id}" onerror="phFix(this)">${pill(s)}<button class="ck" data-act="sel" data-id="${s.id}" aria-label="Select">${sel.has(s.id)?ICON.check:""}</button>${n?`<span class="cnt">${mediaCount(s)}</span>`:""}</div>
+  const isArch = !!s.archived;
+  return`<article class="card scard ${sel.has(s.id)?"sel":""} ${isArch?"is-archived":""}" data-act="${isArch?"":"site"}" data-id="${s.id}">
+  <div class="ph"><img src="${esc(thumbOf(s))}" alt="${esc(s.code)} photo" loading="lazy" data-sid="${s.id}" onerror="phFix(this)">${isArch?`<span class="tag" style="position:absolute;top:8px;left:8px;background:#D9161D;color:#fff;font-weight:800;font-size:11px;z-index:3;padding:3px 8px;border-radius:6px">🗑️ Deleted</span>`:pill(s)}<button class="ck" data-act="${isArch?"none":"sel"}" data-id="${s.id}" aria-label="Select">${sel.has(s.id)?ICON.check:""}</button>${n?`<span class="cnt">${mediaCount(s)}</span>`:""}</div>
   <div class="bd">
     <div class="row" style="gap:6px;align-items:center;margin-bottom:2px">
       <span class="code">S#${esc(String(s.sNo||"—"))} · ${esc(s.code)}</span>
       <span class="tag" style="background:var(--surface2);font-weight:700;color:var(--violet)">${esc(s.area)}</span>
-      ${stVal?`<span class="tag" style="background:rgba(217,22,29,0.1);color:#D9161D;font-weight:800;margin-left:auto">${esc(stVal)}</span>`:""}
+      ${isArch?`<span class="tag" style="background:rgba(217,22,29,0.1);color:#D9161D;font-weight:800;margin-left:auto">In Bin</span>`:(stVal?`<span class="tag" style="background:rgba(217,22,29,0.1);color:#D9161D;font-weight:800;margin-left:auto">${esc(stVal)}</span>`:"")}
     </div>
     <h3 title="${esc(siteTitle)}" style="margin:2px 0 4px;font-size:15.5px;line-height:1.3">${esc(siteTitle)}</h3>
     <div class="dir">${esc(s.from||"—")} ${ICON.arrow} ${esc(s.towards||"—")}</div>
@@ -5440,6 +5482,7 @@ function card(s){
       ${s.vendorEndDate?`<span class="mono" style="color:#D9161D;font-weight:700">End: ${esc(s.vendorEndDate)}</span>`:""}
     </div>
     <div class="meta"><span class="tag mono" style="font-weight:700">${sizeOf(s)} ft (${esc(String(sqftVal))} SQFT)</span><span class="tag" style="font-weight:700">${esc(medVal)}</span></div>
+    ${isArch?`<button type="button" class="btn pri sm" data-act="restoresite" data-id="${s.id}" style="margin-top:8px;width:100%;justify-content:center;font-weight:700;background:#10B981">♻️ Restore Site to Master</button>`:""}
   </div></article>`;
 }
 
@@ -5477,20 +5520,166 @@ function openSite(id,editMode){
     ${(d.peak||[]).length?`<div><div class="eyebrow">Peak hours</div><div class="chips" style="margin-top:6px">${d.peak.map(x=>`<span class="tag">${esc(x)}</span>`).join("")}</div></div>`:""}
 </div>`:""}${d.notes?`<div><div class="eyebrow">Notes</div><p style="margin:4px 0 0">${esc(d.notes)}</p></div>`:""}`;
   const form=siteForm(d,"sd");
+  const restoreBanner = (isNew && (S.archivedSites||[]).length) ? `
+    <div style="background:linear-gradient(135deg,rgba(217,22,29,0.08),rgba(242,106,33,0.08));border:1.5px dashed #D9161D;border-radius:12px;padding:12px;margin-bottom:14px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <span style="font-weight:800;font-size:12.5px;color:#D9161D;display:flex;align-items:center;gap:6px">
+          ♻️ Restore from Deleted Sites (${S.archivedSites.length} in Bin)
+        </span>
+        <button type="button" class="btn sm ghost" data-act="openarchivedmodal" style="font-size:11px;font-weight:700;color:#D9161D">Open Bin</button>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+        <select id="restoreSiteDrawerSelect" class="in sm" style="flex:1;min-width:180px;font-weight:600">
+          <option value="">-- Choose a deleted site to restore --</option>
+          ${S.archivedSites.map(as => `<option value="${as.id}">S#${as.sNo||'—'} · ${esc(as.code||'')} - ${esc(as.location||as.name||as.brand||'Site')} (${esc(as.vendor||'Vendor')})</option>`).join("")}
+        </select>
+        <button type="button" class="btn pri sm" id="restoreSiteDrawerBtn" style="white-space:nowrap;font-weight:700">♻️ Restore Site</button>
+      </div>
+    </div>` : "";
+
+  const photoUploader = edit ? `
+    <div class="site-photo-upload-card" style="background:var(--surface2);border:1.5px dashed rgba(217,22,29,0.35);border-radius:12px;padding:12px;margin:10px 0">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <span style="font-weight:800;font-size:13px;display:flex;align-items:center;gap:6px;color:var(--ink)">
+          📷 ${isNew ? "Site Image / Photo Upload" : "Add / Update Site Photo"}
+        </span>
+        <span style="font-size:11.5px;color:var(--muted)">Auto GPS &amp; instant preview</span>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <label class="btn sm pri" style="cursor:pointer;font-weight:700;display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#D9161D,#F26A21)">
+          ${ICON.cam} <span>📷 Choose Photo / Upload Image</span>
+          <input type="file" id="siteUploadFileInput" accept="image/*,video/*" style="display:none">
+        </label>
+        <button type="button" class="btn sm" id="siteUploadUrlBtn" style="font-weight:700;border:1px solid var(--border)">🌐 Paste Image URL</button>
+        <span id="siteUploadStatus" style="font-size:12px;font-weight:700;color:var(--ok)"></span>
+      </div>
+      <div id="siteUploadUrlRow" style="display:none;margin-top:8px">
+        <div style="display:flex;gap:6px">
+          <input type="url" class="in sm" id="siteUploadUrlInput" placeholder="Paste direct image URL (https://...)" style="flex:1">
+          <button type="button" class="btn sm pri" id="siteUploadUrlApply">Apply</button>
+        </div>
+      </div>
+    </div>` : "";
+
   openLayer(`<div class="scrim" data-act="close"></div><aside class="drawer" role="dialog" aria-label="Site">
     <div class="dh"><div><div class="mono" style="color:var(--violet);font-weight:700;font-size:12px">${esc(d.code||"New site")}</div><h2 style="font-size:20px">${isNew?"Add a site":esc(d.name||d.title||d.area)}</h2></div><span class="sp"></span>${s?pill(s):""}
 <button class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button></div>
     <div class="db">
+      ${restoreBanner}
       ${!isNew ? `<div class="row" style="margin-bottom:12px;background:var(--surface2);padding:4px;border-radius:10px;gap:4px">
         <button type="button" class="btn sm ${!edit?'pri':'ghost'}" data-act="siteview" data-id="${d.id}" style="flex:1;justify-content:center;font-weight:700;border-radius:8px">👁️ Site Details</button>
         <button type="button" class="btn sm ${edit?'pri':'ghost'}" data-act="siteedit" data-id="${d.id}" style="flex:1;justify-content:center;font-weight:700;border-radius:8px">✏️ Edit Site Info</button>
       </div>` : ""}
       ${gal}
+      ${photoUploader}
       ${!isNew&&RO()&&d.lat?`<div class="row" style="flex-wrap:wrap"><a class="btn sm cy" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(d.lat+','+d.lng)}&travelmode=driving" target="_blank" rel="noopener">${ICON.pin}Start 3D Navigation</a><button class="btn sm" data-act="view3d" data-id="${d.id}">🌍 3D Earth View</button><a class="btn sm" href="${mapsUrl(d)}" target="_blank" rel="noopener">Open in Maps</a></div>`:""}
       ${!isNew&&!RO()?`<div class="row" style="flex-wrap:wrap;gap:6px;margin:8px 0"><button class="btn sm cy" data-act="scanhoarding" data-id="${d.id}" title="Scan hoarding image with AI to detect Brand Logo and Tagline">🔍 Scan AI</button><button class="btn sm" data-act="addphoto" data-id="${d.id}">${ICON.cam}Add photo / video</button>${d.lat?`<a class="btn sm cy" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(d.lat+','+d.lng)}&travelmode=driving" target="_blank" rel="noopener">${ICON.pin}3D Nav</a><button class="btn sm" data-act="view3d" data-id="${d.id}">🌍 3D Earth</button>`:""}<span class="sp"></span><button class="btn sm danger" data-act="sitedel" data-id="${d.id}">Delete</button></div>`:""}
       ${!isNew&&!edit&&!RO()?`<div style="margin-bottom:12px"><div class="eyebrow" style="margin-bottom:6px">Quick status</div><div class="chips">${["available","booked","maintenance"].map(k=>`<button class="chip st ${k} ${d.status===k?"on":""}" data-act="quickst" data-id="${d.id}" data-v="${k}">${STATUS[k]}</button>`).join("")}</div></div>`:""}
       ${edit?`<form id="siteForm" data-id="${d.id}" data-new="${isNew?1:""}">${form}<div class="row" style="margin-top:16px;gap:8px"><button class="btn pri" type="submit" style="flex:1;justify-content:center;font-weight:700">💾 ${isNew?"Create site":"Save Changes"}</button>${!isNew?`<button type="button" class="btn" data-act="siteview" data-id="${d.id}" style="font-weight:600">Cancel</button>`:""}</div></form>`:info}
     </div></aside>`);
+
+  // Wire Drawer Restore Site button
+  const rBtn = $("#restoreSiteDrawerBtn");
+  if(rBtn){
+    rBtn.onclick = async () => {
+      const selVal = $("#restoreSiteDrawerSelect")?.value;
+      if(!selVal){ toast("Please select a deleted site first"); return; }
+      const restored = await restoreSite(selVal);
+      if(restored) openSite(restored.id);
+    };
+  }
+
+  // Wire Photo Uploader
+  const fileInp = $("#siteUploadFileInput");
+  if(fileInp){
+    fileInp.onchange = async (e) => {
+      const f = e.target.files && e.target.files[0];
+      if(!f) return;
+      const statusEl = $("#siteUploadStatus");
+      if(statusEl) statusEl.textContent = "Processing photo...";
+      const isVideo = f.type.startsWith("video/");
+      
+      let gps = null;
+      if(!isVideo){
+        try{ gps = await exifGPS(f); }catch(err){}
+      }
+      if(gps && gps.length === 2){
+        if($("#sd-lat")) $("#sd-lat").value = (+gps[0]).toFixed(6);
+        if($("#sd-lng")) $("#sd-lng").value = (+gps[1]).toFixed(6);
+        gpsLine("sd", $("#siteForm") || document);
+        toast(`Photo GPS detected: ${gps[0].toFixed(5)}, ${gps[1].toFixed(5)}`);
+      }
+      
+      const reader = new FileReader();
+      reader.onload = rev => {
+        const dataUrl = rev.target.result;
+        d.photos = d.photos || [];
+        const photoObj = {
+          id: uid(),
+          src: dataUrl,
+          url: dataUrl,
+          file: f,
+          tag: isVideo ? "Video" : "Site Photo",
+          kind: isVideo ? "video" : "photo",
+          at: new Date().toISOString(),
+          by: ls.get("sitesnap-name","Office") || "Office",
+          lat: gps ? gps[0] : null,
+          lng: gps ? gps[1] : null
+        };
+        d.photos.push(photoObj);
+        d.photo = dataUrl;
+        
+        const galEl = $(".db .gallery");
+        if(galEl){
+          galEl.innerHTML = `<figure style="position:relative">
+            ${isVideo ? `<video src="${esc(dataUrl)}" controls playsinline style="max-height:260px;width:100%;object-fit:cover;border-radius:10px"></video>` : `<img src="${esc(dataUrl)}" alt="Uploaded Site Photo" style="max-height:260px;width:100%;object-fit:cover;border-radius:10px">`}
+            <figcaption>${photoObj.tag} · Just now</figcaption>
+          </figure>`;
+        }
+        if(statusEl) statusEl.textContent = "✓ Photo attached!";
+        toast(isVideo ? "Video attached to site" : "Photo attached to site");
+      };
+      reader.readAsDataURL(f);
+    };
+  }
+
+  const urlToggle = $("#siteUploadUrlBtn");
+  if(urlToggle){
+    urlToggle.onclick = () => {
+      const row = $("#siteUploadUrlRow");
+      if(row) row.style.display = row.style.display === "none" ? "block" : "none";
+    };
+  }
+  const urlApply = $("#siteUploadUrlApply");
+  if(urlApply){
+    urlApply.onclick = () => {
+      const val = ($("#siteUploadUrlInput")?.value || "").trim();
+      if(!val) return;
+      d.photos = d.photos || [];
+      const photoObj = {
+        id: uid(),
+        src: val,
+        url: val,
+        tag: "Web Photo",
+        kind: "photo",
+        at: new Date().toISOString(),
+        by: ls.get("sitesnap-name","Office") || "Office"
+      };
+      d.photos.push(photoObj);
+      d.photo = val;
+      const galEl = $(".db .gallery");
+      if(galEl){
+        galEl.innerHTML = `<figure style="position:relative">
+          <img src="${esc(val)}" alt="Site Photo" style="max-height:260px;width:100%;object-fit:cover;border-radius:10px">
+          <figcaption>Web Photo · Attached</figcaption>
+        </figure>`;
+      }
+      const statusEl = $("#siteUploadStatus");
+      if(statusEl) statusEl.textContent = "✓ Image link attached!";
+      toast("Image URL attached to site");
+    };
+  }
+
   if(edit)bindSiteForm($("#siteForm"),d);
 }
 function siteForm(d,p){
@@ -5535,6 +5724,7 @@ function siteForm(d,p){
    <div class="gpsline" id="${p}-gpsl"></div>
    <div class="row full" style="grid-column:1/-1"><button type="button" class="btn cy" data-act="gpsnow" data-p="${p}" style="flex:1;justify-content:center">${ICON.pin}Use my current location</button><button type="button" class="btn" data-act="gpshelp" data-p="${p}">How to copy from Google Maps</button></div>
    <label class="f full">Or paste coordinates / a Google Maps link<input class="in" id="${p}-gm" placeholder="24.86120, 67.00990  or a maps.google.com link" autocomplete="off"></label>
+   <label class="f full">Site Photo URL (optional direct image link)<input class="in" id="${p}-photourl" value="${esc(d.photo||d.photos?.[0]?.url||d.photos?.[0]?.src||"")}" placeholder="https://... direct image link"></label>
    <label class="f full">Notes<textarea class="in" id="${p}-notes" placeholder="Visibility, obstructions, landmark…">${esc(d.notes)}</textarea></label>
   </div>`;
 }
@@ -5639,13 +5829,44 @@ function bindSiteForm(form,d){
   form.onsubmit=async e=>{
     e.preventDefault();
     const n=readForm(form,"sd",d);
+    if(d.photos && d.photos.length){
+      n.photos = d.photos.slice();
+    }
+    const manualPhotoUrl = ($("#sd-photourl")?.value || "").trim();
+    if(manualPhotoUrl && (!n.photos || !n.photos.some(p => p.url === manualPhotoUrl || p.src === manualPhotoUrl))){
+      if(!n.photos) n.photos = [];
+      n.photos.unshift({
+        id: uid(),
+        src: manualPhotoUrl,
+        url: manualPhotoUrl,
+        at: new Date().toISOString(),
+        by: ls.get("sitesnap-name","Office") || "Office",
+        tag: "Main Photo"
+      });
+    }
+    // Upload files to assets if in live mode
+    for(const p of (n.photos||[])){
+      if(p.file && S.mode === "live" && assets){
+        try{
+          const up = await uploadBlob(p.file, p.file.type || "image/jpeg");
+          p.asset = up.asset;
+        }catch(err){
+          console.warn("[OTS] Photo asset upload fallback:", err);
+        }
+      }
+      delete p.file;
+    }
+    if(n.photos && n.photos.length){
+      n.photo = photoSrc(n.photos[n.photos.length-1]) || n.photos[0].src || n.photos[0].url;
+    }
     if(!n.lat&&AREAS[n.area]){n.lat=AREAS[n.area][0];n.lng=AREAS[n.area][1];n.approx=true}
     if(form.dataset.new){n.code=nextCode(n.area);n.createdAt=new Date().toISOString()}
     try{
       await put("sites",n);
       const sIdx=S.sites.findIndex(x=>x.id===n.id);
       if(sIdx>=0)S.sites[sIdx]=n;else S.sites.push(n);
-      toast(form.dataset.new?`Created ${n.code}`:"Saved changes successfully");
+      S.sites.sort((a,b)=>(a.sNo||999)-(b.sNo||999));
+      toast(form.dataset.new?`Created ${n.code} successfully`:"Saved changes successfully");
       openSite(n.id);
       render(true);
     }catch(err){toast("Couldn't save: "+(err.message||err.code))}
@@ -9287,12 +9508,103 @@ function dropAssetsLater(ids,key){const t=setTimeout(async()=>{pendingAssetDel.d
 function keepAssets(key){clearTimeout(pendingAssetDel.get(key));pendingAssetDel.delete(key)}
 async function deleteSites(ids){
   const sites=ids.map(id=>S.sites.find(x=>x.id===id)).filter(Boolean).map(x=>JSON.parse(JSON.stringify(x)));
+  if(!sites.length)return;
   const camps=S.campaigns.filter(c=>(c.siteIds||[]).some(i=>ids.includes(i))).map(c=>JSON.parse(JSON.stringify(c)));
   for(const c of camps)await put("campaigns",{...c,siteIds:c.siteIds.filter(i=>!ids.includes(i))});
+  
+  if(!S.archivedSites) S.archivedSites = [];
+  sites.forEach(s => {
+    s.deletedAt = new Date().toISOString();
+    s.archived = true;
+    const existingIdx = S.archivedSites.findIndex(x => x.id === s.id);
+    if(existingIdx >= 0) S.archivedSites[existingIdx] = s;
+    else S.archivedSites.unshift(s);
+  });
+  saveArchivedSites();
+
   S.sites=S.sites.filter(x=>!ids.includes(x.id));
   for(const x of sites)await del("sites",x.id);
-  ids.forEach(i=>sel.delete(i));const key="sites:"+uid();dropAssetsLater(sites.flatMap(x=>(x.photos||[]).map(p=>p.asset)),key);render();
-  toast(sites.length===1?`Deleted ${sites[0].code}`:`Deleted ${sites.length} sites`,async()=>{keepAssets(key);for(const x of sites){if(!S.sites.some(s=>s.id===x.id))S.sites.push(x);await put("sites",x);}for(const c of camps)await put("campaigns",c);render();toast("Restored")});
+  ids.forEach(i=>sel.delete(i));
+  closeLayer();
+  render();
+  
+  toast(sites.length===1 ? `Moved ${sites[0].code||sites[0].location} to Recycle Bin` : `Moved ${sites.length} sites to Recycle Bin`, async()=>{
+    for(const x of sites){
+      await restoreSite(x.id);
+    }
+    for(const c of camps)await put("campaigns",c);
+    render();
+  });
+}
+function openArchivedSitesModal(){
+  const arch = S.archivedSites || [];
+  const renderList = (filterText = "") => {
+    const q = filterText.toLowerCase().trim();
+    const filteredArch = arch.filter(s => !q || [s.sNo, s.code, s.location, s.name, s.area, s.client, s.brand, s.vendor].join(" ").toLowerCase().includes(q));
+    
+    if(!filteredArch.length) {
+      return emptyState(arch.length ? "No deleted sites match your search" : "Recycle Bin is empty", arch.length ? "Try different search terms." : "When you delete sites, they will be kept here safely so you can restore them anytime.");
+    }
+    
+    return `<div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:12px;max-height:60vh;overflow-y:auto;padding:4px">
+      ${filteredArch.map(s => {
+        const ph = thumbOf(s);
+        return `
+          <div class="card pad" style="display:flex;flex-direction:column;gap:8px;border:1px solid var(--border);border-radius:10px;background:var(--surface)">
+            <div style="position:relative;height:120px;border-radius:8px;overflow:hidden;background:#000">
+              <img src="${esc(ph)}" alt="" style="width:100%;height:100%;object-fit:cover" onerror="phFix(this)" data-sid="${s.id}">
+              <span class="tag" style="position:absolute;top:6px;left:6px;background:#D9161D;color:#fff;font-weight:800;font-size:11px">🗑️ S#${s.sNo||'—'} · ${esc(s.code||'')}</span>
+              <span class="tag" style="position:absolute;bottom:6px;right:6px;background:rgba(0,0,0,0.7);color:#fff;font-size:10.5px">Deleted ${fmtDate(s.deletedAt)}</span>
+            </div>
+            <div>
+              <div style="font-weight:800;font-size:14px;color:var(--ink);line-height:1.3">${esc(s.location||s.name||'Site')}</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px">${esc(s.area||'Karachi')} · ${esc(s.excelMedium||s.media||'Billboard')} (${sizeOf(s)} ft)</div>
+            </div>
+            <div style="font-size:11.5px;color:var(--ink);background:var(--surface2);padding:6px 8px;border-radius:6px">
+              <div><b>Client:</b> ${esc(s.client||s.brand||'—')}</div>
+              <div><b>Vendor:</b> ${esc(s.vendor||'—')}</div>
+            </div>
+            <div style="display:flex;gap:6px;margin-top:auto">
+              <button type="button" class="btn pri sm" data-act="restoresite" data-id="${s.id}" style="flex:1;justify-content:center;font-weight:700;background:#10B981">♻️ Restore Site</button>
+            </div>
+          </div>
+        `;
+      }).join("")}
+    </div>`;
+  };
+
+  openLayer(`
+    <div class="scrim" data-act="close"></div>
+    <div class="modal" style="width:min(900px,calc(100% - 24px));max-height:90vh;display:flex;flex-direction:column" role="dialog" aria-label="Recycle Bin">
+      <div class="mh" style="border-bottom:1px solid var(--border);padding:14px 18px;display:flex;align-items:center;justify-content:space-between">
+        <div>
+          <h2 style="font-size:18px;margin:0;display:flex;align-items:center;gap:8px">
+            <span>♻️ Recycle Bin / Deleted Sites</span>
+            <span class="pill st-booked" style="font-size:12px">${arch.length} Sites</span>
+          </h2>
+          <p style="margin:2px 0 0;font-size:12px;color:var(--muted)">Deleted sites are never lost permanently. Restore any site back to Master File anytime.</p>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          ${arch.length > 1 ? `<button type="button" class="btn sm cy" data-act="restoreall" style="font-weight:700">♻️ Restore All (${arch.length})</button>` : ""}
+          <button type="button" class="btn sm ghost" data-act="close" aria-label="Close">${ICON.x}</button>
+        </div>
+      </div>
+      <div style="padding:10px 18px;border-bottom:1px solid var(--border)">
+        <input type="text" id="archivedSearchInput" class="in" placeholder="🔍 Search deleted sites by code, road, client, vendor..." style="width:100%">
+      </div>
+      <div class="mb" id="archivedListContainer" style="padding:14px 18px;overflow-y:auto;flex:1">
+        ${renderList()}
+      </div>
+    </div>
+  `);
+
+  const searchInp = $("#archivedSearchInput");
+  if(searchInp) {
+    searchInp.oninput = () => {
+      const cont = $("#archivedListContainer");
+      if(cont) cont.innerHTML = renderList(searchInp.value);
+    };
+  }
 }
 /* ============ Campaign Agent ============ */
 const Agent={alerts:[],checked:null,shownKey:"",
@@ -10207,8 +10519,17 @@ const ACT={
  siteedit:a=>openSite(a.dataset.id,true),siteview:a=>openSite(a.dataset.id),newsite:()=>openSite(null,true),
  pinpop:a=>pinPop(a),
  quickst:async a=>{const s=S.sites.find(x=>x.id===a.dataset.id);const n={...s,status:a.dataset.v};if(a.dataset.v!=="booked"){n.bookedTill="";n.bookedFrom=""}await put("sites",n);toast(`${s.code} → ${STATUS[a.dataset.v]}`);openSite(s.id)},
- sitedel:a=>{const s=S.sites.find(x=>x.id===a.dataset.id);confirmBox(`Delete ${s.code}? Its photos, videos and campaign links go too.`,()=>deleteSites([s.id]))},
- bulkdel:()=>{const n=sel.size;if(!n)return;confirmBox(`Delete ${n} site${n>1?"s":""}? Their photos, videos and campaign links go too.`,()=>deleteSites([...sel]),`Delete ${n}`)},
+ sitedel:a=>{const s=S.sites.find(x=>x.id===a.dataset.id);if(!s)return;confirmBox(`Move ${s.code||s.location} to Recycle Bin? You can restore it anytime.`,()=>deleteSites([s.id]),"Move to Bin")},
+ bulkdel:()=>{const n=sel.size;if(!n)return;confirmBox(`Move ${n} site${n>1?"s":""} to Recycle Bin? You can restore them anytime.`,()=>deleteSites([...sel]),`Move ${n} to Bin`)},
+ openarchivedmodal:()=>openArchivedSitesModal(),
+ restoresite:async a=>{
+   const s=await restoreSite(a.dataset.id);
+   if(s&&$("#archivedListContainer"))openArchivedSitesModal();
+ },
+ restoreall:async()=>{
+   await restoreAllSites();
+   closeLayer();
+ },
  photodel:(a,e)=>{e.stopPropagation();const s=S.sites.find(x=>x.id===a.dataset.id);if(!s)return;const p=(s.photos||[])[+a.dataset.i];if(!p||p.at!==a.dataset.at){toast("This site just changed. Open it again and retry.");return}const kind=isVid(p)?"video":"photo";
    confirmBox(`Delete this ${kind}?`,async()=>{const before=JSON.parse(JSON.stringify(s));const updated={...s,photos:s.photos.filter(x=>x!==p)};const sIdx=S.sites.findIndex(x=>x.id===s.id);if(sIdx>=0)S.sites[sIdx]=updated;await put("sites",updated);const key="ph:"+uid();dropAssetsLater([p.asset],key);openSite(s.id);
      toast(`${kind[0].toUpperCase()+kind.slice(1)} deleted`,async()=>{keepAssets(key);if(sIdx>=0)S.sites[sIdx]=before;await put("sites",before);openSite(before.id);toast("Restored")})})},
