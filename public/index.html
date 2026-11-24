@@ -1448,7 +1448,7 @@ table.t img{width:56px;height:38px;object-fit:cover;border-radius:7px;display:bl
 .slide{position:relative;aspect-ratio:16/9;width:100%;container-type:inline-size;border-radius:10px;overflow:hidden;box-shadow:0 14px 30px -16px rgba(0,0,0,.45);background:#fff}
 .slide .o{position:absolute;overflow:hidden;white-space:pre-wrap;line-height:1.18}
 .slide .o img{width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;display:block;margin:auto}
-.slide [contenteditable]{outline:none;border-radius:3px}
+.slide [contenteditable]{outline:none;border-radius:3px;cursor:text}
 .slide [contenteditable]:hover{box-shadow:0 0 0 1.5px rgba(124,58,237,.6)}
 .slide [contenteditable]:focus{box-shadow:0 0 0 2px #7C3AED;background:rgba(124,58,237,.06)}
 .sltools{display:flex;gap:6px;flex-wrap:wrap}
@@ -7038,7 +7038,9 @@ function generateProposedPresentation(selectedIds, clientName, proposalTitle, su
       s.availability ? ("Availability: " + s.availability) : "",
       s.rate ? ("Rate: " + s.rate) : ""
     ].filter(Boolean).join(" · "),
-    price: s.rate || "Rate on Request"
+    price: s.rate || "Rate on Request",
+    clientLabel: "CLIENT / CAMPAIGN",
+    client: client || s.client || s.brand || s.vendor || "AdPulse OOH Network"
   }));
   Studio.cfg.summary = true;
   Studio.cfg.fields.vendor = true;
@@ -8911,7 +8913,7 @@ const Studio={
         caption:p.caption||""
       }))
     }));
-    const old=new Map((c.slides||[]).map(s=>[s.siteId,s]));c.slides=list.map(s=>old.get(s.id)||{siteId:s.id,hidden:false,photo:imgIdx(s).slice(-1)[0]??-1,title:"",note:"",price:s.price||(s.rates&&!/^(PKR|USD|EUR)$/i.test(s.rates)?s.rates:"")||""});
+    const old=new Map((c.slides||[]).map(s=>[s.siteId,s]));c.slides=list.map(s=>old.get(s.id)||{siteId:s.id,hidden:false,photo:imgIdx(s).slice(-1)[0]??-1,title:"",note:"",price:s.price||(s.rates&&!/^(PKR|USD|EUR)$/i.test(s.rates)?s.rates:"")||"",clientLabel:"",client:""});
    if(!c.title){const cp=c.source.type==="campaign"?campOf(c.source.campaignId):null;c.title=cp?cp.name:c.source.type==="filter"?`${c.source.area||"Karachi"} ${c.source.status==="available"?"Available ":""}Sites`:"Site Proposal"}
    if(!c.subtitle){const cp=c.source.type==="campaign"?campOf(c.source.campaignId):null;c.subtitle=cp?.client?`Prepared for ${cp.client}`:"OOH site presentation"}},
  mount(){if(!this.cfg)return;if((!this.cfg.slides||!this.cfg.slides.length)&&(S.sites.length||(this.cfg.sitesData&&this.cfg.sitesData.length))){this.build()}this.renderSlides();this.bindDnD()},
@@ -8943,26 +8945,36 @@ const Studio={
        const tools=(v&&s)?`<div class="sltools"><button class="btn sm" data-act="slphoto" data-i="${sl.idx}" ${imgIdx(s).length>1?"":"disabled"}>${ICON.img}Swap photo${imgIdx(s).length>1?` (${imgIdx(s).length})`:""}</button><button class="btn sm" data-act="slhide" data-i="${sl.idx}">${ICON.eye}Hide</button><button class="btn sm pri" data-act="${String(s.id).startsWith('vp-')?'vpsite':'siteedit'}" data-id="${s.id}">✏️ Edit Site</button><button class="btn sm" data-act="${String(s.id).startsWith('vp-')?'vpsite':'site'}" data-id="${s.id}">Site details</button></div>`:"";
        return`<div class="sl" ${v?`draggable="true" data-i="${sl.idx}"`:""}><div class="num"><b>${String(n+1).padStart(2,"0")}</b>${v?`<button data-act="slmove" data-i="${sl.idx}" data-d="-1" aria-label="Move up">${ICON.up}</button><button data-act="slmove" data-i="${sl.idx}" data-d="1" aria-label="Move down">${ICON.down}</button>`:""}</div><div class="slwrap">${slideHTML(sl.ops,TPL[this.cfg.template]||TPL.adpulse)}${tools}</div></div>`}).join("")+
        (this.cfg.slides.some(s=>s.hidden)?`<div class="card pad"><b>Hidden slides</b><div class="chips" style="margin-top:8px">${this.cfg.slides.map((s,i)=>s.hidden?`<button class="chip" data-act="slshow" data-i="${i}">${esc(S.sites.find(x=>x.id===s.siteId)?.code||"?")} · show</button>`:"").join("")}</div></div>`:"");
-      $$("[data-edit]",box).forEach(el=>el.addEventListener("blur",()=>{
-        const parts=el.dataset.edit.split(":");
-        const k=parts[0],i=parts[1],fld=parts[2];
-        const txt=el.innerText.trim();
-        if(k==="title")this.cfg.title=txt;
-        else if(k==="subtitle")this.cfg.subtitle=txt;
-        else if(k==="stitle")this.cfg.slides[+i].title=txt;
-        else if(k==="snote")this.cfg.slides[+i].note=txt;
-        else if(k==="sprice")this.cfg.slides[+i].price=txt;
-        else if(k==="tbl"){
-          if(String(i).startsWith("vp-")){
-            const vpFldMap={sNo:"sNo",client:"vendor",medium:"media",location:"location",w:"w",h:"h",sqft:"sqft",avail:"availability",status:"rate",vendor:"vendor",vendorEnd:"availability"};
-            if(vpFldMap[fld]) applyVpInlineTableEdit(i, vpFldMap[fld], txt);
-          } else {
-            applyInlineTableEdit(i, fld, txt);
+      $$("[data-edit]",box).forEach(el=>{
+        el.addEventListener("keydown",e=>{
+          if(e.key==="Enter"){
+            e.preventDefault();
+            el.blur();
           }
-          if(["w","h","startDate","endDate","client"].includes(fld)) this.renderSlides();
-        }
-        this.dirty();
-      }));
+        });
+        el.addEventListener("blur",()=>{
+          const parts=el.dataset.edit.split(":");
+          const k=parts[0],i=parts[1],fld=parts[2];
+          const txt=el.innerText.trim();
+          if(k==="title")this.cfg.title=txt;
+          else if(k==="subtitle")this.cfg.subtitle=txt;
+          else if(k==="stitle")this.cfg.slides[+i].title=txt;
+          else if(k==="snote")this.cfg.slides[+i].note=txt;
+          else if(k==="sprice")this.cfg.slides[+i].price=txt;
+          else if(k==="sclientlabel")this.cfg.slides[+i].clientLabel=txt;
+          else if(k==="sclient")this.cfg.slides[+i].client=txt;
+          else if(k==="tbl"){
+            if(String(i).startsWith("vp-")){
+              const vpFldMap={sNo:"sNo",client:"vendor",medium:"media",location:"location",w:"w",h:"h",sqft:"sqft",avail:"availability",status:"rate",vendor:"vendor",vendorEnd:"availability"};
+              if(vpFldMap[fld]) applyVpInlineTableEdit(i, vpFldMap[fld], txt);
+            } else {
+              applyInlineTableEdit(i, fld, txt);
+            }
+            if(["w","h","startDate","endDate","client"].includes(fld)) this.renderSlides();
+          }
+          this.dirty();
+        });
+      });
       const cnt=$("#slCount");if(cnt)cnt.textContent=c.onlySummary?`${deck.length} slides · Only Inventory Summary Table (${this.visible().length} sites)`:c.onlySites?`${deck.length} slides · Only Site Slides (${this.visible().length} sites)`:`${deck.length} slides · ${this.visible().length} sites`;
     }catch(err){
       console.error("[Studio.renderSlides]",err);
@@ -9210,6 +9222,8 @@ function siteOps(c,t,s,v,page,total){
 
   const fromStr = String(s.from || s.area || "Main Arterial").substring(0, 52);
   const towardsStr = String(s.towards || s.facing || "Commercial Hub").substring(0, 58);
+  const clientLabelVal = (v.clientLabel !== undefined && v.clientLabel !== "") ? v.clientLabel : "CLIENT / CAMPAIGN";
+  const clientNameVal = (v.client !== undefined && v.client !== "") ? v.client : (s.client || s.brand || s.vendor || "AdPulse OOH Network");
 
   if(layout==="split"){
     const ops=[
@@ -9227,8 +9241,8 @@ function siteOps(c,t,s,v,page,total){
       R(8.93,1.05,0.08,5.80,t.accent,{r:.04}),
 
       // Dossier Header: CLIENT & EXECUTIVE MEDIA PROFILE (Generous 0.44 height for 2-line vendor/client names)
-      T(9.18,1.15,3.38,0.16,"CLIENT / CAMPAIGN",{size:8.8,bold:true,color:t.accent,upper:true,spacing:1.1}),
-      T(9.18,1.33,3.38,0.44,(s.client||s.brand||s.vendor||"AdPulse OOH Network").substring(0,68),{size:11.0,bold:true,color:t.ink,font:"display"}),
+      T(9.18,1.15,3.38,0.16,clientLabelVal,{size:8.8,bold:true,color:t.accent,upper:true,spacing:1.1,edit:"sclientlabel:"+c.slides.indexOf(v)}),
+      T(9.18,1.33,3.38,0.44,String(clientNameVal).substring(0,68),{size:11.0,bold:true,color:t.ink,font:"display",edit:"sclient:"+c.slides.indexOf(v)}),
 
       // Divider 1
       R(9.18,1.81,3.34,0.012,t.muted,{alpha:.20}),
@@ -9357,7 +9371,7 @@ function slideHTML(ops,t){
     if(o.t==="img")return`<div class="o" style="${pos};border-radius:${fz(10)};overflow:hidden;background:#0d0b14;display:flex;align-items:center;justify-content:center;position:relative"><img src="${esc(o.src)}" alt="" data-sid="${esc(o.site||"")}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(22px) brightness(0.40);transform:scale(1.15);opacity:0.85;pointer-events:none"><img src="${esc(o.src)}" alt="" data-sid="${esc(o.site||"")}" style="position:relative;z-index:1;max-width:100%;max-height:100%;object-fit:contain;border-radius:${fz(6)};box-shadow:0 8px 32px rgba(0,0,0,0.6)" onerror="phFix(this)"></div>`;
     if(o.t==="logo")return`<div class="o" style="${pos}"><img src="${esc(o.which==="mark"?markSrc():logoSrc())}" alt="" style="object-fit:contain"></div>`;
     const ff=o.font==="mono"?"var(--mono)":o.font==="display"?"var(--display)":"var(--body)";
-    return`<div class="o" ${o.edit?`contenteditable="plaintext-only" spellcheck="false" data-edit="${o.edit}"`:""} style="${pos};font-size:${fz(o.size)};color:${hx(o.color)};font-family:${ff};font-weight:${o.bold?800:500};text-align:${o.align};${o.upper?"text-transform:uppercase;":""}${o.spacing?`letter-spacing:${o.spacing/10}em;`:""}${o.font==="display"?"letter-spacing:-.02em;line-height:1.05;":""}${o.link?"text-decoration:underline;":""}">${esc(o.text)}</div>`}).join("")}</div>`;
+    return`<div class="o" ${o.edit?`contenteditable="plaintext-only" spellcheck="false" data-edit="${o.edit}" title="Click to edit"`:""} style="${pos};font-size:${fz(o.size)};color:${hx(o.color)};font-family:${ff};font-weight:${o.bold?800:500};text-align:${o.align};${o.upper?"text-transform:uppercase;":""}${o.spacing?`letter-spacing:${o.spacing/10}em;`:""}${o.font==="display"?"letter-spacing:-.02em;line-height:1.05;":""}${o.link?"text-decoration:underline;":""}">${esc(o.text)}</div>`}).join("")}</div>`;
 }
 function vStudio(){
   if(ROLE==="guest"){
