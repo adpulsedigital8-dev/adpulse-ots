@@ -6191,7 +6191,8 @@ function vCampaigns(){
   if(!S.loaded.campaigns)return pgTop("Campaigns","Loading…")+`<div class="camps">${'<div class="skel"></div>'.repeat(3)}</div>`;
   const list=S.campaigns.slice().sort((a,b)=>String(a.id||"").localeCompare(String(b.id||""))||(b.startDate||"").localeCompare(a.startDate||""));
   const topBtns = `<div class="row" style="gap:8px;flex-wrap:wrap">
-    <button class="btn pri" data-act="uploaddeck" style="background:linear-gradient(135deg,#D9161D,#F26A21);box-shadow:0 4px 14px rgba(217,22,29,0.35);font-weight:700">📁 Upload PPT / PDF (Auto Campaign)</button>
+    <button class="btn pri" data-act="openproposemodal" style="background:linear-gradient(135deg,#7C3AED,#D9161D);box-shadow:0 3px 10px rgba(124,58,237,0.35);font-weight:800">📋 Propose Campaign Sites</button>
+    <button class="btn" data-act="uploaddeck" style="font-weight:700">📁 Upload PPT / PDF (Auto Campaign)</button>
     <button class="btn" data-act="newcamp">${ICON.plus}New campaign</button>
     
   </div>`;
@@ -6199,18 +6200,28 @@ function vCampaigns(){
   return pgTop("Campaigns",`${list.length} campaign${list.length!==1?"s":""}`,topBtns)+body;
 }
 function campCard(c){
-  const sites=(c.siteIds||[]).map(id=>S.sites.find(s=>s.id===id)).filter(Boolean);
+  const pool = typeof getAllProposalSitesPool === "function" ? getAllProposalSitesPool() : S.sites;
+  const poolMap = new Map(pool.map(s => [s.id, s]));
+  const sites = (c.siteIds || []).map(id => poolMap.get(id) || S.sites.find(s => s && (s.id === id || s.code === id))).filter(Boolean);
+  const isProposed = c.status === "proposed";
   const inRange=p=>p.campaignId===c.id||(c.startDate&&p.at>=c.startDate);
   const done=sites.filter(s=>(s.photos||[]).some(inRange)).length;const pct=sites.length?Math.round(done/sites.length*100):0;
   const C=2*Math.PI*36;const left=c.endDate?Math.ceil((new Date(c.endDate)-new Date(today()))/864e5):null;
   const areas=[...new Set(sites.map(s=>s.area))];
   return`<article class="card camp" style="--cc:linear-gradient(125deg,${c.color||"#7C3AED"},color-mix(in srgb,${c.color||"#7C3AED"} 55%,#E6398C))">
-   <div class="hd"><small>${esc(c.client||"Client")}${c.pptFile?` · 📁 ${esc(c.pptFile)}`:""}</small><h3>${esc(c.name)}</h3><small>${fmtDate(c.startDate)} → ${fmtDate(c.endDate)}</small></div>
+   <div class="hd">
+    <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+      <small style="font-weight:700">${esc(c.client||"Client")}${c.pptFile?` · 📁 ${esc(c.pptFile)}`:""}</small>
+      ${isProposed ? '<span class="pill" style="background:rgba(217,22,29,0.15);color:#D9161D;font-weight:800;font-size:10px;padding:2px 8px;border-radius:6px;border:1px solid rgba(217,22,29,0.3)">📋 Proposed Deck</span>' : ''}
+    </div>
+    <h3>${esc(c.name)}</h3>
+    <small>${fmtDate(c.startDate)} → ${c.endDate ? fmtDate(c.endDate) : (isProposed ? "Proposal 2026" : "Ongoing")}</small>
+  </div>
    <div class="bd"><svg class="ring" viewBox="0 0 84 84"><circle cx="42" cy="42" r="36" stroke="var(--surface2)"/><circle class="fg" cx="42" cy="42" r="36" stroke="${c.color||"#7C3AED"}" stroke-dasharray="${C}" stroke-dashoffset="${C}" data-off="${C*(1-pct/100)}"/><text x="42" y="46" text-anchor="middle" font-family="Bricolage Grotesque" font-weight="800" font-size="18" fill="var(--ink)">${pct}%</text></svg>
-    <div class="stats"><div><b>${sites.length}</b>Sites</div><div><b>${done}/${sites.length}</b>Monitored</div><div><b>${(()=>{const o=sites.reduce((a,x)=>a+otsOf(x),0);return o?"~"+fmtK(o):areas.length})()}</b>${sites.some(x=>otsOf(x))?"Daily OTS":"Areas"}</div><div><b>${left==null?"—":left<0?"Ended":left}</b>${left!=null&&left>=0?"Days left":"Status"}</div></div></div>
+    <div class="stats"><div><b>${sites.length}</b>Sites</div><div><b>${done}/${sites.length}</b>Monitored</div><div><b>${(()=>{const o=sites.reduce((a,x)=>a+otsOf(x),0);return o?"~"+fmtK(o):areas.length})()}</b>${sites.some(x=>otsOf(x))?"Daily OTS":"Areas"}</div><div><b>${isProposed ? "Proposed" : (left==null?"—":left<0?"Ended":left)}</b>${isProposed ? "Status" : (left!=null&&left>=0?"Days left":"Status")}</div></div></div>
    ${timeline(c)}
    <div style="padding:0 18px 8px;display:flex;gap:6px;overflow-x:auto">
-     ${sites.map(s=>`<div data-act="site" data-id="${s.id}" title="S#${s.sNo||''} · ${esc(s.code)} · ${esc(s.name)}" style="flex:none;width:54px;cursor:pointer;text-align:center"><img src="${esc(thumbOf(s))}" alt="${esc(s.code)}" loading="lazy" data-sid="${s.id}" onerror="phFix(this)" style="width:54px;height:36px;object-fit:cover;border-radius:6px;border:1px solid var(--border);display:block"><span class="mono" style="font-size:9px;font-weight:800;color:var(--ink)">${esc(s.code)}</span></div>`).join("")}
+     ${sites.map(s=>`<div data-act="site" data-id="${s.id}" title="S#${s.sNo||''} · ${esc(s.code)} · ${esc(s.name||s.location)}" style="flex:none;width:54px;cursor:pointer;text-align:center"><img src="${esc(s.photo || thumbOf(s) || placeholder(s))}" alt="${esc(s.code)}" loading="lazy" data-sid="${s.id}" onerror="phFix(this)" style="width:54px;height:36px;object-fit:cover;border-radius:6px;border:1px solid var(--border);display:block"><span class="mono" style="font-size:9px;font-weight:800;color:var(--ink)">${esc(s.code)}</span></div>`).join("")}
    </div>
    <div style="padding:0 18px 12px;font-size:12px;color:var(--muted);font-weight:600">${areas.slice(0,5).map(esc).join(" · ")||"No sites added yet"}</div>
    <div class="ft"><button class="btn sm pri" data-act="camppresentation" data-id="${c.id}" style="background:linear-gradient(135deg,#D9161D,#F26A21);color:#fff;font-weight:700">📊 Presentation</button><button class="btn sm" data-act="campsites" data-id="${c.id}">View sites</button><button class="btn sm" data-act="editcamp" data-id="${c.id}">Edit</button><span class="sp"></span><button class="btn sm" data-act="sharecamp" data-id="${c.id}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;vertical-align:middle;margin-right:4px"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Share link</button><button class="btn sm pri" data-act="campdeck" data-id="${c.id}">${ICON.deck}Generate deck</button></div></article>`;
@@ -6819,31 +6830,39 @@ function generateProposedPresentation(selectedIds, clientName, proposalTitle, su
   toast("Opening Proposal Presentation for " + client + " (" + chosen.length + " Slides) in Studio…");
 }
 
-async function saveAsProposedCampaign(selectedIds, clientName, campaignName) {
+async function saveAsProposedCampaign(selectedIds, clientName, campaignName, silent) {
   const selIds = Array.isArray(selectedIds) && selectedIds.length ? selectedIds : [...(PCF.selected || [])];
   if (!selIds.length) {
-    toast("⚠️ Please select at least 1 site to save as campaign");
+    if (!silent) toast("⚠️ Please select at least 1 site to save as campaign");
     return;
   }
   const client = (clientName || PCF.client || "").trim() || "Proposed Client";
   const name = (campaignName || PCF.title || "").trim() || (client + " Proposed Campaign 2026");
+  
+  // Look for existing proposal with same name/client or create new
+  const existing = S.campaigns.find(c => c.name === name && c.client === client);
+  const campId = existing ? existing.id : uid();
+  
   const newCamp = {
-    id: uid(),
+    id: campId,
     name,
     client,
     status: "proposed",
     startDate: today(),
     endDate: "",
-    color: CCOLORS[S.campaigns.length % CCOLORS.length],
-    siteIds: [...selIds]
+    color: existing ? existing.color : CCOLORS[S.campaigns.length % CCOLORS.length],
+    siteIds: [...new Set(selIds)]
   };
   try {
     await put("campaigns", newCamp);
-    toast("🎉 Saved \"" + name + "\" (" + selIds.length + " sites) in Campaigns!");
-    location.hash = "campaigns";
-    go("campaigns", true);
+    if (!silent) {
+      toast("🎉 Saved \"" + name + "\" (" + selIds.length + " sites) in Campaigns!");
+      location.hash = "campaigns";
+      go("campaigns", true);
+    }
   } catch (err) {
-    toast("Error saving campaign: " + err.message);
+    console.warn("Error saving campaign:", err);
+    if (!silent) toast("Error saving campaign: " + err.message);
   }
 }
 
@@ -7206,13 +7225,22 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
     if (activeSource === "selected") applyModalFilter();
   };
 
-  if ($("#pcmGenPptBtn")) $("#pcmGenPptBtn").onclick = () => {
-    const client = ($("#pcmClient")?.value || "").trim();
-    const title = ($("#pcmTitle")?.value || "").trim();
+  if ($("#pcmGenPptBtn")) $("#pcmGenPptBtn").onclick = async () => {
+    const client = ($("#pcmClient")?.value || "").trim() || "Proposed Client";
+    const title = ($("#pcmTitle")?.value || "").trim() || (client + " Proposed Campaign 2026");
     PCF.client = client;
     PCF.title = title;
+    const selIds = [...PCF.selected];
+    if (!selIds.length) {
+      toast("⚠️ Please select at least 1 site to generate proposal presentation");
+      return;
+    }
     closeLayer();
-    generateProposedPresentation([...PCF.selected], client, title);
+    // Auto-save into Campaigns so it is permanently visible in Campaigns tab!
+    await saveAsProposedCampaign(selIds, client, title, true);
+    // Also open directly in Studio Presentations tab
+    generateProposedPresentation(selIds, client, title);
+    toast("🎉 Saved in Campaigns and opened in Presentations!");
   };
 
   if ($("#pcmSaveCampBtn")) $("#pcmSaveCampBtn").onclick = async () => {
@@ -10381,18 +10409,42 @@ savedeck:async()=>{const c=Studio.cfg;c.version=(c.version||0)+1;try{await put("
    const id = a.dataset.id;
    const camp = campOf(id);
    if (!camp) return;
-   const cSites = (camp.siteIds || []).map(sid => siteOf(sid)).filter(Boolean);
-   Studio.cfg = Studio.fresh({ type: "campaign", campaignId: id });
-   Studio.cfg.title = `${camp.client} - Presentation 2026`;
-   Studio.cfg.subtitle = `${camp.name} · ${cSites.length} Active OOH & Digital Sites`;
+   const pool = typeof getAllProposalSitesPool === "function" ? getAllProposalSitesPool() : S.sites;
+   const poolMap = new Map(pool.map(s => [s.id, s]));
+   const cSites = (camp.siteIds || []).map(sid => poolMap.get(sid) || siteOf(sid)).filter(Boolean);
+   Studio.cfg = Studio.fresh({ type: "ids", ids: cSites.map(s => s.id) });
+   Studio.cfg.title = `${camp.client || "Client"} - Presentation 2026`;
+   Studio.cfg.subtitle = `${camp.name} · ${cSites.length} Strategic OOH Sites · Prepared by AdPulse IMC`;
+   Studio.cfg.client = camp.client || "Client";
+   Studio.cfg.sitesData = cSites;
+   Studio.cfg.slides = cSites.map(s => ({
+     siteId: s.id,
+     hidden: false,
+     photo: 0,
+     title: s.name || s.location,
+     note: [
+       s.from && s.towards ? (s.from + " → " + s.towards) : "",
+       s.vendor ? ("Media Partner: " + s.vendor) : "",
+       s.availability ? ("Availability: " + s.availability) : "",
+       s.rate ? ("Rate: " + s.rate) : ""
+     ].filter(Boolean).join(" · "),
+     price: s.rate || "Rate on Request"
+   }));
    Studio.cfg.summary = true;
    Studio.cfg.fields.vendor = true;
-   Studio.build();
+   Studio.cfg.fields.price = true;
+   Studio.cfg.fields.media = true;
+   Studio.cfg.fields.size = true;
    Studio.active = true;
    location.hash = "studio";
    go("studio", true);
-   toast(`Opening presentation for ${camp.client}…`);
+   toast(`Opening presentation for ${camp.client || camp.name}…`);
  },
+ delcamp: a => confirmBox("Are you sure you want to remove this campaign?", async () => {
+   await del("campaigns", a.dataset.id);
+   toast("Campaign deleted");
+   render();
+ }, "Delete"),
  clearalldata:()=>clearAllData(false),
  clearsample:()=>confirmBox("Remove all sample sites and campaigns?",async()=>{for(const s of S.sites.filter(x=>x.sample))await del("sites",s.id);for(const c of S.campaigns.filter(x=>x.sample))await del("campaigns",c.id);toast("Sample data removed")},"Remove")
 };
@@ -10485,7 +10537,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=50.3").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=50.4").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
