@@ -1756,6 +1756,11 @@ let fOpen=false,siteView="grid",sel=new Set(),route="dashboard",queue=[],local=n
 let db=null,assets=null,downloads=null,user=null,sampleFn=null,sampleImg=null;
 let ROLE="pending",ME=null,CAN_ADMIN=true,CAN_WRITE=null,PORTAL=null,PORTAL_READY=false,MYREQ=null,PREVIEW=null,pCamp=null,portals={};
 S.clients=[];S.requests=[];
+const memBlobs={}; // local-mode photo sources
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const uid=()=>Math.random().toString(36).slice(2,10)+Date.now().toString(36).slice(-4);
+const ls={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 S.archivedSites = ls.get("adpulse_archived_sites", []);
 function saveArchivedSites(){ ls.set("adpulse_archived_sites", S.archivedSites || []); }
 async function restoreSite(id){
@@ -1796,11 +1801,6 @@ async function restoreAllSites(){
   toast("Restored " + count + " sites to Master File!");
   render();
 }
-const memBlobs={}; // local-mode photo sources
-const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
-const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const uid=()=>Math.random().toString(36).slice(2,10)+Date.now().toString(36).slice(-4);
-const ls={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const fmtDate=d=>{if(!d)return"—";const dt=new Date(d);return isNaN(dt.getTime())?"—":dt.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"})};
 const fmtDT=d=>{if(!d)return"Verified";const dt=new Date(d);return isNaN(dt.getTime())?"Verified":(dt.getHours()||dt.getMinutes()?dt.toLocaleString("en-GB",{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"}):dt.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"}))};
 const ago=d=>{const m=Math.round((Date.now()-new Date(d))/6e4);if(m<1)return"just now";if(m<60)return m+" min ago";const h=Math.round(m/60);if(h<24)return h+" h ago";const dd=Math.round(h/24);return dd+" day"+(dd>1?"s":"")+" ago"};
