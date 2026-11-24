@@ -1,4 +1,4 @@
-const CACHE_NAME = 'adpulse-ots-v50.1';
+const CACHE_NAME = 'adpulse-ots-v50.2';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -12,8 +12,12 @@ const PRECACHE_ASSETS = [
   '/master_campaigns_2026.json',
   '/vendor_preview_2026.js',
   '/vendor_preview_2026.json',
+  '/favicon.ico',
+  '/logo.png',
   '/icons/icon-192.png',
   '/icons/icon-512.png',
+  '/icons/logo.png',
+  '/icons/og-image.png',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
   'https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js',
