@@ -11,7 +11,7 @@
 <meta name="application-name" content="AdPulse OTS">
 <meta name="msapplication-TileColor" content="#D9161D">
 <title>AdPulse OOH Tracking System</title>
-<meta name="description" content="AdPulse Media Agency — OOH Master File & Vendor Billboard Tracking System with Google 3D Maps & 2,177 Inventory Sites">
+<meta name="description" content="AdPulse Media Agency — OOH Master File & Vendor Billboard Tracking System with Google 3D Maps & 2,283 Inventory Sites">
 
 <!-- Favicon & Touch Icons -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -29,7 +29,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AdPulse OOH Tracking System">
 <meta property="og:title" content="AdPulse OOH Tracking System">
-<meta property="og:description" content="AdPulse Media Agency — OOH Master File & Vendor Billboard Tracking System with Google 3D Maps & 2,177 Inventory Sites">
+<meta property="og:description" content="AdPulse Media Agency — OOH Master File & Vendor Billboard Tracking System with Google 3D Maps & 2,283 Inventory Sites">
 <meta property="og:image" content="/icons/icon-512.png">
 <meta property="og:image:secure_url" content="/icons/icon-512.png">
 <meta property="og:image:type" content="image/png">
@@ -40,7 +40,7 @@
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AdPulse OOH Tracking System">
-<meta name="twitter:description" content="AdPulse Media Agency — OOH Master File & Vendor Billboard Tracking System with Google 3D Maps & 2,177 Inventory Sites">
+<meta name="twitter:description" content="AdPulse Media Agency — OOH Master File & Vendor Billboard Tracking System with Google 3D Maps & 2,283 Inventory Sites">
 <meta name="twitter:image" content="/icons/icon-512.png">
 <meta name="twitter:image:alt" content="AdPulse Logo">
 <link rel="image_src" href="/icons/icon-512.png">
@@ -1646,7 +1646,7 @@ body.client .tabs{display:none}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script src="/master_sites_2026.js?v=48.0"></script>
   <script src="/master_campaigns_2026.js?v=48.0"></script>
-  <script src="/vendor_preview_2026.js?v=48.0"></script>
+  <script src="/vendor_preview_2026.js?v=50.9"></script>
 </head>
 <body>
 
@@ -4410,7 +4410,7 @@ function vBookedExpire() {
   const deptIssueList = allBooked.filter(s => /ISSUE/i.test(s.excelStatus || s.statusLabel || ""));
   const extendableList = allBooked.filter(s => /EXTENDABLE/i.test(s.excelStatus || s.statusLabel || ""));
 
-  const q = (BEF.q || "").toLowerCase().trim();
+  const q = (BEF.q || "").toLowerCase().trim().replace(/ch[ae]nab/g, "chinab");
   const list = allBooked.filter(s => {
     const st = String(s.excelStatus || s.statusLabel || "");
     if (BEF.cat === "will_end" && !/WILL BE END/i.test(st)) return false;
@@ -4568,7 +4568,7 @@ const OOHSiteAIChatbot = {
   init() {
     if (this.messages.length === 0) {
       const mCount = (S.sites || []).length || 84;
-      const vpCount = (typeof getVendorPreviewSites === "function" ? getVendorPreviewSites() : (window.VENDOR_PREVIEW_SITES_2026 || [])).length || 2093;
+      const vpCount = (typeof getVendorPreviewSites === "function" ? getVendorPreviewSites() : (window.VENDOR_PREVIEW_SITES_2026 || [])).length || 2199;
       const cCount = (S.campaigns || []).length || 8;
       this.messages.push({
         role: "bot",
@@ -4580,7 +4580,7 @@ const OOHSiteAIChatbot = {
             <li><b>${mCount} OOH AdPulse Sites</b> (S#1 – S#${mCount}, sizes, SQFT, clients, dates &amp; 360° street view)</li>
             <li><b>59 Booked &amp; Expiring Sites</b> (28 <code>WILL BE END</code>, <code>EXTENDABLE</code> &amp; <code>DEPT ISSUE</code>)</li>
             <li><b>${cCount} Active Client Campaigns</b> (AA Avenue, Askari, Chase Value, Eminent, Falaknaz, GFS, Kifayah)</li>
-            <li><b>${vpCount.toLocaleString()} Vendors Sites Preview</b> (50 Vendor Decks)</li>
+            <li><b>${vpCount.toLocaleString()} Vendors Sites Preview</b> (52 Vendor Decks)</li>
           </ul>
         `,
         sites: []
@@ -4721,7 +4721,7 @@ const OOHSiteAIChatbot = {
   },
 
   generateHumanReply(query) {
-    const q = query.toLowerCase().trim();
+    const q = query.toLowerCase().trim().replace(/ch[ae]nab/g, "chinab");
     const masterSites = S.sites || [];
     const vpSites = typeof getVendorPreviewSites === "function" ? getVendorPreviewSites() : (window.VENDOR_PREVIEW_SITES_2026 || []);
     const campaigns = S.campaigns || [];
@@ -4917,7 +4917,7 @@ const OOHSiteAIChatbot = {
     }
 
     // 6. Vendor Queries
-    if (q.includes("vendor") || q.includes("saturday") || q.includes("preview") || q.includes("ad solution") || q.includes("printech") || q.includes("outdoor") || q.includes("media")) {
+    if (q.includes("vendor") || q.includes("saturday") || q.includes("preview") || q.includes("ad solution") || q.includes("printech") || q.includes("outdoor") || q.includes("media") || q.includes("chinab")) {
       const masterVendors = {};
       masterSites.forEach(s => { const v = s.vendor || "AdPulse IMC"; masterVendors[v] = (masterVendors[v] || 0) + 1; });
       const vpVendors = {};
@@ -4926,8 +4926,9 @@ const OOHSiteAIChatbot = {
       const allVNames = [...Object.keys(masterVendors), ...Object.keys(vpVendors)];
       const matchedV = allVNames.find(v => q.includes(v.toLowerCase().split("(")[0].trim().toLowerCase()) && v.toLowerCase().split("(")[0].trim().length > 3);
       if (matchedV && !q.includes("vendor-wise") && !q.includes("breakdown") && !q.includes("all vendor")) {
-        const mList = masterSites.filter(s => (s.vendor || "").toLowerCase().includes(matchedV.toLowerCase()));
-        const vpList = vpSites.filter(s => (s.vendor || "").toLowerCase().includes(matchedV.toLowerCase()));
+        const baseV = matchedV.toLowerCase().split("(")[0].trim();
+        const mList = masterSites.filter(s => (s.vendor || "").toLowerCase().includes(baseV));
+        const vpList = vpSites.filter(s => (s.vendor || "").toLowerCase().includes(baseV));
         const showSites = [...mList, ...vpList].slice(0, 8);
         return {
           html: `
@@ -4950,12 +4951,12 @@ const OOHSiteAIChatbot = {
           <div style="font-weight:800;font-size:14.5px;color:#D9161D;margin-bottom:4px">🏢 Vendor-Wise OOH Inventory</div>
           <div><b>1. OOH AdPulse Master Vendors (${masterSites.length} Sites):</b></div>
           <ul style="margin:4px 0 8px 18px;padding:0;font-size:12.2px">${mRows}</ul>
-          <div><b>2. Vendors Sites Preview — 44 Decks (${vpSites.length.toLocaleString()} Sites):</b></div>
+          <div><b>2. Vendors Sites Preview — ${Object.keys(vpVendors).length} Decks (${vpSites.length.toLocaleString()} Sites):</b></div>
           <ul style="margin:4px 0 8px 18px;padding:0;font-size:12.2px">${vpTop}</ul>
         `,
         sites: masterSites.slice(0, 6),
         deckTitle: "Master Vendor-Wise Inventory",
-        speech: `We have ${Object.keys(masterVendors).length} master vendors across 84 sites and 50 vendor preview decks.`
+        speech: `We have ${Object.keys(masterVendors).length} master vendors across 84 sites and ${Object.keys(vpVendors).length} vendor preview decks.`
       };
     }
 
@@ -5141,7 +5142,7 @@ const OOHSiteAIChatbot = {
             <b style="font-size:14.5px;color:#fff">OOH Assistant</b>
             <span style="background:#10B981;color:#fff;font-size:9.5px;font-weight:800;padding:1px 6px;border-radius:999px">● LIVE</span>
           </div>
-          <div style="font-size:11px;color:#D4D4D8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">84 Master Sites · 59 Expiry · 8 Campaigns · 50 Vendor Decks</div>
+          <div style="font-size:11px;color:#D4D4D8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">84 Master Sites · 59 Expiry · 8 Campaigns · 52 Vendor Decks</div>
         </div>
         <button type="button" class="btn sm ghost" onclick="OOHSiteAIChatbot.toggleVoice()" style="color:#fff;padding:4px 7px" title="Toggle Voice Audio">${this.voiceOn ? "🔊" : "🔇"}</button>
         <button type="button" class="btn sm ghost" onclick="location.hash='ai-chatbot';go('ai-chatbot',true);OOHSiteAIChatbot.toggleWidget(false)" style="color:#FDE047;padding:4px 7px;font-size:11px;font-weight:800" title="Open Full Screen">⛶ Full</button>
@@ -5178,7 +5179,7 @@ const OOHSiteAIChatbot = {
 function vAiChatbot() {
   OOHSiteAIChatbot.init();
   const masterCount = (S.sites || []).length || 84;
-  const vpCount = (typeof getVendorPreviewSites === "function" ? getVendorPreviewSites() : (window.VENDOR_PREVIEW_SITES_2026 || [])).length || 2093;
+  const vpCount = (typeof getVendorPreviewSites === "function" ? getVendorPreviewSites() : (window.VENDOR_PREVIEW_SITES_2026 || [])).length || 2199;
   const bookedCount = (typeof getBookedExpireSites === "function" ? getBookedExpireSites() : []).length || 59;
   const campCount = (S.campaigns || []).length || 8;
 
@@ -5262,7 +5263,7 @@ function vAiChatbot() {
 
 /* ============ Sites ============ */
 function filtered(){
-  const q=F.q.toLowerCase().trim();
+  const q=F.q.toLowerCase().trim().replace(/ch[ae]nab/g,"chinab");
   const pool = (F.status === "archived") ? (S.archivedSites || []) : S.sites;
   return pool.filter(s=>(!F.area||s.area===F.area)&&(!F.size||sizeOf(s)===F.size)&&(!F.media||s.media===F.media||s.excelMedium===F.media)&&(!F.status||F.status==="archived"||effStatus(s)===F.status||(F.status==="booked"&&effStatus(s)==="expiring"))&&(!F.lit||s.light===F.lit)&&(!F.traffic||s.traffic===F.traffic)&&(!F.vendor||s.vendor===F.vendor)&&(!F.campaign||(campOf(F.campaign)?.siteIds||[]).includes(s.id))&&(!q||[s.sNo,s.code,s.name,s.title,s.location,s.client,s.brand,s.medium,s.excelMedium,s.media,s.area,s.from,s.towards,s.vendor,s.vendorEndDate,s.availability,s.excelAvailability,s.statusLabel,s.excelStatus,s.rates,s.notes].join(" ").toLowerCase().includes(q))).sort((a,b)=>(a.sNo||999)-(b.sNo||999)||(a.code||"").localeCompare(b.code||""));
 }
@@ -7170,7 +7171,7 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
                 Propose Campaign Sites
                 <span class="tag" style="background:rgba(217,22,29,0.12);color:#D9161D;font-size:12px;font-weight:800;padding:2px 8px">${allPool.length} Total Inventory Pool</span>
               </h2>
-              <p style="margin:2px 0 0;font-size:13px;color:var(--muted)">Select sites from <b>Master File</b> & <b>2,093 Vendor Preview Sites</b> to generate Client Proposal PPT</p>
+              <p style="margin:2px 0 0;font-size:13px;color:var(--muted)">Select sites from <b>Master File</b> & <b>${vendorSites.length.toLocaleString()} Vendor Preview Sites</b> to generate Client Proposal PPT</p>
             </div>
           </div>
           <div style="display:flex;align-items:center;gap:8px">
@@ -7288,7 +7289,7 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
   };
 
   const applyModalFilter = () => {
-    const q = ($("#pcmSearch")?.value || "").toLowerCase().trim();
+    const q = ($("#pcmSearch")?.value || "").toLowerCase().trim().replace(/ch[ae]nab/g, "chinab");
     const v = ($("#pcmVendor")?.value || "").trim();
     const a = ($("#pcmArea")?.value || "").toLowerCase().trim();
     const st = ($("#pcmStatus")?.value || "").trim();
@@ -7516,7 +7517,7 @@ function vProposeCampaign() {
   const vendorSites = allPool.filter(s => s.source === "vendor");
 
   // Filter pool
-  const q = (PCF.q || "").toLowerCase().trim();
+  const q = (PCF.q || "").toLowerCase().trim().replace(/ch[ae]nab/g, "chinab");
   const filtered = allPool.filter(s => {
     if (PCF.source === "master" && s.source !== "master") return false;
     if (PCF.source === "vendor" && s.source !== "vendor") return false;
@@ -7567,7 +7568,7 @@ function vProposeCampaign() {
       <div class="card kpi" style="--c:#2563EB">
         <div class="ic" style="background:#2563EB">${ICON.camp}</div>
         <div class="n">${allPool.length.toLocaleString()}</div>
-        <small style="font-weight:700">Total Pool (84 M + 2093 VP)</small>
+        <small style="font-weight:700">Total Pool (${masterSites.length} M + ${vendorSites.length} VP)</small>
       </div>
     </div>
   `;
@@ -7757,7 +7758,7 @@ function vProposeCampaign() {
 
   return pgTop(
     "Propose Campaign Sites",
-    `Select Sites from 2,093 Vendor Preview & 84 Master Inventory · Generate Proposal PPT Deck in 1 Click`,
+    `Select Sites from ${vendorSites.length.toLocaleString()} Vendor Preview & ${masterSites.length} Master Inventory · Generate Proposal PPT Deck in 1 Click`,
     topActions
   ) + `
     ${kpisHtml}
@@ -7784,7 +7785,7 @@ function openMasterVendorDeck() {
 }
 
 
-/* ============ Vendors Sites Preview (44 Vendor PPT & PDF Presentations) ============ */
+/* ============ Vendors Sites Preview (52 Vendor PPT & PDF Presentations) ============ */
 const VPF = { vendor: "", q: "", media: "", status: "", view: "cards", groupsShown: 8 };
 
 let _vpFetching = false;
@@ -7799,7 +7800,7 @@ function getVendorPreviewSites() {
   const raw = window.VENDOR_PREVIEW_SITES_2026 || [];
   if (!raw.length && !_vpFetching) {
     _vpFetching = true;
-    fetch("/vendor_preview_2026.json?v=48.0").then(r => r.json()).then(data => {
+    fetch("/vendor_preview_2026.json?v=50.9").then(r => r.json()).then(data => {
       if (Array.isArray(data) && data.length) {
         window.VENDOR_PREVIEW_SITES_2026 = data;
         invalidateVendorPreviewCache();
@@ -7814,7 +7815,7 @@ function getVendorPreviewSites() {
   _cachedVendorSites = combined.map(s => {
     const ed = savedEdits[s.id];
     const merged = ed ? { ...s, ...ed } : s;
-    const pUrl = merged.photo ? (merged.photo.startsWith("data:") || merged.photo.includes("?") ? merged.photo : merged.photo + "?v=48.0") : "";
+    const pUrl = merged.photo ? (merged.photo.startsWith("data:") || merged.photo.includes("?") ? merged.photo : merged.photo + "?v=50.9") : "";
     const w = +(merged.widthFt || 60);
     const h = +(merged.heightFt || 20);
     const sq = merged.sqft || (w * h);
@@ -7918,7 +7919,7 @@ function openVendorPreviewDeck(vendorName, mode) {
   if (!list.length) { toast("No sites found for this vendor"); return; }
   const src = { type: "ids", ids: list.map(s => s.id) };
   Studio.cfg = Studio.fresh(src);
-  Studio.cfg.title = vendorName ? `${vendorName} — Sites Preview (2026)` : "All 50 Vendors Sites Preview Portfolio (2026)";
+  Studio.cfg.title = vendorName ? `${vendorName} — Sites Preview (2026)` : "All 52 Vendors Sites Preview Portfolio (2026)";
   Studio.cfg.subtitle = `Extracted from Vendor PPT & PDF Presentation · ${list.length} OOH & Digital Sites`;
   Studio.cfg.sitesData = list;
   Studio.cfg.slides = list.map(s => ({
@@ -7938,7 +7939,7 @@ function openVendorPreviewDeck(vendorName, mode) {
   Studio.active = true;
   location.hash = "studio";
   go("studio", true);
-  toast(`Opening presentation for ${vendorName || "All 44 Vendors"} (${list.length} sites)…`);
+  toast(`Opening presentation for ${vendorName || "All 52 Vendors"} (${list.length} sites)…`);
 }
 
 function openVendorPreviewSite(id) {
@@ -8092,6 +8093,7 @@ function openVendorPreviewSite(id) {
         const deletedMap = ls.get("sitesnap-vp-deleted", {});
         deletedMap[s.id] = true;
         ls.set("sitesnap-vp-deleted", deletedMap);
+        invalidateVendorPreviewCache();
         closeLayer();
         render(true);
         toast("🗑️ Vendor site deleted");
@@ -8146,7 +8148,7 @@ function openVendorPreviewSite(id) {
 function vVendorsPreview() {
   const all = getVendorPreviewSites();
   if (!all.length) {
-    return pgTop("Vendors Sites Preview", "Loading 50 Vendor PPT & PDF Presentations…") + `<div class="cards">${'<div class="skel"></div>'.repeat(6)}</div>`;
+    return pgTop("Vendors Sites Preview", "Loading 52 Vendor PPT & PDF Presentations…") + `<div class="cards">${'<div class="skel"></div>'.repeat(6)}</div>`;
   }
 
   const vendorGroupsMap = new Map();
@@ -8170,7 +8172,7 @@ function vVendorsPreview() {
   });
   const vendorGroups = [...vendorGroupsMap.values()];
 
-  const q = (VPF.q || "").toLowerCase().trim();
+  const q = (VPF.q || "").toLowerCase().trim().replace(/ch[ae]nab/g, "chinab");
   const filteredSites = all.filter(s =>
     (!VPF.vendor || s.vendor === VPF.vendor) &&
     (!VPF.media || s.media === VPF.media) &&
@@ -8236,7 +8238,7 @@ function vVendorsPreview() {
 
   let contentHtml = "";
   if (!activeGroups.length) {
-    contentHtml = `<div class="card">${emptyState("No vendor sites match these filters", "Try clearing the search or selecting All 44 Vendors.")}</div>`;
+    contentHtml = `<div class="card">${emptyState("No vendor sites match these filters", `Try clearing the search or selecting All ${vendorGroups.length} Vendors.`)}</div>`;
   } else if (VPF.view === "table") {
     contentHtml = activeGroups.map(vg => `
       <div class="tblwrap card" style="padding:0;overflow-x:auto;border:1.5px solid #1C1A1B;border-radius:12px;margin-bottom:24px">
@@ -9905,7 +9907,7 @@ function palette(){
   let idx=0,items=[];
   let _palDebounce = null;
   const run=()=>{
-    const q=(inp?inp.value:"").toLowerCase().trim();
+    const q=(inp?inp.value:"").toLowerCase().trim().replace(/ch[ae]nab/g,"chinab");
     const vpSites = q ? (getVendorPreviewSites().filter(s => s._searchStr ? s._searchStr.includes(q) : [s.code,s.vendor,s.location,s.name].join(" ").toLowerCase().includes(q)).slice(0, 6)) : [];
     items=[
       ...S.sites.filter(s=>[s.code,s.area,s.from,s.towards,s.brand,s.tagline,s.media].join(" ").toLowerCase().includes(q)).slice(0,10).map(s=>({
@@ -10987,7 +10989,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=50.8").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=50.9").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});

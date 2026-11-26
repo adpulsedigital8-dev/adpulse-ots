@@ -1,4 +1,4 @@
-// AdPulse OTS - 49 Vendor Presentations Preview Dataset (2026)
+// AdPulse OTS - 52 Vendor Presentations Preview Dataset (2026)
 window.VENDOR_PREVIEW_SITES_2026 = [
   {
     "id": "vp-2026-0001",
@@ -6776,8 +6776,2764 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "rawText": "KARACHI · OFFIC · E: · SUITE# · 218, · OFFICE · WING · PARK · TOWERSSHAHRAH · FIRDOUSI · C · LIFTON · BLOCK · 5"
   },
   {
-    "id": "vp-2026-0272",
+    "sNo": 1,
+    "slideNum": 3,
+    "code": "VP-CHD-01",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "3D LED Screen at Liberty Roundabout (Lahore)",
+    "location": "3D LED Screen at Liberty Roundabout (Lahore)",
+    "area": "Lahore",
+    "direction": "From 3D LED Screen at Liberty Roundabout → Towards Lahore Arterial Hub",
+    "from": "3D LED Screen at Liberty Roundabout",
+    "towards": "Lahore Arterial Hub",
+    "size": "80x30 ft",
+    "widthFt": 80,
+    "heightFt": 30,
+    "sqft": 2400,
+    "availability": "Available (1 week · 30 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 700,000 / 1 week (30 Sec)",
+    "media": "3D LED Digital Screen",
+    "photo": "/vendor-media/chinab_digital_s1.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · 3D LED Screen at Liberty Roundabout · 3D LED Screen at Liberty Roundabout · 80x30 ft · Qty 1 · PKR 700,000 / 1 week (30 Sec) · Available (1 week · 30 Sec Slot)",
     "globalNo": 272,
+    "id": "vp-chd-001"
+  },
+  {
+    "sNo": 2,
+    "slideNum": 4,
+    "code": "VP-CHD-02",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Noor Jahan Road ( Liberty ) (Lahore)",
+    "location": "Noor Jahan Road ( Liberty ) (Lahore)",
+    "area": "Lahore",
+    "direction": "From Noor Jahan Road ( Liberty ) → Towards Lahore Arterial Hub",
+    "from": "Noor Jahan Road ( Liberty )",
+    "towards": "Lahore Arterial Hub",
+    "size": "3x6 ft (54 Units)",
+    "widthFt": 3,
+    "heightFt": 6,
+    "sqft": 972,
+    "availability": "Available (1 week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 550,000 / 1 week (54 Units · 15 Sec)",
+    "media": "Digital Streamers / SMD Poles",
+    "photo": "/vendor-media/chinab_digital_s2.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Noor Jahan Road ( Liberty ) · Noor Jahan Road · 3x6 ft (54 Units) · Qty 54 · PKR 550,000 / 1 week (54 Units · 15 Sec) · Available (1 week · 15 Sec Slot)",
+    "globalNo": 273,
+    "id": "vp-chd-002"
+  },
+  {
+    "sNo": 3,
+    "slideNum": 5,
+    "code": "VP-CHD-03",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Iqbal Town Main Boulevard (Lahore)",
+    "location": "Iqbal Town Main Boulevard (Lahore)",
+    "area": "Lahore",
+    "direction": "From Iqbal Town Main Boulevard → Towards Lahore Arterial Hub",
+    "from": "Iqbal Town Main Boulevard",
+    "towards": "Lahore Arterial Hub",
+    "size": "3x6 ft (66 Units)",
+    "widthFt": 3,
+    "heightFt": 6,
+    "sqft": 1188,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 500,000 / 1 Week (66 Units · 15 Sec)",
+    "media": "Digital Streamers / SMD Poles",
+    "photo": "/vendor-media/chinab_digital_s3.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Iqbal Town Main Boulevard · Iqbal Town Main Boulevard · 3x6 ft (66 Units) · Qty 66 · PKR 500,000 / 1 Week (66 Units · 15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 274,
+    "id": "vp-chd-003"
+  },
+  {
+    "sNo": 4,
+    "slideNum": 6,
+    "code": "VP-CHD-04",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Shaukat Khanum Flyover (Lahore)",
+    "location": "Shaukat Khanum Flyover (Lahore)",
+    "area": "Lahore",
+    "direction": "From Shaukat Khanum Flyover → Towards Lahore Arterial Hub",
+    "from": "Shaukat Khanum Flyover",
+    "towards": "Lahore Arterial Hub",
+    "size": "3x6 ft (40 Units)",
+    "widthFt": 3,
+    "heightFt": 6,
+    "sqft": 720,
+    "availability": "Available (1 week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 500,000 / 1 week (40 Units · 15 Sec)",
+    "media": "Digital Streamers / SMD Poles",
+    "photo": "/vendor-media/chinab_digital_s4.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Shaukat Khanum Flyover · Shaukat Khanum Flyover · 3x6 ft (40 Units) · Qty 40 · PKR 500,000 / 1 week (40 Units · 15 Sec) · Available (1 week · 15 Sec Slot)",
+    "globalNo": 275,
+    "id": "vp-chd-004"
+  },
+  {
+    "sNo": 5,
+    "slideNum": 7,
+    "code": "VP-CHD-05",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Model Town Link Road (Lahore)",
+    "location": "Model Town Link Road (Lahore)",
+    "area": "Lahore",
+    "direction": "From Model Town Link Road → Towards Lahore Arterial Hub",
+    "from": "Model Town Link Road",
+    "towards": "Lahore Arterial Hub",
+    "size": "3x6 ft (60 Units)",
+    "widthFt": 3,
+    "heightFt": 6,
+    "sqft": 1080,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 600,000 / 1 Week (60 Units · 15 Sec)",
+    "media": "Digital Streamers / SMD Poles",
+    "photo": "/vendor-media/chinab_digital_s5.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Model Town Link Road · Model Town Link Road · 3x6 ft (60 Units) · Qty 60 · PKR 600,000 / 1 Week (60 Units · 15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 276,
+    "id": "vp-chd-005"
+  },
+  {
+    "sNo": 6,
+    "slideNum": 8,
+    "code": "VP-CHD-06",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Doctor Hospital to G1 Market (Lahore)",
+    "location": "Doctor Hospital to G1 Market (Lahore)",
+    "area": "Lahore",
+    "direction": "From Doctor Hospital to G1 Market → Towards Lahore Arterial Hub",
+    "from": "Doctor Hospital to G1 Market",
+    "towards": "Lahore Arterial Hub",
+    "size": "3x6 ft (48 Units)",
+    "widthFt": 3,
+    "heightFt": 6,
+    "sqft": 864,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 600,000 / 1 Week (48 Units · 15 Sec)",
+    "media": "Digital Streamers / SMD Poles",
+    "photo": "/vendor-media/chinab_digital_s6.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Doctor Hospital to G1 Market · Doctor Hospital to G1 Market · 3x6 ft (48 Units) · Qty 48 · PKR 600,000 / 1 Week (48 Units · 15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 277,
+    "id": "vp-chd-006"
+  },
+  {
+    "sNo": 7,
+    "slideNum": 9,
+    "code": "VP-CHD-07",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "G1 Market to Khokar Chowk (Lahore)",
+    "location": "G1 Market to Khokar Chowk (Lahore)",
+    "area": "Lahore",
+    "direction": "From G1 Market to Khokar Chowk → Towards Lahore Arterial Hub",
+    "from": "G1 Market to Khokar Chowk",
+    "towards": "Lahore Arterial Hub",
+    "size": "3x6 ft (24 Units)",
+    "widthFt": 3,
+    "heightFt": 6,
+    "sqft": 432,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 500,000 / 1 Week (24 Units · 15 Sec)",
+    "media": "Digital Streamers / SMD Poles",
+    "photo": "/vendor-media/chinab_digital_s7.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · G1 Market to Khokar Chowk · G1 Market to Khokar Chowk · 3x6 ft (24 Units) · Qty 24 · PKR 500,000 / 1 Week (24 Units · 15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 278,
+    "id": "vp-chd-007"
+  },
+  {
+    "sNo": 8,
+    "slideNum": 10,
+    "code": "VP-CHD-08",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Khokar Chowk to Emporium Mall/Expo Center (Lahore)",
+    "location": "Khokar Chowk to Emporium Mall/Expo Center (Lahore)",
+    "area": "Lahore",
+    "direction": "From Khokar Chowk to Emporium Mall/Expo Center → Towards Lahore Arterial Hub",
+    "from": "Khokar Chowk to Emporium Mall/Expo Center",
+    "towards": "Lahore Arterial Hub",
+    "size": "3x6 ft (50 Units)",
+    "widthFt": 3,
+    "heightFt": 6,
+    "sqft": 900,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 600,000 / 1 Week (50 Units · 15 Sec)",
+    "media": "Digital Streamers / SMD Poles",
+    "photo": "/vendor-media/chinab_digital_s8.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Khokar Chowk to Emporium Mall/Expo Center · Khokar Chowk to Emporium Mall/Expo Center · 3x6 ft (50 Units) · Qty 50 · PKR 600,000 / 1 Week (50 Units · 15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 279,
+    "id": "vp-chd-008"
+  },
+  {
+    "sNo": 9,
+    "slideNum": 11,
+    "code": "VP-CHD-09",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Panorama Mall Road (Punjab Assembly to Hall Road) (Lahore)",
+    "location": "Panorama Mall Road (Punjab Assembly to Hall Road) (Lahore)",
+    "area": "Lahore",
+    "direction": "From Panorama Mall Road (Punjab Assembly to Hall Road) → Towards Lahore Arterial Hub",
+    "from": "Panorama Mall Road (Punjab Assembly to Hall Road)",
+    "towards": "Lahore Arterial Hub",
+    "size": "3x6 ft (24 Units)",
+    "widthFt": 3,
+    "heightFt": 6,
+    "sqft": 432,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 600,000 / 1 Week (24 Units · 15 Sec)",
+    "media": "Digital Streamers / SMD Poles",
+    "photo": "/vendor-media/chinab_digital_s9.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Panorama Mall Road(Punjab Assembly to Hall Road) · Panorama Mall Road (Punjab Assembly to Hall Road) · 3x6 ft (24 Units) · Qty 24 · PKR 600,000 / 1 Week (24 Units · 15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 280,
+    "id": "vp-chd-009"
+  },
+  {
+    "sNo": 10,
+    "slideNum": 12,
+    "code": "VP-CHD-10",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Regal Chowk Hall Road To State Bank (Lahore)",
+    "location": "Regal Chowk Hall Road To State Bank (Lahore)",
+    "area": "Lahore",
+    "direction": "From Regal Chowk Hall Road To State Bank → Towards Lahore Arterial Hub",
+    "from": "Regal Chowk Hall Road To State Bank",
+    "towards": "Lahore Arterial Hub",
+    "size": "3x6 ft (18 Units)",
+    "widthFt": 3,
+    "heightFt": 6,
+    "sqft": 324,
+    "availability": "Available (1 week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 600,000 / 1 week (18 Units · 15 Sec)",
+    "media": "Digital Streamers / SMD Poles",
+    "photo": "/vendor-media/chinab_digital_s10.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Regal Chowk Hall Road To State Bank · Regal Chowk Hall Road To State Bank · 3x6 ft (18 Units) · Qty 18 · PKR 600,000 / 1 week (18 Units · 15 Sec) · Available (1 week · 15 Sec Slot)",
+    "globalNo": 281,
+    "id": "vp-chd-010"
+  },
+  {
+    "sNo": 11,
+    "slideNum": 13,
+    "code": "VP-CHD-11",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Bharia Town (Lahore)",
+    "location": "Bharia Town (Lahore)",
+    "area": "Lahore",
+    "direction": "From Bharia Town → Towards Lahore Arterial Hub",
+    "from": "Bharia Town",
+    "towards": "Lahore Arterial Hub",
+    "size": "3x6 ft (40 Units)",
+    "widthFt": 3,
+    "heightFt": 6,
+    "sqft": 720,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 350,000 / 1 Week (40 Units · 15 Sec)",
+    "media": "Digital Streamers / SMD Poles",
+    "photo": "/vendor-media/chinab_digital_s11.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Bahria Town · Bharia Town · 3x6 ft (40 Units) · Qty 40 · PKR 350,000 / 1 Week (40 Units · 15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 282,
+    "id": "vp-chd-011"
+  },
+  {
+    "sNo": 12,
+    "slideNum": 14,
+    "code": "VP-CHD-12",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Shalimar Link Road Mughalpura Bridge Towards Shalimar Hospital (Lahore)",
+    "location": "Shalimar Link Road Mughalpura Bridge Towards Shalimar Hospital (Lahore)",
+    "area": "Lahore",
+    "direction": "From Shalimar Link Road Mughalpura Bridge → Towards Shalimar Hospital Shalimar Link Road",
+    "from": "Shalimar Link Road Mughalpura Bridge",
+    "towards": "Shalimar Hospital Shalimar Link Road",
+    "size": "3x6 ft (36 Units)",
+    "widthFt": 3,
+    "heightFt": 6,
+    "sqft": 648,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 400,000 / 1 Week (36 Units · 15 Sec)",
+    "media": "Digital Streamers / SMD Poles",
+    "photo": "/vendor-media/chinab_digital_s12.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Shalimar Link Road Mughalpura Bridge Towards Shalimar Hospital · Shalimar Link Road · 3x6 ft (36 Units) · Qty 36 · PKR 400,000 / 1 Week (36 Units · 15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 283,
+    "id": "vp-chd-012"
+  },
+  {
+    "sNo": 13,
+    "slideNum": 15,
+    "code": "VP-CHD-13",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Morr Chowk Signal Bahria Town SMD (Lahore)",
+    "location": "Morr Chowk Signal Bahria Town SMD (Lahore)",
+    "area": "Lahore",
+    "direction": "From Morr Chowk Signal Bahria Town SMD → Towards Lahore Arterial Hub",
+    "from": "Morr Chowk Signal Bahria Town SMD",
+    "towards": "Lahore Arterial Hub",
+    "size": "40x20 ft",
+    "widthFt": 40,
+    "heightFt": 20,
+    "sqft": 800,
+    "availability": "Available (1 week · 30 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 350,000 / 1 week (30 Sec)",
+    "media": "Digital SMD Screen",
+    "photo": "/vendor-media/chinab_digital_s13.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Morr Chowk Signal Bahria Town SMD · Morr Chowk Signal Bahria Town · 40x20 ft · Qty 1 · PKR 350,000 / 1 week (30 Sec) · Available (1 week · 30 Sec Slot)",
+    "globalNo": 284,
+    "id": "vp-chd-013"
+  },
+  {
+    "sNo": 14,
+    "slideNum": 16,
+    "code": "VP-CHD-14",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Barket Market Outside KFC & Macdonald's Bridge panel SMD towards Kalma Chowk & Gulberg (Lahore)",
+    "location": "Barket Market Outside KFC & Macdonald's Bridge panel SMD towards Kalma Chowk & Gulberg (Lahore)",
+    "area": "Lahore",
+    "direction": "From Barket Market Outside KFC & McDonald's  Facing Canal, Faisal Town Barket Market Outside KFC & Macdonald's → Towards Kalma Chowk & Gulberg",
+    "from": "Barket Market Outside KFC & McDonald's  Facing Canal, Faisal Town Barket Market Outside KFC & Macdonald's",
+    "towards": "Kalma Chowk & Gulberg",
+    "size": "40x10 ft",
+    "widthFt": 40,
+    "heightFt": 10,
+    "sqft": 400,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 400,000 / 1 Week (15 Sec)",
+    "media": "Bridge Panel Digital SMD",
+    "photo": "/vendor-media/chinab_digital_s14.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Barket Market Outside KFC & McDonald's Bridge panel SMD Facing Canal, Faisal Town · Barket Market Outside KFC & Macdonald's Bridge panel SMD towards Kalma Chowk & Gulberg · 40x10 ft · Qty 1 · PKR 400,000 / 1 Week (15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 285,
+    "id": "vp-chd-014"
+  },
+  {
+    "sNo": 15,
+    "slideNum": 17,
+    "code": "VP-CHD-15",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Barket Market Out side KFC & Macdonald's Bridge panel SMD towards Canal & Faisal Town (Lahore)",
+    "location": "Barket Market Out side KFC & Macdonald's Bridge panel SMD towards Canal & Faisal Town (Lahore)",
+    "area": "Lahore",
+    "direction": "From Barket Market Outside KFC & McDonald's  Facing Kalma Flyover Barket Market Out side KFC & Macdonald's → Towards Canal & Faisal Town",
+    "from": "Barket Market Outside KFC & McDonald's  Facing Kalma Flyover Barket Market Out side KFC & Macdonald's",
+    "towards": "Canal & Faisal Town",
+    "size": "40x10 ft",
+    "widthFt": 40,
+    "heightFt": 10,
+    "sqft": 400,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 400,000 / 1 Week (15 Sec)",
+    "media": "Bridge Panel Digital SMD",
+    "photo": "/vendor-media/chinab_digital_s15.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Barket Market Outside KFC & McDonald's Bridge panel SMD Facing Kalma Flyover · Barket Market Out side KFC & Macdonald's Bridge panel SMD towards Canal & Faisal Town · 40x10 ft · Qty 1 · PKR 400,000 / 1 Week (15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 286,
+    "id": "vp-chd-015"
+  },
+  {
+    "sNo": 16,
+    "slideNum": 18,
+    "code": "VP-CHD-16",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Main Boulevard Gulberg In Front of Hafeez Centre towards Main Market Bridge panel SMD Facing Liberty (Lahore)",
+    "location": "Main Boulevard Gulberg In Front of Hafeez Centre towards Main Market Bridge panel SMD Facing Liberty (Lahore)",
+    "area": "Lahore",
+    "direction": "From Main Boulevard Gulberg In Front of Hafeez Centre → Towards Main Market",
+    "from": "Main Boulevard Gulberg In Front of Hafeez Centre",
+    "towards": "Main Market",
+    "size": "40x10 ft",
+    "widthFt": 40,
+    "heightFt": 10,
+    "sqft": 400,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 400,000 / 1 Week (15 Sec)",
+    "media": "Bridge Panel Digital SMD",
+    "photo": "/vendor-media/chinab_digital_s16.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Main Boulevard Gulberg In Front of Hafeez Centre towards Main Market Bridge panel SMD Facing Liberty · Main Boulevard Gulberg In Front of Hafeez Centre towards Main Market · 40x10 ft · Qty 1 · PKR 400,000 / 1 Week (15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 287,
+    "id": "vp-chd-016"
+  },
+  {
+    "sNo": 17,
+    "slideNum": 19,
+    "code": "VP-CHD-17",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Main Boulevard Gulberg In Front of Hafeez Centre towards Liberty Bridge panel SMD Facing Main Market (Lahore)",
+    "location": "Main Boulevard Gulberg In Front of Hafeez Centre towards Liberty Bridge panel SMD Facing Main Market (Lahore)",
+    "area": "Lahore",
+    "direction": "From Main Boulevard Gulberg In Front of Hafeez Centre → Towards Liberty",
+    "from": "Main Boulevard Gulberg In Front of Hafeez Centre",
+    "towards": "Liberty",
+    "size": "40x10 ft",
+    "widthFt": 40,
+    "heightFt": 10,
+    "sqft": 400,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 400,000 / 1 Week (15 Sec)",
+    "media": "Bridge Panel Digital SMD",
+    "photo": "/vendor-media/chinab_digital_s17.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Main Boulevard Gulberg In Front of Hafeez Centre towards Liberty Bridge panel SMD Facing Main Market · Main Boulevard Gulberg In Front of Hafeez Centre towards Liberty · 40x10 ft · Qty 1 · PKR 400,000 / 1 Week (15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 288,
+    "id": "vp-chd-017"
+  },
+  {
+    "sNo": 18,
+    "slideNum": 20,
+    "code": "VP-CHD-18",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Gulberg Main Boulevard Near Main Market Bridge panel SMD Going to Saddique Trade Center (Lahore)",
+    "location": "Gulberg Main Boulevard Near Main Market Bridge panel SMD Going to Saddique Trade Center (Lahore)",
+    "area": "Lahore",
+    "direction": "From Gulberg Main Boulevard Near Main Market → Towards Saddique Trade Center Gulberg Main Boulevard Near Main Market Going to Saddique Trade Center",
+    "from": "Gulberg Main Boulevard Near Main Market",
+    "towards": "Saddique Trade Center Gulberg Main Boulevard Near Main Market Going to Saddique Trade Center",
+    "size": "40x10 ft",
+    "widthFt": 40,
+    "heightFt": 10,
+    "sqft": 400,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 400,000 / 1 Week (15 Sec)",
+    "media": "Bridge Panel Digital SMD",
+    "photo": "/vendor-media/chinab_digital_s18.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Gulberg Main Boulevard Near Main Market Bridge panel SMD Going to Saddique Trade Center · Gulberg Main Boulevard Near Main Market Going to Saddique Trade Center · 40x10 ft · Qty 1 · PKR 400,000 / 1 Week (15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 289,
+    "id": "vp-chd-018"
+  },
+  {
+    "sNo": 19,
+    "slideNum": 21,
+    "code": "VP-CHD-19",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Gulberg Main Boulevard Near Main Market Bridge panel SMD Going To Hafeez Center (Lahore)",
+    "location": "Gulberg Main Boulevard Near Main Market Bridge panel SMD Going To Hafeez Center (Lahore)",
+    "area": "Lahore",
+    "direction": "From Gulberg Main Boulevard Near Main Market → Towards Hafeez Center Gulberg Main Boulevard Near Main Market Going To Hafeez Center",
+    "from": "Gulberg Main Boulevard Near Main Market",
+    "towards": "Hafeez Center Gulberg Main Boulevard Near Main Market Going To Hafeez Center",
+    "size": "40x10 ft",
+    "widthFt": 40,
+    "heightFt": 10,
+    "sqft": 400,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 400,000 / 1 Week (15 Sec)",
+    "media": "Bridge Panel Digital SMD",
+    "photo": "/vendor-media/chinab_digital_s19.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Gulberg Main Boulevard Near Main Market Bridge panel SMD Going To Hafeez Center · Gulberg Main Boulevard Near Main Market Going To Hafeez Center · 40x10 ft · Qty 1 · PKR 400,000 / 1 Week (15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 290,
+    "id": "vp-chd-019"
+  },
+  {
+    "sNo": 20,
+    "slideNum": 22,
+    "code": "VP-CHD-20",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Gulberg Main Boulevard Infront of KFC Bridge Panel SMD towards Jail Road (Lahore)",
+    "location": "Gulberg Main Boulevard Infront of KFC Bridge Panel SMD towards Jail Road (Lahore)",
+    "area": "Lahore",
+    "direction": "From Gulberg Main Boulevard In front of KFC  Facing Main Market SMD Operation is temporarily at halt Gulberg Main Boulevard Infront of KFC → Towards Jail Road",
+    "from": "Gulberg Main Boulevard In front of KFC  Facing Main Market SMD Operation is temporarily at halt Gulberg Main Boulevard Infront of KFC",
+    "towards": "Jail Road",
+    "size": "40x10 ft",
+    "widthFt": 40,
+    "heightFt": 10,
+    "sqft": 400,
+    "availability": "Temporarily on Halt",
+    "status": "booked",
+    "rate": "Rate on Request (On Halt)",
+    "media": "Bridge Panel Digital SMD",
+    "photo": "/vendor-media/chinab_digital_s20.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Gulberg Main Boulevard In front of KFC Bridge Panel SMD Facing Main Market SMD Operation is temporarily at halt · Gulberg Main Boulevard Infront of KFC Bridge Panel SMD towards Jail Road · 40x10 ft · Qty 1 · Rate on Request (On Halt) · Temporarily on Halt",
+    "globalNo": 291,
+    "id": "vp-chd-020"
+  },
+  {
+    "sNo": 21,
+    "slideNum": 23,
+    "code": "VP-CHD-21",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Gulberg Main Boulevard Infront of KFC Bridge Panel SMD towards Kalma Chowk & Liberty (Lahore)",
+    "location": "Gulberg Main Boulevard Infront of KFC Bridge Panel SMD towards Kalma Chowk & Liberty (Lahore)",
+    "area": "Lahore",
+    "direction": "From Gulberg Main Boulevard Infront of KFC  Facing Jail Road Gulberg Main Boulevard Infront of KFC → Towards Kalma Chowk & Liberty",
+    "from": "Gulberg Main Boulevard Infront of KFC  Facing Jail Road Gulberg Main Boulevard Infront of KFC",
+    "towards": "Kalma Chowk & Liberty",
+    "size": "40x10 ft",
+    "widthFt": 40,
+    "heightFt": 10,
+    "sqft": 400,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 400,000 / 1 Week (15 Sec)",
+    "media": "Bridge Panel Digital SMD",
+    "photo": "/vendor-media/chinab_digital_s21.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Gulberg Main Boulevard Infront of KFC Bridge Panel SMD Facing Jail Road · Gulberg Main Boulevard Infront of KFC Bridge Panel SMD towards Kalma Chowk & Liberty · 40x10 ft · Qty 1 · PKR 400,000 / 1 Week (15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 292,
+    "id": "vp-chd-021"
+  },
+  {
+    "sNo": 22,
+    "slideNum": 24,
+    "code": "VP-CHD-22",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Main jail Road Near EFU Building/Chugtai Lab Building Bridge Panel SMD Facing Sadique Trade (Lahore)",
+    "location": "Main jail Road Near EFU Building/Chugtai Lab Building Bridge Panel SMD Facing Sadique Trade (Lahore)",
+    "area": "Lahore",
+    "direction": "From Main jail Road Near EFU Building/Chugtai Lab Building  Facing Sadique Trade Main jail Road Near EFU Building/Chugtai Lab Building → Towards Qartaba Chowk",
+    "from": "Main jail Road Near EFU Building/Chugtai Lab Building  Facing Sadique Trade Main jail Road Near EFU Building/Chugtai Lab Building",
+    "towards": "Qartaba Chowk",
+    "size": "40x10 ft",
+    "widthFt": 40,
+    "heightFt": 10,
+    "sqft": 400,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 400,000 / 1 Week (15 Sec)",
+    "media": "Bridge Panel Digital SMD",
+    "photo": "/vendor-media/chinab_digital_s22.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Main jail Road Near EFU Building/Chugtai Lab Building Bridge Panel SMD Facing Sadique Trade · Main jail Road Near EFU Building/Chugtai Lab Building towards Qartaba Chowk · 40x10 ft · Qty 1 · PKR 400,000 / 1 Week (15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 293,
+    "id": "vp-chd-022"
+  },
+  {
+    "sNo": 23,
+    "slideNum": 25,
+    "code": "VP-CHD-23",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Main jail Road Near EFU Building/Chugtai Lab Building towards Saddiuque trade Center (Lahore)",
+    "location": "Main jail Road Near EFU Building/Chugtai Lab Building towards Saddiuque trade Center (Lahore)",
+    "area": "Lahore",
+    "direction": "From Main jail Road Near EFU Building/Chugtai Lab Building  Facing Canal Main jail Road Near EFU Building/Chugtai Lab Building → Towards Saddiuque trade Center",
+    "from": "Main jail Road Near EFU Building/Chugtai Lab Building  Facing Canal Main jail Road Near EFU Building/Chugtai Lab Building",
+    "towards": "Saddiuque trade Center",
+    "size": "40x10 ft",
+    "widthFt": 40,
+    "heightFt": 10,
+    "sqft": 400,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 400,000 / 1 Week (15 Sec)",
+    "media": "Bridge Panel Digital SMD",
+    "photo": "/vendor-media/chinab_digital_s23.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Main jail Road Near EFU Building/Chugtai Lab Building Bridge Panel SMD Facing Canal · Main jail Road Near EFU Building/Chugtai Lab Building towards Saddiuque trade Center · 40x10 ft · Qty 1 · PKR 400,000 / 1 Week (15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 294,
+    "id": "vp-chd-023"
+  },
+  {
+    "sNo": 24,
+    "slideNum": 26,
+    "code": "VP-CHD-24",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Firdous Market Underpass Facing Center Point (Lahore)",
+    "location": "Firdous Market Underpass Facing Center Point (Lahore)",
+    "area": "Lahore",
+    "direction": "From Firdous Market Underpass Facing Center Point → Towards Facing Center Point Firdous Market Underpass Facing Center Point",
+    "from": "Firdous Market Underpass Facing Center Point",
+    "towards": "Facing Center Point Firdous Market Underpass Facing Center Point",
+    "size": "40x10 ft",
+    "widthFt": 40,
+    "heightFt": 10,
+    "sqft": 400,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 400,000 / 1 Week (15 Sec)",
+    "media": "Bridge Panel Digital SMD",
+    "photo": "/vendor-media/chinab_digital_s24.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Firdous Market Underpass Facing Center Point · Firdous Market Underpass Facing Center Point · 40x10 ft · Qty 1 · PKR 400,000 / 1 Week (15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 295,
+    "id": "vp-chd-024"
+  },
+  {
+    "sNo": 25,
+    "slideNum": 27,
+    "code": "VP-CHD-25",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Firdous Market Underpass Facing Cavalary Ground (Lahore)",
+    "location": "Firdous Market Underpass Facing Cavalary Ground (Lahore)",
+    "area": "Lahore",
+    "direction": "From Firdous Market Underpass Facing Cavalary Ground → Towards Facing Cavalary Ground Firdous Market Underpass Facing Cavalary Ground",
+    "from": "Firdous Market Underpass Facing Cavalary Ground",
+    "towards": "Facing Cavalary Ground Firdous Market Underpass Facing Cavalary Ground",
+    "size": "40x10 ft",
+    "widthFt": 40,
+    "heightFt": 10,
+    "sqft": 400,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 400,000 / 1 Week (15 Sec)",
+    "media": "Bridge Panel Digital SMD",
+    "photo": "/vendor-media/chinab_digital_s25.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Firdous Market Underpass Facing Cavalary Ground · Firdous Market Underpass Facing Cavalary Ground · 40x10 ft · Qty 1 · PKR 400,000 / 1 Week (15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 296,
+    "id": "vp-chd-025"
+  },
+  {
+    "sNo": 26,
+    "slideNum": 28,
+    "code": "VP-CHD-26",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Kalma Chowk Before Model Town Underpass Ferozpur Road (Lahore)",
+    "location": "Kalma Chowk Before Model Town Underpass Ferozpur Road (Lahore)",
+    "area": "Lahore",
+    "direction": "From Kalma Chowk Before Model Town Underpass Ferozpur Road → Towards Lahore Arterial Hub",
+    "from": "Kalma Chowk Before Model Town Underpass Ferozpur Road",
+    "towards": "Lahore Arterial Hub",
+    "size": "40x10 ft",
+    "widthFt": 40,
+    "heightFt": 10,
+    "sqft": 400,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 400,000 / 1 Week (15 Sec)",
+    "media": "Bridge Panel Digital SMD",
+    "photo": "/vendor-media/chinab_digital_s26.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Lahore · Kalma Chowk Before Model Town Underpass Ferozpur Road · Kalma Chowk Before Model Town Underpass Ferozpur Road · 40x10 ft · Qty 1 · PKR 400,000 / 1 Week (15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 297,
+    "id": "vp-chd-026"
+  },
+  {
+    "sNo": 27,
+    "slideNum": 32,
+    "code": "VP-CHD-27",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "F10 Outside Layers (Islamabad / Rawalpindi)",
+    "location": "F10 Outside Layers (Islamabad / Rawalpindi)",
+    "area": "Islamabad / Rawalpindi",
+    "direction": "From F10 Outside Layers → Towards Islamabad / Rawalpindi Arterial Hub",
+    "from": "F10 Outside Layers",
+    "towards": "Islamabad / Rawalpindi Arterial Hub",
+    "size": "30x16 ft",
+    "widthFt": 30,
+    "heightFt": 16,
+    "sqft": 480,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 350,000 / 1 Week (15 Sec)",
+    "media": "Digital SMD Screen",
+    "photo": "/vendor-media/chinab_digital_s27.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Islamabad / Rawalpindi · F10 Markaz · F10 Outside Layers · 30x16 ft · Qty 1 · PKR 350,000 / 1 Week (15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 298,
+    "id": "vp-chd-027"
+  },
+  {
+    "sNo": 28,
+    "slideNum": 33,
+    "code": "VP-CHD-28",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "F10 Markaz Main Road (Islamabad / Rawalpindi)",
+    "location": "F10 Markaz Main Road (Islamabad / Rawalpindi)",
+    "area": "Islamabad / Rawalpindi",
+    "direction": "From F10 Markaz Main Road → Towards F11/ E11",
+    "from": "F10 Markaz Main Road",
+    "towards": "F11/ E11",
+    "size": "3x6 ft (10 Units)",
+    "widthFt": 3,
+    "heightFt": 6,
+    "sqft": 180,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 300,000 / 1 Week (10 Units · 15 Sec)",
+    "media": "Digital Streamers / SMD Poles",
+    "photo": "/vendor-media/chinab_digital_s28.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Islamabad / Rawalpindi · F10 Markaz Main Road · F10 Markaz Main Road TFGT F11/ E11 · 3x6 ft (10 Units) · Qty 10 · PKR 300,000 / 1 Week (10 Units · 15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 299,
+    "id": "vp-chd-028"
+  },
+  {
+    "sNo": 29,
+    "slideNum": 34,
+    "code": "VP-CHD-29",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "F10 Markaz Sumbal Road (Islamabad / Rawalpindi)",
+    "location": "F10 Markaz Sumbal Road (Islamabad / Rawalpindi)",
+    "area": "Islamabad / Rawalpindi",
+    "direction": "From F10 Markaz Sumbal Road → Towards F11",
+    "from": "F10 Markaz Sumbal Road",
+    "towards": "F11",
+    "size": "3x6 ft (10 Units)",
+    "widthFt": 3,
+    "heightFt": 6,
+    "sqft": 180,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 300,000 / 1 Week (10 Units · 15 Sec)",
+    "media": "Digital Streamers / SMD Poles",
+    "photo": "/vendor-media/chinab_digital_s29.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Islamabad / Rawalpindi · F10 Markaz Sumbal Road · F10 Markaz Sumbal Road TFGT F11 · 3x6 ft (10 Units) · Qty 10 · PKR 300,000 / 1 Week (10 Units · 15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 300,
+    "id": "vp-chd-029"
+  },
+  {
+    "sNo": 30,
+    "slideNum": 35,
+    "code": "VP-CHD-30",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Sareena Interchange towards Kashmir Chowk Club Road (Islamabad / Rawalpindi)",
+    "location": "Sareena Interchange towards Kashmir Chowk Club Road (Islamabad / Rawalpindi)",
+    "area": "Islamabad / Rawalpindi",
+    "direction": "From Sareena Interchange → Towards Kashmir Chowk Club Road Sareena Interchange towards Kashmir Chowk Club Road",
+    "from": "Sareena Interchange",
+    "towards": "Kashmir Chowk Club Road Sareena Interchange towards Kashmir Chowk Club Road",
+    "size": "3x6 ft (30 Units)",
+    "widthFt": 3,
+    "heightFt": 6,
+    "sqft": 540,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 550,000 / 1 Week (30 Units · 15 Sec)",
+    "media": "Digital Streamers / SMD Poles",
+    "photo": "/vendor-media/chinab_digital_s30.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Islamabad / Rawalpindi · Sareena Interchange towards Kashmir Chowk Club Road · Sareena Interchange towards Kashmir Chowk Club Road · 3x6 ft (30 Units) · Qty 30 · PKR 550,000 / 1 Week (30 Units · 15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 301,
+    "id": "vp-chd-030"
+  },
+  {
+    "sNo": 31,
+    "slideNum": 36,
+    "code": "VP-CHD-31",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "6Th Road Flyover (Islamabad / Rawalpindi)",
+    "location": "6Th Road Flyover (Islamabad / Rawalpindi)",
+    "area": "Islamabad / Rawalpindi",
+    "direction": "From 6Th Road Flyover → Towards Islamabad / Rawalpindi Arterial Hub",
+    "from": "6Th Road Flyover",
+    "towards": "Islamabad / Rawalpindi Arterial Hub",
+    "size": "3x6 ft (24 Units)",
+    "widthFt": 3,
+    "heightFt": 6,
+    "sqft": 432,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 300,000 / 1 Week (24 Units · 15 Sec)",
+    "media": "Digital Streamers / SMD Poles",
+    "photo": "/vendor-media/chinab_digital_s31.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Islamabad / Rawalpindi · 6th Road Flyover · 6Th Road Flyover · 3x6 ft (24 Units) · Qty 24 · PKR 300,000 / 1 Week (24 Units · 15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 302,
+    "id": "vp-chd-031"
+  },
+  {
+    "sNo": 32,
+    "slideNum": 37,
+    "code": "VP-CHD-32",
+    "vendor": "Chinab Advertising (Digital Media)",
+    "vendorKey": "chinab_digital",
+    "pptFile": "Chinab Updated Digital Media.pptx",
+    "name": "Commercial Market Digital Panels (Islamabad / Rawalpindi)",
+    "location": "Commercial Market Digital Panels (Islamabad / Rawalpindi)",
+    "area": "Islamabad / Rawalpindi",
+    "direction": "From Commercial Market Digital Panels → Towards Islamabad / Rawalpindi Arterial Hub",
+    "from": "Commercial Market Digital Panels",
+    "towards": "Islamabad / Rawalpindi Arterial Hub",
+    "size": "4x8 ft (14 Units)",
+    "widthFt": 4,
+    "heightFt": 8,
+    "sqft": 448,
+    "availability": "Available (1 Week · 15 Sec Slot)",
+    "status": "available",
+    "rate": "PKR 200,000 / 1 Week (14 Units · 15 Sec)",
+    "media": "Digital Streamers / SMD Poles",
+    "photo": "/vendor-media/chinab_digital_s32.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Digital Media SMD LED Streamers · Islamabad / Rawalpindi · Commercial Market Digital Panels · Commercial Market Digital Panels · 4x8 ft (14 Units) · Qty 14 · PKR 200,000 / 1 Week (14 Units · 15 Sec) · Available (1 Week · 15 Sec Slot)",
+    "globalNo": 303,
+    "id": "vp-chd-032"
+  },
+  {
+    "sNo": 1,
+    "slideNum": 4,
+    "code": "VP-CHN-01",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "INTERNATIONAL CENTRE (MARRIOT) (Karachi)",
+    "location": "INTERNATIONAL CENTRE (MARRIOT) (Karachi)",
+    "area": "Karachi",
+    "direction": "From Metropole Triangle, Governor House → Towards Saddar Mobile Market",
+    "from": "Metropole Triangle, Governor House",
+    "towards": "Saddar Mobile Market",
+    "size": "200x70 ft",
+    "widthFt": 200,
+    "heightFt": 70,
+    "sqft": 14000,
+    "availability": "31.12.2026 (Ext.)",
+    "status": "booked",
+    "rate": "PKR 9.5 Million (With Lights)",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s1.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Karachi · INTERNATIONAL CENTRE (MARRIOT) · The Biggest Hoarding in Karachi. Where Brands Become Landmarks. · 200x70 Skin Printing Size 102x71 & 97x71 · From Metropole Triangle, Governor House → Towards Saddar Mobile Market · PKR 9.5 Million (With Lights) · 31.12.2026 (Ext.)",
+    "globalNo": 304,
+    "id": "vp-chn-001"
+  },
+  {
+    "sNo": 2,
+    "slideNum": 5,
+    "code": "VP-CHN-02",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Tariq Road ABL Roundabout Signal (Karachi)",
+    "location": "Tariq Road ABL Roundabout Signal (Karachi)",
+    "area": "Karachi",
+    "direction": "From Bahadurabad → Towards Tariq Road",
+    "from": "Bahadurabad",
+    "towards": "Tariq Road",
+    "size": "130x30 ft",
+    "widthFt": 130,
+    "heightFt": 30,
+    "sqft": 3900,
+    "availability": "31.12.2026 (Ext.)",
+    "status": "booked",
+    "rate": "PKR 3.6 million (With Lights)",
+    "media": "Roundabout Mega Hoarding",
+    "photo": "/vendor-media/chinab_static_s2.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Karachi · Tariq Road ABL Roundabout Signal · 130 x 30 · From Bahadurabad → Towards Tariq Road · PKR 3.6 million (With Lights) · 31.12.2026 (Ext.)",
+    "globalNo": 305,
+    "id": "vp-chn-002"
+  },
+  {
+    "sNo": 3,
+    "slideNum": 6,
+    "code": "VP-CHN-03",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Hyper Star Dolmen Mall Clifton (Karachi)",
+    "location": "Hyper Star Dolmen Mall Clifton (Karachi)",
+    "area": "Karachi",
+    "direction": "From Hyper Star Round About → Towards DHA\\McDonalds",
+    "from": "Hyper Star Round About",
+    "towards": "DHA\\McDonalds",
+    "size": "75x30 ft",
+    "widthFt": 75,
+    "heightFt": 30,
+    "sqft": 2250,
+    "availability": "29.11.2026",
+    "status": "booked",
+    "rate": "PKR 3,000,000 (With Lights)",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s3.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Karachi · Hyper Star Dolmen Mall Clifton · 75 x 30 · From Hyper Star Round About → Towards DHA\\McDonalds · PKR 3,000,000 (With Lights) · 29.11.2026",
+    "globalNo": 306,
+    "id": "vp-chn-003"
+  },
+  {
+    "sNo": 4,
+    "slideNum": 7,
+    "code": "VP-CHN-04",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Shah- re- Faisal Airport to Saddar (Karachi)",
+    "location": "Shah- re- Faisal Airport to Saddar (Karachi)",
+    "area": "Karachi",
+    "direction": "From Airport → Towards Saddar",
+    "from": "Airport",
+    "towards": "Saddar",
+    "size": "30x90 ft",
+    "widthFt": 30,
+    "heightFt": 90,
+    "sqft": 2700,
+    "availability": "15.12.2026",
+    "status": "booked",
+    "rate": "PKR 2,400,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s4.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Karachi · Shah- re- Faisal Airport to Saddar · 30 x 90 · From Airport → Towards Saddar · PKR 2,400,000 · 15.12.2026",
+    "globalNo": 307,
+    "id": "vp-chn-004"
+  },
+  {
+    "sNo": 5,
+    "slideNum": 8,
+    "code": "VP-CHN-05",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Sadar to Airport Shahr- e- Faisal (Nursery) (Karachi)",
+    "location": "Sadar to Airport Shahr- e- Faisal (Nursery) (Karachi)",
+    "area": "Karachi",
+    "direction": "From Saddar → Towards Airport",
+    "from": "Saddar",
+    "towards": "Airport",
+    "size": "70x31 ft",
+    "widthFt": 70,
+    "heightFt": 31,
+    "sqft": 2170,
+    "availability": "30.11.2026 (Ext.)",
+    "status": "booked",
+    "rate": "PKR 2,200,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s5.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Karachi · Sadar to Airport Shahr- e- Faisal (Nursery) · 70 x 31 · From Saddar → Towards Airport · PKR 2,200,000 · 30.11.2026 (Ext.)",
+    "globalNo": 308,
+    "id": "vp-chn-005"
+  },
+  {
+    "sNo": 6,
+    "slideNum": 9,
+    "code": "VP-CHN-06",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Shahr-e-Faisal City Mall Awami Markaz (Karachi)",
+    "location": "Shahr-e-Faisal City Mall Awami Markaz (Karachi)",
+    "area": "Karachi",
+    "direction": "From Nursery → Towards Airport",
+    "from": "Nursery",
+    "towards": "Airport",
+    "size": "85x30 ft",
+    "widthFt": 85,
+    "heightFt": 30,
+    "sqft": 2550,
+    "availability": "12.10.2027",
+    "status": "booked",
+    "rate": "PKR 2,000,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s6.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Karachi · Shahr-e-Faisal City Mall Awami Markaz · 85 x 30 · From Nursery → Towards Airport · PKR 2,000,000 · 12.10.2027",
+    "globalNo": 309,
+    "id": "vp-chn-006"
+  },
+  {
+    "sNo": 7,
+    "slideNum": 10,
+    "code": "VP-CHN-07",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Main Boat Basin Clifton (Karachi)",
+    "location": "Main Boat Basin Clifton (Karachi)",
+    "area": "Karachi",
+    "direction": "From My Kolachi/Punjab chowrangi → Towards Bilawal chowrangi",
+    "from": "My Kolachi/Punjab chowrangi",
+    "towards": "Bilawal chowrangi",
+    "size": "60x25 ft",
+    "widthFt": 60,
+    "heightFt": 25,
+    "sqft": 1500,
+    "availability": "15.12.2026",
+    "status": "booked",
+    "rate": "PKR 1,600,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s7.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Karachi · Main Boat Basin Clifton · 60 x 25 · From My Kolachi/Punjab chowrangi → Towards Bilawal chowrangi · PKR 1,600,000 · 15.12.2026",
+    "globalNo": 310,
+    "id": "vp-chn-007"
+  },
+  {
+    "sNo": 8,
+    "slideNum": 11,
+    "code": "VP-CHN-08",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Shaheed Millat Road Baloch Bridge(Dual View) (Karachi)",
+    "location": "Shaheed Millat Road Baloch Bridge(Dual View) (Karachi)",
+    "area": "Karachi",
+    "direction": "From City School → Towards Baloch Bridge",
+    "from": "City School",
+    "towards": "Baloch Bridge",
+    "size": "90x30 ft",
+    "widthFt": 90,
+    "heightFt": 30,
+    "sqft": 2700,
+    "availability": "30.4.2027 (Ext.)",
+    "status": "booked",
+    "rate": "PKR 2,500,000",
+    "media": "Bridge / Flyover Hoarding",
+    "photo": "/vendor-media/chinab_static_s8.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Karachi · Shaheed Millat Road Baloch Bridge(Dual View) · 90 x 30 · From City School → Towards Baloch Bridge · PKR 2,500,000 · 30.4.2027 (Ext.)",
+    "globalNo": 311,
+    "id": "vp-chn-008"
+  },
+  {
+    "sNo": 9,
+    "slideNum": 12,
+    "code": "VP-CHN-09",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Shaheed Millat Road Baloch Bridge(Dual View) (Karachi)",
+    "location": "Shaheed Millat Road Baloch Bridge(Dual View) (Karachi)",
+    "area": "Karachi",
+    "direction": "From Expressway → Towards Baloch Bridge",
+    "from": "Expressway",
+    "towards": "Baloch Bridge",
+    "size": "50x30 ft",
+    "widthFt": 50,
+    "heightFt": 30,
+    "sqft": 1500,
+    "availability": "30.4.2027 (Ext.)",
+    "status": "booked",
+    "rate": "PKR 1,500,000",
+    "media": "Bridge / Flyover Hoarding",
+    "photo": "/vendor-media/chinab_static_s9.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Karachi · Shaheed Millat Road Baloch Bridge(Dual View) · 50 x 30 · From Expressway → Towards Baloch Bridge · PKR 1,500,000 · 30.4.2027 (Ext.)",
+    "globalNo": 312,
+    "id": "vp-chn-009"
+  },
+  {
+    "sNo": 10,
+    "slideNum": 13,
+    "code": "VP-CHN-10",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Shaheed Millat Road Baloch Bridge (Dual View) (Karachi)",
+    "location": "Shaheed Millat Road Baloch Bridge (Dual View) (Karachi)",
+    "area": "Karachi",
+    "direction": "From Expressway → Towards Baloch Bridge",
+    "from": "Expressway",
+    "towards": "Baloch Bridge",
+    "size": "140x30 ft",
+    "widthFt": 140,
+    "heightFt": 30,
+    "sqft": 4200,
+    "availability": "30.4.2027 (Ext.)",
+    "status": "booked",
+    "rate": "PKR 3,600,000 With Lights",
+    "media": "Bridge / Flyover Hoarding",
+    "photo": "/vendor-media/chinab_static_s10.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Karachi · Shaheed Millat Road Baloch Bridge (Dual View) · 140 x 30 · From Expressway → Towards Baloch Bridge · PKR 3,600,000 With Lights · 30.4.2027 (Ext.)",
+    "globalNo": 313,
+    "id": "vp-chn-010"
+  },
+  {
+    "sNo": 11,
+    "slideNum": 14,
+    "code": "VP-CHN-11",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Shaheed Millat Road Baloch Bridge (Karachi)",
+    "location": "Shaheed Millat Road Baloch Bridge (Karachi)",
+    "area": "Karachi",
+    "direction": "From Baloch Bridge → Towards City School, Expressway",
+    "from": "Baloch Bridge",
+    "towards": "City School, Expressway",
+    "size": "50x30 ft",
+    "widthFt": 50,
+    "heightFt": 30,
+    "sqft": 1500,
+    "availability": "10.12.2026",
+    "status": "booked",
+    "rate": "PKR 1,500,000",
+    "media": "Bridge / Flyover Hoarding",
+    "photo": "/vendor-media/chinab_static_s11.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Karachi · Shaheed Millat Road Baloch Bridge · 50 x 30 · From Baloch Bridge → Towards City School, Expressway · PKR 1,500,000 · 10.12.2026",
+    "globalNo": 314,
+    "id": "vp-chn-011"
+  },
+  {
+    "sNo": 12,
+    "slideNum": 15,
+    "code": "VP-CHN-12",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Shahrah-e-Faisal (Star Gate)Flex Facing Airport (with Lights) (Karachi)",
+    "location": "Shahrah-e-Faisal (Star Gate)Flex Facing Airport (with Lights) (Karachi)",
+    "area": "Karachi",
+    "direction": "From Airport → Towards Shahrah-e-Faisal",
+    "from": "Airport",
+    "towards": "Shahrah-e-Faisal",
+    "size": "80x30 ft",
+    "widthFt": 80,
+    "heightFt": 30,
+    "sqft": 2400,
+    "availability": "30.11.26",
+    "status": "booked",
+    "rate": "PKR 2,000,000 With Lights",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s12.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Karachi · Shahrah-e-Faisal (Star Gate)Flex Facing Airport (with Lights) · 80 x 30 · From Airport → Towards Shahrah-e-Faisal · PKR 2,000,000 With Lights · 30.11.26",
+    "globalNo": 315,
+    "id": "vp-chn-012"
+  },
+  {
+    "sNo": 13,
+    "slideNum": 16,
+    "code": "VP-CHN-13",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Shahrah-e-Faisal (Star Gate)Flex going Airport (with Lights) (Karachi)",
+    "location": "Shahrah-e-Faisal (Star Gate)Flex going Airport (with Lights) (Karachi)",
+    "area": "Karachi",
+    "direction": "From Shahrah-e-Faisal → Towards Airport",
+    "from": "Shahrah-e-Faisal",
+    "towards": "Airport",
+    "size": "80x30 ft",
+    "widthFt": 80,
+    "heightFt": 30,
+    "sqft": 2400,
+    "availability": "30.11.26",
+    "status": "booked",
+    "rate": "PKR 2,000,000 With Lights",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s13.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Karachi · Shahrah-e-Faisal (Star Gate)Flex going Airport (with Lights) · 80 x 30 · From Shahrah-e-Faisal → Towards Airport · PKR 2,000,000 With Lights · 30.11.26",
+    "globalNo": 316,
+    "id": "vp-chn-013"
+  },
+  {
+    "sNo": 14,
+    "slideNum": 17,
+    "code": "VP-CHN-14",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Buhadrabad Chowrangi Dual View (Karachi)",
+    "location": "Buhadrabad Chowrangi Dual View (Karachi)",
+    "area": "Karachi",
+    "direction": "From Sharfabad / Tariq Road → Towards Main 4 minar",
+    "from": "Sharfabad / Tariq Road",
+    "towards": "Main 4 minar",
+    "size": "60x30 ft",
+    "widthFt": 60,
+    "heightFt": 30,
+    "sqft": 1800,
+    "availability": "Immediate",
+    "status": "available",
+    "rate": "PKR 1,400,000 With Lights",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s14.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Karachi · Buhadrabad Chowrangi Dual View · 60 x 30 · From Sharfabad / Tariq Road → Towards Main 4 minar · PKR 1,400,000 With Lights · Immediate",
+    "globalNo": 317,
+    "id": "vp-chn-014"
+  },
+  {
+    "sNo": 15,
+    "slideNum": 18,
+    "code": "VP-CHN-15",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "University Road Near Gulshan Market Bait UL Mukarram (Karachi)",
+    "location": "University Road Near Gulshan Market Bait UL Mukarram (Karachi)",
+    "area": "Karachi",
+    "direction": "From Nipa Bridge → Towards Hassan Square",
+    "from": "Nipa Bridge",
+    "towards": "Hassan Square",
+    "size": "70x30 ft",
+    "widthFt": 70,
+    "heightFt": 30,
+    "sqft": 2100,
+    "availability": "ON Call",
+    "status": "available",
+    "rate": "PKR 1,200,000 With Lights",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s15.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Karachi · University Road Near Gulshan Market Bait UL Mukarram · 70 x 30 · From Nipa Bridge → Towards Hassan Square · PKR 1,200,000 With Lights · ON Call",
+    "globalNo": 318,
+    "id": "vp-chn-015"
+  },
+  {
+    "sNo": 16,
+    "slideNum": 19,
+    "code": "VP-CHN-16",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Society Office Shahrah e Quideen (Karachi)",
+    "location": "Society Office Shahrah e Quideen (Karachi)",
+    "area": "Karachi",
+    "direction": "From Allah Wali Chowrangi → Towards Quaid Tomb",
+    "from": "Allah Wali Chowrangi",
+    "towards": "Quaid Tomb",
+    "size": "41x31 ft",
+    "widthFt": 41,
+    "heightFt": 31,
+    "sqft": 1271,
+    "availability": "immediate",
+    "status": "available",
+    "rate": "PKR 800,000 With Lights",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s16.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Karachi · Society Office Shahrah e Quideen · 41 x 31 · From Allah Wali Chowrangi → Towards Quaid Tomb · PKR 800,000 With Lights · immediate",
+    "globalNo": 319,
+    "id": "vp-chn-016"
+  },
+  {
+    "sNo": 17,
+    "slideNum": 20,
+    "code": "VP-CHN-17",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Expressway Baloch Bridge (Karachi)",
+    "location": "Expressway Baloch Bridge (Karachi)",
+    "area": "Karachi",
+    "direction": "From Baloch Bridge → Towards Defense View",
+    "from": "Baloch Bridge",
+    "towards": "Defense View",
+    "size": "50x30 ft",
+    "widthFt": 50,
+    "heightFt": 30,
+    "sqft": 1500,
+    "availability": "15.12.2026",
+    "status": "booked",
+    "rate": "PKR 800,000",
+    "media": "Bridge / Flyover Hoarding",
+    "photo": "/vendor-media/chinab_static_s17.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Karachi · Expressway Baloch Bridge · 50 x 30 · From Baloch Bridge → Towards Defense View · PKR 800,000 · 15.12.2026",
+    "globalNo": 320,
+    "id": "vp-chn-017"
+  },
+  {
+    "sNo": 18,
+    "slideNum": 21,
+    "code": "VP-CHN-18",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Shah Faisal Road (Karachi)",
+    "location": "Shah Faisal Road (Karachi)",
+    "area": "Karachi",
+    "direction": "From Korangi Bridge → Towards Shami Center/ Shahrah e Faisal",
+    "from": "Korangi Bridge",
+    "towards": "Shami Center/ Shahrah e Faisal",
+    "size": "50x25 ft",
+    "widthFt": 50,
+    "heightFt": 25,
+    "sqft": 1250,
+    "availability": "30.11.26",
+    "status": "booked",
+    "rate": "PKR 900,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s18.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Karachi · Shah Faisal Road · 50 x 25 · From Korangi Bridge → Towards Shami Center/ Shahrah e Faisal · PKR 900,000 · 30.11.26",
+    "globalNo": 321,
+    "id": "vp-chn-018"
+  },
+  {
+    "sNo": 19,
+    "slideNum": 22,
+    "code": "VP-CHN-19",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Main Shahrah-e-Faisal, Quaida Abad Flyover (Karachi)",
+    "location": "Main Shahrah-e-Faisal, Quaida Abad Flyover (Karachi)",
+    "area": "Karachi",
+    "direction": "From Abott Company / Malir3 → Towards Quaidabad",
+    "from": "Abott Company / Malir3",
+    "towards": "Quaidabad",
+    "size": "70x30 ft",
+    "widthFt": 70,
+    "heightFt": 30,
+    "sqft": 2100,
+    "availability": "22.12.2026",
+    "status": "booked",
+    "rate": "PKR 1,000,000",
+    "media": "Bridge / Flyover Hoarding",
+    "photo": "/vendor-media/chinab_static_s19.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Karachi · Main Shahrah-e-Faisal, Quaida Abad Flyover · 70 x 30 · From Abott Company / Malir3 → Towards Quaidabad · PKR 1,000,000 · 22.12.2026",
+    "globalNo": 322,
+    "id": "vp-chn-019"
+  },
+  {
+    "sNo": 20,
+    "slideNum": 23,
+    "code": "VP-CHN-20",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Landi # 1 Baber Market (Karachi)",
+    "location": "Landi # 1 Baber Market (Karachi)",
+    "area": "Karachi",
+    "direction": "From Babar Market → Towards Quaida bad",
+    "from": "Babar Market",
+    "towards": "Quaida bad",
+    "size": "40x30 ft",
+    "widthFt": 40,
+    "heightFt": 30,
+    "sqft": 1200,
+    "availability": "30.11.2026",
+    "status": "booked",
+    "rate": "PKR 900,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s20.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Karachi · Landi # 1 Baber Market · 40 x 30 · From Babar Market → Towards Quaida bad · PKR 900,000 · 30.11.2026",
+    "globalNo": 323,
+    "id": "vp-chn-020"
+  },
+  {
+    "sNo": 21,
+    "slideNum": 25,
+    "code": "VP-CHN-21",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Hussain Chowk Roundabout Panel (Lahore)",
+    "location": "Hussain Chowk Roundabout Panel (Lahore)",
+    "area": "Lahore",
+    "direction": "From Liberty Market → Towards M M Alam road, Mini market",
+    "from": "Liberty Market",
+    "towards": "M M Alam road, Mini market",
+    "size": "90x32 ft",
+    "widthFt": 90,
+    "heightFt": 32,
+    "sqft": 2880,
+    "availability": "Immediate Till 25.11.26",
+    "status": "available",
+    "rate": "PKR 4,000,000 (With Lights)",
+    "media": "Roundabout Mega Hoarding",
+    "photo": "/vendor-media/chinab_static_s21.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Hussain Chowk Roundabout Panel · 90x32 Printing Size: 91X33 · From Liberty Market → Towards M M Alam road, Mini market · PKR 4,000,000 (With Lights) · Immediate Till 25.11.26",
+    "globalNo": 324,
+    "id": "vp-chn-021"
+  },
+  {
+    "sNo": 22,
+    "slideNum": 26,
+    "code": "VP-CHN-22",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Jinnah Flyover Panel (Lahore)",
+    "location": "Jinnah Flyover Panel (Lahore)",
+    "area": "Lahore",
+    "direction": "From Cantt, DHA → Towards Gulberg,Center Point",
+    "from": "Cantt, DHA",
+    "towards": "Gulberg,Center Point",
+    "size": "80x32 + 58x32 ft",
+    "widthFt": 80,
+    "heightFt": 32,
+    "sqft": 4416,
+    "availability": "Immediate Till 25.11.2026",
+    "status": "available",
+    "rate": "PKR 6,000,000 (With Lights)",
+    "media": "Bridge / Flyover Hoarding",
+    "photo": "/vendor-media/chinab_static_s22.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Jinnah Flyover Panel · 80x32 and 58x32 · From Cantt, DHA → Towards Gulberg,Center Point · PKR 6,000,000 (With Lights) · Immediate Till 25.11.2026",
+    "globalNo": 325,
+    "id": "vp-chn-022"
+  },
+  {
+    "sNo": 23,
+    "slideNum": 27,
+    "code": "VP-CHN-23",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Pine Avenue Lake City (Lahore)",
+    "location": "Pine Avenue Lake City (Lahore)",
+    "area": "Lahore",
+    "direction": "From Valencia,Chattri Chowk,DHA Rhabar → Towards Airport,Lake City, Adda Plot",
+    "from": "Valencia,Chattri Chowk,DHA Rhabar",
+    "towards": "Airport,Lake City, Adda Plot",
+    "size": "71x25 ft",
+    "widthFt": 71,
+    "heightFt": 25,
+    "sqft": 1775,
+    "availability": "Immediate Hold",
+    "status": "available",
+    "rate": "PKR 3,000,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s23.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Pine Avenue Lake City · 71x25 · From Valencia,Chattri Chowk,DHA Rhabar → Towards Airport,Lake City, Adda Plot · PKR 3,000,000 · Immediate Hold",
+    "globalNo": 326,
+    "id": "vp-chn-023"
+  },
+  {
+    "sNo": 24,
+    "slideNum": 28,
+    "code": "VP-CHN-24",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Phase 6 Before Dolmen (Lahore)",
+    "location": "Phase 6 Before Dolmen (Lahore)",
+    "area": "Lahore",
+    "direction": "From Phase 5, Askari 11, Bedian Road → Towards DHA Phase 6,7,8, Dolmen,Airport",
+    "from": "Phase 5, Askari 11, Bedian Road",
+    "towards": "DHA Phase 6,7,8, Dolmen,Airport",
+    "size": "50x20 ft",
+    "widthFt": 50,
+    "heightFt": 20,
+    "sqft": 1000,
+    "availability": "Immediate",
+    "status": "available",
+    "rate": "PKR 3,500,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s24.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Phase 6 Before Dolmen · 50x20 · From Phase 5, Askari 11, Bedian Road → Towards DHA Phase 6,7,8, Dolmen,Airport · PKR 3,500,000 · Immediate",
+    "globalNo": 327,
+    "id": "vp-chn-024"
+  },
+  {
+    "sNo": 25,
+    "slideNum": 29,
+    "code": "VP-CHN-25",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Phase 6 Before Dolmen (Lahore)",
+    "location": "Phase 6 Before Dolmen (Lahore)",
+    "area": "Lahore",
+    "direction": "From Phase 5, Askari 11, Bedian Road → Towards DHA Phase 6,7,8, Dolmen,Airport",
+    "from": "Phase 5, Askari 11, Bedian Road",
+    "towards": "DHA Phase 6,7,8, Dolmen,Airport",
+    "size": "50x20 ft",
+    "widthFt": 50,
+    "heightFt": 20,
+    "sqft": 1000,
+    "availability": "Immediate Till 25.11.26",
+    "status": "available",
+    "rate": "PKR 3,500,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s25.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Phase 6 Before Dolmen · 50x20 · From Phase 5, Askari 11, Bedian Road → Towards DHA Phase 6,7,8, Dolmen,Airport · PKR 3,500,000 · Immediate Till 25.11.26",
+    "globalNo": 328,
+    "id": "vp-chn-025"
+  },
+  {
+    "sNo": 26,
+    "slideNum": 30,
+    "code": "VP-CHN-26",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "DHA Dolmen Mall Nawaz Sharif Interchange (Lahore)",
+    "location": "DHA Dolmen Mall Nawaz Sharif Interchange (Lahore)",
+    "area": "Lahore",
+    "direction": "From Airport, Lahore Entrance → Towards DHA Phase 6, Bahria , Lake City",
+    "from": "Airport, Lahore Entrance",
+    "towards": "DHA Phase 6, Bahria , Lake City",
+    "size": "90x30 ft",
+    "widthFt": 90,
+    "heightFt": 30,
+    "sqft": 2700,
+    "availability": "Immediate Till 25 nov",
+    "status": "available",
+    "rate": "PKR 2,700,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s26.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · DHA Dolmen Mall Nawaz Sharif Interchange · 90 x 30 · From Airport, Lahore Entrance → Towards DHA Phase 6, Bahria , Lake City · PKR 2,700,000 · Immediate Till 25 nov",
+    "globalNo": 329,
+    "id": "vp-chn-026"
+  },
+  {
+    "sNo": 27,
+    "slideNum": 31,
+    "code": "VP-CHN-27",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "DHA Phase 8 Commercial Free Ways 1st Roundabout (Istiqulal Roundabout) (Lahore)",
+    "location": "DHA Phase 8 Commercial Free Ways 1st Roundabout (Istiqulal Roundabout) (Lahore)",
+    "area": "Lahore",
+    "direction": "From DHA Phase 6 Boulevard → Towards DHA Phase 8 Boulevard",
+    "from": "DHA Phase 6 Boulevard",
+    "towards": "DHA Phase 8 Boulevard",
+    "size": "120x27 ft",
+    "widthFt": 120,
+    "heightFt": 27,
+    "sqft": 3240,
+    "availability": "Immediate Till 25.11.26",
+    "status": "available",
+    "rate": "PKR 6,500,000",
+    "media": "Roundabout Mega Hoarding",
+    "photo": "/vendor-media/chinab_static_s27.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · DHA Phase 8 Commercial Free Ways 1st Roundabout (Istiqulal Roundabout) · 120x27 · From DHA Phase 6 Boulevard → Towards DHA Phase 8 Boulevard · PKR 6,500,000 · Immediate Till 25.11.26",
+    "globalNo": 330,
+    "id": "vp-chn-027"
+  },
+  {
+    "sNo": 28,
+    "slideNum": 32,
+    "code": "VP-CHN-28",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "DHA Phase 8 Roundabout Near Mcdonald's (Lahore)",
+    "location": "DHA Phase 8 Roundabout Near Mcdonald's (Lahore)",
+    "area": "Lahore",
+    "direction": "From Airport → Towards DHA Phase 8 Mcdonald's",
+    "from": "Airport",
+    "towards": "DHA Phase 8 Mcdonald's",
+    "size": "70x20 ft",
+    "widthFt": 70,
+    "heightFt": 20,
+    "sqft": 1400,
+    "availability": "17.02.2027",
+    "status": "booked",
+    "rate": "PKR 3,000,000",
+    "media": "Roundabout Mega Hoarding",
+    "photo": "/vendor-media/chinab_static_s28.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · DHA Phase 8 Roundabout Near Mcdonald's · 70x20 · From Airport → Towards DHA Phase 8 Mcdonald's · PKR 3,000,000 · 17.02.2027",
+    "globalNo": 331,
+    "id": "vp-chn-028"
+  },
+  {
+    "sNo": 29,
+    "slideNum": 33,
+    "code": "VP-CHN-29",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Mall Road Fortress Gate 1 Entry/ Check Post (Lahore)",
+    "location": "Mall Road Fortress Gate 1 Entry/ Check Post (Lahore)",
+    "area": "Lahore",
+    "direction": "From Mall Road, Gulberg, Canal → Towards Cantt, DHA, Airport",
+    "from": "Mall Road, Gulberg, Canal",
+    "towards": "Cantt, DHA, Airport",
+    "size": "71x30 ft",
+    "widthFt": 71,
+    "heightFt": 30,
+    "sqft": 2130,
+    "availability": "21.11.26 (Ext.)",
+    "status": "booked",
+    "rate": "PKR 4,000,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s29.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Mall Road Fortress Gate 1 Entry/ Check Post · 71 x 30 · From Mall Road, Gulberg, Canal → Towards Cantt, DHA, Airport · PKR 4,000,000 · 21.11.26 (Ext.) · Move ID 802639",
+    "globalNo": 332,
+    "id": "vp-chn-029"
+  },
+  {
+    "sNo": 30,
+    "slideNum": 34,
+    "code": "VP-CHN-30",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Sherpao Bridge (Lahore)",
+    "location": "Sherpao Bridge (Lahore)",
+    "area": "Lahore",
+    "direction": "From Cantt → Towards Gulberg",
+    "from": "Cantt",
+    "towards": "Gulberg",
+    "size": "90x25 ft",
+    "widthFt": 90,
+    "heightFt": 25,
+    "sqft": 2250,
+    "availability": "26.12.2026",
+    "status": "booked",
+    "rate": "PKR 2,800,000 (With Lights)",
+    "media": "Bridge / Flyover Hoarding",
+    "photo": "/vendor-media/chinab_static_s30.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Sherpao Bridge · 90 x 25 · From Cantt → Towards Gulberg · PKR 2,800,000 (With Lights) · 26.12.2026",
+    "globalNo": 333,
+    "id": "vp-chn-030"
+  },
+  {
+    "sNo": 31,
+    "slideNum": 35,
+    "code": "VP-CHN-31",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Firdous Market Signal (Lahore)",
+    "location": "Firdous Market Signal (Lahore)",
+    "area": "Lahore",
+    "direction": "From Hussain Chowk, MM Alam Road → Towards Kalma Chowk, Cavalry Ground",
+    "from": "Hussain Chowk, MM Alam Road",
+    "towards": "Kalma Chowk, Cavalry Ground",
+    "size": "90x30 ft",
+    "widthFt": 90,
+    "heightFt": 30,
+    "sqft": 2700,
+    "availability": "5.10.2027",
+    "status": "booked",
+    "rate": "PKR 3,500,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s31.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Firdous Market Signal · 90 x 30 · From Hussain Chowk, MM Alam Road → Towards Kalma Chowk, Cavalry Ground · PKR 3,500,000 · 5.10.2027",
+    "globalNo": 334,
+    "id": "vp-chn-031"
+  },
+  {
+    "sNo": 32,
+    "slideNum": 36,
+    "code": "VP-CHN-32",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Firdous Market Signal (Lahore)",
+    "location": "Firdous Market Signal (Lahore)",
+    "area": "Lahore",
+    "direction": "From Hussain Chowk, MM Alam Road → Towards Kalma Chowk, Cavalry Ground",
+    "from": "Hussain Chowk, MM Alam Road",
+    "towards": "Kalma Chowk, Cavalry Ground",
+    "size": "116x18 ft",
+    "widthFt": 116,
+    "heightFt": 18,
+    "sqft": 2088,
+    "availability": "Immediate till 25.11.26",
+    "status": "available",
+    "rate": "PKR 2,600,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s32.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Firdous Market Signal · 116 x 18 · From Hussain Chowk, MM Alam Road → Towards Kalma Chowk, Cavalry Ground · PKR 2,600,000 · Immediate till 25.11.26",
+    "globalNo": 335,
+    "id": "vp-chn-032"
+  },
+  {
+    "sNo": 33,
+    "slideNum": 37,
+    "code": "VP-CHN-33",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Firdous Market Signal (Lahore)",
+    "location": "Firdous Market Signal (Lahore)",
+    "area": "Lahore",
+    "direction": "From Hussain Chowk, MM Alam Road → Towards Kalma Chowk, Cavalry Ground",
+    "from": "Hussain Chowk, MM Alam Road",
+    "towards": "Kalma Chowk, Cavalry Ground",
+    "size": "50x10 + 90x30 + 116x18 ft",
+    "widthFt": 90,
+    "heightFt": 30,
+    "sqft": 5288,
+    "availability": "5.10.27",
+    "status": "booked",
+    "rate": "PKR 6,000,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s33.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Firdous Market Signal · Upper Logo 50 x 10 Center 90 x 30 Lower 116 x 18 · From Hussain Chowk, MM Alam Road → Towards Kalma Chowk, Cavalry Ground · PKR 6,000,000 · 5.10.27",
+    "globalNo": 336,
+    "id": "vp-chn-033"
+  },
+  {
+    "sNo": 34,
+    "slideNum": 38,
+    "code": "VP-CHN-34",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Jinnah Flyover (Lahore)",
+    "location": "Jinnah Flyover (Lahore)",
+    "area": "Lahore",
+    "direction": "From Cantt,DHA → Towards Gulberg",
+    "from": "Cantt,DHA",
+    "towards": "Gulberg",
+    "size": "60x20 ft",
+    "widthFt": 60,
+    "heightFt": 20,
+    "sqft": 1200,
+    "availability": "immediate",
+    "status": "available",
+    "rate": "PKR 1,800,000 (With Lights)",
+    "media": "Bridge / Flyover Hoarding",
+    "photo": "/vendor-media/chinab_static_s34.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Jinnah Flyover · 60x20 · From Cantt,DHA → Towards Gulberg · PKR 1,800,000 (With Lights) · immediate",
+    "globalNo": 337,
+    "id": "vp-chn-034"
+  },
+  {
+    "sNo": 35,
+    "slideNum": 39,
+    "code": "VP-CHN-35",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Main Boulevard DHA Entrance (Lahore)",
+    "location": "Main Boulevard DHA Entrance (Lahore)",
+    "area": "Lahore",
+    "direction": "From Gulberg, Walton, Cavalry Ground → Towards DHA H Block, DHA All Phases",
+    "from": "Gulberg, Walton, Cavalry Ground",
+    "towards": "DHA H Block, DHA All Phases",
+    "size": "40x25 ft",
+    "widthFt": 40,
+    "heightFt": 25,
+    "sqft": 1000,
+    "availability": "30.11.2026",
+    "status": "booked",
+    "rate": "PKR 1,500,000 (With Lights)",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s35.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Main Boulevard DHA Entrance · 40x25 · From Gulberg, Walton, Cavalry Ground → Towards DHA H Block, DHA All Phases · PKR 1,500,000 (With Lights) · 30.11.2026",
+    "globalNo": 338,
+    "id": "vp-chn-035"
+  },
+  {
+    "sNo": 36,
+    "slideNum": 40,
+    "code": "VP-CHN-36",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Liberty Roundabout (Lahore)",
+    "location": "Liberty Roundabout (Lahore)",
+    "area": "Lahore",
+    "direction": "From Liberty Round About → Towards Hussain Chowk",
+    "from": "Liberty Round About",
+    "towards": "Hussain Chowk",
+    "size": "40x60 ft",
+    "widthFt": 40,
+    "heightFt": 60,
+    "sqft": 2400,
+    "availability": "Immediate Till 01.12.2026",
+    "status": "available",
+    "rate": "PKR 2,500,000",
+    "media": "Roundabout Mega Hoarding",
+    "photo": "/vendor-media/chinab_static_s36.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Liberty Roundabout · 40x60 · From Liberty Round About → Towards Hussain Chowk · PKR 2,500,000 · Immediate Till 01.12.2026",
+    "globalNo": 339,
+    "id": "vp-chn-036"
+  },
+  {
+    "sNo": 37,
+    "slideNum": 41,
+    "code": "VP-CHN-37",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Sherpao Bridge (Lahore)",
+    "location": "Sherpao Bridge (Lahore)",
+    "area": "Lahore",
+    "direction": "From Gulberg → Towards Cantt",
+    "from": "Gulberg",
+    "towards": "Cantt",
+    "size": "60x20 ft",
+    "widthFt": 60,
+    "heightFt": 20,
+    "sqft": 1200,
+    "availability": "24.11.2026 (Ext.)",
+    "status": "booked",
+    "rate": "PKR 2,400,000",
+    "media": "Bridge / Flyover Hoarding",
+    "photo": "/vendor-media/chinab_static_s37.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Sherpao Bridge · 60x20 · From Gulberg → Towards Cantt · PKR 2,400,000 · 24.11.2026 (Ext.)",
+    "globalNo": 340,
+    "id": "vp-chn-037"
+  },
+  {
+    "sNo": 38,
+    "slideNum": 42,
+    "code": "VP-CHN-38",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Kalma Chowk (Lahore)",
+    "location": "Kalma Chowk (Lahore)",
+    "area": "Lahore",
+    "direction": "From Muslim Town → Towards Gulberg",
+    "from": "Muslim Town",
+    "towards": "Gulberg",
+    "size": "60x20 ft",
+    "widthFt": 60,
+    "heightFt": 20,
+    "sqft": 1200,
+    "availability": "Immediate Till 25.11.26",
+    "status": "available",
+    "rate": "PKR 1,300,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s38.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Kalma Chowk · 60x20 · From Muslim Town → Towards Gulberg · PKR 1,300,000 · Immediate Till 25.11.26",
+    "globalNo": 341,
+    "id": "vp-chn-038"
+  },
+  {
+    "sNo": 39,
+    "slideNum": 43,
+    "code": "VP-CHN-39",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "State Life Roundabout DHA Phase 4 Entrance (Lahore)",
+    "location": "State Life Roundabout DHA Phase 4 Entrance (Lahore)",
+    "area": "Lahore",
+    "direction": "From Ring Road, State Life Society → Towards Sui Gas, DHA",
+    "from": "Ring Road, State Life Society",
+    "towards": "Sui Gas, DHA",
+    "size": "30x40 ft",
+    "widthFt": 30,
+    "heightFt": 40,
+    "sqft": 1200,
+    "availability": "immediate",
+    "status": "available",
+    "rate": "PKR 850,000",
+    "media": "Roundabout Mega Hoarding",
+    "photo": "/vendor-media/chinab_static_s39.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · State Life Roundabout DHA Phase 4 Entrance · 30x40 · From Ring Road, State Life Society → Towards Sui Gas, DHA · PKR 850,000 · immediate",
+    "globalNo": 342,
+    "id": "vp-chn-039"
+  },
+  {
+    "sNo": 40,
+    "slideNum": 44,
+    "code": "VP-CHN-40",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Muslim Town Flyover Facing Kalma Chowk (Lahore)",
+    "location": "Muslim Town Flyover Facing Kalma Chowk (Lahore)",
+    "area": "Lahore",
+    "direction": "From Kalma Chowk, Garden Town → Towards Wahdat Road, Ichra",
+    "from": "Kalma Chowk, Garden Town",
+    "towards": "Wahdat Road, Ichra",
+    "size": "60x20 ft",
+    "widthFt": 60,
+    "heightFt": 20,
+    "sqft": 1200,
+    "availability": "29.11.26 (Ext.)",
+    "status": "booked",
+    "rate": "PKR 950,000",
+    "media": "Bridge / Flyover Hoarding",
+    "photo": "/vendor-media/chinab_static_s40.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Muslim Town Flyover Facing Kalma Chowk · 60x20 · From Kalma Chowk, Garden Town → Towards Wahdat Road, Ichra · PKR 950,000 · 29.11.26 (Ext.)",
+    "globalNo": 343,
+    "id": "vp-chn-040"
+  },
+  {
+    "sNo": 41,
+    "slideNum": 45,
+    "code": "VP-CHN-41",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Muslim Town Flyover (Lahore)",
+    "location": "Muslim Town Flyover (Lahore)",
+    "area": "Lahore",
+    "direction": "From Qartaba Chowk Ferozpur Road, Ichra → Towards Kalma Chowk,Garden Town",
+    "from": "Qartaba Chowk Ferozpur Road, Ichra",
+    "towards": "Kalma Chowk,Garden Town",
+    "size": "40x30 ft",
+    "widthFt": 40,
+    "heightFt": 30,
+    "sqft": 1200,
+    "availability": "21.11.2026",
+    "status": "booked",
+    "rate": "PKR 850,000",
+    "media": "Bridge / Flyover Hoarding",
+    "photo": "/vendor-media/chinab_static_s41.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Muslim Town Flyover · 40x30 · From Qartaba Chowk Ferozpur Road, Ichra → Towards Kalma Chowk,Garden Town · PKR 850,000 · 21.11.2026 · Move ID 801474",
+    "globalNo": 344,
+    "id": "vp-chn-041"
+  },
+  {
+    "sNo": 42,
+    "slideNum": 46,
+    "code": "VP-CHN-42",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Packages Flyover (Lahore)",
+    "location": "Packages Flyover (Lahore)",
+    "area": "Lahore",
+    "direction": "From Packages , Walton Road, DHA → Towards Ferozpur Road, Model town",
+    "from": "Packages , Walton Road, DHA",
+    "towards": "Ferozpur Road, Model town",
+    "size": "40x30 ft",
+    "widthFt": 40,
+    "heightFt": 30,
+    "sqft": 1200,
+    "availability": "Immediate till 25.11.26",
+    "status": "available",
+    "rate": "PKR 1,000,000 (With Lights)",
+    "media": "Bridge / Flyover Hoarding",
+    "photo": "/vendor-media/chinab_static_s42.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Packages Flyover · 40x30 · From Packages , Walton Road, DHA → Towards Ferozpur Road, Model town · PKR 1,000,000 (With Lights) · Immediate till 25.11.26",
+    "globalNo": 345,
+    "id": "vp-chn-042"
+  },
+  {
+    "sNo": 43,
+    "slideNum": 47,
+    "code": "VP-CHN-43",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Ferozpur Road Qartaba Chowk (With Lights) (Lahore)",
+    "location": "Ferozpur Road Qartaba Chowk (With Lights) (Lahore)",
+    "area": "Lahore",
+    "direction": "From Littion Road & Abid Market → Towards Muslim Town",
+    "from": "Littion Road & Abid Market",
+    "towards": "Muslim Town",
+    "size": "30x40 ft",
+    "widthFt": 30,
+    "heightFt": 40,
+    "sqft": 1200,
+    "availability": "15.9.2027",
+    "status": "booked",
+    "rate": "PKR 1,000,000 (With Lights)",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s43.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Ferozpur Road Qartaba Chowk (With Lights) · 30x40 · From Littion Road & Abid Market → Towards Muslim Town · PKR 1,000,000 (With Lights) · 15.9.2027",
+    "globalNo": 346,
+    "id": "vp-chn-043"
+  },
+  {
+    "sNo": 44,
+    "slideNum": 48,
+    "code": "VP-CHN-44",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Main Jail Road (with Lights) (Lahore)",
+    "location": "Main Jail Road (with Lights) (Lahore)",
+    "area": "Lahore",
+    "direction": "From Jail Road, Shadman Chowk → Towards Mozang Chowk , Ferozpur Road",
+    "from": "Jail Road, Shadman Chowk",
+    "towards": "Mozang Chowk , Ferozpur Road",
+    "size": "40x30 ft",
+    "widthFt": 40,
+    "heightFt": 30,
+    "sqft": 1200,
+    "availability": "29.11.26 (Ext.)",
+    "status": "booked",
+    "rate": "PKR 950,000 (With Lights)",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s44.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Main Jail Road (with Lights) · 40x30 Printing Size: 39X30 · From Jail Road, Shadman Chowk → Towards Mozang Chowk , Ferozpur Road · PKR 950,000 (With Lights) · 29.11.26 (Ext.)",
+    "globalNo": 347,
+    "id": "vp-chn-044"
+  },
+  {
+    "sNo": 45,
+    "slideNum": 49,
+    "code": "VP-CHN-45",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Jawad Cheema Chowk (with Lights) (Lahore)",
+    "location": "Jawad Cheema Chowk (with Lights) (Lahore)",
+    "area": "Lahore",
+    "direction": "From Golf Club, Mall Road → Towards Askari X, Airport, Ring Road",
+    "from": "Golf Club, Mall Road",
+    "towards": "Askari X, Airport, Ring Road",
+    "size": "60x20 ft",
+    "widthFt": 60,
+    "heightFt": 20,
+    "sqft": 1200,
+    "availability": "16.9.2027",
+    "status": "booked",
+    "rate": "PKR 950,000 (With Lights)",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s45.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Jawad Cheema Chowk (with Lights) · 60x20 · From Golf Club, Mall Road → Towards Askari X, Airport, Ring Road · PKR 950,000 (With Lights) · 16.9.2027",
+    "globalNo": 348,
+    "id": "vp-chn-045"
+  },
+  {
+    "sNo": 46,
+    "slideNum": 50,
+    "code": "VP-CHN-46",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "G1 Market Johar Town (Lahore)",
+    "location": "G1 Market Johar Town (Lahore)",
+    "area": "Lahore",
+    "direction": "From Emporium Mall, Expo Center → Towards Doctor Hospital, G1 Market",
+    "from": "Emporium Mall, Expo Center",
+    "towards": "Doctor Hospital, G1 Market",
+    "size": "40x30 ft",
+    "widthFt": 40,
+    "heightFt": 30,
+    "sqft": 1200,
+    "availability": "21.11.26 (Ext.)",
+    "status": "booked",
+    "rate": "PKR 1,050,000 (With Lights)",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s46.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · G1 Market Johar Town · 40x30 · From Emporium Mall, Expo Center → Towards Doctor Hospital, G1 Market · PKR 1,050,000 (With Lights) · 21.11.26 (Ext.) · Move ID 800854",
+    "globalNo": 349,
+    "id": "vp-chn-046"
+  },
+  {
+    "sNo": 47,
+    "slideNum": 51,
+    "code": "VP-CHN-47",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Khokhar Chowk Johar Town (Lahore)",
+    "location": "Khokhar Chowk Johar Town (Lahore)",
+    "area": "Lahore",
+    "direction": "From Doctor Hospital,G1 Market, Canal Road → Towards Emporium Mall, Expo Center",
+    "from": "Doctor Hospital,G1 Market, Canal Road",
+    "towards": "Emporium Mall, Expo Center",
+    "size": "40x30 ft",
+    "widthFt": 40,
+    "heightFt": 30,
+    "sqft": 1200,
+    "availability": "21.11.26 (Ext.)",
+    "status": "booked",
+    "rate": "PKR 1,050,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s47.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Khokhar Chowk Johar Town · 40x30 · From Doctor Hospital,G1 Market, Canal Road → Towards Emporium Mall, Expo Center · PKR 1,050,000 · 21.11.26 (Ext.)",
+    "globalNo": 350,
+    "id": "vp-chn-047"
+  },
+  {
+    "sNo": 48,
+    "slideNum": 52,
+    "code": "VP-CHN-48",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "PIA Road Facing Wapda Town (Lahore)",
+    "location": "PIA Road Facing Wapda Town (Lahore)",
+    "area": "Lahore",
+    "direction": "From Wapda Town → Towards Akbar Chowk & college Road",
+    "from": "Wapda Town",
+    "towards": "Akbar Chowk & college Road",
+    "size": "60x20 ft",
+    "widthFt": 60,
+    "heightFt": 20,
+    "sqft": 1200,
+    "availability": "21.11.26 (Ext.)",
+    "status": "booked",
+    "rate": "PKR 950,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s48.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · PIA Road Facing Wapda Town · 60x20 · From Wapda Town → Towards Akbar Chowk & college Road · PKR 950,000 · 21.11.26 (Ext.) · Move ID 798107",
+    "globalNo": 351,
+    "id": "vp-chn-048"
+  },
+  {
+    "sNo": 49,
+    "slideNum": 53,
+    "code": "VP-CHN-49",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Thokar Niaz Baig Lahore Exit",
+    "location": "Thokar Niaz Baig Lahore Exit",
+    "area": "Lahore",
+    "direction": "From Canal Road , Lahore → Towards Motor way, Multan Road",
+    "from": "Canal Road , Lahore",
+    "towards": "Motor way, Multan Road",
+    "size": "80x30 ft",
+    "widthFt": 80,
+    "heightFt": 30,
+    "sqft": 2400,
+    "availability": "Immediate",
+    "status": "available",
+    "rate": "PKR 2,200,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s49.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Thokar Niaz Baig Lahore Exit · 80x30 Printing Size: 81x30 · From Canal Road , Lahore → Towards Motor way, Multan Road · PKR 2,200,000 · Immediate",
+    "globalNo": 352,
+    "id": "vp-chn-049"
+  },
+  {
+    "sNo": 50,
+    "slideNum": 54,
+    "code": "VP-CHN-50",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Thokar Niaz Baig Lahore Entrance",
+    "location": "Thokar Niaz Baig Lahore Entrance",
+    "area": "Lahore",
+    "direction": "From Motor way, Multan Road → Towards Canal Road , Lahore",
+    "from": "Motor way, Multan Road",
+    "towards": "Canal Road , Lahore",
+    "size": "40x30 ft",
+    "widthFt": 40,
+    "heightFt": 30,
+    "sqft": 1200,
+    "availability": "10.8.2027",
+    "status": "booked",
+    "rate": "PKR 1,100,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s50.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Thokar Niaz Baig Lahore Entrance · 40x30 · From Motor way, Multan Road → Towards Canal Road , Lahore · PKR 1,100,000 · 10.8.2027",
+    "globalNo": 353,
+    "id": "vp-chn-050"
+  },
+  {
+    "sNo": 51,
+    "slideNum": 55,
+    "code": "VP-CHN-51",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Thokar Niaz Baig Lahore Entrance",
+    "location": "Thokar Niaz Baig Lahore Entrance",
+    "area": "Lahore",
+    "direction": "From Motor way, Multan Road → Towards Canal Road , Lahore",
+    "from": "Motor way, Multan Road",
+    "towards": "Canal Road , Lahore",
+    "size": "40x30 ft",
+    "widthFt": 40,
+    "heightFt": 30,
+    "sqft": 1200,
+    "availability": "10.8.2027",
+    "status": "booked",
+    "rate": "PKR 1,100,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s51.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Thokar Niaz Baig Lahore Entrance · 40x30 · From Motor way, Multan Road → Towards Canal Road , Lahore · PKR 1,100,000 · 10.8.2027",
+    "globalNo": 354,
+    "id": "vp-chn-051"
+  },
+  {
+    "sNo": 52,
+    "slideNum": 56,
+    "code": "VP-CHN-52",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Thokar Niaz Baig Lahore Entrance",
+    "location": "Thokar Niaz Baig Lahore Entrance",
+    "area": "Lahore",
+    "direction": "From Motor way, Multan Road → Towards Canal Road , Lahore",
+    "from": "Motor way, Multan Road",
+    "towards": "Canal Road , Lahore",
+    "size": "80x30 ft",
+    "widthFt": 80,
+    "heightFt": 30,
+    "sqft": 2400,
+    "availability": "10.8.2027",
+    "status": "booked",
+    "rate": "PKR 2,200,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s52.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Thokar Niaz Baig Lahore Entrance · 80x30 Printing Size: 81x30 · From Motor way, Multan Road → Towards Canal Road , Lahore · PKR 2,200,000 · 10.8.2027",
+    "globalNo": 355,
+    "id": "vp-chn-052"
+  },
+  {
+    "sNo": 53,
+    "slideNum": 57,
+    "code": "VP-CHN-53",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Thokar Niaz Baig Lahore Entrance",
+    "location": "Thokar Niaz Baig Lahore Entrance",
+    "area": "Lahore",
+    "direction": "From Motor way, Multan Road, EME → Towards Canal Road , Lahore",
+    "from": "Motor way, Multan Road, EME",
+    "towards": "Canal Road , Lahore",
+    "size": "60x20 ft",
+    "widthFt": 60,
+    "heightFt": 20,
+    "sqft": 1200,
+    "availability": "Immediate Till 25.11.26",
+    "status": "available",
+    "rate": "PKR 1,400,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s53.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Thokar Niaz Baig Lahore Entrance · 60x20 · From Motor way, Multan Road, EME → Towards Canal Road , Lahore · PKR 1,400,000 · Immediate Till 25.11.26",
+    "globalNo": 356,
+    "id": "vp-chn-053"
+  },
+  {
+    "sNo": 54,
+    "slideNum": 58,
+    "code": "VP-CHN-54",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Thokar Niaz Baig Lahore Exit",
+    "location": "Thokar Niaz Baig Lahore Exit",
+    "area": "Lahore",
+    "direction": "From Canal Road , Lahore → Towards Motor way, Multan Road, EME",
+    "from": "Canal Road , Lahore",
+    "towards": "Motor way, Multan Road, EME",
+    "size": "60x20 ft",
+    "widthFt": 60,
+    "heightFt": 20,
+    "sqft": 1200,
+    "availability": "Immediate Till 25.11.2026",
+    "status": "available",
+    "rate": "PKR 1,400,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s54.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Thokar Niaz Baig Lahore Exit · 60x20 · From Canal Road , Lahore → Towards Motor way, Multan Road, EME · PKR 1,400,000 · Immediate Till 25.11.2026",
+    "globalNo": 357,
+    "id": "vp-chn-054"
+  },
+  {
+    "sNo": 55,
+    "slideNum": 59,
+    "code": "VP-CHN-55",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Kader Topbash Chowk/ Chattri Chowk (Lahore)",
+    "location": "Kader Topbash Chowk/ Chattri Chowk (Lahore)",
+    "area": "Lahore",
+    "direction": "From Valencia town, Lake City, LDA Signal → Towards LDA, Shoukat Khanam ,UCP",
+    "from": "Valencia town, Lake City, LDA Signal",
+    "towards": "LDA, Shoukat Khanam ,UCP",
+    "size": "60x20 ft",
+    "widthFt": 60,
+    "heightFt": 20,
+    "sqft": 1200,
+    "availability": "30.11.26 (Ext.)",
+    "status": "booked",
+    "rate": "PKR 1,050,000 (With Lights)",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s55.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Kader Topbash Chowk/ Chattri Chowk · 60x20 · From Valencia town, Lake City, LDA Signal → Towards LDA, Shoukat Khanam ,UCP · PKR 1,050,000 (With Lights) · 30.11.26 (Ext.)",
+    "globalNo": 358,
+    "id": "vp-chn-055"
+  },
+  {
+    "sNo": 56,
+    "slideNum": 60,
+    "code": "VP-CHN-56",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Punjab Bank Chowk, Valencia, Johar Town Site 2 (Lahore)",
+    "location": "Punjab Bank Chowk, Valencia, Johar Town Site 2 (Lahore)",
+    "area": "Lahore",
+    "direction": "From Chatri Chowk & Rahbar DHA → Towards Lake City, Pine Avenue",
+    "from": "Chatri Chowk & Rahbar DHA",
+    "towards": "Lake City, Pine Avenue",
+    "size": "60x20 ft",
+    "widthFt": 60,
+    "heightFt": 20,
+    "sqft": 1200,
+    "availability": "Immediate Strong Hold",
+    "status": "available",
+    "rate": "PKR 1,200,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s56.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Punjab Bank Chowk, Valencia, Johar Town Site 2 · 60x20 · From Chatri Chowk & Rahbar DHA → Towards Lake City, Pine Avenue · PKR 1,200,000 · Immediate Strong Hold",
+    "globalNo": 359,
+    "id": "vp-chn-056"
+  },
+  {
+    "sNo": 57,
+    "slideNum": 61,
+    "code": "VP-CHN-57",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Punjab Bank Chowk, Valencia, Johar Town (Lahore)",
+    "location": "Punjab Bank Chowk, Valencia, Johar Town (Lahore)",
+    "area": "Lahore",
+    "direction": "From Chatri Chowk & Rahbar DHA → Towards Lake City, Pine Avenue",
+    "from": "Chatri Chowk & Rahbar DHA",
+    "towards": "Lake City, Pine Avenue",
+    "size": "60x20 ft",
+    "widthFt": 60,
+    "heightFt": 20,
+    "sqft": 1200,
+    "availability": "Immediate Till 25",
+    "status": "available",
+    "rate": "PKR 1,200,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s57.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Punjab Bank Chowk, Valencia, Johar Town · 60x20 · From Chatri Chowk & Rahbar DHA → Towards Lake City, Pine Avenue · PKR 1,200,000 · Immediate Till 25",
+    "globalNo": 360,
+    "id": "vp-chn-057"
+  },
+  {
+    "sNo": 58,
+    "slideNum": 62,
+    "code": "VP-CHN-58",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "LDA Signal Going Towards ADDA Plot (Lahore)",
+    "location": "LDA Signal Going Towards ADDA Plot (Lahore)",
+    "area": "Lahore",
+    "direction": "From Thokar , Abdul Star Edhi Road → Towards Adda Plot, Bhubtian, Lake City",
+    "from": "Thokar , Abdul Star Edhi Road",
+    "towards": "Adda Plot, Bhubtian, Lake City",
+    "size": "60x20 ft",
+    "widthFt": 60,
+    "heightFt": 20,
+    "sqft": 1200,
+    "availability": "30.11.26",
+    "status": "booked",
+    "rate": "PKR 850,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s58.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · LDA Signal Going Towards ADDA Plot · 60 x 20 · From Thokar , Abdul Star Edhi Road → Towards Adda Plot, Bhubtian, Lake City · PKR 850,000 · 30.11.26",
+    "globalNo": 361,
+    "id": "vp-chn-058"
+  },
+  {
+    "sNo": 59,
+    "slideNum": 63,
+    "code": "VP-CHN-59",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Chuburji Chowk (Lahore)",
+    "location": "Chuburji Chowk (Lahore)",
+    "area": "Lahore",
+    "direction": "From Multan Road, Sacheem Mor → Towards MAO College, Data Darbar",
+    "from": "Multan Road, Sacheem Mor",
+    "towards": "MAO College, Data Darbar",
+    "size": "50x24 ft",
+    "widthFt": 50,
+    "heightFt": 24,
+    "sqft": 1200,
+    "availability": "24.11.26 (Ext.)",
+    "status": "booked",
+    "rate": "PKR 950,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s59.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Chuburji Chowk · 50 x 24 · From Multan Road, Sacheem Mor → Towards MAO College, Data Darbar · PKR 950,000 · 24.11.26 (Ext.) · Move ID 800877",
+    "globalNo": 362,
+    "id": "vp-chn-059"
+  },
+  {
+    "sNo": 60,
+    "slideNum": 64,
+    "code": "VP-CHN-60",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Ring Road Near Gulshan Ravi (Lahore)",
+    "location": "Ring Road Near Gulshan Ravi (Lahore)",
+    "area": "Lahore",
+    "direction": "From Babu Sabu Motorway → Towards Ring road, Airport",
+    "from": "Babu Sabu Motorway",
+    "towards": "Ring road, Airport",
+    "size": "60x20 ft",
+    "widthFt": 60,
+    "heightFt": 20,
+    "sqft": 1200,
+    "availability": "10.12.26 (Ext.)",
+    "status": "booked",
+    "rate": "PKR 700,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s60.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Ring Road Near Gulshan Ravi · 60 x 20 · From Babu Sabu Motorway → Towards Ring road, Airport · PKR 700,000 · 10.12.26 (Ext.)",
+    "globalNo": 363,
+    "id": "vp-chn-060"
+  },
+  {
+    "sNo": 61,
+    "slideNum": 65,
+    "code": "VP-CHN-61",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Azadi Chowk Flyover (Lahore)",
+    "location": "Azadi Chowk Flyover (Lahore)",
+    "area": "Lahore",
+    "direction": "From Data Darbar → Towards Timber Market, Larri Adda",
+    "from": "Data Darbar",
+    "towards": "Timber Market, Larri Adda",
+    "size": "30x40 ft",
+    "widthFt": 30,
+    "heightFt": 40,
+    "sqft": 1200,
+    "availability": "immediate",
+    "status": "available",
+    "rate": "PKR 1,000,000 (With Lights)",
+    "media": "Bridge / Flyover Hoarding",
+    "photo": "/vendor-media/chinab_static_s61.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Azadi Chowk Flyover · 30 x 40 · From Data Darbar → Towards Timber Market, Larri Adda · PKR 1,000,000 (With Lights) · immediate",
+    "globalNo": 364,
+    "id": "vp-chn-061"
+  },
+  {
+    "sNo": 62,
+    "slideNum": 66,
+    "code": "VP-CHN-62",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Azadi Chowk Flyover (Lahore)",
+    "location": "Azadi Chowk Flyover (Lahore)",
+    "area": "Lahore",
+    "direction": "From Timber Market, Larri Adda → Towards Data Darbar",
+    "from": "Timber Market, Larri Adda",
+    "towards": "Data Darbar",
+    "size": "60x20 ft",
+    "widthFt": 60,
+    "heightFt": 20,
+    "sqft": 1200,
+    "availability": "28.11.26",
+    "status": "booked",
+    "rate": "PKR 950,000",
+    "media": "Bridge / Flyover Hoarding",
+    "photo": "/vendor-media/chinab_static_s62.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Azadi Chowk Flyover · 60 x 20 · From Timber Market, Larri Adda → Towards Data Darbar · PKR 950,000 · 28.11.26",
+    "globalNo": 365,
+    "id": "vp-chn-062"
+  },
+  {
+    "sNo": 63,
+    "slideNum": 67,
+    "code": "VP-CHN-63",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Shah Alam Chowk (With Lights) (Lahore)",
+    "location": "Shah Alam Chowk (With Lights) (Lahore)",
+    "area": "Lahore",
+    "direction": "From Shah Alam Market → Towards Urdu Bazar",
+    "from": "Shah Alam Market",
+    "towards": "Urdu Bazar",
+    "size": "50x20 ft",
+    "widthFt": 50,
+    "heightFt": 20,
+    "sqft": 1000,
+    "availability": "8.12.26Ext",
+    "status": "booked",
+    "rate": "PKR 900,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s63.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Shah Alam Chowk (With Lights) · 50 x 20 · From Shah Alam Market → Towards Urdu Bazar · PKR 900,000 · 8.12.26Ext",
+    "globalNo": 366,
+    "id": "vp-chn-063"
+  },
+  {
+    "sNo": 64,
+    "slideNum": 68,
+    "code": "VP-CHN-64",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Circular Road Railway Station Flyover (Lahore)",
+    "location": "Circular Road Railway Station Flyover (Lahore)",
+    "area": "Lahore",
+    "direction": "From Larri Adda → Towards Railway Station",
+    "from": "Larri Adda",
+    "towards": "Railway Station",
+    "size": "40x30 ft",
+    "widthFt": 40,
+    "heightFt": 30,
+    "sqft": 1200,
+    "availability": "21.11.26",
+    "status": "booked",
+    "rate": "PKR 750,000",
+    "media": "Bridge / Flyover Hoarding",
+    "photo": "/vendor-media/chinab_static_s64.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Circular Road Railway Station Flyover · 40 x 30 · From Larri Adda → Towards Railway Station · PKR 750,000 · 21.11.26 · Move ID 802441",
+    "globalNo": 367,
+    "id": "vp-chn-064"
+  },
+  {
+    "sNo": 65,
+    "slideNum": 69,
+    "code": "VP-CHN-65",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Motorway Toll Plaza Towards Islamabad (Lahore)",
+    "location": "Motorway Toll Plaza Towards Islamabad (Lahore)",
+    "area": "Lahore",
+    "direction": "From Babu sabu Interchange → Towards Islamabad",
+    "from": "Babu sabu Interchange",
+    "towards": "Islamabad",
+    "size": "90x30 ft",
+    "widthFt": 90,
+    "heightFt": 30,
+    "sqft": 2700,
+    "availability": "Immediate hold",
+    "status": "available",
+    "rate": "PKR 1,000,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s65.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Motorway Toll Plaza Towards Islamabad · 90 x 30 · From Babu sabu Interchange → Towards Islamabad · PKR 1,000,000 · Immediate hold",
+    "globalNo": 368,
+    "id": "vp-chn-065"
+  },
+  {
+    "sNo": 66,
+    "slideNum": 70,
+    "code": "VP-CHN-66",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Eastern by pass Motorway (Lahore)",
+    "location": "Eastern by pass Motorway (Lahore)",
+    "area": "Lahore",
+    "direction": "From Lahore → Towards Sialkot,Kala shah Kaku",
+    "from": "Lahore",
+    "towards": "Sialkot,Kala shah Kaku",
+    "size": "90x30 ft",
+    "widthFt": 90,
+    "heightFt": 30,
+    "sqft": 2700,
+    "availability": "On call",
+    "status": "available",
+    "rate": "PKR 1,200,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s66.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Eastern by pass Motorway · 90 x 30 · From Lahore → Towards Sialkot,Kala shah Kaku · PKR 1,200,000 · On call",
+    "globalNo": 369,
+    "id": "vp-chn-066"
+  },
+  {
+    "sNo": 67,
+    "slideNum": 71,
+    "code": "VP-CHN-67",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Sialkot To Lahore Entrance",
+    "location": "Sialkot To Lahore Entrance",
+    "area": "Lahore",
+    "direction": "From Sialkot → Towards Lahore",
+    "from": "Sialkot",
+    "towards": "Lahore",
+    "size": "90x30 ft",
+    "widthFt": 90,
+    "heightFt": 30,
+    "sqft": 2700,
+    "availability": "3.12.26",
+    "status": "booked",
+    "rate": "PKR 1,200,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s67.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Lahore · Sialkot To Lahore Entrance · 90 x 30 · From Sialkot → Towards Lahore · PKR 1,200,000 · 3.12.26",
+    "globalNo": 370,
+    "id": "vp-chn-067"
+  },
+  {
+    "sNo": 68,
+    "slideNum": 73,
+    "code": "VP-CHN-68",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "32 Chowk Sheikhupura",
+    "location": "32 Chowk Sheikhupura",
+    "area": "Sheikhupura",
+    "direction": "From Lahore → Towards Faisalabad Motorway , Shahdra Chowk",
+    "from": "Lahore",
+    "towards": "Faisalabad Motorway , Shahdra Chowk",
+    "size": "60x20 ft",
+    "widthFt": 60,
+    "heightFt": 20,
+    "sqft": 1200,
+    "availability": "7.12.26 (Ext.)",
+    "status": "booked",
+    "rate": "PKR 350,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s68.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Sheikhupura · 32 Chowk Sheikhupura · 60 x 20 · From Lahore → Towards Faisalabad Motorway , Shahdra Chowk · PKR 350,000 · 7.12.26 (Ext.)",
+    "globalNo": 371,
+    "id": "vp-chn-068"
+  },
+  {
+    "sNo": 69,
+    "slideNum": 74,
+    "code": "VP-CHN-69",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "32 Chowk Sheikhupura",
+    "location": "32 Chowk Sheikhupura",
+    "area": "Sheikhupura",
+    "direction": "From Lahore → Towards Faisalabad Motorway , Shahdra Chowk",
+    "from": "Lahore",
+    "towards": "Faisalabad Motorway , Shahdra Chowk",
+    "size": "60x20 ft",
+    "widthFt": 60,
+    "heightFt": 20,
+    "sqft": 1200,
+    "availability": "19.12.2026 (Ext.)",
+    "status": "booked",
+    "rate": "PKR 350,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s69.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Sheikhupura · 32 Chowk Sheikhupura · 60 x 20 · From Lahore → Towards Faisalabad Motorway , Shahdra Chowk · PKR 350,000 · 19.12.2026 (Ext.)",
+    "globalNo": 372,
+    "id": "vp-chn-069"
+  },
+  {
+    "sNo": 70,
+    "slideNum": 76,
+    "code": "VP-CHN-70",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Srinagar Highway Opp Eighteen (Islamabad / Rawalpindi)",
+    "location": "Srinagar Highway Opp Eighteen (Islamabad / Rawalpindi)",
+    "area": "Islamabad / Rawalpindi",
+    "direction": "From Sirinagar Highway & 26 number → Towards Airport, M1,M2 Motorway & Peshawar",
+    "from": "Sirinagar Highway & 26 number",
+    "towards": "Airport, M1,M2 Motorway & Peshawar",
+    "size": "101x41 ft",
+    "widthFt": 101,
+    "heightFt": 41,
+    "sqft": 4141,
+    "availability": "01.12.2026",
+    "status": "booked",
+    "rate": "PKR 1,300,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s70.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Islamabad / Rawalpindi · Srinagar Highway Opp Eighteen · 101 x 41 · From Sirinagar Highway & 26 number → Towards Airport, M1,M2 Motorway & Peshawar · PKR 1,300,000 · 01.12.2026",
+    "globalNo": 373,
+    "id": "vp-chn-070"
+  },
+  {
+    "sNo": 71,
+    "slideNum": 77,
+    "code": "VP-CHN-71",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Asghar Mall Murree Road near Naz Cenima (Islamabad / Rawalpindi)",
+    "location": "Asghar Mall Murree Road near Naz Cenima (Islamabad / Rawalpindi)",
+    "area": "Islamabad / Rawalpindi",
+    "direction": "From Committee Chowk → Towards Faizabad, Murree Road & Chandani Chowk Flyover",
+    "from": "Committee Chowk",
+    "towards": "Faizabad, Murree Road & Chandani Chowk Flyover",
+    "size": "31x31 ft",
+    "widthFt": 31,
+    "heightFt": 31,
+    "sqft": 961,
+    "availability": "25.12.2026 (Ext)",
+    "status": "booked",
+    "rate": "PKR 350,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s71.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Islamabad / Rawalpindi · Asghar Mall Murree Road near Naz Cenima · 31 x 31 · From Committee Chowk → Towards Faizabad, Murree Road & Chandani Chowk Flyover · PKR 350,000 · 25.12.2026 (Ext)",
+    "globalNo": 374,
+    "id": "vp-chn-071"
+  },
+  {
+    "sNo": 72,
+    "slideNum": 78,
+    "code": "VP-CHN-72",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "KhanaPul (Islamabad / Rawalpindi)",
+    "location": "KhanaPul (Islamabad / Rawalpindi)",
+    "area": "Islamabad / Rawalpindi",
+    "direction": "From Islamabad Lethar Road → Towards Rawalpindi",
+    "from": "Islamabad Lethar Road",
+    "towards": "Rawalpindi",
+    "size": "60x20 ft",
+    "widthFt": 60,
+    "heightFt": 20,
+    "sqft": 1200,
+    "availability": "29.11.2026",
+    "status": "booked",
+    "rate": "PKR 350,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s72.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Islamabad / Rawalpindi · KhanaPul · 60 x 20 · From Islamabad Lethar Road → Towards Rawalpindi · PKR 350,000 · 29.11.2026",
+    "globalNo": 375,
+    "id": "vp-chn-072"
+  },
+  {
+    "sNo": 73,
+    "slideNum": 79,
+    "code": "VP-CHN-73",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Liaquat Bagh Chowk (Islamabad / Rawalpindi)",
+    "location": "Liaquat Bagh Chowk (Islamabad / Rawalpindi)",
+    "area": "Islamabad / Rawalpindi",
+    "direction": "From Raja Bazar → Towards Murree Road",
+    "from": "Raja Bazar",
+    "towards": "Murree Road",
+    "size": "40x30 ft",
+    "widthFt": 40,
+    "heightFt": 30,
+    "sqft": 1200,
+    "availability": "Immediate till 5 Dec 26",
+    "status": "available",
+    "rate": "PKR 400,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s73.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Islamabad / Rawalpindi · Liaquat Bagh Chowk · 40 x 30 · From Raja Bazar → Towards Murree Road · PKR 400,000 · Immediate till 5 Dec 26",
+    "globalNo": 376,
+    "id": "vp-chn-073"
+  },
+  {
+    "sNo": 74,
+    "slideNum": 80,
+    "code": "VP-CHN-74",
+    "vendor": "Chinab Advertising (Static Hoarding Media)",
+    "vendorKey": "chinab_static",
+    "pptFile": "Chinab Static Hoarding Media 20.11.2026.pptx",
+    "name": "Mall Road Saddar (Islamabad / Rawalpindi)",
+    "location": "Mall Road Saddar (Islamabad / Rawalpindi)",
+    "area": "Islamabad / Rawalpindi",
+    "direction": "From State Life Building → Towards MH Hospital Saddar Mall Road Rawalpindi",
+    "from": "State Life Building",
+    "towards": "MH Hospital Saddar Mall Road Rawalpindi",
+    "size": "40x40 ft",
+    "widthFt": 40,
+    "heightFt": 40,
+    "sqft": 1600,
+    "availability": "27.11.26 (Ext.)",
+    "status": "booked",
+    "rate": "PKR 1,600,000",
+    "media": "Static Hoarding / Billboard",
+    "photo": "/vendor-media/chinab_static_s74.jpg",
+    "rawText": "Chinab Chanab Chenab Advertising Static Hoarding Media · Islamabad / Rawalpindi · Mall Road Saddar · 40x40 · From State Life Building → Towards MH Hospital Saddar Mall Road Rawalpindi · PKR 1,600,000 · 27.11.26 (Ext.)",
+    "globalNo": 377,
+    "id": "vp-chn-074"
+  },
+  {
+    "id": "vp-2026-0272",
+    "globalNo": 378,
     "sNo": 1,
     "slideNum": 2,
     "code": "VP-CRX-01",
@@ -6802,7 +9558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0273",
-    "globalNo": 273,
+    "globalNo": 379,
     "sNo": 2,
     "slideNum": 3,
     "code": "VP-CRX-02",
@@ -6827,7 +9583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0274",
-    "globalNo": 274,
+    "globalNo": 380,
     "sNo": 3,
     "slideNum": 4,
     "code": "VP-CRX-03",
@@ -6852,7 +9608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0275",
-    "globalNo": 275,
+    "globalNo": 381,
     "sNo": 4,
     "slideNum": 5,
     "code": "VP-CRX-04",
@@ -6877,7 +9633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0276",
-    "globalNo": 276,
+    "globalNo": 382,
     "sNo": 5,
     "slideNum": 6,
     "code": "VP-CRX-05",
@@ -6902,7 +9658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0277",
-    "globalNo": 277,
+    "globalNo": 383,
     "sNo": 6,
     "slideNum": 7,
     "code": "VP-CRX-06",
@@ -6927,7 +9683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0278",
-    "globalNo": 278,
+    "globalNo": 384,
     "sNo": 7,
     "slideNum": 8,
     "code": "VP-CRX-07",
@@ -6952,7 +9708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0279",
-    "globalNo": 279,
+    "globalNo": 385,
     "sNo": 8,
     "slideNum": 9,
     "code": "VP-CRX-08",
@@ -6977,7 +9733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0280",
-    "globalNo": 280,
+    "globalNo": 386,
     "sNo": 9,
     "slideNum": 10,
     "code": "VP-CRX-09",
@@ -7002,7 +9758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0281",
-    "globalNo": 281,
+    "globalNo": 387,
     "sNo": 10,
     "slideNum": 11,
     "code": "VP-CRX-10",
@@ -7047,7 +9803,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/creative_s1.jpg",
     "rawText": "FTCF: Korangi Iqra University Express way · TGT: Shaheed e Millat Umer Shareef Under pass · Availability: · 30 April,2026 · Size: · Shelter Header: 16’x4’ · Shelter back wall: 187inx48in · Shelter Right wll: 51inx72in · Chowki Size: 25.5’ x 03’ · Baloach Flyover Triangle",
-    "globalNo": 282,
+    "globalNo": 388,
     "id": "vp-2026-0282"
   },
   {
@@ -7072,7 +9828,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/creative_s2.jpg",
     "rawText": "FTCF: Korangi Iqra University Express way · TGT : Shaheed e Millat Umer Shareef Under Paas · Availability: · 30 April,2026 · Size: · Shelter Header: 16’x4’ · Shelter back wall: 187inx48in · Shelter Right wll: 51inx72in · Chowki Size: 25.5’ x 03’ · Baloch Flyover Triangle",
-    "globalNo": 283,
+    "globalNo": 389,
     "id": "vp-2026-0283"
   },
   {
@@ -7097,7 +9853,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/creative_s3.jpg",
     "rawText": "FTCF: Shaheed e Millat Umer Shareef Under Pass · TGT: City School Express Way / Causway Road · Availability: · 30 April,2026 · Size: · Shelter Header: 16’x4’ · Shelter back wall: 187inx48in · Shelter Right wll: 51inx72in · Chowki Size: 25.5’ x 03’ · Baloch Flyover Triangle",
-    "globalNo": 284,
+    "globalNo": 390,
     "id": "vp-2026-0284"
   },
   {
@@ -7122,7 +9878,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/creative_s4.jpg",
     "rawText": "FTCF: Korangi Iqra University Express way · TGT: Shaheed e Millat Umer Shareef Under Pass/Shahrah-e-Faisal Road · Availability: · 30 April,2026 · Size: · Shelter Header: 16’x6’ · Shelter back wall: 187inx48in · Shelter Right wll: 51inx72in · Ground Board: 15’ x 05’ · Baloch Flyover Triangle",
-    "globalNo": 285,
+    "globalNo": 391,
     "id": "vp-2026-0285"
   },
   {
@@ -7147,7 +9903,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s5.jpg",
     "rawText": "DAY VIEW",
-    "globalNo": 286,
+    "globalNo": 392,
     "id": "vp-2026-0286"
   },
   {
@@ -7172,7 +9928,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s6.jpg",
     "rawText": "DAY VIEW",
-    "globalNo": 287,
+    "globalNo": 393,
     "id": "vp-2026-0287"
   },
   {
@@ -7197,7 +9953,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s7.jpg",
     "rawText": "DAY VIEW",
-    "globalNo": 288,
+    "globalNo": 394,
     "id": "vp-2026-0288"
   },
   {
@@ -7222,7 +9978,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s8.jpg",
     "rawText": "NIGHT VIEW",
-    "globalNo": 289,
+    "globalNo": 395,
     "id": "vp-2026-0289"
   },
   {
@@ -7247,7 +10003,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Chowki",
     "photo": "/vendor-media/creative_s9.jpg",
     "rawText": "BUS SHELTER",
-    "globalNo": 290,
+    "globalNo": 396,
     "id": "vp-2026-0290"
   },
   {
@@ -7272,7 +10028,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Backlit Board",
     "photo": "/vendor-media/creative_s10.jpg",
     "rawText": "BACKLIT BOARD",
-    "globalNo": 291,
+    "globalNo": 397,
     "id": "vp-2026-0291"
   },
   {
@@ -7297,7 +10053,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Backlit Board",
     "photo": "/vendor-media/creative_s11.jpg",
     "rawText": "BACKLIT MOPPIES (3 SIDED DISPLAY)",
-    "globalNo": 292,
+    "globalNo": 398,
     "id": "vp-2026-0292"
   },
   {
@@ -7322,7 +10078,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/creative_s12.jpg",
     "rawText": "Laal Qilla Creative Branding Rental · FTCF Nursery bridge/Baloch pul/Shahrah-e-Faisa · TGT Karsaz road/Airport/Shahrah-e-Faisal/ Drig Road · Availability: · Available",
-    "globalNo": 293,
+    "globalNo": 399,
     "id": "vp-2026-0293"
   },
   {
@@ -7347,7 +10103,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s13.jpg",
     "rawText": "Boat Basin Creative Branding Rental · FTCF The Forum Schon Circle Road · TGT Bilawal Rounabout / Boat Basin · Availability: · Available",
-    "globalNo": 294,
+    "globalNo": 400,
     "id": "vp-2026-0294"
   },
   {
@@ -7372,7 +10128,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s14.jpg",
     "rawText": "TCF: Traffic Coming From AirportTGT: Metropole/ Shahra e Quaideen/ Tariq Road",
-    "globalNo": 295,
+    "globalNo": 401,
     "id": "vp-2026-0295"
   },
   {
@@ -7397,7 +10153,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s15.jpg",
     "rawText": "TCF: Traffic Coming From AirportTGT: Metropole/ Shahra e Quaideen/ Tariq Road",
-    "globalNo": 296,
+    "globalNo": 402,
     "id": "vp-2026-0296"
   },
   {
@@ -7422,7 +10178,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s16.jpg",
     "rawText": "TCF: Traffic Coming From AirportTGT: Metropole/ Shahra e Quaideen/ Tariq Road",
-    "globalNo": 297,
+    "globalNo": 403,
     "id": "vp-2026-0297"
   },
   {
@@ -7447,7 +10203,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s17.jpg",
     "rawText": "TCF Airport to Metropole Hotel & Sh-e-Quaideen/Tariq Road · TCF Airport towards Metropole Hotel & Sh-e-Quaideen/Tariq Road",
-    "globalNo": 298,
+    "globalNo": 404,
     "id": "vp-2026-0298"
   },
   {
@@ -7472,7 +10228,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s18.jpg",
     "rawText": "",
-    "globalNo": 299,
+    "globalNo": 405,
     "id": "vp-2026-0299"
   },
   {
@@ -7497,7 +10253,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s19.jpg",
     "rawText": "",
-    "globalNo": 300,
+    "globalNo": 406,
     "id": "vp-2026-0300"
   },
   {
@@ -7522,7 +10278,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s20.jpg",
     "rawText": "",
-    "globalNo": 301,
+    "globalNo": 407,
     "id": "vp-2026-0301"
   },
   {
@@ -7547,7 +10303,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s21.jpg",
     "rawText": "TCF Metropole Hotel towards Sh-e-Quaideen/Airport",
-    "globalNo": 302,
+    "globalNo": 408,
     "id": "vp-2026-0302"
   },
   {
@@ -7572,7 +10328,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s22.jpg",
     "rawText": "",
-    "globalNo": 303,
+    "globalNo": 409,
     "id": "vp-2026-0303"
   },
   {
@@ -7597,7 +10353,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s23.jpg",
     "rawText": "",
-    "globalNo": 304,
+    "globalNo": 410,
     "id": "vp-2026-0304"
   },
   {
@@ -7622,7 +10378,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s24.jpg",
     "rawText": "",
-    "globalNo": 305,
+    "globalNo": 411,
     "id": "vp-2026-0305"
   },
   {
@@ -7647,7 +10403,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s25.jpg",
     "rawText": "",
-    "globalNo": 306,
+    "globalNo": 412,
     "id": "vp-2026-0306"
   },
   {
@@ -7672,7 +10428,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/creative_s26.jpg",
     "rawText": "FTC TRIANGLE · FTCF Avari Tower · TGT Shahra-e-Faisal / Nursery Bridge · Availability: · Available · Size: · 200 Wide 100 Length · Rate Per Month · PKR 2,000,000/- · Fabrication / Installation would be over and above",
-    "globalNo": 307,
+    "globalNo": 413,
     "id": "vp-2026-0307"
   },
   {
@@ -7697,7 +10453,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s27.jpg",
     "rawText": "OTHER SIDE VIEW",
-    "globalNo": 308,
+    "globalNo": 414,
     "id": "vp-2026-0308"
   },
   {
@@ -7722,7 +10478,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s28.jpg",
     "rawText": "TCF Bilawal House towards Dolmen Mall/Mazar",
-    "globalNo": 309,
+    "globalNo": 415,
     "id": "vp-2026-0309"
   },
   {
@@ -7747,7 +10503,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s29.jpg",
     "rawText": "TCF Abdullah Shah Ghazi Mazar",
-    "globalNo": 310,
+    "globalNo": 416,
     "id": "vp-2026-0310"
   },
   {
@@ -7772,7 +10528,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s30.jpg",
     "rawText": "TCF Dolmen Mall Clifton",
-    "globalNo": 311,
+    "globalNo": 417,
     "id": "vp-2026-0311"
   },
   {
@@ -7797,7 +10553,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s31.jpg",
     "rawText": "TCF Bilawal House",
-    "globalNo": 312,
+    "globalNo": 418,
     "id": "vp-2026-0312"
   },
   {
@@ -7822,7 +10578,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/creative_s32.jpg",
     "rawText": "TCF Clifton Bridge towards 2 Swords/Boatbasin",
-    "globalNo": 313,
+    "globalNo": 419,
     "id": "vp-2026-0313"
   },
   {
@@ -7847,7 +10603,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/creative_s33.jpg",
     "rawText": "TCF Clifton Bridge to Schon Circle/2Talwar · TCF Clifton Bridge towards 2 Swords/Boatbasin",
-    "globalNo": 314,
+    "globalNo": 420,
     "id": "vp-2026-0314"
   },
   {
@@ -7872,7 +10628,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/creative_s34.jpg",
     "rawText": "TCF Clifton Bridge to Schon Circle/2Talwar · TCF Clifton Bridge towards 2 Swords/Boatbasin",
-    "globalNo": 315,
+    "globalNo": 421,
     "id": "vp-2026-0315"
   },
   {
@@ -7897,7 +10653,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/creative_s35.jpg",
     "rawText": "TCF Clifton Bridge towards 2 Swords/Boatbasin",
-    "globalNo": 316,
+    "globalNo": 422,
     "id": "vp-2026-0316"
   },
   {
@@ -7922,7 +10678,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/creative_s36.jpg",
     "rawText": "TCF: Clifton BridgeTGT: Schon Circle/2Talwar",
-    "globalNo": 317,
+    "globalNo": 423,
     "id": "vp-2026-0317"
   },
   {
@@ -7947,7 +10703,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/creative_s37.jpg",
     "rawText": "TCF: Clifton Bridge to TGT: Schon Circle/2Talwar",
-    "globalNo": 318,
+    "globalNo": 424,
     "id": "vp-2026-0318"
   },
   {
@@ -7972,7 +10728,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/creative_s38.jpg",
     "rawText": "TCF: Clifton Bridge to TGT: Schon Circle/2Talwar",
-    "globalNo": 319,
+    "globalNo": 425,
     "id": "vp-2026-0319"
   },
   {
@@ -7997,7 +10753,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/creative_s39.jpg",
     "rawText": "TCF: Clifton Bridge TGT: Schon Circle/2Talwar",
-    "globalNo": 320,
+    "globalNo": 426,
     "id": "vp-2026-0320"
   },
   {
@@ -8022,7 +10778,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/creative_s40.jpg",
     "rawText": "TCF: Clifton Bridge TGT:Schon Circle/2Talwar",
-    "globalNo": 321,
+    "globalNo": 427,
     "id": "vp-2026-0321"
   },
   {
@@ -8047,7 +10803,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s41.jpg",
     "rawText": "TCF Metropole Hotel to Airport/Sindhi Muslim · TCF Metropole Hotel towards Tariq Road/Airport",
-    "globalNo": 322,
+    "globalNo": 428,
     "id": "vp-2026-0322"
   },
   {
@@ -8072,7 +10828,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s42.jpg",
     "rawText": "TCF :Metropole Hotel TGT:Airport/Sindhi Muslim",
-    "globalNo": 323,
+    "globalNo": 429,
     "id": "vp-2026-0323"
   },
   {
@@ -8097,7 +10853,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s43.jpg",
     "rawText": "TCF :Metropole Hotel TGT: Airport/Sindhi Muslim",
-    "globalNo": 324,
+    "globalNo": 430,
     "id": "vp-2026-0324"
   },
   {
@@ -8122,7 +10878,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s44.jpg",
     "rawText": "TCF: Metropole Hotel TGT:Airport/Sindhi Muslim",
-    "globalNo": 325,
+    "globalNo": 431,
     "id": "vp-2026-0325"
   },
   {
@@ -8147,7 +10903,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s45.jpg",
     "rawText": "TCF Agha Khan Hospital towards Karsaz/Dalmia/Hassan Square · Available",
-    "globalNo": 326,
+    "globalNo": 432,
     "id": "vp-2026-0326"
   },
   {
@@ -8172,7 +10928,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s46.jpg",
     "rawText": "TCF: Agha Khan HospitalTGT:Dalmia/ Hassan Square",
-    "globalNo": 327,
+    "globalNo": 433,
     "id": "vp-2026-0327"
   },
   {
@@ -8197,7 +10953,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s47.jpg",
     "rawText": "TCF Airport Jinnah Tarminal towards Sh-e-Faisal/Malir",
-    "globalNo": 328,
+    "globalNo": 434,
     "id": "vp-2026-0328"
   },
   {
@@ -8222,7 +10978,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s48.jpg",
     "rawText": "TCF Airport Jinnah Tarminal towards Sh-e-Faisal/Malir",
-    "globalNo": 329,
+    "globalNo": 435,
     "id": "vp-2026-0329"
   },
   {
@@ -8247,7 +11003,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s49.jpg",
     "rawText": "TCF Sh-e-Faisa towards Airport Jinnah Tarminal",
-    "globalNo": 330,
+    "globalNo": 436,
     "id": "vp-2026-0330"
   },
   {
@@ -8272,7 +11028,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s50.jpg",
     "rawText": "TCF Sh-e-Faisa towards Airport Jinnah Tarminal",
-    "globalNo": 331,
+    "globalNo": 437,
     "id": "vp-2026-0331"
   },
   {
@@ -8297,7 +11053,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s51.jpg",
     "rawText": "TCF Airport Jinnah Tarminal towards Sh-e-Faisal/Malir",
-    "globalNo": 332,
+    "globalNo": 438,
     "id": "vp-2026-0332"
   },
   {
@@ -8322,7 +11078,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s52.jpg",
     "rawText": "TCF Airport Jinnah Tarminal towards Sh-e-Faisal/Malir",
-    "globalNo": 333,
+    "globalNo": 439,
     "id": "vp-2026-0333"
   },
   {
@@ -8347,7 +11103,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s53.jpg",
     "rawText": "TCF Airport (U trun)",
-    "globalNo": 334,
+    "globalNo": 440,
     "id": "vp-2026-0334"
   },
   {
@@ -8372,7 +11128,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s54.jpg",
     "rawText": "TCF Airport (U trun)",
-    "globalNo": 335,
+    "globalNo": 441,
     "id": "vp-2026-0335"
   },
   {
@@ -8397,7 +11153,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s55.jpg",
     "rawText": "TCF Tipusultan towards Metropole",
-    "globalNo": 336,
+    "globalNo": 442,
     "id": "vp-2026-0336"
   },
   {
@@ -8422,7 +11178,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s56.jpg",
     "rawText": "TCF Sh-e-Faisal towards Sh-e-Quaideen/Traiq Road",
-    "globalNo": 337,
+    "globalNo": 443,
     "id": "vp-2026-0337"
   },
   {
@@ -8447,7 +11203,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s57.jpg",
     "rawText": "TCF Sh-e-Faisal towards Sh-e-Quaideen/Traiq Road",
-    "globalNo": 338,
+    "globalNo": 444,
     "id": "vp-2026-0338"
   },
   {
@@ -8472,7 +11228,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s58.jpg",
     "rawText": "TCF: Sea View; Traffic Going Towards: Dolman Mall Clifton",
-    "globalNo": 339,
+    "globalNo": 445,
     "id": "vp-2026-0339"
   },
   {
@@ -8497,7 +11253,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s59.jpg",
     "rawText": "",
-    "globalNo": 340,
+    "globalNo": 446,
     "id": "vp-2026-0340"
   },
   {
@@ -8522,7 +11278,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s60.jpg",
     "rawText": "",
-    "globalNo": 341,
+    "globalNo": 447,
     "id": "vp-2026-0341"
   },
   {
@@ -8547,7 +11303,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s61.jpg",
     "rawText": "",
-    "globalNo": 342,
+    "globalNo": 448,
     "id": "vp-2026-0342"
   },
   {
@@ -8572,7 +11328,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s62.jpg",
     "rawText": "",
-    "globalNo": 343,
+    "globalNo": 449,
     "id": "vp-2026-0343"
   },
   {
@@ -8597,7 +11353,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/creative_s63.jpg",
     "rawText": "Traffic Coming From Saudi Embassy · SMD Display · Wireframe Neon LED Floral Art",
-    "globalNo": 344,
+    "globalNo": 450,
     "id": "vp-2026-0344"
   },
   {
@@ -8622,7 +11378,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/creative_s64.jpg",
     "rawText": "Traffic Coming From Saudi Embassy · SMD Display",
-    "globalNo": 345,
+    "globalNo": 451,
     "id": "vp-2026-0345"
   },
   {
@@ -8647,7 +11403,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/creative_s65.jpg",
     "rawText": "Traffic coming from Saudi Embassy · Wireframe Neon LED Floral Art · SMD Display · Backlit Display · Wireframe Neon LED Floral Art · Backlit Display · SMD Display",
-    "globalNo": 346,
+    "globalNo": 452,
     "id": "vp-2026-0346"
   },
   {
@@ -8672,7 +11428,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Backlit Board",
     "photo": "/vendor-media/creative_s66.jpg",
     "rawText": "Traffic coming from Khayaban-e-Jami/Defence Library · SMD Display · Backlit Display · Wireframe Neon LED Floral Art · Wireframe Neon LED Floral Art",
-    "globalNo": 347,
+    "globalNo": 453,
     "id": "vp-2026-0347"
   },
   {
@@ -8697,7 +11453,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s67.jpg",
     "rawText": "Triangle – Fawara Chowk near Zainab Market Saddar · FTCF: Metropole Hotel · TGT: Press Club/Zainab Market · Availability: · Size: Triangle (25’x15’x25’) · Qty: 1 · Rate Per Month",
-    "globalNo": 348,
+    "globalNo": 454,
     "id": "vp-2026-0348"
   },
   {
@@ -8722,7 +11478,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s68.jpg",
     "rawText": "Additional Pictures",
-    "globalNo": 349,
+    "globalNo": 455,
     "id": "vp-2026-0349"
   },
   {
@@ -8747,7 +11503,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s69.jpg",
     "rawText": "Roundabout – Fawara Chowk near Zainab Market Saddar · FTCF: Metropole Hotel/Press Club/rex Centre · TGT: Zainab Market/Press Club/Metropole · Availability: · Size: Roundabout (50’x50’) · Qty: 1 · Rate Per Month",
-    "globalNo": 350,
+    "globalNo": 456,
     "id": "vp-2026-0350"
   },
   {
@@ -8772,7 +11528,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s70.jpg",
     "rawText": "Additional Pictures",
-    "globalNo": 351,
+    "globalNo": 457,
     "id": "vp-2026-0351"
   },
   {
@@ -8797,7 +11553,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s71.jpg",
     "rawText": "Island – Fawara Chowk near Zainab Market Saddar · FTCF: Metropole Hotel/Press Club · TGT: Zainab Market/Metropole Hotel · Availability: · Size: island (w15’xh10’) · Qty: 2 · Rate Per Month",
-    "globalNo": 352,
+    "globalNo": 458,
     "id": "vp-2026-0352"
   },
   {
@@ -8822,7 +11578,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s72.jpg",
     "rawText": "Additional Pictures",
-    "globalNo": 353,
+    "globalNo": 459,
     "id": "vp-2026-0353"
   },
   {
@@ -8847,7 +11603,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s73.jpg",
     "rawText": "Triangle – Fawara Chowk near Zainab Market Saddar · FTCF: Metropole Hotel/Press Club/Rex Centre · TGT: Metropole Hotel · Availability: · Size: triangle (w20’xh10’) · Qty: 2 · Rate Per Month",
-    "globalNo": 354,
+    "globalNo": 460,
     "id": "vp-2026-0354"
   },
   {
@@ -8872,12 +11628,12 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bus Shelter / Branding",
     "photo": "/vendor-media/creative_s74.jpg",
     "rawText": "Additional Pictures",
-    "globalNo": 355,
+    "globalNo": 461,
     "id": "vp-2026-0355"
   },
   {
     "id": "vp-2026-0356",
-    "globalNo": 356,
+    "globalNo": 462,
     "sNo": 1,
     "slideNum": 2,
     "code": "VP-DPX-01",
@@ -8902,7 +11658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0357",
-    "globalNo": 357,
+    "globalNo": 463,
     "sNo": 2,
     "slideNum": 3,
     "code": "VP-DPX-02",
@@ -8927,7 +11683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0358",
-    "globalNo": 358,
+    "globalNo": 464,
     "sNo": 3,
     "slideNum": 4,
     "code": "VP-DPX-03",
@@ -8952,7 +11708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0359",
-    "globalNo": 359,
+    "globalNo": 465,
     "sNo": 4,
     "slideNum": 5,
     "code": "VP-DPX-04",
@@ -8977,7 +11733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0360",
-    "globalNo": 360,
+    "globalNo": 466,
     "sNo": 5,
     "slideNum": 6,
     "code": "VP-DPX-05",
@@ -9002,7 +11758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0361",
-    "globalNo": 361,
+    "globalNo": 467,
     "sNo": 6,
     "slideNum": 7,
     "code": "VP-DPX-06",
@@ -9027,7 +11783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0362",
-    "globalNo": 362,
+    "globalNo": 468,
     "sNo": 7,
     "slideNum": 8,
     "code": "VP-DPX-07",
@@ -9052,7 +11808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0363",
-    "globalNo": 363,
+    "globalNo": 469,
     "sNo": 8,
     "slideNum": 9,
     "code": "VP-DPX-08",
@@ -9077,7 +11833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0364",
-    "globalNo": 364,
+    "globalNo": 470,
     "sNo": 9,
     "slideNum": 10,
     "code": "VP-DPX-09",
@@ -9102,7 +11858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0365",
-    "globalNo": 365,
+    "globalNo": 471,
     "sNo": 10,
     "slideNum": 11,
     "code": "VP-DPX-10",
@@ -9127,7 +11883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0366",
-    "globalNo": 366,
+    "globalNo": 472,
     "sNo": 11,
     "slideNum": 12,
     "code": "VP-DPX-11",
@@ -9152,7 +11908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0367",
-    "globalNo": 367,
+    "globalNo": 473,
     "sNo": 12,
     "slideNum": 13,
     "code": "VP-DPX-12",
@@ -9177,7 +11933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0368",
-    "globalNo": 368,
+    "globalNo": 474,
     "sNo": 13,
     "slideNum": 14,
     "code": "VP-DPX-13",
@@ -9202,7 +11958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0369",
-    "globalNo": 369,
+    "globalNo": 475,
     "sNo": 14,
     "slideNum": 15,
     "code": "VP-DPX-14",
@@ -9227,7 +11983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0370",
-    "globalNo": 370,
+    "globalNo": 476,
     "sNo": 15,
     "slideNum": 16,
     "code": "VP-DPX-15",
@@ -9252,7 +12008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0371",
-    "globalNo": 371,
+    "globalNo": 477,
     "sNo": 16,
     "slideNum": 17,
     "code": "VP-DPX-16",
@@ -9277,7 +12033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0372",
-    "globalNo": 372,
+    "globalNo": 478,
     "sNo": 17,
     "slideNum": 18,
     "code": "VP-DPX-17",
@@ -9302,7 +12058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0373",
-    "globalNo": 373,
+    "globalNo": 479,
     "sNo": 18,
     "slideNum": 19,
     "code": "VP-DPX-18",
@@ -9327,7 +12083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0374",
-    "globalNo": 374,
+    "globalNo": 480,
     "sNo": 19,
     "slideNum": 20,
     "code": "VP-DPX-19",
@@ -9352,7 +12108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0375",
-    "globalNo": 375,
+    "globalNo": 481,
     "sNo": 20,
     "slideNum": 21,
     "code": "VP-DPX-20",
@@ -9377,7 +12133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0376",
-    "globalNo": 376,
+    "globalNo": 482,
     "sNo": 21,
     "slideNum": 22,
     "code": "VP-DPX-21",
@@ -9402,7 +12158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0377",
-    "globalNo": 377,
+    "globalNo": 483,
     "sNo": 22,
     "slideNum": 23,
     "code": "VP-DPX-22",
@@ -9427,7 +12183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0378",
-    "globalNo": 378,
+    "globalNo": 484,
     "sNo": 23,
     "slideNum": 24,
     "code": "VP-DPX-23",
@@ -9452,7 +12208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0379",
-    "globalNo": 379,
+    "globalNo": 485,
     "sNo": 24,
     "slideNum": 25,
     "code": "VP-DPX-24",
@@ -9477,7 +12233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0380",
-    "globalNo": 380,
+    "globalNo": 486,
     "sNo": 25,
     "slideNum": 26,
     "code": "VP-DPX-25",
@@ -9502,7 +12258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0381",
-    "globalNo": 381,
+    "globalNo": 487,
     "sNo": 26,
     "slideNum": 27,
     "code": "VP-DPX-26",
@@ -9527,7 +12283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0382",
-    "globalNo": 382,
+    "globalNo": 488,
     "sNo": 27,
     "slideNum": 28,
     "code": "VP-DPX-27",
@@ -9552,7 +12308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0383",
-    "globalNo": 383,
+    "globalNo": 489,
     "sNo": 28,
     "slideNum": 29,
     "code": "VP-DPX-28",
@@ -9577,7 +12333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0384",
-    "globalNo": 384,
+    "globalNo": 490,
     "sNo": 29,
     "slideNum": 30,
     "code": "VP-DPX-29",
@@ -9602,7 +12358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0385",
-    "globalNo": 385,
+    "globalNo": 491,
     "sNo": 30,
     "slideNum": 31,
     "code": "VP-DPX-30",
@@ -9627,7 +12383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0386",
-    "globalNo": 386,
+    "globalNo": 492,
     "sNo": 31,
     "slideNum": 32,
     "code": "VP-DPX-31",
@@ -9652,7 +12408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0387",
-    "globalNo": 387,
+    "globalNo": 493,
     "sNo": 32,
     "slideNum": 33,
     "code": "VP-DPX-32",
@@ -9677,7 +12433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0388",
-    "globalNo": 388,
+    "globalNo": 494,
     "sNo": 33,
     "slideNum": 34,
     "code": "VP-DPX-33",
@@ -9702,7 +12458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0389",
-    "globalNo": 389,
+    "globalNo": 495,
     "sNo": 34,
     "slideNum": 35,
     "code": "VP-DPX-34",
@@ -9727,7 +12483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0390",
-    "globalNo": 390,
+    "globalNo": 496,
     "sNo": 35,
     "slideNum": 36,
     "code": "VP-DPX-35",
@@ -9752,7 +12508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0391",
-    "globalNo": 391,
+    "globalNo": 497,
     "sNo": 36,
     "slideNum": 37,
     "code": "VP-DPX-36",
@@ -9777,7 +12533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0392",
-    "globalNo": 392,
+    "globalNo": 498,
     "sNo": 37,
     "slideNum": 38,
     "code": "VP-DPX-37",
@@ -9802,7 +12558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0393",
-    "globalNo": 393,
+    "globalNo": 499,
     "sNo": 38,
     "slideNum": 39,
     "code": "VP-DPX-38",
@@ -9827,7 +12583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0394",
-    "globalNo": 394,
+    "globalNo": 500,
     "sNo": 39,
     "slideNum": 40,
     "code": "VP-DPX-39",
@@ -9852,7 +12608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0395",
-    "globalNo": 395,
+    "globalNo": 501,
     "sNo": 40,
     "slideNum": 41,
     "code": "VP-DPX-40",
@@ -9877,7 +12633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0396",
-    "globalNo": 396,
+    "globalNo": 502,
     "sNo": 41,
     "slideNum": 42,
     "code": "VP-DPX-41",
@@ -9902,7 +12658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0397",
-    "globalNo": 397,
+    "globalNo": 503,
     "sNo": 42,
     "slideNum": 43,
     "code": "VP-DPX-42",
@@ -9927,7 +12683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0398",
-    "globalNo": 398,
+    "globalNo": 504,
     "sNo": 43,
     "slideNum": 44,
     "code": "VP-DPX-43",
@@ -9952,7 +12708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0399",
-    "globalNo": 399,
+    "globalNo": 505,
     "sNo": 44,
     "slideNum": 45,
     "code": "VP-DPX-44",
@@ -9977,7 +12733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0400",
-    "globalNo": 400,
+    "globalNo": 506,
     "sNo": 45,
     "slideNum": 46,
     "code": "VP-DPX-45",
@@ -10002,7 +12758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0401",
-    "globalNo": 401,
+    "globalNo": 507,
     "sNo": 46,
     "slideNum": 47,
     "code": "VP-DPX-46",
@@ -10027,7 +12783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0402",
-    "globalNo": 402,
+    "globalNo": 508,
     "sNo": 47,
     "slideNum": 48,
     "code": "VP-DPX-47",
@@ -10052,7 +12808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0403",
-    "globalNo": 403,
+    "globalNo": 509,
     "sNo": 48,
     "slideNum": 49,
     "code": "VP-DPX-48",
@@ -10077,7 +12833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0404",
-    "globalNo": 404,
+    "globalNo": 510,
     "sNo": 49,
     "slideNum": 50,
     "code": "VP-DPX-49",
@@ -10102,7 +12858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0405",
-    "globalNo": 405,
+    "globalNo": 511,
     "sNo": 50,
     "slideNum": 51,
     "code": "VP-DPX-50",
@@ -10127,7 +12883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0406",
-    "globalNo": 406,
+    "globalNo": 512,
     "sNo": 51,
     "slideNum": 52,
     "code": "VP-DPX-51",
@@ -10152,7 +12908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0407",
-    "globalNo": 407,
+    "globalNo": 513,
     "sNo": 52,
     "slideNum": 53,
     "code": "VP-DPX-52",
@@ -10177,7 +12933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0408",
-    "globalNo": 408,
+    "globalNo": 514,
     "sNo": 53,
     "slideNum": 54,
     "code": "VP-DPX-53",
@@ -10202,7 +12958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0409",
-    "globalNo": 409,
+    "globalNo": 515,
     "sNo": 54,
     "slideNum": 55,
     "code": "VP-DPX-54",
@@ -10227,7 +12983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0410",
-    "globalNo": 410,
+    "globalNo": 516,
     "sNo": 55,
     "slideNum": 56,
     "code": "VP-DPX-55",
@@ -10252,7 +13008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0411",
-    "globalNo": 411,
+    "globalNo": 517,
     "sNo": 56,
     "slideNum": 57,
     "code": "VP-DPX-56",
@@ -10277,7 +13033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0412",
-    "globalNo": 412,
+    "globalNo": 518,
     "sNo": 57,
     "slideNum": 58,
     "code": "VP-DPX-57",
@@ -10302,7 +13058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0413",
-    "globalNo": 413,
+    "globalNo": 519,
     "sNo": 58,
     "slideNum": 59,
     "code": "VP-DPX-58",
@@ -10327,7 +13083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0414",
-    "globalNo": 414,
+    "globalNo": 520,
     "sNo": 1,
     "slideNum": 3,
     "code": "VP-DIA-01",
@@ -10352,7 +13108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0415",
-    "globalNo": 415,
+    "globalNo": 521,
     "sNo": 2,
     "slideNum": 4,
     "code": "VP-DIA-02",
@@ -10377,7 +13133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0416",
-    "globalNo": 416,
+    "globalNo": 522,
     "sNo": 3,
     "slideNum": 5,
     "code": "VP-DIA-03",
@@ -10402,7 +13158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0417",
-    "globalNo": 417,
+    "globalNo": 523,
     "sNo": 4,
     "slideNum": 6,
     "code": "VP-DIA-04",
@@ -10427,7 +13183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0418",
-    "globalNo": 418,
+    "globalNo": 524,
     "sNo": 5,
     "slideNum": 7,
     "code": "VP-DIA-05",
@@ -10452,7 +13208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0419",
-    "globalNo": 419,
+    "globalNo": 525,
     "sNo": 6,
     "slideNum": 8,
     "code": "VP-DIA-06",
@@ -10477,7 +13233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0420",
-    "globalNo": 420,
+    "globalNo": 526,
     "sNo": 7,
     "slideNum": 9,
     "code": "VP-DIA-07",
@@ -10502,7 +13258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0421",
-    "globalNo": 421,
+    "globalNo": 527,
     "sNo": 8,
     "slideNum": 10,
     "code": "VP-DIA-08",
@@ -10527,7 +13283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0422",
-    "globalNo": 422,
+    "globalNo": 528,
     "sNo": 9,
     "slideNum": 11,
     "code": "VP-DIA-09",
@@ -10552,7 +13308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0423",
-    "globalNo": 423,
+    "globalNo": 529,
     "sNo": 10,
     "slideNum": 12,
     "code": "VP-DIA-10",
@@ -10577,7 +13333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0424",
-    "globalNo": 424,
+    "globalNo": 530,
     "sNo": 11,
     "slideNum": 13,
     "code": "VP-DIA-11",
@@ -10602,7 +13358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0425",
-    "globalNo": 425,
+    "globalNo": 531,
     "sNo": 12,
     "slideNum": 14,
     "code": "VP-DIA-12",
@@ -10627,7 +13383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0426",
-    "globalNo": 426,
+    "globalNo": 532,
     "sNo": 13,
     "slideNum": 15,
     "code": "VP-DIA-13",
@@ -10652,7 +13408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0427",
-    "globalNo": 427,
+    "globalNo": 533,
     "sNo": 14,
     "slideNum": 16,
     "code": "VP-DIA-14",
@@ -10677,7 +13433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0428",
-    "globalNo": 428,
+    "globalNo": 534,
     "sNo": 15,
     "slideNum": 17,
     "code": "VP-DIA-15",
@@ -10702,7 +13458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0429",
-    "globalNo": 429,
+    "globalNo": 535,
     "sNo": 16,
     "slideNum": 18,
     "code": "VP-DIA-16",
@@ -10727,7 +13483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0430",
-    "globalNo": 430,
+    "globalNo": 536,
     "sNo": 17,
     "slideNum": 19,
     "code": "VP-DIA-17",
@@ -10752,7 +13508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0431",
-    "globalNo": 431,
+    "globalNo": 537,
     "sNo": 18,
     "slideNum": 20,
     "code": "VP-DIA-18",
@@ -10777,7 +13533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0432",
-    "globalNo": 432,
+    "globalNo": 538,
     "sNo": 19,
     "slideNum": 21,
     "code": "VP-DIA-19",
@@ -10802,7 +13558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0433",
-    "globalNo": 433,
+    "globalNo": 539,
     "sNo": 20,
     "slideNum": 22,
     "code": "VP-DIA-20",
@@ -10827,7 +13583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0434",
-    "globalNo": 434,
+    "globalNo": 540,
     "sNo": 21,
     "slideNum": 23,
     "code": "VP-DIA-21",
@@ -10852,7 +13608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0435",
-    "globalNo": 435,
+    "globalNo": 541,
     "sNo": 22,
     "slideNum": 24,
     "code": "VP-DIA-22",
@@ -10877,7 +13633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0436",
-    "globalNo": 436,
+    "globalNo": 542,
     "sNo": 23,
     "slideNum": 25,
     "code": "VP-DIA-23",
@@ -10902,7 +13658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0437",
-    "globalNo": 437,
+    "globalNo": 543,
     "sNo": 24,
     "slideNum": 26,
     "code": "VP-DIA-24",
@@ -10927,7 +13683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0438",
-    "globalNo": 438,
+    "globalNo": 544,
     "sNo": 25,
     "slideNum": 27,
     "code": "VP-DIA-25",
@@ -10952,7 +13708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0439",
-    "globalNo": 439,
+    "globalNo": 545,
     "sNo": 26,
     "slideNum": 28,
     "code": "VP-DIA-26",
@@ -10977,7 +13733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0440",
-    "globalNo": 440,
+    "globalNo": 546,
     "sNo": 27,
     "slideNum": 29,
     "code": "VP-DIA-27",
@@ -11002,7 +13758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0441",
-    "globalNo": 441,
+    "globalNo": 547,
     "sNo": 28,
     "slideNum": 30,
     "code": "VP-DIA-28",
@@ -11027,7 +13783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0442",
-    "globalNo": 442,
+    "globalNo": 548,
     "sNo": 29,
     "slideNum": 31,
     "code": "VP-DIA-29",
@@ -11052,7 +13808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0443",
-    "globalNo": 443,
+    "globalNo": 549,
     "sNo": 30,
     "slideNum": 33,
     "code": "VP-DIA-30",
@@ -11077,7 +13833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0444",
-    "globalNo": 444,
+    "globalNo": 550,
     "sNo": 1,
     "slideNum": 4,
     "code": "VP-DIM-01",
@@ -11102,7 +13858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0445",
-    "globalNo": 445,
+    "globalNo": 551,
     "sNo": 2,
     "slideNum": 5,
     "code": "VP-DIM-02",
@@ -11127,7 +13883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0446",
-    "globalNo": 446,
+    "globalNo": 552,
     "sNo": 3,
     "slideNum": 6,
     "code": "VP-DIM-03",
@@ -11152,7 +13908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0447",
-    "globalNo": 447,
+    "globalNo": 553,
     "sNo": 4,
     "slideNum": 7,
     "code": "VP-DIM-04",
@@ -11177,7 +13933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0448",
-    "globalNo": 448,
+    "globalNo": 554,
     "sNo": 5,
     "slideNum": 9,
     "code": "VP-DIM-05",
@@ -11202,7 +13958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0449",
-    "globalNo": 449,
+    "globalNo": 555,
     "sNo": 6,
     "slideNum": 11,
     "code": "VP-DIM-06",
@@ -11227,7 +13983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0450",
-    "globalNo": 450,
+    "globalNo": 556,
     "sNo": 7,
     "slideNum": 12,
     "code": "VP-DIM-07",
@@ -11252,7 +14008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0451",
-    "globalNo": 451,
+    "globalNo": 557,
     "sNo": 8,
     "slideNum": 13,
     "code": "VP-DIM-08",
@@ -11277,7 +14033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0452",
-    "globalNo": 452,
+    "globalNo": 558,
     "sNo": 9,
     "slideNum": 14,
     "code": "VP-DIM-09",
@@ -11302,7 +14058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0453",
-    "globalNo": 453,
+    "globalNo": 559,
     "sNo": 10,
     "slideNum": 15,
     "code": "VP-DIM-10",
@@ -11327,7 +14083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0454",
-    "globalNo": 454,
+    "globalNo": 560,
     "sNo": 11,
     "slideNum": 16,
     "code": "VP-DIM-11",
@@ -11352,7 +14108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0455",
-    "globalNo": 455,
+    "globalNo": 561,
     "sNo": 12,
     "slideNum": 17,
     "code": "VP-DIM-12",
@@ -11377,7 +14133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0456",
-    "globalNo": 456,
+    "globalNo": 562,
     "sNo": 13,
     "slideNum": 18,
     "code": "VP-DIM-13",
@@ -11402,7 +14158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0457",
-    "globalNo": 457,
+    "globalNo": 563,
     "sNo": 14,
     "slideNum": 19,
     "code": "VP-DIM-14",
@@ -11427,7 +14183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0458",
-    "globalNo": 458,
+    "globalNo": 564,
     "sNo": 15,
     "slideNum": 20,
     "code": "VP-DIM-15",
@@ -11452,7 +14208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0459",
-    "globalNo": 459,
+    "globalNo": 565,
     "sNo": 16,
     "slideNum": 21,
     "code": "VP-DIM-16",
@@ -11477,7 +14233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0460",
-    "globalNo": 460,
+    "globalNo": 566,
     "sNo": 17,
     "slideNum": 22,
     "code": "VP-DIM-17",
@@ -11502,7 +14258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0461",
-    "globalNo": 461,
+    "globalNo": 567,
     "sNo": 18,
     "slideNum": 23,
     "code": "VP-DIM-18",
@@ -11527,7 +14283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0462",
-    "globalNo": 462,
+    "globalNo": 568,
     "sNo": 19,
     "slideNum": 24,
     "code": "VP-DIM-19",
@@ -11552,7 +14308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0463",
-    "globalNo": 463,
+    "globalNo": 569,
     "sNo": 20,
     "slideNum": 25,
     "code": "VP-DIM-20",
@@ -11577,7 +14333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0464",
-    "globalNo": 464,
+    "globalNo": 570,
     "sNo": 21,
     "slideNum": 26,
     "code": "VP-DIM-21",
@@ -11602,7 +14358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0465",
-    "globalNo": 465,
+    "globalNo": 571,
     "sNo": 22,
     "slideNum": 27,
     "code": "VP-DIM-22",
@@ -11627,7 +14383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0466",
-    "globalNo": 466,
+    "globalNo": 572,
     "sNo": 23,
     "slideNum": 28,
     "code": "VP-DIM-23",
@@ -11652,7 +14408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0467",
-    "globalNo": 467,
+    "globalNo": 573,
     "sNo": 24,
     "slideNum": 29,
     "code": "VP-DIM-24",
@@ -11677,7 +14433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0468",
-    "globalNo": 468,
+    "globalNo": 574,
     "sNo": 25,
     "slideNum": 30,
     "code": "VP-DIM-25",
@@ -11702,7 +14458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0469",
-    "globalNo": 469,
+    "globalNo": 575,
     "sNo": 26,
     "slideNum": 31,
     "code": "VP-DIM-26",
@@ -11727,7 +14483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0470",
-    "globalNo": 470,
+    "globalNo": 576,
     "sNo": 27,
     "slideNum": 32,
     "code": "VP-DIM-27",
@@ -11752,7 +14508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0471",
-    "globalNo": 471,
+    "globalNo": 577,
     "sNo": 28,
     "slideNum": 33,
     "code": "VP-DIM-28",
@@ -11777,7 +14533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0472",
-    "globalNo": 472,
+    "globalNo": 578,
     "sNo": 29,
     "slideNum": 34,
     "code": "VP-DIM-29",
@@ -11802,7 +14558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0473",
-    "globalNo": 473,
+    "globalNo": 579,
     "sNo": 30,
     "slideNum": 35,
     "code": "VP-DIM-30",
@@ -11827,7 +14583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0474",
-    "globalNo": 474,
+    "globalNo": 580,
     "sNo": 31,
     "slideNum": 36,
     "code": "VP-DIM-31",
@@ -11852,7 +14608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0475",
-    "globalNo": 475,
+    "globalNo": 581,
     "sNo": 32,
     "slideNum": 37,
     "code": "VP-DIM-32",
@@ -11897,7 +14653,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/eastern_s1.jpg",
     "rawText": "Location · Main Shaheed-e-Millat Road · Size · 20ft x 100ft · Direction · TCF Bhadurabad / Shaheed-e-Millat TGT Tipu Sultan Road · Rent · 1,600,000/- Per Month · Availability · 15-11-2026",
-    "globalNo": 476,
+    "globalNo": 582,
     "id": "vp-2026-0476"
   },
   {
@@ -11922,7 +14678,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/eastern_s2.jpg",
     "rawText": "Location · Sumera Chowk Scheme 33 · Size · 18ft x 100ft · Direction · TCF Sumera Chowk TGT Jamali Bridge Super Highway · Rent · 700,000/- Per Month · Availability · 20-11-2026",
-    "globalNo": 477,
+    "globalNo": 583,
     "id": "vp-2026-0477"
   },
   {
@@ -11947,7 +14703,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/eastern_s3.jpg",
     "rawText": "Location · Abul Asfahani Road · Size · 60ft x 30ft · Direction · TCF KDA Market TGT Sohrab Goth Roundabout · Rent · 600,000/- Per Month · Availability · Available",
-    "globalNo": 478,
+    "globalNo": 584,
     "id": "vp-2026-0478"
   },
   {
@@ -11972,7 +14728,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/eastern_s4.jpg",
     "rawText": "Location · Main Tariq Road Dolmen Mall · Size · 114ft x 35ft · Direction · TCF Bhadurabad / Shaheed-e-Millat TGT Shahrah-e-Quideen · Rent · 1,600,000/- Per Month · Availability · Available",
-    "globalNo": 479,
+    "globalNo": 585,
     "id": "vp-2026-0479"
   },
   {
@@ -11997,7 +14753,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/eastern_s5.jpg",
     "rawText": "Location · Shahrah-e-Pakistan FB Area · Size · 60ft x 30ft · Direction · TCF Sohrab Goth TGT Karemabad Meena Bazar · Rent · 600,000/- Per Month · Availability · Available",
-    "globalNo": 480,
+    "globalNo": 586,
     "id": "vp-2026-0480"
   },
   {
@@ -12022,7 +14778,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/eastern_s6.jpg",
     "rawText": "Location · North Nazimabad Sakhi Hassan · Size · 60ft x 30ft · Direction · TCF Five Star Roundabout TGT Nagan Chowrangi · Rent · 600,000/- Per Month · Availability · 18-02-2027",
-    "globalNo": 481,
+    "globalNo": 587,
     "id": "vp-2026-0481"
   },
   {
@@ -12047,7 +14803,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/eastern_s7.jpg",
     "rawText": "Location · Muskan Chowrangi · Size · 20ft x 50ft · Direction · TCF KDA Market TGT Paradise Bakery · Rent · 600,000/- Per Month · Availability · 10-11-2026",
-    "globalNo": 482,
+    "globalNo": 588,
     "id": "vp-2026-0482"
   },
   {
@@ -12072,7 +14828,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/eastern_s8.jpg",
     "rawText": "Location · Gulshan-e-Hadeed · Size · 60ft x 25ft · Direction · Main Entrance Gulshan-e-Hadeed · Rent · 550,000/- Per Month · Availability · 25-09-2027",
-    "globalNo": 483,
+    "globalNo": 589,
     "id": "vp-2026-0483"
   },
   {
@@ -12097,7 +14853,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/eastern_s9.jpg",
     "rawText": "Location · Gulshan-e-Hadeed (Night View) · Size · 60ft x 25ft · Direction · Main Entrance Gulshan-e-Hadeed · Rent · 550,000/- Per Month · Availability · Available",
-    "globalNo": 484,
+    "globalNo": 590,
     "id": "vp-2026-0484"
   },
   {
@@ -12122,7 +14878,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/eastern_s10.jpg",
     "rawText": "Location · Gulshan-e-Maymar · Size · 60ft x 20ft · Direction · TCF AL Manzar Road TGT Sector Z Gate No. 1 · Rent · 550,000/- Per Month · Availability · Available",
-    "globalNo": 485,
+    "globalNo": 591,
     "id": "vp-2026-0485"
   },
   {
@@ -12147,7 +14903,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/eastern_s11.jpg",
     "rawText": "Location · Main Superhighway · Size · 60ft x 20ft · Direction · TCF Sohrab Goth TGT Bahria Town · Rent · 500,000/- Per Month · Availability · Available",
-    "globalNo": 486,
+    "globalNo": 592,
     "id": "vp-2026-0486"
   },
   {
@@ -12172,7 +14928,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/eastern_s12.jpg",
     "rawText": "Location · Main Superhighway Queeta Darbar Hotel · Size · 60ft x 20ft · Direction · TCF Sohrab Goth TGT Haydrabad · Rent · 500,000/- Per Month · Availability · Available",
-    "globalNo": 487,
+    "globalNo": 593,
     "id": "vp-2026-0487"
   },
   {
@@ -12197,7 +14953,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/eastern_s13.jpg",
     "rawText": "Location · North Nazimabad · Size · 80ft x 12ft Double Sided · Direction · TCF Nazimabad TGT Haydari Market TCF Haydari Market TGT Nazimabad · Rent · 1,000,000/- Per Month · Availability · 25-03-2027",
-    "globalNo": 488,
+    "globalNo": 594,
     "id": "vp-2026-0488"
   },
   {
@@ -12222,7 +14978,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/eastern_s14.jpg",
     "rawText": "Location · Jamali Bridge · Size · 45ft x 15ft · Direction · Jamali Bridge facing Gulshan Mehmar and Iqra University · Rent · 400,000/- Per Month · Availability · Available",
-    "globalNo": 489,
+    "globalNo": 595,
     "id": "vp-2026-0489"
   },
   {
@@ -12247,7 +15003,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/eastern_s15.jpg",
     "rawText": "Location · Sohrab Goth · Size · 45ft x 15ft · Direction · Sohrab Goth Main Entrance Lyari Express Way · Rent · 400,000/- Per Month · Availability · Available",
-    "globalNo": 490,
+    "globalNo": 596,
     "id": "vp-2026-0490"
   },
   {
@@ -12272,12 +15028,12 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/eastern_s16.jpg",
     "rawText": "THANKS",
-    "globalNo": 491,
+    "globalNo": 597,
     "id": "vp-2026-0491"
   },
   {
     "id": "vp-2026-0492",
-    "globalNo": 492,
+    "globalNo": 598,
     "sNo": 1,
     "slideNum": 3,
     "code": "VP-ECH-01",
@@ -12302,7 +15058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0493",
-    "globalNo": 493,
+    "globalNo": 599,
     "sNo": 2,
     "slideNum": 4,
     "code": "VP-ECH-02",
@@ -12327,7 +15083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0494",
-    "globalNo": 494,
+    "globalNo": 600,
     "sNo": 3,
     "slideNum": 5,
     "code": "VP-ECH-03",
@@ -12352,7 +15108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0495",
-    "globalNo": 495,
+    "globalNo": 601,
     "sNo": 4,
     "slideNum": 6,
     "code": "VP-ECH-04",
@@ -12377,7 +15133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0496",
-    "globalNo": 496,
+    "globalNo": 602,
     "sNo": 5,
     "slideNum": 7,
     "code": "VP-ECH-05",
@@ -12402,7 +15158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0497",
-    "globalNo": 497,
+    "globalNo": 603,
     "sNo": 6,
     "slideNum": 8,
     "code": "VP-ECH-06",
@@ -12427,7 +15183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0498",
-    "globalNo": 498,
+    "globalNo": 604,
     "sNo": 7,
     "slideNum": 9,
     "code": "VP-ECH-07",
@@ -12452,7 +15208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0499",
-    "globalNo": 499,
+    "globalNo": 605,
     "sNo": 8,
     "slideNum": 10,
     "code": "VP-ECH-08",
@@ -12477,7 +15233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0500",
-    "globalNo": 500,
+    "globalNo": 606,
     "sNo": 9,
     "slideNum": 11,
     "code": "VP-ECH-09",
@@ -12502,7 +15258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0501",
-    "globalNo": 501,
+    "globalNo": 607,
     "sNo": 10,
     "slideNum": 12,
     "code": "VP-ECH-10",
@@ -12527,7 +15283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0502",
-    "globalNo": 502,
+    "globalNo": 608,
     "sNo": 11,
     "slideNum": 13,
     "code": "VP-ECH-11",
@@ -12552,7 +15308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0503",
-    "globalNo": 503,
+    "globalNo": 609,
     "sNo": 12,
     "slideNum": 15,
     "code": "VP-ECH-12",
@@ -12577,7 +15333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0504",
-    "globalNo": 504,
+    "globalNo": 610,
     "sNo": 13,
     "slideNum": 16,
     "code": "VP-ECH-13",
@@ -12602,7 +15358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0505",
-    "globalNo": 505,
+    "globalNo": 611,
     "sNo": 14,
     "slideNum": 17,
     "code": "VP-ECH-14",
@@ -12627,7 +15383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0506",
-    "globalNo": 506,
+    "globalNo": 612,
     "sNo": 15,
     "slideNum": 18,
     "code": "VP-ECH-15",
@@ -12652,7 +15408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0507",
-    "globalNo": 507,
+    "globalNo": 613,
     "sNo": 16,
     "slideNum": 20,
     "code": "VP-ECH-16",
@@ -12677,7 +15433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0508",
-    "globalNo": 508,
+    "globalNo": 614,
     "sNo": 17,
     "slideNum": 21,
     "code": "VP-ECH-17",
@@ -12702,7 +15458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0509",
-    "globalNo": 509,
+    "globalNo": 615,
     "sNo": 18,
     "slideNum": 22,
     "code": "VP-ECH-18",
@@ -12727,7 +15483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0510",
-    "globalNo": 510,
+    "globalNo": 616,
     "sNo": 19,
     "slideNum": 23,
     "code": "VP-ECH-19",
@@ -12752,7 +15508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0511",
-    "globalNo": 511,
+    "globalNo": 617,
     "sNo": 20,
     "slideNum": 24,
     "code": "VP-ECH-20",
@@ -12777,7 +15533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0512",
-    "globalNo": 512,
+    "globalNo": 618,
     "sNo": 21,
     "slideNum": 25,
     "code": "VP-ECH-21",
@@ -12802,7 +15558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0513",
-    "globalNo": 513,
+    "globalNo": 619,
     "sNo": 22,
     "slideNum": 26,
     "code": "VP-ECH-22",
@@ -12827,7 +15583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0514",
-    "globalNo": 514,
+    "globalNo": 620,
     "sNo": 23,
     "slideNum": 27,
     "code": "VP-ECH-23",
@@ -12872,7 +15628,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Roof Top / Wall Panel",
     "photo": "/vendor-media/gofar_s1.jpg",
     "rawText": "Horizon OOH · 01- Dec · 90x30 Roof top and 120x20 Wall Panel · Metropole towards Airport · Panaflex Applicable only · Shahrah-e-faisal ( Mega & Double Signboards ) · Amount:",
-    "globalNo": 515,
+    "globalNo": 621,
     "id": "vp-2026-0515"
   },
   {
@@ -12897,7 +15653,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Mega Signboard / Hoarding",
     "photo": "/vendor-media/gofar_s2.jpg",
     "rawText": "Horizon OOH · Available · 100 x 35 · Shahrah-e-faisal FTC towards Defence · Panaflex Applicable only · CSD Signal Mega Signboard · Amount: 3.5 Million",
-    "globalNo": 516,
+    "globalNo": 622,
     "id": "vp-2026-0516"
   },
   {
@@ -12922,7 +15678,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Mega Signboard / Hoarding",
     "photo": "/vendor-media/gofar_s3.jpg",
     "rawText": "Horizon OOH · Available · 100 x 35 · Defence towards Shahrah-e-faisal FTC · Panaflex Applicable only · CSD Signal Mega Signboard · Amount: 2.5 Million",
-    "globalNo": 517,
+    "globalNo": 623,
     "id": "vp-2026-0517"
   },
   {
@@ -12947,7 +15703,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Mega Signboard / Hoarding",
     "photo": "/vendor-media/gofar_s4.jpg",
     "rawText": "Horizon OOH · 70x35 23 -Nov · 60x35 Available · 70x35 · 60x35 · Johar Mor towards Johar Chowrangi · Panaflex Applicable only · Johar Chowrangi ( Mega & Double Signboards) · Amount: 2 Million",
-    "globalNo": 518,
+    "globalNo": 624,
     "id": "vp-2026-0518"
   },
   {
@@ -12972,7 +15728,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Mega Signboard / Hoarding",
     "photo": "/vendor-media/gofar_s5.jpg",
     "rawText": "Shahrah-e-Faisal · 26 - Nov · 30 x 90 · Airport towards · Nursery · Panaflex Only · Amount : 2 million",
-    "globalNo": 519,
+    "globalNo": 625,
     "id": "vp-2026-0519"
   },
   {
@@ -12997,7 +15753,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/gofar_s6.jpg",
     "rawText": "GIZRI BRIDGE · Punjab Chowrangi to · Saudi Embassy · Panaflex · Amount : 6 lac · Available · 55 x 35",
-    "globalNo": 520,
+    "globalNo": 626,
     "id": "vp-2026-0520"
   },
   {
@@ -13022,7 +15778,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Mega Signboard / Hoarding",
     "photo": "/vendor-media/gofar_s7.jpg",
     "rawText": "Shahrah-e-Faisal · 30 x 90 · Nursery towards · Airport · Panaflex · Amount : 1.6 Million · Available",
-    "globalNo": 521,
+    "globalNo": 627,
     "id": "vp-2026-0521"
   },
   {
@@ -13047,7 +15803,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Mega Signboard / Hoarding",
     "photo": "/vendor-media/gofar_s8.jpg",
     "rawText": "GULISTAN-E-JOHAR · In front of BIN HASHIM MART · Munawar Chowrangi · 65 x 30 · Kamran Chorangi · towards · Johar Chorangi · Flex · Amount : 15 lac · Available",
-    "globalNo": 522,
+    "globalNo": 628,
     "id": "vp-2026-0522"
   },
   {
@@ -13072,7 +15828,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Mega Signboard / Hoarding",
     "photo": "/vendor-media/gofar_s9.jpg",
     "rawText": "PC HOTEL · Available · 61 x 30 · Bahria Complex · towards PC Hotel · Panaflex · Applicable only · Amount : 6 lac",
-    "globalNo": 523,
+    "globalNo": 629,
     "id": "vp-2026-0523"
   },
   {
@@ -13097,12 +15853,12 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Mega Signboard / Hoarding",
     "photo": "/vendor-media/gofar_s10.jpg",
     "rawText": "28 - NOV · 30 x 70 · Millennium Mall · To Johar Mor · Panaflex · Applicable Only · Amount : 15 Lac · Rashid Minhas · road at · Millennium Mall",
-    "globalNo": 524,
+    "globalNo": 630,
     "id": "vp-2026-0524"
   },
   {
     "id": "vp-2026-0525",
-    "globalNo": 525,
+    "globalNo": 631,
     "sNo": 1,
     "slideNum": 5,
     "code": "VP-GRV-01",
@@ -13127,7 +15883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0526",
-    "globalNo": 526,
+    "globalNo": 632,
     "sNo": 2,
     "slideNum": 6,
     "code": "VP-GRV-02",
@@ -13152,7 +15908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0527",
-    "globalNo": 527,
+    "globalNo": 633,
     "sNo": 3,
     "slideNum": 7,
     "code": "VP-GRV-03",
@@ -13177,7 +15933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0528",
-    "globalNo": 528,
+    "globalNo": 634,
     "sNo": 4,
     "slideNum": 8,
     "code": "VP-GRV-04",
@@ -13202,7 +15958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0529",
-    "globalNo": 529,
+    "globalNo": 635,
     "sNo": 5,
     "slideNum": 9,
     "code": "VP-GRV-05",
@@ -13227,7 +15983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0530",
-    "globalNo": 530,
+    "globalNo": 636,
     "sNo": 6,
     "slideNum": 10,
     "code": "VP-GRV-06",
@@ -13252,7 +16008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0531",
-    "globalNo": 531,
+    "globalNo": 637,
     "sNo": 7,
     "slideNum": 11,
     "code": "VP-GRV-07",
@@ -13277,7 +16033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0532",
-    "globalNo": 532,
+    "globalNo": 638,
     "sNo": 8,
     "slideNum": 12,
     "code": "VP-GRV-08",
@@ -13302,7 +16058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0533",
-    "globalNo": 533,
+    "globalNo": 639,
     "sNo": 9,
     "slideNum": 13,
     "code": "VP-GRV-09",
@@ -13327,7 +16083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0534",
-    "globalNo": 534,
+    "globalNo": 640,
     "sNo": 10,
     "slideNum": 14,
     "code": "VP-GRV-10",
@@ -13352,7 +16108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0535",
-    "globalNo": 535,
+    "globalNo": 641,
     "sNo": 11,
     "slideNum": 15,
     "code": "VP-GRV-11",
@@ -13377,7 +16133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0536",
-    "globalNo": 536,
+    "globalNo": 642,
     "sNo": 12,
     "slideNum": 16,
     "code": "VP-GRV-12",
@@ -13402,7 +16158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0537",
-    "globalNo": 537,
+    "globalNo": 643,
     "sNo": 13,
     "slideNum": 17,
     "code": "VP-GRV-13",
@@ -13427,7 +16183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0538",
-    "globalNo": 538,
+    "globalNo": 644,
     "sNo": 14,
     "slideNum": 18,
     "code": "VP-GRV-14",
@@ -13452,7 +16208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0539",
-    "globalNo": 539,
+    "globalNo": 645,
     "sNo": 15,
     "slideNum": 19,
     "code": "VP-GRV-15",
@@ -13477,7 +16233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0540",
-    "globalNo": 540,
+    "globalNo": 646,
     "sNo": 16,
     "slideNum": 20,
     "code": "VP-GRV-16",
@@ -13502,7 +16258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0541",
-    "globalNo": 541,
+    "globalNo": 647,
     "sNo": 17,
     "slideNum": 21,
     "code": "VP-GRV-17",
@@ -13527,7 +16283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0542",
-    "globalNo": 542,
+    "globalNo": 648,
     "sNo": 18,
     "slideNum": 22,
     "code": "VP-GRV-18",
@@ -13552,7 +16308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0543",
-    "globalNo": 543,
+    "globalNo": 649,
     "sNo": 19,
     "slideNum": 23,
     "code": "VP-GRV-19",
@@ -13577,7 +16333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0544",
-    "globalNo": 544,
+    "globalNo": 650,
     "sNo": 20,
     "slideNum": 25,
     "code": "VP-GRV-20",
@@ -13602,7 +16358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0545",
-    "globalNo": 545,
+    "globalNo": 651,
     "sNo": 21,
     "slideNum": 26,
     "code": "VP-GRV-21",
@@ -13627,7 +16383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0546",
-    "globalNo": 546,
+    "globalNo": 652,
     "sNo": 22,
     "slideNum": 27,
     "code": "VP-GRV-22",
@@ -13652,7 +16408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0547",
-    "globalNo": 547,
+    "globalNo": 653,
     "sNo": 23,
     "slideNum": 28,
     "code": "VP-GRV-23",
@@ -13677,7 +16433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0548",
-    "globalNo": 548,
+    "globalNo": 654,
     "sNo": 24,
     "slideNum": 29,
     "code": "VP-GRV-24",
@@ -13702,7 +16458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0549",
-    "globalNo": 549,
+    "globalNo": 655,
     "sNo": 25,
     "slideNum": 30,
     "code": "VP-GRV-25",
@@ -13727,7 +16483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0550",
-    "globalNo": 550,
+    "globalNo": 656,
     "sNo": 26,
     "slideNum": 31,
     "code": "VP-GRV-26",
@@ -13752,7 +16508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0551",
-    "globalNo": 551,
+    "globalNo": 657,
     "sNo": 27,
     "slideNum": 32,
     "code": "VP-GRV-27",
@@ -13777,7 +16533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0552",
-    "globalNo": 552,
+    "globalNo": 658,
     "sNo": 28,
     "slideNum": 33,
     "code": "VP-GRV-28",
@@ -13802,7 +16558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0553",
-    "globalNo": 553,
+    "globalNo": 659,
     "sNo": 29,
     "slideNum": 34,
     "code": "VP-GRV-29",
@@ -13827,7 +16583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0554",
-    "globalNo": 554,
+    "globalNo": 660,
     "sNo": 30,
     "slideNum": 35,
     "code": "VP-GRV-30",
@@ -13852,7 +16608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0555",
-    "globalNo": 555,
+    "globalNo": 661,
     "sNo": 31,
     "slideNum": 37,
     "code": "VP-GRV-31",
@@ -13877,7 +16633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0556",
-    "globalNo": 556,
+    "globalNo": 662,
     "sNo": 32,
     "slideNum": 39,
     "code": "VP-GRV-32",
@@ -13902,7 +16658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0557",
-    "globalNo": 557,
+    "globalNo": 663,
     "sNo": 33,
     "slideNum": 41,
     "code": "VP-GRV-33",
@@ -13927,7 +16683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0558",
-    "globalNo": 558,
+    "globalNo": 664,
     "sNo": 34,
     "slideNum": 43,
     "code": "VP-GRV-34",
@@ -13972,7 +16728,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/insight_s1.jpg",
     "rawText": "Location : Backlit boards at FTC flyover · Direction :TCF NMC TGT Shahrah-e-Faisal (Vice & versa) · Size:4X8 · Quantity: 17 screens · Status: · Available · Rates per month: 800,000",
-    "globalNo": 559,
+    "globalNo": 665,
     "id": "vp-2026-0559"
   },
   {
@@ -13997,7 +16753,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/insight_s2.jpg",
     "rawText": "KARACHI BRIDGE PANELS",
-    "globalNo": 560,
+    "globalNo": 666,
     "id": "vp-2026-0560"
   },
   {
@@ -14022,7 +16778,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/insight_s3.jpg",
     "rawText": "Location :Baloch Flyover, Shahrah-e-Faisal · Direction :TCF Karsaz TGT Nursury flyover · Size: 60X10 · Rate: 1,000,000 · Status: Available from 20-Nov-2026 · Media: Flex · Impression:3,353,593 Reach:933,073",
-    "globalNo": 561,
+    "globalNo": 667,
     "id": "vp-2026-0561"
   },
   {
@@ -14047,7 +16803,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/insight_s4.jpg",
     "rawText": "Location :Baloch Flyover, Shahrah-e-Faisal · Direction :TCF Nursury flyover TGT Karsaz · Size: 100X10 · Rate: 1,000,000 · Status: Available from 1-Dec-2026 · Media: Flex · Impression:3,353,593 Reach:933,073",
-    "globalNo": 562,
+    "globalNo": 668,
     "id": "vp-2026-0562"
   },
   {
@@ -14072,7 +16828,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/insight_s5.jpg",
     "rawText": "Location :Karsaz flyover, Shahrah-e-Faisal · Direction :TCF Airport TGT Baloch flyover · Size: 120X12 · Rate: 1,000,000 · Status: Available from 1st –DEC-2026 · Media: Flex · Impression: Reach:",
-    "globalNo": 563,
+    "globalNo": 669,
     "id": "vp-2026-0563"
   },
   {
@@ -14097,7 +16853,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/insight_s6.jpg",
     "rawText": "Location :PAF base, Shahrah-e-Faisal · Direction :TCF Baloch flyover TGT Airport · Size: 100X10 · Rate: 1,000,000 · Status: Locked till 1-DEC-2026 · Media: Flex · Impression: Reach:",
-    "globalNo": 564,
+    "globalNo": 670,
     "id": "vp-2026-0564"
   },
   {
@@ -14122,7 +16878,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/insight_s7.jpg",
     "rawText": "Location :PAF base, Shahrah-e-Faisal · Direction :TCF Airport TGT Baloch flyover · Size: 100X10 · Rate: 1,000,000 · Status: Locked till 1st DEC-2026 · Media: Flex · Impression: Reach:",
-    "globalNo": 565,
+    "globalNo": 671,
     "id": "vp-2026-0565"
   },
   {
@@ -14147,7 +16903,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/insight_s8.jpg",
     "rawText": "Location :Ayesha Bawani bridge panel, Shahrah-e-Faisal · Direction :TCF Airport TGT Metropole · Size: 100X12 · Rate: 1,000,000 · Status: Locked till · 1-DEC- 2026 further extendable · Media: Flex · Impression: Reach:",
-    "globalNo": 566,
+    "globalNo": 672,
     "id": "vp-2026-0566"
   },
   {
@@ -14172,7 +16928,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/insight_s9.jpg",
     "rawText": "Location :Ayesha Bawani bridge panel, Shahrah-e-Faisal · Direction :TCF Metropole TGT Airport · Size: 50X12 · Rate: 700,000 · Status: Available from 4-DEC-2026 · Media: Flex · Impression: Reach:",
-    "globalNo": 567,
+    "globalNo": 673,
     "id": "vp-2026-0567"
   },
   {
@@ -14197,7 +16953,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/insight_s10.jpg",
     "rawText": "Location :Pak tower bridge panel, 26th street · Direction :TCF Bilawal house TGT Abdullah Shah Ghazi · Size: 80X12 · Rate: 1,000,000 · Status: Locked till · 30-NOV-2026 · Further Extendable · Media: Flex · Impression: Reach:",
-    "globalNo": 568,
+    "globalNo": 674,
     "id": "vp-2026-0568"
   },
   {
@@ -14222,7 +16978,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/insight_s11.jpg",
     "rawText": "Location :Pak tower bridge panel, 26th street · Direction :TCF Abdullah Shah Ghazi TGT Bilawal house · Size: 80X12 · Rate: 1,000,000 · Status: Locked till · 30-NOV-2026 · Further Extendable · Media: Flex · Impression: Reach:",
-    "globalNo": 569,
+    "globalNo": 675,
     "id": "vp-2026-0569"
   },
   {
@@ -14247,7 +17003,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel & Billboard",
     "photo": "/vendor-media/insight_s12.jpg",
     "rawText": "Location :Drigh road station, Rashid Minhas road · Direction :TCF Johar mor TGT Shahrah-e-Fasial · Size: 70X10 · Rate: 650,000 · Status: · AVAILABLE · Media: Flex · Impression: Reach:",
-    "globalNo": 570,
+    "globalNo": 676,
     "id": "vp-2026-0570"
   },
   {
@@ -14272,7 +17028,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/insight_s13.jpg",
     "rawText": "Location : Foodpanda Rider Hub, Shahrah-e-Faisal · Direction :TCF Nursery flyover TGT Baloch flyover · Size: 45X40 · Rate: 1,000,000 · Status: Locked till · 8-NOV-2026 further extendable · Media: Flex · Impression:2,026,670 Reach:1,206,140",
-    "globalNo": 571,
+    "globalNo": 677,
     "id": "vp-2026-0571"
   },
   {
@@ -14297,7 +17053,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/insight_s14.jpg",
     "rawText": "Location :Shahrah e Quaideen Flyover · Direction :TCF Shahrah e Faisal TGT Allah wali Chowrangi · Size: 80x25 · (25x25&55x25) · Rate: 800,000 · Status: · Locked till · 29-NOV-2026 · Media: Flex · Impression:3,353,593 Reach:933,073",
-    "globalNo": 572,
+    "globalNo": 678,
     "id": "vp-2026-0572"
   },
   {
@@ -14322,7 +17078,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel & Billboard",
     "photo": "/vendor-media/insight_s15.jpg",
     "rawText": "Location :Ittehad Signal, DHA · Direction :TCF Khayaban-e-Ittehad TGT KPT Interchange · Size: 24X43 · Rate: 1,200,000 · Status: Long Term Locked · Media: Vinyl · Impression:3,353,593 Reach:933,073",
-    "globalNo": 573,
+    "globalNo": 679,
     "id": "vp-2026-0573"
   },
   {
@@ -14347,7 +17103,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel & Billboard",
     "photo": "/vendor-media/insight_s16.jpg",
     "rawText": "Location : Ittehad Signal, DHA · Direction :TCF KPT Interchange TGT Khayaban-e-Ittehad · Size: 21X31 · Rate: 400,000 · Status: Available · Media: Vinyl · Impression:2,049,138 Reach:596,382",
-    "globalNo": 574,
+    "globalNo": 680,
     "id": "vp-2026-0574"
   },
   {
@@ -14372,7 +17128,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel & Billboard",
     "photo": "/vendor-media/insight_s17.jpg",
     "rawText": "Location : Akhtar Colony, DHA Korangi road · Direction :TCF KPT Interchange,Expressway TGT Khayaban-e-Ittehad · Size: 40X30 · Rate: 400,000 · Status: LOCKED TILL 6_NOV_2026 · Media: Flex · Impression:2,826,670 Reach:976,680",
-    "globalNo": 575,
+    "globalNo": 681,
     "id": "vp-2026-0575"
   },
   {
@@ -14397,7 +17153,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel & Billboard",
     "photo": "/vendor-media/insight_s18.jpg",
     "rawText": "Location : Akhtar Colony, DHA Korangi road · Direction :TCF Khayaban-e-Ittehad DHA TGT KPT Interchange,Expressway · Size: 30X40 · Rate: 700,000 · Status: Locked till 04-NOV-2026 · Media: Flex · Impression:2,826,670 Reach:976,680",
-    "globalNo": 576,
+    "globalNo": 682,
     "id": "vp-2026-0576"
   },
   {
@@ -14422,7 +17178,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel & Billboard",
     "photo": "/vendor-media/insight_s19.jpg",
     "rawText": "Location : Sunset Boulevard · Direction :TCF DHA Library TGT Gizri Underpass & Schon circle · Size: 44X40 · Rate: 1,400,000 · Status: · Long term booked · Media: Vinyl · Impression:1,826,670 Reach:896,680",
-    "globalNo": 577,
+    "globalNo": 683,
     "id": "vp-2026-0577"
   },
   {
@@ -14447,7 +17203,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/insight_s20.jpg",
     "rawText": "Location : Expressway, Baloch Colony road · Direction :TCF KPT Iqra University TGT Baloch flyover · Size: 34X45 · Rate: 750,000 · Status: LOCKED TILL 1_NOV_2026 · Media: Flex · Impression:2,626,670 Reach:915,680",
-    "globalNo": 578,
+    "globalNo": 684,
     "id": "vp-2026-0578"
   },
   {
@@ -14472,7 +17228,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/insight_s21.jpg",
     "rawText": "Location : Expressway, Baloch Colony road · Direction :TCF Baloch flyover TGT Iqra University · Size: 45X25 · Rate: 650,000 · Status: · Locked till · 20-NOV _2026 · Media: Flex · Impression:2,626,670 Reach:915,680",
-    "globalNo": 579,
+    "globalNo": 685,
     "id": "vp-2026-0579"
   },
   {
@@ -14497,7 +17253,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel & Billboard",
     "photo": "/vendor-media/insight_s22.jpg",
     "rawText": "Location : Rabi Center, Tariq road · Direction :TCF Liberty Signal TGT ABL roundabout · Size: 40X50 · Rate: 1,200,000 · Status: locked till · 1nd -DEC-2026 · Media: Flex · Impression:2,426,670 Reach:1,176,000",
-    "globalNo": 580,
+    "globalNo": 686,
     "id": "vp-2026-0580"
   },
   {
@@ -14522,7 +17278,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel & Billboard",
     "photo": "/vendor-media/insight_s23.jpg",
     "rawText": "Location : Glamour one Opp. Dolmen Mall, Tariq road · Direction :TCF ABL roundabout TGT Liberty Signal · Size: 115X35 · Rate: 1,300,000 · Status: · Locked till 29-NOV-2026 · Media: Flex · Impression:2,426,670 Reach:1,176,000",
-    "globalNo": 581,
+    "globalNo": 687,
     "id": "vp-2026-0581"
   },
   {
@@ -14547,7 +17303,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/insight_s24.jpg",
     "rawText": "Location : Sunny Pride, Rashid Minhas road · Direction :TCF NIPA flyover TGT Millennium Mall · Size: 36X90 · Rate: 2,000,000 · Status: · LOCKED TILL 29_NOV_2026 · Media: Flex · Impression:2,826,670 Reach:976,680",
-    "globalNo": 582,
+    "globalNo": 688,
     "id": "vp-2026-0582"
   },
   {
@@ -14572,7 +17328,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel & Billboard",
     "photo": "/vendor-media/insight_s25.jpg",
     "rawText": "Location : Balochistan Sajji ,Gulistan-e-Johar · Direction :TCF Johar Mor TGT Johar Chowrangi · Size: 25X40 · Rate: 800,000 · Status: · Locked till · 1_JAN_2027 · Media: Flex · Impression:2,216,670 Reach:1,001,680",
-    "globalNo": 583,
+    "globalNo": 689,
     "id": "vp-2026-0583"
   },
   {
@@ -14597,7 +17353,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel & Billboard",
     "photo": "/vendor-media/insight_s26.jpg",
     "rawText": "Location : Jauhar Mor Main Rashid Minhas Road · Direction :TCF Jauhar morr and NIPA TGT Shahrah e Faisal/ Dalmia Road · Size: 24x40 · Rate: 700,000 · Status: LOCKEDTILL · 2_DEC_2026 · Media: Flex · Impression:1,826,750 Reach:1,102,450",
-    "globalNo": 584,
+    "globalNo": 690,
     "id": "vp-2026-0584"
   },
   {
@@ -14622,7 +17378,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel & Billboard",
     "photo": "/vendor-media/insight_s27.jpg",
     "rawText": "Location : Supreme Castle, Gulistan-e-Johar · Direction :TCF Johar Chowrangi TGT Johar Mor · Size: 31X39 · Rate: 800,000 · Status: LOCKEDTILL 29_NOV_2026 · Media: Flex · Impression: · Reach:",
-    "globalNo": 585,
+    "globalNo": 691,
     "id": "vp-2026-0585"
   },
   {
@@ -14647,7 +17403,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel & Billboard",
     "photo": "/vendor-media/insight_s28.jpg",
     "rawText": "Location : Main University road · Direction :TCF Central Jail TGT Civic center · Size: 80X50 · Rate: 900,000 · Status: Lockedtill 16_NOV-2026 · Media: Flex · Impression:2,926,170 Reach:1,376,897",
-    "globalNo": 586,
+    "globalNo": 692,
     "id": "vp-2026-0586"
   },
   {
@@ -14672,7 +17428,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel & Billboard",
     "photo": "/vendor-media/insight_s29.jpg",
     "rawText": "Location : Mosamiyat, University road · Direction :TCF Safora chowrangi TGT Shamama Shopping Center · Size: 45X30 · Rate: 400,000 · Status: Available from 3-nov-2026 · Media: Flex · Impression:1,826,750 Reach:1,1o2,450",
-    "globalNo": 587,
+    "globalNo": 693,
     "id": "vp-2026-0587"
   },
   {
@@ -14697,7 +17453,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel & Billboard",
     "photo": "/vendor-media/insight_s30.jpg",
     "rawText": "Location : Gulberg town, Shahrah-e-Pakistan · Direction :TCF Ayesha Manzil TGT Sohrab Goth · Size: 205X20 · 85X20,83X20,37X20 · Rate: 1,500,000 · Status: further extendable · 22-oct-2026 · Media: Flex · Impression:2,826,670 Reach:976,680",
-    "globalNo": 588,
+    "globalNo": 694,
     "id": "vp-2026-0588"
   },
   {
@@ -14722,7 +17478,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/insight_s31.jpg",
     "rawText": "Location : Karimabad Flyover, Shahrah-e-Pakistan · Direction :TCF Teen Hatti TGT Sohrab Goth · Size: 60x30 · Rate: 800,000 · Status: lockedtill · 1_jan_2027 · Media: Flex · Impression:2,826,670 Reach:976,680",
-    "globalNo": 589,
+    "globalNo": 695,
     "id": "vp-2026-0589"
   },
   {
@@ -14747,7 +17503,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/insight_s32.jpg",
     "rawText": "Location : Karimabad Flyover, Shahrah-e-Pakistan · Direction :TCF Teen Hatti TGT Sohrab Goth · Size: 55x30 · Rate: 800,000 · Status: lockedtill · 1_jan_2027 · Media: Flex · Impression:2,826,670 Reach:976,680",
-    "globalNo": 590,
+    "globalNo": 696,
     "id": "vp-2026-0590"
   },
   {
@@ -14772,7 +17528,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/insight_s33.jpg",
     "rawText": "Location: Shama chowrangi, Shah Faisal Colony · Direction :TCF Shama Shopping center TGT Korangi flyover · Size: 25X30 · Rate: 450,000 · Status: lockedtill · 26-nov-2026 · Media: Flex · Impression:2,826,670 Reach:976,680",
-    "globalNo": 591,
+    "globalNo": 697,
     "id": "vp-2026-0591"
   },
   {
@@ -14797,7 +17553,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel & Billboard",
     "photo": "/vendor-media/insight_s34.jpg",
     "rawText": "Location : M-9 Motorway ,Bahria town · Direction :TCF Bahria town TGT Karachi toll plaza · Size: 60X20 · Rate: 400,000 · Status: Long term locked · Media: Flex · Impression:2,026,670 Reach:1,206,140",
-    "globalNo": 592,
+    "globalNo": 698,
     "id": "vp-2026-0592"
   },
   {
@@ -14822,12 +17578,12 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel & Billboard",
     "photo": "/vendor-media/insight_s35.jpg",
     "rawText": "Location : M-9 Motorway, Bahria town · Direction :TCF Karachi toll plaza TGT Bahria town · Size: 60X20 · Rate: 500,000 · Status: lockedtill · 1_jan-2027 · Media: Flex · Impression:2,026,670 Reach:1,206,140",
-    "globalNo": 593,
+    "globalNo": 699,
     "id": "vp-2026-0593"
   },
   {
     "id": "vp-2026-0594",
-    "globalNo": 594,
+    "globalNo": 700,
     "sNo": 1,
     "slideNum": 2,
     "code": "VP-MBL-01",
@@ -14852,7 +17608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0595",
-    "globalNo": 595,
+    "globalNo": 701,
     "sNo": 2,
     "slideNum": 3,
     "code": "VP-MBL-02",
@@ -14877,7 +17633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0596",
-    "globalNo": 596,
+    "globalNo": 702,
     "sNo": 3,
     "slideNum": 4,
     "code": "VP-MBL-03",
@@ -14902,7 +17658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0597",
-    "globalNo": 597,
+    "globalNo": 703,
     "sNo": 4,
     "slideNum": 5,
     "code": "VP-MBL-04",
@@ -14927,7 +17683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0598",
-    "globalNo": 598,
+    "globalNo": 704,
     "sNo": 5,
     "slideNum": 6,
     "code": "VP-MBL-05",
@@ -14952,7 +17708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0599",
-    "globalNo": 599,
+    "globalNo": 705,
     "sNo": 6,
     "slideNum": 7,
     "code": "VP-MBL-06",
@@ -14977,7 +17733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0600",
-    "globalNo": 600,
+    "globalNo": 706,
     "sNo": 7,
     "slideNum": 8,
     "code": "VP-MBL-07",
@@ -15002,7 +17758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0601",
-    "globalNo": 601,
+    "globalNo": 707,
     "sNo": 8,
     "slideNum": 9,
     "code": "VP-MBL-08",
@@ -15027,7 +17783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0602",
-    "globalNo": 602,
+    "globalNo": 708,
     "sNo": 9,
     "slideNum": 10,
     "code": "VP-MBL-09",
@@ -15052,7 +17808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0603",
-    "globalNo": 603,
+    "globalNo": 709,
     "sNo": 10,
     "slideNum": 11,
     "code": "VP-MBL-10",
@@ -15077,7 +17833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0604",
-    "globalNo": 604,
+    "globalNo": 710,
     "sNo": 11,
     "slideNum": 12,
     "code": "VP-MBL-11",
@@ -15102,7 +17858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0605",
-    "globalNo": 605,
+    "globalNo": 711,
     "sNo": 12,
     "slideNum": 13,
     "code": "VP-MBL-12",
@@ -15127,7 +17883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0606",
-    "globalNo": 606,
+    "globalNo": 712,
     "sNo": 13,
     "slideNum": 14,
     "code": "VP-MBL-13",
@@ -15152,7 +17908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0607",
-    "globalNo": 607,
+    "globalNo": 713,
     "sNo": 14,
     "slideNum": 15,
     "code": "VP-MBL-14",
@@ -15177,7 +17933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0608",
-    "globalNo": 608,
+    "globalNo": 714,
     "sNo": 15,
     "slideNum": 16,
     "code": "VP-MBL-15",
@@ -15202,7 +17958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0609",
-    "globalNo": 609,
+    "globalNo": 715,
     "sNo": 16,
     "slideNum": 17,
     "code": "VP-MBL-16",
@@ -15227,7 +17983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0610",
-    "globalNo": 610,
+    "globalNo": 716,
     "sNo": 17,
     "slideNum": 18,
     "code": "VP-MBL-17",
@@ -15252,7 +18008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0611",
-    "globalNo": 611,
+    "globalNo": 717,
     "sNo": 18,
     "slideNum": 19,
     "code": "VP-MBL-18",
@@ -15277,7 +18033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0612",
-    "globalNo": 612,
+    "globalNo": 718,
     "sNo": 19,
     "slideNum": 20,
     "code": "VP-MBL-19",
@@ -15302,7 +18058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0613",
-    "globalNo": 613,
+    "globalNo": 719,
     "sNo": 20,
     "slideNum": 21,
     "code": "VP-MBL-20",
@@ -15327,7 +18083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0614",
-    "globalNo": 614,
+    "globalNo": 720,
     "sNo": 21,
     "slideNum": 22,
     "code": "VP-MBL-21",
@@ -15352,7 +18108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0615",
-    "globalNo": 615,
+    "globalNo": 721,
     "sNo": 22,
     "slideNum": 23,
     "code": "VP-MBL-22",
@@ -15377,7 +18133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0616",
-    "globalNo": 616,
+    "globalNo": 722,
     "sNo": 23,
     "slideNum": 24,
     "code": "VP-MBL-23",
@@ -15402,7 +18158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0617",
-    "globalNo": 617,
+    "globalNo": 723,
     "sNo": 24,
     "slideNum": 25,
     "code": "VP-MBL-24",
@@ -15427,7 +18183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0618",
-    "globalNo": 618,
+    "globalNo": 724,
     "sNo": 25,
     "slideNum": 26,
     "code": "VP-MBL-25",
@@ -15452,7 +18208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0619",
-    "globalNo": 619,
+    "globalNo": 725,
     "sNo": 26,
     "slideNum": 27,
     "code": "VP-MBL-26",
@@ -15477,7 +18233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0620",
-    "globalNo": 620,
+    "globalNo": 726,
     "sNo": 27,
     "slideNum": 28,
     "code": "VP-MBL-27",
@@ -15502,7 +18258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0621",
-    "globalNo": 621,
+    "globalNo": 727,
     "sNo": 28,
     "slideNum": 29,
     "code": "VP-MBL-28",
@@ -15527,7 +18283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0622",
-    "globalNo": 622,
+    "globalNo": 728,
     "sNo": 29,
     "slideNum": 30,
     "code": "VP-MBL-29",
@@ -15552,7 +18308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0623",
-    "globalNo": 623,
+    "globalNo": 729,
     "sNo": 30,
     "slideNum": 31,
     "code": "VP-MBL-30",
@@ -15577,7 +18333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0624",
-    "globalNo": 624,
+    "globalNo": 730,
     "sNo": 31,
     "slideNum": 32,
     "code": "VP-MBL-31",
@@ -15602,7 +18358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0625",
-    "globalNo": 625,
+    "globalNo": 731,
     "sNo": 32,
     "slideNum": 33,
     "code": "VP-MBL-32",
@@ -15627,7 +18383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0626",
-    "globalNo": 626,
+    "globalNo": 732,
     "sNo": 33,
     "slideNum": 35,
     "code": "VP-MBL-33",
@@ -15652,7 +18408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0627",
-    "globalNo": 627,
+    "globalNo": 733,
     "sNo": 34,
     "slideNum": 36,
     "code": "VP-MBL-34",
@@ -15677,7 +18433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0628",
-    "globalNo": 628,
+    "globalNo": 734,
     "sNo": 35,
     "slideNum": 37,
     "code": "VP-MBL-35",
@@ -15702,7 +18458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0629",
-    "globalNo": 629,
+    "globalNo": 735,
     "sNo": 36,
     "slideNum": 38,
     "code": "VP-MBL-36",
@@ -15727,7 +18483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0630",
-    "globalNo": 630,
+    "globalNo": 736,
     "sNo": 37,
     "slideNum": 39,
     "code": "VP-MBL-37",
@@ -15752,7 +18508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0631",
-    "globalNo": 631,
+    "globalNo": 737,
     "sNo": 38,
     "slideNum": 40,
     "code": "VP-MBL-38",
@@ -15777,7 +18533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0632",
-    "globalNo": 632,
+    "globalNo": 738,
     "sNo": 39,
     "slideNum": 41,
     "code": "VP-MBL-39",
@@ -15802,7 +18558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0633",
-    "globalNo": 633,
+    "globalNo": 739,
     "sNo": 40,
     "slideNum": 42,
     "code": "VP-MBL-40",
@@ -15827,7 +18583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0634",
-    "globalNo": 634,
+    "globalNo": 740,
     "sNo": 41,
     "slideNum": 43,
     "code": "VP-MBL-41",
@@ -15852,7 +18608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0635",
-    "globalNo": 635,
+    "globalNo": 741,
     "sNo": 42,
     "slideNum": 44,
     "code": "VP-MBL-42",
@@ -15877,7 +18633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0636",
-    "globalNo": 636,
+    "globalNo": 742,
     "sNo": 43,
     "slideNum": 45,
     "code": "VP-MBL-43",
@@ -15902,7 +18658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0637",
-    "globalNo": 637,
+    "globalNo": 743,
     "sNo": 44,
     "slideNum": 46,
     "code": "VP-MBL-44",
@@ -15927,7 +18683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0638",
-    "globalNo": 638,
+    "globalNo": 744,
     "sNo": 45,
     "slideNum": 47,
     "code": "VP-MBL-45",
@@ -15952,7 +18708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0639",
-    "globalNo": 639,
+    "globalNo": 745,
     "sNo": 46,
     "slideNum": 48,
     "code": "VP-MBL-46",
@@ -15977,7 +18733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0640",
-    "globalNo": 640,
+    "globalNo": 746,
     "sNo": 47,
     "slideNum": 49,
     "code": "VP-MBL-47",
@@ -16002,7 +18758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0641",
-    "globalNo": 641,
+    "globalNo": 747,
     "sNo": 48,
     "slideNum": 50,
     "code": "VP-MBL-48",
@@ -16027,7 +18783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0642",
-    "globalNo": 642,
+    "globalNo": 748,
     "sNo": 49,
     "slideNum": 51,
     "code": "VP-MBL-49",
@@ -16052,7 +18808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0643",
-    "globalNo": 643,
+    "globalNo": 749,
     "sNo": 50,
     "slideNum": 52,
     "code": "VP-MBL-50",
@@ -16077,7 +18833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0644",
-    "globalNo": 644,
+    "globalNo": 750,
     "sNo": 51,
     "slideNum": 53,
     "code": "VP-MBL-51",
@@ -16102,7 +18858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0645",
-    "globalNo": 645,
+    "globalNo": 751,
     "sNo": 52,
     "slideNum": 54,
     "code": "VP-MBL-52",
@@ -16127,7 +18883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0646",
-    "globalNo": 646,
+    "globalNo": 752,
     "sNo": 53,
     "slideNum": 55,
     "code": "VP-MBL-53",
@@ -16152,7 +18908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0647",
-    "globalNo": 647,
+    "globalNo": 753,
     "sNo": 54,
     "slideNum": 56,
     "code": "VP-MBL-54",
@@ -16177,7 +18933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0648",
-    "globalNo": 648,
+    "globalNo": 754,
     "sNo": 55,
     "slideNum": 57,
     "code": "VP-MBL-55",
@@ -16202,7 +18958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0649",
-    "globalNo": 649,
+    "globalNo": 755,
     "sNo": 56,
     "slideNum": 58,
     "code": "VP-MBL-56",
@@ -16227,7 +18983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0650",
-    "globalNo": 650,
+    "globalNo": 756,
     "sNo": 57,
     "slideNum": 59,
     "code": "VP-MBL-57",
@@ -16252,7 +19008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0651",
-    "globalNo": 651,
+    "globalNo": 757,
     "sNo": 58,
     "slideNum": 60,
     "code": "VP-MBL-58",
@@ -16277,7 +19033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0652",
-    "globalNo": 652,
+    "globalNo": 758,
     "sNo": 59,
     "slideNum": 61,
     "code": "VP-MBL-59",
@@ -16302,7 +19058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0653",
-    "globalNo": 653,
+    "globalNo": 759,
     "sNo": 60,
     "slideNum": 62,
     "code": "VP-MBL-60",
@@ -16327,7 +19083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0654",
-    "globalNo": 654,
+    "globalNo": 760,
     "sNo": 61,
     "slideNum": 63,
     "code": "VP-MBL-61",
@@ -16352,7 +19108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0655",
-    "globalNo": 655,
+    "globalNo": 761,
     "sNo": 62,
     "slideNum": 64,
     "code": "VP-MBL-62",
@@ -16377,7 +19133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0656",
-    "globalNo": 656,
+    "globalNo": 762,
     "sNo": 63,
     "slideNum": 65,
     "code": "VP-MBL-63",
@@ -16402,7 +19158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0657",
-    "globalNo": 657,
+    "globalNo": 763,
     "sNo": 64,
     "slideNum": 66,
     "code": "VP-MBL-64",
@@ -16427,7 +19183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0658",
-    "globalNo": 658,
+    "globalNo": 764,
     "sNo": 65,
     "slideNum": 67,
     "code": "VP-MBL-65",
@@ -16452,7 +19208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0659",
-    "globalNo": 659,
+    "globalNo": 765,
     "sNo": 66,
     "slideNum": 69,
     "code": "VP-MBL-66",
@@ -16477,7 +19233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0660",
-    "globalNo": 660,
+    "globalNo": 766,
     "sNo": 1,
     "slideNum": 3,
     "code": "VP-MCM-01",
@@ -16502,7 +19258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0661",
-    "globalNo": 661,
+    "globalNo": 767,
     "sNo": 2,
     "slideNum": 5,
     "code": "VP-MCM-02",
@@ -16527,7 +19283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0662",
-    "globalNo": 662,
+    "globalNo": 768,
     "sNo": 3,
     "slideNum": 6,
     "code": "VP-MCM-03",
@@ -16552,7 +19308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0663",
-    "globalNo": 663,
+    "globalNo": 769,
     "sNo": 4,
     "slideNum": 7,
     "code": "VP-MCM-04",
@@ -16577,7 +19333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0664",
-    "globalNo": 664,
+    "globalNo": 770,
     "sNo": 5,
     "slideNum": 8,
     "code": "VP-MCM-05",
@@ -16602,7 +19358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0665",
-    "globalNo": 665,
+    "globalNo": 771,
     "sNo": 6,
     "slideNum": 9,
     "code": "VP-MCM-06",
@@ -16627,7 +19383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0666",
-    "globalNo": 666,
+    "globalNo": 772,
     "sNo": 7,
     "slideNum": 10,
     "code": "VP-MCM-07",
@@ -16652,7 +19408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0667",
-    "globalNo": 667,
+    "globalNo": 773,
     "sNo": 8,
     "slideNum": 11,
     "code": "VP-MCM-08",
@@ -16677,7 +19433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0668",
-    "globalNo": 668,
+    "globalNo": 774,
     "sNo": 9,
     "slideNum": 12,
     "code": "VP-MCM-09",
@@ -16702,7 +19458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0669",
-    "globalNo": 669,
+    "globalNo": 775,
     "sNo": 10,
     "slideNum": 13,
     "code": "VP-MCM-10",
@@ -16727,7 +19483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0670",
-    "globalNo": 670,
+    "globalNo": 776,
     "sNo": 11,
     "slideNum": 14,
     "code": "VP-MCM-11",
@@ -16752,7 +19508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0671",
-    "globalNo": 671,
+    "globalNo": 777,
     "sNo": 12,
     "slideNum": 15,
     "code": "VP-MCM-12",
@@ -16777,7 +19533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0672",
-    "globalNo": 672,
+    "globalNo": 778,
     "sNo": 13,
     "slideNum": 16,
     "code": "VP-MCM-13",
@@ -16802,7 +19558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0673",
-    "globalNo": 673,
+    "globalNo": 779,
     "sNo": 14,
     "slideNum": 17,
     "code": "VP-MCM-14",
@@ -16827,7 +19583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0674",
-    "globalNo": 674,
+    "globalNo": 780,
     "sNo": 15,
     "slideNum": 18,
     "code": "VP-MCM-15",
@@ -16852,7 +19608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0675",
-    "globalNo": 675,
+    "globalNo": 781,
     "sNo": 16,
     "slideNum": 19,
     "code": "VP-MCM-16",
@@ -16877,7 +19633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0676",
-    "globalNo": 676,
+    "globalNo": 782,
     "sNo": 17,
     "slideNum": 20,
     "code": "VP-MCM-17",
@@ -16902,7 +19658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0677",
-    "globalNo": 677,
+    "globalNo": 783,
     "sNo": 18,
     "slideNum": 21,
     "code": "VP-MCM-18",
@@ -16927,7 +19683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0678",
-    "globalNo": 678,
+    "globalNo": 784,
     "sNo": 19,
     "slideNum": 22,
     "code": "VP-MCM-19",
@@ -16952,7 +19708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0679",
-    "globalNo": 679,
+    "globalNo": 785,
     "sNo": 20,
     "slideNum": 23,
     "code": "VP-MCM-20",
@@ -16977,7 +19733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0680",
-    "globalNo": 680,
+    "globalNo": 786,
     "sNo": 21,
     "slideNum": 24,
     "code": "VP-MCM-21",
@@ -17002,7 +19758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0681",
-    "globalNo": 681,
+    "globalNo": 787,
     "sNo": 22,
     "slideNum": 25,
     "code": "VP-MCM-22",
@@ -17027,7 +19783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0682",
-    "globalNo": 682,
+    "globalNo": 788,
     "sNo": 23,
     "slideNum": 26,
     "code": "VP-MCM-23",
@@ -17052,7 +19808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0683",
-    "globalNo": 683,
+    "globalNo": 789,
     "sNo": 24,
     "slideNum": 27,
     "code": "VP-MCM-24",
@@ -17077,7 +19833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0684",
-    "globalNo": 684,
+    "globalNo": 790,
     "sNo": 25,
     "slideNum": 28,
     "code": "VP-MCM-25",
@@ -17102,7 +19858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0685",
-    "globalNo": 685,
+    "globalNo": 791,
     "sNo": 26,
     "slideNum": 29,
     "code": "VP-MCM-26",
@@ -17127,7 +19883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0686",
-    "globalNo": 686,
+    "globalNo": 792,
     "sNo": 27,
     "slideNum": 30,
     "code": "VP-MCM-27",
@@ -17152,7 +19908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0687",
-    "globalNo": 687,
+    "globalNo": 793,
     "sNo": 28,
     "slideNum": 31,
     "code": "VP-MCM-28",
@@ -17177,7 +19933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0688",
-    "globalNo": 688,
+    "globalNo": 794,
     "sNo": 29,
     "slideNum": 32,
     "code": "VP-MCM-29",
@@ -17202,7 +19958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0689",
-    "globalNo": 689,
+    "globalNo": 795,
     "sNo": 30,
     "slideNum": 33,
     "code": "VP-MCM-30",
@@ -17227,7 +19983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0690",
-    "globalNo": 690,
+    "globalNo": 796,
     "sNo": 31,
     "slideNum": 34,
     "code": "VP-MCM-31",
@@ -17252,7 +20008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0691",
-    "globalNo": 691,
+    "globalNo": 797,
     "sNo": 32,
     "slideNum": 35,
     "code": "VP-MCM-32",
@@ -17277,7 +20033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0692",
-    "globalNo": 692,
+    "globalNo": 798,
     "sNo": 33,
     "slideNum": 36,
     "code": "VP-MCM-33",
@@ -17302,7 +20058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0693",
-    "globalNo": 693,
+    "globalNo": 799,
     "sNo": 34,
     "slideNum": 37,
     "code": "VP-MCM-34",
@@ -17327,7 +20083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0694",
-    "globalNo": 694,
+    "globalNo": 800,
     "sNo": 35,
     "slideNum": 38,
     "code": "VP-MCM-35",
@@ -17352,7 +20108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0695",
-    "globalNo": 695,
+    "globalNo": 801,
     "sNo": 36,
     "slideNum": 39,
     "code": "VP-MCM-36",
@@ -17377,7 +20133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0696",
-    "globalNo": 696,
+    "globalNo": 802,
     "sNo": 37,
     "slideNum": 40,
     "code": "VP-MCM-37",
@@ -17402,7 +20158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0697",
-    "globalNo": 697,
+    "globalNo": 803,
     "sNo": 38,
     "slideNum": 41,
     "code": "VP-MCM-38",
@@ -17427,7 +20183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0698",
-    "globalNo": 698,
+    "globalNo": 804,
     "sNo": 39,
     "slideNum": 44,
     "code": "VP-MCM-39",
@@ -17452,7 +20208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0699",
-    "globalNo": 699,
+    "globalNo": 805,
     "sNo": 40,
     "slideNum": 45,
     "code": "VP-MCM-40",
@@ -17477,7 +20233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0700",
-    "globalNo": 700,
+    "globalNo": 806,
     "sNo": 41,
     "slideNum": 46,
     "code": "VP-MCM-41",
@@ -17502,7 +20258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0701",
-    "globalNo": 701,
+    "globalNo": 807,
     "sNo": 42,
     "slideNum": 47,
     "code": "VP-MCM-42",
@@ -17527,7 +20283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0702",
-    "globalNo": 702,
+    "globalNo": 808,
     "sNo": 43,
     "slideNum": 48,
     "code": "VP-MCM-43",
@@ -17552,7 +20308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0703",
-    "globalNo": 703,
+    "globalNo": 809,
     "sNo": 44,
     "slideNum": 49,
     "code": "VP-MCM-44",
@@ -17577,7 +20333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0704",
-    "globalNo": 704,
+    "globalNo": 810,
     "sNo": 45,
     "slideNum": 50,
     "code": "VP-MCM-45",
@@ -17602,7 +20358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0705",
-    "globalNo": 705,
+    "globalNo": 811,
     "sNo": 46,
     "slideNum": 52,
     "code": "VP-MCM-46",
@@ -17627,7 +20383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0706",
-    "globalNo": 706,
+    "globalNo": 812,
     "sNo": 47,
     "slideNum": 53,
     "code": "VP-MCM-47",
@@ -17652,7 +20408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0707",
-    "globalNo": 707,
+    "globalNo": 813,
     "sNo": 48,
     "slideNum": 54,
     "code": "VP-MCM-48",
@@ -17677,7 +20433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0708",
-    "globalNo": 708,
+    "globalNo": 814,
     "sNo": 49,
     "slideNum": 55,
     "code": "VP-MCM-49",
@@ -17702,7 +20458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0709",
-    "globalNo": 709,
+    "globalNo": 815,
     "sNo": 50,
     "slideNum": 56,
     "code": "VP-MCM-50",
@@ -17727,7 +20483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0710",
-    "globalNo": 710,
+    "globalNo": 816,
     "sNo": 51,
     "slideNum": 58,
     "code": "VP-MCM-51",
@@ -17752,7 +20508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0711",
-    "globalNo": 711,
+    "globalNo": 817,
     "sNo": 52,
     "slideNum": 59,
     "code": "VP-MCM-52",
@@ -17777,7 +20533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0712",
-    "globalNo": 712,
+    "globalNo": 818,
     "sNo": 53,
     "slideNum": 60,
     "code": "VP-MCM-53",
@@ -17802,7 +20558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0713",
-    "globalNo": 713,
+    "globalNo": 819,
     "sNo": 54,
     "slideNum": 61,
     "code": "VP-MCM-54",
@@ -17827,7 +20583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0714",
-    "globalNo": 714,
+    "globalNo": 820,
     "sNo": 55,
     "slideNum": 62,
     "code": "VP-MCM-55",
@@ -17852,7 +20608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0715",
-    "globalNo": 715,
+    "globalNo": 821,
     "sNo": 56,
     "slideNum": 63,
     "code": "VP-MCM-56",
@@ -17877,7 +20633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0716",
-    "globalNo": 716,
+    "globalNo": 822,
     "sNo": 57,
     "slideNum": 64,
     "code": "VP-MCM-57",
@@ -17902,7 +20658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0717",
-    "globalNo": 717,
+    "globalNo": 823,
     "sNo": 58,
     "slideNum": 65,
     "code": "VP-MCM-58",
@@ -17927,7 +20683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0718",
-    "globalNo": 718,
+    "globalNo": 824,
     "sNo": 59,
     "slideNum": 66,
     "code": "VP-MCM-59",
@@ -17952,7 +20708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0719",
-    "globalNo": 719,
+    "globalNo": 825,
     "sNo": 60,
     "slideNum": 67,
     "code": "VP-MCM-60",
@@ -17977,7 +20733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0720",
-    "globalNo": 720,
+    "globalNo": 826,
     "sNo": 61,
     "slideNum": 68,
     "code": "VP-MCM-61",
@@ -18002,7 +20758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0721",
-    "globalNo": 721,
+    "globalNo": 827,
     "sNo": 1,
     "slideNum": 2,
     "code": "VP-MTC-01",
@@ -18027,7 +20783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0722",
-    "globalNo": 722,
+    "globalNo": 828,
     "sNo": 2,
     "slideNum": 3,
     "code": "VP-MTC-02",
@@ -18052,7 +20808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0723",
-    "globalNo": 723,
+    "globalNo": 829,
     "sNo": 3,
     "slideNum": 4,
     "code": "VP-MTC-03",
@@ -18077,7 +20833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0724",
-    "globalNo": 724,
+    "globalNo": 830,
     "sNo": 4,
     "slideNum": 5,
     "code": "VP-MTC-04",
@@ -18102,7 +20858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0725",
-    "globalNo": 725,
+    "globalNo": 831,
     "sNo": 5,
     "slideNum": 6,
     "code": "VP-MTC-05",
@@ -18127,7 +20883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0726",
-    "globalNo": 726,
+    "globalNo": 832,
     "sNo": 6,
     "slideNum": 7,
     "code": "VP-MTC-06",
@@ -18152,7 +20908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0727",
-    "globalNo": 727,
+    "globalNo": 833,
     "sNo": 7,
     "slideNum": 8,
     "code": "VP-MTC-07",
@@ -18177,7 +20933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0728",
-    "globalNo": 728,
+    "globalNo": 834,
     "sNo": 8,
     "slideNum": 9,
     "code": "VP-MTC-08",
@@ -18202,7 +20958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0729",
-    "globalNo": 729,
+    "globalNo": 835,
     "sNo": 9,
     "slideNum": 10,
     "code": "VP-MTC-09",
@@ -18227,7 +20983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0730",
-    "globalNo": 730,
+    "globalNo": 836,
     "sNo": 10,
     "slideNum": 11,
     "code": "VP-MTC-10",
@@ -18252,7 +21008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0731",
-    "globalNo": 731,
+    "globalNo": 837,
     "sNo": 11,
     "slideNum": 12,
     "code": "VP-MTC-11",
@@ -18277,7 +21033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0732",
-    "globalNo": 732,
+    "globalNo": 838,
     "sNo": 12,
     "slideNum": 13,
     "code": "VP-MTC-12",
@@ -18302,7 +21058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0733",
-    "globalNo": 733,
+    "globalNo": 839,
     "sNo": 13,
     "slideNum": 14,
     "code": "VP-MTC-13",
@@ -18327,7 +21083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0734",
-    "globalNo": 734,
+    "globalNo": 840,
     "sNo": 14,
     "slideNum": 15,
     "code": "VP-MTC-14",
@@ -18352,7 +21108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0735",
-    "globalNo": 735,
+    "globalNo": 841,
     "sNo": 15,
     "slideNum": 16,
     "code": "VP-MTC-15",
@@ -18377,7 +21133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0736",
-    "globalNo": 736,
+    "globalNo": 842,
     "sNo": 16,
     "slideNum": 17,
     "code": "VP-MTC-16",
@@ -18402,7 +21158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0737",
-    "globalNo": 737,
+    "globalNo": 843,
     "sNo": 17,
     "slideNum": 18,
     "code": "VP-MTC-17",
@@ -18427,7 +21183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0738",
-    "globalNo": 738,
+    "globalNo": 844,
     "sNo": 18,
     "slideNum": 19,
     "code": "VP-MTC-18",
@@ -18452,7 +21208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0739",
-    "globalNo": 739,
+    "globalNo": 845,
     "sNo": 19,
     "slideNum": 20,
     "code": "VP-MTC-19",
@@ -18477,7 +21233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0740",
-    "globalNo": 740,
+    "globalNo": 846,
     "sNo": 20,
     "slideNum": 21,
     "code": "VP-MTC-20",
@@ -18502,7 +21258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0741",
-    "globalNo": 741,
+    "globalNo": 847,
     "sNo": 21,
     "slideNum": 22,
     "code": "VP-MTC-21",
@@ -18527,7 +21283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0742",
-    "globalNo": 742,
+    "globalNo": 848,
     "sNo": 22,
     "slideNum": 23,
     "code": "VP-MTC-22",
@@ -18552,7 +21308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0743",
-    "globalNo": 743,
+    "globalNo": 849,
     "sNo": 23,
     "slideNum": 24,
     "code": "VP-MTC-23",
@@ -18577,7 +21333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0744",
-    "globalNo": 744,
+    "globalNo": 850,
     "sNo": 24,
     "slideNum": 25,
     "code": "VP-MTC-24",
@@ -18602,7 +21358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0745",
-    "globalNo": 745,
+    "globalNo": 851,
     "sNo": 25,
     "slideNum": 26,
     "code": "VP-MTC-25",
@@ -18627,7 +21383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0746",
-    "globalNo": 746,
+    "globalNo": 852,
     "sNo": 26,
     "slideNum": 27,
     "code": "VP-MTC-26",
@@ -18652,7 +21408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0747",
-    "globalNo": 747,
+    "globalNo": 853,
     "sNo": 27,
     "slideNum": 28,
     "code": "VP-MTC-27",
@@ -18677,7 +21433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0748",
-    "globalNo": 748,
+    "globalNo": 854,
     "sNo": 28,
     "slideNum": 29,
     "code": "VP-MTC-28",
@@ -18702,7 +21458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0749",
-    "globalNo": 749,
+    "globalNo": 855,
     "sNo": 29,
     "slideNum": 30,
     "code": "VP-MTC-29",
@@ -18727,7 +21483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0750",
-    "globalNo": 750,
+    "globalNo": 856,
     "sNo": 30,
     "slideNum": 31,
     "code": "VP-MTC-30",
@@ -18752,7 +21508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0751",
-    "globalNo": 751,
+    "globalNo": 857,
     "sNo": 31,
     "slideNum": 32,
     "code": "VP-MTC-31",
@@ -18777,7 +21533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0752",
-    "globalNo": 752,
+    "globalNo": 858,
     "sNo": 32,
     "slideNum": 33,
     "code": "VP-MTC-32",
@@ -18802,7 +21558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0753",
-    "globalNo": 753,
+    "globalNo": 859,
     "sNo": 33,
     "slideNum": 34,
     "code": "VP-MTC-33",
@@ -18827,7 +21583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0754",
-    "globalNo": 754,
+    "globalNo": 860,
     "sNo": 34,
     "slideNum": 35,
     "code": "VP-MTC-34",
@@ -18852,7 +21608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0755",
-    "globalNo": 755,
+    "globalNo": 861,
     "sNo": 35,
     "slideNum": 36,
     "code": "VP-MTC-35",
@@ -18877,7 +21633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0756",
-    "globalNo": 756,
+    "globalNo": 862,
     "sNo": 36,
     "slideNum": 37,
     "code": "VP-MTC-36",
@@ -18902,7 +21658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0757",
-    "globalNo": 757,
+    "globalNo": 863,
     "sNo": 37,
     "slideNum": 38,
     "code": "VP-MTC-37",
@@ -18927,7 +21683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0758",
-    "globalNo": 758,
+    "globalNo": 864,
     "sNo": 38,
     "slideNum": 39,
     "code": "VP-MTC-38",
@@ -18952,7 +21708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0759",
-    "globalNo": 759,
+    "globalNo": 865,
     "sNo": 39,
     "slideNum": 40,
     "code": "VP-MTC-39",
@@ -18977,7 +21733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0760",
-    "globalNo": 760,
+    "globalNo": 866,
     "sNo": 40,
     "slideNum": 41,
     "code": "VP-MTC-40",
@@ -19002,7 +21758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0761",
-    "globalNo": 761,
+    "globalNo": 867,
     "sNo": 41,
     "slideNum": 42,
     "code": "VP-MTC-41",
@@ -19027,7 +21783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0762",
-    "globalNo": 762,
+    "globalNo": 868,
     "sNo": 42,
     "slideNum": 43,
     "code": "VP-MTC-42",
@@ -19052,7 +21808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0763",
-    "globalNo": 763,
+    "globalNo": 869,
     "sNo": 43,
     "slideNum": 44,
     "code": "VP-MTC-43",
@@ -19077,7 +21833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0764",
-    "globalNo": 764,
+    "globalNo": 870,
     "sNo": 44,
     "slideNum": 45,
     "code": "VP-MTC-44",
@@ -19102,7 +21858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0765",
-    "globalNo": 765,
+    "globalNo": 871,
     "sNo": 1,
     "slideNum": 2,
     "code": "VP-MGM-01",
@@ -19127,7 +21883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0766",
-    "globalNo": 766,
+    "globalNo": 872,
     "sNo": 2,
     "slideNum": 3,
     "code": "VP-MGM-02",
@@ -19152,7 +21908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0767",
-    "globalNo": 767,
+    "globalNo": 873,
     "sNo": 3,
     "slideNum": 4,
     "code": "VP-MGM-03",
@@ -19177,7 +21933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0768",
-    "globalNo": 768,
+    "globalNo": 874,
     "sNo": 4,
     "slideNum": 5,
     "code": "VP-MGM-04",
@@ -19202,7 +21958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0769",
-    "globalNo": 769,
+    "globalNo": 875,
     "sNo": 5,
     "slideNum": 6,
     "code": "VP-MGM-05",
@@ -19227,7 +21983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0770",
-    "globalNo": 770,
+    "globalNo": 876,
     "sNo": 6,
     "slideNum": 7,
     "code": "VP-MGM-06",
@@ -19252,7 +22008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0771",
-    "globalNo": 771,
+    "globalNo": 877,
     "sNo": 7,
     "slideNum": 8,
     "code": "VP-MGM-07",
@@ -19277,7 +22033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0772",
-    "globalNo": 772,
+    "globalNo": 878,
     "sNo": 8,
     "slideNum": 9,
     "code": "VP-MGM-08",
@@ -19322,7 +22078,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Roof Top & Bridge Panel",
     "photo": "/vendor-media/mnb_nov_s1.jpg",
     "rawText": "Move IDX: 798776 · Location: · Liberty Signal Main Tariq Road. · Size: 60’ x 20’ & 35’ x 20’ · Media Type: Flex · Illumination: Yes · Traffic Flow: · Sh-e- Quaideen, Jheel Park towards Bhadurabad · Rate Per Month: · Rs. 1.8 million/- · Availability: · 17th Dec 2026",
-    "globalNo": 773,
+    "globalNo": 879,
     "id": "vp-2026-0773"
   },
   {
@@ -19347,7 +22103,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Roof Top & Bridge Panel",
     "photo": "/vendor-media/mnb_nov_s2.jpg",
     "rawText": "Move IDX: 801556 · Location: · Namish Chowrangi M.A. Jinnah Road · Size: 60’ x 30’ · Media Type: Flex · Illumination: Yes · Traffic Flow: · Gurumandir, Quaid Mazar and Lasbella towards Tower · Rate Per Month: · Rs. 800,000/- · Availability: · 13th January2027",
-    "globalNo": 774,
+    "globalNo": 880,
     "id": "vp-2026-0774"
   },
   {
@@ -19372,7 +22128,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Roof Top & Bridge Panel",
     "photo": "/vendor-media/mnb_nov_s3.jpg",
     "rawText": "Move IDX: 800702 · Location: · Khudadad Signal, Shahra-e-Quaideen · Size: 65’ x 30’ · Media Type: Flex · Illumination: Yes · Traffic Flow: · Sindhi Muslim, Allahwali Chowrangi Towards Quaid Mazar · Rate Per Month: · Rs. 1.2 million/- · Availability: · 13th January2027",
-    "globalNo": 775,
+    "globalNo": 881,
     "id": "vp-2026-0775"
   },
   {
@@ -19397,7 +22153,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/mnb_nov_s4.jpg",
     "rawText": "Move IDX: 801431 · Location: · Stadium Flyover, Opp National Stadium Karachi. · Size: 60’ x 20’ · Media Type: Flex · Illumination: Yes · Traffic Flow: · Karsaz Towards Hassan Square · Rate Per Month: · Rs. 1.3 million /- · Availability: · 24th Nov 2026",
-    "globalNo": 776,
+    "globalNo": 882,
     "id": "vp-2026-0776"
   },
   {
@@ -19422,7 +22178,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/mnb_nov_s5.jpg",
     "rawText": "Move IDX: 801433 · Location: · Stadium Flyover, Opp National Stadium Karachi. · Size: 60’ x 20’ & 60’ x 20’ · Illumination: Yes · Traffic Flow: · Karsaz Towards Hassan Square · Rate Per Month: · Rs. 2.6 million /- · Availability: · Available",
-    "globalNo": 777,
+    "globalNo": 883,
     "id": "vp-2026-0777"
   },
   {
@@ -19447,7 +22203,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Roof Top & Bridge Panel",
     "photo": "/vendor-media/mnb_nov_s6.jpg",
     "rawText": "",
-    "globalNo": 778,
+    "globalNo": 884,
     "id": "vp-2026-0778"
   },
   {
@@ -19472,7 +22228,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/mnb_nov_s7.jpg",
     "rawText": "Location: · Time Medico Flyover Opp National Stadium Karachi. · Size: 120’ x 30’ & · 30’ x 30’ · Media Type: Flex · Illumination: Yes · Traffic Flow: · Hassan Square Towards Karsaz, Sh-e-Faisal · Rate Per Month: · Rs. 3 million /- · Availability: · 30th Apr 2027 · Move IDX: 800151",
-    "globalNo": 779,
+    "globalNo": 885,
     "id": "vp-2026-0779"
   },
   {
@@ -19497,7 +22253,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Roof Top & Bridge Panel",
     "photo": "/vendor-media/mnb_nov_s8.jpg",
     "rawText": "Location: · Nouman Arcade ,National Stadium Karachi. · Size: 90’ x 30’ · Media Type: Flex · Illumination: Yes · Traffic Flow: · Karsaz Towards Hassan Square · Rate Per Month: · Rs. 1.5 million/- · Availability: · Booked",
-    "globalNo": 780,
+    "globalNo": 886,
     "id": "vp-2026-0780"
   },
   {
@@ -19522,7 +22278,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Roof Top & Bridge Panel",
     "photo": "/vendor-media/mnb_nov_s9.jpg",
     "rawText": "Location: · Main Sh-e- faisal, Rashid Minhas turning · Size: 80’ x 12’ · Media Type: Flex · Illumination: Yes · Traffic Flow: · Kasaz towards Airport and Rashid Minhas Road. · Rate Per Month: · Rs. 1 Million/- · Availability: · 1st January 2027-Extendable",
-    "globalNo": 781,
+    "globalNo": 887,
     "id": "vp-2026-0781"
   },
   {
@@ -19547,7 +22303,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/mnb_nov_s10.jpg",
     "rawText": "Location: · Flyover at Millennium mall · Size: 80’ x 12’ · Media Type: Flex · Illumination: · Traffic Flow: · Dalmia Towards Millennium mall · Rate Per Month: · Rs. 1 Million/- · Availability: · 1st January 2027-Extendable",
-    "globalNo": 782,
+    "globalNo": 888,
     "id": "vp-2026-0782"
   },
   {
@@ -19572,7 +22328,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/mnb_nov_s11.jpg",
     "rawText": "Location: · RJ Mall Pedestrian Bridge panel at Rashid Minhas Road · Size: 80’ x 15’ · Media Type: Flex · Illumination: Yes · Traffic Flow: · Sh-e-Faisal towards Nipa · Rate Per Month: · Rs. 1 Million/- · Availability: · 7th January 2027-Extendable",
-    "globalNo": 783,
+    "globalNo": 889,
     "id": "vp-2026-0783"
   },
   {
@@ -19597,7 +22353,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/mnb_nov_s12.jpg",
     "rawText": "Location: · RJ Mall Pedestrian Bridge panel at Rashid Minhas Road · Size: 80’ x 15’ · Media Type: Flex · Illumination: Yes · Traffic Flow: · Nipa towards Sh-e-Faisal · Rate Per Month: · Rs. 1 Million/- · Availability: · 16th January-2027-Extendable",
-    "globalNo": 784,
+    "globalNo": 890,
     "id": "vp-2026-0784"
   },
   {
@@ -19622,7 +22378,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/mnb_nov_s13.jpg",
     "rawText": "Location: · Johar Mor flyover · Size: 100’ x 12’ · Media Type: Flex · Illumination: · Traffic Flow: · Gulistan- e- Jauhar towards Rashid Minhas Road · Rate Per Month: · Rs. 1 Million/- · Availability: · 31st January-2027",
-    "globalNo": 785,
+    "globalNo": 891,
     "id": "vp-2026-0785"
   },
   {
@@ -19647,12 +22403,12 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Roof Top & Bridge Panel",
     "photo": "/vendor-media/mnb_nov_s14.jpg",
     "rawText": "",
-    "globalNo": 786,
+    "globalNo": 892,
     "id": "vp-2026-0786"
   },
   {
     "id": "vp-2026-0787",
-    "globalNo": 787,
+    "globalNo": 893,
     "sNo": 1,
     "slideNum": 2,
     "code": "VP-LHR-01",
@@ -19677,7 +22433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0788",
-    "globalNo": 788,
+    "globalNo": 894,
     "sNo": 2,
     "slideNum": 3,
     "code": "VP-LHR-02",
@@ -19702,7 +22458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0789",
-    "globalNo": 789,
+    "globalNo": 895,
     "sNo": 3,
     "slideNum": 4,
     "code": "VP-LHR-03",
@@ -19727,7 +22483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0790",
-    "globalNo": 790,
+    "globalNo": 896,
     "sNo": 4,
     "slideNum": 5,
     "code": "VP-LHR-04",
@@ -19752,7 +22508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0791",
-    "globalNo": 791,
+    "globalNo": 897,
     "sNo": 5,
     "slideNum": 7,
     "code": "VP-LHR-05",
@@ -19777,7 +22533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0792",
-    "globalNo": 792,
+    "globalNo": 898,
     "sNo": 6,
     "slideNum": 8,
     "code": "VP-LHR-06",
@@ -19802,7 +22558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0793",
-    "globalNo": 793,
+    "globalNo": 899,
     "sNo": 7,
     "slideNum": 9,
     "code": "VP-LHR-07",
@@ -19827,7 +22583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0794",
-    "globalNo": 794,
+    "globalNo": 900,
     "sNo": 8,
     "slideNum": 10,
     "code": "VP-LHR-08",
@@ -19852,7 +22608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0795",
-    "globalNo": 795,
+    "globalNo": 901,
     "sNo": 9,
     "slideNum": 11,
     "code": "VP-LHR-09",
@@ -19877,7 +22633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0796",
-    "globalNo": 796,
+    "globalNo": 902,
     "sNo": 10,
     "slideNum": 12,
     "code": "VP-LHR-10",
@@ -19902,7 +22658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0797",
-    "globalNo": 797,
+    "globalNo": 903,
     "sNo": 11,
     "slideNum": 13,
     "code": "VP-LHR-11",
@@ -19927,7 +22683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0798",
-    "globalNo": 798,
+    "globalNo": 904,
     "sNo": 12,
     "slideNum": 14,
     "code": "VP-LHR-12",
@@ -19952,7 +22708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0799",
-    "globalNo": 799,
+    "globalNo": 905,
     "sNo": 13,
     "slideNum": 15,
     "code": "VP-LHR-13",
@@ -19977,7 +22733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0800",
-    "globalNo": 800,
+    "globalNo": 906,
     "sNo": 14,
     "slideNum": 16,
     "code": "VP-LHR-14",
@@ -20002,7 +22758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0801",
-    "globalNo": 801,
+    "globalNo": 907,
     "sNo": 15,
     "slideNum": 17,
     "code": "VP-LHR-15",
@@ -20027,7 +22783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0802",
-    "globalNo": 802,
+    "globalNo": 908,
     "sNo": 16,
     "slideNum": 18,
     "code": "VP-LHR-16",
@@ -20052,7 +22808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0803",
-    "globalNo": 803,
+    "globalNo": 909,
     "sNo": 17,
     "slideNum": 19,
     "code": "VP-LHR-17",
@@ -20077,7 +22833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0804",
-    "globalNo": 804,
+    "globalNo": 910,
     "sNo": 18,
     "slideNum": 20,
     "code": "VP-LHR-18",
@@ -20102,7 +22858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0805",
-    "globalNo": 805,
+    "globalNo": 911,
     "sNo": 19,
     "slideNum": 21,
     "code": "VP-LHR-19",
@@ -20127,7 +22883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0806",
-    "globalNo": 806,
+    "globalNo": 912,
     "sNo": 20,
     "slideNum": 22,
     "code": "VP-LHR-20",
@@ -20152,7 +22908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0807",
-    "globalNo": 807,
+    "globalNo": 913,
     "sNo": 21,
     "slideNum": 23,
     "code": "VP-LHR-21",
@@ -20177,7 +22933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0808",
-    "globalNo": 808,
+    "globalNo": 914,
     "sNo": 22,
     "slideNum": 24,
     "code": "VP-LHR-22",
@@ -20202,7 +22958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0809",
-    "globalNo": 809,
+    "globalNo": 915,
     "sNo": 23,
     "slideNum": 25,
     "code": "VP-LHR-23",
@@ -20227,7 +22983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0810",
-    "globalNo": 810,
+    "globalNo": 916,
     "sNo": 24,
     "slideNum": 26,
     "code": "VP-LHR-24",
@@ -20252,7 +23008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0811",
-    "globalNo": 811,
+    "globalNo": 917,
     "sNo": 25,
     "slideNum": 27,
     "code": "VP-LHR-25",
@@ -20277,7 +23033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0812",
-    "globalNo": 812,
+    "globalNo": 918,
     "sNo": 26,
     "slideNum": 28,
     "code": "VP-LHR-26",
@@ -20302,7 +23058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0813",
-    "globalNo": 813,
+    "globalNo": 919,
     "sNo": 27,
     "slideNum": 29,
     "code": "VP-LHR-27",
@@ -20327,7 +23083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0814",
-    "globalNo": 814,
+    "globalNo": 920,
     "sNo": 28,
     "slideNum": 30,
     "code": "VP-LHR-28",
@@ -20352,7 +23108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0815",
-    "globalNo": 815,
+    "globalNo": 921,
     "sNo": 29,
     "slideNum": 31,
     "code": "VP-LHR-29",
@@ -20377,7 +23133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0816",
-    "globalNo": 816,
+    "globalNo": 922,
     "sNo": 30,
     "slideNum": 32,
     "code": "VP-LHR-30",
@@ -20402,7 +23158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0817",
-    "globalNo": 817,
+    "globalNo": 923,
     "sNo": 31,
     "slideNum": 33,
     "code": "VP-LHR-31",
@@ -20427,7 +23183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0818",
-    "globalNo": 818,
+    "globalNo": 924,
     "sNo": 32,
     "slideNum": 34,
     "code": "VP-LHR-32",
@@ -20452,7 +23208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0819",
-    "globalNo": 819,
+    "globalNo": 925,
     "sNo": 33,
     "slideNum": 35,
     "code": "VP-LHR-33",
@@ -20477,7 +23233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0820",
-    "globalNo": 820,
+    "globalNo": 926,
     "sNo": 34,
     "slideNum": 36,
     "code": "VP-LHR-34",
@@ -20502,7 +23258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0821",
-    "globalNo": 821,
+    "globalNo": 927,
     "sNo": 35,
     "slideNum": 37,
     "code": "VP-LHR-35",
@@ -20527,7 +23283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0822",
-    "globalNo": 822,
+    "globalNo": 928,
     "sNo": 36,
     "slideNum": 38,
     "code": "VP-LHR-36",
@@ -20552,7 +23308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0823",
-    "globalNo": 823,
+    "globalNo": 929,
     "sNo": 37,
     "slideNum": 39,
     "code": "VP-LHR-37",
@@ -20577,7 +23333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0824",
-    "globalNo": 824,
+    "globalNo": 930,
     "sNo": 38,
     "slideNum": 40,
     "code": "VP-LHR-38",
@@ -20602,7 +23358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0825",
-    "globalNo": 825,
+    "globalNo": 931,
     "sNo": 39,
     "slideNum": 41,
     "code": "VP-LHR-39",
@@ -20627,7 +23383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0826",
-    "globalNo": 826,
+    "globalNo": 932,
     "sNo": 40,
     "slideNum": 42,
     "code": "VP-LHR-40",
@@ -20652,7 +23408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0827",
-    "globalNo": 827,
+    "globalNo": 933,
     "sNo": 41,
     "slideNum": 43,
     "code": "VP-LHR-41",
@@ -20677,7 +23433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0828",
-    "globalNo": 828,
+    "globalNo": 934,
     "sNo": 42,
     "slideNum": 44,
     "code": "VP-LHR-42",
@@ -20702,7 +23458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0829",
-    "globalNo": 829,
+    "globalNo": 935,
     "sNo": 43,
     "slideNum": 45,
     "code": "VP-LHR-43",
@@ -20727,7 +23483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0830",
-    "globalNo": 830,
+    "globalNo": 936,
     "sNo": 44,
     "slideNum": 46,
     "code": "VP-LHR-44",
@@ -20752,7 +23508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0831",
-    "globalNo": 831,
+    "globalNo": 937,
     "sNo": 45,
     "slideNum": 47,
     "code": "VP-LHR-45",
@@ -20777,7 +23533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0832",
-    "globalNo": 832,
+    "globalNo": 938,
     "sNo": 46,
     "slideNum": 48,
     "code": "VP-LHR-46",
@@ -20802,7 +23558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0833",
-    "globalNo": 833,
+    "globalNo": 939,
     "sNo": 47,
     "slideNum": 49,
     "code": "VP-LHR-47",
@@ -20827,7 +23583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0834",
-    "globalNo": 834,
+    "globalNo": 940,
     "sNo": 48,
     "slideNum": 50,
     "code": "VP-LHR-48",
@@ -20852,7 +23608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0835",
-    "globalNo": 835,
+    "globalNo": 941,
     "sNo": 49,
     "slideNum": 51,
     "code": "VP-LHR-49",
@@ -20877,7 +23633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0836",
-    "globalNo": 836,
+    "globalNo": 942,
     "sNo": 50,
     "slideNum": 52,
     "code": "VP-LHR-50",
@@ -20902,7 +23658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0837",
-    "globalNo": 837,
+    "globalNo": 943,
     "sNo": 51,
     "slideNum": 53,
     "code": "VP-LHR-51",
@@ -20927,7 +23683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0838",
-    "globalNo": 838,
+    "globalNo": 944,
     "sNo": 52,
     "slideNum": 54,
     "code": "VP-LHR-52",
@@ -20952,7 +23708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0839",
-    "globalNo": 839,
+    "globalNo": 945,
     "sNo": 53,
     "slideNum": 55,
     "code": "VP-LHR-53",
@@ -20977,7 +23733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0840",
-    "globalNo": 840,
+    "globalNo": 946,
     "sNo": 54,
     "slideNum": 56,
     "code": "VP-LHR-54",
@@ -21002,7 +23758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0841",
-    "globalNo": 841,
+    "globalNo": 947,
     "sNo": 55,
     "slideNum": 57,
     "code": "VP-LHR-55",
@@ -21027,7 +23783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0842",
-    "globalNo": 842,
+    "globalNo": 948,
     "sNo": 56,
     "slideNum": 58,
     "code": "VP-LHR-56",
@@ -21052,7 +23808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0843",
-    "globalNo": 843,
+    "globalNo": 949,
     "sNo": 57,
     "slideNum": 59,
     "code": "VP-LHR-57",
@@ -21077,7 +23833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0844",
-    "globalNo": 844,
+    "globalNo": 950,
     "sNo": 58,
     "slideNum": 60,
     "code": "VP-LHR-58",
@@ -21102,7 +23858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0845",
-    "globalNo": 845,
+    "globalNo": 951,
     "sNo": 59,
     "slideNum": 61,
     "code": "VP-LHR-59",
@@ -21127,7 +23883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0846",
-    "globalNo": 846,
+    "globalNo": 952,
     "sNo": 60,
     "slideNum": 62,
     "code": "VP-LHR-60",
@@ -21152,7 +23908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0847",
-    "globalNo": 847,
+    "globalNo": 953,
     "sNo": 61,
     "slideNum": 63,
     "code": "VP-LHR-61",
@@ -21177,7 +23933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0848",
-    "globalNo": 848,
+    "globalNo": 954,
     "sNo": 62,
     "slideNum": 64,
     "code": "VP-LHR-62",
@@ -21202,7 +23958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0849",
-    "globalNo": 849,
+    "globalNo": 955,
     "sNo": 63,
     "slideNum": 65,
     "code": "VP-LHR-63",
@@ -21227,7 +23983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0850",
-    "globalNo": 850,
+    "globalNo": 956,
     "sNo": 64,
     "slideNum": 66,
     "code": "VP-LHR-64",
@@ -21252,7 +24008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0851",
-    "globalNo": 851,
+    "globalNo": 957,
     "sNo": 65,
     "slideNum": 67,
     "code": "VP-LHR-65",
@@ -21277,7 +24033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0852",
-    "globalNo": 852,
+    "globalNo": 958,
     "sNo": 66,
     "slideNum": 68,
     "code": "VP-LHR-66",
@@ -21302,7 +24058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0853",
-    "globalNo": 853,
+    "globalNo": 959,
     "sNo": 67,
     "slideNum": 69,
     "code": "VP-LHR-67",
@@ -21327,7 +24083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0854",
-    "globalNo": 854,
+    "globalNo": 960,
     "sNo": 68,
     "slideNum": 70,
     "code": "VP-LHR-68",
@@ -21352,7 +24108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0855",
-    "globalNo": 855,
+    "globalNo": 961,
     "sNo": 69,
     "slideNum": 71,
     "code": "VP-LHR-69",
@@ -21377,7 +24133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0856",
-    "globalNo": 856,
+    "globalNo": 962,
     "sNo": 70,
     "slideNum": 72,
     "code": "VP-LHR-70",
@@ -21402,7 +24158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0857",
-    "globalNo": 857,
+    "globalNo": 963,
     "sNo": 71,
     "slideNum": 73,
     "code": "VP-LHR-71",
@@ -21427,7 +24183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0858",
-    "globalNo": 858,
+    "globalNo": 964,
     "sNo": 72,
     "slideNum": 75,
     "code": "VP-LHR-72",
@@ -21452,7 +24208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0859",
-    "globalNo": 859,
+    "globalNo": 965,
     "sNo": 73,
     "slideNum": 76,
     "code": "VP-LHR-73",
@@ -21477,7 +24233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0860",
-    "globalNo": 860,
+    "globalNo": 966,
     "sNo": 74,
     "slideNum": 77,
     "code": "VP-LHR-74",
@@ -21502,7 +24258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0861",
-    "globalNo": 861,
+    "globalNo": 967,
     "sNo": 75,
     "slideNum": 78,
     "code": "VP-LHR-75",
@@ -21527,7 +24283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0862",
-    "globalNo": 862,
+    "globalNo": 968,
     "sNo": 76,
     "slideNum": 79,
     "code": "VP-LHR-76",
@@ -21552,7 +24308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0863",
-    "globalNo": 863,
+    "globalNo": 969,
     "sNo": 77,
     "slideNum": 80,
     "code": "VP-LHR-77",
@@ -21577,7 +24333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0864",
-    "globalNo": 864,
+    "globalNo": 970,
     "sNo": 78,
     "slideNum": 81,
     "code": "VP-LHR-78",
@@ -21602,7 +24358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0865",
-    "globalNo": 865,
+    "globalNo": 971,
     "sNo": 79,
     "slideNum": 82,
     "code": "VP-LHR-79",
@@ -21627,7 +24383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0866",
-    "globalNo": 866,
+    "globalNo": 972,
     "sNo": 80,
     "slideNum": 83,
     "code": "VP-LHR-80",
@@ -21652,7 +24408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0867",
-    "globalNo": 867,
+    "globalNo": 973,
     "sNo": 81,
     "slideNum": 84,
     "code": "VP-LHR-81",
@@ -21677,7 +24433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0868",
-    "globalNo": 868,
+    "globalNo": 974,
     "sNo": 82,
     "slideNum": 86,
     "code": "VP-LHR-82",
@@ -21702,7 +24458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0869",
-    "globalNo": 869,
+    "globalNo": 975,
     "sNo": 83,
     "slideNum": 87,
     "code": "VP-LHR-83",
@@ -21727,7 +24483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0870",
-    "globalNo": 870,
+    "globalNo": 976,
     "sNo": 84,
     "slideNum": 88,
     "code": "VP-LHR-84",
@@ -21752,7 +24508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0871",
-    "globalNo": 871,
+    "globalNo": 977,
     "sNo": 85,
     "slideNum": 89,
     "code": "VP-LHR-85",
@@ -21777,7 +24533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0872",
-    "globalNo": 872,
+    "globalNo": 978,
     "sNo": 86,
     "slideNum": 90,
     "code": "VP-LHR-86",
@@ -21802,7 +24558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0873",
-    "globalNo": 873,
+    "globalNo": 979,
     "sNo": 87,
     "slideNum": 91,
     "code": "VP-LHR-87",
@@ -21827,7 +24583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0874",
-    "globalNo": 874,
+    "globalNo": 980,
     "sNo": 88,
     "slideNum": 92,
     "code": "VP-LHR-88",
@@ -21852,7 +24608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0875",
-    "globalNo": 875,
+    "globalNo": 981,
     "sNo": 89,
     "slideNum": 93,
     "code": "VP-LHR-89",
@@ -21877,7 +24633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0876",
-    "globalNo": 876,
+    "globalNo": 982,
     "sNo": 90,
     "slideNum": 95,
     "code": "VP-LHR-90",
@@ -21902,7 +24658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0877",
-    "globalNo": 877,
+    "globalNo": 983,
     "sNo": 91,
     "slideNum": 96,
     "code": "VP-LHR-91",
@@ -21927,7 +24683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0878",
-    "globalNo": 878,
+    "globalNo": 984,
     "sNo": 92,
     "slideNum": 98,
     "code": "VP-LHR-92",
@@ -21952,7 +24708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0879",
-    "globalNo": 879,
+    "globalNo": 985,
     "sNo": 93,
     "slideNum": 99,
     "code": "VP-LHR-93",
@@ -21977,7 +24733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0880",
-    "globalNo": 880,
+    "globalNo": 986,
     "sNo": 94,
     "slideNum": 100,
     "code": "VP-LHR-94",
@@ -22002,7 +24758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0881",
-    "globalNo": 881,
+    "globalNo": 987,
     "sNo": 95,
     "slideNum": 101,
     "code": "VP-LHR-95",
@@ -22027,7 +24783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0882",
-    "globalNo": 882,
+    "globalNo": 988,
     "sNo": 96,
     "slideNum": 102,
     "code": "VP-LHR-96",
@@ -22052,7 +24808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0883",
-    "globalNo": 883,
+    "globalNo": 989,
     "sNo": 97,
     "slideNum": 103,
     "code": "VP-LHR-97",
@@ -22077,7 +24833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0884",
-    "globalNo": 884,
+    "globalNo": 990,
     "sNo": 98,
     "slideNum": 104,
     "code": "VP-LHR-98",
@@ -22102,7 +24858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0885",
-    "globalNo": 885,
+    "globalNo": 991,
     "sNo": 99,
     "slideNum": 105,
     "code": "VP-LHR-99",
@@ -22127,7 +24883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0886",
-    "globalNo": 886,
+    "globalNo": 992,
     "sNo": 100,
     "slideNum": 106,
     "code": "VP-LHR-100",
@@ -22152,7 +24908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0887",
-    "globalNo": 887,
+    "globalNo": 993,
     "sNo": 101,
     "slideNum": 107,
     "code": "VP-LHR-101",
@@ -22177,7 +24933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0888",
-    "globalNo": 888,
+    "globalNo": 994,
     "sNo": 102,
     "slideNum": 108,
     "code": "VP-LHR-102",
@@ -22202,7 +24958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0889",
-    "globalNo": 889,
+    "globalNo": 995,
     "sNo": 103,
     "slideNum": 109,
     "code": "VP-LHR-103",
@@ -22227,7 +24983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0890",
-    "globalNo": 890,
+    "globalNo": 996,
     "sNo": 104,
     "slideNum": 110,
     "code": "VP-LHR-104",
@@ -22252,7 +25008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0891",
-    "globalNo": 891,
+    "globalNo": 997,
     "sNo": 105,
     "slideNum": 111,
     "code": "VP-LHR-105",
@@ -22277,7 +25033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0892",
-    "globalNo": 892,
+    "globalNo": 998,
     "sNo": 106,
     "slideNum": 112,
     "code": "VP-LHR-106",
@@ -22302,7 +25058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0893",
-    "globalNo": 893,
+    "globalNo": 999,
     "sNo": 107,
     "slideNum": 113,
     "code": "VP-LHR-107",
@@ -22327,7 +25083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0894",
-    "globalNo": 894,
+    "globalNo": 1000,
     "sNo": 108,
     "slideNum": 114,
     "code": "VP-LHR-108",
@@ -22352,7 +25108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0895",
-    "globalNo": 895,
+    "globalNo": 1001,
     "sNo": 1,
     "slideNum": 3,
     "code": "VP-MOA-01",
@@ -22377,7 +25133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0896",
-    "globalNo": 896,
+    "globalNo": 1002,
     "sNo": 2,
     "slideNum": 4,
     "code": "VP-MOA-02",
@@ -22402,7 +25158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0897",
-    "globalNo": 897,
+    "globalNo": 1003,
     "sNo": 3,
     "slideNum": 5,
     "code": "VP-MOA-03",
@@ -22427,7 +25183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0898",
-    "globalNo": 898,
+    "globalNo": 1004,
     "sNo": 4,
     "slideNum": 6,
     "code": "VP-MOA-04",
@@ -22452,7 +25208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0899",
-    "globalNo": 899,
+    "globalNo": 1005,
     "sNo": 5,
     "slideNum": 7,
     "code": "VP-MOA-05",
@@ -22477,7 +25233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0900",
-    "globalNo": 900,
+    "globalNo": 1006,
     "sNo": 6,
     "slideNum": 8,
     "code": "VP-MOA-06",
@@ -22502,7 +25258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0901",
-    "globalNo": 901,
+    "globalNo": 1007,
     "sNo": 7,
     "slideNum": 9,
     "code": "VP-MOA-07",
@@ -22527,7 +25283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0902",
-    "globalNo": 902,
+    "globalNo": 1008,
     "sNo": 8,
     "slideNum": 10,
     "code": "VP-MOA-08",
@@ -22552,7 +25308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0903",
-    "globalNo": 903,
+    "globalNo": 1009,
     "sNo": 9,
     "slideNum": 11,
     "code": "VP-MOA-09",
@@ -22577,7 +25333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0904",
-    "globalNo": 904,
+    "globalNo": 1010,
     "sNo": 10,
     "slideNum": 12,
     "code": "VP-MOA-10",
@@ -22602,7 +25358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0905",
-    "globalNo": 905,
+    "globalNo": 1011,
     "sNo": 11,
     "slideNum": 13,
     "code": "VP-MOA-11",
@@ -22627,7 +25383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0906",
-    "globalNo": 906,
+    "globalNo": 1012,
     "sNo": 12,
     "slideNum": 14,
     "code": "VP-MOA-12",
@@ -22652,7 +25408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0907",
-    "globalNo": 907,
+    "globalNo": 1013,
     "sNo": 13,
     "slideNum": 15,
     "code": "VP-MOA-13",
@@ -22677,7 +25433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0908",
-    "globalNo": 908,
+    "globalNo": 1014,
     "sNo": 14,
     "slideNum": 16,
     "code": "VP-MOA-14",
@@ -22702,7 +25458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0909",
-    "globalNo": 909,
+    "globalNo": 1015,
     "sNo": 15,
     "slideNum": 17,
     "code": "VP-MOA-15",
@@ -22727,7 +25483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0910",
-    "globalNo": 910,
+    "globalNo": 1016,
     "sNo": 16,
     "slideNum": 18,
     "code": "VP-MOA-16",
@@ -22752,7 +25508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0911",
-    "globalNo": 911,
+    "globalNo": 1017,
     "sNo": 17,
     "slideNum": 19,
     "code": "VP-MOA-17",
@@ -22777,7 +25533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0912",
-    "globalNo": 912,
+    "globalNo": 1018,
     "sNo": 18,
     "slideNum": 20,
     "code": "VP-MOA-18",
@@ -22802,7 +25558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0913",
-    "globalNo": 913,
+    "globalNo": 1019,
     "sNo": 19,
     "slideNum": 21,
     "code": "VP-MOA-19",
@@ -22827,7 +25583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0914",
-    "globalNo": 914,
+    "globalNo": 1020,
     "sNo": 20,
     "slideNum": 22,
     "code": "VP-MOA-20",
@@ -22852,7 +25608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0915",
-    "globalNo": 915,
+    "globalNo": 1021,
     "sNo": 1,
     "slideNum": 2,
     "code": "VP-NAT-01",
@@ -22877,7 +25633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0916",
-    "globalNo": 916,
+    "globalNo": 1022,
     "sNo": 2,
     "slideNum": 3,
     "code": "VP-NAT-02",
@@ -22902,7 +25658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0917",
-    "globalNo": 917,
+    "globalNo": 1023,
     "sNo": 3,
     "slideNum": 4,
     "code": "VP-NAT-03",
@@ -22927,7 +25683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0918",
-    "globalNo": 918,
+    "globalNo": 1024,
     "sNo": 4,
     "slideNum": 5,
     "code": "VP-NAT-04",
@@ -22952,7 +25708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0919",
-    "globalNo": 919,
+    "globalNo": 1025,
     "sNo": 5,
     "slideNum": 6,
     "code": "VP-NAT-05",
@@ -22977,7 +25733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0920",
-    "globalNo": 920,
+    "globalNo": 1026,
     "sNo": 6,
     "slideNum": 7,
     "code": "VP-NAT-06",
@@ -23002,7 +25758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0921",
-    "globalNo": 921,
+    "globalNo": 1027,
     "sNo": 7,
     "slideNum": 8,
     "code": "VP-NAT-07",
@@ -23027,7 +25783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0922",
-    "globalNo": 922,
+    "globalNo": 1028,
     "sNo": 8,
     "slideNum": 9,
     "code": "VP-NAT-08",
@@ -23052,7 +25808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0923",
-    "globalNo": 923,
+    "globalNo": 1029,
     "sNo": 9,
     "slideNum": 10,
     "code": "VP-NAT-09",
@@ -23077,7 +25833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0924",
-    "globalNo": 924,
+    "globalNo": 1030,
     "sNo": 10,
     "slideNum": 11,
     "code": "VP-NAT-10",
@@ -23102,7 +25858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0925",
-    "globalNo": 925,
+    "globalNo": 1031,
     "sNo": 11,
     "slideNum": 12,
     "code": "VP-NAT-11",
@@ -23127,7 +25883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0926",
-    "globalNo": 926,
+    "globalNo": 1032,
     "sNo": 12,
     "slideNum": 13,
     "code": "VP-NAT-12",
@@ -23152,7 +25908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0927",
-    "globalNo": 927,
+    "globalNo": 1033,
     "sNo": 13,
     "slideNum": 14,
     "code": "VP-NAT-13",
@@ -23177,7 +25933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0928",
-    "globalNo": 928,
+    "globalNo": 1034,
     "sNo": 14,
     "slideNum": 15,
     "code": "VP-NAT-14",
@@ -23202,7 +25958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0929",
-    "globalNo": 929,
+    "globalNo": 1035,
     "sNo": 15,
     "slideNum": 16,
     "code": "VP-NAT-15",
@@ -23227,7 +25983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0930",
-    "globalNo": 930,
+    "globalNo": 1036,
     "sNo": 16,
     "slideNum": 17,
     "code": "VP-NAT-16",
@@ -23252,7 +26008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0931",
-    "globalNo": 931,
+    "globalNo": 1037,
     "sNo": 17,
     "slideNum": 18,
     "code": "VP-NAT-17",
@@ -23277,7 +26033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0932",
-    "globalNo": 932,
+    "globalNo": 1038,
     "sNo": 18,
     "slideNum": 19,
     "code": "VP-NAT-18",
@@ -23302,7 +26058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0933",
-    "globalNo": 933,
+    "globalNo": 1039,
     "sNo": 19,
     "slideNum": 20,
     "code": "VP-NAT-19",
@@ -23327,7 +26083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0934",
-    "globalNo": 934,
+    "globalNo": 1040,
     "sNo": 20,
     "slideNum": 21,
     "code": "VP-NAT-20",
@@ -23352,7 +26108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0935",
-    "globalNo": 935,
+    "globalNo": 1041,
     "sNo": 21,
     "slideNum": 22,
     "code": "VP-NAT-21",
@@ -23377,7 +26133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0936",
-    "globalNo": 936,
+    "globalNo": 1042,
     "sNo": 22,
     "slideNum": 23,
     "code": "VP-NAT-22",
@@ -23402,7 +26158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0937",
-    "globalNo": 937,
+    "globalNo": 1043,
     "sNo": 1,
     "slideNum": 4,
     "code": "VP-ADC-01",
@@ -23427,7 +26183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0938",
-    "globalNo": 938,
+    "globalNo": 1044,
     "sNo": 2,
     "slideNum": 5,
     "code": "VP-ADC-02",
@@ -23452,7 +26208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0939",
-    "globalNo": 939,
+    "globalNo": 1045,
     "sNo": 3,
     "slideNum": 6,
     "code": "VP-ADC-03",
@@ -23477,7 +26233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0940",
-    "globalNo": 940,
+    "globalNo": 1046,
     "sNo": 4,
     "slideNum": 7,
     "code": "VP-ADC-04",
@@ -23502,7 +26258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0941",
-    "globalNo": 941,
+    "globalNo": 1047,
     "sNo": 5,
     "slideNum": 8,
     "code": "VP-ADC-05",
@@ -23527,7 +26283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0942",
-    "globalNo": 942,
+    "globalNo": 1048,
     "sNo": 6,
     "slideNum": 9,
     "code": "VP-ADC-06",
@@ -23552,7 +26308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0943",
-    "globalNo": 943,
+    "globalNo": 1049,
     "sNo": 7,
     "slideNum": 10,
     "code": "VP-ADC-07",
@@ -23577,7 +26333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0944",
-    "globalNo": 944,
+    "globalNo": 1050,
     "sNo": 8,
     "slideNum": 11,
     "code": "VP-ADC-08",
@@ -23602,7 +26358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0945",
-    "globalNo": 945,
+    "globalNo": 1051,
     "sNo": 9,
     "slideNum": 12,
     "code": "VP-ADC-09",
@@ -23627,7 +26383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0946",
-    "globalNo": 946,
+    "globalNo": 1052,
     "sNo": 10,
     "slideNum": 13,
     "code": "VP-ADC-10",
@@ -23652,7 +26408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0947",
-    "globalNo": 947,
+    "globalNo": 1053,
     "sNo": 11,
     "slideNum": 14,
     "code": "VP-ADC-11",
@@ -23677,7 +26433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0948",
-    "globalNo": 948,
+    "globalNo": 1054,
     "sNo": 12,
     "slideNum": 15,
     "code": "VP-ADC-12",
@@ -23702,7 +26458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0949",
-    "globalNo": 949,
+    "globalNo": 1055,
     "sNo": 13,
     "slideNum": 16,
     "code": "VP-ADC-13",
@@ -23727,7 +26483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0950",
-    "globalNo": 950,
+    "globalNo": 1056,
     "sNo": 14,
     "slideNum": 17,
     "code": "VP-ADC-14",
@@ -23752,7 +26508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0951",
-    "globalNo": 951,
+    "globalNo": 1057,
     "sNo": 15,
     "slideNum": 18,
     "code": "VP-ADC-15",
@@ -23777,7 +26533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0952",
-    "globalNo": 952,
+    "globalNo": 1058,
     "sNo": 16,
     "slideNum": 19,
     "code": "VP-ADC-16",
@@ -23802,7 +26558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0953",
-    "globalNo": 953,
+    "globalNo": 1059,
     "sNo": 17,
     "slideNum": 20,
     "code": "VP-ADC-17",
@@ -23827,7 +26583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0954",
-    "globalNo": 954,
+    "globalNo": 1060,
     "sNo": 18,
     "slideNum": 21,
     "code": "VP-ADC-18",
@@ -23852,7 +26608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0955",
-    "globalNo": 955,
+    "globalNo": 1061,
     "sNo": 19,
     "slideNum": 22,
     "code": "VP-ADC-19",
@@ -23877,7 +26633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0956",
-    "globalNo": 956,
+    "globalNo": 1062,
     "sNo": 20,
     "slideNum": 23,
     "code": "VP-ADC-20",
@@ -23902,7 +26658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0957",
-    "globalNo": 957,
+    "globalNo": 1063,
     "sNo": 21,
     "slideNum": 24,
     "code": "VP-ADC-21",
@@ -23927,7 +26683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0958",
-    "globalNo": 958,
+    "globalNo": 1064,
     "sNo": 22,
     "slideNum": 25,
     "code": "VP-ADC-22",
@@ -23952,7 +26708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0959",
-    "globalNo": 959,
+    "globalNo": 1065,
     "sNo": 23,
     "slideNum": 26,
     "code": "VP-ADC-23",
@@ -23977,7 +26733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0960",
-    "globalNo": 960,
+    "globalNo": 1066,
     "sNo": 24,
     "slideNum": 27,
     "code": "VP-ADC-24",
@@ -24002,7 +26758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0961",
-    "globalNo": 961,
+    "globalNo": 1067,
     "sNo": 25,
     "slideNum": 28,
     "code": "VP-ADC-25",
@@ -24027,7 +26783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0962",
-    "globalNo": 962,
+    "globalNo": 1068,
     "sNo": 26,
     "slideNum": 29,
     "code": "VP-ADC-26",
@@ -24052,7 +26808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0963",
-    "globalNo": 963,
+    "globalNo": 1069,
     "sNo": 27,
     "slideNum": 30,
     "code": "VP-ADC-27",
@@ -24077,7 +26833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0964",
-    "globalNo": 964,
+    "globalNo": 1070,
     "sNo": 28,
     "slideNum": 31,
     "code": "VP-ADC-28",
@@ -24102,7 +26858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0965",
-    "globalNo": 965,
+    "globalNo": 1071,
     "sNo": 29,
     "slideNum": 32,
     "code": "VP-ADC-29",
@@ -24127,7 +26883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0966",
-    "globalNo": 966,
+    "globalNo": 1072,
     "sNo": 30,
     "slideNum": 33,
     "code": "VP-ADC-30",
@@ -24152,7 +26908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0967",
-    "globalNo": 967,
+    "globalNo": 1073,
     "sNo": 31,
     "slideNum": 34,
     "code": "VP-ADC-31",
@@ -24177,7 +26933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0968",
-    "globalNo": 968,
+    "globalNo": 1074,
     "sNo": 32,
     "slideNum": 35,
     "code": "VP-ADC-32",
@@ -24202,7 +26958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0969",
-    "globalNo": 969,
+    "globalNo": 1075,
     "sNo": 33,
     "slideNum": 36,
     "code": "VP-ADC-33",
@@ -24227,7 +26983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0970",
-    "globalNo": 970,
+    "globalNo": 1076,
     "sNo": 34,
     "slideNum": 39,
     "code": "VP-ADC-34",
@@ -24252,7 +27008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0971",
-    "globalNo": 971,
+    "globalNo": 1077,
     "sNo": 35,
     "slideNum": 40,
     "code": "VP-ADC-35",
@@ -24277,7 +27033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0972",
-    "globalNo": 972,
+    "globalNo": 1078,
     "sNo": 36,
     "slideNum": 41,
     "code": "VP-ADC-36",
@@ -24302,7 +27058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0973",
-    "globalNo": 973,
+    "globalNo": 1079,
     "sNo": 37,
     "slideNum": 42,
     "code": "VP-ADC-37",
@@ -24327,7 +27083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0974",
-    "globalNo": 974,
+    "globalNo": 1080,
     "sNo": 38,
     "slideNum": 43,
     "code": "VP-ADC-38",
@@ -24352,7 +27108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0975",
-    "globalNo": 975,
+    "globalNo": 1081,
     "sNo": 39,
     "slideNum": 44,
     "code": "VP-ADC-39",
@@ -24377,7 +27133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0976",
-    "globalNo": 976,
+    "globalNo": 1082,
     "sNo": 40,
     "slideNum": 45,
     "code": "VP-ADC-40",
@@ -24402,7 +27158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0977",
-    "globalNo": 977,
+    "globalNo": 1083,
     "sNo": 41,
     "slideNum": 46,
     "code": "VP-ADC-41",
@@ -24427,7 +27183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0978",
-    "globalNo": 978,
+    "globalNo": 1084,
     "sNo": 42,
     "slideNum": 47,
     "code": "VP-ADC-42",
@@ -24452,7 +27208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0979",
-    "globalNo": 979,
+    "globalNo": 1085,
     "sNo": 43,
     "slideNum": 48,
     "code": "VP-ADC-43",
@@ -24477,7 +27233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0980",
-    "globalNo": 980,
+    "globalNo": 1086,
     "sNo": 44,
     "slideNum": 50,
     "code": "VP-ADC-44",
@@ -24502,7 +27258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0981",
-    "globalNo": 981,
+    "globalNo": 1087,
     "sNo": 45,
     "slideNum": 51,
     "code": "VP-ADC-45",
@@ -24527,7 +27283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0982",
-    "globalNo": 982,
+    "globalNo": 1088,
     "sNo": 46,
     "slideNum": 52,
     "code": "VP-ADC-46",
@@ -24552,7 +27308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0983",
-    "globalNo": 983,
+    "globalNo": 1089,
     "sNo": 47,
     "slideNum": 53,
     "code": "VP-ADC-47",
@@ -24577,7 +27333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0984",
-    "globalNo": 984,
+    "globalNo": 1090,
     "sNo": 48,
     "slideNum": 54,
     "code": "VP-ADC-48",
@@ -24602,7 +27358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0985",
-    "globalNo": 985,
+    "globalNo": 1091,
     "sNo": 49,
     "slideNum": 56,
     "code": "VP-ADC-49",
@@ -24627,7 +27383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0986",
-    "globalNo": 986,
+    "globalNo": 1092,
     "sNo": 50,
     "slideNum": 58,
     "code": "VP-ADC-50",
@@ -24652,7 +27408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0987",
-    "globalNo": 987,
+    "globalNo": 1093,
     "sNo": 51,
     "slideNum": 59,
     "code": "VP-ADC-51",
@@ -24677,7 +27433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0988",
-    "globalNo": 988,
+    "globalNo": 1094,
     "sNo": 52,
     "slideNum": 61,
     "code": "VP-ADC-52",
@@ -24702,7 +27458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0989",
-    "globalNo": 989,
+    "globalNo": 1095,
     "sNo": 53,
     "slideNum": 62,
     "code": "VP-ADC-53",
@@ -24727,7 +27483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0990",
-    "globalNo": 990,
+    "globalNo": 1096,
     "sNo": 54,
     "slideNum": 63,
     "code": "VP-ADC-54",
@@ -24752,7 +27508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0991",
-    "globalNo": 991,
+    "globalNo": 1097,
     "sNo": 55,
     "slideNum": 64,
     "code": "VP-ADC-55",
@@ -24777,7 +27533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0992",
-    "globalNo": 992,
+    "globalNo": 1098,
     "sNo": 56,
     "slideNum": 66,
     "code": "VP-ADC-56",
@@ -24802,7 +27558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0993",
-    "globalNo": 993,
+    "globalNo": 1099,
     "sNo": 57,
     "slideNum": 68,
     "code": "VP-ADC-57",
@@ -24827,7 +27583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0994",
-    "globalNo": 994,
+    "globalNo": 1100,
     "sNo": 58,
     "slideNum": 69,
     "code": "VP-ADC-58",
@@ -24852,7 +27608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0995",
-    "globalNo": 995,
+    "globalNo": 1101,
     "sNo": 59,
     "slideNum": 71,
     "code": "VP-ADC-59",
@@ -24877,7 +27633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0996",
-    "globalNo": 996,
+    "globalNo": 1102,
     "sNo": 60,
     "slideNum": 73,
     "code": "VP-ADC-60",
@@ -24902,7 +27658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0997",
-    "globalNo": 997,
+    "globalNo": 1103,
     "sNo": 61,
     "slideNum": 74,
     "code": "VP-ADC-61",
@@ -24927,7 +27683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0998",
-    "globalNo": 998,
+    "globalNo": 1104,
     "sNo": 62,
     "slideNum": 75,
     "code": "VP-ADC-62",
@@ -24952,7 +27708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-0999",
-    "globalNo": 999,
+    "globalNo": 1105,
     "sNo": 63,
     "slideNum": 76,
     "code": "VP-ADC-63",
@@ -24977,7 +27733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1000",
-    "globalNo": 1000,
+    "globalNo": 1106,
     "sNo": 64,
     "slideNum": 77,
     "code": "VP-ADC-64",
@@ -25002,7 +27758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1001",
-    "globalNo": 1001,
+    "globalNo": 1107,
     "sNo": 65,
     "slideNum": 79,
     "code": "VP-ADC-65",
@@ -25027,7 +27783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1002",
-    "globalNo": 1002,
+    "globalNo": 1108,
     "sNo": 66,
     "slideNum": 81,
     "code": "VP-ADC-66",
@@ -25052,7 +27808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1003",
-    "globalNo": 1003,
+    "globalNo": 1109,
     "sNo": 67,
     "slideNum": 82,
     "code": "VP-ADC-67",
@@ -25077,7 +27833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1004",
-    "globalNo": 1004,
+    "globalNo": 1110,
     "sNo": 68,
     "slideNum": 83,
     "code": "VP-ADC-68",
@@ -25102,7 +27858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1005",
-    "globalNo": 1005,
+    "globalNo": 1111,
     "sNo": 69,
     "slideNum": 85,
     "code": "VP-ADC-69",
@@ -25127,7 +27883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1006",
-    "globalNo": 1006,
+    "globalNo": 1112,
     "sNo": 70,
     "slideNum": 87,
     "code": "VP-ADC-70",
@@ -25152,7 +27908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1007",
-    "globalNo": 1007,
+    "globalNo": 1113,
     "sNo": 71,
     "slideNum": 89,
     "code": "VP-ADC-71",
@@ -25177,7 +27933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1008",
-    "globalNo": 1008,
+    "globalNo": 1114,
     "sNo": 72,
     "slideNum": 90,
     "code": "VP-ADC-72",
@@ -25202,7 +27958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1009",
-    "globalNo": 1009,
+    "globalNo": 1115,
     "sNo": 73,
     "slideNum": 91,
     "code": "VP-ADC-73",
@@ -25227,7 +27983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1010",
-    "globalNo": 1010,
+    "globalNo": 1116,
     "sNo": 74,
     "slideNum": 92,
     "code": "VP-ADC-74",
@@ -25252,7 +28008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1011",
-    "globalNo": 1011,
+    "globalNo": 1117,
     "sNo": 75,
     "slideNum": 93,
     "code": "VP-ADC-75",
@@ -25277,7 +28033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1012",
-    "globalNo": 1012,
+    "globalNo": 1118,
     "sNo": 76,
     "slideNum": 94,
     "code": "VP-ADC-76",
@@ -25302,7 +28058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1013",
-    "globalNo": 1013,
+    "globalNo": 1119,
     "sNo": 77,
     "slideNum": 96,
     "code": "VP-ADC-77",
@@ -25327,7 +28083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1014",
-    "globalNo": 1014,
+    "globalNo": 1120,
     "sNo": 78,
     "slideNum": 98,
     "code": "VP-ADC-78",
@@ -25352,7 +28108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1015",
-    "globalNo": 1015,
+    "globalNo": 1121,
     "sNo": 79,
     "slideNum": 99,
     "code": "VP-ADC-79",
@@ -25377,7 +28133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1016",
-    "globalNo": 1016,
+    "globalNo": 1122,
     "sNo": 80,
     "slideNum": 101,
     "code": "VP-ADC-80",
@@ -25402,7 +28158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1017",
-    "globalNo": 1017,
+    "globalNo": 1123,
     "sNo": 81,
     "slideNum": 102,
     "code": "VP-ADC-81",
@@ -25427,7 +28183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1018",
-    "globalNo": 1018,
+    "globalNo": 1124,
     "sNo": 82,
     "slideNum": 103,
     "code": "VP-ADC-82",
@@ -25452,7 +28208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1019",
-    "globalNo": 1019,
+    "globalNo": 1125,
     "sNo": 83,
     "slideNum": 104,
     "code": "VP-ADC-83",
@@ -25477,7 +28233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1020",
-    "globalNo": 1020,
+    "globalNo": 1126,
     "sNo": 84,
     "slideNum": 106,
     "code": "VP-ADC-84",
@@ -25502,7 +28258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1021",
-    "globalNo": 1021,
+    "globalNo": 1127,
     "sNo": 85,
     "slideNum": 108,
     "code": "VP-ADC-85",
@@ -25527,7 +28283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1022",
-    "globalNo": 1022,
+    "globalNo": 1128,
     "sNo": 86,
     "slideNum": 110,
     "code": "VP-ADC-86",
@@ -25552,7 +28308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1023",
-    "globalNo": 1023,
+    "globalNo": 1129,
     "sNo": 87,
     "slideNum": 111,
     "code": "VP-ADC-87",
@@ -25577,7 +28333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1024",
-    "globalNo": 1024,
+    "globalNo": 1130,
     "sNo": 88,
     "slideNum": 112,
     "code": "VP-ADC-88",
@@ -25602,7 +28358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1025",
-    "globalNo": 1025,
+    "globalNo": 1131,
     "sNo": 89,
     "slideNum": 113,
     "code": "VP-ADC-89",
@@ -25627,7 +28383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1026",
-    "globalNo": 1026,
+    "globalNo": 1132,
     "sNo": 90,
     "slideNum": 114,
     "code": "VP-ADC-90",
@@ -25652,7 +28408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1027",
-    "globalNo": 1027,
+    "globalNo": 1133,
     "sNo": 91,
     "slideNum": 115,
     "code": "VP-ADC-91",
@@ -25677,7 +28433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1028",
-    "globalNo": 1028,
+    "globalNo": 1134,
     "sNo": 92,
     "slideNum": 117,
     "code": "VP-ADC-92",
@@ -25702,7 +28458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1029",
-    "globalNo": 1029,
+    "globalNo": 1135,
     "sNo": 93,
     "slideNum": 118,
     "code": "VP-ADC-93",
@@ -25727,7 +28483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1030",
-    "globalNo": 1030,
+    "globalNo": 1136,
     "sNo": 94,
     "slideNum": 120,
     "code": "VP-ADC-94",
@@ -25752,7 +28508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1031",
-    "globalNo": 1031,
+    "globalNo": 1137,
     "sNo": 95,
     "slideNum": 122,
     "code": "VP-ADC-95",
@@ -25777,7 +28533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1032",
-    "globalNo": 1032,
+    "globalNo": 1138,
     "sNo": 96,
     "slideNum": 123,
     "code": "VP-ADC-96",
@@ -25802,7 +28558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1033",
-    "globalNo": 1033,
+    "globalNo": 1139,
     "sNo": 97,
     "slideNum": 125,
     "code": "VP-ADC-97",
@@ -25827,7 +28583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1034",
-    "globalNo": 1034,
+    "globalNo": 1140,
     "sNo": 98,
     "slideNum": 126,
     "code": "VP-ADC-98",
@@ -25852,7 +28608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1035",
-    "globalNo": 1035,
+    "globalNo": 1141,
     "sNo": 99,
     "slideNum": 127,
     "code": "VP-ADC-99",
@@ -25877,7 +28633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1036",
-    "globalNo": 1036,
+    "globalNo": 1142,
     "sNo": 100,
     "slideNum": 129,
     "code": "VP-ADC-100",
@@ -25902,7 +28658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1037",
-    "globalNo": 1037,
+    "globalNo": 1143,
     "sNo": 101,
     "slideNum": 131,
     "code": "VP-ADC-101",
@@ -25927,7 +28683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1038",
-    "globalNo": 1038,
+    "globalNo": 1144,
     "sNo": 102,
     "slideNum": 133,
     "code": "VP-ADC-102",
@@ -25952,7 +28708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1039",
-    "globalNo": 1039,
+    "globalNo": 1145,
     "sNo": 103,
     "slideNum": 134,
     "code": "VP-ADC-103",
@@ -25977,7 +28733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1040",
-    "globalNo": 1040,
+    "globalNo": 1146,
     "sNo": 104,
     "slideNum": 136,
     "code": "VP-ADC-104",
@@ -26002,7 +28758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1041",
-    "globalNo": 1041,
+    "globalNo": 1147,
     "sNo": 105,
     "slideNum": 137,
     "code": "VP-ADC-105",
@@ -26027,7 +28783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1042",
-    "globalNo": 1042,
+    "globalNo": 1148,
     "sNo": 106,
     "slideNum": 138,
     "code": "VP-ADC-106",
@@ -26052,7 +28808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1043",
-    "globalNo": 1043,
+    "globalNo": 1149,
     "sNo": 107,
     "slideNum": 140,
     "code": "VP-ADC-107",
@@ -26077,7 +28833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1044",
-    "globalNo": 1044,
+    "globalNo": 1150,
     "sNo": 108,
     "slideNum": 142,
     "code": "VP-ADC-108",
@@ -26102,7 +28858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1045",
-    "globalNo": 1045,
+    "globalNo": 1151,
     "sNo": 109,
     "slideNum": 143,
     "code": "VP-ADC-109",
@@ -26127,7 +28883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1046",
-    "globalNo": 1046,
+    "globalNo": 1152,
     "sNo": 110,
     "slideNum": 145,
     "code": "VP-ADC-110",
@@ -26152,7 +28908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1047",
-    "globalNo": 1047,
+    "globalNo": 1153,
     "sNo": 111,
     "slideNum": 146,
     "code": "VP-ADC-111",
@@ -26177,7 +28933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1048",
-    "globalNo": 1048,
+    "globalNo": 1154,
     "sNo": 112,
     "slideNum": 149,
     "code": "VP-ADC-112",
@@ -26202,7 +28958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1049",
-    "globalNo": 1049,
+    "globalNo": 1155,
     "sNo": 113,
     "slideNum": 151,
     "code": "VP-ADC-113",
@@ -26227,7 +28983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1050",
-    "globalNo": 1050,
+    "globalNo": 1156,
     "sNo": 114,
     "slideNum": 152,
     "code": "VP-ADC-114",
@@ -26252,7 +29008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1051",
-    "globalNo": 1051,
+    "globalNo": 1157,
     "sNo": 115,
     "slideNum": 153,
     "code": "VP-ADC-115",
@@ -26277,7 +29033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1052",
-    "globalNo": 1052,
+    "globalNo": 1158,
     "sNo": 116,
     "slideNum": 154,
     "code": "VP-ADC-116",
@@ -26302,7 +29058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1053",
-    "globalNo": 1053,
+    "globalNo": 1159,
     "sNo": 117,
     "slideNum": 155,
     "code": "VP-ADC-117",
@@ -26327,7 +29083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1054",
-    "globalNo": 1054,
+    "globalNo": 1160,
     "sNo": 118,
     "slideNum": 156,
     "code": "VP-ADC-118",
@@ -26352,7 +29108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1055",
-    "globalNo": 1055,
+    "globalNo": 1161,
     "sNo": 119,
     "slideNum": 157,
     "code": "VP-ADC-119",
@@ -26377,7 +29133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1056",
-    "globalNo": 1056,
+    "globalNo": 1162,
     "sNo": 120,
     "slideNum": 158,
     "code": "VP-ADC-120",
@@ -26402,7 +29158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1057",
-    "globalNo": 1057,
+    "globalNo": 1163,
     "sNo": 121,
     "slideNum": 159,
     "code": "VP-ADC-121",
@@ -26427,7 +29183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1058",
-    "globalNo": 1058,
+    "globalNo": 1164,
     "sNo": 122,
     "slideNum": 160,
     "code": "VP-ADC-122",
@@ -26452,7 +29208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1059",
-    "globalNo": 1059,
+    "globalNo": 1165,
     "sNo": 123,
     "slideNum": 161,
     "code": "VP-ADC-123",
@@ -26477,7 +29233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1060",
-    "globalNo": 1060,
+    "globalNo": 1166,
     "sNo": 1,
     "slideNum": 2,
     "code": "VP-NLA-01",
@@ -26502,7 +29258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1061",
-    "globalNo": 1061,
+    "globalNo": 1167,
     "sNo": 2,
     "slideNum": 4,
     "code": "VP-NLA-02",
@@ -26527,7 +29283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1062",
-    "globalNo": 1062,
+    "globalNo": 1168,
     "sNo": 3,
     "slideNum": 5,
     "code": "VP-NLA-03",
@@ -26552,7 +29308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1063",
-    "globalNo": 1063,
+    "globalNo": 1169,
     "sNo": 4,
     "slideNum": 7,
     "code": "VP-NLA-04",
@@ -26577,7 +29333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1064",
-    "globalNo": 1064,
+    "globalNo": 1170,
     "sNo": 5,
     "slideNum": 9,
     "code": "VP-NLA-05",
@@ -26602,7 +29358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1065",
-    "globalNo": 1065,
+    "globalNo": 1171,
     "sNo": 6,
     "slideNum": 11,
     "code": "VP-NLA-06",
@@ -26627,7 +29383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1066",
-    "globalNo": 1066,
+    "globalNo": 1172,
     "sNo": 7,
     "slideNum": 13,
     "code": "VP-NLA-07",
@@ -26652,7 +29408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1067",
-    "globalNo": 1067,
+    "globalNo": 1173,
     "sNo": 8,
     "slideNum": 15,
     "code": "VP-NLA-08",
@@ -26677,7 +29433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1068",
-    "globalNo": 1068,
+    "globalNo": 1174,
     "sNo": 1,
     "slideNum": 4,
     "code": "VP-OOH-01",
@@ -26702,7 +29458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1069",
-    "globalNo": 1069,
+    "globalNo": 1175,
     "sNo": 2,
     "slideNum": 5,
     "code": "VP-OOH-02",
@@ -26727,7 +29483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1070",
-    "globalNo": 1070,
+    "globalNo": 1176,
     "sNo": 3,
     "slideNum": 6,
     "code": "VP-OOH-03",
@@ -26752,7 +29508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1071",
-    "globalNo": 1071,
+    "globalNo": 1177,
     "sNo": 4,
     "slideNum": 7,
     "code": "VP-OOH-04",
@@ -26777,7 +29533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1072",
-    "globalNo": 1072,
+    "globalNo": 1178,
     "sNo": 5,
     "slideNum": 8,
     "code": "VP-OOH-05",
@@ -26802,7 +29558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1073",
-    "globalNo": 1073,
+    "globalNo": 1179,
     "sNo": 6,
     "slideNum": 9,
     "code": "VP-OOH-06",
@@ -26827,7 +29583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1074",
-    "globalNo": 1074,
+    "globalNo": 1180,
     "sNo": 7,
     "slideNum": 10,
     "code": "VP-OOH-07",
@@ -26852,7 +29608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1075",
-    "globalNo": 1075,
+    "globalNo": 1181,
     "sNo": 8,
     "slideNum": 12,
     "code": "VP-OOH-08",
@@ -26877,7 +29633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1076",
-    "globalNo": 1076,
+    "globalNo": 1182,
     "sNo": 9,
     "slideNum": 13,
     "code": "VP-OOH-09",
@@ -26902,7 +29658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1077",
-    "globalNo": 1077,
+    "globalNo": 1183,
     "sNo": 10,
     "slideNum": 14,
     "code": "VP-OOH-10",
@@ -26927,7 +29683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1078",
-    "globalNo": 1078,
+    "globalNo": 1184,
     "sNo": 11,
     "slideNum": 16,
     "code": "VP-OOH-11",
@@ -26952,7 +29708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1079",
-    "globalNo": 1079,
+    "globalNo": 1185,
     "sNo": 12,
     "slideNum": 17,
     "code": "VP-OOH-12",
@@ -26977,7 +29733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1080",
-    "globalNo": 1080,
+    "globalNo": 1186,
     "sNo": 13,
     "slideNum": 18,
     "code": "VP-OOH-13",
@@ -27002,7 +29758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1081",
-    "globalNo": 1081,
+    "globalNo": 1187,
     "sNo": 14,
     "slideNum": 19,
     "code": "VP-OOH-14",
@@ -27027,7 +29783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1082",
-    "globalNo": 1082,
+    "globalNo": 1188,
     "sNo": 15,
     "slideNum": 20,
     "code": "VP-OOH-15",
@@ -27052,7 +29808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1083",
-    "globalNo": 1083,
+    "globalNo": 1189,
     "sNo": 16,
     "slideNum": 21,
     "code": "VP-OOH-16",
@@ -27077,7 +29833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1084",
-    "globalNo": 1084,
+    "globalNo": 1190,
     "sNo": 17,
     "slideNum": 22,
     "code": "VP-OOH-17",
@@ -27102,7 +29858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1085",
-    "globalNo": 1085,
+    "globalNo": 1191,
     "sNo": 18,
     "slideNum": 23,
     "code": "VP-OOH-18",
@@ -27127,7 +29883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1086",
-    "globalNo": 1086,
+    "globalNo": 1192,
     "sNo": 19,
     "slideNum": 24,
     "code": "VP-OOH-19",
@@ -27152,7 +29908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1087",
-    "globalNo": 1087,
+    "globalNo": 1193,
     "sNo": 20,
     "slideNum": 25,
     "code": "VP-OOH-20",
@@ -27177,7 +29933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1088",
-    "globalNo": 1088,
+    "globalNo": 1194,
     "sNo": 21,
     "slideNum": 26,
     "code": "VP-OOH-21",
@@ -27202,7 +29958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1089",
-    "globalNo": 1089,
+    "globalNo": 1195,
     "sNo": 22,
     "slideNum": 27,
     "code": "VP-OOH-22",
@@ -27227,7 +29983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1090",
-    "globalNo": 1090,
+    "globalNo": 1196,
     "sNo": 23,
     "slideNum": 28,
     "code": "VP-OOH-23",
@@ -27252,7 +30008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1091",
-    "globalNo": 1091,
+    "globalNo": 1197,
     "sNo": 24,
     "slideNum": 29,
     "code": "VP-OOH-24",
@@ -27297,7 +30053,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s1.jpg",
     "rawText": "FTCF 3Sword Clifton Bridge · TGT Karachi Club Marriot Signal/Metropole Triangle · Availability: · 30 Dec,2026 · Size: · 80X12(FLEX) No Lights · Rate Per Month IDX No 800224 · PKR 1,500,000/- · Clifton Flyover",
-    "globalNo": 1092,
+    "globalNo": 1198,
     "id": "vp-2026-1092"
   },
   {
@@ -27322,7 +30078,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s2.jpg",
     "rawText": "3 Sword Bridge (01) · FTCF 2Sword KPT Underpass /Boat Basin · TGT 3 Sword Clifton Bridge · Availability: · 22 Jan,2027 Extendable · Size: · 100X15 (FLEX) With Lights · Rate Per Month IDX No : 800985 · PKR 1,500,000/-",
-    "globalNo": 1093,
+    "globalNo": 1199,
     "id": "vp-2026-1093"
   },
   {
@@ -27347,7 +30103,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s3.jpg",
     "rawText": "FTCF 2 Sword KPT Under pass Clifton/ Punjab Chorangi · TGT 3 Sword/ Zamzaman Street/ Bahri Icon Tower · Availability: · 31 Jan,2027 Extendable · Size: · 80X15 (FLEX) With Lights · Rate Per Month IDX No : 801233 · PKR 1,500,000/- · Ocean Mall (01)",
-    "globalNo": 1094,
+    "globalNo": 1200,
     "id": "vp-2026-1094"
   },
   {
@@ -27372,7 +30128,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s4.jpg",
     "rawText": "FTCF 3 Sword/ Bahria iconic/ Pak Tower · TGT 2 Sword Clifton/ Boat Basin · Availability, 2024 · 31 Dec,2026 Extendable · Size: · 80X15 (FLEX) With Lights · Rate Per Month IDX No :801234 · PKR 1,500,000/- · Ocean Mall (02)",
-    "globalNo": 1095,
+    "globalNo": 1201,
     "id": "vp-2026-1095"
   },
   {
@@ -27397,7 +30153,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s5.jpg",
     "rawText": "FTCF Punjab Chorangi/The Forum Schon Circle Road · TGT Schon Circle Road Boat Basin · Availability: · 30 June,2027 Extendable · Size: · 100X17 (FLEX) With Lights · Rate Per Month IDX No: 800827 · PKR 2,000,000/- · Schon Circle Bridge (01)",
-    "globalNo": 1096,
+    "globalNo": 1202,
     "id": "vp-2026-1096"
   },
   {
@@ -27422,7 +30178,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s6.jpg",
     "rawText": "FTCF the forum schon circle road · TGT bilawal rounabout / boat basin · Availability: · 05 Jan,2027 · Size: · 120x12 (flex) · With lights · Rate per month IDX No : 801231 · Pkr 2,000,000/- · BOAT BASIN BRIDGE (01)",
-    "globalNo": 1097,
+    "globalNo": 1203,
     "id": "vp-2026-1097"
   },
   {
@@ -27447,7 +30203,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s7.jpg",
     "rawText": "Boat Basin Bridge (02) · FTCF Bilawal Chowrangi/ Boat Basin / My Collachi · TGT Schon Circle Road · Availability: · 30 Nov,2026 Extendable · Size: · 120x12 (FLEX) With Lights · Rate Per Month IDX No :801232 · PKR 2,000,000/-",
-    "globalNo": 1098,
+    "globalNo": 1204,
     "id": "vp-2026-1098"
   },
   {
@@ -27472,7 +30228,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s8.jpg",
     "rawText": "Csd Bridge (01) · FTCF FTC Shahra E Faisal · TGT DHA Phase 1/ NMC Signal Kala Pull · Availability: · 05 Jan,2027 · Size: · 100X15 (FLEX) With Lights · Rate Per Month IDX No: 801191 · Pkr 2,000,000/-",
-    "globalNo": 1099,
+    "globalNo": 1205,
     "id": "vp-2026-1099"
   },
   {
@@ -27497,7 +30253,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s9.jpg",
     "rawText": "Csd Bridge (02) · FTCF DHA Phase1 NMC Signal Kalapul · TGT FTC Shahra e Faisal · Availability: · 29 Jan,2027 · Size: · 100X15 (FLEX) With Lights · Rate Per Month IDX No:801192 · PKR 2,000,000/-",
-    "globalNo": 1100,
+    "globalNo": 1206,
     "id": "vp-2026-1100"
   },
   {
@@ -27522,7 +30278,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s10.jpg",
     "rawText": "Dha Phase # 8, Do Dariya, Opp Kolachi Restaurant 01 · FTCF Clock Tower & Emmar · TGT Golf Club & Neuplex · Availability: · 28 Nov,2026 · Size: · 80x15 · Rate Per Month IDX No: 803115 · PKR 1,500,000/-",
-    "globalNo": 1101,
+    "globalNo": 1207,
     "id": "vp-2026-1101"
   },
   {
@@ -27547,7 +30303,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s11.jpg",
     "rawText": "FTCF Golf Club & Neuplex · TGT Clock Tower & Emmar · Availability: · 04 Dec,2026 · Size: · 80x15 · Rate Per Month IDX No : 803116 · PKR 1,500,000/- · Dha Phase # 8, Do Dariya, Opp Kolachi Restaurant 02",
-    "globalNo": 1102,
+    "globalNo": 1208,
     "id": "vp-2026-1102"
   },
   {
@@ -27572,7 +30328,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s12.jpg",
     "rawText": "KPT Interchange Flyover · FTCF : DHA Ittehad · TGT : Korangi & Expressway · Availability · 04 Dec,2026 · Size: · 100x12(FLEX) Without Lights · Rate Per Month IDX No: 801637 · PKR: 1,200,000 /-",
-    "globalNo": 1103,
+    "globalNo": 1209,
     "id": "vp-2026-1103"
   },
   {
@@ -27597,7 +30353,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s13.jpg",
     "rawText": "Express Way / Iqra University Bridge 01 · FTCF : Baloch Pull / Shaheed e Millat · TGT : KPT Interchange/ Iqra University · Availability · 28 Nov,2026 · Size: · 40x12 (FLEX) No Lights · Rate Per Month IDX No : 800967 · PKR 1,500,000/-",
-    "globalNo": 1104,
+    "globalNo": 1210,
     "id": "vp-2026-1104"
   },
   {
@@ -27622,7 +30378,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s14.jpg",
     "rawText": "Express Way / Iqra University Bridge 02 · FTCF : KPT Interchange/ Iqra University · TGT : Baloch Pull / Shaheed e Millat · Availability: · 30 Dec,2026 · Size: · 50x12 (FLEX) No Lights · Rate Per Month IDX No: 800968 · PKR 1,500,000/-",
-    "globalNo": 1105,
+    "globalNo": 1211,
     "id": "vp-2026-1105"
   },
   {
@@ -27647,7 +30403,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s15.jpg",
     "rawText": "Gpo I.I Chundrigar Road Gantry (01) · FTCF I.I Chundrigar Road · TGT Habib bank plaza towards Shaheen Complex / PIDC Road · Availability: · 09 Jan,2027 · Size: · 75X8 (FLEX) With Lights · Rate Per Month IDX No:801016 · PKR 1,500,000/-",
-    "globalNo": 1106,
+    "globalNo": 1212,
     "id": "vp-2026-1106"
   },
   {
@@ -27672,7 +30428,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s16.jpg",
     "rawText": "Gpo I.I CHUNDRIGAR ROAD Gantry (02) · FTCF Habib bank plaza Shaheen Complex / PIDC Road · TGT I.I Chundrigar Road · Availability · 30 Dec,2026 · Size: · 75X8 (FLEX) With Lights · Rate Per Month IDX No: 801017 · PKR 1,500,000/-",
-    "globalNo": 1107,
+    "globalNo": 1213,
     "id": "vp-2026-1107"
   },
   {
@@ -27697,7 +30453,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s17.jpg",
     "rawText": "FTCF Shaheen Complex · TGT Habib Bank Plaza/ II Chundrigar · Availability; · 30 Oct,2026 Extendable · Size: · 75X8(FLEX)(No Lights) · Rate Per Month IDX No:801012 · PKR 1,500,000/- · I.I Chundrigarh (Gantry) 01",
-    "globalNo": 1108,
+    "globalNo": 1214,
     "id": "vp-2026-1108"
   },
   {
@@ -27722,7 +30478,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s18.jpg",
     "rawText": "FTCF Habib Bank Plaza/ II Chundrigar · TGT Shaheen Complex · Availability; · Long Term Book · Size: · 75X8(FLEX) (No Lights) · Rate Per Month Idx No: 801013 · PKR 1,500,000/- · I.I Chundrigarh (Gantry) 02",
-    "globalNo": 1109,
+    "globalNo": 1215,
     "id": "vp-2026-1109"
   },
   {
@@ -27747,7 +30503,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s19.jpg",
     "rawText": "I I Chundrigarh 01 · FTCF Shaheen Complex · TGT Tower · Availability: · 05 Jan,2027 · Size: · 75x10 (FLEX) · Rate Per Month IDX No: 801413 · PKR 1,500,000/-",
-    "globalNo": 1110,
+    "globalNo": 1216,
     "id": "vp-2026-1110"
   },
   {
@@ -27772,7 +30528,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s20.jpg",
     "rawText": "I I Chundrigarh 02 · FTCF Tower · TGT Shaheen Complex · Availability: · 09 Nov,2026 · Size: · 75x10 (FLEX) · Rate Per Month IDX No:801414 · PKR 1,500,000/-",
-    "globalNo": 1111,
+    "globalNo": 1217,
     "id": "vp-2026-1111"
   },
   {
@@ -27797,7 +30553,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s21.jpg",
     "rawText": "Regent Plaza Bridge (01) · FTCF Metropole Triangle Avari Tower Shahrah-e-Faisal · TGT FTC Flyover Nursery Bridge Shahrah-e-Faisal (AirPort) · Availability: · 05 Jan,2027 · Size: · 70X15(FLEX)With Lights · Rate Per Month IDX No; 800704 · PKR 2,000,000/-",
-    "globalNo": 1112,
+    "globalNo": 1218,
     "id": "vp-2026-1112"
   },
   {
@@ -27822,7 +30578,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s22.jpg",
     "rawText": "Regent Plaza Bridge (02) · FTCF FTC Flyover Shahrah-e-Faisal · TGT Rado Traingle Club Road/ Metropole · Availability: · 02 Dec, 2026 · Lock From 01 Jan till 19 Jan,2026 · Size: · 70X15(FLEX) With Lights · Rate Per Month IDX No:800705 · PKR 2,000,000/-",
-    "globalNo": 1113,
+    "globalNo": 1219,
     "id": "vp-2026-1113"
   },
   {
@@ -27847,7 +30603,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s23.jpg",
     "rawText": "FTCF Airport & Nursery · TGT DHA Metropole · Availability: · 30 June,2027 Extendable · Size: · 100x10(FLEX) With Lights · Rate Per Month IDX No::802877 · PKR 1,500,000/- · FTC Bridge 01",
-    "globalNo": 1114,
+    "globalNo": 1220,
     "id": "vp-2026-1114"
   },
   {
@@ -27872,7 +30628,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s24.jpg",
     "rawText": "FTCF Metropole Avari Hotel · TGT Sindhi Muslim Nursery Air port · Availability: · 30 June,2027 Extendable · Size: · 100x10(FLEX)With Lights · Rate Per Month IDX NO:800966 · PKR 1,500,000/- · FTC BRIDGE 02",
-    "globalNo": 1115,
+    "globalNo": 1221,
     "id": "vp-2026-1115"
   },
   {
@@ -27897,7 +30653,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s25.jpg",
     "rawText": "Al- Azayem Bridge (01) · FTCF FTC Flyover / Regent Plaza · TGT Sindhi Muslim/Shahra-e-Quaideen / Airport Shahra - e - Faisal · Availability: · 05 Feb,2027, · Extendable · Size: · 100X12 (FLEX)With Lights · Rate Per Month IDX No: 799714 · PKR 1,500,000/-",
-    "globalNo": 1116,
+    "globalNo": 1222,
     "id": "vp-2026-1116"
   },
   {
@@ -27922,7 +30678,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s26.jpg",
     "rawText": "Al-azayem Bridge ( 02) · FTCF Sindhi Muslim/Shahra-e-Quaideen / Airport Shahrah - e - Faisal · TGT Kala Pul Defence Phase 1 / Regant Plaza · Availability · 02 March,2027 · Size: · 100X12 (FLEX)With Lights · Rate Per Month IDX No: 799715 · PKR 1,500,000/-",
-    "globalNo": 1117,
+    "globalNo": 1223,
     "id": "vp-2026-1117"
   },
   {
@@ -27947,7 +30703,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s27.jpg",
     "rawText": "FTCF Baloch Pull Shahrah E Faisal · TGT FTC Shahrah - e – Faisal/ Metropole · Availability: · 30 Nov,2026 Extendable · Size: · 100X10 (FLEX) With Lights · Rate Per Month IDX No: 801183 · PKR 1,500,000/- · Nursery Flyover (01)",
-    "globalNo": 1118,
+    "globalNo": 1224,
     "id": "vp-2026-1118"
   },
   {
@@ -27972,7 +30728,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s28.jpg",
     "rawText": "FTCF Baloch Pul / Airport Shahrah - E - Faisal · TGT FTC Flyover Shahrah –E-faisal/Shahrah Quaideen · Availability: · Long Term · Size: · 80x12 (Flex) With Lights · Rate Per Month IDX NO:800831 · Pkr 1,500,000/- · Nursery Bridge (01)",
-    "globalNo": 1119,
+    "globalNo": 1225,
     "id": "vp-2026-1119"
   },
   {
@@ -27997,7 +30753,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s29.jpg",
     "rawText": "FTCF FTC Flyover Shahrah –e-Faisal/Shahrah Quaideen · TGT Baloch pull / Airport Shahrah - e – Faisal · Availability: · 31 Dec,2026Extendable · Size: · 80X12 (FLEX)With Lights · Rate Per Month IDX No: 800832 · PKR 1,500,000/- · Nursery Bridge (02)",
-    "globalNo": 1120,
+    "globalNo": 1226,
     "id": "vp-2026-1120"
   },
   {
@@ -28022,7 +30778,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s30.jpg",
     "rawText": "Kfc Bridge (01) · FTCF Baloch Pull Shahra-e-Faisal · TGT Nursery Bridge FTC Shahra-e-Faisal/ Metropole · Availability: · 31 Sept,2027 · Extendable · Size: · 70X12(FLEX) With Lights · Rate Per Month IDX No:799799 · PKR 1,500,000/-",
-    "globalNo": 1121,
+    "globalNo": 1227,
     "id": "vp-2026-1121"
   },
   {
@@ -28047,7 +30803,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s31.jpg",
     "rawText": "KFC BRIDGE (02) · FTCF Nursery Bridge Shahra-e-Quaideen · TGT Baloch Pull Shahrah-e-Faisal/ Airport · Availability · 31 Dec,2026 Extendable · Size: · 70X12(FLEX)With Lights · Rate Per Month IDX No:799800 · PKR 1,500,000/-",
-    "globalNo": 1122,
+    "globalNo": 1228,
     "id": "vp-2026-1122"
   },
   {
@@ -28072,7 +30828,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s32.jpg",
     "rawText": "Lal Khoti Bridge (01) · FTCF Nursery Flyover / Shahrah-e-Quaideen · TGT Baloch Pul Shahrah-e-Faisal/ Airport · Availability: · 05 May ,2027 Extendable · Size: · 80X12 (FLEX) With Lights · Rate Per Month IDX No: 800807 · PKR 1,500,000/-",
-    "globalNo": 1123,
+    "globalNo": 1229,
     "id": "vp-2026-1123"
   },
   {
@@ -28097,7 +30853,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s33.jpg",
     "rawText": "Lal Khoti Bridge (02) · FTCF Airport Baloch Pul Shahrah-e-faisal · TGT Nursery Bridge Shahrah - E - Faisal · Availability: · 30 Nov,2026 Extendable · Size: · 80X12 (FLEX) With Lights · Rate Per Month IDX No:800808 · Pkr 1,500,000/-",
-    "globalNo": 1124,
+    "globalNo": 1230,
     "id": "vp-2026-1124"
   },
   {
@@ -28122,7 +30878,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s34.jpg",
     "rawText": "Awaami Markaz Bridge (01) · FTCF Main Baloch Pull/Lala Qilla Shahra-e-Faisal · TGT Nata Khan Bridge Airport Road Shahra-e-Faisal · Availability: · 30 Nov,2026 Extendable · Size: · 60X12.5(FLEX)With Lights · Rate Per Month IDX No:801176 · PKR 1,500,000/-",
-    "globalNo": 1125,
+    "globalNo": 1231,
     "id": "vp-2026-1125"
   },
   {
@@ -28147,7 +30903,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s35.jpg",
     "rawText": "Awaami Markaz Bridge (2) · FTCF Nata Khan Bridge Airport Road Shahra-e-faisal · TGT Main Baloch Pull/Lala Qilla Shahra-e-faisal · Availability · 17 Jan,2027 · Size: · 60x12.5(FLEX) With Lights · Rate Per Month IDX No:801177 · Pkr 1,500,000/-",
-    "globalNo": 1126,
+    "globalNo": 1232,
     "id": "vp-2026-1126"
   },
   {
@@ -28172,7 +30928,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s36.jpg",
     "rawText": "Shahra-e-Faisal Near Drig Road Bridge 01 · FTCF: Metropole · TGT: Airport · Availability: · 05 Jan,2027 · Size: · 80x12 (Flex) With Lights · Rate Per Month IDX No:801634 · 1,500,000/",
-    "globalNo": 1127,
+    "globalNo": 1233,
     "id": "vp-2026-1127"
   },
   {
@@ -28197,7 +30953,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s37.jpg",
     "rawText": "Shahra-e-Faisal Near Drig Road Bridge 02 · FTCF: Airport · TGT: Metropole · Availability: · 05 Jan,2027 · Size: · 80x12 (Flex) With Lights · Rate Per Month IDX No:801635 · 1,500,000/",
-    "globalNo": 1128,
+    "globalNo": 1234,
     "id": "vp-2026-1128"
   },
   {
@@ -28222,7 +30978,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s38.jpg",
     "rawText": "FTCF Malir Drigh Road Shahra - e - Faisal · TGT Mellineum Mall Rashid Minhas Road /Baloch Pull Shahra -e- Faisal · Availability: · 19 Feb,2027 · Size: · 80X12(FLEX) With Lights · Rate Per Month IDX No:801054 · PKR 1,500,000/- · Natakhan Bridge (01)",
-    "globalNo": 1129,
+    "globalNo": 1235,
     "id": "vp-2026-1129"
   },
   {
@@ -28247,7 +31003,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s39.jpg",
     "rawText": "FTCF Mellineum Mall Rashid Minhas Road / Baloch Pull Shahra -e- Faisal · TGT Drigh Road Shahra - e – Faisal/ Airport · Availability: · 17 Dec,2026 · Size: · 80X12(FLEX) With Lights · Rate Per Month IDX No:801055 · PKR 1,500,000/- · Natakhan Bridge (02)",
-    "globalNo": 1130,
+    "globalNo": 1236,
     "id": "vp-2026-1130"
   },
   {
@@ -28272,7 +31028,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s40.jpg",
     "rawText": "Star Gate · FTCF : Malir / Airport · TGT : Nata Khan Shahra E Faisal · Availability: · 26 Nov,2026 · Size: · 50x12 (Flex)without Lights · Rate Per Month IDX No:802408 · Pkr 1,500,000/-",
-    "globalNo": 1131,
+    "globalNo": 1237,
     "id": "vp-2026-1131"
   },
   {
@@ -28297,7 +31053,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s41.jpg",
     "rawText": "FTCF Nursery Bridge Shahrah-e-Faisal/FTC Bridge Shahrah-e-Faisal. · TGT Allah wala chowrangi Noorani Kabab house / Tariq Road/ Sindhi Muslim · Availability: · 05 Jan,2027 · Size: · 70X12 (FLEX) With Lights · Rate Per Month IDX NO: 800839 · PKR 1,500,000/- · Shahrah-e-quaideen Bridge (01)",
-    "globalNo": 1132,
+    "globalNo": 1238,
     "id": "vp-2026-1132"
   },
   {
@@ -28322,7 +31078,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s42.jpg",
     "rawText": "FTCF Allah wala chowrangi Noorani Kabab house / Tariq Road/ Sindhi muslim · TGT Nursery Bridge Shahrah-e-Faisal/FTC Bridge Shahrah-e-Faisal. · Availability: · 17 Feb,2027 · Size: · 70X12 (FLEX)With Lights · Rate Per Month IDX No:800840 · PKR 1,500,000/- · Shahrah-e-quaideen Bridge (02)",
-    "globalNo": 1133,
+    "globalNo": 1239,
     "id": "vp-2026-1133"
   },
   {
@@ -28347,7 +31103,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s43.jpg",
     "rawText": "Tipu Sultan Flyover 01 · FTCF : Habbit Shahra e Faisal · TGT : Muhammad Ali Society left side Shaheed e Millat/ Right side Shahra e Faisal · Availability: · 22 Sept,2027 · Extendable · Size: · 80x12 (FLEX) No Lights · Rate Per Month IDX NO:802471 · PKR : 1,500,000",
-    "globalNo": 1134,
+    "globalNo": 1240,
     "id": "vp-2026-1134"
   },
   {
@@ -28372,7 +31128,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s44.jpg",
     "rawText": "Tipu Sultan Flyover 02 · FTCF : Muhammad Ali Society · TGT : Shahra e Faisal Habbit Right side Shaheed e Millat Naheed. · Availability: · 15 Jan,2027 · Size: · 80x12 (FLEX) No Lights · Rate Per Month IDX No:802472 · PKR : 1,500,000",
-    "globalNo": 1135,
+    "globalNo": 1241,
     "id": "vp-2026-1135"
   },
   {
@@ -28397,7 +31153,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s45.jpg",
     "rawText": "FTCF Baloch Pull / Iqra University · TGT umer sahreef underpass / Naheed super store. · Availability: · 31 Jan,2027 Extendable · Size: · 100X12 (FLEX) With Lights · Rate Per Month IDX No; 801062 · PKR 1,500,000/- · Shaheed E Millat Bridge (01)",
-    "globalNo": 1136,
+    "globalNo": 1242,
     "id": "vp-2026-1136"
   },
   {
@@ -28422,7 +31178,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s46.jpg",
     "rawText": "FTCF Naheed super store/ umer sahreef underpass Shaheed e millat. · TGT Baloch flyover shahra e faisal/ iqra university. · Availability: · 15 Feb,2027 · Size: · 100X12 (FLEX) With Lights · Rate Per Month IDX NO:801063 · PKR 1,500,000/- · Shaheed E Millat Bridge (02)",
-    "globalNo": 1137,
+    "globalNo": 1243,
     "id": "vp-2026-1137"
   },
   {
@@ -28447,7 +31203,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s47.jpg",
     "rawText": "FTCF Jail Road Shaheed-e-millat · TGT Umar Shareef Baloch Pul · Availability: · 27 Jan,2026Extendable · Size: · 80X12 (Flex)with Lights · Rate Per Month IDX NO:801164 · Pkr 1,500,000/- · Naheed Super Store Bridge/ Medicare (02)",
-    "globalNo": 1138,
+    "globalNo": 1244,
     "id": "vp-2026-1138"
   },
   {
@@ -28472,7 +31228,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s48.jpg",
     "rawText": "Tariq Road Shaheed E Millat Under Pass · FTCF : Jail Road · TGT : Naheed Super Store/ Umar Shareef Underpass · Availability: · 05 Jan,2027 · Size: · 60x15 (FLEX)With Lights · Rate Per Month IDX No; 801077 · PKR : 1,800,000",
-    "globalNo": 1139,
+    "globalNo": 1245,
     "id": "vp-2026-1139"
   },
   {
@@ -28497,7 +31253,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s49.jpg",
     "rawText": "ABL Roundabout · FTCF : Tariq Road Umar Shareef Underpass/ Naheed Super Store · TGT : Baharabad / Jail Road Chase · Availability: · 30 Jan,2027 Extendable · Size: · 60x10 (FLEX) With Lights · Rate Per Month IDX No:801644 · PKR : 1,500,000",
-    "globalNo": 1140,
+    "globalNo": 1246,
     "id": "vp-2026-1140"
   },
   {
@@ -28522,7 +31278,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s50.jpg",
     "rawText": "University Road , Jail flyover 01 · FTCF : University road /Hassan square · TGT Tariq Road / Mazar E Quaid / Kashmir Road · Availability: · 12 Dec,2026 · Size: · 80x12 (FLEX) · Rate Per Month IDX · PKR : 1,500,000",
-    "globalNo": 1141,
+    "globalNo": 1247,
     "id": "vp-2026-1141"
   },
   {
@@ -28547,7 +31303,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s51.jpg",
     "rawText": "University Road , Jail flyover 02 · FTCF : Ma Jinah Road Mazar E Quaid · TGT Hassan square and university road · Availability: · 28 Nov,2026 · Size: · 80x12 (FLEX) · Rate Per Month IDX · PKR : 1,500,000",
-    "globalNo": 1142,
+    "globalNo": 1248,
     "id": "vp-2026-1142"
   },
   {
@@ -28572,7 +31328,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s52.jpg",
     "rawText": "Umer Sharif Under Pass · FTCF : Tariq Road & Naheed Super Market · TGT : Shahra E Faisal & Tipu Sultan · Availability: · Not Available · Size: · 60x15no Lights · Per Month Rate: IDX No: 800728 · Pkr: 1,500,000/-",
-    "globalNo": 1143,
+    "globalNo": 1249,
     "id": "vp-2026-1143"
   },
   {
@@ -28597,7 +31353,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s53.jpg",
     "rawText": "Umer Sharif Roundabout · FTCF : Tariq Road / Naheed · TGT : Tariq Road Roundabout / Tipu Sultan Shahra e Faisal. · Availability · Not Available · Size: · 60x10 · Per Month Rate: IDX No:802878 · PKR: 1,200,000/-",
-    "globalNo": 1144,
+    "globalNo": 1250,
     "id": "vp-2026-1144"
   },
   {
@@ -28622,7 +31378,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s54.jpg",
     "rawText": "FTCF Baloch Flyover / Tariq Road · TGT Jail Road/ PIB Colony/ Askari Park · Availability: · 22 Dec2026 · Size: · 80X16 (FLEX)With Lights · Rate Per Month IDX No: 801962 · PKR 1,500,000 /- · Medicare Shaheed-e-millat Bridge (02)",
-    "globalNo": 1145,
+    "globalNo": 1251,
     "id": "vp-2026-1145"
   },
   {
@@ -28647,7 +31403,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s55.jpg",
     "rawText": "FTCF : Aga Khan Hospital · TGT : National Stadium · Availability: · 31 Jan,2027 Extendable · Size: · 90x12 (FLEX)With Lights · Rate Per Month IDX No:802015 · PKR 1,500,000 /- · Time Medico / National Stadium",
-    "globalNo": 1146,
+    "globalNo": 1252,
     "id": "vp-2026-1146"
   },
   {
@@ -28672,7 +31428,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s56.jpg",
     "rawText": "National Stadium · FTCF Shahrah e faisal & Karsaz · TGT Expo Civic Center Gulshan · Availability: · 10 jan,2027 · Size: · 65x06 (FLEX) Without light · Rate Per Month IDX No:802879 · PKR 1,200,000/-",
-    "globalNo": 1147,
+    "globalNo": 1253,
     "id": "vp-2026-1147"
   },
   {
@@ -28697,7 +31453,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s57.jpg",
     "rawText": "National Stadium 01 · FTCF Shahrah e faisal & Karsaz · TGT Expo Civic Center Gulshan · Availability: · 30 Nov,2026 · Size: · 60x15 (FLEX) · Rate Per Month IDX No:802879 · PKR 1,500,000/-",
-    "globalNo": 1148,
+    "globalNo": 1254,
     "id": "vp-2026-1148"
   },
   {
@@ -28722,7 +31478,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s58.jpg",
     "rawText": "National Stadium Shazz Mart 02 · TCF :Civic Center Expo Gulshan · TGT Karsaz Shah.rah.faisal Agha Khan hospital & Dalima · Availability: · 05 Jan,2027 · Size: · 60x15 (FLEX) · Rate Per Month IDX No:802880 · PKR 1,500,000/-",
-    "globalNo": 1149,
+    "globalNo": 1255,
     "id": "vp-2026-1149"
   },
   {
@@ -28747,7 +31503,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s59.jpg",
     "rawText": "FTCF Jail Road Liqauat Hospital · TGT Stadium Road Time Medico Signal · Availability: · 31 Dec,2026 · Size: · 60X12 (FLEX) With Lights · Rate Per Month IDX No:802014 · Pkr 1,500,000/- · Agha Khan 01",
-    "globalNo": 1150,
+    "globalNo": 1256,
     "id": "vp-2026-1150"
   },
   {
@@ -28772,7 +31528,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s60.jpg",
     "rawText": "FTCF Stadium Road Time Medico Signal · TGT Jail Road Liqauat Hospital · Availability: · 05 Jan,2027 · Size: · 60X12 (FLEX) With Lights · Rate Per Month IDX No:802011 · PKR 1,500,000/- · Agha Khan 02",
-    "globalNo": 1151,
+    "globalNo": 1257,
     "id": "vp-2026-1151"
   },
   {
@@ -28797,7 +31553,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s61.jpg",
     "rawText": "FTCF Liaqutabad Essa Nagri Hasan square · TGT National stadium karsaz road · Availability: · 05 March,2027 · Size: · 100x15 (FLEX) With Lights · Rate Per Month IDX No:801071 · PKR 1,500,000/- · EXPO CENTRE BRIDGE (02)",
-    "globalNo": 1152,
+    "globalNo": 1258,
     "id": "vp-2026-1152"
   },
   {
@@ -28822,7 +31578,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s62.jpg",
     "rawText": "Imtiaz Super Store Gulshan Bridge 01 · FTCF Sohrab Goth Luckyone Mall · TGT Gulshan Chowrangi, Nipa Flyover · Availability: · 04 Dec,2026 · Size: · 60x10 (Flex)No Lights · Rate Per Month IDX No:801060 · 1,500,000/-",
-    "globalNo": 1153,
+    "globalNo": 1259,
     "id": "vp-2026-1153"
   },
   {
@@ -28847,7 +31603,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s63.jpg",
     "rawText": "Imtiaz Super Store Gulshan Bridge 02 · FTCF Nipa Flyover Gulshan Chowrangi. · TGT UBL Complex Luckyone Mall · Availability: · 17 Jan,2027 · Size: · 60x10 (Flex)With Lights · Rate Per Month IDX No : 801061 · 1,500,000/-",
-    "globalNo": 1154,
+    "globalNo": 1260,
     "id": "vp-2026-1154"
   },
   {
@@ -28872,7 +31628,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s64.jpg",
     "rawText": "FTCF Nipa Flyover / Gulshan Chowrangi · TGT Ubl Complex / Lucky One Mall / Sohrab Goth · Availability: · 05 jan,2027 Extendable · Size: · 80X15 (FLEX) With Lights · Rate Per Month IDX NO:800982 · PKR 1,500,000/- · Lucky One Mall Bridge (01)",
-    "globalNo": 1155,
+    "globalNo": 1261,
     "id": "vp-2026-1155"
   },
   {
@@ -28897,7 +31653,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s65.jpg",
     "rawText": "FTCF Sohrabh Goat / Lucky One Mall · TGT Nipa Flyover / Gulshan Chowrangi · Availability: · 30 june,2027Extendable · Size: · 100X15 (FLEX) With Lights · Rate Per Month IDX No:800983 · PKR 1,500,000/- · Lucky One Mall (02)",
-    "globalNo": 1156,
+    "globalNo": 1262,
     "id": "vp-2026-1156"
   },
   {
@@ -28922,7 +31678,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s66.jpg",
     "rawText": "FTCF : Alaa Din Gulshan · TGT : North Karachi Nagan · Availability: · 12 Dec,2026 · Size: · 80x12 (FLEX) · No Lights · Rate Per Month IDX No:801489 · Pkr 1,500,000 /- · New Lucky One Bridge 01",
-    "globalNo": 1157,
+    "globalNo": 1263,
     "id": "vp-2026-1157"
   },
   {
@@ -28947,7 +31703,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s67.jpg",
     "rawText": "FTCF : North Karachi Nagan · TGT : Alaa Din Gulshan · Availability: · 16 Jan,2027 · Size: · 80x12 (Flex)no Lights · Rate Per Month IDX No; 801490 · Pkr 1,500,000 /- · New Lucky One Bridge 02",
-    "globalNo": 1158,
+    "globalNo": 1264,
     "id": "vp-2026-1158"
   },
   {
@@ -28972,7 +31728,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s68.jpg",
     "rawText": "Edhi Center Bridge 01 · FTCF : Luckyone Mall Sohrab Goath Flyover · TGT : Shafeeq mor · Availability: · 13 Jan,2027 · Size: · 70x12 (FLEX)No Lights · Rate Per Month IDX No: 802881 · PKR : 1,500,000",
-    "globalNo": 1159,
+    "globalNo": 1265,
     "id": "vp-2026-1159"
   },
   {
@@ -28997,7 +31753,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s69.jpg",
     "rawText": "Edhi Center Bridge 02 · FTCF : Shafeeq mor · TGT : Luckyone Mall Sohrab Goath Flyover · Availability: · 04 Dec,2026 · Size: · 70x12 (FLEX) No Lights · Rate Per Month IDX No:802577 · PKR : 1,500,000",
-    "globalNo": 1160,
+    "globalNo": 1266,
     "id": "vp-2026-1160"
   },
   {
@@ -29022,7 +31778,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s70.jpg",
     "rawText": "FTCF Naziamabd 7 No Flyover Golimar · TGT KDA Nazimabad Board Office · Availability: · 05 Jan,2027 · Size: · 80x15 (flex)With Lights · Rate Per Month IDX No:801704 · Pkr 1,500,000/- · Nazimabad (Imtiaz Store) 01",
-    "globalNo": 1161,
+    "globalNo": 1267,
     "id": "vp-2026-1161"
   },
   {
@@ -29047,7 +31803,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s71.jpg",
     "rawText": "Nazimabad (Imtiaz Store) 02 · FTCF KDA Nazimabad Board Office · TGT Naziamabd 7 no Flyover Golimar · Availability · 05 Jan,2027 · Size: · 80X15 (FLEX)With Lights · Rate Per Month IDX No:802001 · PKR 1,500,000/-",
-    "globalNo": 1162,
+    "globalNo": 1268,
     "id": "vp-2026-1162"
   },
   {
@@ -29072,7 +31828,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s72.jpg",
     "rawText": "Nazimabad Petrol pump flyover 01 · FTCF Hassan square laiqatabad · TGT North Nazimabad / Nazimabad / Habib bank · Availability · 12 Dec,2026 · Size: · 80X10(FLEX)With Lights · Rate Per Month IDX · PKR 1,500,000/-",
-    "globalNo": 1163,
+    "globalNo": 1269,
     "id": "vp-2026-1163"
   },
   {
@@ -29097,7 +31853,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s73.jpg",
     "rawText": "Nazimabad Petrol Pump flyover 02 · FTCF Habib bank Chowranwngi · TGT laiqtabad 10 No / Hassan square · Availability · 12 Dec,2026 · Size: · 80X10 (FLEX) · Rate Per Month IDX · PKR 1,500,000/-",
-    "globalNo": 1164,
+    "globalNo": 1270,
     "id": "vp-2026-1164"
   },
   {
@@ -29122,7 +31878,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s74.jpg",
     "rawText": "Hyderi Bridge (01) · FTCF Five Star North Nazimanad/Hydri · TGT KDA Board Office · Availability: · 28 Jan,2027 Extendable · Size: · 70X15 (FLEX) With Lights · Rate Per Month IDX NO:800145 · PKR 1,500,000/-",
-    "globalNo": 1165,
+    "globalNo": 1271,
     "id": "vp-2026-1165"
   },
   {
@@ -29147,7 +31903,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s75.jpg",
     "rawText": "Hyderi Bridge (02) · FTCF Board Office KDA/ Hydri · TGT Fivestar North Nazimabad · Availability: · 15 Jan,2027 · Extendable · Size: · 70X15(FLEX)With Lights · Rate Per Month IDX No: 800146 · PKR 1,500,000/-",
-    "globalNo": 1166,
+    "globalNo": 1272,
     "id": "vp-2026-1166"
   },
   {
@@ -29172,7 +31928,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s76.jpg",
     "rawText": "Farooq E Azam Masjid Bridge 01 · FTCF : Five Star Chowrangi North Nazimabad · TGT : Sakhi Hassan, Sareena Mobile Market · Availability: · 11 Jan,2027 · Size: · 70x15 (Flex)no Lights · Rate Per Month IDX No:801912 · Pkr : 1,500,000",
-    "globalNo": 1167,
+    "globalNo": 1273,
     "id": "vp-2026-1167"
   },
   {
@@ -29197,7 +31953,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s77.jpg",
     "rawText": "Farooq E Azam Masjid Bridge 02 · FTCF : Sakhi Hassan, Sareena Mobile Market · TGT : Five Star Chowrangi North Nazimabad · Availability: · 11 Jan,2027 · Size: · 70x15 (FLEX)No Lights · Rate Per Month IDX No:801913 · PKR : 1,500,000",
-    "globalNo": 1168,
+    "globalNo": 1274,
     "id": "vp-2026-1168"
   },
   {
@@ -29222,7 +31978,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s78.jpg",
     "rawText": "Sareena Mobile Market Flyover · FTCF: Water Pump/ People Chowrangi · TGT : Naya Nazimabaad · Availability: · 01 Feb,2027 · Size: · 90x12 No Lights · Rate Per Month: IDX No:802882 · PKR: 1,500,000/-",
-    "globalNo": 1169,
+    "globalNo": 1275,
     "id": "vp-2026-1169"
   },
   {
@@ -29247,7 +32003,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s79.jpg",
     "rawText": "FTCF : Fedral B Area Liaqatabaad/ Shahra e Pakistan · TGT : M. A Jinnah Road/ Jamshaid Road · Availability: · 28 Nov,2026 · Size: · 60x12 (FLEX)No Lights · Rate Per Month IDX No:802883 · PKR 1,500,000 /- · Liaqatabaad Bridge 01",
-    "globalNo": 1170,
+    "globalNo": 1276,
     "id": "vp-2026-1170"
   },
   {
@@ -29272,7 +32028,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s80.jpg",
     "rawText": "Ftcf : M. A Jinnah Road/ Jamshaid Road · TGT : Fedral B Area Liaqatabaad/ Shahra E Pakistan · Availability: · 04 Dec,2026 · Size: · 60x12 (FLEX)No Lights · Rate Per Month IDX No:802884 · Pkr 1,500,000 /- · Liaqatabaad Bridge 02",
-    "globalNo": 1171,
+    "globalNo": 1277,
     "id": "vp-2026-1171"
   },
   {
@@ -29297,7 +32053,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s81.jpg",
     "rawText": "Ftcf : Hasan squar and Laiqtabad 10 no · TGT : Nazimabad and North nazimabad · Availability: · 28 Nov,2026 · Size: · 60x15 (FLEX)No Lights · Rate Per Month IDX No: · Pkr 1,500,000 /- · Liaqatabaad Bridge 03",
-    "globalNo": 1172,
+    "globalNo": 1278,
     "id": "vp-2026-1172"
   },
   {
@@ -29322,7 +32078,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s82.jpg",
     "rawText": "Ftcf : Nazimabad and North nazimabad · TGT : Hasan squar and Laiqtabad 10 no · Availability: · 28 Nov,2026 · Size: · 60x15 (FLEX)No Lights · Rate Per Month IDX No: · Pkr 1,500,000 /- · Liaqatabaad Bridge 04",
-    "globalNo": 1173,
+    "globalNo": 1279,
     "id": "vp-2026-1173"
   },
   {
@@ -29347,7 +32103,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s83.jpg",
     "rawText": "Ftcf : FB area Liaquatabad Shah.rah.Pakistan · TGT : MA Jinnah Road Mazar.e.Quaid · Availability: · 28 Nov,2026 · Size: · 60x15 (FLEX)No Lights · Rate Per Month IDX No: · Pkr 1,500,000 /- · Jahagir Road near Gorumandir 01",
-    "globalNo": 1174,
+    "globalNo": 1280,
     "id": "vp-2026-1174"
   },
   {
@@ -29372,7 +32128,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s84.jpg",
     "rawText": "Ftcf : MA Jinnah Road Mazar.e.Quaid · TGT :FB area Liaquatabad Shah.rah.Pakistan · Availability: · 28 Nov,2026 · Size: · 60x15 (FLEX)No Lights · Rate Per Month IDX No: · Pkr 1,500,000 /- · Jahagir Road near Gorumandir 02",
-    "globalNo": 1175,
+    "globalNo": 1281,
     "id": "vp-2026-1175"
   },
   {
@@ -29397,7 +32153,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s85.jpg",
     "rawText": "FTCF : liaqatabaad · TGT : Hassan Square & National Stadium Road · Availability: · 09 Dec,2026 · Size: · 50x12 (FLEX) · Rate Per Month IBX No: 800971 · PKR 1,500,000 /- · Sir Shah Suleman Road Essa Nagri 01",
-    "globalNo": 1176,
+    "globalNo": 1282,
     "id": "vp-2026-1176"
   },
   {
@@ -29422,7 +32178,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s86.jpg",
     "rawText": "FTCF : Hassan Square · TGT : Ghareebabad & liaqatabaad · Availability: · 26 Nov,2026 · Size: · 50x12 (FLEX) · Rate Per Month IDX No: 800972 · PKR 1,500,000 /- · Sir Shah Suleman Road Essa Nagri 02",
-    "globalNo": 1177,
+    "globalNo": 1283,
     "id": "vp-2026-1177"
   },
   {
@@ -29447,7 +32203,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s87.jpg",
     "rawText": "FTCF Liaquatabad 10 Number / Nazimabad · TGT Civic center gulahan iqbal national stadium & Karsaz · Availability: · 26 Nov,2026 · Size: · 35x12 (FLEX) · Rate Per Month IDX No: 800972 · PKR 1,500,000 /- · Amjad Sabri Underpass",
-    "globalNo": 1178,
+    "globalNo": 1284,
     "id": "vp-2026-1178"
   },
   {
@@ -29472,7 +32228,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s88.jpg",
     "rawText": "FTCF Aisha Manzil Shahrah-e-Pakistan · TGT Karimabad / Liaqutabad No 10 Bridge · Availability: · 15 Jan,2027 · Size: · 100X15 (FLEX)With Lights · Rate Per Month IDX No: 802885 · PKR 1,500,000/- · F.B Area, Karimabad Bridge (02)",
-    "globalNo": 1179,
+    "globalNo": 1285,
     "id": "vp-2026-1179"
   },
   {
@@ -29497,7 +32253,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s89.jpg",
     "rawText": "FTCF Karimabad Shahrah-e-Pakistan · TGT Aisha Manzil Water Pump/ Sohrab Goth · Availability: · 28 Jan,2027 · Size: · 60X10(FLEX)With Lights · Rate Per Month IDX No:789249 · PKR 1,500,000/- · F.B Area, Aisha Manzil Bridge (01)",
-    "globalNo": 1180,
+    "globalNo": 1286,
     "id": "vp-2026-1180"
   },
   {
@@ -29522,7 +32278,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s90.jpg",
     "rawText": "FTC Water pump Aisha Manzil · TGT Karimabad flyover shahrah-e- Pakistan · Availability: · 06 Jan,2027 · Size: · 60X10 (FLEX) With Lights · Rate Per Month IDX No:801037 · PKR 1,500,000/- · F.B Area, Aisha Manzil Bridge (02)",
-    "globalNo": 1181,
+    "globalNo": 1287,
     "id": "vp-2026-1181"
   },
   {
@@ -29547,7 +32303,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s91.jpg",
     "rawText": "F.B AREA, Water Pump Bridge 01 · FTCF Aisha Manzil Shahrah-e-Pakistan · TGT Water Pump Sohrab Goth · Availability: · 28 Nov,2026 · Size: · 60x10 (Flex)No Lights · Rate Per Month IDX No:800144 · 1,500,000/-",
-    "globalNo": 1182,
+    "globalNo": 1288,
     "id": "vp-2026-1182"
   },
   {
@@ -29572,7 +32328,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s92.jpg",
     "rawText": "F.B AREA, Water Pump Bridge 02 · FTCF Water Pump Sohrab Goth · TGT Aisha Manzil Shahrah-e-Pakistan · Availability: · 04 Dec,2026 · Size: · 60x10 (Flex)No Lights · Rate Per Month IDX No:800143 · 1,500,000/-",
-    "globalNo": 1183,
+    "globalNo": 1289,
     "id": "vp-2026-1183"
   },
   {
@@ -29597,7 +32353,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s93.jpg",
     "rawText": "Water Pump Mamji Hospital FB Area 01 · FTCF: Kareemabaad/ Water Pump/ Ayesha Manzil · TGT : Sohrab Goth Highway · Availability: · 04 Dec,2026 · Size: · 80x12No Lights · Rate Per Month: IDX No:802406 · PKR: 1,500,000/-",
-    "globalNo": 1184,
+    "globalNo": 1290,
     "id": "vp-2026-1184"
   },
   {
@@ -29622,7 +32378,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s94.jpg",
     "rawText": "Water Pump Mamji Hospital FB Area 02 · FTCF: Sohrab Goth Highway · TGT : Kareemabaad /Water Pump/ Ayesha Manzil · Availability: · 31 Jan,2027 · Size: · 80x12 No Lights · Rate Per Month: IDX No: 802405 · PKR: 1,500,000/-",
-    "globalNo": 1185,
+    "globalNo": 1291,
     "id": "vp-2026-1185"
   },
   {
@@ -29647,7 +32403,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s95.jpg",
     "rawText": "FTCF Airport Flyover Shahrah-e-Faisal · TGT Quaidabad National Highway · Availability: · 30 Jan,2027 · Size: · 80X12(FLEX)No Lights · Rate Per Month IDX No:802886 · PKR 1,500,000/- · Malir (Nihal Hosptial) 01",
-    "globalNo": 1186,
+    "globalNo": 1292,
     "id": "vp-2026-1186"
   },
   {
@@ -29672,7 +32428,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s96.jpg",
     "rawText": "FTCF Quaidabad National Highway · TGT Airport Flyover Shahrah-e-Faisal · Availability: · 04 Feb,2027 · Size: · 80X12(FLEX)No Lights · Rate Per Month IDX No:802887 · PKR 1,500,000/- · Malir Nihal Hospital 02",
-    "globalNo": 1187,
+    "globalNo": 1293,
     "id": "vp-2026-1187"
   },
   {
@@ -29697,7 +32453,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s97.jpg",
     "rawText": "New KARACHI BAARA MARKET Bridge 01 · FTCF : 2 minut Chowrangi Surjani Town · TGT : Power House Chowrangi , · Availability: · 07 Jan,2027 Extendable · Size: · 50x15 (FLEX) No Lights · Rate Per Month IDX No:802888 · PKR : 1,500,000",
-    "globalNo": 1188,
+    "globalNo": 1294,
     "id": "vp-2026-1188"
   },
   {
@@ -29722,7 +32478,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_br20_s98.jpg",
     "rawText": "New Karachi Bara Market Bridge 02 · FTCF : Up Mur, Power House · TGT : 04K Chorangi & Surjani · Availability: · 07 Jan,2027 Extendable · Size: · 50x15 (FLEX) No Lights · Rate Per Month IDX No:802889 · Pkr : 1,500,000",
-    "globalNo": 1189,
+    "globalNo": 1295,
     "id": "vp-2026-1189"
   },
   {
@@ -29747,7 +32503,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s1.jpg",
     "rawText": "International Departure Standee 01 · FTCF : Exit way from Immigration · TGT: Near Exit Stairs to Luggage Collection · Availability: · Size: 2’x6’ feet · Pixels Dimensions · W=256 & H=704 · Rate Per Month: · PKR:400,000/Per Month/ Per Slot",
-    "globalNo": 1190,
+    "globalNo": 1296,
     "id": "vp-2026-1190"
   },
   {
@@ -29772,7 +32528,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s2.jpg",
     "rawText": "International Departure Standee 01 · FTCF : Exit way from Immigration · TGT: Near Exit Stairs to Luggage Collection · Availability: · Size: 2’x6’ feet · Pixels Dimensions · W=256 & H=704 · Rate Per Month: · PKR:400,000/Per Month/ Per Slot",
-    "globalNo": 1191,
+    "globalNo": 1297,
     "id": "vp-2026-1191"
   },
   {
@@ -29797,7 +32553,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s3.jpg",
     "rawText": "International Departure Waiting Area · FTCF : from Immigration · TGT: Waiting Area (Satellite) · Availability: · Size: 2’x6’ feet · Pixels Dimensions · W=256 & H=704 · Rate Per Month: · PKR:400,000/Per Month/ Per Slot",
-    "globalNo": 1192,
+    "globalNo": 1298,
     "id": "vp-2026-1192"
   },
   {
@@ -29822,7 +32578,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s4.jpg",
     "rawText": "International Departure Waiting Area · FTCF : from Immigration · TGT: Waiting Area (Satellite) · Availability: · Size: 2’x6’ feet · Pixels Dimensions · W=256 & H=704 · Rate Per Month: · PKR:400,000/Per Month/ Per Slot · Video",
-    "globalNo": 1193,
+    "globalNo": 1299,
     "id": "vp-2026-1193"
   },
   {
@@ -29847,7 +32603,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s5.jpg",
     "rawText": "Digital Screen at International Departure Longue · FTCF : from Immigration · TGT: Departure Lounge · Availability: · Size: 8.5’x4’ feet · Pixels Dimensions · W=1024 & H=512 · Rate Per Month: · PKR:600,000/Per Month/ Per Slot",
-    "globalNo": 1194,
+    "globalNo": 1300,
     "id": "vp-2026-1194"
   },
   {
@@ -29872,7 +32628,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s6.jpg",
     "rawText": "Digital Screen at International Departure Longue · FTCF : from Immigration · TGT: Departure Lounge · Availability: · Size: 8.5’x4’ feet · Pixels Dimensions · W=1024 & H=512 · Rate Per Month: · PKR:600,000/Per Month/ Per Slot · Video",
-    "globalNo": 1195,
+    "globalNo": 1301,
     "id": "vp-2026-1195"
   },
   {
@@ -29897,7 +32653,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s7.jpg",
     "rawText": "Karachi Digital Media",
-    "globalNo": 1196,
+    "globalNo": 1302,
     "id": "vp-2026-1196"
   },
   {
@@ -29922,7 +32678,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s8.jpg",
     "rawText": "3D Digital Screen at Elegent Residency Allahwali Chowrangi Tariq Road · FTCF : Shahra e Quaideen Allah Wali Signal · TGT : Norani Kabab House M.A Jinnah Road. · Availability · Available · Size: 30x30 Left (Vinyl) · 30x30 Right (Vinyl) · SMD Size: · 60x30",
-    "globalNo": 1197,
+    "globalNo": 1303,
     "id": "vp-2026-1197"
   },
   {
@@ -29947,7 +32703,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s9.jpg",
     "rawText": "Hilal e Ahmer SMD · FTCF : 2 Sword / Punjab Chowrangi · TGT: Clifton Bridge · Availability: · Available · Size: · 32 x12 · Rate Per Month: IIDX No : 802466 · PKR: 1,600,000/-",
-    "globalNo": 1198,
+    "globalNo": 1304,
     "id": "vp-2026-1198"
   },
   {
@@ -29972,7 +32728,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s10.jpg",
     "rawText": "KPT SMD 01 · FTCF : III Sword · TGT : II Sword · Availability · Available · Size: · 36x12 · Rate Per Month: IDX No: 799544 · 1,200,000",
-    "globalNo": 1199,
+    "globalNo": 1305,
     "id": "vp-2026-1199"
   },
   {
@@ -29997,7 +32753,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s11.jpg",
     "rawText": "KPT SMD 01 · FTCF : III Sword · TGT : II Sword · Availability · Available · Size: · 36x12 · Rate Per Month: IDX No: 799544 · 1,200,000",
-    "globalNo": 1200,
+    "globalNo": 1306,
     "id": "vp-2026-1200"
   },
   {
@@ -30022,7 +32778,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s12.jpg",
     "rawText": "KPT SMD 02 · FTCF : II Sword · TGT : III Sword · Availability · Available · Size: · 36x12 · Rate Per Month: IDX No: 799545 · 1,200,000",
-    "globalNo": 1201,
+    "globalNo": 1307,
     "id": "vp-2026-1201"
   },
   {
@@ -30047,7 +32803,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s13.jpg",
     "rawText": "Metropole Signal SMD · FTCF Regent /Metropole · TGT Clifton /Saddar /Sahara e Faisal · Availability: · Available · Size: · 32x12 (SMD) · Rate Per Month : IDX No:802817 · 1,600,000",
-    "globalNo": 1202,
+    "globalNo": 1308,
     "id": "vp-2026-1202"
   },
   {
@@ -30072,7 +32828,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s14.jpg",
     "rawText": "QT Signal SMD · FTCF : Sunset library · TGT : DHA phase2 · Availability: · Available · Size: · 30x15 · Rate Per Month · PKR 3,000,000 · IDX No: 801768",
-    "globalNo": 1203,
+    "globalNo": 1309,
     "id": "vp-2026-1203"
   },
   {
@@ -30097,7 +32853,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s15.jpg",
     "rawText": "DMC Hyper Star, Triangular Family Park SMD 01 · FTCF : McDonalds · TGT : Hyper Star · Availability · Available · Size: · 30x17 · Rate Per Month Per Slot IDX No: 802214 · PKR: 1,500,000/-",
-    "globalNo": 1204,
+    "globalNo": 1310,
     "id": "vp-2026-1204"
   },
   {
@@ -30122,7 +32878,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s16.jpg",
     "rawText": "DMC Hyper Star, Triangular Family Park SMD 02 · FTCF : Bilawal House · TGT : Hyper Star · Availability · Available · Size: · 30x17 · Rate Per Month Per Slot: IDX No: 802174 · PKR: 1,500,000/-",
-    "globalNo": 1205,
+    "globalNo": 1311,
     "id": "vp-2026-1205"
   },
   {
@@ -30147,7 +32903,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s17.jpg",
     "rawText": "Golf Club Smd DHA Phase 8 · FTCF Ramada · TGT towards golfclub · Availability: · Available · Size: · 18x9 · Rate Per Month IDX No:803121 · 1,500,000",
-    "globalNo": 1206,
+    "globalNo": 1312,
     "id": "vp-2026-1206"
   },
   {
@@ -30172,7 +32928,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s18.jpg",
     "rawText": "Creek Walk Zulfiqar Avenue DHA · FTCF Creek Walk Zulfiqar Avenue DHA · Availability: · Available · Size: · 36x12 · Rate Per Month · 2,000,000",
-    "globalNo": 1207,
+    "globalNo": 1313,
     "id": "vp-2026-1207"
   },
   {
@@ -30197,7 +32953,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s19.jpg",
     "rawText": "Sindhi Muslim Roundabout SMD · FTCF FTC Shahrah e faisal · TGT Sindhi Muslim/ Shahra e Qaideen ALLAH wali chowrangi. · Availability: · Available · Size: · SMD : 38 x 19 · Rate Per Month Wall + SMD IDX No: 801329 · Exclusive Bundle Deal · 7,500,000",
-    "globalNo": 1208,
+    "globalNo": 1314,
     "id": "vp-2026-1208"
   },
   {
@@ -30222,7 +32978,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s20.jpg",
     "rawText": "Sindhi Muslim Roundabout SMD · FTCF Sindhi Muslim/ Shahra e Qaideen ALLAH wali chowrangi · TGT Nusery Flyover Shahrah e faisal · Availability: · Available · Size: 45 x 15 · 1920 pix x580 pix · Rate Per Month / Slot IDX No: 802135 · PKR: 1,600,000",
-    "globalNo": 1209,
+    "globalNo": 1315,
     "id": "vp-2026-1209"
   },
   {
@@ -30247,7 +33003,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s21.jpg",
     "rawText": "Drig Road Under Pass SMD · FTCF : Karsaaz/ Lal Qila Shahra e Faisal · TGT : Drig Road Under Pass Natha Khan Flyove Shahra e Faisal · Availability · Available · Size: · 30 x 13 · Rate Per Month / Slot IDX No:801614 · PKR: 1,600,000",
-    "globalNo": 1210,
+    "globalNo": 1316,
     "id": "vp-2026-1210"
   },
   {
@@ -30272,7 +33028,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s22.jpg",
     "rawText": "Traffic Coming From Saudi Embassy · SMD Display",
-    "globalNo": 1211,
+    "globalNo": 1317,
     "id": "vp-2026-1211"
   },
   {
@@ -30297,7 +33053,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s23.jpg",
     "rawText": "Traffic coming from Khayaban-e-Jami/Defence Library · SMD Display",
-    "globalNo": 1212,
+    "globalNo": 1318,
     "id": "vp-2026-1212"
   },
   {
@@ -30322,7 +33078,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s24.jpg",
     "rawText": "COM II / BILAWAL HOUSE ROUND ABOUT SMD · FTCF DUA Restaurant / Paktower, Abdullah Shah GhaziTGT Boat Basin Round About / Paktower , 26 Street · Availability: · Available · Size: · 60x20 SMD Pixels Size: 2304 pix x 768pix · Rate Per Month IDX No: 802063 · 3,500,000",
-    "globalNo": 1213,
+    "globalNo": 1319,
     "id": "vp-2026-1213"
   },
   {
@@ -30347,7 +33103,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s25.jpg",
     "rawText": "CSD Store - Kala Pull · FTCF : Kala Pull · TGT : FTC · Availability · Available · Size: · 40x20 · Rate: IDX No: 802355 · For 30 days: 3,000,000",
-    "globalNo": 1214,
+    "globalNo": 1320,
     "id": "vp-2026-1214"
   },
   {
@@ -30372,7 +33128,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s26.jpg",
     "rawText": "Submarine SMD · FTCF : Boat Basin · TGT : Defence Signal · Availability · Available · Size: · 30x13 · Rate Per Month: IDX No: 801920 · 1,200,000",
-    "globalNo": 1215,
+    "globalNo": 1321,
     "id": "vp-2026-1215"
   },
   {
@@ -30397,7 +33153,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s27.jpg",
     "rawText": "Shaheen Complex SMD · FTCF : I.I Chundrigarh Road · TGT : Press Club Saddar / PIDC Hotel · Availability · Available · Size: · 36x12 · Rate Per Month: IDX No: 801600 · 1,200,000",
-    "globalNo": 1216,
+    "globalNo": 1322,
     "id": "vp-2026-1216"
   },
   {
@@ -30422,7 +33178,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s28.jpg",
     "rawText": "Shaheen Complex SMD · FTCF : I.I Chundrigarh Road · TGT : Press Club Saddar / PIDC Hotel · Availability · 28 July, 2024 · Size: · 36x12 · Rate Per Month: IDX No: 801600 · 1,200,000",
-    "globalNo": 1217,
+    "globalNo": 1323,
     "id": "vp-2026-1217"
   },
   {
@@ -30447,7 +33203,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s29.jpg",
     "rawText": "Main Tariq Road Signal · FTCF Bahadurabad/Shaheed e Millat · TGT Tariq road/Shaheed e millat · Availability: · Available · Size: · 30x15(SMD) · Rate Per Month: IDX No:801745 · PKR: 1.2 Million/ Slot",
-    "globalNo": 1218,
+    "globalNo": 1324,
     "id": "vp-2026-1218"
   },
   {
@@ -30472,7 +33228,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s30.jpg",
     "rawText": "Tariq Road Under Pass SMD · FTCF : Iqra University Baloch Pull · TGT : Tariq Road Under Pass · Availability · Available · Size: · 18 x 09 · Rate Per Month: IDX No:802468 · 900,000/-",
-    "globalNo": 1219,
+    "globalNo": 1325,
     "id": "vp-2026-1219"
   },
   {
@@ -30497,7 +33253,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s31.jpg",
     "rawText": "Dha Phase # 8, Do Dariya, Opp Kolachi Restaurant · FTCF Golf Club & Neuplex · TGT Clock Tower & Emmar · Availability: · Available · Size: · 3x6 (QTY:20) · Rate Per Month: IDX No:801741-801742 · PKR: 1,600,000/-",
-    "globalNo": 1220,
+    "globalNo": 1326,
     "id": "vp-2026-1220"
   },
   {
@@ -30522,7 +33278,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s32.jpg",
     "rawText": "TCF: Khayaban e Ittehad · TGT: Sea View · Availability: · Available · Size: · 3x6 Qty: 20 · Rate Per Month: IDX No:802839 · 1,800,000 · Khayaban e Ittehad/ Aisha Masjid",
-    "globalNo": 1221,
+    "globalNo": 1327,
     "id": "vp-2026-1221"
   },
   {
@@ -30547,7 +33303,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s33.jpg",
     "rawText": "Khayaban e Ittehad 02 · FTCF Aisha masjid · TGT Main korangi road · Availability: · Available · Size: · 3x6 (QTY 10) · Rate Per Month IDX No:802847 · PKR 900,000",
-    "globalNo": 1222,
+    "globalNo": 1328,
     "id": "vp-2026-1222"
   },
   {
@@ -30572,7 +33328,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s34.jpg",
     "rawText": "Khayaban e Ittehad 02 · FTCF Korangi road · TGT Ittehad · Availability: · Available · Size: · 3x6 (QTY:10) · Rate Per Month IDX No:802848 · PKR 900,000",
-    "globalNo": 1223,
+    "globalNo": 1329,
     "id": "vp-2026-1223"
   },
   {
@@ -30597,7 +33353,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s35.jpg",
     "rawText": "FTCF: Defense Mor · TGT: Sunset / Punjab Chowrangi · Availability: · Available · Size: · 3x6 QTY: 24 · Rate Per Month: IDX No:802228 · 2,000,000/- · DHA Sunset Road Digital Streamers",
-    "globalNo": 1224,
+    "globalNo": 1330,
     "id": "vp-2026-1224"
   },
   {
@@ -30622,7 +33378,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s36.jpg",
     "rawText": "Khaybaan e Ittehad · FTCF: Sea View · TGT: Korangi Road · Availability: · Available · Size: · 3x6 Qty: 18 · Rate Per Month: IDX No:802631 · PKR: 1,600,000/-",
-    "globalNo": 1225,
+    "globalNo": 1331,
     "id": "vp-2026-1225"
   },
   {
@@ -30647,7 +33403,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s37.jpg",
     "rawText": "Nuplex / T MartImtaiz/Moin Khan Akdamy · FTCF: Nuplex / Moin Khan Academy/Khayaban-e-Faisal · TGT: T Mart/Creek Vista Apartments (Vice Versa) · Availability: · Available · Size: W: 3 x H: 5 · Qty: 8 Poles & 16 Streamers · Rate Per Month IDX No :802843 · 1,800,000",
-    "globalNo": 1226,
+    "globalNo": 1332,
     "id": "vp-2026-1226"
   },
   {
@@ -30672,7 +33428,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s38.jpg",
     "rawText": "Digital streamers zulfiqar street 1/imtiaz store · FTCF: Khayaban-e-Itthad/Creek Club · TGT: Golf Club/Creek Vista (Vice Versa) · Availability: · Available · Size: W: 3 x H: 6 · Qty: 14 Poles & 28 Streamers · Rate Per Month IDX No:802841 · 2,200,000",
-    "globalNo": 1227,
+    "globalNo": 1333,
     "id": "vp-2026-1227"
   },
   {
@@ -30697,7 +33453,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s39.jpg",
     "rawText": "NMC Digital Streamers · FTCF: Shahra e Faisal FTC · TGT: NMC & DHA · Availability: · Available · Size: · 3x6 Qty: 18 · Rate Per Month: IDX No :802153 · PKR: 1,800,000/-",
-    "globalNo": 1228,
+    "globalNo": 1334,
     "id": "vp-2026-1228"
   },
   {
@@ -30722,7 +33478,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s40.jpg",
     "rawText": "Hydri Bridge Digital Streamers · FTCF Nazimabad Board Office · TGT Nazimabad Hydri Market · Available · Available · Size: · 3x6 (QTY:24) · Rate Per Month: IDX No:789572 · PKR: 1,600,000/-",
-    "globalNo": 1229,
+    "globalNo": 1335,
     "id": "vp-2026-1229"
   },
   {
@@ -30747,7 +33503,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s41.jpg",
     "rawText": "Five Star Chowrangi, Food Street Digital Streamers 01 · FTCF: Ayesha manzil / Landi Kotal / Food Street Near Five Star Chowrangi · TGT: Road Toward Hyderi Via Five Star Chowrangi North Nazimabaad · Availability: · Available · Size: · 3x6 QTY: 10 · Rate Per Month: IDX No:789452 · PKR: 1,000,000/-",
-    "globalNo": 1230,
+    "globalNo": 1336,
     "id": "vp-2026-1230"
   },
   {
@@ -30772,7 +33528,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s42.jpg",
     "rawText": "Five Star Chowrangi, Food Street Digital Streamers 02 · FTCF: Five Star Chowrangi / Landi Kotal/ Ayesha Manzil · TGT: Shahra e Pakistan Via Ayesha Manzil, Karachi · Availability: · Available · Size: · 3x6 Qty: 10 · Rate Per Month: IDX No:789534 · PKR: 1,000,000/-",
-    "globalNo": 1231,
+    "globalNo": 1337,
     "id": "vp-2026-1231"
   },
   {
@@ -30797,7 +33553,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s43.jpg",
     "rawText": "Digital Streamers at Lucky One Mall Rashid Minhas Road · FTCF: Lucky One Mall · TGT : Gulshan · Availability: · Available · Size:03x06 · Qty : 10 , Qty : 09 · Rate Per Month: IDX No:801958 · PKR: 1,200,000 /-",
-    "globalNo": 1232,
+    "globalNo": 1338,
     "id": "vp-2026-1232"
   },
   {
@@ -30822,7 +33578,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s44.jpg",
     "rawText": "Karsaaz Digital Streamers 01 · FTCF : Navy Gate · TGT : Shahra e Faisal · Availability: · Available · Size: · 03x06 · Per Month Rate: · PKR: 1,250,000/- · Qty: 10 IDX No:802061 · Double Side",
-    "globalNo": 1233,
+    "globalNo": 1339,
     "id": "vp-2026-1233"
   },
   {
@@ -30847,7 +33603,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s45.jpg",
     "rawText": "Karsaaz Digital Streamers 02 · FTCF : National Stadium · TGT : Navy Gate · Availability: · Available · Size: · 03x06 Qty: 10 Double Side · Per Month Rate: · PKR: 1,250,000/- · IDX NO: 802062",
-    "globalNo": 1234,
+    "globalNo": 1340,
     "id": "vp-2026-1234"
   },
   {
@@ -30872,7 +33628,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s46.jpg",
     "rawText": "TCF: Metropole · TGT: Airport · Availability: · Available · Size: · 03x06 Qty: 10 · Rate Per Month: IDX No:802044 · PKR: 1,000,000/- · Digital Streamer Shahra e Faisal Star Gate",
-    "globalNo": 1235,
+    "globalNo": 1341,
     "id": "vp-2026-1235"
   },
   {
@@ -30897,7 +33653,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s47.jpg",
     "rawText": "TCF: Airport · TGT: Metropole · Availability: · Available · Size: · 03x06 Qty: 10 · Rate Per Month: IDX No: 802045 · PKR: 1,000,000/- · Digital Streamer Shahra e Faisal Star Gate",
-    "globalNo": 1236,
+    "globalNo": 1342,
     "id": "vp-2026-1236"
   },
   {
@@ -30922,7 +33678,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s48.jpg",
     "rawText": "COD-Askari-IV · FTCF Drighroad · TGT : Millennium and vice versa · Availability: · Available · Size: · 3x6 (QTY:20) · Rate Per Month: IDX No · PKR: 2,200,000/-",
-    "globalNo": 1237,
+    "globalNo": 1343,
     "id": "vp-2026-1237"
   },
   {
@@ -30947,7 +33703,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s49.jpg",
     "rawText": "Karsaz Market-NHS · FTCF Awami Markaz Shara E faisal · TGT Drighroad and vice versa · Availability: · Available · Size: · 3x6 (QTY:20) · Rate Per Month: IDX No: · PKR: 2,200,000/-",
-    "globalNo": 1238,
+    "globalNo": 1344,
     "id": "vp-2026-1238"
   },
   {
@@ -30972,7 +33728,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s50.jpg",
     "rawText": "SHAHRAH-E-FAISAL, LAL QILA DIGITAL STREAMERS · FTCF Main Baloch Pull Shahra-e-Faisal · TGT Nata Khan Bridge Airport Road Shahrah-e-Faisal · Availability: · Available · Size: W: 3 x H: 6 · Qty: 10 Double Side W: 240 pixels x H 480 pixels · Rate Per Month IDX No:801834 · PKR 800,000 /-",
-    "globalNo": 1239,
+    "globalNo": 1345,
     "id": "vp-2026-1239"
   },
   {
@@ -30997,7 +33753,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s51.jpg",
     "rawText": "SHAHRAH-E-FAISAL, NURSERY DIGITAL STREAMERS-01 · FTCF Main FTC Flyover , Nursery Bridge · TGT Lalkhoti , Airport Road Shahrah-e-Faisal · Availability: · Available · Size: W: 3 x H: 6 · Qty: 26 W: 240 pixels x H 480 pixels · Rate Per Month IDX No:801837 · PKR 1,600,000 /-",
-    "globalNo": 1240,
+    "globalNo": 1346,
     "id": "vp-2026-1240"
   },
   {
@@ -31022,7 +33778,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s52.jpg",
     "rawText": "SHAHRAH-E-FAISAL, NURSERY DIGITAL STREAMERS-02 · FTCF: Lal khoti Bridge Airport Road Shahra-e-Faisal · TGT: Nursery Flyover, FTC Shahrah-e-Faisal · Availability: · Available · Size: W: 3 x H: 6 · Qty: 18 W: 240 pixels x H 480 pixels · Rate Per Month IDX No:801838 · PKR 1,200,000 /-",
-    "globalNo": 1241,
+    "globalNo": 1347,
     "id": "vp-2026-1241"
   },
   {
@@ -31047,7 +33803,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s53.jpg",
     "rawText": "FTCF: Metropole / Nursery · TGT: Karsaz / Airport · Availability: · Available · Size: · 3x6 QTY: 20 · Rate Per Month: IDX No:798732 · 2,500,000/- · Fauzia Wahab Digital Streamers",
-    "globalNo": 1242,
+    "globalNo": 1348,
     "id": "vp-2026-1242"
   },
   {
@@ -31072,7 +33828,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s54.jpg",
     "rawText": "Aisha Bawani Shahra e Faisal Streamers · FTCF :Aisha Bawani Academy · TGT : SIUT /Army selection center/Karachi police station · Availability: · Available · Size: · 03x06 (30) · Rate Per Month · PKR 2,000,000 · IDX No:802780",
-    "globalNo": 1243,
+    "globalNo": 1349,
     "id": "vp-2026-1243"
   },
   {
@@ -31097,7 +33853,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s55.jpg",
     "rawText": "TCF: Metropole · TGT: FTC/ Air port · Availability: · Available · Size: · 3x6 Qty: 20 · Rate Per Month: IDX No:802925 · 2,200,000/- · Main Avari Hotel / Kashif Center",
-    "globalNo": 1244,
+    "globalNo": 1350,
     "id": "vp-2026-1244"
   },
   {
@@ -31122,7 +33878,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s56.jpg",
     "rawText": "FTCT Shahrah-e-Faisal, · TGT Allah Wali Chowrangi, Tariq Road & Dolmen Mall. · Availability: · Available · Size: · 3x6 Qty: 20 · Rate Per Month: IDX No:798728-798729 · 1,600,000 · Main Shahrah-e-Quaideen Digital Streamers",
-    "globalNo": 1245,
+    "globalNo": 1351,
     "id": "vp-2026-1245"
   },
   {
@@ -31147,7 +33903,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s57.jpg",
     "rawText": "Khaleeq Uz Zamaan Road / Bacha Party · FTCF : Lilly bridge towards gizri road · TGT : Gizri road towards lilly bridge · Availability: · Available · Size: · 03x06 (23 Dubble Side+04 Single Side) Total QTY: 50 · Rate Per Month · PKR 2,500,000 · IDX No:802328",
-    "globalNo": 1246,
+    "globalNo": 1352,
     "id": "vp-2026-1246"
   },
   {
@@ -31172,7 +33928,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s58.jpg",
     "rawText": "Boat Basin Digital Streamers · FTCF : Boat Basin · TGT : Schon Circle · Availability: · Available · Size: · 03 x 06 Qty: 20 · Per Month Rate: IDX No:801434 · PKR: 4,500,000/-",
-    "globalNo": 1247,
+    "globalNo": 1353,
     "id": "vp-2026-1247"
   },
   {
@@ -31197,7 +33953,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s59.jpg",
     "rawText": "Boat Basin Digital Streamers · FTCF : Schon Circle · TGT : Boat Basin · Availability: · Available · Size: · 03 x 06 Qty: 20 · Per Month Rate: IDX No:801435 · PKR: 4,500,000/-",
-    "globalNo": 1248,
+    "globalNo": 1354,
     "id": "vp-2026-1248"
   },
   {
@@ -31222,7 +33978,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s60.jpg",
     "rawText": "26th Street Digital Streamers 01 · FTCF: 26th Street · TGT : Abdullah Shah Ghazi Mazaar · Availability: · Available · Size: · 03x06 Qty: 07 · Rate Per Month: IDX No:802851 · Pak Rs. 750,000/-",
-    "globalNo": 1249,
+    "globalNo": 1355,
     "id": "vp-2026-1249"
   },
   {
@@ -31247,7 +34003,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s61.jpg",
     "rawText": "26th Street Digital Streamers 02 · FTCF: Abdullah Shah Ghazi Mazaar · TGT : 26TH Street · Availability: · Available · Size: · 03x06 Qty: 07 · Rate Per Month: IDX No:802852 · Pak Rs. 750,000/-",
-    "globalNo": 1250,
+    "globalNo": 1356,
     "id": "vp-2026-1250"
   },
   {
@@ -31272,7 +34028,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s62.jpg",
     "rawText": "Bahria Icon Flyover Streamers · FTCF: 26th Street · TGT : Abdullah Shah Ghazi Mazaar · Availability: · Available · Size: · 03x06 Qty: 15 Single Side · Rate Per Month: IDX No:798450 · Pak Rs. 1,800,000/-",
-    "globalNo": 1251,
+    "globalNo": 1357,
     "id": "vp-2026-1251"
   },
   {
@@ -31297,7 +34053,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s63.jpg",
     "rawText": "Hyper Star Digital Streamer (Sea View) · FTCF Hyper Roundabout · TGT DHA/McDonald’s · Availability: · Available · Size: · 03x06 Qty: · 09 Single Side · Per Month Rate: · PKR: 1,100,000/ · IDX No :799752",
-    "globalNo": 1252,
+    "globalNo": 1358,
     "id": "vp-2026-1252"
   },
   {
@@ -31322,7 +34078,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s64.jpg",
     "rawText": "Hyper Star Digital Streamer (Sea View) · FTCF DHA/McDonald’s · TGT Hyper Roundabout · Availability: · Available · Size: · 03x06 QTY 09 · Per Month Rate: · PKR: 1,100,000 · IDX No:799753",
-    "globalNo": 1253,
+    "globalNo": 1359,
     "id": "vp-2026-1253"
   },
   {
@@ -31347,7 +34103,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s65.jpg",
     "rawText": "III Sword Digital Streamers · FTCF: Clifton Bridge · TGT : 3 Sword · Availability: · Available · Size: · 03x06 Qty: 10 · Rate Per Month: IDX No:791294 · Pak Rs: 800,000/-",
-    "globalNo": 1254,
+    "globalNo": 1360,
     "id": "vp-2026-1254"
   },
   {
@@ -31372,7 +34128,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s66.jpg",
     "rawText": "III Sword Digital Streamers · FTCF: 3 Sword · TGT : Clifton Bridge · Availability: · Available · Size: · 03x06 Qty: 10 · Rate Per Month: IDX No: 791007 · Pak Rs: 800,000/-",
-    "globalNo": 1255,
+    "globalNo": 1361,
     "id": "vp-2026-1255"
   },
   {
@@ -31397,7 +34153,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s67.jpg",
     "rawText": "III SWORD CLIFTON DIGITAL STREAMERS-01 · FTCF II Sword KPT Under pass / Boat Basin · TGT III Sword, Clifton Bridge, marriot Signal · Availability: · Available · Size: W: 3 x H: 6 · Qty: 13 Double Side · Rate Per Month: IDX No:801620 · PKR 1,600,000 /-",
-    "globalNo": 1256,
+    "globalNo": 1362,
     "id": "vp-2026-1256"
   },
   {
@@ -31422,7 +34178,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s68.jpg",
     "rawText": "II SWORD CLIFTON DIGITAL STREAMERS-02 · FTCF III Sword Kpt Under pass / Punjab Chowrangi · TGT II Sword Park Tower / ZamZama · Availability: · Available · Size: W: 3 x H: 6 · Qty: 14 Double Side · Rate Per Month IDX No:801621 · PKR 1,800,000 /-",
-    "globalNo": 1257,
+    "globalNo": 1363,
     "id": "vp-2026-1257"
   },
   {
@@ -31447,7 +34203,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s69.jpg",
     "rawText": "Clifton Bridge Streamers · FTCF: Clifton Bridge · TGT : 3 Sword · Availability: · Available · Size: · 03x06 Qty: 15 Double side · Rate Per Month: IDX No:802853 · Pak Rs: 2,200,000/-",
-    "globalNo": 1258,
+    "globalNo": 1364,
     "id": "vp-2026-1258"
   },
   {
@@ -31472,7 +34228,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s70.jpg",
     "rawText": "Naheed Store, Shaheed e Millat Digital Streamer - 01 · FTCF: Baloch Flyover Umer Shareef Under Pass · TGT: Shaheed e Millat Tariq Road, Jail Road · Availability: · Available · Size: W: 3 x H: 6 · Qty: 10W: 240 pixels x H 480 pixels · Rate Per Month IDX No: 801427 · PKR 800,000 /-",
-    "globalNo": 1259,
+    "globalNo": 1365,
     "id": "vp-2026-1259"
   },
   {
@@ -31497,7 +34253,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s71.jpg",
     "rawText": "Naheed Store, Shaheed e Millat Digital Streamer - 02 · FTCF: Shaheed e Millat Tariq Road, Jail Road · TGT: Baloch Flyover Umer Shareef Under pass · Availability: · Available · Size: W: 3 x H: 6 · Qty: 10 W: 240 pixels x H 480 pixels · Rate Per Month IDX No:801428 · PKR 800,000 /-",
-    "globalNo": 1260,
+    "globalNo": 1366,
     "id": "vp-2026-1260"
   },
   {
@@ -31522,7 +34278,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s72.jpg",
     "rawText": "Shaheed e Millat ABL Digital Streamer · FTCF: Shaheed-e-millat to jail road flyover · TGT: Jail road flyover to shaheed-e-millat · Availability: · Available · Size: W: 3 x H: 6 · Qty: 24W: 240 pixels x H 480 pixels · Rate Per Month IDX No:801642 · 1,500,000/-",
-    "globalNo": 1261,
+    "globalNo": 1367,
     "id": "vp-2026-1261"
   },
   {
@@ -31547,7 +34303,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s73.jpg",
     "rawText": "Autobhan (Opp PK Roll And Chase Value) · TCF: GIDU CHOWK AUTOBHAN · TGT: BOULEVARD AND CHASEUP · Availability:Available · Size:22’x10‘ 1120(W) X 512 (H) · Rate Per Month per slot · 1,500,000",
-    "globalNo": 1262,
+    "globalNo": 1368,
     "id": "vp-2026-1262"
   },
   {
@@ -31572,7 +34328,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Digital Standee / SMD",
     "photo": "/vendor-media/outsight_dig_s74.jpg",
     "rawText": "AUTOBHAN (GIDU CHOWK TO CHASE VALUE) · TCF: GIDU CHOWK AUTOBHAN TOWARDS BOULEVARD AND CHASEUP · TGT: CHASE VALUE TOWARD AUTOBHAN GIDU CHOWK · Availability:Available · Size:4 X 2 QTY : 30/60 · Rate Per Month per slot · 1,500,000",
-    "globalNo": 1263,
+    "globalNo": 1369,
     "id": "vp-2026-1263"
   },
   {
@@ -31597,7 +34353,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s1.jpg",
     "rawText": "Hyper Star Dolmen Mall Clifton · FTCF Hyper Roundabout · TGT DHA/McDonald’s · Availability: · 28 Nov,2026 · Size: · 75X30 (FLEX) · Rate Per Month IDX NO : 801211 · PKR 3,000,000/-",
-    "globalNo": 1264,
+    "globalNo": 1370,
     "id": "vp-2026-1264"
   },
   {
@@ -31622,7 +34378,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s2.jpg",
     "rawText": "Sea View Ghora Chowrangi Opp Dolmen Mall (Per Side) · FTCF Ghora Roundabout · TGT Palm Roundabout Hyperstar Clifton · Availability · 26 Nov,2026 · Size: · (45 X 30) (45 X 30) (FLEX) · Rate Per Month IDX NO : 800450 · Pkr 3,500,000",
-    "globalNo": 1265,
+    "globalNo": 1371,
     "id": "vp-2026-1265"
   },
   {
@@ -31647,7 +34403,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Backlit Board",
     "photo": "/vendor-media/outsight_hb20_s3.jpg",
     "rawText": "FTCF: Bilawal Chowrangi · TGT: Sea View · Availability: · 28 Nov,2026 · Size: Qty: 01 Backlit 44x10 · Qty: 02 Backlit 18x06 · Rate Per Month: IDX NO : 802497 · PKR: /-2,000,000 · Dmc Hyper Star Clifton/Quaid E Azam Roundabout",
-    "globalNo": 1266,
+    "globalNo": 1372,
     "id": "vp-2026-1266"
   },
   {
@@ -31672,7 +34428,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s4.jpg",
     "rawText": "Hyper Star Dolmen Mall Clifton · FTCF Seaview MacDonald · TGT Dolman mall Clifton/Plam Roundabout · Availability: · 25 Nov,2026 · Size: · 75X25 (FLEX) · Rate Per Month IDX NO : 802819 · PKR3,500,000",
-    "globalNo": 1267,
+    "globalNo": 1373,
     "id": "vp-2026-1267"
   },
   {
@@ -31697,7 +34453,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s5.jpg",
     "rawText": "Hyper Star Dolman Mall 02 · FTCF Dolman mall Hyper / 26 street · TGT Seaviw Macdonald / Clock Tower · Availability: · 28 Nov,2026 · Size: · 75x30 (Flex) · Rate Per Month IDX NO : 802702 · PKR 3,200,000",
-    "globalNo": 1268,
+    "globalNo": 1374,
     "id": "vp-2026-1268"
   },
   {
@@ -31722,7 +34478,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s6.jpg",
     "rawText": "Beach View Club Sea View · FTCF : Village Restaurant · TGT: Dolman Mall Clifton · Availability: · 28 Nov,2026 · Size: · 60x20 Flex · Rate Per Month: IDX NO : 801975 · PKR: 2,000,000/-",
-    "globalNo": 1269,
+    "globalNo": 1375,
     "id": "vp-2026-1269"
   },
   {
@@ -31747,7 +34503,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s7.jpg",
     "rawText": "Dmc Hyper Star / Quaid E Azam Round About Board A · FTCF: Sea View · TGT: Palm Chowrangi · Availability: · 30 June,2027 Extendable · Size: · 45x15 Qty: 01 · Rate Per Month: IDX NO : 802589 · PKR: /- 1,500,000",
-    "globalNo": 1270,
+    "globalNo": 1376,
     "id": "vp-2026-1270"
   },
   {
@@ -31772,7 +34528,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s8.jpg",
     "rawText": "Dmc Hyper Star / Quaid E Azam Round About Board B · FTCF: Sea View · TGT: Palm Chowrangi · Availability: · 30 June,2027 Extendable · Size: · 45x15 Qty: 01 · Rate Per Month: IDX NO : 802590 · PKR: /- 1,500,000",
-    "globalNo": 1271,
+    "globalNo": 1377,
     "id": "vp-2026-1271"
   },
   {
@@ -31797,7 +34553,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s9.jpg",
     "rawText": "Dmc Hyper Star / Quaid E Azam Round About Board C · FTCF: Sea View · TGT: Palm Chowrangi · Availability: · 30 June,2027 Extendable · Size: · 35x10 · Rate Per Month: IDX NO : 802818 · PKR: /-1,200,000",
-    "globalNo": 1272,
+    "globalNo": 1378,
     "id": "vp-2026-1272"
   },
   {
@@ -31822,7 +34578,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s10.jpg",
     "rawText": "Hyper Star Dolmen Mall Clifton · FTCF Hyper Roundabout · TGT DHA/McDonald’s · Availability: · Long Term book · Size: · 70X25 (FLEX) · Rate Per Month · PKR 2,200,000/- · MOVE Idx",
-    "globalNo": 1273,
+    "globalNo": 1379,
     "id": "vp-2026-1273"
   },
   {
@@ -31847,7 +34603,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s11.jpg",
     "rawText": "Hyper Star Dolmen Mall Clifton · FTCF Hyper Roundabout · TGT DHA/McDonald’s · Availability: · 30 Nov,2026 Extendable · Size: · 18X45 (FLEX) · Rate Per Month IDX NO : 798769 · PKR 2,000,000/-",
-    "globalNo": 1274,
+    "globalNo": 1380,
     "id": "vp-2026-1274"
   },
   {
@@ -31872,7 +34628,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s12.jpg",
     "rawText": "Emerald Tower, Main 2 Sword Round About · FTCF Zamzama Parktower · TGT 3 Sword and Clifton · Availability: · 28 Nov,2026 · Size: · 80X35 (Vinyl) · Rate Per Month · PKR 3,000,000/- · IDX NO : 799225",
-    "globalNo": 1275,
+    "globalNo": 1381,
     "id": "vp-2026-1275"
   },
   {
@@ -31897,7 +34653,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s13.jpg",
     "rawText": "Car Deal (Schon Circle) (01) · FTCF II Sword · TGT III Sword Clifton / Boat Basin · Availability: · 02 March,2027 · Size: · 70x30 · Rate Per Month IDX NO : 800694 · PKR 2,500,000/-",
-    "globalNo": 1276,
+    "globalNo": 1382,
     "id": "vp-2026-1276"
   },
   {
@@ -31922,7 +34678,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s14.jpg",
     "rawText": "Car Deal (Schon Circle) (02) · FTCF III Sword / Punjab Chowrangi · TGT II Sword Bahria Iconic · Availability: · 15 Jan,2027 · Size: · 61x30 · Rate Per Month IDX NO : 801273 · PKR 2,500,000/-",
-    "globalNo": 1277,
+    "globalNo": 1383,
     "id": "vp-2026-1277"
   },
   {
@@ -31947,7 +34703,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s15.jpg",
     "rawText": "Bahria Iconic Flyover (26th Street) · FTCF : 26 Street · TGT : Pak Tower · Availability · 30 Nov,2026 Extendable · Size: · 85X30 (FLEX) · Rate Per Month IDX NO : 799987 · PKR 2,500,000/-",
-    "globalNo": 1278,
+    "globalNo": 1384,
     "id": "vp-2026-1278"
   },
   {
@@ -31972,7 +34728,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s16.jpg",
     "rawText": "Hanging Garden 02 (Main Boat Basin) · FTCF : Bilawal House / Queens Road · TGT : Punjab Calony / Defence Phase 2 · Availability: · 27 Nov,2026 · Size: · 60x20 (flex) · Rate Per Month IDX NO : 801382 · PKR 2,200,000/-",
-    "globalNo": 1279,
+    "globalNo": 1385,
     "id": "vp-2026-1279"
   },
   {
@@ -31997,7 +34753,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s17.jpg",
     "rawText": "Main Boat Basin · FTCF Punjab Calony / Defence Phase 2 · TGT Bilawal House / Queens Road · Availability: · Long term · Size: · 185X13 (VINYL) · Rate Per Month IDX NO : 800732 · PKR 2,500,000/-",
-    "globalNo": 1280,
+    "globalNo": 1386,
     "id": "vp-2026-1280"
   },
   {
@@ -32022,7 +34778,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s18.jpg",
     "rawText": "Hanging Garden 01 (Main Boat Basin) · FTCF Punjab Calony / Defence Phase 2 · TGT Bilawal House / Queens Road/ Boat Basin · Availability: · Long term · Size: · 60X20 (FLEX) · Rate Per Month IDX NO : 801189 · PKR 1,600,000/-",
-    "globalNo": 1281,
+    "globalNo": 1387,
     "id": "vp-2026-1281"
   },
   {
@@ -32047,7 +34803,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s19.jpg",
     "rawText": "3 Swords (A) · FTCF Clifton Bridge / 3 swords · TGT 2 Swords · Availability: · Available · Size: · 13.6X60 (VINYL) · Rate Per Month IDX No :798247 · PKR 500,000/-",
-    "globalNo": 1282,
+    "globalNo": 1388,
     "id": "vp-2026-1282"
   },
   {
@@ -32072,7 +34828,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s20.jpg",
     "rawText": "3 Swords (B) · FTCF 2 Swords · TGT 3 Swords / Clifton Bridge · Availability: · Available · Size: · 13.6X60 (VINYL) · Rate Per Month IDX No: 798910 · PKR 500,000/-",
-    "globalNo": 1283,
+    "globalNo": 1389,
     "id": "vp-2026-1283"
   },
   {
@@ -32097,7 +34853,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s21.jpg",
     "rawText": "Clifton / 3 Swords (Chappel 3) · FTCF 2 Swords · TGT 3 Swords / Clifton Bridge · Availability: · 27 Nov,2026 · Size: · 20X55 (FLEX) · Rate Per Month IDX NO : 798771 · PKR 1,200,000/-",
-    "globalNo": 1284,
+    "globalNo": 1390,
     "id": "vp-2026-1284"
   },
   {
@@ -32122,7 +34878,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s22.jpg",
     "rawText": "3 Sword Al Habib 02 · FTCF : Clifton Bridge · TGT : KPT under pass 2 Sword/Punjab Chowrangi · Availability: · 04 Dec,2026 · Size: · 60x30 (flex) · Rate Per Month IDX No: 801386 · 2,200,000/-",
-    "globalNo": 1285,
+    "globalNo": 1391,
     "id": "vp-2026-1285"
   },
   {
@@ -32147,7 +34903,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s23.jpg",
     "rawText": "Clifton Centre · FTCF : PUNJAB CHORANGI, SCHON CIRCLE/ 3 SWORDS · TGT : BOAT BASIN / 2 SWORDS · Availability: · 24 Dec,2026 · Size: · 80x55 (MESHFLEX) · Rate Per Month IDX No:799082 · 3,500,000/-",
-    "globalNo": 1286,
+    "globalNo": 1392,
     "id": "vp-2026-1286"
   },
   {
@@ -32172,7 +34928,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s24.jpg",
     "rawText": "Clifton Centre · FTCF : BOAT BASIN · TGT : SCHON CIRCLE/03 SWORD · Availability: · Available · Size: · 60x50 (MESHFLEX) · Rate Per Month IDX No:799083 · 2,200,000/-",
-    "globalNo": 1287,
+    "globalNo": 1393,
     "id": "vp-2026-1287"
   },
   {
@@ -32197,7 +34953,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s25.jpg",
     "rawText": "3 Sword Al Habib 01 · FTCF Clifton Bridge · TGT KPT under pass 2 Sword/Punjab Chorangi · Availability · 25 Nov,2026 · Size: · 90x30 (Flex) · Rate Per Month IDX No: 800313 · 3,500,000/-",
-    "globalNo": 1288,
+    "globalNo": 1394,
     "id": "vp-2026-1288"
   },
   {
@@ -32222,7 +34978,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s26.jpg",
     "rawText": "III Sword Chapel 3 · FTCF : Clifton Bridge · TGT : III Talwar · Availability: · 30 Dec,2026 · Size: · 65x30 (flex) · Rate Per Month IDX No: 801159 · 2,200,000/-",
-    "globalNo": 1289,
+    "globalNo": 1395,
     "id": "vp-2026-1289"
   },
   {
@@ -32247,7 +35003,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s27.jpg",
     "rawText": "Schon Circle Triangle/ Clifton · FTCF : Sunset/The Form · TGT : Boat basin /2 Sword · Availability: · 27 Nov,2026 · Size: · 40x15 (FLEX) · Rate Per Month · 2,000,000",
-    "globalNo": 1290,
+    "globalNo": 1396,
     "id": "vp-2026-1290"
   },
   {
@@ -32272,7 +35028,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s28.jpg",
     "rawText": "Ittehad Masjid Pso · FTCF : Clock Tower/ DHA Phase 08 · TGT : Ayesha Masjid · Availability: · 29 Nov,2026 · Lock from 01 Jan till 01 March,2027 · Size: · 35x30, 50x30 Total: 85x30 · Per Month Rate: IDX No : 801976 · PKR: 3,500,000/-",
-    "globalNo": 1291,
+    "globalNo": 1397,
     "id": "vp-2026-1291"
   },
   {
@@ -32297,7 +35053,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s29.jpg",
     "rawText": "Dha Phase 8 Newplex Cinema Dha · FTCF Creek Club · TGT Vista/Emmar/Seaview · Availability: · 19 Dec,2026 · Size: · 60X25 (FLEX) · Rate Per Month: IDX No: 802470 · PKR: 2,000,000/- · Starting Date: · 04 Dec,2025",
-    "globalNo": 1292,
+    "globalNo": 1398,
     "id": "vp-2026-1292"
   },
   {
@@ -32322,7 +35078,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s30.jpg",
     "rawText": "Main Creek Vista Apartments, Nuplex Cinema Phase 8 · FTCF Creek Vista/Emmar/Seaview · TGT Creek Club · Availability: · 26 Nov,2026 · Lock from 17 Dec till 30 Dec,2026 · Size: · 70X30 (FLEX) · Rate Per Month: IDX No: 801977 · PKR: 3,000,000/-",
-    "globalNo": 1293,
+    "globalNo": 1399,
     "id": "vp-2026-1293"
   },
   {
@@ -32347,7 +35103,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s31.jpg",
     "rawText": "Main Creek Vista Apartments, Phase 8, Dha Karachi · FTCF Creek Club · TGT Creek Vista/ Emaar/ Seaview · Availability: · 28 Nov,2026 · Size: Left Side 35’x12’ & Right Side 45’x12 (Total Size: 80x12) · Rate Per Month: IDX No: 799314 · PKR: 2,500,000/-",
-    "globalNo": 1294,
+    "globalNo": 1400,
     "id": "vp-2026-1294"
   },
   {
@@ -32372,7 +35128,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s32.jpg",
     "rawText": "Moin Khan Academy Dha · FTCF Nuplex Imtiaz · TGT Golf Clob/ Do Darya · Availability: · 28 Nov,2026 · Artwork Size: 32x42 · Rate Per Month IDX No : 799850 · PKR 2,500,000",
-    "globalNo": 1295,
+    "globalNo": 1401,
     "id": "vp-2026-1295"
   },
   {
@@ -32397,7 +35153,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s33.jpg",
     "rawText": "Moin Khan Academy / Imtaiz supper store Dha Phase 8 · FTCF Sea View Creek Vista · TGT Creek club /Aisha Masjid · Availability: · 04 Dec,2026 · Size: · 45x15 · Rate Per Month: IDX No:803117 · PKR: 2,200,000/-",
-    "globalNo": 1296,
+    "globalNo": 1402,
     "id": "vp-2026-1296"
   },
   {
@@ -32422,7 +35178,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s34.jpg",
     "rawText": "DHA EXIT · FTCF Sea View, Khayaban E Itthead DHA Golf Club. Phase 5,6 And 8 · TGT Main Korangi Road, Baluch Fly Over And Korangi Industrial Area · Availability: · 30 March,2027 · Extendable · Size: · 122x20 · Rate Per Month: · PKR: 4,500,000/-",
-    "globalNo": 1297,
+    "globalNo": 1403,
     "id": "vp-2026-1297"
   },
   {
@@ -32447,7 +35203,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s35.jpg",
     "rawText": "DHA EXIT Site 01 · FTCF Sea View, Khayaban E Itthead DHA Golf Club. Phase 5,6 And 8 · TGT Main Korangi Road, Baluch Fly Over And Korangi Industrial Area · Availability: · 30 March,2027 · Extendable · Size: · 60x20 · Rate Per Month: · PKR: 2,200,000/-",
-    "globalNo": 1298,
+    "globalNo": 1404,
     "id": "vp-2026-1298"
   },
   {
@@ -32472,7 +35228,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s36.jpg",
     "rawText": "DHA EXIT Site 02 · FTCF Sea View, Khayaban E Itthead DHA Golf Club. Phase 5,6 And 8 · TGT Main Korangi Road, Baluch Fly Over And Korangi Industrial Area · Availability: · 30 March,2027 · Extendable · Size: · 60x20 · Rate Per Month: · PKR: 2,200,000/-",
-    "globalNo": 1299,
+    "globalNo": 1405,
     "id": "vp-2026-1299"
   },
   {
@@ -32497,7 +35253,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s37.jpg",
     "rawText": "Saudi Embassy/Gizri · FTCF : Saudi Embassy · TGT: Khayabaan e Momin & Sunset · Starting Date: · 08 Dec,2026 · Size: · 60x20 · Rate Per Month: IDX No: 802821 · PKR: 2,600,000/-",
-    "globalNo": 1300,
+    "globalNo": 1406,
     "id": "vp-2026-1300"
   },
   {
@@ -32522,7 +35278,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s38.jpg",
     "rawText": "Legends Arena Khadda market DHA phase 5 · FTCF sea view · TGT Legends Arena /khada market/Saudi consulate · Availability: · 28 Nov,2026 · Size: · 45x15 · Rate Per Month: IDX No:803118 · PKR: 1,800,000/-",
-    "globalNo": 1301,
+    "globalNo": 1407,
     "id": "vp-2026-1301"
   },
   {
@@ -32547,7 +35303,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s39.jpg",
     "rawText": "Khaliq Uz Zaman Road Bacha Party · FTCF Gizri Flyover & The Forum · TGT CM House & Lilly Bridge · Availability: · 28 Nov,2026 · Size: · 60x20 · Rate Per Month: IDX No:803119 · PKR: 1,800,000/-",
-    "globalNo": 1302,
+    "globalNo": 1408,
     "id": "vp-2026-1302"
   },
   {
@@ -32572,7 +35328,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s40.jpg",
     "rawText": "Main Gizri Flyover · FTCF : Punjab Chowrangi · TGT : Saudi Embassy Karachi · Availability: · 01 Dec2026 · Size: · 75x 25 · Per Month Rate: · PKR: 2,000,000/- · IDX No : 800200",
-    "globalNo": 1303,
+    "globalNo": 1409,
     "id": "vp-2026-1303"
   },
   {
@@ -32597,7 +35353,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s41.jpg",
     "rawText": "Qt Signal (Dha Phase 1) · FTCF: Itehad Signal / DHA / Sunset Buleward · TGT : NMC Kala Pull / Shahrah-e-Faisal FTC · Availability: · Long Term · Size: · 70x25 (FLEX) · Rate Per Month IDX No : 801181 · PKR 4,000,000/-",
-    "globalNo": 1304,
+    "globalNo": 1410,
     "id": "vp-2026-1304"
   },
   {
@@ -32622,7 +35378,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s42.jpg",
     "rawText": "Other Side View",
-    "globalNo": 1305,
+    "globalNo": 1411,
     "id": "vp-2026-1305"
   },
   {
@@ -32647,7 +35403,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s43.jpg",
     "rawText": "Defence Qt Signal 02 · FTCF : Sunset Signal · TGT : Kalal Pull · Availability: · 28 Nov,2026 · Size: · 70x25 (flex) · Rate Per Month IDX No: 801165 · 4,000,000/-",
-    "globalNo": 1306,
+    "globalNo": 1412,
     "id": "vp-2026-1306"
   },
   {
@@ -32672,7 +35428,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s44.jpg",
     "rawText": "Kpt Interchange Defence · H- 39 · W-83 · H- 39 · W-105 · H- 39 · W-50 · 80x37 · FTCF DHA, Korangi Road · TGT Expressway/Imtiaz super market. · Availability: · 28 Nov,2026 · Panel Size: · L: 83x39C: 105x39R: 50x39 · Rate Per Month · PKR 3,500,000/- Month · IDX No:",
-    "globalNo": 1307,
+    "globalNo": 1413,
     "id": "vp-2026-1307"
   },
   {
@@ -32697,7 +35453,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s45.jpg",
     "rawText": "Kpt Interchange Defence 01 · FTCF DHA, Korangi Road · TGT Expressway/Imtiaz super market. · Availability: · 28 Nov,2026 · Panel Size: · L: 83x39 · Rate Per Month · PKR 800,000/- Month · IDX No: 802822",
-    "globalNo": 1308,
+    "globalNo": 1414,
     "id": "vp-2026-1308"
   },
   {
@@ -32722,7 +35478,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s46.jpg",
     "rawText": "Kpt Interchange Defence 02 · FTCF DHA, Korangi Road · TGT Expressway/Imtiaz super market. · Availability: · 28 Nov,2026 · Panel Size: · C: 105x39 · Rate Per Month · PKR 2,000,000/- Month · IDX No : 801948",
-    "globalNo": 1309,
+    "globalNo": 1415,
     "id": "vp-2026-1309"
   },
   {
@@ -32747,7 +35503,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s47.jpg",
     "rawText": "FTCF DHA, Korangi Road · TGT Expressway/Imtiaz super market. · Availability: · 28 Nov,2026 · Panel Size: · R: 50x39 · Rate Per Month · PKR 800,000/- Month · IDX No :802823 · Kpt Interchange Defence 03",
-    "globalNo": 1310,
+    "globalNo": 1416,
     "id": "vp-2026-1310"
   },
   {
@@ -32772,7 +35528,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s48.jpg",
     "rawText": "Kpt Interchange Pso · FTCF : DHA Ittehad Road, · TGT: Korangi Creek / Brooks Chowrangi · Availability: · 28 Nov,2026 · Size: · 128 X 34 · Rate Per Month: IDX No :802824 · Pkr: 2,500,000/-",
-    "globalNo": 1311,
+    "globalNo": 1417,
     "id": "vp-2026-1311"
   },
   {
@@ -32797,7 +35553,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s49.jpg",
     "rawText": "Ittehad Signal · FTCF KPT BRIDGE · TGT ITTEHAD SIGNAL / DHA PHASE 1 · Availability: · 28 Nov,2026 · Size: · 80X42 (FLEX) · Rate Per Month IDX No: 799679 · PKR 2,200,000/-",
-    "globalNo": 1312,
+    "globalNo": 1418,
     "id": "vp-2026-1312"
   },
   {
@@ -32822,7 +35578,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s50.jpg",
     "rawText": "Ittehad Signal (Curve) · FTCF KPT BRIDGE · TGT ITTEHAD SIGNAL / DHA PHASE 1 · Availability: · 28 Nov,2026 · Size: · 35X40 (FLEX) · Rate Per Month IDX No : 800429 · PKR 1,000,000/-",
-    "globalNo": 1313,
+    "globalNo": 1419,
     "id": "vp-2026-1313"
   },
   {
@@ -32847,7 +35603,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s51.jpg",
     "rawText": "Akhter Colony · FTCF Kala Pull · TGT Itehad Signal at Korangi Road · Availability: · 28 Nov,2026 · Size: · 40X30 (FLEX) · Rate Per Month IDX No : 799967 · PKR 1,000,000/-",
-    "globalNo": 1314,
+    "globalNo": 1420,
     "id": "vp-2026-1314"
   },
   {
@@ -32872,7 +35628,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s52.jpg",
     "rawText": "Nmc Kaala Pul · FTCF Ittehad DHA Phase 1 · TGT Kaala Pul / FTC Shahra E Faisal · Availability: · 28 Nov,2026 · Size: · 35X40 (FLEX) · Rate Per Month IDX No : 800025 · PKR 1,000,000/-",
-    "globalNo": 1315,
+    "globalNo": 1421,
     "id": "vp-2026-1315"
   },
   {
@@ -32897,7 +35653,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s53.jpg",
     "rawText": "Tibbet Centre – M.A. Jinnah Road · FTCF Numaish · TGT Tower · Availability: · Available · Size: · (50X25) (50X25 )(FLEX) · Rate Per Month IDX No : 801488 · PKR 2,000,000/-",
-    "globalNo": 1316,
+    "globalNo": 1422,
     "id": "vp-2026-1316"
   },
   {
@@ -32922,7 +35678,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s54.jpg",
     "rawText": "M. A Jinah Road 01 · TCF :Abdullah Haroon road & Radio Pakistan · TGT: MA Jinnah mazar.e.Quaid & Gardan · Availability: · 12 Dec,2026 · Size: · 60x30 (Flex) · Rate Per Month: IDX No :802830 · PKR:1,600,000",
-    "globalNo": 1317,
+    "globalNo": 1423,
     "id": "vp-2026-1317"
   },
   {
@@ -32947,7 +35703,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s55.jpg",
     "rawText": "M. A Jinah Road 02 · TCF :Numaish chowrangii & Mazar.e.Quaid · TGT: Abdullah Haroon road & Radio Pakistan & Light House · Availability: · 28 Nov,2026 · Size: · 60x30 Flex · Rate Per Month: IDX No: 802831 · PKR:1,600,000",
-    "globalNo": 1318,
+    "globalNo": 1424,
     "id": "vp-2026-1318"
   },
   {
@@ -32972,7 +35728,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s56.jpg",
     "rawText": "Main Saddar / Empress Market · FTCF M.A Jinnah Road · TGT Empress Market Saddar · Availability · 28 Nov,2026 · Size: · 60X40 (FLEX) · Rate Per Month IDX No : 800110 · PKR 1,500,000/-",
-    "globalNo": 1319,
+    "globalNo": 1425,
     "id": "vp-2026-1319"
   },
   {
@@ -32997,7 +35753,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s57.jpg",
     "rawText": "TCF: Nursery Shahra e faisal Airport · TGT: FTC Metropole · Availability: · 26 Nov,2026 · Size: · 83 x 90 (Flex) · Rate Per Month: IDX No: 799571 · PKR: 4,500,000/- · The Plaza",
-    "globalNo": 1320,
+    "globalNo": 1426,
     "id": "vp-2026-1320"
   },
   {
@@ -33022,7 +35778,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s58.jpg",
     "rawText": "TCF: FTC · TGT: Karsaz Airport · Availability: · 28 Nov,2026 · Size: · 65x30 (Flex) · Rate Per Month: IDX No : 802554 · PKR: 1,600,000/- · Main Nursery Flyover Shahra E Faisal",
-    "globalNo": 1321,
+    "globalNo": 1427,
     "id": "vp-2026-1321"
   },
   {
@@ -33047,7 +35803,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s59.jpg",
     "rawText": "Nursery Shahra E Faisal · FTCF: Metropole · TGT: Airport · Availability: · 02 Dec,2026 · Size: · 75x30 (Flex) · Rate Per Month: IDX No : 802363 · PKR: 2,400,000/-",
-    "globalNo": 1322,
+    "globalNo": 1428,
     "id": "vp-2026-1322"
   },
   {
@@ -33072,7 +35828,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s60.jpg",
     "rawText": "Dadex – Shahrah E Faisal · FTCF Metropole · TGT Airport · Availability: · Long term Book · Size: · 50x60 (Flex) · Rate Per Month IDX No : 799812 · PKR 2,400,000/-",
-    "globalNo": 1323,
+    "globalNo": 1429,
     "id": "vp-2026-1323"
   },
   {
@@ -33097,7 +35853,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s61.jpg",
     "rawText": "Awami Markaz - Shahrah E Faisal · FTCF Metropole · TGT Airport · Availability: · 25 Nov,2026 · Size: · 70X30 (FLEX) · Rate Per Month IDX No : 801325 · PKR 2,000,000/-",
-    "globalNo": 1324,
+    "globalNo": 1430,
     "id": "vp-2026-1324"
   },
   {
@@ -33122,7 +35878,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s62.jpg",
     "rawText": "Ftc Triangle (Shahrah-e-faisal) · FTCF Avari Tower · TGT Shahra-e-Faisal / Nursery Bridge · Availability: · 28 Nov,2026 · Size: · 61.5X30 & 18.5X30 (VINYL) · Rate Per Month IDX No : 799118 · PKR 2,600,000/-",
-    "globalNo": 1325,
+    "globalNo": 1431,
     "id": "vp-2026-1325"
   },
   {
@@ -33147,7 +35903,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s63.jpg",
     "rawText": "Lotia Building Club Road · FTCF : Clifton Bridge Marriot Signal / Rado Triangle Shahrah-e-Faisal · TGT : Metropole Triangle Shahrah-e-Faisal /Fawara Chwok · Availability: · 10 May2027 Extendable · Size: · 45x20 (flex) · Rate Per Month IDX No : 799002 · 2,000,000/-",
-    "globalNo": 1326,
+    "globalNo": 1432,
     "id": "vp-2026-1326"
   },
   {
@@ -33172,7 +35928,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s64.jpg",
     "rawText": "II chundrigarh road 01 · FTCF Shaheen complex · TGT towards tower · Availability: · 28 Nov,2026 · Size: · 60X25(FLEX) · Rate Per Month IDX No : · PKR2,200,000",
-    "globalNo": 1327,
+    "globalNo": 1433,
     "id": "vp-2026-1327"
   },
   {
@@ -33197,7 +35953,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s65.jpg",
     "rawText": "Ftc Triangle (Shahrah-e-faisal) · FTCF Shahrah-e-Faisal / Nursery Bridge · TGT Avari Tower · Availability: · 28 Nov,2026 · Size: · 60x25 (FLEX) · Rate Per Month IDX No : 801169 · PKR 2,000,000/-",
-    "globalNo": 1328,
+    "globalNo": 1434,
     "id": "vp-2026-1328"
   },
   {
@@ -33222,7 +35978,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s66.jpg",
     "rawText": "Al-azayem Plaza (02) · FTCF : Quaideen/ Airport · TGT : Regent / Metropole · Availability: · 28 Nov,2026 · Size: · 35x48 (VINYL) · Rate Per Month IDX No : 798415 · PKR : 2,200,000/-",
-    "globalNo": 1329,
+    "globalNo": 1435,
     "id": "vp-2026-1329"
   },
   {
@@ -33247,7 +36003,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Roof Top / Wall Panel",
     "photo": "/vendor-media/outsight_hb20_s67.jpg",
     "rawText": "Al-azayem Plaza (Roof Top) 01 · FTCF Regent Plaza · TGT Sindhi Muslim/Shahra-e-Quaideen · Availability: · 30 Jan,2027 · Size: · 60X30 (FLEX) · Rate Per Month IDX No: 798414 · PKR: 1,500,000/-",
-    "globalNo": 1330,
+    "globalNo": 1436,
     "id": "vp-2026-1330"
   },
   {
@@ -33272,7 +36028,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Roof Top / Wall Panel",
     "photo": "/vendor-media/outsight_hb20_s68.jpg",
     "rawText": "Al-azayem Plaza (Roof Top) (02) · FTCF : Quaideen/ Airport · TGT : Regent / Metropole · Availability: · 26 Nov,2026 · Size: · 50x30 (FLEX) · Rate Per Month IDX No : 801184 · PKR : 1,600,000/-",
-    "globalNo": 1331,
+    "globalNo": 1437,
     "id": "vp-2026-1331"
   },
   {
@@ -33297,7 +36053,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s69.jpg",
     "rawText": "Shahra e Faisal, Drig Road Intersection · FTCF : Airport & Malir · TGT : Millennium Mall, Karsaz, FTC & Metropole · Availability: · 01 Dec,2026 · Size: · 60x25 (FLEX) · Rate Per Month IDX No : 801184 · PKR : 1,600,000/-",
-    "globalNo": 1332,
+    "globalNo": 1438,
     "id": "vp-2026-1332"
   },
   {
@@ -33322,7 +36078,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s70.jpg",
     "rawText": "Ftc Shahra E Faisal · FTCF: Metropole Shahra e Faisal · TGT: Airport Shahra E Faisal · Availability: · 10 Nov,2026 · Size: · 90x30 (Flex) With Lights · Rate Per Month IDX No : 800210 · 3,500,000/",
-    "globalNo": 1333,
+    "globalNo": 1439,
     "id": "vp-2026-1333"
   },
   {
@@ -33347,7 +36103,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s71.jpg",
     "rawText": "Al-azayem Plaza 01 · FTCF Regent Plaza · TGT Sindhi Muslim/Shahra-e-Quaideen · Availability: · Long Term Booked · Size: · 35X62 (VINYL) · Rate Per Month IDX No : 798724 · PKR 1,800,000/-",
-    "globalNo": 1334,
+    "globalNo": 1440,
     "id": "vp-2026-1334"
   },
   {
@@ -33372,7 +36128,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s72.jpg",
     "rawText": "Ftc Triangle · FTCF DHA Phase 1 · TGT Shahra-e-Faisal · Availability: · Not Available · Size: · 100X30 (FLEX) · Rate Per Month IDX No: 799566 · PKR 4,500,000/-",
-    "globalNo": 1335,
+    "globalNo": 1441,
     "id": "vp-2026-1335"
   },
   {
@@ -33397,7 +36153,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s73.jpg",
     "rawText": "Ftc Triangle · FTCF Shahra-e-Faisal · TGT DHA Phase 1 · Availability: · Not Available · Size: · 100X30 (FLEX) · Rate Per Month · PKR 4,500,000/- · Other Side View",
-    "globalNo": 1336,
+    "globalNo": 1442,
     "id": "vp-2026-1336"
   },
   {
@@ -33422,7 +36178,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s74.jpg",
     "rawText": "Duty Free (Shahrah-e-faisal) · FTCF Metropole/Nursary · TGT Airport / Karsaz / Drigh Road · Availability: · Long Term Booked · Size: · 50X60 (FLEX) · Rate Per Month IDX No : 799203 · PKR 1,000,000/-",
-    "globalNo": 1337,
+    "globalNo": 1443,
     "id": "vp-2026-1337"
   },
   {
@@ -33447,7 +36203,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s75.jpg",
     "rawText": "Baloch Flyover Shahra E Faisal · FTCF City School PAF Chapter Express way · TGT Shaheed e Millat Naheed Super store · Availability: · 28 Nov,2026 · Size: · 60X20(FLEX) · Rate Per Month IDX No : 802833 · PKR2,200,000",
-    "globalNo": 1338,
+    "globalNo": 1444,
     "id": "vp-2026-1338"
   },
   {
@@ -33472,7 +36228,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s76.jpg",
     "rawText": "Malir Cantt Jinnah Avenue 01 · FTCF : highway · TGT: Airport · Availability: · 30 Jan,2027 · Size: · 70x30 (Flex) · Rate Per Month IDX No : 802834 · PKR 2,000,000",
-    "globalNo": 1339,
+    "globalNo": 1445,
     "id": "vp-2026-1339"
   },
   {
@@ -33497,7 +36253,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s77.jpg",
     "rawText": "Malir Cantt Jinnah Avenue 02 · FTCF : Airport · TGT: Highway · Availability: · 30 Jan,2027 · Size: · 70x30 (Flex) · Rate Per Month IDX No : 802835 · PKR 2,000,000",
-    "globalNo": 1340,
+    "globalNo": 1446,
     "id": "vp-2026-1340"
   },
   {
@@ -33522,7 +36278,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s78.jpg",
     "rawText": "Shahra - E - Bhutto · FTCF : DHA · TGT: Shahra - E – Bhutto Near toll plaza · Availability: · 31 Dec,2026 · Size: · 40x50 (Flex) · Rate Per Month IDX No: 802836 · PKR 1,500,000",
-    "globalNo": 1341,
+    "globalNo": 1447,
     "id": "vp-2026-1341"
   },
   {
@@ -33547,7 +36303,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s79.jpg",
     "rawText": "Shahra - E - Bhutto 02 · FTCF: Super Highway · TGT: Defence Express way · Availability: · 28 Nov,2026 · Size: · 40x30 (Flex) · Rate Per Month IDX No:803120 · 1,800,000/",
-    "globalNo": 1342,
+    "globalNo": 1448,
     "id": "vp-2026-1342"
   },
   {
@@ -33572,7 +36328,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s80.jpg",
     "rawText": "Allah Wali Tariq Road · FTCF: Sindhi Muslim/ ALLAH Wali · TGT : Tariq Road / Bahadur abaad · Availability: · 01 Dec,2026 · Size: · 60x30 Flex · Rate Per Month: IDX No : 800696 · PKR: 1,800,000/-",
-    "globalNo": 1343,
+    "globalNo": 1449,
     "id": "vp-2026-1343"
   },
   {
@@ -33597,7 +36353,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s81.jpg",
     "rawText": "Allah Wali Chowrangi · FTCF : Tariq Road · TGT : ALLAH Wali Chowrangi · Availability: · 21 Nov,2026 · Size: · (126x30) (70x30) (196x30) (flex) · Rate Per Month IDX No : 800785 · 3,500,000/-",
-    "globalNo": 1344,
+    "globalNo": 1450,
     "id": "vp-2026-1344"
   },
   {
@@ -33622,7 +36378,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Roof Top / Wall Panel",
     "photo": "/vendor-media/outsight_hb20_s82.jpg",
     "rawText": "Sindhi Muslim Roundabout Wall Panel · FTCF Shahra e faisal · TGT Sindhi Muslim/ Shahra e Qaideen ALLAH wali chowrangi. · Availability: · 08 Dec,2026 · Size: · 51.5 x 25 Wall (Vinyl) · Rate Per Month IDX No: 798864 · Wall (Vinyl) 1,500,000",
-    "globalNo": 1345,
+    "globalNo": 1451,
     "id": "vp-2026-1345"
   },
   {
@@ -33647,7 +36403,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s83.jpg",
     "rawText": "Allah Wali Chowrangi · FTCF : Sindhi Muslim Round About · TGT: Tariq Road ALLAH Wali Signal · Availability: · 25 Nov,2026 · Size: · 40x30 Flex · Rate Per Month: IDX No: 798876 · PKR: 1,800,000/-",
-    "globalNo": 1346,
+    "globalNo": 1452,
     "id": "vp-2026-1346"
   },
   {
@@ -33672,7 +36428,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s84.jpg",
     "rawText": "Jail Flyover, Shaheed E Millat · FTCF Shaheed e Millat · TGT Hassan Square / Jail Road · Availability: · 30 Dec,2026 · Size: · 70X25 (FLEX) · Rate Per Month IDX No : 800172 · PKR 1,500,000/-",
-    "globalNo": 1347,
+    "globalNo": 1453,
     "id": "vp-2026-1347"
   },
   {
@@ -33697,7 +36453,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s85.jpg",
     "rawText": "TCF: Aga Khan Hospital · TGT: Civic Center Stadium Road/ Dalmia/ Karsaaz · Availability: · 24 Dec,2026 · Size: · 120x25 (Flex) (With Light) · Rate Per Month: IDX No : 801953 · 2,500,000/- · Time Medico",
-    "globalNo": 1348,
+    "globalNo": 1454,
     "id": "vp-2026-1348"
   },
   {
@@ -33722,7 +36478,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s86.jpg",
     "rawText": "Time Medico · FTCF: Expo Center · TGT : Karsaaz / Time Medico / Dalmia / Shahra e Faisal · Availability: · 28 Nov,2026 · Size: · 100x25 · Rate Per Month: IDX No : 802300 · PKR: 2,000,000/-",
-    "globalNo": 1349,
+    "globalNo": 1455,
     "id": "vp-2026-1349"
   },
   {
@@ -33747,7 +36503,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s87.jpg",
     "rawText": "Wonder Tower Nipa Flyover 01 · FTCF Millennium Mall / Gulistan - e - Johar · TGT Nipa Flyover / Imtiaz Super Market · Availability: · 31 Jan,2027 Extendable · Size: · 80X30 (FLEX) · Rate Per Month IDX No : 800767 · PKR 1,200,000/-",
-    "globalNo": 1350,
+    "globalNo": 1456,
     "id": "vp-2026-1350"
   },
   {
@@ -33772,7 +36528,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s88.jpg",
     "rawText": "Wonder Tower, Nipa Flyover 02 · FTCF Gulshan Roundabout · TGT Johar Morr/ Millennium Mall · Availability: · 12 Dec,2026 · Size: · 75X30 (FLEX) · Rate Per Month IDX No: 800726 · PKR 1,100,000/-",
-    "globalNo": 1351,
+    "globalNo": 1457,
     "id": "vp-2026-1351"
   },
   {
@@ -33797,7 +36553,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s89.jpg",
     "rawText": "Gulistan E Johar · FTCF Johar Chowrangi · TGT Johar Morr /Rashid Minhas Millennium Mall · Availability: · Not Available · Size: · 60X20 (FLEX) · Rate Per Month IDX No : 802837 · PKR1,400,000",
-    "globalNo": 1352,
+    "globalNo": 1458,
     "id": "vp-2026-1352"
   },
   {
@@ -33822,7 +36578,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s90.jpg",
     "rawText": "Rashid Minhas Road · FTCF Millenium Mall · TGT Nipa · Availability: · 29 Jan,2027 · Size: · 48X20 (FLEX) · Rate Per Month IDX No: 802240 · PKR 1,000,000/-",
-    "globalNo": 1353,
+    "globalNo": 1459,
     "id": "vp-2026-1353"
   },
   {
@@ -33847,7 +36603,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s91.jpg",
     "rawText": "Sunny Height / Johar · FTCF Millennium Mall · TGT Nipa Flyover/Gulshan Roundabout · Availability: · 28 Nov,2026 · Size: · 41x51 Artwork Size 40X50 (FLEX) · Rate Per Month IDX No: 799267 · PKR 1,200,000/-",
-    "globalNo": 1354,
+    "globalNo": 1460,
     "id": "vp-2026-1354"
   },
   {
@@ -33872,7 +36628,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Roof Top / Wall Panel",
     "photo": "/vendor-media/outsight_hb20_s92.jpg",
     "rawText": "Hassan Square Roof Top (Double View Side) · FTCF National Stadium Road Haasan Square · TGT Essa Nagri Liaqutabad 10 Number · Availability: · 15 Dec,2026 · Size: · 60X30 (FLEX) · Rate Per Month IDX No : 800769 · PKR 1,200,000/-",
-    "globalNo": 1355,
+    "globalNo": 1461,
     "id": "vp-2026-1355"
   },
   {
@@ -33897,7 +36653,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s93.jpg",
     "rawText": "Hassan Square Flyover · FTCF National Stadium Road Hassan Square · TGT Essa Nagri Liaqutabad 10 Number · Availability: · 25 Nov,2026 · Size: · 40X27 (FLEX) · Rate Per Month IDX NO: 799980 · PKR 1,000,000/-",
-    "globalNo": 1356,
+    "globalNo": 1462,
     "id": "vp-2026-1356"
   },
   {
@@ -33922,7 +36678,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s94.jpg",
     "rawText": "Panama Center · FTCF Liaquatabad 10 No/Liyari Express Toll Road Exit Hassan square · TGT Hassan Saquare · Availability: · Available · Size: · 35’ X 60’ 39’ X 60’ (Vinly) · Rate Per Month · PKR 2,500,000/-",
-    "globalNo": 1357,
+    "globalNo": 1463,
     "id": "vp-2026-1357"
   },
   {
@@ -33947,7 +36703,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s95.jpg",
     "rawText": "Essa Nagri · FTCF Gharibabad · TGT Liaqatabad · Availability: · 12 Dec,2026 · Size: · 45X20 (FLEX) · Rate Per Month IDX No : 800562 · PKR 1,000,000/-",
-    "globalNo": 1358,
+    "globalNo": 1464,
     "id": "vp-2026-1358"
   },
   {
@@ -33972,7 +36728,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s96.jpg",
     "rawText": "Five Star Food Street Nazimabad · FTCF aisah manzil /Landi kotal roundabout · TGT North Nazimadad Five Star · Availability: · 08 Jan,2027 · Size: · 60X30 (FLEX) · Rate Per Month IDX No: 802703 · PKR1,800,000",
-    "globalNo": 1359,
+    "globalNo": 1465,
     "id": "vp-2026-1359"
   },
   {
@@ -33997,7 +36753,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s97.jpg",
     "rawText": "Five Star North Nazimabad · FTCF Sareena Mobile Mall · TGT Five Star Chowrangi / KDA Chowrangi · Availability: · Available · Size: · 90x97 (Artwork Size 86.5X95) · Rate Per Month · PKR 3,000,000/- · MOVE Idx",
-    "globalNo": 1360,
+    "globalNo": 1466,
     "id": "vp-2026-1360"
   },
   {
@@ -34022,7 +36778,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s98.jpg",
     "rawText": "Shah Faisal Bridge 1 · FTCF Shahrah-e-Faisal · TGT Shama Shopping Mall / Shah Faisal · Availability: · 11 Jan,2027 · Size: · 50X25 (FLEX) · Rate Per Month IDX NO: 800101 · PKR 1,000,000/-",
-    "globalNo": 1361,
+    "globalNo": 1467,
     "id": "vp-2026-1361"
   },
   {
@@ -34047,7 +36803,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s99.jpg",
     "rawText": "Ii Chundrigarh Road Backit Pole Signs (D/S) · FTCF Tower · TGT Tower · Availability: · 28 Nov,2026 · Size: · 03x06 (50) D/S · Rate Per Month · Pkr 1.0 Million/Month · IDX No",
-    "globalNo": 1362,
+    "globalNo": 1468,
     "id": "vp-2026-1362"
   },
   {
@@ -34072,7 +36828,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s100.jpg",
     "rawText": "Ii Chundrigarh Road Backit Pole Signs (D/S) · FTCF Tower to Shaeen Complex · Availability: · 28 Nov,2026 · Size: · 03x06 (50) D/S · Rate Per Month · PKR 1.0 Milion/Month · IDX No",
-    "globalNo": 1363,
+    "globalNo": 1469,
     "id": "vp-2026-1363"
   },
   {
@@ -34097,7 +36853,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Backlit Board",
     "photo": "/vendor-media/outsight_hb20_s101.jpg",
     "rawText": "Zulfiqar Street 1– Backlit Pole Signs · FTCF: Khayaban-e-Itthad/Creek Club · TGT: Golf Club/Creek Vista (Vice Versa) · Availability: · Available · Size: W: 3’ x H: 6’ · Qty: 52 Backlit (Double Sided Display) · Media : Backlit Flex · Rate Per Month IDX NO :802858 · 2,400,000",
-    "globalNo": 1364,
+    "globalNo": 1470,
     "id": "vp-2026-1364"
   },
   {
@@ -34122,7 +36878,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Backlit Board",
     "photo": "/vendor-media/outsight_hb20_s102.jpg",
     "rawText": "Khayaban-e-faisal– Backlit Pole Signs · FTCF: Creek Club/Creek Vista · TGT: Inside Phase 8/Creek Vista (Vice Versa) · Availability: · Available · Size: W: 3’ x H: 6’ · Qty: 34 Backlit Box(Double Sided Display · )Media : Backlit Flex · Rate Per Month (IDX NO : 802859) ( IDX NO:802860) · 1,800,000",
-    "globalNo": 1365,
+    "globalNo": 1471,
     "id": "vp-2026-1365"
   },
   {
@@ -34147,7 +36903,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s103.jpg",
     "rawText": "Cheel Chowk Lyari · FTCF Main Lee Market · TGT Main Lyari and Baghdadi Road · Availability: · 21 Nov,2026 · Size: · 33X25 (VINYL) · Rate Per Month IDX No : 800499 · PKR 700,000/-",
-    "globalNo": 1366,
+    "globalNo": 1472,
     "id": "vp-2026-1366"
   },
   {
@@ -34172,7 +36928,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s104.jpg",
     "rawText": "Quaidabaad Malir - 02 · FTCF: Malir / AirPort · TGT: Quaidabaad · Availability: · 28 Nov,2026 · Size: · 45x40 (Flex) · Rate Per Month: IDX No: 802838 · PKR: 1,800,000/-",
-    "globalNo": 1367,
+    "globalNo": 1473,
     "id": "vp-2026-1367"
   },
   {
@@ -34197,7 +36953,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s105.jpg",
     "rawText": "Quaidabad (Malir) · FTCF Airport / Malir · TGT Quaidabad · Availability: · 25 Nov,2026 · Size: · 40X30 (FLEX) · Rate Per Month IDX No:802838 · PKR 1,000,000/-",
-    "globalNo": 1368,
+    "globalNo": 1474,
     "id": "vp-2026-1368"
   },
   {
@@ -34222,7 +36978,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/outsight_hb20_s106.jpg",
     "rawText": "Korangi / Ittehad · FTCF: Kala Pull · TGT: KPT Flyover · Availability: · 25 Nov,2026 · Size: · 50x30 (Vinyl) · Rate Per Month: IDX No: 798773 · PKR: 1,600,000/-",
-    "globalNo": 1369,
+    "globalNo": 1475,
     "id": "vp-2026-1369"
   },
   {
@@ -34247,12 +37003,12 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/outsight_hb20_s107.jpg",
     "rawText": "Gharo · FTCF: Malir/ National highway Karachi · TGT: Café’ Imran Dhabay G & Thattah · Availability: · Available · Size: · 19x36 · Rate Per Month: IDX No: 798773 · PKR: 900,000/-",
-    "globalNo": 1370,
+    "globalNo": 1476,
     "id": "vp-2026-1370"
   },
   {
     "id": "vp-2026-1371",
-    "globalNo": 1371,
+    "globalNo": 1477,
     "sNo": 1,
     "slideNum": 2,
     "code": "VP-RAV-01",
@@ -34277,7 +37033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1372",
-    "globalNo": 1372,
+    "globalNo": 1478,
     "sNo": 2,
     "slideNum": 3,
     "code": "VP-RAV-02",
@@ -34302,7 +37058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1373",
-    "globalNo": 1373,
+    "globalNo": 1479,
     "sNo": 3,
     "slideNum": 4,
     "code": "VP-RAV-03",
@@ -34327,7 +37083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1374",
-    "globalNo": 1374,
+    "globalNo": 1480,
     "sNo": 4,
     "slideNum": 5,
     "code": "VP-RAV-04",
@@ -34352,7 +37108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1375",
-    "globalNo": 1375,
+    "globalNo": 1481,
     "sNo": 5,
     "slideNum": 6,
     "code": "VP-RAV-05",
@@ -34377,7 +37133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1376",
-    "globalNo": 1376,
+    "globalNo": 1482,
     "sNo": 6,
     "slideNum": 7,
     "code": "VP-RAV-06",
@@ -34402,7 +37158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1377",
-    "globalNo": 1377,
+    "globalNo": 1483,
     "sNo": 7,
     "slideNum": 8,
     "code": "VP-RAV-07",
@@ -34427,7 +37183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1378",
-    "globalNo": 1378,
+    "globalNo": 1484,
     "sNo": 8,
     "slideNum": 9,
     "code": "VP-RAV-08",
@@ -34452,7 +37208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1379",
-    "globalNo": 1379,
+    "globalNo": 1485,
     "sNo": 9,
     "slideNum": 10,
     "code": "VP-RAV-09",
@@ -34477,7 +37233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1380",
-    "globalNo": 1380,
+    "globalNo": 1486,
     "sNo": 10,
     "slideNum": 11,
     "code": "VP-RAV-10",
@@ -34502,7 +37258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1381",
-    "globalNo": 1381,
+    "globalNo": 1487,
     "sNo": 11,
     "slideNum": 12,
     "code": "VP-RAV-11",
@@ -34527,7 +37283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1382",
-    "globalNo": 1382,
+    "globalNo": 1488,
     "sNo": 12,
     "slideNum": 13,
     "code": "VP-RAV-12",
@@ -34552,7 +37308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1383",
-    "globalNo": 1383,
+    "globalNo": 1489,
     "sNo": 13,
     "slideNum": 14,
     "code": "VP-RAV-13",
@@ -34577,7 +37333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1384",
-    "globalNo": 1384,
+    "globalNo": 1490,
     "sNo": 14,
     "slideNum": 15,
     "code": "VP-RAV-14",
@@ -34602,7 +37358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1385",
-    "globalNo": 1385,
+    "globalNo": 1491,
     "sNo": 15,
     "slideNum": 16,
     "code": "VP-RAV-15",
@@ -34627,7 +37383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1386",
-    "globalNo": 1386,
+    "globalNo": 1492,
     "sNo": 16,
     "slideNum": 17,
     "code": "VP-RAV-16",
@@ -34652,7 +37408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1387",
-    "globalNo": 1387,
+    "globalNo": 1493,
     "sNo": 1,
     "slideNum": 2,
     "code": "VP-RNG-01",
@@ -34677,7 +37433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1388",
-    "globalNo": 1388,
+    "globalNo": 1494,
     "sNo": 2,
     "slideNum": 3,
     "code": "VP-RNG-02",
@@ -34702,7 +37458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1389",
-    "globalNo": 1389,
+    "globalNo": 1495,
     "sNo": 3,
     "slideNum": 4,
     "code": "VP-RNG-03",
@@ -34727,7 +37483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1390",
-    "globalNo": 1390,
+    "globalNo": 1496,
     "sNo": 4,
     "slideNum": 5,
     "code": "VP-RNG-04",
@@ -34752,7 +37508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1391",
-    "globalNo": 1391,
+    "globalNo": 1497,
     "sNo": 5,
     "slideNum": 6,
     "code": "VP-RNG-05",
@@ -34777,7 +37533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1392",
-    "globalNo": 1392,
+    "globalNo": 1498,
     "sNo": 6,
     "slideNum": 7,
     "code": "VP-RNG-06",
@@ -34802,7 +37558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1393",
-    "globalNo": 1393,
+    "globalNo": 1499,
     "sNo": 7,
     "slideNum": 8,
     "code": "VP-RNG-07",
@@ -34827,7 +37583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1394",
-    "globalNo": 1394,
+    "globalNo": 1500,
     "sNo": 8,
     "slideNum": 9,
     "code": "VP-RNG-08",
@@ -34852,7 +37608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1395",
-    "globalNo": 1395,
+    "globalNo": 1501,
     "sNo": 9,
     "slideNum": 10,
     "code": "VP-RNG-09",
@@ -34877,7 +37633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1396",
-    "globalNo": 1396,
+    "globalNo": 1502,
     "sNo": 10,
     "slideNum": 11,
     "code": "VP-RNG-10",
@@ -34902,7 +37658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1397",
-    "globalNo": 1397,
+    "globalNo": 1503,
     "sNo": 11,
     "slideNum": 12,
     "code": "VP-RNG-11",
@@ -34927,7 +37683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1398",
-    "globalNo": 1398,
+    "globalNo": 1504,
     "sNo": 12,
     "slideNum": 13,
     "code": "VP-RNG-12",
@@ -34952,7 +37708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1399",
-    "globalNo": 1399,
+    "globalNo": 1505,
     "sNo": 13,
     "slideNum": 14,
     "code": "VP-RNG-13",
@@ -34977,7 +37733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1400",
-    "globalNo": 1400,
+    "globalNo": 1506,
     "sNo": 14,
     "slideNum": 15,
     "code": "VP-RNG-14",
@@ -35002,7 +37758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1401",
-    "globalNo": 1401,
+    "globalNo": 1507,
     "sNo": 15,
     "slideNum": 16,
     "code": "VP-RNG-15",
@@ -35027,7 +37783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1402",
-    "globalNo": 1402,
+    "globalNo": 1508,
     "sNo": 16,
     "slideNum": 17,
     "code": "VP-RNG-16",
@@ -35052,7 +37808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1403",
-    "globalNo": 1403,
+    "globalNo": 1509,
     "sNo": 17,
     "slideNum": 18,
     "code": "VP-RNG-17",
@@ -35077,7 +37833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1404",
-    "globalNo": 1404,
+    "globalNo": 1510,
     "sNo": 18,
     "slideNum": 19,
     "code": "VP-RNG-18",
@@ -35102,7 +37858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1405",
-    "globalNo": 1405,
+    "globalNo": 1511,
     "sNo": 19,
     "slideNum": 20,
     "code": "VP-RNG-19",
@@ -35127,7 +37883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1406",
-    "globalNo": 1406,
+    "globalNo": 1512,
     "sNo": 20,
     "slideNum": 21,
     "code": "VP-RNG-20",
@@ -35152,7 +37908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1407",
-    "globalNo": 1407,
+    "globalNo": 1513,
     "sNo": 21,
     "slideNum": 22,
     "code": "VP-RNG-21",
@@ -35177,7 +37933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1408",
-    "globalNo": 1408,
+    "globalNo": 1514,
     "sNo": 22,
     "slideNum": 23,
     "code": "VP-RNG-22",
@@ -35202,7 +37958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1409",
-    "globalNo": 1409,
+    "globalNo": 1515,
     "sNo": 23,
     "slideNum": 24,
     "code": "VP-RNG-23",
@@ -35227,7 +37983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1410",
-    "globalNo": 1410,
+    "globalNo": 1516,
     "sNo": 24,
     "slideNum": 25,
     "code": "VP-RNG-24",
@@ -35252,7 +38008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1411",
-    "globalNo": 1411,
+    "globalNo": 1517,
     "sNo": 25,
     "slideNum": 26,
     "code": "VP-RNG-25",
@@ -35277,7 +38033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1412",
-    "globalNo": 1412,
+    "globalNo": 1518,
     "sNo": 26,
     "slideNum": 27,
     "code": "VP-RNG-26",
@@ -35302,7 +38058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1413",
-    "globalNo": 1413,
+    "globalNo": 1519,
     "sNo": 27,
     "slideNum": 28,
     "code": "VP-RNG-27",
@@ -35327,7 +38083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1414",
-    "globalNo": 1414,
+    "globalNo": 1520,
     "sNo": 28,
     "slideNum": 29,
     "code": "VP-RNG-28",
@@ -35352,7 +38108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1415",
-    "globalNo": 1415,
+    "globalNo": 1521,
     "sNo": 29,
     "slideNum": 30,
     "code": "VP-RNG-29",
@@ -35377,7 +38133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1416",
-    "globalNo": 1416,
+    "globalNo": 1522,
     "sNo": 30,
     "slideNum": 31,
     "code": "VP-RNG-30",
@@ -35402,7 +38158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1417",
-    "globalNo": 1417,
+    "globalNo": 1523,
     "sNo": 31,
     "slideNum": 32,
     "code": "VP-RNG-31",
@@ -35427,7 +38183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1418",
-    "globalNo": 1418,
+    "globalNo": 1524,
     "sNo": 32,
     "slideNum": 33,
     "code": "VP-RNG-32",
@@ -35452,7 +38208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1419",
-    "globalNo": 1419,
+    "globalNo": 1525,
     "sNo": 33,
     "slideNum": 34,
     "code": "VP-RNG-33",
@@ -35477,7 +38233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1420",
-    "globalNo": 1420,
+    "globalNo": 1526,
     "sNo": 34,
     "slideNum": 35,
     "code": "VP-RNG-34",
@@ -35502,7 +38258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1421",
-    "globalNo": 1421,
+    "globalNo": 1527,
     "sNo": 35,
     "slideNum": 36,
     "code": "VP-RNG-35",
@@ -35527,7 +38283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1422",
-    "globalNo": 1422,
+    "globalNo": 1528,
     "sNo": 36,
     "slideNum": 37,
     "code": "VP-RNG-36",
@@ -35552,7 +38308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1423",
-    "globalNo": 1423,
+    "globalNo": 1529,
     "sNo": 37,
     "slideNum": 38,
     "code": "VP-RNG-37",
@@ -35577,7 +38333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1424",
-    "globalNo": 1424,
+    "globalNo": 1530,
     "sNo": 38,
     "slideNum": 39,
     "code": "VP-RNG-38",
@@ -35602,7 +38358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1425",
-    "globalNo": 1425,
+    "globalNo": 1531,
     "sNo": 39,
     "slideNum": 40,
     "code": "VP-RNG-39",
@@ -35627,7 +38383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1426",
-    "globalNo": 1426,
+    "globalNo": 1532,
     "sNo": 40,
     "slideNum": 41,
     "code": "VP-RNG-40",
@@ -35652,7 +38408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1427",
-    "globalNo": 1427,
+    "globalNo": 1533,
     "sNo": 41,
     "slideNum": 42,
     "code": "VP-RNG-41",
@@ -35677,7 +38433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1428",
-    "globalNo": 1428,
+    "globalNo": 1534,
     "sNo": 42,
     "slideNum": 43,
     "code": "VP-RNG-42",
@@ -35702,7 +38458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1429",
-    "globalNo": 1429,
+    "globalNo": 1535,
     "sNo": 43,
     "slideNum": 44,
     "code": "VP-RNG-43",
@@ -35727,7 +38483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1430",
-    "globalNo": 1430,
+    "globalNo": 1536,
     "sNo": 44,
     "slideNum": 45,
     "code": "VP-RNG-44",
@@ -35752,7 +38508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1431",
-    "globalNo": 1431,
+    "globalNo": 1537,
     "sNo": 1,
     "slideNum": 2,
     "code": "VP-SGR-01",
@@ -35777,7 +38533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1432",
-    "globalNo": 1432,
+    "globalNo": 1538,
     "sNo": 2,
     "slideNum": 3,
     "code": "VP-SGR-02",
@@ -35802,7 +38558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1433",
-    "globalNo": 1433,
+    "globalNo": 1539,
     "sNo": 3,
     "slideNum": 4,
     "code": "VP-SGR-03",
@@ -35827,7 +38583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1434",
-    "globalNo": 1434,
+    "globalNo": 1540,
     "sNo": 4,
     "slideNum": 5,
     "code": "VP-SGR-04",
@@ -35852,7 +38608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1435",
-    "globalNo": 1435,
+    "globalNo": 1541,
     "sNo": 5,
     "slideNum": 6,
     "code": "VP-SGR-05",
@@ -35877,7 +38633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1436",
-    "globalNo": 1436,
+    "globalNo": 1542,
     "sNo": 6,
     "slideNum": 7,
     "code": "VP-SGR-06",
@@ -35902,7 +38658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1437",
-    "globalNo": 1437,
+    "globalNo": 1543,
     "sNo": 7,
     "slideNum": 8,
     "code": "VP-SGR-07",
@@ -35927,7 +38683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1438",
-    "globalNo": 1438,
+    "globalNo": 1544,
     "sNo": 8,
     "slideNum": 9,
     "code": "VP-SGR-08",
@@ -35952,7 +38708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1439",
-    "globalNo": 1439,
+    "globalNo": 1545,
     "sNo": 9,
     "slideNum": 10,
     "code": "VP-SGR-09",
@@ -35977,7 +38733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1440",
-    "globalNo": 1440,
+    "globalNo": 1546,
     "sNo": 10,
     "slideNum": 11,
     "code": "VP-SGR-10",
@@ -36002,7 +38758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1441",
-    "globalNo": 1441,
+    "globalNo": 1547,
     "sNo": 11,
     "slideNum": 12,
     "code": "VP-SGR-11",
@@ -36027,7 +38783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1442",
-    "globalNo": 1442,
+    "globalNo": 1548,
     "sNo": 12,
     "slideNum": 13,
     "code": "VP-SGR-12",
@@ -36052,7 +38808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1443",
-    "globalNo": 1443,
+    "globalNo": 1549,
     "sNo": 13,
     "slideNum": 14,
     "code": "VP-SGR-13",
@@ -36077,7 +38833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1444",
-    "globalNo": 1444,
+    "globalNo": 1550,
     "sNo": 14,
     "slideNum": 15,
     "code": "VP-SGR-14",
@@ -36102,7 +38858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1445",
-    "globalNo": 1445,
+    "globalNo": 1551,
     "sNo": 15,
     "slideNum": 16,
     "code": "VP-SGR-15",
@@ -36127,7 +38883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1446",
-    "globalNo": 1446,
+    "globalNo": 1552,
     "sNo": 16,
     "slideNum": 17,
     "code": "VP-SGR-16",
@@ -36152,7 +38908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1447",
-    "globalNo": 1447,
+    "globalNo": 1553,
     "sNo": 17,
     "slideNum": 18,
     "code": "VP-SGR-17",
@@ -36177,7 +38933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1448",
-    "globalNo": 1448,
+    "globalNo": 1554,
     "sNo": 18,
     "slideNum": 19,
     "code": "VP-SGR-18",
@@ -36202,7 +38958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1449",
-    "globalNo": 1449,
+    "globalNo": 1555,
     "sNo": 19,
     "slideNum": 20,
     "code": "VP-SGR-19",
@@ -36227,7 +38983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1450",
-    "globalNo": 1450,
+    "globalNo": 1556,
     "sNo": 20,
     "slideNum": 21,
     "code": "VP-SGR-20",
@@ -36252,7 +39008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1451",
-    "globalNo": 1451,
+    "globalNo": 1557,
     "sNo": 21,
     "slideNum": 22,
     "code": "VP-SGR-21",
@@ -36277,7 +39033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1452",
-    "globalNo": 1452,
+    "globalNo": 1558,
     "sNo": 22,
     "slideNum": 23,
     "code": "VP-SGR-22",
@@ -36302,7 +39058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1453",
-    "globalNo": 1453,
+    "globalNo": 1559,
     "sNo": 23,
     "slideNum": 24,
     "code": "VP-SGR-23",
@@ -36327,7 +39083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1454",
-    "globalNo": 1454,
+    "globalNo": 1560,
     "sNo": 24,
     "slideNum": 25,
     "code": "VP-SGR-24",
@@ -36352,7 +39108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1455",
-    "globalNo": 1455,
+    "globalNo": 1561,
     "sNo": 25,
     "slideNum": 26,
     "code": "VP-SGR-25",
@@ -36377,7 +39133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1456",
-    "globalNo": 1456,
+    "globalNo": 1562,
     "sNo": 26,
     "slideNum": 27,
     "code": "VP-SGR-26",
@@ -36402,7 +39158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1457",
-    "globalNo": 1457,
+    "globalNo": 1563,
     "sNo": 27,
     "slideNum": 28,
     "code": "VP-SGR-27",
@@ -36427,7 +39183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1458",
-    "globalNo": 1458,
+    "globalNo": 1564,
     "sNo": 28,
     "slideNum": 29,
     "code": "VP-SGR-28",
@@ -36452,7 +39208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1459",
-    "globalNo": 1459,
+    "globalNo": 1565,
     "sNo": 29,
     "slideNum": 30,
     "code": "VP-SGR-29",
@@ -36477,7 +39233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1460",
-    "globalNo": 1460,
+    "globalNo": 1566,
     "sNo": 30,
     "slideNum": 31,
     "code": "VP-SGR-30",
@@ -36502,7 +39258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1461",
-    "globalNo": 1461,
+    "globalNo": 1567,
     "sNo": 31,
     "slideNum": 32,
     "code": "VP-SGR-31",
@@ -36527,7 +39283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1462",
-    "globalNo": 1462,
+    "globalNo": 1568,
     "sNo": 32,
     "slideNum": 33,
     "code": "VP-SGR-32",
@@ -36552,7 +39308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1463",
-    "globalNo": 1463,
+    "globalNo": 1569,
     "sNo": 33,
     "slideNum": 34,
     "code": "VP-SGR-33",
@@ -36577,7 +39333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1464",
-    "globalNo": 1464,
+    "globalNo": 1570,
     "sNo": 34,
     "slideNum": 35,
     "code": "VP-SGR-34",
@@ -36602,7 +39358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1465",
-    "globalNo": 1465,
+    "globalNo": 1571,
     "sNo": 35,
     "slideNum": 36,
     "code": "VP-SGR-35",
@@ -36627,7 +39383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1466",
-    "globalNo": 1466,
+    "globalNo": 1572,
     "sNo": 36,
     "slideNum": 37,
     "code": "VP-SGR-36",
@@ -36652,7 +39408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1467",
-    "globalNo": 1467,
+    "globalNo": 1573,
     "sNo": 37,
     "slideNum": 38,
     "code": "VP-SGR-37",
@@ -36677,7 +39433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1468",
-    "globalNo": 1468,
+    "globalNo": 1574,
     "sNo": 38,
     "slideNum": 39,
     "code": "VP-SGR-38",
@@ -36702,7 +39458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1469",
-    "globalNo": 1469,
+    "globalNo": 1575,
     "sNo": 39,
     "slideNum": 40,
     "code": "VP-SGR-39",
@@ -36727,7 +39483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1470",
-    "globalNo": 1470,
+    "globalNo": 1576,
     "sNo": 40,
     "slideNum": 41,
     "code": "VP-SGR-40",
@@ -36752,7 +39508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1471",
-    "globalNo": 1471,
+    "globalNo": 1577,
     "sNo": 41,
     "slideNum": 42,
     "code": "VP-SGR-41",
@@ -36777,7 +39533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1472",
-    "globalNo": 1472,
+    "globalNo": 1578,
     "sNo": 42,
     "slideNum": 43,
     "code": "VP-SGR-42",
@@ -36802,7 +39558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1473",
-    "globalNo": 1473,
+    "globalNo": 1579,
     "sNo": 43,
     "slideNum": 44,
     "code": "VP-SGR-43",
@@ -36827,7 +39583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1474",
-    "globalNo": 1474,
+    "globalNo": 1580,
     "sNo": 44,
     "slideNum": 45,
     "code": "VP-SGR-44",
@@ -36852,7 +39608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1475",
-    "globalNo": 1475,
+    "globalNo": 1581,
     "sNo": 45,
     "slideNum": 46,
     "code": "VP-SGR-45",
@@ -36877,7 +39633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1476",
-    "globalNo": 1476,
+    "globalNo": 1582,
     "sNo": 46,
     "slideNum": 47,
     "code": "VP-SGR-46",
@@ -36902,7 +39658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1477",
-    "globalNo": 1477,
+    "globalNo": 1583,
     "sNo": 47,
     "slideNum": 48,
     "code": "VP-SGR-47",
@@ -36927,7 +39683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1478",
-    "globalNo": 1478,
+    "globalNo": 1584,
     "sNo": 48,
     "slideNum": 49,
     "code": "VP-SGR-48",
@@ -36952,7 +39708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1479",
-    "globalNo": 1479,
+    "globalNo": 1585,
     "sNo": 49,
     "slideNum": 50,
     "code": "VP-SGR-49",
@@ -36977,7 +39733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1480",
-    "globalNo": 1480,
+    "globalNo": 1586,
     "sNo": 50,
     "slideNum": 51,
     "code": "VP-SGR-50",
@@ -37002,7 +39758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1481",
-    "globalNo": 1481,
+    "globalNo": 1587,
     "sNo": 51,
     "slideNum": 52,
     "code": "VP-SGR-51",
@@ -37027,7 +39783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1482",
-    "globalNo": 1482,
+    "globalNo": 1588,
     "sNo": 52,
     "slideNum": 53,
     "code": "VP-SGR-52",
@@ -37052,7 +39808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1483",
-    "globalNo": 1483,
+    "globalNo": 1589,
     "sNo": 53,
     "slideNum": 54,
     "code": "VP-SGR-53",
@@ -37077,7 +39833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1484",
-    "globalNo": 1484,
+    "globalNo": 1590,
     "sNo": 54,
     "slideNum": 55,
     "code": "VP-SGR-54",
@@ -37102,7 +39858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1485",
-    "globalNo": 1485,
+    "globalNo": 1591,
     "sNo": 55,
     "slideNum": 56,
     "code": "VP-SGR-55",
@@ -37127,7 +39883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1486",
-    "globalNo": 1486,
+    "globalNo": 1592,
     "sNo": 56,
     "slideNum": 57,
     "code": "VP-SGR-56",
@@ -37152,7 +39908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1487",
-    "globalNo": 1487,
+    "globalNo": 1593,
     "sNo": 57,
     "slideNum": 58,
     "code": "VP-SGR-57",
@@ -37177,7 +39933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1488",
-    "globalNo": 1488,
+    "globalNo": 1594,
     "sNo": 58,
     "slideNum": 59,
     "code": "VP-SGR-58",
@@ -37202,7 +39958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1489",
-    "globalNo": 1489,
+    "globalNo": 1595,
     "sNo": 59,
     "slideNum": 60,
     "code": "VP-SGR-59",
@@ -37227,7 +39983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1490",
-    "globalNo": 1490,
+    "globalNo": 1596,
     "sNo": 60,
     "slideNum": 61,
     "code": "VP-SGR-60",
@@ -37252,7 +40008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1491",
-    "globalNo": 1491,
+    "globalNo": 1597,
     "sNo": 61,
     "slideNum": 62,
     "code": "VP-SGR-61",
@@ -37277,7 +40033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1492",
-    "globalNo": 1492,
+    "globalNo": 1598,
     "sNo": 62,
     "slideNum": 63,
     "code": "VP-SGR-62",
@@ -37302,7 +40058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1493",
-    "globalNo": 1493,
+    "globalNo": 1599,
     "sNo": 63,
     "slideNum": 64,
     "code": "VP-SGR-63",
@@ -37327,7 +40083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1494",
-    "globalNo": 1494,
+    "globalNo": 1600,
     "sNo": 64,
     "slideNum": 65,
     "code": "VP-SGR-64",
@@ -37352,7 +40108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1495",
-    "globalNo": 1495,
+    "globalNo": 1601,
     "sNo": 65,
     "slideNum": 66,
     "code": "VP-SGR-65",
@@ -37377,7 +40133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1496",
-    "globalNo": 1496,
+    "globalNo": 1602,
     "sNo": 66,
     "slideNum": 67,
     "code": "VP-SGR-66",
@@ -37402,7 +40158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1497",
-    "globalNo": 1497,
+    "globalNo": 1603,
     "sNo": 67,
     "slideNum": 68,
     "code": "VP-SGR-67",
@@ -37427,7 +40183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1498",
-    "globalNo": 1498,
+    "globalNo": 1604,
     "sNo": 68,
     "slideNum": 69,
     "code": "VP-SGR-68",
@@ -37452,7 +40208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1499",
-    "globalNo": 1499,
+    "globalNo": 1605,
     "sNo": 69,
     "slideNum": 70,
     "code": "VP-SGR-69",
@@ -37477,7 +40233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1500",
-    "globalNo": 1500,
+    "globalNo": 1606,
     "sNo": 70,
     "slideNum": 71,
     "code": "VP-SGR-70",
@@ -37502,7 +40258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1501",
-    "globalNo": 1501,
+    "globalNo": 1607,
     "sNo": 71,
     "slideNum": 72,
     "code": "VP-SGR-71",
@@ -37527,7 +40283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1502",
-    "globalNo": 1502,
+    "globalNo": 1608,
     "sNo": 72,
     "slideNum": 73,
     "code": "VP-SGR-72",
@@ -37552,7 +40308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1503",
-    "globalNo": 1503,
+    "globalNo": 1609,
     "sNo": 73,
     "slideNum": 74,
     "code": "VP-SGR-73",
@@ -37577,7 +40333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1504",
-    "globalNo": 1504,
+    "globalNo": 1610,
     "sNo": 74,
     "slideNum": 75,
     "code": "VP-SGR-74",
@@ -37602,7 +40358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1505",
-    "globalNo": 1505,
+    "globalNo": 1611,
     "sNo": 75,
     "slideNum": 76,
     "code": "VP-SGR-75",
@@ -37627,7 +40383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1506",
-    "globalNo": 1506,
+    "globalNo": 1612,
     "sNo": 76,
     "slideNum": 77,
     "code": "VP-SGR-76",
@@ -37652,7 +40408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1507",
-    "globalNo": 1507,
+    "globalNo": 1613,
     "sNo": 77,
     "slideNum": 78,
     "code": "VP-SGR-77",
@@ -37677,7 +40433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1508",
-    "globalNo": 1508,
+    "globalNo": 1614,
     "sNo": 78,
     "slideNum": 79,
     "code": "VP-SGR-78",
@@ -37702,7 +40458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1509",
-    "globalNo": 1509,
+    "globalNo": 1615,
     "sNo": 79,
     "slideNum": 80,
     "code": "VP-SGR-79",
@@ -37727,7 +40483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1510",
-    "globalNo": 1510,
+    "globalNo": 1616,
     "sNo": 1,
     "slideNum": 4,
     "code": "VP-SHR-01",
@@ -37752,7 +40508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1511",
-    "globalNo": 1511,
+    "globalNo": 1617,
     "sNo": 2,
     "slideNum": 7,
     "code": "VP-SHR-02",
@@ -37777,7 +40533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1512",
-    "globalNo": 1512,
+    "globalNo": 1618,
     "sNo": 3,
     "slideNum": 8,
     "code": "VP-SHR-03",
@@ -37802,7 +40558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1513",
-    "globalNo": 1513,
+    "globalNo": 1619,
     "sNo": 4,
     "slideNum": 9,
     "code": "VP-SHR-04",
@@ -37827,7 +40583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1514",
-    "globalNo": 1514,
+    "globalNo": 1620,
     "sNo": 5,
     "slideNum": 10,
     "code": "VP-SHR-05",
@@ -37852,7 +40608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1515",
-    "globalNo": 1515,
+    "globalNo": 1621,
     "sNo": 6,
     "slideNum": 11,
     "code": "VP-SHR-06",
@@ -37877,7 +40633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1516",
-    "globalNo": 1516,
+    "globalNo": 1622,
     "sNo": 7,
     "slideNum": 12,
     "code": "VP-SHR-07",
@@ -37902,7 +40658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1517",
-    "globalNo": 1517,
+    "globalNo": 1623,
     "sNo": 8,
     "slideNum": 13,
     "code": "VP-SHR-08",
@@ -37927,7 +40683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1518",
-    "globalNo": 1518,
+    "globalNo": 1624,
     "sNo": 9,
     "slideNum": 14,
     "code": "VP-SHR-09",
@@ -37952,7 +40708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1519",
-    "globalNo": 1519,
+    "globalNo": 1625,
     "sNo": 10,
     "slideNum": 15,
     "code": "VP-SHR-10",
@@ -37977,7 +40733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1520",
-    "globalNo": 1520,
+    "globalNo": 1626,
     "sNo": 11,
     "slideNum": 16,
     "code": "VP-SHR-11",
@@ -38002,7 +40758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1521",
-    "globalNo": 1521,
+    "globalNo": 1627,
     "sNo": 12,
     "slideNum": 17,
     "code": "VP-SHR-12",
@@ -38027,7 +40783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1522",
-    "globalNo": 1522,
+    "globalNo": 1628,
     "sNo": 13,
     "slideNum": 18,
     "code": "VP-SHR-13",
@@ -38052,7 +40808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1523",
-    "globalNo": 1523,
+    "globalNo": 1629,
     "sNo": 14,
     "slideNum": 19,
     "code": "VP-SHR-14",
@@ -38077,7 +40833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1524",
-    "globalNo": 1524,
+    "globalNo": 1630,
     "sNo": 15,
     "slideNum": 20,
     "code": "VP-SHR-15",
@@ -38102,7 +40858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1525",
-    "globalNo": 1525,
+    "globalNo": 1631,
     "sNo": 16,
     "slideNum": 21,
     "code": "VP-SHR-16",
@@ -38127,7 +40883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1526",
-    "globalNo": 1526,
+    "globalNo": 1632,
     "sNo": 17,
     "slideNum": 22,
     "code": "VP-SHR-17",
@@ -38152,7 +40908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1527",
-    "globalNo": 1527,
+    "globalNo": 1633,
     "sNo": 18,
     "slideNum": 23,
     "code": "VP-SHR-18",
@@ -38177,7 +40933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1528",
-    "globalNo": 1528,
+    "globalNo": 1634,
     "sNo": 19,
     "slideNum": 24,
     "code": "VP-SHR-19",
@@ -38202,7 +40958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1529",
-    "globalNo": 1529,
+    "globalNo": 1635,
     "sNo": 20,
     "slideNum": 25,
     "code": "VP-SHR-20",
@@ -38227,7 +40983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1530",
-    "globalNo": 1530,
+    "globalNo": 1636,
     "sNo": 21,
     "slideNum": 26,
     "code": "VP-SHR-21",
@@ -38252,7 +41008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1531",
-    "globalNo": 1531,
+    "globalNo": 1637,
     "sNo": 22,
     "slideNum": 27,
     "code": "VP-SHR-22",
@@ -38277,7 +41033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1532",
-    "globalNo": 1532,
+    "globalNo": 1638,
     "sNo": 23,
     "slideNum": 30,
     "code": "VP-SHR-23",
@@ -38302,7 +41058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1533",
-    "globalNo": 1533,
+    "globalNo": 1639,
     "sNo": 24,
     "slideNum": 31,
     "code": "VP-SHR-24",
@@ -38327,7 +41083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1534",
-    "globalNo": 1534,
+    "globalNo": 1640,
     "sNo": 25,
     "slideNum": 32,
     "code": "VP-SHR-25",
@@ -38352,7 +41108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1535",
-    "globalNo": 1535,
+    "globalNo": 1641,
     "sNo": 26,
     "slideNum": 33,
     "code": "VP-SHR-26",
@@ -38377,7 +41133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1536",
-    "globalNo": 1536,
+    "globalNo": 1642,
     "sNo": 27,
     "slideNum": 34,
     "code": "VP-SHR-27",
@@ -38402,7 +41158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1537",
-    "globalNo": 1537,
+    "globalNo": 1643,
     "sNo": 28,
     "slideNum": 35,
     "code": "VP-SHR-28",
@@ -38427,7 +41183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1538",
-    "globalNo": 1538,
+    "globalNo": 1644,
     "sNo": 29,
     "slideNum": 36,
     "code": "VP-SHR-29",
@@ -38452,7 +41208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1539",
-    "globalNo": 1539,
+    "globalNo": 1645,
     "sNo": 30,
     "slideNum": 37,
     "code": "VP-SHR-30",
@@ -38477,7 +41233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1540",
-    "globalNo": 1540,
+    "globalNo": 1646,
     "sNo": 31,
     "slideNum": 38,
     "code": "VP-SHR-31",
@@ -38502,7 +41258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1541",
-    "globalNo": 1541,
+    "globalNo": 1647,
     "sNo": 32,
     "slideNum": 39,
     "code": "VP-SHR-32",
@@ -38527,7 +41283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1542",
-    "globalNo": 1542,
+    "globalNo": 1648,
     "sNo": 33,
     "slideNum": 40,
     "code": "VP-SHR-33",
@@ -38552,7 +41308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1543",
-    "globalNo": 1543,
+    "globalNo": 1649,
     "sNo": 34,
     "slideNum": 41,
     "code": "VP-SHR-34",
@@ -38577,7 +41333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1544",
-    "globalNo": 1544,
+    "globalNo": 1650,
     "sNo": 35,
     "slideNum": 42,
     "code": "VP-SHR-35",
@@ -38602,7 +41358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1545",
-    "globalNo": 1545,
+    "globalNo": 1651,
     "sNo": 36,
     "slideNum": 43,
     "code": "VP-SHR-36",
@@ -38627,7 +41383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1546",
-    "globalNo": 1546,
+    "globalNo": 1652,
     "sNo": 37,
     "slideNum": 44,
     "code": "VP-SHR-37",
@@ -38652,7 +41408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1547",
-    "globalNo": 1547,
+    "globalNo": 1653,
     "sNo": 38,
     "slideNum": 45,
     "code": "VP-SHR-38",
@@ -38677,7 +41433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1548",
-    "globalNo": 1548,
+    "globalNo": 1654,
     "sNo": 39,
     "slideNum": 46,
     "code": "VP-SHR-39",
@@ -38702,7 +41458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1549",
-    "globalNo": 1549,
+    "globalNo": 1655,
     "sNo": 40,
     "slideNum": 47,
     "code": "VP-SHR-40",
@@ -38727,7 +41483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1550",
-    "globalNo": 1550,
+    "globalNo": 1656,
     "sNo": 41,
     "slideNum": 48,
     "code": "VP-SHR-41",
@@ -38752,7 +41508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1551",
-    "globalNo": 1551,
+    "globalNo": 1657,
     "sNo": 42,
     "slideNum": 49,
     "code": "VP-SHR-42",
@@ -38777,7 +41533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1552",
-    "globalNo": 1552,
+    "globalNo": 1658,
     "sNo": 43,
     "slideNum": 50,
     "code": "VP-SHR-43",
@@ -38802,7 +41558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1553",
-    "globalNo": 1553,
+    "globalNo": 1659,
     "sNo": 44,
     "slideNum": 51,
     "code": "VP-SHR-44",
@@ -38827,7 +41583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1554",
-    "globalNo": 1554,
+    "globalNo": 1660,
     "sNo": 45,
     "slideNum": 52,
     "code": "VP-SHR-45",
@@ -38852,7 +41608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1555",
-    "globalNo": 1555,
+    "globalNo": 1661,
     "sNo": 46,
     "slideNum": 53,
     "code": "VP-SHR-46",
@@ -38877,7 +41633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1556",
-    "globalNo": 1556,
+    "globalNo": 1662,
     "sNo": 47,
     "slideNum": 54,
     "code": "VP-SHR-47",
@@ -38902,7 +41658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1557",
-    "globalNo": 1557,
+    "globalNo": 1663,
     "sNo": 48,
     "slideNum": 55,
     "code": "VP-SHR-48",
@@ -38927,7 +41683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1558",
-    "globalNo": 1558,
+    "globalNo": 1664,
     "sNo": 49,
     "slideNum": 56,
     "code": "VP-SHR-49",
@@ -38952,7 +41708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1559",
-    "globalNo": 1559,
+    "globalNo": 1665,
     "sNo": 50,
     "slideNum": 57,
     "code": "VP-SHR-50",
@@ -38977,7 +41733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1560",
-    "globalNo": 1560,
+    "globalNo": 1666,
     "sNo": 51,
     "slideNum": 58,
     "code": "VP-SHR-51",
@@ -39002,7 +41758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1561",
-    "globalNo": 1561,
+    "globalNo": 1667,
     "sNo": 52,
     "slideNum": 59,
     "code": "VP-SHR-52",
@@ -39027,7 +41783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1562",
-    "globalNo": 1562,
+    "globalNo": 1668,
     "sNo": 53,
     "slideNum": 60,
     "code": "VP-SHR-53",
@@ -39052,7 +41808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1563",
-    "globalNo": 1563,
+    "globalNo": 1669,
     "sNo": 54,
     "slideNum": 61,
     "code": "VP-SHR-54",
@@ -39077,7 +41833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1564",
-    "globalNo": 1564,
+    "globalNo": 1670,
     "sNo": 55,
     "slideNum": 62,
     "code": "VP-SHR-55",
@@ -39102,7 +41858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1565",
-    "globalNo": 1565,
+    "globalNo": 1671,
     "sNo": 56,
     "slideNum": 63,
     "code": "VP-SHR-56",
@@ -39127,7 +41883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1566",
-    "globalNo": 1566,
+    "globalNo": 1672,
     "sNo": 57,
     "slideNum": 64,
     "code": "VP-SHR-57",
@@ -39152,7 +41908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1567",
-    "globalNo": 1567,
+    "globalNo": 1673,
     "sNo": 58,
     "slideNum": 65,
     "code": "VP-SHR-58",
@@ -39177,7 +41933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1568",
-    "globalNo": 1568,
+    "globalNo": 1674,
     "sNo": 59,
     "slideNum": 66,
     "code": "VP-SHR-59",
@@ -39202,7 +41958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1569",
-    "globalNo": 1569,
+    "globalNo": 1675,
     "sNo": 60,
     "slideNum": 67,
     "code": "VP-SHR-60",
@@ -39227,7 +41983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1570",
-    "globalNo": 1570,
+    "globalNo": 1676,
     "sNo": 61,
     "slideNum": 68,
     "code": "VP-SHR-61",
@@ -39252,7 +42008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1571",
-    "globalNo": 1571,
+    "globalNo": 1677,
     "sNo": 62,
     "slideNum": 69,
     "code": "VP-SHR-62",
@@ -39277,7 +42033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1572",
-    "globalNo": 1572,
+    "globalNo": 1678,
     "sNo": 63,
     "slideNum": 70,
     "code": "VP-SHR-63",
@@ -39302,7 +42058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1573",
-    "globalNo": 1573,
+    "globalNo": 1679,
     "sNo": 64,
     "slideNum": 71,
     "code": "VP-SHR-64",
@@ -39327,7 +42083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1574",
-    "globalNo": 1574,
+    "globalNo": 1680,
     "sNo": 65,
     "slideNum": 72,
     "code": "VP-SHR-65",
@@ -39352,7 +42108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1575",
-    "globalNo": 1575,
+    "globalNo": 1681,
     "sNo": 66,
     "slideNum": 73,
     "code": "VP-SHR-66",
@@ -39377,7 +42133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1576",
-    "globalNo": 1576,
+    "globalNo": 1682,
     "sNo": 67,
     "slideNum": 74,
     "code": "VP-SHR-67",
@@ -39402,7 +42158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1577",
-    "globalNo": 1577,
+    "globalNo": 1683,
     "sNo": 68,
     "slideNum": 75,
     "code": "VP-SHR-68",
@@ -39427,7 +42183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1578",
-    "globalNo": 1578,
+    "globalNo": 1684,
     "sNo": 69,
     "slideNum": 76,
     "code": "VP-SHR-69",
@@ -39452,7 +42208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1579",
-    "globalNo": 1579,
+    "globalNo": 1685,
     "sNo": 70,
     "slideNum": 77,
     "code": "VP-SHR-70",
@@ -39477,7 +42233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1580",
-    "globalNo": 1580,
+    "globalNo": 1686,
     "sNo": 71,
     "slideNum": 78,
     "code": "VP-SHR-71",
@@ -39502,7 +42258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1581",
-    "globalNo": 1581,
+    "globalNo": 1687,
     "sNo": 72,
     "slideNum": 79,
     "code": "VP-SHR-72",
@@ -39527,7 +42283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1582",
-    "globalNo": 1582,
+    "globalNo": 1688,
     "sNo": 73,
     "slideNum": 80,
     "code": "VP-SHR-73",
@@ -39552,7 +42308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1583",
-    "globalNo": 1583,
+    "globalNo": 1689,
     "sNo": 74,
     "slideNum": 81,
     "code": "VP-SHR-74",
@@ -39577,7 +42333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1584",
-    "globalNo": 1584,
+    "globalNo": 1690,
     "sNo": 75,
     "slideNum": 82,
     "code": "VP-SHR-75",
@@ -39602,7 +42358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1585",
-    "globalNo": 1585,
+    "globalNo": 1691,
     "sNo": 76,
     "slideNum": 83,
     "code": "VP-SHR-76",
@@ -39627,7 +42383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1586",
-    "globalNo": 1586,
+    "globalNo": 1692,
     "sNo": 77,
     "slideNum": 84,
     "code": "VP-SHR-77",
@@ -39652,7 +42408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1587",
-    "globalNo": 1587,
+    "globalNo": 1693,
     "sNo": 78,
     "slideNum": 85,
     "code": "VP-SHR-78",
@@ -39677,7 +42433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1588",
-    "globalNo": 1588,
+    "globalNo": 1694,
     "sNo": 79,
     "slideNum": 86,
     "code": "VP-SHR-79",
@@ -39702,7 +42458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1589",
-    "globalNo": 1589,
+    "globalNo": 1695,
     "sNo": 80,
     "slideNum": 87,
     "code": "VP-SHR-80",
@@ -39727,7 +42483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1590",
-    "globalNo": 1590,
+    "globalNo": 1696,
     "sNo": 81,
     "slideNum": 88,
     "code": "VP-SHR-81",
@@ -39752,7 +42508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1591",
-    "globalNo": 1591,
+    "globalNo": 1697,
     "sNo": 82,
     "slideNum": 89,
     "code": "VP-SHR-82",
@@ -39777,7 +42533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1592",
-    "globalNo": 1592,
+    "globalNo": 1698,
     "sNo": 83,
     "slideNum": 90,
     "code": "VP-SHR-83",
@@ -39802,7 +42558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1593",
-    "globalNo": 1593,
+    "globalNo": 1699,
     "sNo": 84,
     "slideNum": 91,
     "code": "VP-SHR-84",
@@ -39827,7 +42583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1594",
-    "globalNo": 1594,
+    "globalNo": 1700,
     "sNo": 85,
     "slideNum": 92,
     "code": "VP-SHR-85",
@@ -39852,7 +42608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1595",
-    "globalNo": 1595,
+    "globalNo": 1701,
     "sNo": 86,
     "slideNum": 93,
     "code": "VP-SHR-86",
@@ -39877,7 +42633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1596",
-    "globalNo": 1596,
+    "globalNo": 1702,
     "sNo": 87,
     "slideNum": 94,
     "code": "VP-SHR-87",
@@ -39902,7 +42658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1597",
-    "globalNo": 1597,
+    "globalNo": 1703,
     "sNo": 88,
     "slideNum": 95,
     "code": "VP-SHR-88",
@@ -39927,7 +42683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1598",
-    "globalNo": 1598,
+    "globalNo": 1704,
     "sNo": 89,
     "slideNum": 96,
     "code": "VP-SHR-89",
@@ -39952,7 +42708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1599",
-    "globalNo": 1599,
+    "globalNo": 1705,
     "sNo": 90,
     "slideNum": 97,
     "code": "VP-SHR-90",
@@ -39977,7 +42733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1600",
-    "globalNo": 1600,
+    "globalNo": 1706,
     "sNo": 91,
     "slideNum": 98,
     "code": "VP-SHR-91",
@@ -40002,7 +42758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1601",
-    "globalNo": 1601,
+    "globalNo": 1707,
     "sNo": 92,
     "slideNum": 99,
     "code": "VP-SHR-92",
@@ -40027,7 +42783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1602",
-    "globalNo": 1602,
+    "globalNo": 1708,
     "sNo": 93,
     "slideNum": 100,
     "code": "VP-SHR-93",
@@ -40052,7 +42808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1603",
-    "globalNo": 1603,
+    "globalNo": 1709,
     "sNo": 94,
     "slideNum": 101,
     "code": "VP-SHR-94",
@@ -40077,7 +42833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1604",
-    "globalNo": 1604,
+    "globalNo": 1710,
     "sNo": 95,
     "slideNum": 102,
     "code": "VP-SHR-95",
@@ -40102,7 +42858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1605",
-    "globalNo": 1605,
+    "globalNo": 1711,
     "sNo": 96,
     "slideNum": 103,
     "code": "VP-SHR-96",
@@ -40127,7 +42883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1606",
-    "globalNo": 1606,
+    "globalNo": 1712,
     "sNo": 97,
     "slideNum": 104,
     "code": "VP-SHR-97",
@@ -40152,7 +42908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1607",
-    "globalNo": 1607,
+    "globalNo": 1713,
     "sNo": 98,
     "slideNum": 105,
     "code": "VP-SHR-98",
@@ -40177,7 +42933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1608",
-    "globalNo": 1608,
+    "globalNo": 1714,
     "sNo": 99,
     "slideNum": 106,
     "code": "VP-SHR-99",
@@ -40202,7 +42958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1609",
-    "globalNo": 1609,
+    "globalNo": 1715,
     "sNo": 100,
     "slideNum": 107,
     "code": "VP-SHR-100",
@@ -40227,7 +42983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1610",
-    "globalNo": 1610,
+    "globalNo": 1716,
     "sNo": 101,
     "slideNum": 108,
     "code": "VP-SHR-101",
@@ -40252,7 +43008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1611",
-    "globalNo": 1611,
+    "globalNo": 1717,
     "sNo": 102,
     "slideNum": 109,
     "code": "VP-SHR-102",
@@ -40277,7 +43033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1612",
-    "globalNo": 1612,
+    "globalNo": 1718,
     "sNo": 103,
     "slideNum": 110,
     "code": "VP-SHR-103",
@@ -40302,7 +43058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1613",
-    "globalNo": 1613,
+    "globalNo": 1719,
     "sNo": 104,
     "slideNum": 111,
     "code": "VP-SHR-104",
@@ -40327,7 +43083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1614",
-    "globalNo": 1614,
+    "globalNo": 1720,
     "sNo": 105,
     "slideNum": 112,
     "code": "VP-SHR-105",
@@ -40352,7 +43108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1615",
-    "globalNo": 1615,
+    "globalNo": 1721,
     "sNo": 106,
     "slideNum": 113,
     "code": "VP-SHR-106",
@@ -40377,7 +43133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1616",
-    "globalNo": 1616,
+    "globalNo": 1722,
     "sNo": 107,
     "slideNum": 114,
     "code": "VP-SHR-107",
@@ -40402,7 +43158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1617",
-    "globalNo": 1617,
+    "globalNo": 1723,
     "sNo": 108,
     "slideNum": 115,
     "code": "VP-SHR-108",
@@ -40427,7 +43183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1618",
-    "globalNo": 1618,
+    "globalNo": 1724,
     "sNo": 109,
     "slideNum": 116,
     "code": "VP-SHR-109",
@@ -40452,7 +43208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1619",
-    "globalNo": 1619,
+    "globalNo": 1725,
     "sNo": 110,
     "slideNum": 117,
     "code": "VP-SHR-110",
@@ -40477,7 +43233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1620",
-    "globalNo": 1620,
+    "globalNo": 1726,
     "sNo": 111,
     "slideNum": 118,
     "code": "VP-SHR-111",
@@ -40502,7 +43258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1621",
-    "globalNo": 1621,
+    "globalNo": 1727,
     "sNo": 112,
     "slideNum": 119,
     "code": "VP-SHR-112",
@@ -40527,7 +43283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1622",
-    "globalNo": 1622,
+    "globalNo": 1728,
     "sNo": 113,
     "slideNum": 120,
     "code": "VP-SHR-113",
@@ -40552,7 +43308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1623",
-    "globalNo": 1623,
+    "globalNo": 1729,
     "sNo": 114,
     "slideNum": 121,
     "code": "VP-SHR-114",
@@ -40577,7 +43333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1624",
-    "globalNo": 1624,
+    "globalNo": 1730,
     "sNo": 115,
     "slideNum": 122,
     "code": "VP-SHR-115",
@@ -40602,7 +43358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1625",
-    "globalNo": 1625,
+    "globalNo": 1731,
     "sNo": 116,
     "slideNum": 123,
     "code": "VP-SHR-116",
@@ -40627,7 +43383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1626",
-    "globalNo": 1626,
+    "globalNo": 1732,
     "sNo": 117,
     "slideNum": 124,
     "code": "VP-SHR-117",
@@ -40652,7 +43408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1627",
-    "globalNo": 1627,
+    "globalNo": 1733,
     "sNo": 118,
     "slideNum": 125,
     "code": "VP-SHR-118",
@@ -40677,7 +43433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1628",
-    "globalNo": 1628,
+    "globalNo": 1734,
     "sNo": 119,
     "slideNum": 126,
     "code": "VP-SHR-119",
@@ -40702,7 +43458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1629",
-    "globalNo": 1629,
+    "globalNo": 1735,
     "sNo": 120,
     "slideNum": 127,
     "code": "VP-SHR-120",
@@ -40727,7 +43483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1630",
-    "globalNo": 1630,
+    "globalNo": 1736,
     "sNo": 121,
     "slideNum": 128,
     "code": "VP-SHR-121",
@@ -40752,7 +43508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1631",
-    "globalNo": 1631,
+    "globalNo": 1737,
     "sNo": 122,
     "slideNum": 129,
     "code": "VP-SHR-122",
@@ -40777,7 +43533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1632",
-    "globalNo": 1632,
+    "globalNo": 1738,
     "sNo": 123,
     "slideNum": 130,
     "code": "VP-SHR-123",
@@ -40802,7 +43558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1633",
-    "globalNo": 1633,
+    "globalNo": 1739,
     "sNo": 124,
     "slideNum": 131,
     "code": "VP-SHR-124",
@@ -40827,7 +43583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1634",
-    "globalNo": 1634,
+    "globalNo": 1740,
     "sNo": 125,
     "slideNum": 132,
     "code": "VP-SHR-125",
@@ -40852,7 +43608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1635",
-    "globalNo": 1635,
+    "globalNo": 1741,
     "sNo": 126,
     "slideNum": 133,
     "code": "VP-SHR-126",
@@ -40877,7 +43633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1636",
-    "globalNo": 1636,
+    "globalNo": 1742,
     "sNo": 127,
     "slideNum": 134,
     "code": "VP-SHR-127",
@@ -40902,7 +43658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1637",
-    "globalNo": 1637,
+    "globalNo": 1743,
     "sNo": 128,
     "slideNum": 135,
     "code": "VP-SHR-128",
@@ -40927,7 +43683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1638",
-    "globalNo": 1638,
+    "globalNo": 1744,
     "sNo": 129,
     "slideNum": 136,
     "code": "VP-SHR-129",
@@ -40952,7 +43708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1639",
-    "globalNo": 1639,
+    "globalNo": 1745,
     "sNo": 130,
     "slideNum": 137,
     "code": "VP-SHR-130",
@@ -40977,7 +43733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1640",
-    "globalNo": 1640,
+    "globalNo": 1746,
     "sNo": 131,
     "slideNum": 138,
     "code": "VP-SHR-131",
@@ -41002,7 +43758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1641",
-    "globalNo": 1641,
+    "globalNo": 1747,
     "sNo": 132,
     "slideNum": 139,
     "code": "VP-SHR-132",
@@ -41027,7 +43783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1642",
-    "globalNo": 1642,
+    "globalNo": 1748,
     "sNo": 133,
     "slideNum": 140,
     "code": "VP-SHR-133",
@@ -41052,7 +43808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1643",
-    "globalNo": 1643,
+    "globalNo": 1749,
     "sNo": 134,
     "slideNum": 141,
     "code": "VP-SHR-134",
@@ -41077,7 +43833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1644",
-    "globalNo": 1644,
+    "globalNo": 1750,
     "sNo": 135,
     "slideNum": 142,
     "code": "VP-SHR-135",
@@ -41102,7 +43858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1645",
-    "globalNo": 1645,
+    "globalNo": 1751,
     "sNo": 136,
     "slideNum": 143,
     "code": "VP-SHR-136",
@@ -41127,7 +43883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1646",
-    "globalNo": 1646,
+    "globalNo": 1752,
     "sNo": 137,
     "slideNum": 144,
     "code": "VP-SHR-137",
@@ -41152,7 +43908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1647",
-    "globalNo": 1647,
+    "globalNo": 1753,
     "sNo": 138,
     "slideNum": 145,
     "code": "VP-SHR-138",
@@ -41177,7 +43933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1648",
-    "globalNo": 1648,
+    "globalNo": 1754,
     "sNo": 139,
     "slideNum": 146,
     "code": "VP-SHR-139",
@@ -41202,7 +43958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1649",
-    "globalNo": 1649,
+    "globalNo": 1755,
     "sNo": 140,
     "slideNum": 147,
     "code": "VP-SHR-140",
@@ -41227,7 +43983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1650",
-    "globalNo": 1650,
+    "globalNo": 1756,
     "sNo": 141,
     "slideNum": 148,
     "code": "VP-SHR-141",
@@ -41252,7 +44008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1651",
-    "globalNo": 1651,
+    "globalNo": 1757,
     "sNo": 142,
     "slideNum": 149,
     "code": "VP-SHR-142",
@@ -41277,7 +44033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1652",
-    "globalNo": 1652,
+    "globalNo": 1758,
     "sNo": 143,
     "slideNum": 150,
     "code": "VP-SHR-143",
@@ -41302,7 +44058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1653",
-    "globalNo": 1653,
+    "globalNo": 1759,
     "sNo": 144,
     "slideNum": 151,
     "code": "VP-SHR-144",
@@ -41327,7 +44083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1654",
-    "globalNo": 1654,
+    "globalNo": 1760,
     "sNo": 145,
     "slideNum": 152,
     "code": "VP-SHR-145",
@@ -41352,7 +44108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1655",
-    "globalNo": 1655,
+    "globalNo": 1761,
     "sNo": 146,
     "slideNum": 153,
     "code": "VP-SHR-146",
@@ -41377,7 +44133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1656",
-    "globalNo": 1656,
+    "globalNo": 1762,
     "sNo": 147,
     "slideNum": 154,
     "code": "VP-SHR-147",
@@ -41402,7 +44158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1657",
-    "globalNo": 1657,
+    "globalNo": 1763,
     "sNo": 148,
     "slideNum": 155,
     "code": "VP-SHR-148",
@@ -41427,7 +44183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1658",
-    "globalNo": 1658,
+    "globalNo": 1764,
     "sNo": 149,
     "slideNum": 156,
     "code": "VP-SHR-149",
@@ -41452,7 +44208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1659",
-    "globalNo": 1659,
+    "globalNo": 1765,
     "sNo": 150,
     "slideNum": 157,
     "code": "VP-SHR-150",
@@ -41477,7 +44233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1660",
-    "globalNo": 1660,
+    "globalNo": 1766,
     "sNo": 151,
     "slideNum": 158,
     "code": "VP-SHR-151",
@@ -41502,7 +44258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1661",
-    "globalNo": 1661,
+    "globalNo": 1767,
     "sNo": 152,
     "slideNum": 159,
     "code": "VP-SHR-152",
@@ -41527,7 +44283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1662",
-    "globalNo": 1662,
+    "globalNo": 1768,
     "sNo": 153,
     "slideNum": 160,
     "code": "VP-SHR-153",
@@ -41552,7 +44308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1663",
-    "globalNo": 1663,
+    "globalNo": 1769,
     "sNo": 154,
     "slideNum": 162,
     "code": "VP-SHR-154",
@@ -41577,7 +44333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1664",
-    "globalNo": 1664,
+    "globalNo": 1770,
     "sNo": 155,
     "slideNum": 163,
     "code": "VP-SHR-155",
@@ -41602,7 +44358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1665",
-    "globalNo": 1665,
+    "globalNo": 1771,
     "sNo": 156,
     "slideNum": 164,
     "code": "VP-SHR-156",
@@ -41627,7 +44383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1666",
-    "globalNo": 1666,
+    "globalNo": 1772,
     "sNo": 157,
     "slideNum": 165,
     "code": "VP-SHR-157",
@@ -41652,7 +44408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1667",
-    "globalNo": 1667,
+    "globalNo": 1773,
     "sNo": 158,
     "slideNum": 166,
     "code": "VP-SHR-158",
@@ -41677,7 +44433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1668",
-    "globalNo": 1668,
+    "globalNo": 1774,
     "sNo": 159,
     "slideNum": 167,
     "code": "VP-SHR-159",
@@ -41702,7 +44458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1669",
-    "globalNo": 1669,
+    "globalNo": 1775,
     "sNo": 160,
     "slideNum": 168,
     "code": "VP-SHR-160",
@@ -41727,7 +44483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1670",
-    "globalNo": 1670,
+    "globalNo": 1776,
     "sNo": 161,
     "slideNum": 169,
     "code": "VP-SHR-161",
@@ -41752,7 +44508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1671",
-    "globalNo": 1671,
+    "globalNo": 1777,
     "sNo": 162,
     "slideNum": 170,
     "code": "VP-SHR-162",
@@ -41777,7 +44533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1672",
-    "globalNo": 1672,
+    "globalNo": 1778,
     "sNo": 163,
     "slideNum": 171,
     "code": "VP-SHR-163",
@@ -41802,7 +44558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1673",
-    "globalNo": 1673,
+    "globalNo": 1779,
     "sNo": 164,
     "slideNum": 172,
     "code": "VP-SHR-164",
@@ -41827,7 +44583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1674",
-    "globalNo": 1674,
+    "globalNo": 1780,
     "sNo": 165,
     "slideNum": 173,
     "code": "VP-SHR-165",
@@ -41852,7 +44608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1675",
-    "globalNo": 1675,
+    "globalNo": 1781,
     "sNo": 166,
     "slideNum": 174,
     "code": "VP-SHR-166",
@@ -41877,7 +44633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1676",
-    "globalNo": 1676,
+    "globalNo": 1782,
     "sNo": 167,
     "slideNum": 175,
     "code": "VP-SHR-167",
@@ -41902,7 +44658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1677",
-    "globalNo": 1677,
+    "globalNo": 1783,
     "sNo": 168,
     "slideNum": 176,
     "code": "VP-SHR-168",
@@ -41927,7 +44683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1678",
-    "globalNo": 1678,
+    "globalNo": 1784,
     "sNo": 169,
     "slideNum": 177,
     "code": "VP-SHR-169",
@@ -41952,7 +44708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1679",
-    "globalNo": 1679,
+    "globalNo": 1785,
     "sNo": 170,
     "slideNum": 178,
     "code": "VP-SHR-170",
@@ -41977,7 +44733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1680",
-    "globalNo": 1680,
+    "globalNo": 1786,
     "sNo": 171,
     "slideNum": 179,
     "code": "VP-SHR-171",
@@ -42002,7 +44758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1681",
-    "globalNo": 1681,
+    "globalNo": 1787,
     "sNo": 172,
     "slideNum": 180,
     "code": "VP-SHR-172",
@@ -42027,7 +44783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1682",
-    "globalNo": 1682,
+    "globalNo": 1788,
     "sNo": 173,
     "slideNum": 181,
     "code": "VP-SHR-173",
@@ -42052,7 +44808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1683",
-    "globalNo": 1683,
+    "globalNo": 1789,
     "sNo": 174,
     "slideNum": 183,
     "code": "VP-SHR-174",
@@ -42077,7 +44833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1684",
-    "globalNo": 1684,
+    "globalNo": 1790,
     "sNo": 175,
     "slideNum": 184,
     "code": "VP-SHR-175",
@@ -42102,7 +44858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1685",
-    "globalNo": 1685,
+    "globalNo": 1791,
     "sNo": 176,
     "slideNum": 185,
     "code": "VP-SHR-176",
@@ -42127,7 +44883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1686",
-    "globalNo": 1686,
+    "globalNo": 1792,
     "sNo": 177,
     "slideNum": 186,
     "code": "VP-SHR-177",
@@ -42152,7 +44908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1687",
-    "globalNo": 1687,
+    "globalNo": 1793,
     "sNo": 178,
     "slideNum": 187,
     "code": "VP-SHR-178",
@@ -42177,7 +44933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1688",
-    "globalNo": 1688,
+    "globalNo": 1794,
     "sNo": 179,
     "slideNum": 189,
     "code": "VP-SHR-179",
@@ -42202,7 +44958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1689",
-    "globalNo": 1689,
+    "globalNo": 1795,
     "sNo": 180,
     "slideNum": 190,
     "code": "VP-SHR-180",
@@ -42227,7 +44983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1690",
-    "globalNo": 1690,
+    "globalNo": 1796,
     "sNo": 181,
     "slideNum": 191,
     "code": "VP-SHR-181",
@@ -42252,7 +45008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1691",
-    "globalNo": 1691,
+    "globalNo": 1797,
     "sNo": 182,
     "slideNum": 192,
     "code": "VP-SHR-182",
@@ -42277,7 +45033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1692",
-    "globalNo": 1692,
+    "globalNo": 1798,
     "sNo": 183,
     "slideNum": 193,
     "code": "VP-SHR-183",
@@ -42302,7 +45058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1693",
-    "globalNo": 1693,
+    "globalNo": 1799,
     "sNo": 184,
     "slideNum": 194,
     "code": "VP-SHR-184",
@@ -42327,7 +45083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1694",
-    "globalNo": 1694,
+    "globalNo": 1800,
     "sNo": 185,
     "slideNum": 196,
     "code": "VP-SHR-185",
@@ -42352,7 +45108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1695",
-    "globalNo": 1695,
+    "globalNo": 1801,
     "sNo": 186,
     "slideNum": 197,
     "code": "VP-SHR-186",
@@ -42377,7 +45133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1696",
-    "globalNo": 1696,
+    "globalNo": 1802,
     "sNo": 187,
     "slideNum": 198,
     "code": "VP-SHR-187",
@@ -42402,7 +45158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1697",
-    "globalNo": 1697,
+    "globalNo": 1803,
     "sNo": 188,
     "slideNum": 199,
     "code": "VP-SHR-188",
@@ -42427,7 +45183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1698",
-    "globalNo": 1698,
+    "globalNo": 1804,
     "sNo": 189,
     "slideNum": 200,
     "code": "VP-SHR-189",
@@ -42452,7 +45208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1699",
-    "globalNo": 1699,
+    "globalNo": 1805,
     "sNo": 190,
     "slideNum": 201,
     "code": "VP-SHR-190",
@@ -42477,7 +45233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1700",
-    "globalNo": 1700,
+    "globalNo": 1806,
     "sNo": 191,
     "slideNum": 203,
     "code": "VP-SHR-191",
@@ -42502,7 +45258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1701",
-    "globalNo": 1701,
+    "globalNo": 1807,
     "sNo": 192,
     "slideNum": 204,
     "code": "VP-SHR-192",
@@ -42527,7 +45283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1702",
-    "globalNo": 1702,
+    "globalNo": 1808,
     "sNo": 193,
     "slideNum": 205,
     "code": "VP-SHR-193",
@@ -42552,7 +45308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1703",
-    "globalNo": 1703,
+    "globalNo": 1809,
     "sNo": 194,
     "slideNum": 206,
     "code": "VP-SHR-194",
@@ -42577,7 +45333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1704",
-    "globalNo": 1704,
+    "globalNo": 1810,
     "sNo": 195,
     "slideNum": 207,
     "code": "VP-SHR-195",
@@ -42602,7 +45358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1705",
-    "globalNo": 1705,
+    "globalNo": 1811,
     "sNo": 196,
     "slideNum": 209,
     "code": "VP-SHR-196",
@@ -42627,7 +45383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1706",
-    "globalNo": 1706,
+    "globalNo": 1812,
     "sNo": 197,
     "slideNum": 210,
     "code": "VP-SHR-197",
@@ -42652,7 +45408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1707",
-    "globalNo": 1707,
+    "globalNo": 1813,
     "sNo": 198,
     "slideNum": 211,
     "code": "VP-SHR-198",
@@ -42677,7 +45433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1708",
-    "globalNo": 1708,
+    "globalNo": 1814,
     "sNo": 199,
     "slideNum": 212,
     "code": "VP-SHR-199",
@@ -42702,7 +45458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1709",
-    "globalNo": 1709,
+    "globalNo": 1815,
     "sNo": 200,
     "slideNum": 213,
     "code": "VP-SHR-200",
@@ -42727,7 +45483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1710",
-    "globalNo": 1710,
+    "globalNo": 1816,
     "sNo": 201,
     "slideNum": 214,
     "code": "VP-SHR-201",
@@ -42752,7 +45508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1711",
-    "globalNo": 1711,
+    "globalNo": 1817,
     "sNo": 202,
     "slideNum": 215,
     "code": "VP-SHR-202",
@@ -42777,7 +45533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1712",
-    "globalNo": 1712,
+    "globalNo": 1818,
     "sNo": 203,
     "slideNum": 216,
     "code": "VP-SHR-203",
@@ -42802,7 +45558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1713",
-    "globalNo": 1713,
+    "globalNo": 1819,
     "sNo": 204,
     "slideNum": 217,
     "code": "VP-SHR-204",
@@ -42827,7 +45583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1714",
-    "globalNo": 1714,
+    "globalNo": 1820,
     "sNo": 205,
     "slideNum": 218,
     "code": "VP-SHR-205",
@@ -42852,7 +45608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1715",
-    "globalNo": 1715,
+    "globalNo": 1821,
     "sNo": 206,
     "slideNum": 219,
     "code": "VP-SHR-206",
@@ -42877,7 +45633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1716",
-    "globalNo": 1716,
+    "globalNo": 1822,
     "sNo": 207,
     "slideNum": 220,
     "code": "VP-SHR-207",
@@ -42902,7 +45658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1717",
-    "globalNo": 1717,
+    "globalNo": 1823,
     "sNo": 208,
     "slideNum": 221,
     "code": "VP-SHR-208",
@@ -42927,7 +45683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1718",
-    "globalNo": 1718,
+    "globalNo": 1824,
     "sNo": 209,
     "slideNum": 222,
     "code": "VP-SHR-209",
@@ -42952,7 +45708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1719",
-    "globalNo": 1719,
+    "globalNo": 1825,
     "sNo": 210,
     "slideNum": 223,
     "code": "VP-SHR-210",
@@ -42977,7 +45733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1720",
-    "globalNo": 1720,
+    "globalNo": 1826,
     "sNo": 211,
     "slideNum": 225,
     "code": "VP-SHR-211",
@@ -43002,7 +45758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1721",
-    "globalNo": 1721,
+    "globalNo": 1827,
     "sNo": 212,
     "slideNum": 226,
     "code": "VP-SHR-212",
@@ -43027,7 +45783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1722",
-    "globalNo": 1722,
+    "globalNo": 1828,
     "sNo": 213,
     "slideNum": 227,
     "code": "VP-SHR-213",
@@ -43052,7 +45808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1723",
-    "globalNo": 1723,
+    "globalNo": 1829,
     "sNo": 214,
     "slideNum": 228,
     "code": "VP-SHR-214",
@@ -43077,7 +45833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1724",
-    "globalNo": 1724,
+    "globalNo": 1830,
     "sNo": 215,
     "slideNum": 229,
     "code": "VP-SHR-215",
@@ -43102,7 +45858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1725",
-    "globalNo": 1725,
+    "globalNo": 1831,
     "sNo": 216,
     "slideNum": 230,
     "code": "VP-SHR-216",
@@ -43127,7 +45883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1726",
-    "globalNo": 1726,
+    "globalNo": 1832,
     "sNo": 217,
     "slideNum": 232,
     "code": "VP-SHR-217",
@@ -43152,7 +45908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1727",
-    "globalNo": 1727,
+    "globalNo": 1833,
     "sNo": 218,
     "slideNum": 233,
     "code": "VP-SHR-218",
@@ -43177,7 +45933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1728",
-    "globalNo": 1728,
+    "globalNo": 1834,
     "sNo": 219,
     "slideNum": 234,
     "code": "VP-SHR-219",
@@ -43202,7 +45958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1729",
-    "globalNo": 1729,
+    "globalNo": 1835,
     "sNo": 220,
     "slideNum": 236,
     "code": "VP-SHR-220",
@@ -43227,7 +45983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1730",
-    "globalNo": 1730,
+    "globalNo": 1836,
     "sNo": 221,
     "slideNum": 237,
     "code": "VP-SHR-221",
@@ -43252,7 +46008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1731",
-    "globalNo": 1731,
+    "globalNo": 1837,
     "sNo": 222,
     "slideNum": 238,
     "code": "VP-SHR-222",
@@ -43277,7 +46033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1732",
-    "globalNo": 1732,
+    "globalNo": 1838,
     "sNo": 223,
     "slideNum": 239,
     "code": "VP-SHR-223",
@@ -43302,7 +46058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1733",
-    "globalNo": 1733,
+    "globalNo": 1839,
     "sNo": 224,
     "slideNum": 241,
     "code": "VP-SHR-224",
@@ -43327,7 +46083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1734",
-    "globalNo": 1734,
+    "globalNo": 1840,
     "sNo": 225,
     "slideNum": 242,
     "code": "VP-SHR-225",
@@ -43352,7 +46108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1735",
-    "globalNo": 1735,
+    "globalNo": 1841,
     "sNo": 226,
     "slideNum": 243,
     "code": "VP-SHR-226",
@@ -43377,7 +46133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1736",
-    "globalNo": 1736,
+    "globalNo": 1842,
     "sNo": 227,
     "slideNum": 244,
     "code": "VP-SHR-227",
@@ -43402,7 +46158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1737",
-    "globalNo": 1737,
+    "globalNo": 1843,
     "sNo": 228,
     "slideNum": 245,
     "code": "VP-SHR-228",
@@ -43427,7 +46183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1738",
-    "globalNo": 1738,
+    "globalNo": 1844,
     "sNo": 229,
     "slideNum": 246,
     "code": "VP-SHR-229",
@@ -43452,7 +46208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1739",
-    "globalNo": 1739,
+    "globalNo": 1845,
     "sNo": 230,
     "slideNum": 247,
     "code": "VP-SHR-230",
@@ -43477,7 +46233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1740",
-    "globalNo": 1740,
+    "globalNo": 1846,
     "sNo": 231,
     "slideNum": 248,
     "code": "VP-SHR-231",
@@ -43502,7 +46258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1741",
-    "globalNo": 1741,
+    "globalNo": 1847,
     "sNo": 232,
     "slideNum": 249,
     "code": "VP-SHR-232",
@@ -43527,7 +46283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1742",
-    "globalNo": 1742,
+    "globalNo": 1848,
     "sNo": 233,
     "slideNum": 250,
     "code": "VP-SHR-233",
@@ -43552,7 +46308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1743",
-    "globalNo": 1743,
+    "globalNo": 1849,
     "sNo": 234,
     "slideNum": 251,
     "code": "VP-SHR-234",
@@ -43577,7 +46333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1744",
-    "globalNo": 1744,
+    "globalNo": 1850,
     "sNo": 235,
     "slideNum": 252,
     "code": "VP-SHR-235",
@@ -43602,7 +46358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1745",
-    "globalNo": 1745,
+    "globalNo": 1851,
     "sNo": 236,
     "slideNum": 253,
     "code": "VP-SHR-236",
@@ -43627,7 +46383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1746",
-    "globalNo": 1746,
+    "globalNo": 1852,
     "sNo": 237,
     "slideNum": 254,
     "code": "VP-SHR-237",
@@ -43652,7 +46408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1747",
-    "globalNo": 1747,
+    "globalNo": 1853,
     "sNo": 238,
     "slideNum": 255,
     "code": "VP-SHR-238",
@@ -43677,7 +46433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1748",
-    "globalNo": 1748,
+    "globalNo": 1854,
     "sNo": 239,
     "slideNum": 256,
     "code": "VP-SHR-239",
@@ -43702,7 +46458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1749",
-    "globalNo": 1749,
+    "globalNo": 1855,
     "sNo": 240,
     "slideNum": 257,
     "code": "VP-SHR-240",
@@ -43727,7 +46483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1750",
-    "globalNo": 1750,
+    "globalNo": 1856,
     "sNo": 241,
     "slideNum": 258,
     "code": "VP-SHR-241",
@@ -43752,7 +46508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1751",
-    "globalNo": 1751,
+    "globalNo": 1857,
     "sNo": 242,
     "slideNum": 259,
     "code": "VP-SHR-242",
@@ -43777,7 +46533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1752",
-    "globalNo": 1752,
+    "globalNo": 1858,
     "sNo": 243,
     "slideNum": 260,
     "code": "VP-SHR-243",
@@ -43802,7 +46558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1753",
-    "globalNo": 1753,
+    "globalNo": 1859,
     "sNo": 244,
     "slideNum": 261,
     "code": "VP-SHR-244",
@@ -43827,7 +46583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1754",
-    "globalNo": 1754,
+    "globalNo": 1860,
     "sNo": 245,
     "slideNum": 262,
     "code": "VP-SHR-245",
@@ -43852,7 +46608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1755",
-    "globalNo": 1755,
+    "globalNo": 1861,
     "sNo": 246,
     "slideNum": 263,
     "code": "VP-SHR-246",
@@ -43877,7 +46633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1756",
-    "globalNo": 1756,
+    "globalNo": 1862,
     "sNo": 247,
     "slideNum": 264,
     "code": "VP-SHR-247",
@@ -43902,7 +46658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1757",
-    "globalNo": 1757,
+    "globalNo": 1863,
     "sNo": 248,
     "slideNum": 265,
     "code": "VP-SHR-248",
@@ -43927,7 +46683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1758",
-    "globalNo": 1758,
+    "globalNo": 1864,
     "sNo": 249,
     "slideNum": 266,
     "code": "VP-SHR-249",
@@ -43952,7 +46708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1759",
-    "globalNo": 1759,
+    "globalNo": 1865,
     "sNo": 250,
     "slideNum": 267,
     "code": "VP-SHR-250",
@@ -43977,7 +46733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1760",
-    "globalNo": 1760,
+    "globalNo": 1866,
     "sNo": 251,
     "slideNum": 268,
     "code": "VP-SHR-251",
@@ -44002,7 +46758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1761",
-    "globalNo": 1761,
+    "globalNo": 1867,
     "sNo": 252,
     "slideNum": 269,
     "code": "VP-SHR-252",
@@ -44027,7 +46783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1762",
-    "globalNo": 1762,
+    "globalNo": 1868,
     "sNo": 253,
     "slideNum": 270,
     "code": "VP-SHR-253",
@@ -44052,7 +46808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1763",
-    "globalNo": 1763,
+    "globalNo": 1869,
     "sNo": 254,
     "slideNum": 271,
     "code": "VP-SHR-254",
@@ -44077,7 +46833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1764",
-    "globalNo": 1764,
+    "globalNo": 1870,
     "sNo": 255,
     "slideNum": 272,
     "code": "VP-SHR-255",
@@ -44102,7 +46858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1765",
-    "globalNo": 1765,
+    "globalNo": 1871,
     "sNo": 256,
     "slideNum": 273,
     "code": "VP-SHR-256",
@@ -44127,7 +46883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1766",
-    "globalNo": 1766,
+    "globalNo": 1872,
     "sNo": 257,
     "slideNum": 274,
     "code": "VP-SHR-257",
@@ -44152,7 +46908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1767",
-    "globalNo": 1767,
+    "globalNo": 1873,
     "sNo": 258,
     "slideNum": 275,
     "code": "VP-SHR-258",
@@ -44177,7 +46933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1768",
-    "globalNo": 1768,
+    "globalNo": 1874,
     "sNo": 259,
     "slideNum": 276,
     "code": "VP-SHR-259",
@@ -44202,7 +46958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1769",
-    "globalNo": 1769,
+    "globalNo": 1875,
     "sNo": 260,
     "slideNum": 277,
     "code": "VP-SHR-260",
@@ -44227,7 +46983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1770",
-    "globalNo": 1770,
+    "globalNo": 1876,
     "sNo": 261,
     "slideNum": 278,
     "code": "VP-SHR-261",
@@ -44252,7 +47008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1771",
-    "globalNo": 1771,
+    "globalNo": 1877,
     "sNo": 262,
     "slideNum": 279,
     "code": "VP-SHR-262",
@@ -44277,7 +47033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1772",
-    "globalNo": 1772,
+    "globalNo": 1878,
     "sNo": 263,
     "slideNum": 280,
     "code": "VP-SHR-263",
@@ -44302,7 +47058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1773",
-    "globalNo": 1773,
+    "globalNo": 1879,
     "sNo": 264,
     "slideNum": 281,
     "code": "VP-SHR-264",
@@ -44327,7 +47083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1774",
-    "globalNo": 1774,
+    "globalNo": 1880,
     "sNo": 265,
     "slideNum": 282,
     "code": "VP-SHR-265",
@@ -44352,7 +47108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1775",
-    "globalNo": 1775,
+    "globalNo": 1881,
     "sNo": 266,
     "slideNum": 283,
     "code": "VP-SHR-266",
@@ -44377,7 +47133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1776",
-    "globalNo": 1776,
+    "globalNo": 1882,
     "sNo": 267,
     "slideNum": 284,
     "code": "VP-SHR-267",
@@ -44402,7 +47158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1777",
-    "globalNo": 1777,
+    "globalNo": 1883,
     "sNo": 268,
     "slideNum": 285,
     "code": "VP-SHR-268",
@@ -44427,7 +47183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1778",
-    "globalNo": 1778,
+    "globalNo": 1884,
     "sNo": 269,
     "slideNum": 286,
     "code": "VP-SHR-269",
@@ -44452,7 +47208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1779",
-    "globalNo": 1779,
+    "globalNo": 1885,
     "sNo": 270,
     "slideNum": 287,
     "code": "VP-SHR-270",
@@ -44477,7 +47233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1780",
-    "globalNo": 1780,
+    "globalNo": 1886,
     "sNo": 271,
     "slideNum": 288,
     "code": "VP-SHR-271",
@@ -44502,7 +47258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1781",
-    "globalNo": 1781,
+    "globalNo": 1887,
     "sNo": 272,
     "slideNum": 289,
     "code": "VP-SHR-272",
@@ -44527,7 +47283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1782",
-    "globalNo": 1782,
+    "globalNo": 1888,
     "sNo": 273,
     "slideNum": 290,
     "code": "VP-SHR-273",
@@ -44552,7 +47308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1783",
-    "globalNo": 1783,
+    "globalNo": 1889,
     "sNo": 274,
     "slideNum": 291,
     "code": "VP-SHR-274",
@@ -44577,7 +47333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1784",
-    "globalNo": 1784,
+    "globalNo": 1890,
     "sNo": 275,
     "slideNum": 292,
     "code": "VP-SHR-275",
@@ -44602,7 +47358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1785",
-    "globalNo": 1785,
+    "globalNo": 1891,
     "sNo": 1,
     "slideNum": 2,
     "code": "VP-SGW-01",
@@ -44627,7 +47383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1786",
-    "globalNo": 1786,
+    "globalNo": 1892,
     "sNo": 2,
     "slideNum": 4,
     "code": "VP-SGW-02",
@@ -44652,7 +47408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1787",
-    "globalNo": 1787,
+    "globalNo": 1893,
     "sNo": 3,
     "slideNum": 5,
     "code": "VP-SGW-03",
@@ -44677,7 +47433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1788",
-    "globalNo": 1788,
+    "globalNo": 1894,
     "sNo": 4,
     "slideNum": 6,
     "code": "VP-SGW-04",
@@ -44702,7 +47458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1789",
-    "globalNo": 1789,
+    "globalNo": 1895,
     "sNo": 5,
     "slideNum": 7,
     "code": "VP-SGW-05",
@@ -44727,7 +47483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1790",
-    "globalNo": 1790,
+    "globalNo": 1896,
     "sNo": 6,
     "slideNum": 8,
     "code": "VP-SGW-06",
@@ -44752,7 +47508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1791",
-    "globalNo": 1791,
+    "globalNo": 1897,
     "sNo": 7,
     "slideNum": 9,
     "code": "VP-SGW-07",
@@ -44777,7 +47533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1792",
-    "globalNo": 1792,
+    "globalNo": 1898,
     "sNo": 8,
     "slideNum": 10,
     "code": "VP-SGW-08",
@@ -44802,7 +47558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1793",
-    "globalNo": 1793,
+    "globalNo": 1899,
     "sNo": 9,
     "slideNum": 11,
     "code": "VP-SGW-09",
@@ -44827,7 +47583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1794",
-    "globalNo": 1794,
+    "globalNo": 1900,
     "sNo": 10,
     "slideNum": 12,
     "code": "VP-SGW-10",
@@ -44852,7 +47608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1795",
-    "globalNo": 1795,
+    "globalNo": 1901,
     "sNo": 11,
     "slideNum": 13,
     "code": "VP-SGW-11",
@@ -44877,7 +47633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1796",
-    "globalNo": 1796,
+    "globalNo": 1902,
     "sNo": 12,
     "slideNum": 14,
     "code": "VP-SGW-12",
@@ -44902,7 +47658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1797",
-    "globalNo": 1797,
+    "globalNo": 1903,
     "sNo": 13,
     "slideNum": 15,
     "code": "VP-SGW-13",
@@ -44927,7 +47683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1798",
-    "globalNo": 1798,
+    "globalNo": 1904,
     "sNo": 14,
     "slideNum": 16,
     "code": "VP-SGW-14",
@@ -44952,7 +47708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1799",
-    "globalNo": 1799,
+    "globalNo": 1905,
     "sNo": 15,
     "slideNum": 17,
     "code": "VP-SGW-15",
@@ -44977,7 +47733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1800",
-    "globalNo": 1800,
+    "globalNo": 1906,
     "sNo": 16,
     "slideNum": 18,
     "code": "VP-SGW-16",
@@ -45002,7 +47758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1801",
-    "globalNo": 1801,
+    "globalNo": 1907,
     "sNo": 17,
     "slideNum": 19,
     "code": "VP-SGW-17",
@@ -45027,7 +47783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1802",
-    "globalNo": 1802,
+    "globalNo": 1908,
     "sNo": 18,
     "slideNum": 20,
     "code": "VP-SGW-18",
@@ -45052,7 +47808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1803",
-    "globalNo": 1803,
+    "globalNo": 1909,
     "sNo": 19,
     "slideNum": 21,
     "code": "VP-SGW-19",
@@ -45077,7 +47833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1804",
-    "globalNo": 1804,
+    "globalNo": 1910,
     "sNo": 20,
     "slideNum": 22,
     "code": "VP-SGW-20",
@@ -45102,7 +47858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1805",
-    "globalNo": 1805,
+    "globalNo": 1911,
     "sNo": 21,
     "slideNum": 23,
     "code": "VP-SGW-21",
@@ -45127,7 +47883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1806",
-    "globalNo": 1806,
+    "globalNo": 1912,
     "sNo": 22,
     "slideNum": 24,
     "code": "VP-SGW-22",
@@ -45152,7 +47908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1807",
-    "globalNo": 1807,
+    "globalNo": 1913,
     "sNo": 23,
     "slideNum": 25,
     "code": "VP-SGW-23",
@@ -45177,7 +47933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1808",
-    "globalNo": 1808,
+    "globalNo": 1914,
     "sNo": 24,
     "slideNum": 26,
     "code": "VP-SGW-24",
@@ -45202,7 +47958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1809",
-    "globalNo": 1809,
+    "globalNo": 1915,
     "sNo": 25,
     "slideNum": 27,
     "code": "VP-SGW-25",
@@ -45227,7 +47983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1810",
-    "globalNo": 1810,
+    "globalNo": 1916,
     "sNo": 26,
     "slideNum": 28,
     "code": "VP-SGW-26",
@@ -45252,7 +48008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1811",
-    "globalNo": 1811,
+    "globalNo": 1917,
     "sNo": 27,
     "slideNum": 29,
     "code": "VP-SGW-27",
@@ -45277,7 +48033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1812",
-    "globalNo": 1812,
+    "globalNo": 1918,
     "sNo": 28,
     "slideNum": 30,
     "code": "VP-SGW-28",
@@ -45302,7 +48058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1813",
-    "globalNo": 1813,
+    "globalNo": 1919,
     "sNo": 1,
     "slideNum": 2,
     "code": "VP-SRJ-01",
@@ -45327,7 +48083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1814",
-    "globalNo": 1814,
+    "globalNo": 1920,
     "sNo": 2,
     "slideNum": 3,
     "code": "VP-SRJ-02",
@@ -45352,7 +48108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1815",
-    "globalNo": 1815,
+    "globalNo": 1921,
     "sNo": 3,
     "slideNum": 4,
     "code": "VP-SRJ-03",
@@ -45377,7 +48133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1816",
-    "globalNo": 1816,
+    "globalNo": 1922,
     "sNo": 4,
     "slideNum": 5,
     "code": "VP-SRJ-04",
@@ -45402,7 +48158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1817",
-    "globalNo": 1817,
+    "globalNo": 1923,
     "sNo": 5,
     "slideNum": 6,
     "code": "VP-SRJ-05",
@@ -45427,7 +48183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1818",
-    "globalNo": 1818,
+    "globalNo": 1924,
     "sNo": 6,
     "slideNum": 7,
     "code": "VP-SRJ-06",
@@ -45452,7 +48208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1819",
-    "globalNo": 1819,
+    "globalNo": 1925,
     "sNo": 1,
     "slideNum": 5,
     "code": "VP-TCA-01",
@@ -45477,7 +48233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1820",
-    "globalNo": 1820,
+    "globalNo": 1926,
     "sNo": 2,
     "slideNum": 6,
     "code": "VP-TCA-02",
@@ -45502,7 +48258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1821",
-    "globalNo": 1821,
+    "globalNo": 1927,
     "sNo": 3,
     "slideNum": 7,
     "code": "VP-TCA-03",
@@ -45527,7 +48283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1822",
-    "globalNo": 1822,
+    "globalNo": 1928,
     "sNo": 4,
     "slideNum": 8,
     "code": "VP-TCA-04",
@@ -45552,7 +48308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1823",
-    "globalNo": 1823,
+    "globalNo": 1929,
     "sNo": 5,
     "slideNum": 9,
     "code": "VP-TCA-05",
@@ -45577,7 +48333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1824",
-    "globalNo": 1824,
+    "globalNo": 1930,
     "sNo": 6,
     "slideNum": 10,
     "code": "VP-TCA-06",
@@ -45602,7 +48358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1825",
-    "globalNo": 1825,
+    "globalNo": 1931,
     "sNo": 7,
     "slideNum": 11,
     "code": "VP-TCA-07",
@@ -45627,7 +48383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1826",
-    "globalNo": 1826,
+    "globalNo": 1932,
     "sNo": 8,
     "slideNum": 12,
     "code": "VP-TCA-08",
@@ -45652,7 +48408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1827",
-    "globalNo": 1827,
+    "globalNo": 1933,
     "sNo": 9,
     "slideNum": 13,
     "code": "VP-TCA-09",
@@ -45677,7 +48433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1828",
-    "globalNo": 1828,
+    "globalNo": 1934,
     "sNo": 10,
     "slideNum": 14,
     "code": "VP-TCA-10",
@@ -45702,7 +48458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1829",
-    "globalNo": 1829,
+    "globalNo": 1935,
     "sNo": 11,
     "slideNum": 15,
     "code": "VP-TCA-11",
@@ -45727,7 +48483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1830",
-    "globalNo": 1830,
+    "globalNo": 1936,
     "sNo": 12,
     "slideNum": 16,
     "code": "VP-TCA-12",
@@ -45752,7 +48508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1831",
-    "globalNo": 1831,
+    "globalNo": 1937,
     "sNo": 13,
     "slideNum": 17,
     "code": "VP-TCA-13",
@@ -45777,7 +48533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1832",
-    "globalNo": 1832,
+    "globalNo": 1938,
     "sNo": 14,
     "slideNum": 18,
     "code": "VP-TCA-14",
@@ -45802,7 +48558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1833",
-    "globalNo": 1833,
+    "globalNo": 1939,
     "sNo": 15,
     "slideNum": 19,
     "code": "VP-TCA-15",
@@ -45827,7 +48583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1834",
-    "globalNo": 1834,
+    "globalNo": 1940,
     "sNo": 16,
     "slideNum": 20,
     "code": "VP-TCA-16",
@@ -45852,7 +48608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1835",
-    "globalNo": 1835,
+    "globalNo": 1941,
     "sNo": 17,
     "slideNum": 21,
     "code": "VP-TCA-17",
@@ -45877,7 +48633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1836",
-    "globalNo": 1836,
+    "globalNo": 1942,
     "sNo": 18,
     "slideNum": 22,
     "code": "VP-TCA-18",
@@ -45902,7 +48658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1837",
-    "globalNo": 1837,
+    "globalNo": 1943,
     "sNo": 19,
     "slideNum": 23,
     "code": "VP-TCA-19",
@@ -45927,7 +48683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1838",
-    "globalNo": 1838,
+    "globalNo": 1944,
     "sNo": 20,
     "slideNum": 24,
     "code": "VP-TCA-20",
@@ -45952,7 +48708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1839",
-    "globalNo": 1839,
+    "globalNo": 1945,
     "sNo": 1,
     "slideNum": 3,
     "code": "VP-POM-01",
@@ -45977,7 +48733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1840",
-    "globalNo": 1840,
+    "globalNo": 1946,
     "sNo": 2,
     "slideNum": 4,
     "code": "VP-POM-02",
@@ -46002,7 +48758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1841",
-    "globalNo": 1841,
+    "globalNo": 1947,
     "sNo": 3,
     "slideNum": 5,
     "code": "VP-POM-03",
@@ -46027,7 +48783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1842",
-    "globalNo": 1842,
+    "globalNo": 1948,
     "sNo": 4,
     "slideNum": 6,
     "code": "VP-POM-04",
@@ -46052,7 +48808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1843",
-    "globalNo": 1843,
+    "globalNo": 1949,
     "sNo": 5,
     "slideNum": 9,
     "code": "VP-POM-05",
@@ -46077,7 +48833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1844",
-    "globalNo": 1844,
+    "globalNo": 1950,
     "sNo": 6,
     "slideNum": 11,
     "code": "VP-POM-06",
@@ -46102,7 +48858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1845",
-    "globalNo": 1845,
+    "globalNo": 1951,
     "sNo": 7,
     "slideNum": 13,
     "code": "VP-POM-07",
@@ -46127,7 +48883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1846",
-    "globalNo": 1846,
+    "globalNo": 1952,
     "sNo": 8,
     "slideNum": 16,
     "code": "VP-POM-08",
@@ -46152,7 +48908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1847",
-    "globalNo": 1847,
+    "globalNo": 1953,
     "sNo": 9,
     "slideNum": 18,
     "code": "VP-POM-09",
@@ -46177,7 +48933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1848",
-    "globalNo": 1848,
+    "globalNo": 1954,
     "sNo": 10,
     "slideNum": 19,
     "code": "VP-POM-10",
@@ -46202,7 +48958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1849",
-    "globalNo": 1849,
+    "globalNo": 1955,
     "sNo": 11,
     "slideNum": 22,
     "code": "VP-POM-11",
@@ -46227,7 +48983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1850",
-    "globalNo": 1850,
+    "globalNo": 1956,
     "sNo": 12,
     "slideNum": 24,
     "code": "VP-POM-12",
@@ -46252,7 +49008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1851",
-    "globalNo": 1851,
+    "globalNo": 1957,
     "sNo": 13,
     "slideNum": 28,
     "code": "VP-POM-13",
@@ -46277,7 +49033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1852",
-    "globalNo": 1852,
+    "globalNo": 1958,
     "sNo": 14,
     "slideNum": 29,
     "code": "VP-POM-14",
@@ -46302,7 +49058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1853",
-    "globalNo": 1853,
+    "globalNo": 1959,
     "sNo": 15,
     "slideNum": 30,
     "code": "VP-POM-15",
@@ -46327,7 +49083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1854",
-    "globalNo": 1854,
+    "globalNo": 1960,
     "sNo": 16,
     "slideNum": 31,
     "code": "VP-POM-16",
@@ -46352,7 +49108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1855",
-    "globalNo": 1855,
+    "globalNo": 1961,
     "sNo": 17,
     "slideNum": 32,
     "code": "VP-POM-17",
@@ -46377,7 +49133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1856",
-    "globalNo": 1856,
+    "globalNo": 1962,
     "sNo": 18,
     "slideNum": 33,
     "code": "VP-POM-18",
@@ -46402,7 +49158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1857",
-    "globalNo": 1857,
+    "globalNo": 1963,
     "sNo": 19,
     "slideNum": 34,
     "code": "VP-POM-19",
@@ -46427,7 +49183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1858",
-    "globalNo": 1858,
+    "globalNo": 1964,
     "sNo": 20,
     "slideNum": 35,
     "code": "VP-POM-20",
@@ -46452,7 +49208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1859",
-    "globalNo": 1859,
+    "globalNo": 1965,
     "sNo": 21,
     "slideNum": 36,
     "code": "VP-POM-21",
@@ -46477,7 +49233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1860",
-    "globalNo": 1860,
+    "globalNo": 1966,
     "sNo": 22,
     "slideNum": 37,
     "code": "VP-POM-22",
@@ -46502,7 +49258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1861",
-    "globalNo": 1861,
+    "globalNo": 1967,
     "sNo": 23,
     "slideNum": 38,
     "code": "VP-POM-23",
@@ -46527,7 +49283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1862",
-    "globalNo": 1862,
+    "globalNo": 1968,
     "sNo": 24,
     "slideNum": 39,
     "code": "VP-POM-24",
@@ -46552,7 +49308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1863",
-    "globalNo": 1863,
+    "globalNo": 1969,
     "sNo": 25,
     "slideNum": 40,
     "code": "VP-POM-25",
@@ -46577,7 +49333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1864",
-    "globalNo": 1864,
+    "globalNo": 1970,
     "sNo": 26,
     "slideNum": 41,
     "code": "VP-POM-26",
@@ -46602,7 +49358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1865",
-    "globalNo": 1865,
+    "globalNo": 1971,
     "sNo": 27,
     "slideNum": 42,
     "code": "VP-POM-27",
@@ -46627,7 +49383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1866",
-    "globalNo": 1866,
+    "globalNo": 1972,
     "sNo": 28,
     "slideNum": 43,
     "code": "VP-POM-28",
@@ -46652,7 +49408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1867",
-    "globalNo": 1867,
+    "globalNo": 1973,
     "sNo": 29,
     "slideNum": 44,
     "code": "VP-POM-29",
@@ -46677,7 +49433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1868",
-    "globalNo": 1868,
+    "globalNo": 1974,
     "sNo": 30,
     "slideNum": 45,
     "code": "VP-POM-30",
@@ -46702,7 +49458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1869",
-    "globalNo": 1869,
+    "globalNo": 1975,
     "sNo": 31,
     "slideNum": 46,
     "code": "VP-POM-31",
@@ -46727,7 +49483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1870",
-    "globalNo": 1870,
+    "globalNo": 1976,
     "sNo": 32,
     "slideNum": 47,
     "code": "VP-POM-32",
@@ -46752,7 +49508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1871",
-    "globalNo": 1871,
+    "globalNo": 1977,
     "sNo": 33,
     "slideNum": 48,
     "code": "VP-POM-33",
@@ -46777,7 +49533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1872",
-    "globalNo": 1872,
+    "globalNo": 1978,
     "sNo": 34,
     "slideNum": 50,
     "code": "VP-POM-34",
@@ -46802,7 +49558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1873",
-    "globalNo": 1873,
+    "globalNo": 1979,
     "sNo": 35,
     "slideNum": 51,
     "code": "VP-POM-35",
@@ -46827,7 +49583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1874",
-    "globalNo": 1874,
+    "globalNo": 1980,
     "sNo": 36,
     "slideNum": 52,
     "code": "VP-POM-36",
@@ -46852,7 +49608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1875",
-    "globalNo": 1875,
+    "globalNo": 1981,
     "sNo": 37,
     "slideNum": 53,
     "code": "VP-POM-37",
@@ -46877,7 +49633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1876",
-    "globalNo": 1876,
+    "globalNo": 1982,
     "sNo": 38,
     "slideNum": 54,
     "code": "VP-POM-38",
@@ -46902,7 +49658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1877",
-    "globalNo": 1877,
+    "globalNo": 1983,
     "sNo": 39,
     "slideNum": 55,
     "code": "VP-POM-39",
@@ -46927,7 +49683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1878",
-    "globalNo": 1878,
+    "globalNo": 1984,
     "sNo": 40,
     "slideNum": 56,
     "code": "VP-POM-40",
@@ -46952,7 +49708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1879",
-    "globalNo": 1879,
+    "globalNo": 1985,
     "sNo": 41,
     "slideNum": 57,
     "code": "VP-POM-41",
@@ -46977,7 +49733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1880",
-    "globalNo": 1880,
+    "globalNo": 1986,
     "sNo": 42,
     "slideNum": 58,
     "code": "VP-POM-42",
@@ -47002,7 +49758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1881",
-    "globalNo": 1881,
+    "globalNo": 1987,
     "sNo": 43,
     "slideNum": 60,
     "code": "VP-POM-43",
@@ -47027,7 +49783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1882",
-    "globalNo": 1882,
+    "globalNo": 1988,
     "sNo": 44,
     "slideNum": 61,
     "code": "VP-POM-44",
@@ -47072,7 +49828,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/signmedia_rates_s1.jpg",
     "rawText": "Location : Clifton Hyperstar at Palm Roundabout · Traffic Flow : From McDonald’s to Palm · Size : 105’ x 30’ · Availability : 29-Dec-2026 · 1-Month Rental : Rs. 2,000,000/-",
-    "globalNo": 1883,
+    "globalNo": 1989,
     "id": "vp-2026-1883"
   },
   {
@@ -47097,7 +49853,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/signmedia_rates_s2.jpg",
     "rawText": "Location : Clifton Hyperstar at Palm Roundabout · Traffic Flow : From McDonald’s to Palm · Size : 60’ x 48’ · Availability : 29-Dec-2026 · 1-Month Rental : Rs. 1,700,000/-",
-    "globalNo": 1884,
+    "globalNo": 1990,
     "id": "vp-2026-1884"
   },
   {
@@ -47122,7 +49878,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/signmedia_rates_s3.jpg",
     "rawText": "Location : Clifton Hyperstar Roundabout · Traffic Flow : From McDonald’s to Hyperstar · Size : 50’ x 42’ · Availability : 01-Dec-2026 · 1-Month Rental : Rs. 1,800,000/-",
-    "globalNo": 1885,
+    "globalNo": 1991,
     "id": "vp-2026-1885"
   },
   {
@@ -47147,7 +49903,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/signmedia_rates_s4.jpg",
     "rawText": "Location : Clifton 3-Swords Signal · Traffic Flow : From Schon Circle to Clifton Bridge · Size : 33’ x 70’ · Availability : Available · 1-Month Rental : Rs. 900,000/-",
-    "globalNo": 1886,
+    "globalNo": 1992,
     "id": "vp-2026-1886"
   },
   {
@@ -47172,7 +49928,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/signmedia_rates_s5.jpg",
     "rawText": "Location : Gizri Flyover · Traffic Flow : From Saudi Embassy to Punjab Chowrangi · Size : 40’ x 25’ · Availability : Available · 1-Month Rental : Rs. 400,000/-",
-    "globalNo": 1887,
+    "globalNo": 1993,
     "id": "vp-2026-1887"
   },
   {
@@ -47197,7 +49953,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/signmedia_rates_s6.jpg",
     "rawText": "Location : Gizri Flyover · Traffic Flow : From Punjab Chowrangi to Saudi Embassy · Size : 30’ x 40’ · Availability : 15-Jan-2027 · 1-Month Rental : Rs. 450,000/-",
-    "globalNo": 1888,
+    "globalNo": 1994,
     "id": "vp-2026-1888"
   },
   {
@@ -47222,7 +49978,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/signmedia_rates_s7.jpg",
     "rawText": "Location : Gizri Flyover · Traffic Flow : From Punjab Chowrangi to Saudi Embassy · Size : 60’ x 30’ · Availability : Available · 1-Month Rental : Rs.750,000/-",
-    "globalNo": 1889,
+    "globalNo": 1995,
     "id": "vp-2026-1889"
   },
   {
@@ -47247,7 +50003,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/signmedia_rates_s8.jpg",
     "rawText": "Location : Defence Kalapul · Traffic Flow : From FTC to QT Signal · Size : 45’ x 30’ · Availability : Available · 1-Month Rental : Rs. 650,000/-",
-    "globalNo": 1890,
+    "globalNo": 1996,
     "id": "vp-2026-1890"
   },
   {
@@ -47272,7 +50028,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/signmedia_rates_s9.jpg",
     "rawText": "Location : Allahwali Chowrangi · Traffic Flow : From Tariq Road to Allahwali Chowrangi · Size : 60’ x 30’ · Availability : 08-Dec-2026 · 1-Month Rental : Rs. 1,200,000/-",
-    "globalNo": 1891,
+    "globalNo": 1997,
     "id": "vp-2026-1891"
   },
   {
@@ -47297,7 +50053,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/signmedia_rates_s10.jpg",
     "rawText": "Location : Bahadrabad Roundabout · Traffic Flow : From Tariq Road to Bahadarabad · Size : 60’ x 20’ · Availability : 08-Dec-2026 · 1-Month Rental : Rs. 650,000/-",
-    "globalNo": 1892,
+    "globalNo": 1998,
     "id": "vp-2026-1892"
   },
   {
@@ -47322,7 +50078,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/signmedia_rates_s11.jpg",
     "rawText": "Location : Bahadrabad Roundabout · Traffic Flow : From Tariq Road to Bahadarabad · Size : 60’ x 30’ · Availability : 16-Dec-2026 · 1-Month Rental : Rs. 700,000/-",
-    "globalNo": 1893,
+    "globalNo": 1999,
     "id": "vp-2026-1893"
   },
   {
@@ -47347,7 +50103,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/signmedia_rates_s12.jpg",
     "rawText": "Location : Shahrah-e-Faisal near Awami Markaz · Traffic Flow : From Nursery to Airport · Size : 75’ x 30’ · Availability : 27-Dec-2026 · 1-Month Rental : Rs. 1,250,000/-",
-    "globalNo": 1894,
+    "globalNo": 2000,
     "id": "vp-2026-1894"
   },
   {
@@ -47372,7 +50128,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/signmedia_rates_s13.jpg",
     "rawText": "Location : Shahrah-e-Faisal before Tipu Sultan · Traffic Flow : From Nursery to Airport · Size : 50’ x 60’ · Availability : 01-Dec-2026 · 1-Month Rental : Rs. 1,700,000/-",
-    "globalNo": 1895,
+    "globalNo": 2001,
     "id": "vp-2026-1895"
   },
   {
@@ -47397,7 +50153,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/signmedia_rates_s14.jpg",
     "rawText": "Location : Shahrah-e-Faisal before Tipu Sultan · Traffic Flow : From Nursery to Airport · Size : 55’ x 60’ · Availability : 29-Nov-2026 · 1-Month Rental : Rs. 1,700,000/-",
-    "globalNo": 1896,
+    "globalNo": 2002,
     "id": "vp-2026-1896"
   },
   {
@@ -47422,7 +50178,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/signmedia_rates_s15.jpg",
     "rawText": "Location : Shahrah-e-Faisal Airport Exit · Traffic Flow : From Airport to Metropole · Size : 30’ x 60’ · Availability : 18-Dec-2026 · 1-Month Rental : Rs. 700,000/-",
-    "globalNo": 1897,
+    "globalNo": 2003,
     "id": "vp-2026-1897"
   },
   {
@@ -47447,7 +50203,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/signmedia_rates_s16.jpg",
     "rawText": "Location : NIPA Flyover · Traffic Flow : From Alladin to Gulshan Chowrangi · Size : 92’ x 31’ · Availability : Available · 1-Month Rental : Rs. 1,300,000/-",
-    "globalNo": 1898,
+    "globalNo": 2004,
     "id": "vp-2026-1898"
   },
   {
@@ -47472,7 +50228,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/signmedia_rates_s17.jpg",
     "rawText": "Location : Rashid Minhas Road · Traffic Flow : From Alladin to Millenium Mall · Size : 65’ x 40’ · Availability : Available · 1-Month Rental : Rs. 1,000,000/-",
-    "globalNo": 1899,
+    "globalNo": 2005,
     "id": "vp-2026-1899"
   },
   {
@@ -47497,7 +50253,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/signmedia_rates_s18.jpg",
     "rawText": "Location : Rashid Minhas near Millenium · Traffic Flow : From Millenium to Gulshan Chowrangi · Size : 71’ x 61’ · Availability : 03-Dec-2026 · 1-Month Rental : Rs. 1,400,000/-",
-    "globalNo": 1900,
+    "globalNo": 2006,
     "id": "vp-2026-1900"
   },
   {
@@ -47522,7 +50278,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/signmedia_rates_s19.jpg",
     "rawText": "Location : NIPA Flyover · Traffic Flow : From Gulshan Chowrangi to Alladin · Size : 52’ x 20’ · Availability : Available · 1-Month Rental : Rs. 600,000/-",
-    "globalNo": 1901,
+    "globalNo": 2007,
     "id": "vp-2026-1901"
   },
   {
@@ -47547,7 +50303,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/signmedia_rates_s20.jpg",
     "rawText": "Location : Johar Bridge · Traffic Flow : From Johar Morr to Johar Chowrangi · Size : 75’ x 30’ · Availability : Available (ON HOLD) · 1-Month Rental : Rs.850,000/-",
-    "globalNo": 1902,
+    "globalNo": 2008,
     "id": "vp-2026-1902"
   },
   {
@@ -47572,7 +50328,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/signmedia_rates_s21.jpg",
     "rawText": "Location : Johar Morr · Traffic Flow : From Johar Bridge to Rashid Minhas Road · Size : 80’ x 28’ · Availability : 28-Nov-2026 · 1-Month Rental : Rs. 900,000/-",
-    "globalNo": 1903,
+    "globalNo": 2009,
     "id": "vp-2026-1903"
   },
   {
@@ -47597,7 +50353,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/signmedia_rates_s22.jpg",
     "rawText": "Location : Johar Chowrangi · Traffic Flow : From Johar Morr to Johar Chowrangi · Size : 70’ x 25’ · Availability : 02-Dec-2026 · 1-Month Rental : Rs. 900,000/-",
-    "globalNo": 1904,
+    "globalNo": 2010,
     "id": "vp-2026-1904"
   },
   {
@@ -47622,7 +50378,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/signmedia_rates_s23.jpg",
     "rawText": "Location : Johar Chowrangi · Traffic Flow : From Johar Morr to Johar Chowrangi · Size : 70’ x 30’ · Availability : Available (ON HOLD) · 1-Month Rental : Rs. 900,000/-",
-    "globalNo": 1905,
+    "globalNo": 2011,
     "id": "vp-2026-1905"
   },
   {
@@ -47647,7 +50403,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/signmedia_rates_s24.jpg",
     "rawText": "Location : Karimabad · Traffic Flow : From Water Pump to Karimabad Flyover · Size : 60’ x 30’ · Availability : 26-Nov-2026 · 1-Month Rental : Rs. 600,000/-",
-    "globalNo": 1906,
+    "globalNo": 2012,
     "id": "vp-2026-1906"
   },
   {
@@ -47672,7 +50428,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/signmedia_rates_s25.jpg",
     "rawText": "Location : Nazimabad near Imtiaz · Traffic Flow : From Board Office to Golimar · Size : 50’ x 25’ · Availability : 26-Nov-2026 · 1-Month Rental : Rs. 600,000/-",
-    "globalNo": 1907,
+    "globalNo": 2013,
     "id": "vp-2026-1907"
   },
   {
@@ -47697,7 +50453,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/signmedia_rates_s26.jpg",
     "rawText": "Location : North Nazimabad near Sir Syaed · Traffic Flow : From Board Office to Banaras · Size : 60’ x 20’ · Availability : Available · 1-Month Rental : Rs. 450,000/-",
-    "globalNo": 1908,
+    "globalNo": 2014,
     "id": "vp-2026-1908"
   },
   {
@@ -47722,7 +50478,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/signmedia_rates_s27.jpg",
     "rawText": "Location : Nazimabad near Imtiaz · Traffic Flow : From Board Office to Golimar · Size : 50’ x 25’ · Availability : Available (ON HOLD) · 1-Month Rental : Rs. 550,000/-",
-    "globalNo": 1909,
+    "globalNo": 2015,
     "id": "vp-2026-1909"
   },
   {
@@ -47747,7 +50503,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/signmedia_rates_s28.jpg",
     "rawText": "Location : Saddar · Traffic Flow : From Regal Chowk to Empress Market · Size : 40’ x 30’ · Availability : Available (ON HOLD) · 1-Month Rental : Rs. 550,000/-",
-    "globalNo": 1910,
+    "globalNo": 2016,
     "id": "vp-2026-1910"
   },
   {
@@ -47772,12 +50528,12 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard / Hoarding",
     "photo": "/vendor-media/signmedia_rates_s29.jpg",
     "rawText": "Location : Quaidabad · Traffic Flow : From Quaidabad to Airport · Size : 40’ x 30’ · Availability : Available · 1-Month Rental : Rs. 400,000/-",
-    "globalNo": 1911,
+    "globalNo": 2017,
     "id": "vp-2026-1911"
   },
   {
     "id": "vp-2026-1912",
-    "globalNo": 1912,
+    "globalNo": 2018,
     "sNo": 1,
     "slideNum": 2,
     "code": "VP-TSS-01",
@@ -47802,7 +50558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1913",
-    "globalNo": 1913,
+    "globalNo": 2019,
     "sNo": 2,
     "slideNum": 3,
     "code": "VP-TSS-02",
@@ -47827,7 +50583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1914",
-    "globalNo": 1914,
+    "globalNo": 2020,
     "sNo": 3,
     "slideNum": 4,
     "code": "VP-TSS-03",
@@ -47852,7 +50608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1915",
-    "globalNo": 1915,
+    "globalNo": 2021,
     "sNo": 4,
     "slideNum": 5,
     "code": "VP-TSS-04",
@@ -47877,7 +50633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1916",
-    "globalNo": 1916,
+    "globalNo": 2022,
     "sNo": 5,
     "slideNum": 6,
     "code": "VP-TSS-05",
@@ -47902,7 +50658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1917",
-    "globalNo": 1917,
+    "globalNo": 2023,
     "sNo": 6,
     "slideNum": 7,
     "code": "VP-TSS-06",
@@ -47927,7 +50683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1918",
-    "globalNo": 1918,
+    "globalNo": 2024,
     "sNo": 7,
     "slideNum": 8,
     "code": "VP-TSS-07",
@@ -47952,7 +50708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1919",
-    "globalNo": 1919,
+    "globalNo": 2025,
     "sNo": 8,
     "slideNum": 9,
     "code": "VP-TSS-08",
@@ -47977,7 +50733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1920",
-    "globalNo": 1920,
+    "globalNo": 2026,
     "sNo": 9,
     "slideNum": 10,
     "code": "VP-TSS-09",
@@ -48002,7 +50758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1921",
-    "globalNo": 1921,
+    "globalNo": 2027,
     "sNo": 10,
     "slideNum": 11,
     "code": "VP-TSS-10",
@@ -48027,7 +50783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1922",
-    "globalNo": 1922,
+    "globalNo": 2028,
     "sNo": 11,
     "slideNum": 12,
     "code": "VP-TSS-11",
@@ -48052,7 +50808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1923",
-    "globalNo": 1923,
+    "globalNo": 2029,
     "sNo": 12,
     "slideNum": 13,
     "code": "VP-TSS-12",
@@ -48077,7 +50833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1924",
-    "globalNo": 1924,
+    "globalNo": 2030,
     "sNo": 13,
     "slideNum": 14,
     "code": "VP-TSS-13",
@@ -48102,7 +50858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1925",
-    "globalNo": 1925,
+    "globalNo": 2031,
     "sNo": 14,
     "slideNum": 15,
     "code": "VP-TSS-14",
@@ -48127,7 +50883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1926",
-    "globalNo": 1926,
+    "globalNo": 2032,
     "sNo": 15,
     "slideNum": 16,
     "code": "VP-TSS-15",
@@ -48152,7 +50908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1927",
-    "globalNo": 1927,
+    "globalNo": 2033,
     "sNo": 16,
     "slideNum": 17,
     "code": "VP-TSS-16",
@@ -48177,7 +50933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1928",
-    "globalNo": 1928,
+    "globalNo": 2034,
     "sNo": 17,
     "slideNum": 18,
     "code": "VP-TSS-17",
@@ -48202,7 +50958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1929",
-    "globalNo": 1929,
+    "globalNo": 2035,
     "sNo": 18,
     "slideNum": 19,
     "code": "VP-TSS-18",
@@ -48227,7 +50983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1930",
-    "globalNo": 1930,
+    "globalNo": 2036,
     "sNo": 19,
     "slideNum": 20,
     "code": "VP-TSS-19",
@@ -48252,7 +51008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1931",
-    "globalNo": 1931,
+    "globalNo": 2037,
     "sNo": 20,
     "slideNum": 21,
     "code": "VP-TSS-20",
@@ -48277,7 +51033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1932",
-    "globalNo": 1932,
+    "globalNo": 2038,
     "sNo": 21,
     "slideNum": 22,
     "code": "VP-TSS-21",
@@ -48302,7 +51058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1933",
-    "globalNo": 1933,
+    "globalNo": 2039,
     "sNo": 22,
     "slideNum": 23,
     "code": "VP-TSS-22",
@@ -48327,7 +51083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1934",
-    "globalNo": 1934,
+    "globalNo": 2040,
     "sNo": 23,
     "slideNum": 24,
     "code": "VP-TSS-23",
@@ -48352,7 +51108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1935",
-    "globalNo": 1935,
+    "globalNo": 2041,
     "sNo": 24,
     "slideNum": 25,
     "code": "VP-TSS-24",
@@ -48377,7 +51133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1936",
-    "globalNo": 1936,
+    "globalNo": 2042,
     "sNo": 25,
     "slideNum": 26,
     "code": "VP-TSS-25",
@@ -48402,7 +51158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1937",
-    "globalNo": 1937,
+    "globalNo": 2043,
     "sNo": 26,
     "slideNum": 27,
     "code": "VP-TSS-26",
@@ -48427,7 +51183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1938",
-    "globalNo": 1938,
+    "globalNo": 2044,
     "sNo": 27,
     "slideNum": 28,
     "code": "VP-TSS-27",
@@ -48452,7 +51208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1939",
-    "globalNo": 1939,
+    "globalNo": 2045,
     "sNo": 28,
     "slideNum": 29,
     "code": "VP-TSS-28",
@@ -48477,7 +51233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1940",
-    "globalNo": 1940,
+    "globalNo": 2046,
     "sNo": 29,
     "slideNum": 30,
     "code": "VP-TSS-29",
@@ -48502,7 +51258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1941",
-    "globalNo": 1941,
+    "globalNo": 2047,
     "sNo": 30,
     "slideNum": 31,
     "code": "VP-TSS-30",
@@ -48527,7 +51283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1942",
-    "globalNo": 1942,
+    "globalNo": 2048,
     "sNo": 31,
     "slideNum": 32,
     "code": "VP-TSS-31",
@@ -48552,7 +51308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1943",
-    "globalNo": 1943,
+    "globalNo": 2049,
     "sNo": 32,
     "slideNum": 33,
     "code": "VP-TSS-32",
@@ -48577,7 +51333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1944",
-    "globalNo": 1944,
+    "globalNo": 2050,
     "sNo": 33,
     "slideNum": 34,
     "code": "VP-TSS-33",
@@ -48602,7 +51358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1945",
-    "globalNo": 1945,
+    "globalNo": 2051,
     "sNo": 34,
     "slideNum": 35,
     "code": "VP-TSS-34",
@@ -48627,7 +51383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1946",
-    "globalNo": 1946,
+    "globalNo": 2052,
     "sNo": 35,
     "slideNum": 36,
     "code": "VP-TSS-35",
@@ -48652,7 +51408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1947",
-    "globalNo": 1947,
+    "globalNo": 2053,
     "sNo": 36,
     "slideNum": 37,
     "code": "VP-TSS-36",
@@ -48677,7 +51433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1948",
-    "globalNo": 1948,
+    "globalNo": 2054,
     "sNo": 37,
     "slideNum": 38,
     "code": "VP-TSS-37",
@@ -48702,7 +51458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1949",
-    "globalNo": 1949,
+    "globalNo": 2055,
     "sNo": 38,
     "slideNum": 39,
     "code": "VP-TSS-38",
@@ -48727,7 +51483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1950",
-    "globalNo": 1950,
+    "globalNo": 2056,
     "sNo": 39,
     "slideNum": 40,
     "code": "VP-TSS-39",
@@ -48752,7 +51508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1951",
-    "globalNo": 1951,
+    "globalNo": 2057,
     "sNo": 40,
     "slideNum": 41,
     "code": "VP-TSS-40",
@@ -48777,7 +51533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1952",
-    "globalNo": 1952,
+    "globalNo": 2058,
     "sNo": 41,
     "slideNum": 42,
     "code": "VP-TSS-41",
@@ -48802,7 +51558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1953",
-    "globalNo": 1953,
+    "globalNo": 2059,
     "sNo": 42,
     "slideNum": 43,
     "code": "VP-TSS-42",
@@ -48827,7 +51583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1954",
-    "globalNo": 1954,
+    "globalNo": 2060,
     "sNo": 43,
     "slideNum": 44,
     "code": "VP-TSS-43",
@@ -48852,7 +51608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1955",
-    "globalNo": 1955,
+    "globalNo": 2061,
     "sNo": 44,
     "slideNum": 45,
     "code": "VP-TSS-44",
@@ -48877,7 +51633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1956",
-    "globalNo": 1956,
+    "globalNo": 2062,
     "sNo": 1,
     "slideNum": 3,
     "code": "VP-UNQ-01",
@@ -48902,7 +51658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1957",
-    "globalNo": 1957,
+    "globalNo": 2063,
     "sNo": 2,
     "slideNum": 4,
     "code": "VP-UNQ-02",
@@ -48927,7 +51683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1958",
-    "globalNo": 1958,
+    "globalNo": 2064,
     "sNo": 3,
     "slideNum": 5,
     "code": "VP-UNQ-03",
@@ -48952,7 +51708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1959",
-    "globalNo": 1959,
+    "globalNo": 2065,
     "sNo": 4,
     "slideNum": 6,
     "code": "VP-UNQ-04",
@@ -48977,7 +51733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1960",
-    "globalNo": 1960,
+    "globalNo": 2066,
     "sNo": 5,
     "slideNum": 7,
     "code": "VP-UNQ-05",
@@ -49002,7 +51758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1961",
-    "globalNo": 1961,
+    "globalNo": 2067,
     "sNo": 6,
     "slideNum": 9,
     "code": "VP-UNQ-06",
@@ -49027,7 +51783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1962",
-    "globalNo": 1962,
+    "globalNo": 2068,
     "sNo": 7,
     "slideNum": 10,
     "code": "VP-UNQ-07",
@@ -49052,7 +51808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1963",
-    "globalNo": 1963,
+    "globalNo": 2069,
     "sNo": 8,
     "slideNum": 12,
     "code": "VP-UNQ-08",
@@ -49077,7 +51833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1964",
-    "globalNo": 1964,
+    "globalNo": 2070,
     "sNo": 9,
     "slideNum": 14,
     "code": "VP-UNQ-09",
@@ -49102,7 +51858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1965",
-    "globalNo": 1965,
+    "globalNo": 2071,
     "sNo": 10,
     "slideNum": 15,
     "code": "VP-UNQ-10",
@@ -49127,7 +51883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1966",
-    "globalNo": 1966,
+    "globalNo": 2072,
     "sNo": 11,
     "slideNum": 16,
     "code": "VP-UNQ-11",
@@ -49152,7 +51908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1967",
-    "globalNo": 1967,
+    "globalNo": 2073,
     "sNo": 12,
     "slideNum": 17,
     "code": "VP-UNQ-12",
@@ -49177,7 +51933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1968",
-    "globalNo": 1968,
+    "globalNo": 2074,
     "sNo": 13,
     "slideNum": 18,
     "code": "VP-UNQ-13",
@@ -49202,7 +51958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1969",
-    "globalNo": 1969,
+    "globalNo": 2075,
     "sNo": 14,
     "slideNum": 19,
     "code": "VP-UNQ-14",
@@ -49227,7 +51983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1970",
-    "globalNo": 1970,
+    "globalNo": 2076,
     "sNo": 15,
     "slideNum": 20,
     "code": "VP-UNQ-15",
@@ -49252,7 +52008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1971",
-    "globalNo": 1971,
+    "globalNo": 2077,
     "sNo": 16,
     "slideNum": 21,
     "code": "VP-UNQ-16",
@@ -49277,7 +52033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1972",
-    "globalNo": 1972,
+    "globalNo": 2078,
     "sNo": 17,
     "slideNum": 23,
     "code": "VP-UNQ-17",
@@ -49302,7 +52058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1973",
-    "globalNo": 1973,
+    "globalNo": 2079,
     "sNo": 18,
     "slideNum": 24,
     "code": "VP-UNQ-18",
@@ -49327,7 +52083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1974",
-    "globalNo": 1974,
+    "globalNo": 2080,
     "sNo": 19,
     "slideNum": 25,
     "code": "VP-UNQ-19",
@@ -49352,7 +52108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1975",
-    "globalNo": 1975,
+    "globalNo": 2081,
     "sNo": 20,
     "slideNum": 27,
     "code": "VP-UNQ-20",
@@ -49377,7 +52133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1976",
-    "globalNo": 1976,
+    "globalNo": 2082,
     "sNo": 21,
     "slideNum": 28,
     "code": "VP-UNQ-21",
@@ -49402,7 +52158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1977",
-    "globalNo": 1977,
+    "globalNo": 2083,
     "sNo": 22,
     "slideNum": 29,
     "code": "VP-UNQ-22",
@@ -49427,7 +52183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1978",
-    "globalNo": 1978,
+    "globalNo": 2084,
     "sNo": 23,
     "slideNum": 30,
     "code": "VP-UNQ-23",
@@ -49452,7 +52208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1979",
-    "globalNo": 1979,
+    "globalNo": 2085,
     "sNo": 24,
     "slideNum": 31,
     "code": "VP-UNQ-24",
@@ -49477,7 +52233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1980",
-    "globalNo": 1980,
+    "globalNo": 2086,
     "sNo": 25,
     "slideNum": 32,
     "code": "VP-UNQ-25",
@@ -49502,7 +52258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1981",
-    "globalNo": 1981,
+    "globalNo": 2087,
     "sNo": 26,
     "slideNum": 33,
     "code": "VP-UNQ-26",
@@ -49527,7 +52283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1982",
-    "globalNo": 1982,
+    "globalNo": 2088,
     "sNo": 27,
     "slideNum": 34,
     "code": "VP-UNQ-27",
@@ -49552,7 +52308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1983",
-    "globalNo": 1983,
+    "globalNo": 2089,
     "sNo": 28,
     "slideNum": 36,
     "code": "VP-UNQ-28",
@@ -49577,7 +52333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1984",
-    "globalNo": 1984,
+    "globalNo": 2090,
     "sNo": 29,
     "slideNum": 38,
     "code": "VP-UNQ-29",
@@ -49602,7 +52358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1985",
-    "globalNo": 1985,
+    "globalNo": 2091,
     "sNo": 30,
     "slideNum": 40,
     "code": "VP-UNQ-30",
@@ -49627,7 +52383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1986",
-    "globalNo": 1986,
+    "globalNo": 2092,
     "sNo": 31,
     "slideNum": 41,
     "code": "VP-UNQ-31",
@@ -49652,7 +52408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1987",
-    "globalNo": 1987,
+    "globalNo": 2093,
     "sNo": 32,
     "slideNum": 43,
     "code": "VP-UNQ-32",
@@ -49677,7 +52433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1988",
-    "globalNo": 1988,
+    "globalNo": 2094,
     "sNo": 33,
     "slideNum": 44,
     "code": "VP-UNQ-33",
@@ -49702,7 +52458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1989",
-    "globalNo": 1989,
+    "globalNo": 2095,
     "sNo": 34,
     "slideNum": 46,
     "code": "VP-UNQ-34",
@@ -49727,7 +52483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1990",
-    "globalNo": 1990,
+    "globalNo": 2096,
     "sNo": 35,
     "slideNum": 48,
     "code": "VP-UNQ-35",
@@ -49752,7 +52508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1991",
-    "globalNo": 1991,
+    "globalNo": 2097,
     "sNo": 36,
     "slideNum": 49,
     "code": "VP-UNQ-36",
@@ -49777,7 +52533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1992",
-    "globalNo": 1992,
+    "globalNo": 2098,
     "sNo": 37,
     "slideNum": 51,
     "code": "VP-UNQ-37",
@@ -49802,7 +52558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1993",
-    "globalNo": 1993,
+    "globalNo": 2099,
     "sNo": 38,
     "slideNum": 52,
     "code": "VP-UNQ-38",
@@ -49827,7 +52583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1994",
-    "globalNo": 1994,
+    "globalNo": 2100,
     "sNo": 39,
     "slideNum": 54,
     "code": "VP-UNQ-39",
@@ -49852,7 +52608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1995",
-    "globalNo": 1995,
+    "globalNo": 2101,
     "sNo": 40,
     "slideNum": 55,
     "code": "VP-UNQ-40",
@@ -49877,7 +52633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1996",
-    "globalNo": 1996,
+    "globalNo": 2102,
     "sNo": 41,
     "slideNum": 56,
     "code": "VP-UNQ-41",
@@ -49902,7 +52658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1997",
-    "globalNo": 1997,
+    "globalNo": 2103,
     "sNo": 42,
     "slideNum": 57,
     "code": "VP-UNQ-42",
@@ -49927,7 +52683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1998",
-    "globalNo": 1998,
+    "globalNo": 2104,
     "sNo": 43,
     "slideNum": 58,
     "code": "VP-UNQ-43",
@@ -49952,7 +52708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-1999",
-    "globalNo": 1999,
+    "globalNo": 2105,
     "sNo": 44,
     "slideNum": 59,
     "code": "VP-UNQ-44",
@@ -49977,7 +52733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2000",
-    "globalNo": 2000,
+    "globalNo": 2106,
     "sNo": 45,
     "slideNum": 60,
     "code": "VP-UNQ-45",
@@ -50002,7 +52758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2001",
-    "globalNo": 2001,
+    "globalNo": 2107,
     "sNo": 46,
     "slideNum": 61,
     "code": "VP-UNQ-46",
@@ -50027,7 +52783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2002",
-    "globalNo": 2002,
+    "globalNo": 2108,
     "sNo": 47,
     "slideNum": 62,
     "code": "VP-UNQ-47",
@@ -50052,7 +52808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2003",
-    "globalNo": 2003,
+    "globalNo": 2109,
     "sNo": 48,
     "slideNum": 63,
     "code": "VP-UNQ-48",
@@ -50077,7 +52833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2004",
-    "globalNo": 2004,
+    "globalNo": 2110,
     "sNo": 49,
     "slideNum": 64,
     "code": "VP-UNQ-49",
@@ -50102,7 +52858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2005",
-    "globalNo": 2005,
+    "globalNo": 2111,
     "sNo": 50,
     "slideNum": 65,
     "code": "VP-UNQ-50",
@@ -50127,7 +52883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2006",
-    "globalNo": 2006,
+    "globalNo": 2112,
     "sNo": 51,
     "slideNum": 66,
     "code": "VP-UNQ-51",
@@ -50152,7 +52908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2007",
-    "globalNo": 2007,
+    "globalNo": 2113,
     "sNo": 52,
     "slideNum": 67,
     "code": "VP-UNQ-52",
@@ -50177,7 +52933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2008",
-    "globalNo": 2008,
+    "globalNo": 2114,
     "sNo": 53,
     "slideNum": 68,
     "code": "VP-UNQ-53",
@@ -50202,7 +52958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2009",
-    "globalNo": 2009,
+    "globalNo": 2115,
     "sNo": 54,
     "slideNum": 69,
     "code": "VP-UNQ-54",
@@ -50227,7 +52983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2010",
-    "globalNo": 2010,
+    "globalNo": 2116,
     "sNo": 55,
     "slideNum": 70,
     "code": "VP-UNQ-55",
@@ -50252,7 +53008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2011",
-    "globalNo": 2011,
+    "globalNo": 2117,
     "sNo": 56,
     "slideNum": 71,
     "code": "VP-UNQ-56",
@@ -50277,7 +53033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2012",
-    "globalNo": 2012,
+    "globalNo": 2118,
     "sNo": 57,
     "slideNum": 72,
     "code": "VP-UNQ-57",
@@ -50302,7 +53058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2013",
-    "globalNo": 2013,
+    "globalNo": 2119,
     "sNo": 58,
     "slideNum": 73,
     "code": "VP-UNQ-58",
@@ -50327,7 +53083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2014",
-    "globalNo": 2014,
+    "globalNo": 2120,
     "sNo": 59,
     "slideNum": 75,
     "code": "VP-UNQ-59",
@@ -50352,7 +53108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2015",
-    "globalNo": 2015,
+    "globalNo": 2121,
     "sNo": 60,
     "slideNum": 76,
     "code": "VP-UNQ-60",
@@ -50377,7 +53133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2016",
-    "globalNo": 2016,
+    "globalNo": 2122,
     "sNo": 61,
     "slideNum": 77,
     "code": "VP-UNQ-61",
@@ -50402,7 +53158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2017",
-    "globalNo": 2017,
+    "globalNo": 2123,
     "sNo": 62,
     "slideNum": 78,
     "code": "VP-UNQ-62",
@@ -50427,7 +53183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2018",
-    "globalNo": 2018,
+    "globalNo": 2124,
     "sNo": 63,
     "slideNum": 79,
     "code": "VP-UNQ-63",
@@ -50452,7 +53208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2019",
-    "globalNo": 2019,
+    "globalNo": 2125,
     "sNo": 64,
     "slideNum": 80,
     "code": "VP-UNQ-64",
@@ -50477,7 +53233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2020",
-    "globalNo": 2020,
+    "globalNo": 2126,
     "sNo": 65,
     "slideNum": 81,
     "code": "VP-UNQ-65",
@@ -50502,7 +53258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2021",
-    "globalNo": 2021,
+    "globalNo": 2127,
     "sNo": 66,
     "slideNum": 82,
     "code": "VP-UNQ-66",
@@ -50527,7 +53283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2022",
-    "globalNo": 2022,
+    "globalNo": 2128,
     "sNo": 67,
     "slideNum": 83,
     "code": "VP-UNQ-67",
@@ -50552,7 +53308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2023",
-    "globalNo": 2023,
+    "globalNo": 2129,
     "sNo": 68,
     "slideNum": 85,
     "code": "VP-UNQ-68",
@@ -50577,7 +53333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2024",
-    "globalNo": 2024,
+    "globalNo": 2130,
     "sNo": 69,
     "slideNum": 86,
     "code": "VP-UNQ-69",
@@ -50602,7 +53358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2025",
-    "globalNo": 2025,
+    "globalNo": 2131,
     "sNo": 70,
     "slideNum": 88,
     "code": "VP-UNQ-70",
@@ -50627,7 +53383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2026",
-    "globalNo": 2026,
+    "globalNo": 2132,
     "sNo": 71,
     "slideNum": 90,
     "code": "VP-UNQ-71",
@@ -50652,7 +53408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2027",
-    "globalNo": 2027,
+    "globalNo": 2133,
     "sNo": 72,
     "slideNum": 92,
     "code": "VP-UNQ-72",
@@ -50677,7 +53433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2028",
-    "globalNo": 2028,
+    "globalNo": 2134,
     "sNo": 73,
     "slideNum": 94,
     "code": "VP-UNQ-73",
@@ -50702,7 +53458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2029",
-    "globalNo": 2029,
+    "globalNo": 2135,
     "sNo": 74,
     "slideNum": 96,
     "code": "VP-UNQ-74",
@@ -50727,7 +53483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2030",
-    "globalNo": 2030,
+    "globalNo": 2136,
     "sNo": 75,
     "slideNum": 98,
     "code": "VP-UNQ-75",
@@ -50752,7 +53508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2031",
-    "globalNo": 2031,
+    "globalNo": 2137,
     "sNo": 76,
     "slideNum": 99,
     "code": "VP-UNQ-76",
@@ -50777,7 +53533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2032",
-    "globalNo": 2032,
+    "globalNo": 2138,
     "sNo": 77,
     "slideNum": 100,
     "code": "VP-UNQ-77",
@@ -50802,7 +53558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2033",
-    "globalNo": 2033,
+    "globalNo": 2139,
     "sNo": 78,
     "slideNum": 101,
     "code": "VP-UNQ-78",
@@ -50827,7 +53583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2034",
-    "globalNo": 2034,
+    "globalNo": 2140,
     "sNo": 79,
     "slideNum": 102,
     "code": "VP-UNQ-79",
@@ -50852,7 +53608,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2035",
-    "globalNo": 2035,
+    "globalNo": 2141,
     "sNo": 1,
     "slideNum": 3,
     "code": "VP-VIS-01",
@@ -50877,7 +53633,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2036",
-    "globalNo": 2036,
+    "globalNo": 2142,
     "sNo": 2,
     "slideNum": 4,
     "code": "VP-VIS-02",
@@ -50902,7 +53658,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2037",
-    "globalNo": 2037,
+    "globalNo": 2143,
     "sNo": 3,
     "slideNum": 5,
     "code": "VP-VIS-03",
@@ -50927,7 +53683,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2038",
-    "globalNo": 2038,
+    "globalNo": 2144,
     "sNo": 4,
     "slideNum": 6,
     "code": "VP-VIS-04",
@@ -50952,7 +53708,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2039",
-    "globalNo": 2039,
+    "globalNo": 2145,
     "sNo": 5,
     "slideNum": 7,
     "code": "VP-VIS-05",
@@ -50977,7 +53733,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2040",
-    "globalNo": 2040,
+    "globalNo": 2146,
     "sNo": 6,
     "slideNum": 8,
     "code": "VP-VIS-06",
@@ -51002,7 +53758,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2041",
-    "globalNo": 2041,
+    "globalNo": 2147,
     "sNo": 7,
     "slideNum": 9,
     "code": "VP-VIS-07",
@@ -51027,7 +53783,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2042",
-    "globalNo": 2042,
+    "globalNo": 2148,
     "sNo": 8,
     "slideNum": 10,
     "code": "VP-VIS-08",
@@ -51052,7 +53808,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2043",
-    "globalNo": 2043,
+    "globalNo": 2149,
     "sNo": 9,
     "slideNum": 11,
     "code": "VP-VIS-09",
@@ -51077,7 +53833,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2044",
-    "globalNo": 2044,
+    "globalNo": 2150,
     "sNo": 10,
     "slideNum": 12,
     "code": "VP-VIS-10",
@@ -51102,7 +53858,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2045",
-    "globalNo": 2045,
+    "globalNo": 2151,
     "sNo": 11,
     "slideNum": 13,
     "code": "VP-VIS-11",
@@ -51127,7 +53883,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2046",
-    "globalNo": 2046,
+    "globalNo": 2152,
     "sNo": 12,
     "slideNum": 14,
     "code": "VP-VIS-12",
@@ -51152,7 +53908,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2047",
-    "globalNo": 2047,
+    "globalNo": 2153,
     "sNo": 13,
     "slideNum": 15,
     "code": "VP-VIS-13",
@@ -51177,7 +53933,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2048",
-    "globalNo": 2048,
+    "globalNo": 2154,
     "sNo": 14,
     "slideNum": 16,
     "code": "VP-VIS-14",
@@ -51202,7 +53958,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2049",
-    "globalNo": 2049,
+    "globalNo": 2155,
     "sNo": 15,
     "slideNum": 17,
     "code": "VP-VIS-15",
@@ -51227,7 +53983,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2050",
-    "globalNo": 2050,
+    "globalNo": 2156,
     "sNo": 16,
     "slideNum": 18,
     "code": "VP-VIS-16",
@@ -51252,7 +54008,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2051",
-    "globalNo": 2051,
+    "globalNo": 2157,
     "sNo": 17,
     "slideNum": 19,
     "code": "VP-VIS-17",
@@ -51277,7 +54033,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2052",
-    "globalNo": 2052,
+    "globalNo": 2158,
     "sNo": 18,
     "slideNum": 20,
     "code": "VP-VIS-18",
@@ -51302,7 +54058,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2053",
-    "globalNo": 2053,
+    "globalNo": 2159,
     "sNo": 19,
     "slideNum": 21,
     "code": "VP-VIS-19",
@@ -51327,7 +54083,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2054",
-    "globalNo": 2054,
+    "globalNo": 2160,
     "sNo": 20,
     "slideNum": 22,
     "code": "VP-VIS-20",
@@ -51352,7 +54108,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2055",
-    "globalNo": 2055,
+    "globalNo": 2161,
     "sNo": 21,
     "slideNum": 23,
     "code": "VP-VIS-21",
@@ -51377,7 +54133,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2056",
-    "globalNo": 2056,
+    "globalNo": 2162,
     "sNo": 22,
     "slideNum": 24,
     "code": "VP-VIS-22",
@@ -51402,7 +54158,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2057",
-    "globalNo": 2057,
+    "globalNo": 2163,
     "sNo": 23,
     "slideNum": 25,
     "code": "VP-VIS-23",
@@ -51427,7 +54183,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2058",
-    "globalNo": 2058,
+    "globalNo": 2164,
     "sNo": 24,
     "slideNum": 26,
     "code": "VP-VIS-24",
@@ -51452,7 +54208,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2059",
-    "globalNo": 2059,
+    "globalNo": 2165,
     "sNo": 25,
     "slideNum": 27,
     "code": "VP-VIS-25",
@@ -51477,7 +54233,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2060",
-    "globalNo": 2060,
+    "globalNo": 2166,
     "sNo": 26,
     "slideNum": 28,
     "code": "VP-VIS-26",
@@ -51502,7 +54258,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2061",
-    "globalNo": 2061,
+    "globalNo": 2167,
     "sNo": 1,
     "slideNum": 2,
     "code": "VP-VWR-01",
@@ -51527,7 +54283,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2062",
-    "globalNo": 2062,
+    "globalNo": 2168,
     "sNo": 2,
     "slideNum": 3,
     "code": "VP-VWR-02",
@@ -51552,7 +54308,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2063",
-    "globalNo": 2063,
+    "globalNo": 2169,
     "sNo": 3,
     "slideNum": 4,
     "code": "VP-VWR-03",
@@ -51577,7 +54333,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2064",
-    "globalNo": 2064,
+    "globalNo": 2170,
     "sNo": 4,
     "slideNum": 5,
     "code": "VP-VWR-04",
@@ -51602,7 +54358,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2065",
-    "globalNo": 2065,
+    "globalNo": 2171,
     "sNo": 5,
     "slideNum": 6,
     "code": "VP-VWR-05",
@@ -51627,7 +54383,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2066",
-    "globalNo": 2066,
+    "globalNo": 2172,
     "sNo": 6,
     "slideNum": 7,
     "code": "VP-VWR-06",
@@ -51652,7 +54408,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2067",
-    "globalNo": 2067,
+    "globalNo": 2173,
     "sNo": 7,
     "slideNum": 8,
     "code": "VP-VWR-07",
@@ -51677,7 +54433,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2068",
-    "globalNo": 2068,
+    "globalNo": 2174,
     "sNo": 8,
     "slideNum": 9,
     "code": "VP-VWR-08",
@@ -51702,7 +54458,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2069",
-    "globalNo": 2069,
+    "globalNo": 2175,
     "sNo": 9,
     "slideNum": 10,
     "code": "VP-VWR-09",
@@ -51727,7 +54483,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2070",
-    "globalNo": 2070,
+    "globalNo": 2176,
     "sNo": 10,
     "slideNum": 11,
     "code": "VP-VWR-10",
@@ -51752,7 +54508,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2071",
-    "globalNo": 2071,
+    "globalNo": 2177,
     "sNo": 11,
     "slideNum": 12,
     "code": "VP-VWR-11",
@@ -51777,7 +54533,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2072",
-    "globalNo": 2072,
+    "globalNo": 2178,
     "sNo": 12,
     "slideNum": 13,
     "code": "VP-VWR-12",
@@ -51802,7 +54558,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2073",
-    "globalNo": 2073,
+    "globalNo": 2179,
     "sNo": 13,
     "slideNum": 14,
     "code": "VP-VWR-13",
@@ -51827,7 +54583,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
   },
   {
     "id": "vp-2026-2074",
-    "globalNo": 2074,
+    "globalNo": 2180,
     "sNo": 14,
     "slideNum": 15,
     "code": "VP-VWR-14",
@@ -51872,7 +54628,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard & Bridge Panel",
     "photo": "/vendor-media/zaib_nov_s1.jpg",
     "rawText": "Location : SEA BREEZE CENTER Boat Basin · Traffic View : Facing traffic coming from Schon circle towards Boat Basin · Size : 90 x 30 · Availability : Available · Monthly Rent : PKR. 3 Million · Move Id# : N/A",
-    "globalNo": 2075,
+    "globalNo": 2181,
     "id": "vp-2026-2075"
   },
   {
@@ -51897,7 +54653,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard & Bridge Panel",
     "photo": "/vendor-media/zaib_nov_s2.jpg",
     "rawText": "Location : SEA BREEZE CENTER Boat Basin · Traffic View : Facing traffic coming from Schon circle towards Boat Basin · Size : 90 x 30 · Availability : Available · Monthly Rent : PKR. 3 Million · Move Id# : N/A",
-    "globalNo": 2076,
+    "globalNo": 2182,
     "id": "vp-2026-2076"
   },
   {
@@ -51922,7 +54678,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard & Bridge Panel",
     "photo": "/vendor-media/zaib_nov_s3.jpg",
     "rawText": "Location : SEA BREEZE CENTER Boat Basin · Traffic View : Facing traffic coming from American Consulate towards Boat Basin · Size : 60 x 30 · Availability : 1st Dec 2026 · Monthly Rent : PKR. 1.5 Million · Move Id# : N/A",
-    "globalNo": 2077,
+    "globalNo": 2183,
     "id": "vp-2026-2077"
   },
   {
@@ -51947,7 +54703,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard & Bridge Panel",
     "photo": "/vendor-media/zaib_nov_s4.jpg",
     "rawText": "Location : SEA BREEZE CENTER Boat Basin · Traffic View : Facing traffic coming from American Consulate towards Boat Basin · Size : 60 x 30 · Availability : 1st Dec 2026 · Monthly Rent : PKR. 1.5 Million · Move Id# : N/A",
-    "globalNo": 2078,
+    "globalNo": 2184,
     "id": "vp-2026-2078"
   },
   {
@@ -51972,7 +54728,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/zaib_nov_s5.jpg",
     "rawText": "Location : Shahra-e-faisal Kamran Center · Traffic View : Facing Traffic coming from fayyaz center towards Airport/Tipu sultan bridge · Size : 90 x 35 · Availability : Available · Monthly Rent : PKR. 3 Million · Move Id# : N/A",
-    "globalNo": 2079,
+    "globalNo": 2185,
     "id": "vp-2026-2079"
   },
   {
@@ -51997,7 +54753,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/zaib_nov_s6.jpg",
     "rawText": "Location : Shahra-e-faisal Kamran Center · Traffic View : Facing Traffic coming from fayyaz center towards Airport/Tipu sultan bridge · Size : 90 x 35 · Availability : Available · Monthly Rent : PKR. 3 Million · Move Id# : N/A",
-    "globalNo": 2080,
+    "globalNo": 2186,
     "id": "vp-2026-2080"
   },
   {
@@ -52022,7 +54778,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard & Bridge Panel",
     "photo": "/vendor-media/zaib_nov_s7.jpg",
     "rawText": "Location : Sh- Quaideen Near Noorani Signal · Traffic View : FTCF, Khudad Colony Signal, Noorani Signal TGT, Allah wali and Sh- Faisal · Size : 55 x 30 · Availability : 2nd Dec 2026 · Monthly Rent : PKR. 850,000 (Strong Hold) · Move Id# : N/A",
-    "globalNo": 2081,
+    "globalNo": 2187,
     "id": "vp-2026-2081"
   },
   {
@@ -52047,7 +54803,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard & Bridge Panel",
     "photo": "/vendor-media/zaib_nov_s8.jpg",
     "rawText": "Location : Sh- Quaideen Near Noorani Signal · Traffic View : FTCF, Khudad Colony Signal, Noorani Signal TGT, Allah wali and Sh- Faisal · Size : 55 x 30 · Availability : 2nd Dec 2026 · Monthly Rent : PKR. 850,000 (Strong Hold) · Move Id# : N/A",
-    "globalNo": 2082,
+    "globalNo": 2188,
     "id": "vp-2026-2082"
   },
   {
@@ -52072,7 +54828,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard & Bridge Panel",
     "photo": "/vendor-media/zaib_nov_s9.jpg",
     "rawText": "Location : Express way · Traffic View : FTCF, Baloch colony towards Qayumabad Iqra University · Size : 45 x 25 · Availability : Available · Monthly Rent : PKR. 500,000 · Move Id# : N/A",
-    "globalNo": 2083,
+    "globalNo": 2189,
     "id": "vp-2026-2083"
   },
   {
@@ -52097,7 +54853,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard & Bridge Panel",
     "photo": "/vendor-media/zaib_nov_s10.jpg",
     "rawText": "Location : Johar · Traffic View : FTCF, Nipa towards Millenium mall · Size : 30 x 55 · Availability : Available · Monthly Rent : PKR. 600,000 · Move Id# : N/A",
-    "globalNo": 2084,
+    "globalNo": 2190,
     "id": "vp-2026-2084"
   },
   {
@@ -52122,7 +54878,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/zaib_nov_s11.jpg",
     "rawText": "Location : Korangi Road (Bridge 1) · Traffic View : FTCF, Kala Pull towards Ittehad Signal · Size : 100 x 12 · Availability : 1-01-2027 · Monthly Rent : PKR. 1.5 Million each side · Move Id# : N/A",
-    "globalNo": 2085,
+    "globalNo": 2191,
     "id": "vp-2026-2085"
   },
   {
@@ -52147,7 +54903,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/zaib_nov_s12.jpg",
     "rawText": "Location : Korangi Road (Bridge 1) · Traffic View : FTCF, Kala Pull towards Ittehad Signal · Size : 100 x 12 · Availability : 1-01-2027 · Monthly Rent : PKR. 1.5 Million each side · Move Id# : N/A",
-    "globalNo": 2086,
+    "globalNo": 2192,
     "id": "vp-2026-2086"
   },
   {
@@ -52172,7 +54928,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/zaib_nov_s13.jpg",
     "rawText": "Location : Korangi Road (Bridge 2) · Traffic View : FTCF, Ittehad Signal towards Kala Pull · Size : 100 x 12 · Availability : 1-01-2027 · Monthly Rent : PKR. 1.5 Million each side · Move Id# : N/A",
-    "globalNo": 2087,
+    "globalNo": 2193,
     "id": "vp-2026-2087"
   },
   {
@@ -52197,7 +54953,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/zaib_nov_s14.jpg",
     "rawText": "Location : Korangi Road (Bridge 2) · Traffic View : FTCF, Ittehad Signal towards Kala Pull · Size : 100 x 12 · Availability : 1-01-2027 · Monthly Rent : PKR. 1.5 Million each side · Move Id# : N/A",
-    "globalNo": 2088,
+    "globalNo": 2194,
     "id": "vp-2026-2088"
   },
   {
@@ -52222,7 +54978,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/zaib_nov_s15.jpg",
     "rawText": "Location : Korangi Road Near NMC (Bridge 1 ) · Traffic View : FTCF, Kala Pull towards Ittehad Signal · Size : 100 x 12 · Availability : 12-12-2026 · Monthly Rent : PKR. 1.5 Million each side · Move Id# : N/A",
-    "globalNo": 2089,
+    "globalNo": 2195,
     "id": "vp-2026-2089"
   },
   {
@@ -52247,7 +55003,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/zaib_nov_s16.jpg",
     "rawText": "Location : Korangi Road Near NMC (Bridge 1 ) · Traffic View : FTCF, Kala Pull towards Ittehad Signal · Size : 100 x 12 · Availability : 12-12-2026 · Monthly Rent : PKR. 1.5 Million each side · Move Id# : N/A",
-    "globalNo": 2090,
+    "globalNo": 2196,
     "id": "vp-2026-2090"
   },
   {
@@ -52272,7 +55028,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/zaib_nov_s17.jpg",
     "rawText": "Location : Korangi Road Near NMC (Bridge 2 ) · Traffic View : FTCF, Ittehad Signal towards Kala pull · Size : 100 x 12 · Availability : Available · Monthly Rent : PKR. 1.5 Million each side · Move Id# : N/A",
-    "globalNo": 2091,
+    "globalNo": 2197,
     "id": "vp-2026-2091"
   },
   {
@@ -52297,7 +55053,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Bridge Panel",
     "photo": "/vendor-media/zaib_nov_s18.jpg",
     "rawText": "Location : Korangi Road Near NMC (Bridge 2 ) · Traffic View : FTCF, Ittehad Signal towards Kala pull · Size : 100 x 12 · Availability : Available · Monthly Rent : PKR. 1.5 Million each side · Move Id# : N/A",
-    "globalNo": 2092,
+    "globalNo": 2198,
     "id": "vp-2026-2092"
   },
   {
@@ -52322,7 +55078,7 @@ window.VENDOR_PREVIEW_SITES_2026 = [
     "media": "Billboard & Bridge Panel",
     "photo": "/vendor-media/zaib_nov_s19.jpg",
     "rawText": "Location : Sunset (Punjab Chowrangi) · Traffic View : FTCF, Commercial Area/Saudi embasi towards DHA phase 2 · Size : 85 x 10 · Availability : Available · Monthly Rent : PKR. 1.5 Million · Move Id# : N/A",
-    "globalNo": 2093,
+    "globalNo": 2199,
     "id": "vp-2026-2093"
   }
 ];
