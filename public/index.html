@@ -4450,7 +4450,7 @@ function vBookedExpire() {
 
   const filterHtml = `
     <div class="filters" style="margin-bottom:16px">
-      <input class="in" id="befSearch" style="max-width:240px;min-height:42px;padding:8px 12px;font-size:13.5px" placeholder="Search client, location, expiry date…" value="${esc(BEF.q)}" oninput="BEF.q=this.value;render();const el=document.getElementById('befSearch');if(el){el.focus();el.setSelectionRange(el.value.length,el.value.length);}">
+      <input class="in" id="befSearch" style="max-width:240px;min-height:42px;padding:8px 12px;font-size:13.5px" placeholder="Search client, location, expiry date…" value="${esc(BEF.q)}">
       <select class="in" style="max-width:210px;min-height:42px;font-weight:700" onchange="BEF.cat=this.value;render(true)">
         <option value="all" ${BEF.cat==='all'?'selected':''}>All Booked / Expiry (${allBooked.length})</option>
         <option value="will_end" ${BEF.cat==='will_end'?'selected':''}>🔴 Will Be End (${willEndList.length})</option>
@@ -6456,7 +6456,8 @@ function openCamp(id){
   const list=()=>S.sites.slice().sort((a,b)=>a.area.localeCompare(b.area)).map(s=>{
     const checked=ids.has(s.id);
     const thumb=thumbOf(s);
-    return `<label class="camp-site-item ${checked?'selected':''}" data-sid="${esc(s.id)}" data-area="${esc(s.area)}">
+    const sStr=[s.code, s.area, s.name, s.title, s.from, s.towards, s.media, s.brand].join(' ').toLowerCase();
+    return `<label class="camp-site-item ${checked?'selected':''}" data-sid="${esc(s.id)}" data-area="${esc(s.area)}" data-search="${esc(sStr)}">
       <input type="checkbox" value="${esc(s.id)}" ${checked?"checked":""}>
       <div class="camp-site-thumb">
         <img src="${esc(thumb)}" alt="${esc(s.code)}" loading="lazy" data-sid="${esc(s.id)}" onerror="phFix(this)">
@@ -6508,18 +6509,19 @@ function openCamp(id){
       updateCampCount();
     }
   };
+  let _campDebounce = null;
   function applyCampFilter(){
     const a=($("#cArea")?.value||"").toLowerCase();
     const q=($("#cSearch")?.value||"").trim().toLowerCase();
     $$("#cPick label").forEach(l=>{
-      const txt=l.textContent.toLowerCase();
-      const areaMatch=!a||(l.dataset.area||"").toLowerCase().includes(a)||txt.includes(a);
-      const qMatch=!q||txt.includes(q);
+      const str=(l.dataset.search||l.textContent||"").toLowerCase();
+      const areaMatch=!a||(l.dataset.area||"").toLowerCase().includes(a)||str.includes(a);
+      const qMatch=!q||str.includes(q);
       const isV=Boolean(areaMatch&&qMatch);l.hidden=!isV;l.classList.toggle("is-hidden",!isV);l.style.setProperty("display",isV?"flex":"none","important");
     });
   }
   if($("#cArea"))$("#cArea").onchange=applyCampFilter;
-  if($("#cSearch"))$("#cSearch").oninput=applyCampFilter;
+  if($("#cSearch"))$("#cSearch").oninput=()=>{clearTimeout(_campDebounce);_campDebounce=setTimeout(applyCampFilter,70);};
   if($("#cSelAll"))$("#cSelAll").onclick=()=>{
     $$("#cPick label:not([hidden]) input[type=checkbox]").forEach(ck=>{
       ck.checked=true;
@@ -6941,6 +6943,7 @@ const PCF = {
 };
 
 function getAllProposalSitesPool() {
+  if (window._cachedProposalPool && window._cachedProposalPool.length) return window._cachedProposalPool;
   const master = S.sites.map(s => {
     const w = +(s.widthFt || s.width || 60);
     const h = +(s.heightFt || s.height || 20);
@@ -7000,7 +7003,8 @@ function getAllProposalSitesPool() {
     };
   });
 
-  return [...master, ...vp];
+  window._cachedProposalPool = [...master, ...vp];
+  return window._cachedProposalPool;
 }
 
 function parseRateNum(r) {
@@ -7117,6 +7121,7 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
       const isMaster = s.source === "master";
       const isAvail = s.status === "available";
       const thumb = s.photo || thumbOf(s) || placeholder(s);
+      const sTokens = [s.code, s.name, s.location, s.area, s.vendor, s.from, s.towards, s.rate, s.media, s.availability, s.size, isMaster ? 'master file adpulse' : 'vendor preview'].filter(Boolean).join(' ').toLowerCase();
 
       return `<label class="camp-site-item ${isChecked ? 'selected' : ''}" 
         data-sid="${esc(s.id)}" 
@@ -7125,6 +7130,8 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
         data-area="${esc(s.area)}" 
         data-vendor="${esc(s.vendor)}" 
         data-vendor-key="${isMaster ? '__adpulse__' : esc(s.vendor)}"
+        data-avail="${isAvail ? '1' : '0'}"
+        data-search="${esc(sTokens)}"
         style="position:relative;display:flex;align-items:center;gap:16px;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;border-radius:12px;margin-bottom:8px;background:${isChecked ? 'rgba(217,22,29,0.06)' : 'var(--surface)'};border:1.5px solid ${isChecked ? '#D9161D' : 'var(--border)'};box-shadow:var(--shadow)">
         <input type="checkbox" value="${esc(s.id)}" ${isChecked ? 'checked' : ''} style="width:22px;height:22px;accent-color:#D9161D;flex:none;cursor:pointer">
         <div class="camp-site-thumb" style="width:130px;height:88px;border-radius:10px;overflow:hidden;flex:none;background:#181617;box-shadow:0 3px 8px rgba(0,0,0,0.15)">
@@ -7317,17 +7324,16 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
       const aMatch = !a || (l.dataset.area || "").toLowerCase() === a;
 
       // 4. Status match
-      const stMatch = !st || (st === "available" ? l.querySelector(".st-available") : l.querySelector(".st-booked"));
+      const stMatch = !st || (st === "available" ? l.dataset.avail === "1" : l.dataset.avail === "0");
       
-      // 5. Search query match
+      // 5. Search query match (fast match on pre-indexed data-search attribute)
       let qMatch = true;
       if (qTokens.length) {
-        const textToSearch = (
+        const textToSearch = l.dataset.search || (
           (l.dataset.sid || "") + " " +
           (l.dataset.code || "") + " " +
           (l.dataset.vendor || "") + " " +
-          (l.dataset.area || "") + " " +
-          (l.textContent || "")
+          (l.dataset.area || "")
         ).toLowerCase();
         const normSearch = textToSearch.replace(/[-\s]/g, "");
 
@@ -7388,7 +7394,13 @@ function openProposeCampaignModal(preSelectedIds, defaultTitle) {
     }
   };
 
-  if ($("#pcmSearch")) $("#pcmSearch").oninput = applyModalFilter;
+  let _pcmSearchDebounce = null;
+  if ($("#pcmSearch")) {
+    $("#pcmSearch").oninput = () => {
+      clearTimeout(_pcmSearchDebounce);
+      _pcmSearchDebounce = setTimeout(applyModalFilter, 70);
+    };
+  }
   if ($("#pcmVendor")) $("#pcmVendor").onchange = () => {
     const v = $("#pcmVendor").value;
     if (v === "__adpulse__") {
@@ -7773,16 +7785,24 @@ function openMasterVendorDeck() {
 
 
 /* ============ Vendors Sites Preview (44 Vendor PPT & PDF Presentations) ============ */
-const VPF = { vendor: "", q: "", media: "", status: "", view: "cards" };
+const VPF = { vendor: "", q: "", media: "", status: "", view: "cards", groupsShown: 8 };
 
 let _vpFetching = false;
+let _cachedVendorSites = null;
+function invalidateVendorPreviewCache() {
+  _cachedVendorSites = null;
+  window._cachedProposalPool = null;
+}
+
 function getVendorPreviewSites() {
+  if (_cachedVendorSites && _cachedVendorSites.length) return _cachedVendorSites;
   const raw = window.VENDOR_PREVIEW_SITES_2026 || [];
   if (!raw.length && !_vpFetching) {
     _vpFetching = true;
     fetch("/vendor_preview_2026.json?v=48.0").then(r => r.json()).then(data => {
       if (Array.isArray(data) && data.length) {
         window.VENDOR_PREVIEW_SITES_2026 = data;
+        invalidateVendorPreviewCache();
         render(true);
       }
     }).catch(() => {}).finally(() => { _vpFetching = false; });
@@ -7791,18 +7811,24 @@ function getVendorPreviewSites() {
   const customAdded = ls.get("sitesnap-vp-added", []);
   const deletedMap = ls.get("sitesnap-vp-deleted", {});
   const combined = [...raw, ...(Array.isArray(customAdded) ? customAdded : [])].filter(s => s && !deletedMap[s.id]);
-  return combined.map(s => {
+  _cachedVendorSites = combined.map(s => {
     const ed = savedEdits[s.id];
     const merged = ed ? { ...s, ...ed } : s;
     const pUrl = merged.photo ? (merged.photo.startsWith("data:") || merged.photo.includes("?") ? merged.photo : merged.photo + "?v=48.0") : "";
-    return {
+    const w = +(merged.widthFt || 60);
+    const h = +(merged.heightFt || 20);
+    const sq = merged.sqft || (w * h);
+    const obj = {
       ...merged,
+      widthFt: w,
+      heightFt: h,
+      sqft: sq,
       photo: pUrl,
       photos: merged.photos && merged.photos.length ? merged.photos : (pUrl ? [{ id: merged.id + "-p1", src: pUrl, url: pUrl, at: "2026-11-23", caption: merged.name }] : []),
       client: merged.vendor,
       brand: merged.vendor,
       excelMedium: (merged.media || "BILLBOARD").toUpperCase(),
-      excelSqft: String(merged.sqft || ((+merged.widthFt || 60) * (+merged.heightFt || 20))),
+      excelSqft: String(sq),
       excelAvailability: merged.availability || "Available",
       excelStatus: merged.rate || "Rate on Request",
       statusLabel: merged.rate || "Rate on Request",
@@ -7814,10 +7840,14 @@ function getVendorPreviewSites() {
       rates: merged.rate || "Rate on Request",
       area: merged.area || "Karachi"
     };
+    obj._searchStr = [obj.code, obj.vendor, obj.name, obj.location, obj.direction, obj.from, obj.towards, obj.size, obj.availability, obj.rate, obj.media, obj.rawText].filter(Boolean).join(" ").toLowerCase();
+    return obj;
   });
+  return _cachedVendorSites;
 }
 
 function saveVendorPreviewEdit(id, updates) {
+  invalidateVendorPreviewCache();
   const savedEdits = ls.get("sitesnap-vp-edits", {});
   savedEdits[id] = { ...(savedEdits[id] || {}), ...updates };
   ls.set("sitesnap-vp-edits", savedEdits);
@@ -8102,6 +8132,7 @@ function openVendorPreviewSite(id) {
         const customAdded = ls.get("sitesnap-vp-added", []);
         customAdded.push({ ...s, ...updates });
         ls.set("sitesnap-vp-added", customAdded);
+        invalidateVendorPreviewCache();
       } else {
         saveVendorPreviewEdit(s.id, updates);
       }
@@ -8144,7 +8175,7 @@ function vVendorsPreview() {
     (!VPF.vendor || s.vendor === VPF.vendor) &&
     (!VPF.media || s.media === VPF.media) &&
     (!VPF.status || s.status === VPF.status) &&
-    (!q || [s.code, s.vendor, s.name, s.location, s.direction, s.from, s.towards, s.size, s.availability, s.rate, s.media, s.rawText].join(" ").toLowerCase().includes(q))
+    (!q || (s._searchStr ? s._searchStr.includes(q) : [s.code, s.vendor, s.name, s.location, s.direction, s.from, s.towards, s.size, s.availability, s.rate, s.media, s.rawText].join(" ").toLowerCase().includes(q)))
   );
 
   const mediaTypes = [...new Set(all.map(s => s.media).filter(Boolean))].sort();
@@ -8260,7 +8291,13 @@ function vVendorsPreview() {
       </div>
     `).join("");
   } else {
-    contentHtml = activeGroups.map(vg => `
+    const isShowingAllVendors = !VPF.vendor && !q;
+    const groupsLimit = (isShowingAllVendors && activeGroups.length > 8) ? (VPF.groupsShown || 8) : activeGroups.length;
+    const shownGroups = activeGroups.slice(0, groupsLimit);
+    const remainingCount = activeGroups.length - shownGroups.length;
+    const shownSitesCount = shownGroups.reduce((acc, g) => acc + g.filteredSites.length, 0);
+
+    contentHtml = shownGroups.map(vg => `
       <section style="margin-bottom:30px">
         <div class="card pad" style="margin-bottom:14px;background:linear-gradient(135deg,#1C1A1B,#2D2628);color:#FFFFFF;border-radius:14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
           <div>
@@ -8312,7 +8349,16 @@ function vVendorsPreview() {
           `).join("")}
         </div>
       </section>
-    `).join("");
+    `).join("") + (remainingCount > 0 ? `
+      <div class="card pad" style="margin:20px 0 30px;text-align:center;background:linear-gradient(135deg,#1C1A1B,#2D2628);color:#fff;border-radius:14px;border:1.5px solid rgba(217,22,29,0.4);padding:24px 16px">
+        <div style="font-size:16px;font-weight:800;margin-bottom:6px">Showing top ${shownGroups.length} of ${activeGroups.length} Vendor Presentations (${shownSitesCount} of ${filteredSites.length} Sites)</div>
+        <div style="font-size:13px;color:#D4D4D8;margin-bottom:14px">Select any Vendor PPT pill above for immediate single-vendor view, or load more vendor decks below:</div>
+        <div class="row" style="gap:10px;justify-content:center;flex-wrap:wrap">
+          <button class="btn pri" data-act="vploadmore" style="font-weight:800;padding:9px 20px;background:linear-gradient(135deg,#D9161D,#F26A21)">⚡ Load Next 8 Vendors (${remainingCount} remaining)</button>
+          <button class="btn" data-act="vploadall" style="font-weight:700;padding:9px 20px;background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.25)">Show All ${activeGroups.length} Vendors (${filteredSites.length} Sites)</button>
+        </div>
+      </div>
+    ` : "");
   }
 
   return pgTop(
@@ -8344,7 +8390,9 @@ function vVendorsPreview() {
     </div>
     ${vendorPills}
     ${filterBar}
-    ${contentHtml}
+    <div id="vpContentArea">
+      ${contentHtml}
+    </div>
   `;
 }
 
@@ -9613,10 +9661,14 @@ function openArchivedSitesModal(){
   `);
 
   const searchInp = $("#archivedSearchInput");
+  let _archDebounce = null;
   if(searchInp) {
     searchInp.oninput = () => {
-      const cont = $("#archivedListContainer");
-      if(cont) cont.innerHTML = renderList(searchInp.value);
+      clearTimeout(_archDebounce);
+      _archDebounce = setTimeout(() => {
+        const cont = $("#archivedListContainer");
+        if(cont) cont.innerHTML = renderList(searchInp.value);
+      }, 80);
     };
   }
 }
@@ -9851,14 +9903,17 @@ function palette(){
     setTimeout(()=>inp.focus(),50);
   }
   let idx=0,items=[];
+  let _palDebounce = null;
   const run=()=>{
     const q=(inp?inp.value:"").toLowerCase().trim();
+    const vpSites = q ? (getVendorPreviewSites().filter(s => s._searchStr ? s._searchStr.includes(q) : [s.code,s.vendor,s.location,s.name].join(" ").toLowerCase().includes(q)).slice(0, 6)) : [];
     items=[
-      ...S.sites.filter(s=>[s.code,s.area,s.from,s.towards,s.brand,s.tagline,s.media].join(" ").toLowerCase().includes(q)).slice(0,12).map(s=>({
+      ...S.sites.filter(s=>[s.code,s.area,s.from,s.towards,s.brand,s.tagline,s.media].join(" ").toLowerCase().includes(q)).slice(0,10).map(s=>({
         h:`<div style="display:flex;flex-direction:column;gap:3px;min-width:0;flex:1">
              <div style="display:flex;align-items:center;gap:8px">
                <span class="mono" style="color:var(--violet);font-weight:700">${esc(s.code)}</span>
                <span style="font-weight:600;font-size:13.5px">${esc(s.area)} · ${sizeOf(s)} ft</span>
+               <span style="font-size:10px;background:#7C3AED;color:#fff;padding:1px 6px;border-radius:4px;font-weight:800">Master</span>
                <span class="sp"></span>
                ${pill(s)}
              </div>
@@ -9867,6 +9922,21 @@ function palette(){
              </small>
            </div>`,
         go:()=>{closeLayer();openSite(s.id)}
+      })),
+      ...vpSites.map(s=>({
+        h:`<div style="display:flex;flex-direction:column;gap:3px;min-width:0;flex:1">
+             <div style="display:flex;align-items:center;gap:8px">
+               <span class="mono" style="color:#D9161D;font-weight:700">${esc(s.code)}</span>
+               <span style="font-weight:600;font-size:13.5px">${esc(s.location||s.name)}</span>
+               <span style="font-size:10px;background:#2563EB;color:#fff;padding:1px 6px;border-radius:4px;font-weight:800">${esc(s.vendor)}</span>
+               <span class="sp"></span>
+               <span class="pill ${s.status==='available'?'st-available':'st-booked'}" style="font-size:10px;padding:2px 6px">${esc(s.availability)}</span>
+             </div>
+             <small style="color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11.5px">
+               Rate: ${esc(s.rate)} · ${s.widthFt}×${s.heightFt} ft (${s.sqft} SQFT) · Media: ${esc(s.media)}
+             </small>
+           </div>`,
+        go:()=>{closeLayer();VPF.vendor=s.vendor;location.hash="vendors-preview";go("vendors-preview",true);setTimeout(()=>openVendorPreviewSite(s.id),120)}
       })),
       ...S.campaigns.filter(c=>c.name.toLowerCase().includes(q)).slice(0,4).map(c=>({
         h:`${ICON.camp.replace("<svg",'<svg width="18" height="18" style="flex:none"')}<b>${esc(c.name)}</b><span style="color:var(--muted)">campaign</span>`,
@@ -9886,7 +9956,7 @@ function palette(){
     res.innerHTML=items.map((it,i)=>`<button type="button" class="${i===idx?"on":""}" data-i="${i}">${it.h}</button>`).join("")||'<p style="padding:24px;text-align:center;color:var(--muted);margin:0">Nothing found for your search.</p>';
   };
   if(inp){
-    inp.oninput=run;
+    inp.oninput=()=>{clearTimeout(_palDebounce);_palDebounce=setTimeout(run,60);};
     inp.onkeydown=e=>{
       if(e.key==="ArrowDown"){idx=Math.min(idx+1,items.length-1);draw();e.preventDefault()}
       if(e.key==="ArrowUp"){idx=Math.max(idx-1,0);draw();e.preventDefault()}
@@ -10677,9 +10747,11 @@ savedeck:async()=>{const c=Studio.cfg;c.version=(c.version||0)+1;try{await put("
  vendorpresentation:(a)=>{const v=a.dataset.vendor;if(v)openVendorDeck(v)},
  vendorinventory:(a)=>{const v=a.dataset.vendor;if(!v)return;Object.keys(F).forEach(k=>F[k]="");F.vendor=v;location.hash="sites";go("sites",true);toast(`Showing sites for vendor: ${v}`)},
  mastervendordeck:()=>openMasterVendorDeck(),
- vpfiltervendor:(a)=>{VPF.vendor=a.dataset.vendor||"";render(true)},
+ vpfiltervendor:(a)=>{VPF.vendor=a.dataset.vendor||"";VPF.groupsShown=999;render(true)},
  vpview:(a)=>{VPF.view=a.dataset.v||"cards";render(true)},
- vpclear:()=>{VPF.vendor="";VPF.q="";VPF.media="";VPF.status="";render(true)},
+ vpclear:()=>{VPF.vendor="";VPF.q="";VPF.media="";VPF.status="";VPF.groupsShown=8;render(true)},
+ vploadmore:()=>{VPF.groupsShown=(VPF.groupsShown||8)+8;render(true)},
+ vploadall:()=>{VPF.groupsShown=999;render(true)},
  vpsite:(a)=>openVendorPreviewSite(a.dataset.id),
  openproposemodal:(a)=>openProposeCampaignModal(),
  proposevendor:(a)=>{
@@ -10814,12 +10886,56 @@ document.addEventListener("keydown",e=>{
   const cell=e.target.closest&&e.target.closest("[data-tbledit],[data-vptbledit],[data-edit]");
   if(cell&&e.key==="Enter"){e.preventDefault();cell.blur();}
 });
-document.addEventListener("input",e=>{
-  const t=e.target;
-  if(t&&t.id==="pcSearchInp"){PCF.q=t.value;render();const el=$("#pcSearchInp");if(el){el.focus();el.setSelectionRange(el.value.length,el.value.length);}}
-  if(t&&t.id==="pcClientInp"){PCF.client=t.value;}
-  if(t&&t.id==="pcTitleInp"){PCF.title=t.value;}
-  if(t&&t.id==="vpSearch"){VPF.q=t.value;render();const el=$("#vpSearch");if(el){el.focus();el.setSelectionRange(el.value.length,el.value.length);}}
+let _pcSearchDebounce = null;
+let _vpSearchDebounce = null;
+let _befSearchDebounce = null;
+let _fqDebounce = null;
+
+document.addEventListener("input", e => {
+  const t = e.target;
+  if (!t) return;
+  if (t.id === "pcClientInp") { PCF.client = t.value; }
+  if (t.id === "pcTitleInp") { PCF.title = t.value; }
+
+  if (t.id === "pcSearchInp") {
+    PCF.q = t.value;
+    clearTimeout(_pcSearchDebounce);
+    _pcSearchDebounce = setTimeout(() => {
+      render();
+      const el = $("#pcSearchInp");
+      if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); }
+    }, 150);
+  }
+
+  if (t.id === "vpSearch") {
+    VPF.q = t.value;
+    clearTimeout(_vpSearchDebounce);
+    _vpSearchDebounce = setTimeout(() => {
+      render();
+      const el = $("#vpSearch");
+      if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); }
+    }, 150);
+  }
+
+  if (t.id === "befSearch") {
+    BEF.q = t.value;
+    clearTimeout(_befSearchDebounce);
+    _befSearchDebounce = setTimeout(() => {
+      render();
+      const el = $("#befSearch");
+      if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); }
+    }, 130);
+  }
+
+  if (t.id === "fq") {
+    F.q = t.value;
+    clearTimeout(_fqDebounce);
+    _fqDebounce = setTimeout(() => {
+      render(true);
+      const i = $("#fq");
+      if (i) { i.focus(); i.setSelectionRange(i.value.length, i.value.length); }
+    }, 120);
+  }
 });
 document.addEventListener("change",e=>{const t=e.target;
  if(t.id==="pcVendorSel"){PCF.vendor=t.value;render(true)}
@@ -10857,7 +10973,6 @@ document.addEventListener("change",e=>{const t=e.target;
  }
  if(t.id==="stIdx"){Studio.cfg.index=t.checked;Studio.renderSlides()}
 });
-document.addEventListener("input",e=>{if(e.target.id==="fq"){F.q=e.target.value;clearTimeout(window._fq);window._fq=setTimeout(()=>{render(true);const i=$("#fq");i.focus();i.setSelectionRange(i.value.length,i.value.length)},250)}});
 document.addEventListener("submit",e=>{if(e.target.id==="trafForm"){e.preventDefault();const t={};for(const k of Object.keys(TDEF))t[k]=+$("#tr-"+k).value||TDEF[k];S.settings.traffic=t;saveSettings().then(()=>{toast("Traffic assumptions saved");render(true)})}
  if(e.target.id==="setForm"){e.preventDefault();Object.assign(S.settings,{agency:$("#sAg").value.trim(),web:$("#sWeb").value.trim(),phone:$("#sPh").value.trim(),email:$("#sEm").value.trim()});saveSettings().then(()=>toast("Details saved"))}});
 $("#fileCam").onchange=e=>{addShots([...e.target.files]);e.target.value=""};
@@ -10872,7 +10987,7 @@ $("#fileAdd").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(
 applyTheme();boot();
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("/sw.js?v=50.4").then(r=>{
+    navigator.serviceWorker.register("/sw.js?v=50.8").then(r=>{
       r.update();
       if(r.waiting){
         r.waiting.postMessage({type:'SKIP_WAITING'});
